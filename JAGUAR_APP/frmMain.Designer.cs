@@ -306,7 +306,7 @@ namespace JAGUAR_APP
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::JAGUAR_APP.Properties.Resources.Ovejita;
+            this.pictureBox2.Image = global::JAGUAR_APP.Properties.Resources.Astahrr_Nfl_Jaguars_128_1_;
             this.pictureBox2.Location = new System.Drawing.Point(2, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(133, 135);
@@ -321,6 +321,7 @@ namespace JAGUAR_APP
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(638, 585);
             this.ControlBox = false;
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdIngresarAdmin);
             this.Controls.Add(this.cmdAbrirTeclado);
             this.Controls.Add(this.SaltarLoginPRD);
@@ -332,7 +333,6 @@ namespace JAGUAR_APP
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.cmdButtonSaltarLogin);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.txtUsuario);
