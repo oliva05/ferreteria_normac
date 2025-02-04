@@ -63,7 +63,7 @@ namespace JAGUAR_APP.Clases
                 {
                     cnx.Open();
 
-                    SqlCommand cmd = new SqlCommand("sp_ALOSY_getNewNotificaciones", cnx);
+                    SqlCommand cmd = new SqlCommand("sp_getNewNotificaciones", cnx);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@id_user", SqlDbType.Int).Value = id_user;

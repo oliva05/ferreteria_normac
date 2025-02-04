@@ -24,11 +24,11 @@ namespace ACS.Classes
 
 
         //Jaguar
-        public static string JAGUAR_ServerAddress = "mssql-123688-0.cloudclusters.net,18285";
-        public static string JAGUAR_ServerName = "mssql-123688-0.cloudclusters.net,18285";
-        public static string JAGUAR_ActiveDB = "JAGUAR_DB";
-        public static string JAGUAR_DB_User = "codesahn";
-        public static string JAGUAR_DB_Pass = "ZqTbv7rt";
+        public static string JAGUAR_ServerAddress = "mssql-137225-0.cloudclusters.net,10043";
+        public static string JAGUAR_ServerName = "mssql-137225-0.cloudclusters.net,10043";
+        public static string JAGUAR_ActiveDB = "normac";
+        public static string JAGUAR_DB_User = "normac_us";
+        public static string JAGUAR_DB_Pass = "1z8umPKQ61dr";
 
         //Jaguar Server Fisico
         //public static string JAGUAR_ServerAddress = @"PANSVR01\PANSVR01";

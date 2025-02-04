@@ -195,7 +195,7 @@ namespace JAGUAR_APP.Clases
                 DataOperations dp = new DataOperations();
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
-                string sql = "[ACS].[sp_get_nivel_acceso_for_user]";
+                string sql = "[sp_get_nivel_acceso_for_user]";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_sistema", idSistema);
@@ -220,7 +220,7 @@ namespace JAGUAR_APP.Clases
                 SqlConnection Conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 Conn.Open();
                 string sql = @"SELECT count(*)
-                                FROM [ACS].conf_usuario_ventanas vv 
+                                FROM conf_usuario_ventanas vv 
                                 where vv.id_ventana = " + pIdVentana.ToString() +
                                       "and vv.id_usuario = " + UserId.ToString();
                 SqlCommand cmd = new SqlCommand(sql, Conn);
@@ -286,7 +286,7 @@ namespace JAGUAR_APP.Clases
                                       ,[password]
                                       ,[habilitado]
                                       ,[id_grupo_losa]
-                                  FROM [ACS].[conf_usuarios]
+                                  FROM [conf_usuarios]
                                    where [usuario] = '" + pAlias + "'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
