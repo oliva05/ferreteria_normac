@@ -7,7 +7,7 @@
     <ProjectGuid>{75B418DD-359E-4A3F-9068-271A65F31D37}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>JAGUAR_APP</RootNamespace>
-    <AssemblyName>Ovejita</AssemblyName>
+    <AssemblyName>JAGUAR PRO</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -87,7 +87,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Ovejita.ico</ApplicationIcon>
+    <ApplicationIcon>jaguar.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>JAGUAR_APP.Program</StartupObject>
@@ -3907,6 +3907,7 @@
     <None Include="Resources\Users-Group-icon64px.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="jaguar.ico" />
     <Content Include="logo1.ico" />
     <None Include="Resources\xml_24x24.png" />
     <None Include="Resources\_click_24X24.png" />
