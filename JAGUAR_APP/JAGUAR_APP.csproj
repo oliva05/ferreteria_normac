@@ -3908,7 +3908,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="jaguar.ico" />
-    <Content Include="logo1.ico" />
     <None Include="Resources\xml_24x24.png" />
     <None Include="Resources\_click_24X24.png" />
     <None Include="Resources\year_24x24.png" />
@@ -3919,7 +3918,6 @@
     <None Include="Resources\ACS Icon_48.png" />
     <None Include="Resources\ACS Icon_64.png" />
     <None Include="Resources\add_24x24.png" />
-    <Content Include="Ovejita.ico" />
     <None Include="Resources\add_32x321.png" />
     <Content Include="Resources\admin.png" />
     <None Include="Resources\backspace.png" />
