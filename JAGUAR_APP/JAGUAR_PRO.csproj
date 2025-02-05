@@ -637,6 +637,24 @@
     <Compile Include="Autorizaciones\frmSolicitudAutorizacion.Designer.cs">
       <DependentUpon>frmSolicitudAutorizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="BancosYTitulares\dsBancos.cs">
+      <DependentUpon>dsBancos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BancosYTitulares\dsBancos.Designer.cs">
+      <DependentUpon>dsBancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BancosYTitulares\frmTitularMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BancosYTitulares\frmTitularMain.Designer.cs">
+      <DependentUpon>frmTitularMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BancosYTitulares\frmTitularOP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BancosYTitulares\frmTitularOP.Designer.cs">
+      <DependentUpon>frmTitularOP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calidad\LoteConfConsumo\dsConfigLoteConsumo.cs">
       <DependentUpon>dsConfigLoteConsumo.xsd</DependentUpon>
     </Compile>
@@ -2100,6 +2118,13 @@
     <None Include="Autorizaciones\dsAutorizaciones.xss">
       <DependentUpon>dsAutorizaciones.xsd</DependentUpon>
     </None>
+    <None Include="BancosYTitulares\dsBancos.xsc">
+      <DependentUpon>dsBancos.xsd</DependentUpon>
+    </None>
+    <None Include="BancosYTitulares\dsBancos.xsd" />
+    <None Include="BancosYTitulares\dsBancos.xss">
+      <DependentUpon>dsBancos.xsd</DependentUpon>
+    </None>
     <None Include="Calidad\LoteConfConsumo\dsConfigLoteConsumo.xsc">
       <DependentUpon>dsConfigLoteConsumo.xsd</DependentUpon>
     </None>
@@ -2971,6 +2996,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Autorizaciones\frmSolicitudAutorizacion.resx">
       <DependentUpon>frmSolicitudAutorizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BancosYTitulares\frmTitularMain.resx">
+      <DependentUpon>frmTitularMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BancosYTitulares\frmTitularOP.resx">
+      <DependentUpon>frmTitularOP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMP.resx">
       <DependentUpon>frmSearchMP.cs</DependentUpon>
