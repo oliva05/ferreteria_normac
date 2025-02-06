@@ -665,6 +665,7 @@
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\ClientesPuntoVentaLP.cs" />
     <Compile Include="Clases\Conf_TablesID.cs" />
+    <Compile Include="Clases\Cuentas.cs" />
     <Compile Include="Clases\DataOperations.cs" />
     <Compile Include="Clases\FacturaEstado.cs" />
     <Compile Include="Clases\FacturasPagoMultiple.cs" />
