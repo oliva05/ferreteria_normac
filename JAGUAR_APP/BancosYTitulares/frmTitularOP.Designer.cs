@@ -95,8 +95,8 @@ namespace JAGUAR_APP.BancosYTitulares
             // 
             // gcCuentas
             // 
-            this.gcCuentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gcCuentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gcCuentas.DataMember = "listados_cuentas_by_id";
             this.gcCuentas.DataSource = this.dsBancos1;
