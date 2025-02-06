@@ -4,7 +4,6 @@ using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
-using Infragistics.Win.Misc;
 using JAGUAR_APP.Clases;
 using JAGUAR_APP.Facturacion.CoreFacturas;
 using JAGUAR_APP.Facturacion.Cotizaciones;
@@ -1478,7 +1477,7 @@ namespace Eatery.Ventas
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 adat.Fill(dsVentas1.Buffet_TopProductos);
                 con.Close();
-                ultraTilePanel1.Tiles.Clear();
+                //ultraTilePanel1.Tiles.Clear();
 
                 int i = 1;
                 foreach (dsVentas.Buffet_TopProductosRow row in dsVentas1.Buffet_TopProductos)
@@ -1497,7 +1496,7 @@ namespace Eatery.Ventas
 
         private void AddTilePanel(string descripcion, int p_button)
         {
-            UltraTile tile2 = new Infragistics.Win.Misc.UltraTile();
+            //UltraTile tile2 = new Infragistics.Win.Misc.UltraTile();
 
             //tile2.Settings.Appearance.BackColor = Color.Olive;
             //SimpleButton button2 = new SimpleButton();
@@ -1521,32 +1520,32 @@ namespace Eatery.Ventas
                     case 1:
                         simpleButton1.Text = descripcion;
                         simpleButton1.Font = fuent1;
-                        tile2.Control = simpleButton1;
+                        //tile2.Control = simpleButton1;
                         break;
                     case 2:
                         simpleButton2.Text = descripcion;
                         simpleButton2.Font = fuent1;
-                        tile2.Control = simpleButton2;
+                        //tile2.Control = simpleButton2;
                         break;
                     case 3:
                         simpleButton3.Font = fuent1;
                         simpleButton3.Text = descripcion;
-                        tile2.Control = simpleButton3;
+                        //tile2.Control = simpleButton3;
                         break;
                     case 4:
                         simpleButton4.Font = fuent1;
                         simpleButton4.Text = descripcion;
-                        tile2.Control = simpleButton4;
+                        //tile2.Control = simpleButton4;
                         break;
                     case 5:
                         simpleButton5.Font = fuent1;
                         simpleButton5.Text = descripcion;
-                        tile2.Control = simpleButton5;
+                        //tile2.Control = simpleButton5;
                         break;
                     case 6:
                         simpleButton6.Font = fuent1;
                         simpleButton6.Text = descripcion;
-                        tile2.Control = simpleButton6;
+                        //tile2.Control = simpleButton6;
                         break;
                 }
 
@@ -1565,17 +1564,17 @@ namespace Eatery.Ventas
                     case 1:
                         simpleButton1.Text = descripcion;
                         simpleButton1.Font = fuent1;
-                        tile2.Control = simpleButton1;
+                        //tile2.Control = simpleButton1;
                         break;
                     case 5:
                         simpleButton5.Font = fuent1;
                         simpleButton5.Text = descripcion;
-                        tile2.Control = simpleButton5;
+                        //tile2.Control = simpleButton5;
                         break;
                     case 6:
                         simpleButton6.Font = fuent1;
                         simpleButton6.Text = descripcion;
-                        tile2.Control = simpleButton6;
+                        //tile2.Control = simpleButton6;
                         break;
                 }
 
@@ -1634,14 +1633,14 @@ namespace Eatery.Ventas
 
 
             //button2.Dock = DockStyle.Fill;
-            tile2.State = TileState.Normal;
-            tile2.Settings.ShowStateChangeButton = Infragistics.Win.DefaultableBoolean.False;
+            //tile2.State = TileState.Normal;
+            //tile2.Settings.ShowStateChangeButton = Infragistics.Win.DefaultableBoolean.False;
             
-            //tile2.UseAppStyling = true;
-            ultraTilePanel1.Tiles.Add(tile2);
-            //ultraTilePanel1.Margin =pad1;
+            ////tile2.UseAppStyling = true;
+            //ultraTilePanel1.Tiles.Add(tile2);
+            ////ultraTilePanel1.Margin =pad1;
 
-            ultraTilePanel1.TileSettings.MaximumSize = new Size(362, 100);
+            //ultraTilePanel1.TileSettings.MaximumSize = new Size(362, 100);
         }
 
         private void radioGroupVentaComidaBuffet_SelectedIndexChanged(object sender, EventArgs e)
