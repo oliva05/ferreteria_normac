@@ -37,9 +37,9 @@ namespace Eatery.Ventas
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
-            Infragistics.Win.UltraWinScrollBar.ScrollBarLook scrollBarLook1 = new Infragistics.Win.UltraWinScrollBar.ScrollBarLook();
-            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+            //Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
+            //Infragistics.Win.UltraWinScrollBar.ScrollBarLook scrollBarLook1 = new Infragistics.Win.UltraWinScrollBar.ScrollBarLook();
+            //Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -82,7 +82,7 @@ namespace Eatery.Ventas
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAddToCart = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdAddToCart = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.ultraTilePanel1 = new Infragistics.Win.Misc.UltraTilePanel();
+            //this.ultraTilePanel1 = new Infragistics.Win.Misc.UltraTilePanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_pt1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -111,8 +111,8 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdAddToCart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTilePanel1)).BeginInit();
-            this.ultraTilePanel1.SuspendLayout();
+            //((System.ComponentModel.ISupportInitialize)(this.ultraTilePanel1)).BeginInit();
+            //this.ultraTilePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdDeleteRowFactura)).BeginInit();
@@ -328,7 +328,7 @@ namespace Eatery.Ventas
             this.navigationPage1.Controls.Add(this.cmdTodosLosProductos);
             this.navigationPage1.Controls.Add(this.cmdLoMasVendido);
             this.navigationPage1.Controls.Add(this.gridControl2);
-            this.navigationPage1.Controls.Add(this.ultraTilePanel1);
+            //this.navigationPage1.Controls.Add(this.ultraTilePanel1);
             this.navigationPage1.Controls.Add(this.gridControl1);
             this.navigationPage1.Controls.Add(this.lblOpcionesBuffetRadioButtonGroup);
             this.navigationPage1.Controls.Add(this.txtTotal);
@@ -574,34 +574,34 @@ namespace Eatery.Ventas
             // 
             // ultraTilePanel1
             // 
-            this.ultraTilePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            appearance1.BorderColor = System.Drawing.Color.Silver;
-            appearance1.BorderColor2 = System.Drawing.Color.Silver;
-            this.ultraTilePanel1.Appearance = appearance1;
-            this.ultraTilePanel1.Location = new System.Drawing.Point(3, 162);
-            this.ultraTilePanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.ultraTilePanel1.MaximumColumns = 1;
-            this.ultraTilePanel1.MaximumRows = 5;
-            this.ultraTilePanel1.MaximumVisibleLargeTiles = 1;
-            this.ultraTilePanel1.MinimumColumns = 1;
-            this.ultraTilePanel1.MinimumRows = 5;
-            this.ultraTilePanel1.Name = "ultraTilePanel1";
-            this.ultraTilePanel1.NormalModeDimensions = new System.Drawing.Size(0, 0);
-            appearance2.AlphaLevel = ((short)(1));
-            scrollBarLook1.Appearance = appearance2;
-            scrollBarLook1.HorizontalScrollBarArrowWidth = 1;
-            scrollBarLook1.HorizontalScrollBarHeight = 1;
-            scrollBarLook1.MinimumThumbHeight = 1;
-            scrollBarLook1.MinimumThumbWidth = 1;
-            scrollBarLook1.ScrollBarArrowStyle = Infragistics.Win.UltraWinScrollBar.ScrollBarArrowStyle.None;
-            scrollBarLook1.ShowMinMaxButtons = Infragistics.Win.DefaultableBoolean.False;
-            this.ultraTilePanel1.ScrollBarLook = scrollBarLook1;
-            this.ultraTilePanel1.Size = new System.Drawing.Size(246, 395);
-            this.ultraTilePanel1.SupportsZooming = false;
-            this.ultraTilePanel1.TabIndex = 22;
-            this.ultraTilePanel1.TileSettings.HeaderPosition = Infragistics.Win.Misc.TileHeaderPosition.Top;
-            this.ultraTilePanel1.UseFlatMode = Infragistics.Win.DefaultableBoolean.True;
+            //this.ultraTilePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            //| System.Windows.Forms.AnchorStyles.Left)));
+            //appearance1.BorderColor = System.Drawing.Color.Silver;
+            //appearance1.BorderColor2 = System.Drawing.Color.Silver;
+            //this.ultraTilePanel1.Appearance = appearance1;
+            //this.ultraTilePanel1.Location = new System.Drawing.Point(3, 162);
+            //this.ultraTilePanel1.Margin = new System.Windows.Forms.Padding(0);
+            //this.ultraTilePanel1.MaximumColumns = 1;
+            //this.ultraTilePanel1.MaximumRows = 5;
+            //this.ultraTilePanel1.MaximumVisibleLargeTiles = 1;
+            //this.ultraTilePanel1.MinimumColumns = 1;
+            //this.ultraTilePanel1.MinimumRows = 5;
+            //this.ultraTilePanel1.Name = "ultraTilePanel1";
+            //this.ultraTilePanel1.NormalModeDimensions = new System.Drawing.Size(0, 0);
+            //appearance2.AlphaLevel = ((short)(1));
+            //scrollBarLook1.Appearance = appearance2;
+            //scrollBarLook1.HorizontalScrollBarArrowWidth = 1;
+            //scrollBarLook1.HorizontalScrollBarHeight = 1;
+            //scrollBarLook1.MinimumThumbHeight = 1;
+            //scrollBarLook1.MinimumThumbWidth = 1;
+            //scrollBarLook1.ScrollBarArrowStyle = Infragistics.Win.UltraWinScrollBar.ScrollBarArrowStyle.None;
+            //scrollBarLook1.ShowMinMaxButtons = Infragistics.Win.DefaultableBoolean.False;
+            //this.ultraTilePanel1.ScrollBarLook = scrollBarLook1;
+            //this.ultraTilePanel1.Size = new System.Drawing.Size(246, 395);
+            //this.ultraTilePanel1.SupportsZooming = false;
+            //this.ultraTilePanel1.TabIndex = 22;
+            //this.ultraTilePanel1.TileSettings.HeaderPosition = Infragistics.Win.Misc.TileHeaderPosition.Top;
+            //this.ultraTilePanel1.UseFlatMode = Infragistics.Win.DefaultableBoolean.True;
             // 
             // gridControl1
             // 
@@ -792,8 +792,8 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdAddToCart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTilePanel1)).EndInit();
-            this.ultraTilePanel1.ResumeLayout(false);
+            //((System.ComponentModel.ISupportInitialize)(this.ultraTilePanel1)).EndInit();
+            //this.ultraTilePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdDeleteRowFactura)).EndInit();
@@ -821,7 +821,7 @@ namespace Eatery.Ventas
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private Infragistics.Win.Misc.UltraTilePanel ultraTilePanel1;
+        //private Infragistics.Win.Misc.UltraTilePanel ultraTilePanel1;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraEditors.SimpleButton cmdTodosLosProductos;
