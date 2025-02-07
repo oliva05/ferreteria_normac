@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
    public class CheckNewVersion
     {

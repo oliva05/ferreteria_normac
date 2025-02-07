@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Mantenimientos
+namespace JAGUAR_PRO.Facturacion.Mantenimientos
 {
     partial class xfrmClienteEmpresas
     {
@@ -33,7 +33,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmClienteEmpresas));
             this.tipoContactoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsMantenimientosFacturacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientosFacturacion = new JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
+            this.dsMantenimientosFacturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
             this.txtCodigo = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new DevExpress.XtraEditors.TextEdit();
@@ -198,7 +198,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             this.btnSave.Appearance.Options.UseBackColor = true;
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.btnSave.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.btnSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.btnSave.Location = new System.Drawing.Point(156, 326);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(118, 42);

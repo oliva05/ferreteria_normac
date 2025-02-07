@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno.Reporteria
+namespace JAGUAR_PRO.AlmacenesExterno.Reporteria
 {
     partial class xrpt_Main_traslado_almacen
     {
@@ -94,7 +94,7 @@ namespace JAGUAR_APP.AlmacenesExterno.Reporteria
             this.xrSubreport2.Name = "xrSubreport2";
             this.xrSubreport2.ParameterBindings.Add(new DevExpress.XtraReports.UI.ParameterBinding("ID_H", this.id_h));
             this.xrSubreport2.ParameterBindings.Add(new DevExpress.XtraReports.UI.ParameterBinding("tipo_id_reporte", this.tipo_id_reporte));
-            this.xrSubreport2.ReportSource = new JAGUAR_APP.AlmacenesExterno.Reporteria.xsr_traslado_lotes();
+            this.xrSubreport2.ReportSource = new JAGUAR_PRO.AlmacenesExterno.Reporteria.xsr_traslado_lotes();
             this.xrSubreport2.SizeF = new System.Drawing.SizeF(750F, 161.7917F);
             // 
             // xrSubreport1
@@ -103,7 +103,7 @@ namespace JAGUAR_APP.AlmacenesExterno.Reporteria
             this.xrSubreport1.Name = "xrSubreport1";
             this.xrSubreport1.ParameterBindings.Add(new DevExpress.XtraReports.UI.ParameterBinding("ID_Header", this.id_h));
             this.xrSubreport1.ParameterBindings.Add(new DevExpress.XtraReports.UI.ParameterBinding("tipo_id_reporte", this.tipo_id_reporte));
-            this.xrSubreport1.ReportSource = new JAGUAR_APP.AlmacenesExterno.Reporteria.xsrTransaccionAlmacenes();
+            this.xrSubreport1.ReportSource = new JAGUAR_PRO.AlmacenesExterno.Reporteria.xsrTransaccionAlmacenes();
             this.xrSubreport1.SizeF = new System.Drawing.SizeF(750F, 100F);
             // 
             // xrpt_Main_traslado_almacen

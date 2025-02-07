@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Accesos.TurnosUsuario
+namespace JAGUAR_PRO.Accesos.TurnosUsuario
 {
     partial class PrincipalTurnos
     {
@@ -35,7 +35,7 @@ namespace JAGUAR_APP.Accesos.TurnosUsuario
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlSistemas = new DevExpress.XtraGrid.GridControl();
             this.turnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsAccesos = new JAGUAR_APP.Accesos.dsAccesos();
+            this.dsAccesos = new JAGUAR_PRO.Accesos.dsAccesos();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Nombre = new DevExpress.XtraGrid.Columns.GridColumn();

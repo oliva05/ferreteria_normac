@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Reportes
+﻿namespace JAGUAR_PRO.Reportes
 {
     partial class frmexistenciaPT
     {
@@ -32,7 +32,7 @@
             this.cmdHome = new DevExpress.XtraEditors.SimpleButton();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dsReportes = new JAGUAR_APP.Reportes.dsReportes();
+            this.dsReportes = new JAGUAR_PRO.Reportes.dsReportes();
             this.colfila = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colitemcode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colitemdescrip = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,7 +68,7 @@
             this.cmdHome.Appearance.Options.UseBackColor = true;
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdHome.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdHome.Location = new System.Drawing.Point(485, 5);
             this.cmdHome.Name = "cmdHome";
             this.cmdHome.Size = new System.Drawing.Size(227, 71);

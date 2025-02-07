@@ -2,8 +2,8 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Reportes;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Micro
+namespace JAGUAR_PRO.Micro
 {
     public partial class frmOpcionesMicro : DevExpress.XtraEditors.XtraForm
     {

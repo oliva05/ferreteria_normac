@@ -1,6 +1,6 @@
 ﻿
 
-namespace JAGUAR_APP.Facturacion.Configuraciones
+namespace JAGUAR_PRO.Facturacion.Configuraciones
 {
 
 

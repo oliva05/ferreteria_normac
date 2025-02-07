@@ -1,23 +1,23 @@
-﻿namespace JAGUAR_APP.LogisticaJaguar
+﻿namespace JAGUAR_PRO.LogisticaJaguar
 {
 }
 
-namespace JAGUAR_APP.LogisticaJaguar
+namespace JAGUAR_PRO.LogisticaJaguar
 {
 }
 
-namespace JAGUAR_APP.LogisticaJaguar
+namespace JAGUAR_PRO.LogisticaJaguar
 {
 }
 
-namespace JAGUAR_APP.LogisticaJaguar
+namespace JAGUAR_PRO.LogisticaJaguar
 {
 }
 
 namespace LOSA.RecepcionMP
 {
 }
-namespace JAGUAR_APP.LogisticaJaguar
+namespace JAGUAR_PRO.LogisticaJaguar
 {
 
 

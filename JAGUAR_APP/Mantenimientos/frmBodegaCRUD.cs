@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using JAGUAR_APP.Mantenimientos.Modelos;
+using JAGUAR_PRO.Mantenimientos.Modelos;
 using System.Data.SqlClient;
 using ACS.Classes;
 using Core.Clases.Herramientas;
 
-namespace JAGUAR_APP.Mantenimientos
+namespace JAGUAR_PRO.Mantenimientos
 {
     public partial class frmBodegaCRUD : Form
     {
@@ -42,7 +42,7 @@ namespace JAGUAR_APP.Mantenimientos
             bodega.DescripcionCorta = txtDescripcionCorta.Text;
             bodega.Enable = chkEnable.Checked;
 
-            using (SqlConnection conexionJAGUAR_APP = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+            using (SqlConnection conexionJAGUAR_PRO = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
             {
                 try
                 {
@@ -54,8 +54,8 @@ namespace JAGUAR_APP.Mantenimientos
                     }
                     else
                     {
-                        conexionJAGUAR_APP.Open();
-                        using (SqlCommand command = new SqlCommand("spInsertarActualizarBodegas", conexionJAGUAR_APP))
+                        conexionJAGUAR_PRO.Open();
+                        using (SqlCommand command = new SqlCommand("spInsertarActualizarBodegas", conexionJAGUAR_PRO))
                         {
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.Add("@Id", SqlDbType.Int).Value = bodega.Id;

@@ -1,11 +1,11 @@
 ﻿using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace JAGUAR_APP.Reproceso
+namespace JAGUAR_PRO.Reproceso
 {
     public partial class rptTarimaReproceso : DevExpress.XtraReports.UI.XtraReport
     {

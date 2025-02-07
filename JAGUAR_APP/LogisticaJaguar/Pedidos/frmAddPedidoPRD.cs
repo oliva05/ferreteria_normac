@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.LogisticaJaguar.Pedidos
+namespace JAGUAR_PRO.LogisticaJaguar.Pedidos
 {
     public partial class frmAddPedidoPRD : DevExpress.XtraEditors.XtraForm
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.LogisticaJaguar
+namespace JAGUAR_PRO.LogisticaJaguar
 {
     partial class frm_select_pv
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.LogisticaJaguar
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_select_pv));
             this.grd_data = new DevExpress.XtraGrid.GridControl();
             this.proveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsRecepcionMP = new JAGUAR_APP.LogisticaJaguar.dsRecepcionMP();
+            this.dsRecepcionMP = new JAGUAR_PRO.LogisticaJaguar.dsRecepcionMP();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colcarcode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcardname = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -138,7 +138,7 @@ namespace JAGUAR_APP.LogisticaJaguar
             // btnSeleccionar
             // 
             this.btnSeleccionar.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.btnSeleccionar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnSeleccionar.Name = "btnSeleccionar";
@@ -189,7 +189,7 @@ namespace JAGUAR_APP.LogisticaJaguar
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnSeleccionar;
         private DevExpress.XtraEditors.SimpleButton btnAtras;
         private System.Windows.Forms.BindingSource proveedoresBindingSource;
-        private JAGUAR_APP.LogisticaJaguar.dsRecepcionMP dsRecepcionMP;
+        private JAGUAR_PRO.LogisticaJaguar.dsRecepcionMP dsRecepcionMP;
         private DevExpress.XtraGrid.Columns.GridColumn colcarcode;
         private DevExpress.XtraGrid.Columns.GridColumn colcardname;
         private DevExpress.XtraGrid.Columns.GridColumn seleccionar;

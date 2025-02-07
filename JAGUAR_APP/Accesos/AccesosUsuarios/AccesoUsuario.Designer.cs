@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Accesos.AccesosUsuarios
+namespace JAGUAR_PRO.Accesos.AccesosUsuarios
 {
     partial class AccesoUsuario
     {

@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     public partial class frmPendienteAlmacenExterno : DevExpress.XtraEditors.XtraForm
     {

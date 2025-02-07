@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     partial class frmNavigationPageAutorizacion
     {
@@ -53,7 +53,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.npGestionSolicitud = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsFacturasGestion = new JAGUAR_APP.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.dsFacturasGestion = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.grd_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -235,7 +235,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // btnAutorizar
             // 
             this.btnAutorizar.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.shield_24X24;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.shield_24X24;
             this.btnAutorizar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnAutorizar.Name = "btnAutorizar";
@@ -278,7 +278,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.EditValue = global::JAGUAR_APP.Properties.Resources.information_64X64;
+            this.pictureEdit1.EditValue = global::JAGUAR_PRO.Properties.Resources.information_64X64;
             this.pictureEdit1.Location = new System.Drawing.Point(12, 1);
             this.pictureEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureEdit1.Name = "pictureEdit1";
@@ -325,7 +325,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.cdmConfirmar.Appearance.Options.UseFont = true;
             this.cdmConfirmar.Appearance.Options.UseForeColor = true;
             this.cdmConfirmar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cdmConfirmar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.check_mark_24X24;
+            this.cdmConfirmar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.check_mark_24X24;
             this.cdmConfirmar.Location = new System.Drawing.Point(394, 82);
             this.cdmConfirmar.Name = "cdmConfirmar";
             this.cdmConfirmar.Size = new System.Drawing.Size(110, 47);
@@ -357,7 +357,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // 
             // pictureEdit2
             // 
-            this.pictureEdit2.EditValue = global::JAGUAR_APP.Properties.Resources.information_64X64;
+            this.pictureEdit2.EditValue = global::JAGUAR_PRO.Properties.Resources.information_64X64;
             this.pictureEdit2.Location = new System.Drawing.Point(11, 12);
             this.pictureEdit2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureEdit2.Name = "pictureEdit2";
@@ -409,7 +409,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.btnAtras.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnAtras.Appearance.Options.UseFont = true;
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAtras.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.back_24X24;
+            this.btnAtras.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.back_24X24;
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAtras.Location = new System.Drawing.Point(278, 12);
             this.btnAtras.Name = "btnAtras";
@@ -427,7 +427,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.cmdNext.Appearance.Options.UseFont = true;
             this.cmdNext.Appearance.Options.UseForeColor = true;
             this.cmdNext.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdNext.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.right_arrow32px;
+            this.cmdNext.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.right_arrow32px;
             this.cmdNext.Location = new System.Drawing.Point(400, 12);
             this.cmdNext.Name = "cmdNext";
             this.cmdNext.Size = new System.Drawing.Size(113, 47);
@@ -541,7 +541,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // repositoryItemButtonEdit1
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions3.Image = global::JAGUAR_APP.Properties.Resources.shield_24X24;
+            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.shield_24X24;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
@@ -568,7 +568,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.btnBack.Appearance.Options.UseFont = true;
             this.btnBack.Appearance.Options.UseForeColor = true;
             this.btnBack.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.btnBack.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.back_24X24;
+            this.btnBack.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.back_24X24;
             this.btnBack.Location = new System.Drawing.Point(41, 198);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(110, 47);
@@ -600,7 +600,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.btnConfirmarAutorizacionDirecta.Appearance.Options.UseFont = true;
             this.btnConfirmarAutorizacionDirecta.Appearance.Options.UseForeColor = true;
             this.btnConfirmarAutorizacionDirecta.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.btnConfirmarAutorizacionDirecta.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.check_mark_24X24;
+            this.btnConfirmarAutorizacionDirecta.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.check_mark_24X24;
             this.btnConfirmarAutorizacionDirecta.Location = new System.Drawing.Point(352, 198);
             this.btnConfirmarAutorizacionDirecta.Name = "btnConfirmarAutorizacionDirecta";
             this.btnConfirmarAutorizacionDirecta.Size = new System.Drawing.Size(110, 47);
@@ -761,7 +761,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // repositoryItemButtonEdit2
             // 
             this.repositoryItemButtonEdit2.AutoHeight = false;
-            editorButtonImageOptions4.Image = global::JAGUAR_APP.Properties.Resources.shield_24X24;
+            editorButtonImageOptions4.Image = global::JAGUAR_PRO.Properties.Resources.shield_24X24;
             this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
@@ -791,7 +791,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.Appearance.Options.UseForeColor = true;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.simpleButton2.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.check_mark_24X24;
+            this.simpleButton2.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.check_mark_24X24;
             this.simpleButton2.Location = new System.Drawing.Point(372, 11);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(110, 47);

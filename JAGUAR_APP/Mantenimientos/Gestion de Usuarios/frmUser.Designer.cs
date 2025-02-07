@@ -44,7 +44,7 @@
             this.cmdClose = new DevExpress.XtraEditors.SimpleButton();
             this.lueGrupo = new DevExpress.XtraEditors.LookUpEdit();
             this.accesoGrupoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsAccesos = new JAGUAR_APP.Accesos.dsAccesos();
+            this.dsAccesos = new JAGUAR_PRO.Accesos.dsAccesos();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.turnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -313,7 +313,7 @@
         private DevExpress.XtraEditors.LookUpEdit lueGrupo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.BindingSource accesoGrupoBindingSource;
-        private JAGUAR_APP.Accesos.dsAccesos dsAccesos;
+        private JAGUAR_PRO.Accesos.dsAccesos dsAccesos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.BindingSource turnoBindingSource;
         private DevExpress.XtraEditors.LookUpEdit lueTurno;

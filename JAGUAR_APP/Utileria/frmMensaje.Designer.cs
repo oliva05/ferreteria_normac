@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Utileria
+﻿namespace JAGUAR_PRO.Utileria
 {
     partial class frmMensaje
     {
@@ -57,7 +57,7 @@
             // 
             // pictureBoxInfomation
             // 
-            this.pictureBoxInfomation.Image = global::JAGUAR_APP.Properties.Resources.Status_dialog_information_icon72px;
+            this.pictureBoxInfomation.Image = global::JAGUAR_PRO.Properties.Resources.Status_dialog_information_icon72px;
             this.pictureBoxInfomation.Location = new System.Drawing.Point(113, 106);
             this.pictureBoxInfomation.Name = "pictureBoxInfomation";
             this.pictureBoxInfomation.Size = new System.Drawing.Size(95, 70);
@@ -68,7 +68,7 @@
             // 
             // pictureBoxError
             // 
-            this.pictureBoxError.Image = global::JAGUAR_APP.Properties.Resources.delete_1_icon72px;
+            this.pictureBoxError.Image = global::JAGUAR_PRO.Properties.Resources.delete_1_icon72px;
             this.pictureBoxError.Location = new System.Drawing.Point(12, 106);
             this.pictureBoxError.Name = "pictureBoxError";
             this.pictureBoxError.Size = new System.Drawing.Size(95, 70);
@@ -79,7 +79,7 @@
             // 
             // msjBoxIcon
             // 
-            this.msjBoxIcon.Image = global::JAGUAR_APP.Properties.Resources.delete_1_icon72px;
+            this.msjBoxIcon.Image = global::JAGUAR_PRO.Properties.Resources.delete_1_icon72px;
             this.msjBoxIcon.Location = new System.Drawing.Point(0, 30);
             this.msjBoxIcon.Name = "msjBoxIcon";
             this.msjBoxIcon.Size = new System.Drawing.Size(95, 70);

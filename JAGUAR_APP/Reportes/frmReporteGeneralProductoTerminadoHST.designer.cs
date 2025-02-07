@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class frmReporteGeneralProductoTerminadoHST
     {
@@ -31,7 +31,7 @@ namespace JAGUAR_APP.Reportes
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReporteGeneralProductoTerminadoHST));
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.dsReportesInventario1 = new JAGUAR_APP.Reportes.dsReportesInventario();
+            this.dsReportesInventario1 = new JAGUAR_PRO.Reportes.dsReportesInventario();
             this.grd_inventario = new DevExpress.XtraGrid.GridControl();
             this.grdv_inventario = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_pt1 = new DevExpress.XtraGrid.Columns.GridColumn();

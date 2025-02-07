@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class frmRequisicionesManualesReporte
     {
@@ -31,7 +31,7 @@ namespace JAGUAR_APP.Reportes
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRequisicionesManualesReporte));
             this.gridDetalleReq = new DevExpress.XtraGrid.GridControl();
-            this.dsReportes1 = new JAGUAR_APP.Reportes.dsReportes();
+            this.dsReportes1 = new JAGUAR_PRO.Reportes.dsReportes();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_usuario = new DevExpress.XtraGrid.Columns.GridColumn();

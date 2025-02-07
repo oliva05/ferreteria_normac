@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Facturacion.Reportes
+﻿namespace JAGUAR_PRO.Facturacion.Reportes
 {
     partial class RPT_ND_NC_Local
     {
@@ -90,7 +90,7 @@
             this.Texto = new DevExpress.XtraReports.UI.CalculatedField();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLine4 = new DevExpress.XtraReports.UI.XRLine();
-            this.dsFacturasGestion1 = new JAGUAR_APP.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.dsFacturasGestion1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.xrCrossBandBox1 = new DevExpress.XtraReports.UI.XRCrossBandBox();
             this.xrCrossBandBox2 = new DevExpress.XtraReports.UI.XRCrossBandBox();
             this.xrCrossBandBox3 = new DevExpress.XtraReports.UI.XRCrossBandBox();

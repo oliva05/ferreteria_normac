@@ -1,4 +1,4 @@
-﻿using JAGUAR_APP.Facturacion.CoreFacturas;
+﻿using JAGUAR_PRO.Facturacion.CoreFacturas;
 
 namespace Eatery.Ventas
 {
@@ -57,7 +57,7 @@ namespace Eatery.Ventas
             this.lblMensaje = new System.Windows.Forms.Label();
             this.timerLimpiarMensaje = new System.Windows.Forms.Timer(this.components);
             this.lblfecha = new System.Windows.Forms.Label();
-            this.dsVentas1 = new JAGUAR_APP.Facturacion.CoreFacturas.dsVentas();
+            this.dsVentas1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsVentas();
             this.radioGroupVentaComidaBuffet = new DevExpress.XtraEditors.RadioGroup();
             this.lblOpcionesBuffetRadioButtonGroup = new System.Windows.Forms.Label();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();

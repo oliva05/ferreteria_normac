@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.JaguarProduccion
+namespace JAGUAR_PRO.JaguarProduccion
 {
     partial class frmAddOrderProductionV2
     {
@@ -43,14 +43,14 @@ namespace JAGUAR_APP.JaguarProduccion
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
             this.bindingSourceRecetas = new System.Windows.Forms.BindingSource(this.components);
-            this.dsLogisticaJaguar1 = new JAGUAR_APP.LogisticaJaguar.dsLogisticaJaguar();
+            this.dsLogisticaJaguar1 = new JAGUAR_PRO.LogisticaJaguar.dsLogisticaJaguar();
             this.bindingSourcePT = new System.Windows.Forms.BindingSource(this.components);
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.dsPedidosPRD1 = new JAGUAR_APP.LogisticaJaguar.Pedidos.dsPedidos_PRD();
+            this.dsPedidosPRD1 = new JAGUAR_PRO.LogisticaJaguar.Pedidos.dsPedidos_PRD();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -119,7 +119,7 @@ namespace JAGUAR_APP.JaguarProduccion
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsProduccion1 = new JAGUAR_APP.JaguarProduccion.dsProduccion();
+            this.dsProduccion1 = new JAGUAR_PRO.JaguarProduccion.dsProduccion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_pt1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre_pt = new DevExpress.XtraGrid.Columns.GridColumn();

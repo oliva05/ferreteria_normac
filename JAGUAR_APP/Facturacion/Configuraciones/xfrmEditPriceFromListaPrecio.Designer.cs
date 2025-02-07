@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Configuraciones
+namespace JAGUAR_PRO.Facturacion.Configuraciones
 {
     partial class xfrmEditPriceFromListaPrecio
     {
@@ -68,7 +68,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.simpleButton1.Location = new System.Drawing.Point(159, 81);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(116, 45);
@@ -84,7 +84,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             this.cmdSave.Appearance.Options.UseBackColor = true;
             this.cmdSave.Appearance.Options.UseFont = true;
             this.cmdSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdSave.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.cmdSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.cmdSave.Location = new System.Drawing.Point(26, 81);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(116, 45);

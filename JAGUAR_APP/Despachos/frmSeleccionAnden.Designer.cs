@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     partial class frmSeleccionAnden
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.Despachos
             this.btnatras = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
-            this.ds_despachos = new JAGUAR_APP.Despachos.ds_despachos();
+            this.ds_despachos = new JAGUAR_PRO.Despachos.ds_despachos();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colnumero = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_req = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -232,7 +232,7 @@ namespace JAGUAR_APP.Despachos
             // btnSeleccionar
             // 
             this.btnSeleccionar.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.btnSeleccionar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnSeleccionar.Name = "btnSeleccionar";

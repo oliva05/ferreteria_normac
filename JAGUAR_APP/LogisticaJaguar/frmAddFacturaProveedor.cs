@@ -1,8 +1,8 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Mantenimientos.MaterialEmpaque.Model;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Mantenimientos.MaterialEmpaque.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.LogisticaJaguar
+namespace JAGUAR_PRO.LogisticaJaguar
 {
     public partial class frmAddFacturaProveedor : DevExpress.XtraEditors.XtraForm
     {

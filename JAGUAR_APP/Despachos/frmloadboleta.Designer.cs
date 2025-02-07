@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Despachos
+﻿namespace JAGUAR_PRO.Despachos
 {
     partial class frmloadboleta
     {
@@ -35,7 +35,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.grd_boleta = new DevExpress.XtraGrid.GridControl();
-            this.ds_despachos = new JAGUAR_APP.Despachos.ds_despachos();
+            this.ds_despachos = new JAGUAR_PRO.Despachos.ds_despachos();
             this.grdv_boleta = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNumID = new DevExpress.XtraGrid.Columns.GridColumn();

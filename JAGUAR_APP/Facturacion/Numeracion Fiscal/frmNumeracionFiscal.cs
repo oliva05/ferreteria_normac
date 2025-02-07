@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static JAGUAR_APP.Facturacion.Numeracion_Fiscal.frmNumeracionFiscalCRUD;
+using static JAGUAR_PRO.Facturacion.Numeracion_Fiscal.frmNumeracionFiscalCRUD;
 
-namespace JAGUAR_APP.Facturacion.Numeracion_Fiscal
+namespace JAGUAR_PRO.Facturacion.Numeracion_Fiscal
 {
     public partial class frmNumeracionFiscal : DevExpress.XtraEditors.XtraForm
     {

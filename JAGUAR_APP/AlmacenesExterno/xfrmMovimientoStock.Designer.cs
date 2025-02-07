@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.AlmacenesExterno
+﻿namespace JAGUAR_PRO.AlmacenesExterno
 {
     partial class xfrmMovimientoStock
     {
@@ -36,14 +36,14 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcTransferencia = new DevExpress.XtraGrid.GridControl();
             this.transferenciaStockBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsSalidasAlmacenesExternos = new JAGUAR_APP.AlmacenesExterno.dsSalidasAlmacenesExternos();
+            this.dsSalidasAlmacenesExternos = new JAGUAR_PRO.AlmacenesExterno.dsSalidasAlmacenesExternos();
             this.gvTransferencia = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colcodeItem = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfrom_almacen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.luBodegaFrom = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.warehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsAlmacenesExternos = new JAGUAR_APP.AlmacenesExterno.dsAlmacenesExternos();
+            this.dsAlmacenesExternos = new JAGUAR_PRO.AlmacenesExterno.dsAlmacenesExternos();
             this.colto_almacen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.luBodegaTO = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colcantidad_kilos = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -315,7 +315,7 @@
             // btnBuscarProd
             // 
             this.btnBuscarProd.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.trazabilidad;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.trazabilidad;
             this.btnBuscarProd.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnBuscarProd.Name = "btnBuscarProd";
@@ -366,7 +366,7 @@
             this.btnAtras.Appearance.Options.UseBackColor = true;
             this.btnAtras.Appearance.Options.UseFont = true;
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAtras.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.btnAtras.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAtras.Location = new System.Drawing.Point(954, 12);
             this.btnAtras.Name = "btnAtras";

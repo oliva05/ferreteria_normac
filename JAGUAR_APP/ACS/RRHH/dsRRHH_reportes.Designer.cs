@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JAGUAR_APP.ACS.RRHH {
+namespace JAGUAR_PRO.ACS.RRHH {
     
     
     /// <summary>

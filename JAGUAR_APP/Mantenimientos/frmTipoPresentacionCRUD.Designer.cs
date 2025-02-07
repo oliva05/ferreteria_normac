@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Mantenimientos
+﻿namespace JAGUAR_PRO.Mantenimientos
 {
     partial class frmTipoPresentacionCRUD
     {
@@ -41,7 +41,7 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.gridLookUpEditTipoPresentacion = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourceTipoPresentacion = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento1 = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento1 = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();

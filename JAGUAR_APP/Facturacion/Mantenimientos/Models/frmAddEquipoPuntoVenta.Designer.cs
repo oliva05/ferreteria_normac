@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Facturacion.Mantenimientos.Models
+﻿namespace JAGUAR_PRO.Facturacion.Mantenimientos.Models
 {
     partial class frmAddEquipoPuntoVenta
     {
@@ -39,7 +39,7 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.glePuntoVenta = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourcePuntosVenta = new System.Windows.Forms.BindingSource(this.components);
-            this.dsCRUDS_Facturacion1 = new JAGUAR_APP.Facturacion.Mantenimientos.dsCRUDS_Facturacion();
+            this.dsCRUDS_Facturacion1 = new JAGUAR_PRO.Facturacion.Mantenimientos.dsCRUDS_Facturacion();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -118,7 +118,7 @@
             this.cmdNew.Appearance.Options.UseBackColor = true;
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdNew.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.cmdNew.Location = new System.Drawing.Point(86, 226);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(119, 47);

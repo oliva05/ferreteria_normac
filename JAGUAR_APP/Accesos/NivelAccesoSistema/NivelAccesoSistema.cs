@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Accesos.NivelAccesoSistema
+namespace JAGUAR_PRO.Accesos.NivelAccesoSistema
 {
     public partial class NivelAccesoSistema : DevExpress.XtraEditors.XtraForm
     {

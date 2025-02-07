@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static JAGUAR_APP.LogisticaJaguar.Despacho.xfrmDespachoCRUD;
+using static JAGUAR_PRO.LogisticaJaguar.Despacho.xfrmDespachoCRUD;
 
-namespace JAGUAR_APP.LogisticaJaguar.Despacho
+namespace JAGUAR_PRO.LogisticaJaguar.Despacho
 {
     public partial class xfrmTrasladoRecepcion : DevExpress.XtraEditors.XtraForm
     {

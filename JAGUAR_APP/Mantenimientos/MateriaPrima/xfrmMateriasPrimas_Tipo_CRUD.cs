@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Mantenimientos.MateriaPrima
+namespace JAGUAR_PRO.Mantenimientos.MateriaPrima
 {
     public partial class xfrmMateriasPrimas_Tipo_CRUD : DevExpress.XtraEditors.XtraForm
     {

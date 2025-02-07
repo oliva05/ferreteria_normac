@@ -1,8 +1,8 @@
 ﻿
-using JAGUAR_APP.LogisticaJaguar;
-using JAGUAR_APP.TransaccionesMP;
+using JAGUAR_PRO.LogisticaJaguar;
+using JAGUAR_PRO.TransaccionesMP;
 
-namespace JAGUAR_APP.TransaccionesPT
+namespace JAGUAR_PRO.TransaccionesPT
 {
     partial class frmAjusteIKardexPT
     {
@@ -47,7 +47,7 @@ namespace JAGUAR_APP.TransaccionesPT
             this.dtFechaDocumento = new DevExpress.XtraEditors.DateEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.bodegadestinoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTarima1 = new JAGUAR_APP.TransaccionesMP.dsTarima();
+            this.dsTarima1 = new JAGUAR_PRO.TransaccionesMP.dsTarima();
             this.bodegadestinoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bodegaorigenBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bodegaorigenBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -146,7 +146,7 @@ namespace JAGUAR_APP.TransaccionesPT
             this.txtPT_Name.Name = "txtPT_Name";
             this.txtPT_Name.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtPT_Name.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.wheat;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
             serializableAppearanceObject1.BackColor = System.Drawing.Color.Transparent;
             serializableAppearanceObject1.Options.UseBackColor = true;
             serializableAppearanceObject2.BackColor = System.Drawing.Color.LightBlue;
@@ -203,7 +203,7 @@ namespace JAGUAR_APP.TransaccionesPT
             this.txtNumLote.Name = "txtNumLote";
             this.txtNumLote.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtNumLote.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions2.Image = global::JAGUAR_APP.Properties.Resources.wheat;
+            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
             serializableAppearanceObject5.BackColor = System.Drawing.Color.Transparent;
             serializableAppearanceObject5.Options.UseBackColor = true;
             serializableAppearanceObject6.BackColor = System.Drawing.Color.LightBlue;
@@ -457,7 +457,7 @@ namespace JAGUAR_APP.TransaccionesPT
         private DevExpress.XtraEditors.TextEdit txtCantidadUnidades;
         private System.Windows.Forms.BindingSource bodegadestinoBindingSource1;
         private System.Windows.Forms.BindingSource bodegaorigenBindingSource1;
-        private JAGUAR_APP.LogisticaJaguar.dsRecepcionMP dsRecepcionMP;
+        private JAGUAR_PRO.LogisticaJaguar.dsRecepcionMP dsRecepcionMP;
         private DevExpress.XtraEditors.LabelControl lblCostoUnitario;
         private DevExpress.XtraEditors.TextEdit txtCostoUnitario;
     }

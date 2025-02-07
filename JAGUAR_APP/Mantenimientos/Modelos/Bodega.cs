@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace JAGUAR_APP.Mantenimientos.Modelos
+namespace JAGUAR_PRO.Mantenimientos.Modelos
 {
     public class Bodega
     {

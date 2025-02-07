@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.JaguarProduccion
+namespace JAGUAR_PRO.JaguarProduccion
 {
     partial class frmAddAvanceProduccionBolsasDanadas
     {
@@ -32,7 +32,7 @@ namespace JAGUAR_APP.JaguarProduccion
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddAvanceProduccionBolsasDanadas));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsLogisticaJaguar1 = new JAGUAR_APP.LogisticaJaguar.dsLogisticaJaguar();
+            this.dsLogisticaJaguar1 = new JAGUAR_PRO.LogisticaJaguar.dsLogisticaJaguar();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();

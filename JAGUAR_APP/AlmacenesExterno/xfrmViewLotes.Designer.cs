@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.AlmacenesExterno
+﻿namespace JAGUAR_PRO.AlmacenesExterno
 {
     partial class xfrmViewLotes
     {
@@ -37,7 +37,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcIngreso = new DevExpress.XtraGrid.GridControl();
             this.lotesviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsAlmacenesExternos = new JAGUAR_APP.AlmacenesExterno.dsAlmacenesExternos();
+            this.dsAlmacenesExternos = new JAGUAR_PRO.AlmacenesExterno.dsAlmacenesExternos();
             this.gvIngreso = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.collote = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -192,7 +192,7 @@
             this.btnAtras.Appearance.Options.UseBackColor = true;
             this.btnAtras.Appearance.Options.UseFont = true;
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAtras.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.btnAtras.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAtras.Location = new System.Drawing.Point(835, 29);
             this.btnAtras.Margin = new System.Windows.Forms.Padding(4);

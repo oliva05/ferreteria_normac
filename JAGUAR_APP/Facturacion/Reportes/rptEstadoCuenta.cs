@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 
-namespace JAGUAR_APP.Facturacion.Reportes
+namespace JAGUAR_PRO.Facturacion.Reportes
 {
     public partial class rptEstadoCuenta : DevExpress.XtraReports.UI.XtraReport
     {

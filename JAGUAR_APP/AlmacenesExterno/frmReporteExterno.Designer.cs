@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     partial class frmReporteExterno
     {
@@ -42,7 +42,7 @@ namespace JAGUAR_APP.AlmacenesExterno
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnSalir = new DevExpress.XtraEditors.SimpleButton();
             this.grd_resumen = new DevExpress.XtraGrid.GridControl();
-            this.dsReporteAlmacenExterno = new JAGUAR_APP.AlmacenesExterno.dsReporteAlmacenExterno();
+            this.dsReporteAlmacenExterno = new JAGUAR_PRO.AlmacenesExterno.dsReporteAlmacenExterno();
             this.grdv_resumen = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colcodigobog = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcionbog = new DevExpress.XtraGrid.Columns.GridColumn();

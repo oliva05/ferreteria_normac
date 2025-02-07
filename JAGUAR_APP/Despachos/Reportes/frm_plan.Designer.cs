@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Despachos.Reportes
+namespace JAGUAR_PRO.Despachos.Reportes
 {
     partial class frm_plan
     {
@@ -63,7 +63,7 @@ namespace JAGUAR_APP.Despachos.Reportes
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.dsReporte1 = new JAGUAR_APP.Despachos.Reportes.dsReporte();
+            this.dsReporte1 = new JAGUAR_PRO.Despachos.Reportes.dsReporte();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();

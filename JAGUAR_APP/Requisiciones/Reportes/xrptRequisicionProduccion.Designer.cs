@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Requisiciones.Reportes
+namespace JAGUAR_PRO.Requisiciones.Reportes
 {
     partial class xrptRequisicionProduccion
     {
@@ -95,7 +95,7 @@ namespace JAGUAR_APP.Requisiciones.Reportes
             this.xrTableRow13 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell34 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell37 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.dSReportes1 = new JAGUAR_APP.Requisiciones.dSReportes();
+            this.dSReportes1 = new JAGUAR_PRO.Requisiciones.dSReportes();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();

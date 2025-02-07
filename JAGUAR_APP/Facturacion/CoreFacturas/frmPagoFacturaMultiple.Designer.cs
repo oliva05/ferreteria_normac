@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Facturacion.CoreFacturas
+﻿namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     partial class frmPagoFacturaMultiple
     {
@@ -76,7 +76,7 @@
             this.cmdTarjeta = new DevExpress.XtraEditors.SimpleButton();
             this.cmdDepositoBancario = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsFacturasGestion1 = new JAGUAR_APP.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.dsFacturasGestion1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnum_doc = new DevExpress.XtraGrid.Columns.GridColumn();

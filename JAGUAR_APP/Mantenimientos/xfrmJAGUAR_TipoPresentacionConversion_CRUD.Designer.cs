@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos
+namespace JAGUAR_PRO.Mantenimientos
 {
     partial class xfrmJAGUAR_TipoPresentacionConversion_CRUD
     {
@@ -35,7 +35,7 @@ namespace JAGUAR_APP.Mantenimientos
             this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.presentaciontipoBindingSourceOrigen = new System.Windows.Forms.BindingSource();
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.luePresentacionDestino = new DevExpress.XtraEditors.LookUpEdit();
             this.presentaciontipoBindingSourceDestino = new System.Windows.Forms.BindingSource();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -92,7 +92,7 @@ namespace JAGUAR_APP.Mantenimientos
             this.cmdNew.Appearance.Options.UseBackColor = true;
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdNew.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.cmdNew.Location = new System.Drawing.Point(123, 201);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(139, 45);

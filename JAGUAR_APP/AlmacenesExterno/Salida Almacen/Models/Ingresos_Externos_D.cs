@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen.Models
+namespace JAGUAR_PRO.AlmacenesExterno.Salida_Almacen.Models
 {
     public class Ingresos_Externos_D
     {

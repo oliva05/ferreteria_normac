@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class frmReporteRequisicionesManuales
     {
@@ -34,7 +34,7 @@ namespace JAGUAR_APP.Reportes
             this.btnExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnclose = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsReportesRequisicionesManuales1 = new JAGUAR_APP.Reportes.dsReportesRequisicionesManuales();
+            this.dsReportesRequisicionesManuales1 = new JAGUAR_PRO.Reportes.dsReportesRequisicionesManuales();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCodId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_orden = new DevExpress.XtraGrid.Columns.GridColumn();

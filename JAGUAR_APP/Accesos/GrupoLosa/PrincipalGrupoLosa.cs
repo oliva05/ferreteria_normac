@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Accesos.GrupoLosa
+namespace JAGUAR_PRO.Accesos.GrupoLosa
 {
     public partial class PrincipalGrupoLosa : DevExpress.XtraEditors.XtraForm
     {
@@ -39,7 +39,7 @@ namespace JAGUAR_APP.Accesos.GrupoLosa
                     dataTable.Clear();
                     dataTable.Load(sqlDataReader);
 
-                    this.gridControlGruposJAGUAR_APP.DataSource = dataTable;
+                    this.gridControlGruposJAGUAR_PRO.DataSource = dataTable;
                     this.gridView1.OptionsSelection.EnableAppearanceFocusedRow = true;
                     this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
                     sqlConnection.Close();
@@ -57,10 +57,10 @@ namespace JAGUAR_APP.Accesos.GrupoLosa
         #region Eventos
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            CrearGrupoLosa crearGrupoJAGUAR_APP = new CrearGrupoLosa();
-            crearGrupoJAGUAR_APP.StartPosition = FormStartPosition.CenterParent;
-            crearGrupoJAGUAR_APP.FormClosed += CrearGrupoLosa_FormClosed;
-            crearGrupoJAGUAR_APP.ShowDialog(this);
+            CrearGrupoLosa crearGrupoJAGUAR_PRO = new CrearGrupoLosa();
+            crearGrupoJAGUAR_PRO.StartPosition = FormStartPosition.CenterParent;
+            crearGrupoJAGUAR_PRO.FormClosed += CrearGrupoLosa_FormClosed;
+            crearGrupoJAGUAR_PRO.ShowDialog(this);
         }
 
         private void CrearGrupoLosa_FormClosed(object sender, FormClosedEventArgs e)
@@ -73,10 +73,10 @@ namespace JAGUAR_APP.Accesos.GrupoLosa
             if (this.gridView1.SelectedRowsCount > 0)
             {
                 var selectedId = this.gridView1.GetDataRow(this.gridView1.GetSelectedRows().FirstOrDefault()).Field<int>("Id");
-                EditarGrupoLosa editarGrupoJAGUAR_APP = new EditarGrupoLosa(selectedId);
-                editarGrupoJAGUAR_APP.StartPosition = FormStartPosition.CenterParent;
-                editarGrupoJAGUAR_APP.FormClosed += CrearGrupoLosa_FormClosed;
-                editarGrupoJAGUAR_APP.ShowDialog(this);
+                EditarGrupoLosa editarGrupoJAGUAR_PRO = new EditarGrupoLosa(selectedId);
+                editarGrupoJAGUAR_PRO.StartPosition = FormStartPosition.CenterParent;
+                editarGrupoJAGUAR_PRO.FormClosed += CrearGrupoLosa_FormClosed;
+                editarGrupoJAGUAR_PRO.ShowDialog(this);
             }
             else
             {

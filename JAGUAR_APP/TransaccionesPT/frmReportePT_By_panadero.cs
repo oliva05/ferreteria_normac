@@ -2,8 +2,8 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.TransaccionesMP;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.TransaccionesMP;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.TransaccionesPT
+namespace JAGUAR_PRO.TransaccionesPT
 {
     public partial class frmReportePT_By_panadero : DevExpress.XtraEditors.XtraForm
     {

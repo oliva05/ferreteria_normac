@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.JaguarProduccion
+namespace JAGUAR_PRO.JaguarProduccion
 {
     partial class xrptRecepcionPT_Latas
     {

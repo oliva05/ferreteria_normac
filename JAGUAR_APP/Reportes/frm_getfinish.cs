@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class frm_getfinish : DevExpress.XtraEditors.XtraForm
     {

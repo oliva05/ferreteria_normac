@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Despachos
+﻿namespace JAGUAR_PRO.Despachos
 {
     partial class frm_despachos
     {
@@ -42,7 +42,7 @@
             this.cmdHome = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
-            this.ds_despachos = new JAGUAR_APP.Despachos.ds_despachos();
+            this.ds_despachos = new JAGUAR_PRO.Despachos.ds_despachos();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDespachoN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -76,7 +76,7 @@
             this.cmdHome.Appearance.Options.UseBackColor = true;
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdHome.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdHome.Location = new System.Drawing.Point(427, 12);
             this.cmdHome.Name = "cmdHome";
             this.cmdHome.Size = new System.Drawing.Size(199, 71);

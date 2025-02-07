@@ -1,7 +1,7 @@
 ﻿
-using JAGUAR_APP.TransaccionesMP;
+using JAGUAR_PRO.TransaccionesMP;
 
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     partial class frmAjusteKardexFactura
     {
@@ -53,7 +53,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.txtPresentacion = new DevExpress.XtraEditors.TextEdit();
             this.sluePDV = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.pDVBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientosFacturacion = new JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
+            this.dsMantenimientosFacturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -112,7 +112,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.txtPT_Name.Name = "txtPT_Name";
             this.txtPT_Name.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtPT_Name.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.ProdT_26X26;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.ProdT_26X26;
             serializableAppearanceObject1.BackColor = System.Drawing.Color.Transparent;
             serializableAppearanceObject1.Options.UseBackColor = true;
             serializableAppearanceObject2.BackColor = System.Drawing.Color.LightBlue;
@@ -170,7 +170,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.cmdGuardar.Appearance.Options.UseBackColor = true;
             this.cmdGuardar.Appearance.Options.UseFont = true;
             this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdGuardar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_24x24;
+            this.cmdGuardar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
             this.cmdGuardar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.cmdGuardar.Location = new System.Drawing.Point(22, 29);
             this.cmdGuardar.Name = "cmdGuardar";

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Formulas
+namespace JAGUAR_PRO.Formulas
 {
     partial class frmAddFormulaH
     {
@@ -48,7 +48,7 @@ namespace JAGUAR_APP.Formulas
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dsFormulasCRUD1 = new JAGUAR_APP.Formulas.dsFormulasCRUD();
+            this.dsFormulasCRUD1 = new JAGUAR_PRO.Formulas.dsFormulasCRUD();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtDescripcionFormulaNombre = new System.Windows.Forms.TextBox();
             this.txtComentario = new System.Windows.Forms.TextBox();

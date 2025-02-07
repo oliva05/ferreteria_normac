@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Reportes
+namespace JAGUAR_PRO.Facturacion.Reportes
 {
     partial class rptEstadoCuenta
     {
@@ -42,7 +42,7 @@ namespace JAGUAR_APP.Facturacion.Reportes
             this.xrTableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.dsContabilidad1 = new JAGUAR_APP.Facturacion.CoreFacturas.dsContabilidad();
+            this.dsContabilidad1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsContabilidad();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();

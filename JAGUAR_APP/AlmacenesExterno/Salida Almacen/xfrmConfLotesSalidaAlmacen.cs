@@ -8,16 +8,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.AlmacenesExterno.Salida_Almacen.Models;
+using JAGUAR_PRO.AlmacenesExterno.Salida_Almacen.Models;
 using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Data.SqlClient;
-using JAGUAR_APP.AlmacenesExterno.Models;
-using JAGUAR_APP.AlmacenesExterno.Reporteria;
+using JAGUAR_PRO.AlmacenesExterno.Models;
+using JAGUAR_PRO.AlmacenesExterno.Reporteria;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 
-namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
+namespace JAGUAR_PRO.AlmacenesExterno.Salida_Almacen
 {
     public partial class xfrmConfLotesSalidaAlmacen : DevExpress.XtraEditors.XtraForm
     {

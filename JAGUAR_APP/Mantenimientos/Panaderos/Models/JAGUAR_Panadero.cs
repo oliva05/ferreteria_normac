@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Mantenimientos.Panaderos.Models
+namespace JAGUAR_PRO.Mantenimientos.Panaderos.Models
 {
    public class JAGUAR_Panadero
     {

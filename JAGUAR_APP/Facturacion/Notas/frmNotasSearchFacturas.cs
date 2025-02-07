@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Facturacion.Notas.Model;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.Notas.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Facturacion.Notas
+namespace JAGUAR_PRO.Facturacion.Notas
 {
     public partial class frmNotasSearchFacturas : DevExpress.XtraEditors.XtraForm
     {

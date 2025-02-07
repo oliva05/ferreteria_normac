@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Accesos.GestionGrupos
+namespace JAGUAR_PRO.Accesos.GestionGrupos
 {
     public partial class CrearGrupo : DevExpress.XtraEditors.XtraForm
     {

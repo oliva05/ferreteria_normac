@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Tools
+﻿namespace JAGUAR_PRO.Tools
 {
     partial class frmInputBox
     {
@@ -48,7 +48,7 @@
             this.btndown = new DevExpress.XtraEditors.ButtonEdit();
             this.grdlookLoteExterno = new DevExpress.XtraEditors.GridLookUpEdit();
             this.detalleloteexternoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            //this.dsRecepcionMP = new JAGUAR_APP.RecepcionMP.dsRecepcionMP();
+            //this.dsRecepcionMP = new JAGUAR_PRO.RecepcionMP.dsRecepcionMP();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_lote_externo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.collote = new DevExpress.XtraGrid.Columns.GridColumn();

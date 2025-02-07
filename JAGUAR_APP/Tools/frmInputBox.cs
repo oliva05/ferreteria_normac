@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using Core.Clases.Herramientas;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Tools
+namespace JAGUAR_PRO.Tools
 {
     public partial class frmInputBox : Form
     {

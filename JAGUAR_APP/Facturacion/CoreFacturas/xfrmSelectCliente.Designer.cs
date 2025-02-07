@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     partial class xfrmSelectCliente
     {
@@ -36,7 +36,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmSelectCliente));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsMantenimientosFacturacion = new JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
+            this.dsMantenimientosFacturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
             this.gvCliente = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdCliente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombreCliente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -182,7 +182,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // btnSeleccionar
             // 
             this.btnSeleccionar.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.tap24px;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.tap24px;
             this.btnSeleccionar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnSeleccionar.Name = "btnSeleccionar";

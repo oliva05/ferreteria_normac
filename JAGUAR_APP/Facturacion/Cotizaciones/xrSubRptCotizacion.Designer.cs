@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Cotizaciones
+namespace JAGUAR_PRO.Facturacion.Cotizaciones
 {
     partial class xrSubRptCotizacion
     {

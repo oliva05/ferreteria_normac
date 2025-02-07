@@ -2,7 +2,7 @@
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta
+namespace JAGUAR_PRO.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta
 {
     partial class frmOpcionDocumentoFact_PuntoVenta
     {
@@ -35,7 +35,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOpcionDocumentoFact_PuntoVenta));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsBusquedas1 = new JAGUAR_APP.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta.dsBusquedas();
+            this.dsBusquedas1 = new JAGUAR_PRO.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta.dsBusquedas();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colshort_description = new DevExpress.XtraGrid.Columns.GridColumn();

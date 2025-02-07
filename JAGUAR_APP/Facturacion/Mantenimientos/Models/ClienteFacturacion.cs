@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Facturacion.Mantenimientos.Models
+namespace JAGUAR_PRO.Facturacion.Mantenimientos.Models
 {
    public class ClienteFacturacion
     {

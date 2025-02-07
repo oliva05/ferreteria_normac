@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
+namespace JAGUAR_PRO.AlmacenesExterno.Salida_Almacen
 {
     partial class frmTipoIngreso_v2
     {
@@ -58,7 +58,7 @@ namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.gridLookUpEditPresentacion = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourcePresentaciones = new System.Windows.Forms.BindingSource(this.components);
-            //this.dsRecepcionMP1 = new JAGUAR_APP.RecepcionMP.dsRecepcionMP();
+            //this.dsRecepcionMP1 = new JAGUAR_PRO.RecepcionMP.dsRecepcionMP();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -335,7 +335,7 @@ namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton2.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            this.simpleButton2.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.simpleButton2.Location = new System.Drawing.Point(790, 120);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(42, 40);
@@ -365,7 +365,7 @@ namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
             this.btnUbicacion.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUbicacion.Appearance.Options.UseFont = true;
             this.btnUbicacion.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnUbicacion.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            this.btnUbicacion.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.btnUbicacion.Location = new System.Drawing.Point(613, 373);
             this.btnUbicacion.Name = "btnUbicacion";
             this.btnUbicacion.Size = new System.Drawing.Size(42, 40);
@@ -835,7 +835,7 @@ namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
             this.btningreso.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btningreso.Appearance.Options.UseFont = true;
             this.btningreso.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btningreso.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            this.btningreso.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.btningreso.Location = new System.Drawing.Point(890, 44);
             this.btningreso.Name = "btningreso";
             this.btningreso.Size = new System.Drawing.Size(42, 40);
@@ -1350,7 +1350,7 @@ namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
             this.simpleButton4.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton4.Appearance.Options.UseFont = true;
             this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton4.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            this.simpleButton4.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.simpleButton4.Location = new System.Drawing.Point(682, 241);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(42, 40);

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.TransaccionesPT
+namespace JAGUAR_PRO.TransaccionesPT
 {
     partial class frmLotesxPT
     {
@@ -37,7 +37,7 @@ namespace JAGUAR_APP.TransaccionesPT
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.gridLotePT = new DevExpress.XtraGrid.GridControl();
-            this.dsPT1 = new JAGUAR_APP.TransaccionesPT.dsPT();
+            this.dsPT1 = new JAGUAR_PRO.TransaccionesPT.dsPT();
             this.gvLotePT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPT_Id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLote_PT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -196,7 +196,7 @@ namespace JAGUAR_APP.TransaccionesPT
             // btnSeleccionar
             // 
             this.btnSeleccionar.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.btnSeleccionar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnSeleccionar.Name = "btnSeleccionar";

@@ -1,5 +1,5 @@
 ﻿using ACS.Classes;
-using JAGUAR_APP.Tools;
+using JAGUAR_PRO.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP
+namespace JAGUAR_PRO
 {
     public partial class MDIParentFormLOSA : Form
     {

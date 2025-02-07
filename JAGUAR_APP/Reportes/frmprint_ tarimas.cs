@@ -10,11 +10,11 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using ACS.Classes;
 using System.Data.SqlClient;
-//using JAGUAR_APP.RecepcionMP;
+//using JAGUAR_PRO.RecepcionMP;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using System.Threading;
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class frmprint__tarimas : DevExpress.XtraEditors.XtraForm
     {

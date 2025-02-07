@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP
+﻿namespace JAGUAR_PRO
 {
     partial class frmOpciones
     {
@@ -594,7 +594,7 @@
             this.navBarItemRecepcionFactura.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItemRecepcionFactura.AppearancePressed.Options.UseFont = true;
             this.navBarItemRecepcionFactura.Caption = "Recepción de Factura";
-            this.navBarItemRecepcionFactura.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.warehouse32px1;
+            this.navBarItemRecepcionFactura.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.warehouse32px1;
             this.navBarItemRecepcionFactura.Name = "navBarItemRecepcionFactura";
             this.navBarItemRecepcionFactura.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemRecepcionFactura_LinkClicked);
             // 
@@ -607,7 +607,7 @@
             this.navBarItemCAI_Proveedores.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItemCAI_Proveedores.AppearancePressed.Options.UseFont = true;
             this.navBarItemCAI_Proveedores.Caption = "CAI Proveedores";
-            this.navBarItemCAI_Proveedores.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.proveedores32px;
+            this.navBarItemCAI_Proveedores.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.proveedores32px;
             this.navBarItemCAI_Proveedores.Name = "navBarItemCAI_Proveedores";
             this.navBarItemCAI_Proveedores.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemCAI_Proveedores_LinkClicked);
             // 
@@ -620,7 +620,7 @@
             this.navBarItemmaterialEmpaqueLogistica.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItemmaterialEmpaqueLogistica.AppearancePressed.Options.UseFont = true;
             this.navBarItemmaterialEmpaqueLogistica.Caption = "Datos Maestros Material Empaque";
-            this.navBarItemmaterialEmpaqueLogistica.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.paper_bag32px;
+            this.navBarItemmaterialEmpaqueLogistica.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.paper_bag32px;
             this.navBarItemmaterialEmpaqueLogistica.Name = "navBarItemmaterialEmpaqueLogistica";
             this.navBarItemmaterialEmpaqueLogistica.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemmaterialEmpaqueLogistica_LinkClicked);
             // 
@@ -636,7 +636,7 @@
             this.navBarItem15.AppearancePressed.Options.UseFont = true;
             this.navBarItem15.Caption = "Datos Maestros de Proveedor";
             this.navBarItem15.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem15.ImageOptions.LargeImage")));
-            this.navBarItem15.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.usergroup_32x32;
+            this.navBarItem15.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.usergroup_32x32;
             this.navBarItem15.Name = "navBarItem15";
             this.navBarItem15.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem15_LinkClicked);
             // 
@@ -682,7 +682,7 @@
             this.navBarItemOrdenFabricacion.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItemOrdenFabricacion.AppearancePressed.Options.UseFont = true;
             this.navBarItemOrdenFabricacion.Caption = "Orden de Fabricación";
-            this.navBarItemOrdenFabricacion.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.order32px;
+            this.navBarItemOrdenFabricacion.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.order32px;
             this.navBarItemOrdenFabricacion.Name = "navBarItemOrdenFabricacion";
             this.navBarItemOrdenFabricacion.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemOrdenFabricacion_LinkClicked);
             // 
@@ -708,7 +708,7 @@
             this.navBarItemRequisiciones.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItemRequisiciones.AppearancePressed.Options.UseFont = true;
             this.navBarItemRequisiciones.Caption = "Requisición de Materiales";
-            this.navBarItemRequisiciones.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.checklist32px;
+            this.navBarItemRequisiciones.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.checklist32px;
             this.navBarItemRequisiciones.Name = "navBarItemRequisiciones";
             this.navBarItemRequisiciones.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemRequisiciones_LinkClicked);
             // 
@@ -721,7 +721,7 @@
             this.navBarItemAvanceProduccion.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItemAvanceProduccion.AppearancePressed.Options.UseFont = true;
             this.navBarItemAvanceProduccion.Caption = "Avance de Producción (Latas)";
-            this.navBarItemAvanceProduccion.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.production32_2px1;
+            this.navBarItemAvanceProduccion.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.production32_2px1;
             this.navBarItemAvanceProduccion.Name = "navBarItemAvanceProduccion";
             this.navBarItemAvanceProduccion.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemAvanceProduccion_LinkClicked);
             // 
@@ -734,7 +734,7 @@
             this.navBarItem20.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem20.AppearancePressed.Options.UseFont = true;
             this.navBarItem20.Caption = "Recibo de Producto Terminado";
-            this.navBarItem20.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.product32px;
+            this.navBarItem20.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.product32px;
             this.navBarItem20.Name = "navBarItem20";
             this.navBarItem20.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem20_LinkClicked);
             // 
@@ -747,7 +747,7 @@
             this.navBarItem23.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem23.AppearancePressed.Options.UseFont = true;
             this.navBarItem23.Caption = "Producto Dañado";
-            this.navBarItem23.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.producto_danado32px;
+            this.navBarItem23.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.producto_danado32px;
             this.navBarItem23.Name = "navBarItem23";
             this.navBarItem23.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem23_LinkClicked);
             // 
@@ -782,7 +782,7 @@
             this.navBarItem11.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItem11.AppearancePressed.Options.UseFont = true;
             this.navBarItem11.Caption = "Recetas";
-            this.navBarItem11.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.cook_book32px;
+            this.navBarItem11.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.cook_book32px;
             this.navBarItem11.Name = "navBarItem11";
             this.navBarItem11.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem11_LinkClicked);
             // 
@@ -809,7 +809,7 @@
             this.navBarItem14.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItem14.AppearancePressed.Options.UseFont = true;
             this.navBarItem14.Caption = "Inventario Kardex MP";
-            this.navBarItem14.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.in_stock32px;
+            this.navBarItem14.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.in_stock32px;
             this.navBarItem14.Name = "navBarItem14";
             this.navBarItem14.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem14_LinkClicked);
             // 
@@ -824,7 +824,7 @@
             this.navBarItemKardexPT.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItemKardexPT.AppearancePressed.Options.UseFont = true;
             this.navBarItemKardexPT.Caption = "Inventario Kardex PT";
-            this.navBarItemKardexPT.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.ready_stock;
+            this.navBarItemKardexPT.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.ready_stock;
             this.navBarItemKardexPT.Name = "navBarItemKardexPT";
             this.navBarItemKardexPT.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemKardexPT_LinkClicked);
             // 
@@ -853,7 +853,7 @@
             this.navBarItem21.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItem21.AppearancePressed.Options.UseFont = true;
             this.navBarItem21.Caption = "Inventario Kardex PT Histórico";
-            this.navBarItem21.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.box32px;
+            this.navBarItem21.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.box32px;
             this.navBarItem21.Name = "navBarItem21";
             this.navBarItem21.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem21_LinkClicked);
             // 
@@ -883,7 +883,7 @@
             this.navBarItem60.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem60.AppearancePressed.Options.UseFont = true;
             this.navBarItem60.Caption = "Chequeo de Latas";
-            this.navBarItem60.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.molde32X32;
+            this.navBarItem60.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.molde32X32;
             this.navBarItem60.Name = "navBarItem60";
             this.navBarItem60.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem60_LinkClicked);
             // 
@@ -898,7 +898,7 @@
             this.navBarItem61.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem61.AppearancePressed.Options.UseFont = true;
             this.navBarItem61.Caption = "Producto Dañado";
-            this.navBarItem61.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.paquete_danado32X32;
+            this.navBarItem61.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.paquete_danado32X32;
             this.navBarItem61.Name = "navBarItem61";
             this.navBarItem61.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem61_LinkClicked);
             // 
@@ -913,7 +913,7 @@
             this.navBarItem62.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem62.AppearancePressed.Options.UseFont = true;
             this.navBarItem62.Caption = "Reporte de Producto Terminado";
-            this.navBarItem62.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.box32px;
+            this.navBarItem62.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.box32px;
             this.navBarItem62.Name = "navBarItem62";
             this.navBarItem62.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem62_LinkClicked);
             // 
@@ -1025,7 +1025,7 @@
             this.navBarItem32.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem32.AppearancePressed.Options.UseFont = true;
             this.navBarItem32.Caption = "Banner TV";
-            this.navBarItem32.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.tv;
+            this.navBarItem32.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.tv;
             this.navBarItem32.Name = "navBarItem32";
             // 
             // navBarItem33
@@ -1037,7 +1037,7 @@
             this.navBarItem33.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem33.AppearancePressed.Options.UseFont = true;
             this.navBarItem33.Caption = "Conf. Banner TV";
-            this.navBarItem33.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.Dakirby309_Simply_Styled_Settings;
+            this.navBarItem33.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Dakirby309_Simply_Styled_Settings;
             this.navBarItem33.Name = "navBarItem33";
             // 
             // navBarItem34
@@ -1049,7 +1049,7 @@
             this.navBarItem34.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem34.AppearancePressed.Options.UseFont = true;
             this.navBarItem34.Caption = "Temperatura Maquinas";
-            this.navBarItem34.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.thermometer32px;
+            this.navBarItem34.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.thermometer32px;
             this.navBarItem34.Name = "navBarItem34";
             // 
             // navBarItem35
@@ -1074,7 +1074,7 @@
             this.navBarItem36.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem36.AppearancePressed.Options.UseFont = true;
             this.navBarItem36.Caption = "Configuraciones";
-            this.navBarItem36.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.config_32x32;
+            this.navBarItem36.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.config_32x32;
             this.navBarItem36.Name = "navBarItem36";
             // 
             // navBarItem37
@@ -1086,7 +1086,7 @@
             this.navBarItem37.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem37.AppearancePressed.Options.UseFont = true;
             this.navBarItem37.Caption = "Intake Viewer";
-            this.navBarItem37.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.report_32x32;
+            this.navBarItem37.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.report_32x32;
             this.navBarItem37.Name = "navBarItem37";
             // 
             // navBarItem39
@@ -1098,7 +1098,7 @@
             this.navBarItem39.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem39.AppearancePressed.Options.UseFont = true;
             this.navBarItem39.Caption = "Impresión de Tarimas";
-            this.navBarItem39.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.pallet32px1;
+            this.navBarItem39.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.pallet32px1;
             this.navBarItem39.Name = "navBarItem39";
             // 
             // navBarItem40
@@ -1110,7 +1110,7 @@
             this.navBarItem40.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem40.AppearanceHotTracked.Options.UseFont = true;
             this.navBarItem40.Caption = "Tarimas PT";
-            this.navBarItem40.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.pallet32px;
+            this.navBarItem40.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.pallet32px;
             this.navBarItem40.Name = "navBarItem40";
             // 
             // navBarItem41
@@ -1122,7 +1122,7 @@
             this.navBarItem41.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem41.AppearancePressed.Options.UseFont = true;
             this.navBarItem41.Caption = "Reporte de Alimentación";
-            this.navBarItem41.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.edit_table_1_;
+            this.navBarItem41.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.edit_table_1_;
             this.navBarItem41.Name = "navBarItem41";
             // 
             // navBarItem43
@@ -1145,7 +1145,7 @@
             this.navBarItem42.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem42.AppearancePressed.Options.UseFont = true;
             this.navBarItem42.Caption = "Tarimas de Reproceso";
-            this.navBarItem42.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.pallet32px;
+            this.navBarItem42.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.pallet32px;
             this.navBarItem42.Name = "navBarItem42";
             // 
             // navBarItem38
@@ -1157,7 +1157,7 @@
             this.navBarItem38.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem38.AppearancePressed.Options.UseFont = true;
             this.navBarItem38.Caption = "Alimentación Manual";
-            this.navBarItem38.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.alimentacion_manual;
+            this.navBarItem38.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.alimentacion_manual;
             this.navBarItem38.Name = "navBarItem38";
             // 
             // navBarItem46
@@ -1169,7 +1169,7 @@
             this.navBarItem46.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem46.AppearancePressed.Options.UseFont = true;
             this.navBarItem46.Caption = "Traslado de Aceite Externo";
-            this.navBarItem46.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.oil_pipe_line_icon32px;
+            this.navBarItem46.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.oil_pipe_line_icon32px;
             this.navBarItem46.Name = "navBarItem46";
             // 
             // navBarItem47
@@ -1181,7 +1181,7 @@
             this.navBarItem47.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem47.AppearancePressed.Options.UseFont = true;
             this.navBarItem47.Caption = "Set Material";
-            this.navBarItem47.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.settings_icon24px;
+            this.navBarItem47.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.settings_icon24px;
             this.navBarItem47.Name = "navBarItem47";
             // 
             // navBarItem48
@@ -1193,7 +1193,7 @@
             this.navBarItem48.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem48.AppearancePressed.Options.UseFont = true;
             this.navBarItem48.Caption = "Reporte Traslados Aceites";
-            this.navBarItem48.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.Reports_icon24px;
+            this.navBarItem48.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Reports_icon24px;
             this.navBarItem48.Name = "navBarItem48";
             // 
             // navBarItem49
@@ -1281,7 +1281,7 @@
             this.navBarItem44.AppearancePressed.Options.UseFont = true;
             this.navBarItem44.Caption = "Reporte de Lotes a Consumir";
             this.navBarItem44.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem44.ImageOptions.LargeImage")));
-            this.navBarItem44.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.report_consumr_48x48;
+            this.navBarItem44.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.report_consumr_48x48;
             this.navBarItem44.Name = "navBarItem44";
             // 
             // navBarItem45
@@ -1350,7 +1350,7 @@
             this.btnRutas.Appearance.Options.UseTextOptions = true;
             this.btnRutas.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnRutas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnRutas.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.signpost24X24;
+            this.btnRutas.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.signpost24X24;
             this.btnRutas.Location = new System.Drawing.Point(6, 369);
             this.btnRutas.Name = "btnRutas";
             this.btnRutas.Size = new System.Drawing.Size(188, 53);
@@ -1685,7 +1685,7 @@
             this.btnME.Appearance.Options.UseTextOptions = true;
             this.btnME.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnME.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnME.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.empaque;
+            this.btnME.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.empaque;
             this.btnME.Location = new System.Drawing.Point(468, 122);
             this.btnME.Name = "btnME";
             this.btnME.Size = new System.Drawing.Size(227, 58);
@@ -1713,7 +1713,7 @@
             this.cmdPanaderos.Appearance.Options.UseTextOptions = true;
             this.cmdPanaderos.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.cmdPanaderos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdPanaderos.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.baker;
+            this.cmdPanaderos.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.baker;
             this.cmdPanaderos.Location = new System.Drawing.Point(468, 2);
             this.cmdPanaderos.Name = "cmdPanaderos";
             this.cmdPanaderos.Size = new System.Drawing.Size(227, 58);
@@ -1726,7 +1726,7 @@
             this.simpleButton78.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.simpleButton78.Appearance.Options.UseFont = true;
             this.simpleButton78.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton78.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.dimension32px;
+            this.simpleButton78.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.dimension32px;
             this.simpleButton78.Location = new System.Drawing.Point(235, 62);
             this.simpleButton78.Name = "simpleButton78";
             this.simpleButton78.Size = new System.Drawing.Size(227, 58);
@@ -1771,7 +1771,7 @@
             this.cmdProveedores.Appearance.Options.UseTextOptions = true;
             this.cmdProveedores.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.cmdProveedores.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdProveedores.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.usergroup_32x32;
+            this.cmdProveedores.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.usergroup_32x32;
             this.cmdProveedores.Location = new System.Drawing.Point(2, 362);
             this.cmdProveedores.Name = "cmdProveedores";
             this.cmdProveedores.Size = new System.Drawing.Size(227, 58);
@@ -1798,7 +1798,7 @@
             this.cmdFML_Tipo.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
             this.cmdFML_Tipo.Appearance.Options.UseFont = true;
             this.cmdFML_Tipo.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdFML_Tipo.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.recipe32px;
+            this.cmdFML_Tipo.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.recipe32px;
             this.cmdFML_Tipo.Location = new System.Drawing.Point(235, 242);
             this.cmdFML_Tipo.Name = "cmdFML_Tipo";
             this.cmdFML_Tipo.Size = new System.Drawing.Size(227, 58);
@@ -1811,7 +1811,7 @@
             this.btnBodegas.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBodegas.Appearance.Options.UseFont = true;
             this.btnBodegas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnBodegas.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.warehouse32px;
+            this.btnBodegas.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.warehouse32px;
             this.btnBodegas.Location = new System.Drawing.Point(2, 2);
             this.btnBodegas.Name = "btnBodegas";
             this.btnBodegas.Size = new System.Drawing.Size(227, 58);
@@ -1838,7 +1838,7 @@
             this.btnTiposPresentaciones.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTiposPresentaciones.Appearance.Options.UseFont = true;
             this.btnTiposPresentaciones.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnTiposPresentaciones.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.dimension32px;
+            this.btnTiposPresentaciones.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.dimension32px;
             this.btnTiposPresentaciones.Location = new System.Drawing.Point(2, 62);
             this.btnTiposPresentaciones.Name = "btnTiposPresentaciones";
             this.btnTiposPresentaciones.Size = new System.Drawing.Size(227, 58);
@@ -1865,7 +1865,7 @@
             this.cmd_estadosFML.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
             this.cmd_estadosFML.Appearance.Options.UseFont = true;
             this.cmd_estadosFML.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmd_estadosFML.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.tipos_recetas32px;
+            this.cmd_estadosFML.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.tipos_recetas32px;
             this.cmd_estadosFML.Location = new System.Drawing.Point(235, 182);
             this.cmd_estadosFML.Name = "cmd_estadosFML";
             this.cmd_estadosFML.Size = new System.Drawing.Size(227, 58);
@@ -1894,7 +1894,7 @@
             this.btnMP.Appearance.Options.UseTextOptions = true;
             this.btnMP.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnMP.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnMP.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.material32px;
+            this.btnMP.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.material32px;
             this.btnMP.Location = new System.Drawing.Point(2, 182);
             this.btnMP.Name = "btnMP";
             this.btnMP.Size = new System.Drawing.Size(227, 58);
@@ -1907,7 +1907,7 @@
             this.simpleButton74.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton74.Appearance.Options.UseFont = true;
             this.simpleButton74.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton74.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.bread32px;
+            this.simpleButton74.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.bread32px;
             this.simpleButton74.Location = new System.Drawing.Point(2, 122);
             this.simpleButton74.Name = "simpleButton74";
             this.simpleButton74.Size = new System.Drawing.Size(227, 58);
@@ -2073,7 +2073,7 @@
             this.btnListaPrecios.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaPrecios.Appearance.Options.UseFont = true;
             this.btnListaPrecios.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnListaPrecios.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.prices_list;
+            this.btnListaPrecios.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.prices_list;
             this.btnListaPrecios.Location = new System.Drawing.Point(3, 209);
             this.btnListaPrecios.Name = "btnListaPrecios";
             this.btnListaPrecios.Size = new System.Drawing.Size(186, 58);
@@ -2116,7 +2116,7 @@
             this.btnClienteFacturacion.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClienteFacturacion.Appearance.Options.UseFont = true;
             this.btnClienteFacturacion.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnClienteFacturacion.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.usergroup_32x32;
+            this.btnClienteFacturacion.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.usergroup_32x32;
             this.btnClienteFacturacion.Location = new System.Drawing.Point(3, 3);
             this.btnClienteFacturacion.Name = "btnClienteFacturacion";
             this.btnClienteFacturacion.Size = new System.Drawing.Size(186, 61);
@@ -2240,7 +2240,7 @@
             this.nbTrazabilidad.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nbTrazabilidad.AppearancePressed.Options.UseFont = true;
             this.nbTrazabilidad.Caption = "Trazabilidad de Lote";
-            this.nbTrazabilidad.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.checklist;
+            this.nbTrazabilidad.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.checklist;
             this.nbTrazabilidad.Name = "nbTrazabilidad";
             this.nbTrazabilidad.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbTrazabilidad_LinkClicked_1);
             // 
@@ -2253,7 +2253,7 @@
             this.nbPlanProduccion.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nbPlanProduccion.AppearancePressed.Options.UseFont = true;
             this.nbPlanProduccion.Caption = "Plan de Producción";
-            this.nbPlanProduccion.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.orders_production_24px;
+            this.nbPlanProduccion.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.orders_production_24px;
             this.nbPlanProduccion.Name = "nbPlanProduccion";
             this.nbPlanProduccion.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbPlanProduccion_LinkClicked);
             // 
@@ -2319,7 +2319,7 @@
             this.nbConsultaHora.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nbConsultaHora.AppearancePressed.Options.UseFont = true;
             this.nbConsultaHora.Caption = "Consulta Horas";
-            this.nbConsultaHora.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.clock_24;
+            this.nbConsultaHora.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.clock_24;
             this.nbConsultaHora.Name = "nbConsultaHora";
             this.nbConsultaHora.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbConsultaHora_LinkClicked);
             // 
@@ -2446,7 +2446,7 @@
             this.nbBannerTV.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nbBannerTV.AppearancePressed.Options.UseFont = true;
             this.nbBannerTV.Caption = "Banner TV";
-            this.nbBannerTV.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.tv;
+            this.nbBannerTV.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.tv;
             this.nbBannerTV.Name = "nbBannerTV";
             this.nbBannerTV.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbBannerTV_LinkClicked);
             // 
@@ -2459,7 +2459,7 @@
             this.navBarItem18.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem18.AppearancePressed.Options.UseFont = true;
             this.navBarItem18.Caption = "Conf. Banner TV";
-            this.navBarItem18.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.Dakirby309_Simply_Styled_Settings;
+            this.navBarItem18.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Dakirby309_Simply_Styled_Settings;
             this.navBarItem18.Name = "navBarItem18";
             this.navBarItem18.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem18_LinkClicked);
             // 
@@ -2472,7 +2472,7 @@
             this.nbTemperatura.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nbTemperatura.AppearancePressed.Options.UseFont = true;
             this.nbTemperatura.Caption = "Temperatura Maquinas";
-            this.nbTemperatura.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.thermometer32px;
+            this.nbTemperatura.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.thermometer32px;
             this.nbTemperatura.Name = "nbTemperatura";
             this.nbTemperatura.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbTemperatura_LinkClicked);
             // 
@@ -2499,7 +2499,7 @@
             this.nbConfiguraciones.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nbConfiguraciones.AppearancePressed.Options.UseFont = true;
             this.nbConfiguraciones.Caption = "Configuraciones";
-            this.nbConfiguraciones.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.config_32x32;
+            this.nbConfiguraciones.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.config_32x32;
             this.nbConfiguraciones.Name = "nbConfiguraciones";
             this.nbConfiguraciones.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbConfiguraciones_LinkClicked);
             // 
@@ -2512,7 +2512,7 @@
             this.navBarItem22.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem22.AppearancePressed.Options.UseFont = true;
             this.navBarItem22.Caption = "Intake Viewer";
-            this.navBarItem22.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.report_32x32;
+            this.navBarItem22.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.report_32x32;
             this.navBarItem22.Name = "navBarItem22";
             this.navBarItem22.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem22_LinkClicked);
             // 
@@ -2545,7 +2545,7 @@
             this.navBarItem10.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem10.AppearancePressed.Options.UseFont = true;
             this.navBarItem10.Caption = "Alimentación Manual";
-            this.navBarItem10.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.alimentacion_manual;
+            this.navBarItem10.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.alimentacion_manual;
             this.navBarItem10.Name = "navBarItem10";
             this.navBarItem10.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem10_LinkClicked);
             // 
@@ -2558,7 +2558,7 @@
             this.navBarItem3.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem3.AppearancePressed.Options.UseFont = true;
             this.navBarItem3.Caption = "Impresión de Tarimas";
-            this.navBarItem3.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.pallet32px1;
+            this.navBarItem3.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.pallet32px1;
             this.navBarItem3.Name = "navBarItem3";
             this.navBarItem3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem3_LinkClicked);
             // 
@@ -2571,7 +2571,7 @@
             this.navBarItem4.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem4.AppearanceHotTracked.Options.UseFont = true;
             this.navBarItem4.Caption = "Tarimas PT";
-            this.navBarItem4.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.pallet32px;
+            this.navBarItem4.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.pallet32px;
             this.navBarItem4.Name = "navBarItem4";
             this.navBarItem4.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem4_LinkClicked);
             // 
@@ -2584,7 +2584,7 @@
             this.navBarItem5.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem5.AppearancePressed.Options.UseFont = true;
             this.navBarItem5.Caption = "Reporte de Alimentación";
-            this.navBarItem5.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.edit_table_1_;
+            this.navBarItem5.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.edit_table_1_;
             this.navBarItem5.Name = "navBarItem5";
             this.navBarItem5.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem5_LinkClicked);
             // 
@@ -2597,7 +2597,7 @@
             this.navBarItem8.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.navBarItem8.AppearancePressed.Options.UseFont = true;
             this.navBarItem8.Caption = "Tarimas de Reproceso";
-            this.navBarItem8.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.pallet32px;
+            this.navBarItem8.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.pallet32px;
             this.navBarItem8.Name = "navBarItem8";
             this.navBarItem8.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem8_LinkClicked);
             // 
@@ -2623,7 +2623,7 @@
             this.navBarItem2.AppearancePressed.Options.UseFont = true;
             this.navBarItem2.Caption = "Reporte de Lotes a Consumir";
             this.navBarItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem2.ImageOptions.LargeImage")));
-            this.navBarItem2.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.report_consumr_48x48;
+            this.navBarItem2.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.report_consumr_48x48;
             this.navBarItem2.Name = "navBarItem2";
             this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
@@ -2672,7 +2672,7 @@
             this.nbTrasladoAceiteExterno.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nbTrasladoAceiteExterno.AppearancePressed.Options.UseFont = true;
             this.nbTrasladoAceiteExterno.Caption = "Traslado de Aceite Externo";
-            this.nbTrasladoAceiteExterno.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.oil_pipe_line_icon32px;
+            this.nbTrasladoAceiteExterno.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.oil_pipe_line_icon32px;
             this.nbTrasladoAceiteExterno.Name = "nbTrasladoAceiteExterno";
             this.nbTrasladoAceiteExterno.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbTrasladoAceiteExterno_LinkClicked);
             // 
@@ -2685,7 +2685,7 @@
             this.nbSetMaterial.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nbSetMaterial.AppearancePressed.Options.UseFont = true;
             this.nbSetMaterial.Caption = "Set Material";
-            this.nbSetMaterial.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.settings_icon24px;
+            this.nbSetMaterial.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.settings_icon24px;
             this.nbSetMaterial.Name = "nbSetMaterial";
             this.nbSetMaterial.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbSetMaterial_LinkPressed);
             // 
@@ -2698,7 +2698,7 @@
             this.nbReporteTrasladoAceites.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nbReporteTrasladoAceites.AppearancePressed.Options.UseFont = true;
             this.nbReporteTrasladoAceites.Caption = "Reporte Traslados Aceites";
-            this.nbReporteTrasladoAceites.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.Reports_icon24px;
+            this.nbReporteTrasladoAceites.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Reports_icon24px;
             this.nbReporteTrasladoAceites.Name = "nbReporteTrasladoAceites";
             this.nbReporteTrasladoAceites.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbReporteTrasladoAceites_LinkClicked);
             // 
@@ -2901,7 +2901,7 @@
             this.btnRutas_traza_produccion.Appearance.Options.UseTextOptions = true;
             this.btnRutas_traza_produccion.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnRutas_traza_produccion.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnRutas_traza_produccion.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.signpost24X24;
+            this.btnRutas_traza_produccion.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.signpost24X24;
             this.btnRutas_traza_produccion.Location = new System.Drawing.Point(1, 12);
             this.btnRutas_traza_produccion.Name = "btnRutas_traza_produccion";
             this.btnRutas_traza_produccion.Size = new System.Drawing.Size(6, 2);
@@ -3029,7 +3029,7 @@
             this.xtraTabPage1.Controls.Add(this.simpleButton40);
             this.xtraTabPage1.Controls.Add(this.simpleButton39);
             this.xtraTabPage1.Controls.Add(this.simpleButton38);
-            this.xtraTabPage1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.rrhh_24X24;
+            this.xtraTabPage1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.rrhh_24X24;
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.PageVisible = false;
             this.xtraTabPage1.Size = new System.Drawing.Size(814, 461);
@@ -3147,7 +3147,7 @@
             this.simpleButton39.Appearance.Options.UseTextOptions = true;
             this.simpleButton39.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton39.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton39.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.bomba_de_gas_32X32;
+            this.simpleButton39.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.bomba_de_gas_32X32;
             this.simpleButton39.Location = new System.Drawing.Point(1, 5);
             this.simpleButton39.Name = "simpleButton39";
             this.simpleButton39.Size = new System.Drawing.Size(6, 2);
@@ -3182,7 +3182,7 @@
             this.xtraTabPage2.Controls.Add(this.simpleButton49);
             this.xtraTabPage2.Controls.Add(this.simpleButton48);
             this.xtraTabPage2.Controls.Add(this.simpleButton47);
-            this.xtraTabPage2.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.graph_32X32;
+            this.xtraTabPage2.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.graph_32X32;
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.PageVisible = false;
             this.xtraTabPage2.Size = new System.Drawing.Size(814, 461);
@@ -3352,7 +3352,7 @@
             this.xtraTabPage3.Controls.Add(this.simpleButton59);
             this.xtraTabPage3.Controls.Add(this.simpleButton58);
             this.xtraTabPage3.Controls.Add(this.simpleButton57);
-            this.xtraTabPage3.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.calculo;
+            this.xtraTabPage3.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.calculo;
             this.xtraTabPage3.Name = "xtraTabPage3";
             this.xtraTabPage3.PageVisible = false;
             this.xtraTabPage3.Size = new System.Drawing.Size(814, 461);
@@ -3381,7 +3381,7 @@
             this.btn_rutas_traza_contabilidad.Appearance.Options.UseTextOptions = true;
             this.btn_rutas_traza_contabilidad.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btn_rutas_traza_contabilidad.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btn_rutas_traza_contabilidad.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.signpost24X24;
+            this.btn_rutas_traza_contabilidad.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.signpost24X24;
             this.btn_rutas_traza_contabilidad.Location = new System.Drawing.Point(19, 2);
             this.btn_rutas_traza_contabilidad.Name = "btn_rutas_traza_contabilidad";
             this.btn_rutas_traza_contabilidad.Size = new System.Drawing.Size(8, 2);
@@ -3559,7 +3559,7 @@
             this.xtraTabPage4.Controls.Add(this.simpleButton70);
             this.xtraTabPage4.Controls.Add(this.simpleButton69);
             this.xtraTabPage4.Controls.Add(this.simpleButton68);
-            this.xtraTabPage4.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.weighing_machine_32X321;
+            this.xtraTabPage4.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.weighing_machine_32X321;
             this.xtraTabPage4.Name = "xtraTabPage4";
             this.xtraTabPage4.PageVisible = false;
             this.xtraTabPage4.Size = new System.Drawing.Size(814, 461);
@@ -3587,7 +3587,7 @@
             this.simpleButton70.Appearance.Options.UseTextOptions = true;
             this.simpleButton70.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton70.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton70.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.hapag_4_icon48px;
+            this.simpleButton70.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.hapag_4_icon48px;
             this.simpleButton70.Location = new System.Drawing.Point(2, 8);
             this.simpleButton70.Name = "simpleButton70";
             this.simpleButton70.Size = new System.Drawing.Size(8, 2);
@@ -3617,7 +3617,7 @@
             this.simpleButton68.Appearance.Options.UseTextOptions = true;
             this.simpleButton68.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton68.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton68.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.plan_icon48X48;
+            this.simpleButton68.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.plan_icon48X48;
             this.simpleButton68.Location = new System.Drawing.Point(2, 2);
             this.simpleButton68.Name = "simpleButton68";
             this.simpleButton68.Size = new System.Drawing.Size(8, 2);
@@ -3629,7 +3629,7 @@
             // 
             this.xtraTabPage5.Controls.Add(this.simpleButton73);
             this.xtraTabPage5.Controls.Add(this.simpleButton72);
-            this.xtraTabPage5.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.formula_market_research;
+            this.xtraTabPage5.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.formula_market_research;
             this.xtraTabPage5.Name = "xtraTabPage5";
             this.xtraTabPage5.PageVisible = false;
             this.xtraTabPage5.Size = new System.Drawing.Size(814, 461);
@@ -3642,7 +3642,7 @@
             this.simpleButton73.Appearance.Options.UseTextOptions = true;
             this.simpleButton73.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton73.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton73.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.formula_local_32;
+            this.simpleButton73.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.formula_local_32;
             this.simpleButton73.Location = new System.Drawing.Point(2, 6);
             this.simpleButton73.Name = "simpleButton73";
             this.simpleButton73.Size = new System.Drawing.Size(8, 2);
@@ -3657,7 +3657,7 @@
             this.simpleButton72.Appearance.Options.UseTextOptions = true;
             this.simpleButton72.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton72.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton72.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.formula_external_32;
+            this.simpleButton72.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.formula_external_32;
             this.simpleButton72.Location = new System.Drawing.Point(2, 2);
             this.simpleButton72.Name = "simpleButton72";
             this.simpleButton72.Size = new System.Drawing.Size(8, 2);
@@ -3731,7 +3731,7 @@
             this.nbKardexFacturacion.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
             this.nbKardexFacturacion.AppearancePressed.Options.UseFont = true;
             this.nbKardexFacturacion.Caption = "Inventario por Punto de Facturación";
-            this.nbKardexFacturacion.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.inventory_24x24;
+            this.nbKardexFacturacion.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.inventory_24x24;
             this.nbKardexFacturacion.Name = "nbKardexFacturacion";
             this.nbKardexFacturacion.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbKardexFacturacion_LinkPressed);
             // 
@@ -3879,7 +3879,7 @@
             this.nbRequest.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
             this.nbRequest.AppearancePressed.Options.UseFont = true;
             this.nbRequest.Caption = "Solicitudes de Autorizaciones";
-            this.nbRequest.ImageOptions.SmallImage = global::JAGUAR_APP.Properties.Resources.shield_16X16;
+            this.nbRequest.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.shield_16X16;
             this.nbRequest.Name = "nbRequest";
             this.nbRequest.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbRequest_LinkClicked);
             // 

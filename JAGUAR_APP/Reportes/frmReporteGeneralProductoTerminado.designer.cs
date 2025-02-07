@@ -1,7 +1,7 @@
 ﻿
 using DevExpress.XtraEditors;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class frmReporteGeneralProductoTerminado
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.Reportes
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.dsReportesInventario1 = new JAGUAR_APP.Reportes.dsReportesInventario();
+            this.dsReportesInventario1 = new JAGUAR_PRO.Reportes.dsReportesInventario();
             this.grd_inventario = new DevExpress.XtraGrid.GridControl();
             this.grdv_inventario = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_pt1 = new DevExpress.XtraGrid.Columns.GridColumn();

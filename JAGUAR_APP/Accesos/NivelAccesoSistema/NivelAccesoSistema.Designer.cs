@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Accesos.NivelAccesoSistema
+namespace JAGUAR_PRO.Accesos.NivelAccesoSistema
 {
     partial class NivelAccesoSistema
     {

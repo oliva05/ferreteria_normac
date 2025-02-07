@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Calidad.LoteConfConsumo
+namespace JAGUAR_PRO.Calidad.LoteConfConsumo
 {
     partial class frmSearchMP
     {
@@ -33,7 +33,7 @@ namespace JAGUAR_APP.Calidad.LoteConfConsumo
             this.cmdAplicar = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlDetalleMP = new DevExpress.XtraGrid.GridControl();
-            this.dsReportesInventario = new JAGUAR_APP.Reportes.dsReportesInventario();
+            this.dsReportesInventario = new JAGUAR_PRO.Reportes.dsReportesInventario();
             this.gvMP = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colItemCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();

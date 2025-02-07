@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Mantenimientos
+namespace JAGUAR_PRO.Facturacion.Mantenimientos
 {
     partial class xformFacturacion_Clientes_CRUD
     {
@@ -47,7 +47,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             this.label2 = new System.Windows.Forms.Label();
             this.gcEmpresa = new DevExpress.XtraGrid.GridControl();
             this.dsMantenimientosFacturacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientosFacturacion = new JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
+            this.dsMantenimientosFacturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
             this.gvEmpresa = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdCliente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -366,7 +366,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             this.btnNew.Appearance.Options.UseBackColor = true;
             this.btnNew.Appearance.Options.UseFont = true;
             this.btnNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnNew.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.add_32x321;
+            this.btnNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.add_32x321;
             this.btnNew.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.btnNew.Location = new System.Drawing.Point(10, 11);
             this.btnNew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -384,7 +384,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton2.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.simpleButton2.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton2.Location = new System.Drawing.Point(1221, 10);
             this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -565,7 +565,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton1.Location = new System.Drawing.Point(1103, 10);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

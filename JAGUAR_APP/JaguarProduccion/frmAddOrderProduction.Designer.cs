@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.JaguarProduccion
+namespace JAGUAR_PRO.JaguarProduccion
 {
     partial class frmAddOrderProduction
     {
@@ -33,7 +33,7 @@ namespace JAGUAR_APP.JaguarProduccion
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddOrderProduction));
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
             this.bindingSourceRecetas = new System.Windows.Forms.BindingSource(this.components);
-            this.dsLogisticaJaguar1 = new JAGUAR_APP.LogisticaJaguar.dsLogisticaJaguar();
+            this.dsLogisticaJaguar1 = new JAGUAR_PRO.LogisticaJaguar.dsLogisticaJaguar();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gridLookUpEditProductoTerminado = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourcePT = new System.Windows.Forms.BindingSource(this.components);

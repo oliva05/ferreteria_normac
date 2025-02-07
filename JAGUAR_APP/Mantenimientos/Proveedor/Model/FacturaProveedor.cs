@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Mantenimientos.Proveedor.Model
+namespace JAGUAR_PRO.Mantenimientos.Proveedor.Model
 {
    public class FacturaProveedor
     {

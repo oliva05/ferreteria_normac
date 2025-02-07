@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JAGUAR_APP.Mantenimientos.Modelos
+namespace JAGUAR_PRO.Mantenimientos.Modelos
 {
     public class KardexTipoTransaccion
     {

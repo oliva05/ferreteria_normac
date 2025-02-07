@@ -47,7 +47,7 @@
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.grRequisicoinesMP = new DevExpress.XtraGrid.GridControl();
-            this.dSReportes1 = new JAGUAR_APP.Requisiciones.dSReportes();
+            this.dSReportes1 = new JAGUAR_PRO.Requisiciones.dSReportes();
             this.gvRequisicion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colLote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -548,7 +548,7 @@
         private DevExpress.XtraEditors.ToggleSwitch tggView;
         private DevExpress.XtraGrid.Columns.GridColumn colfinalizado;
         private DevExpress.XtraGrid.Columns.GridColumn colLote;
-        private JAGUAR_APP.Requisiciones.dSReportes dSReportes1;
+        private JAGUAR_PRO.Requisiciones.dSReportes dSReportes1;
         private DevExpress.XtraGrid.Columns.GridColumn colAsignadoa;
         private DevExpress.XtraGrid.Columns.GridColumn colItemNamePT;
         private DevExpress.XtraGrid.Columns.GridColumn colcant_arrobas;

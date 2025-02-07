@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Reportes
+﻿namespace JAGUAR_PRO.Reportes
 {
     partial class frmprint__tarimas
     {
@@ -40,7 +40,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.grd_tarimas = new DevExpress.XtraGrid.GridControl();
-            this.dsReportes = new JAGUAR_APP.Reportes.dsReportes();
+            this.dsReportes = new JAGUAR_PRO.Reportes.dsReportes();
             this.grdv_tarimas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmaterial = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -249,7 +249,7 @@
             this.cmdHome.Appearance.Options.UseBackColor = true;
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdHome.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdHome.Location = new System.Drawing.Point(572, 13);
             this.cmdHome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmdHome.Name = "cmdHome";

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class rptHistoricoPT
     {
@@ -42,7 +42,7 @@ namespace JAGUAR_APP.Reportes
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.dsReportesInventario1 = new JAGUAR_APP.Reportes.dsReportesInventario();
+            this.dsReportesInventario1 = new JAGUAR_PRO.Reportes.dsReportesInventario();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();

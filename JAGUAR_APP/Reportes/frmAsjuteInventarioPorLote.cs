@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACS.Classes;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Calidad.LoteConfConsumo;
-using JAGUAR_APP.TransaccionesMP;
-using JAGUAR_APP.LogisticaJaguar;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Calidad.LoteConfConsumo;
+using JAGUAR_PRO.TransaccionesMP;
+using JAGUAR_PRO.LogisticaJaguar;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class frmAsjuteInventarioPorLote : DevExpress.XtraEditors.XtraForm
     {

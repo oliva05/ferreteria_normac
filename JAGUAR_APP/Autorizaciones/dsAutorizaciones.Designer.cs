@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JAGUAR_APP.Autorizaciones {
+namespace JAGUAR_PRO.Autorizaciones {
     
     
     /// <summary>

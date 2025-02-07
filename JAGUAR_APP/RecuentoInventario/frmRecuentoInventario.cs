@@ -14,7 +14,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using Huellas;
 using System.Threading;
 
-namespace JAGUAR_APP.RecuentoInventario
+namespace JAGUAR_PRO.RecuentoInventario
 {
     public partial class frmRecuentoInventario : DevExpress.XtraEditors.XtraForm
     {

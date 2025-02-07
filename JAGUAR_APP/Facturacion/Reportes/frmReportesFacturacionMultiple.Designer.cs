@@ -2,7 +2,7 @@
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.Facturacion.Reportes
+namespace JAGUAR_PRO.Facturacion.Reportes
 {
     partial class frmReportesFacturacionMultiple
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.Facturacion.Reportes
             this.btnRefreshPage1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSalir = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsReporte1 = new JAGUAR_APP.Despachos.Reportes.dsReporte();
+            this.dsReporte1 = new JAGUAR_PRO.Despachos.Reportes.dsReporte();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPuntodeVenta = new DevExpress.XtraGrid.Columns.GridColumn();

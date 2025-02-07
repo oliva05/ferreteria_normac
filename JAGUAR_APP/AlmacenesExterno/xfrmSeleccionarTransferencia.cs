@@ -8,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.AlmacenesExterno.Reporteria;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.AlmacenesExterno.Reporteria;
 using DevExpress.XtraReports.UI;
 using System.Data.SqlClient;
 using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     public partial class xfrmSeleccionarTransferencia : DevExpress.XtraEditors.XtraForm
     {

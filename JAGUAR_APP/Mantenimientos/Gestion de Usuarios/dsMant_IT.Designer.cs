@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JAGUAR_APP.Mantenimientos.Gestion_de_Usuarios {
+namespace JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios {
     
     
     /// <summary>

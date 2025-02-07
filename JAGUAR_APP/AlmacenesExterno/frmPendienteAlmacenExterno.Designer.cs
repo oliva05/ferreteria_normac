@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     partial class frmPendienteAlmacenExterno
     {
@@ -37,7 +37,7 @@ namespace JAGUAR_APP.AlmacenesExterno
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.cmdHome = new DevExpress.XtraEditors.SimpleButton();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
-            this.dsAlmacenesExternos = new JAGUAR_APP.AlmacenesExterno.dsAlmacenesExternos();
+            this.dsAlmacenesExternos = new JAGUAR_PRO.AlmacenesExterno.dsAlmacenesExternos();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnumero_ingreso = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,7 +66,7 @@ namespace JAGUAR_APP.AlmacenesExterno
             this.cmdHome.Appearance.Options.UseBackColor = true;
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdHome.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdHome.Location = new System.Drawing.Point(866, 9);
             this.cmdHome.Name = "cmdHome";
             this.cmdHome.Size = new System.Drawing.Size(145, 42);

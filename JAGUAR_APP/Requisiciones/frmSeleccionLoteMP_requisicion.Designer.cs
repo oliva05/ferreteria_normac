@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Requisiciones
+namespace JAGUAR_PRO.Requisiciones
 {
     partial class frmSeleccionLoteMP_requisicion
     {
@@ -41,7 +41,7 @@ namespace JAGUAR_APP.Requisiciones
             this.lblNumRequisicion = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dSReportes1 = new JAGUAR_APP.Requisiciones.dSReportes();
+            this.dSReportes1 = new JAGUAR_PRO.Requisiciones.dSReportes();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.collote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidad = new DevExpress.XtraGrid.Columns.GridColumn();

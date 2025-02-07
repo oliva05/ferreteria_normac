@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static DevExpress.XtraPrinting.Native.ExportOptionsPropertiesNames;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
    public class PDV
     {

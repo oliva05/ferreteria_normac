@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Requisiciones;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Requisiciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

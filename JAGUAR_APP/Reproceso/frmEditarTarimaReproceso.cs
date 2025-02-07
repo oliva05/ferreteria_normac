@@ -12,10 +12,10 @@ using System.Data.SqlClient;
 using ACS.Classes;
 using Core.Clases.Herramientas;
 using Huellas;
-using JAGUAR_APP.Clases;
-//using JAGUAR_APP.RecepcionMP;
+using JAGUAR_PRO.Clases;
+//using JAGUAR_PRO.RecepcionMP;
 
-namespace JAGUAR_APP.Reproceso
+namespace JAGUAR_PRO.Reproceso
 {
     public partial class frmEditarTarimaReproceso : DevExpress.XtraEditors.XtraForm
     {

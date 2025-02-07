@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     partial class HomeEstadoCuenta
     {
@@ -36,7 +36,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsContabilidad = new JAGUAR_APP.Facturacion.CoreFacturas.dsContabilidad();
+            this.dsContabilidad = new JAGUAR_PRO.Facturacion.CoreFacturas.dsContabilidad();
             this.gvEstadoCuenta = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnum_doc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -371,7 +371,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // simpleButton1
             // 
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.print_32x32;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.print_32x32;
             this.simpleButton1.Location = new System.Drawing.Point(1102, 129);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(103, 47);
@@ -383,7 +383,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // 
             this.btnBuscar.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Appearance.Options.UseFont = true;
-            this.btnBuscar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.search_24x24;
+            this.btnBuscar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.search_24x24;
             this.btnBuscar.Location = new System.Drawing.Point(245, 48);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 33);
@@ -440,7 +440,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // cmdExportExcel
             // 
             this.cmdExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdExportExcel.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.Excel_2_icon32px1;
+            this.cmdExportExcel.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.Excel_2_icon32px1;
             this.cmdExportExcel.Location = new System.Drawing.Point(993, 129);
             this.cmdExportExcel.Name = "cmdExportExcel";
             this.cmdExportExcel.Size = new System.Drawing.Size(103, 47);

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
+namespace JAGUAR_PRO.AlmacenesExterno.Salida_Almacen
 {
     partial class frmTransPendientes
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
             this.transexternoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsAlmacenesExternos = new JAGUAR_APP.AlmacenesExterno.dsAlmacenesExternos();
+            this.dsAlmacenesExternos = new JAGUAR_PRO.AlmacenesExterno.dsAlmacenesExternos();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colbodega_out = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -236,7 +236,7 @@ namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
             this.btnTransferencia.Appearance.Options.UseTextOptions = true;
             this.btnTransferencia.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.btnTransferencia.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnTransferencia.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.logout;
+            this.btnTransferencia.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.logout;
             this.btnTransferencia.Location = new System.Drawing.Point(13, 15);
             this.btnTransferencia.Margin = new System.Windows.Forms.Padding(4);
             this.btnTransferencia.Name = "btnTransferencia";

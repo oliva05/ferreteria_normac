@@ -48,7 +48,7 @@
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.grDetalleLote = new DevExpress.XtraGrid.GridControl();
-            this.dSReportes = new JAGUAR_APP.Requisiciones.dSReportes();
+            this.dSReportes = new JAGUAR_PRO.Requisiciones.dSReportes();
             this.gvTarimas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_materia_prima = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -398,7 +398,7 @@
             // cmdEntregar_
             // 
             this.cmdEntregar_.AutoHeight = false;
-            editorButtonImageOptions3.Image = global::JAGUAR_APP.Properties.Resources.right_arrow24px;
+            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.right_arrow24px;
             this.cmdEntregar_.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdEntregar_.Name = "cmdEntregar_";
@@ -580,7 +580,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl lblProductoTerminadoName;
         private System.Windows.Forms.BindingSource bindingS_EstadosReq;
-        private JAGUAR_APP.Requisiciones.dSReportes dSReportes;
+        private JAGUAR_PRO.Requisiciones.dSReportes dSReportes;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraEditors.LabelControl lblCantidadArrobas;

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Despachos.Reportes
+namespace JAGUAR_PRO.Despachos.Reportes
 {
     partial class frmReq_view
     {
@@ -37,7 +37,7 @@ namespace JAGUAR_APP.Despachos.Reportes
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnatras = new DevExpress.XtraEditors.SimpleButton();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
-            this.ds_despachos = new JAGUAR_APP.Despachos.ds_despachos();
+            this.ds_despachos = new JAGUAR_PRO.Despachos.ds_despachos();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNumID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -176,7 +176,7 @@ namespace JAGUAR_APP.Despachos.Reportes
             // btnSeleccionar
             // 
             this.btnSeleccionar.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.btnSeleccionar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnSeleccionar.Name = "btnSeleccionar";

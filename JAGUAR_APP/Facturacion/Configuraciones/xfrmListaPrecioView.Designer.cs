@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Configuraciones
+namespace JAGUAR_PRO.Facturacion.Configuraciones
 {
     partial class xfrmListaPrecioView
     {
@@ -45,7 +45,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             this.tpCliente = new DevExpress.XtraTab.XtraTabPage();
             this.gcCliente = new DevExpress.XtraGrid.GridControl();
             this.dsListaPreciosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsListaPrecios = new JAGUAR_APP.Facturacion.Configuraciones.dsListaPrecios();
+            this.dsListaPrecios = new JAGUAR_PRO.Facturacion.Configuraciones.dsListaPrecios();
             this.gvCliente = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();

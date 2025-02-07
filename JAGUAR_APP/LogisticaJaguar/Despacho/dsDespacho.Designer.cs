@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JAGUAR_APP.LogisticaJaguar.Despacho {
+namespace JAGUAR_PRO.LogisticaJaguar.Despacho {
     
     
     /// <summary>

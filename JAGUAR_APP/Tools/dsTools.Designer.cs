@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JAGUAR_APP.Tools {
+namespace JAGUAR_PRO.Tools {
     
     
     /// <summary>

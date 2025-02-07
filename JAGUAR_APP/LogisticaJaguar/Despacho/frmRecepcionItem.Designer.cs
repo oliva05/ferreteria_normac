@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.LogisticaJaguar.Despacho
+﻿namespace JAGUAR_PRO.LogisticaJaguar.Despacho
 {
     partial class frmRecepcionItem
     {
@@ -194,7 +194,7 @@
             this.cdmConfirmar.Appearance.Options.UseFont = true;
             this.cdmConfirmar.Appearance.Options.UseForeColor = true;
             this.cdmConfirmar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cdmConfirmar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.check_mark_24X24;
+            this.cdmConfirmar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.check_mark_24X24;
             this.cdmConfirmar.Location = new System.Drawing.Point(97, 222);
             this.cdmConfirmar.Name = "cdmConfirmar";
             this.cdmConfirmar.Size = new System.Drawing.Size(110, 47);

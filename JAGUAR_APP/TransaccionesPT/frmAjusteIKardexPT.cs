@@ -12,10 +12,10 @@ using ACS.Classes;
 
 
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using DevExpress.CodeParser;
 
-namespace JAGUAR_APP.TransaccionesPT
+namespace JAGUAR_PRO.TransaccionesPT
 {
     public partial class frmAjusteIKardexPT : DevExpress.XtraEditors.XtraForm
     {

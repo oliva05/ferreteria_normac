@@ -1,9 +1,9 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Facturacion.Mantenimientos.Models;
-using JAGUAR_APP.Mantenimientos.Proveedor.Model;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
+using JAGUAR_PRO.Mantenimientos.Proveedor.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +14,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static JAGUAR_APP.Clases.Conf_TablesID;
+using static JAGUAR_PRO.Clases.Conf_TablesID;
 
-namespace JAGUAR_APP.Facturacion.Mantenimientos
+namespace JAGUAR_PRO.Facturacion.Mantenimientos
 {
     public partial class PDV_CRUD : DevExpress.XtraEditors.XtraForm
     {

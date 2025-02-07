@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Facturacion.Configuraciones
+namespace JAGUAR_PRO.Facturacion.Configuraciones
 {
     public partial class xfrmSelectCliente : DevExpress.XtraEditors.XtraForm
     {

@@ -4,7 +4,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace JAGUAR_APP.LogisticaJaguar.Models
+namespace JAGUAR_PRO.LogisticaJaguar.Models
 {
     public class OrdenFabriacion_H : XPObject
     {

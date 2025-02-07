@@ -3,11 +3,11 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using ACS.Classes;
 using System.Data.SqlClient;
 
-namespace JAGUAR_APP.Facturacion.Reportes
+namespace JAGUAR_PRO.Facturacion.Reportes
 {
     public partial class rptNotasCD : DevExpress.XtraReports.UI.XtraReport
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos.Panaderos
+namespace JAGUAR_PRO.Mantenimientos.Panaderos
 {
     partial class xfrmJAGUAR_Panaderos_CRUD
     {
@@ -37,7 +37,7 @@ namespace JAGUAR_APP.Mantenimientos.Panaderos
             this.txtNombre = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.jAGUARProveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.txtCod = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
@@ -83,7 +83,7 @@ namespace JAGUAR_APP.Mantenimientos.Panaderos
             this.cmdNew.Appearance.Options.UseBackColor = true;
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdNew.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.cmdNew.Location = new System.Drawing.Point(90, 157);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(139, 54);

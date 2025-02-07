@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Mantenimientos.Proveedor.Model;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Mantenimientos.Proveedor.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Mantenimientos
+namespace JAGUAR_PRO.Mantenimientos
 {
     public partial class xfrmJAGUAR_TipoPresentacionConversion_CRUD : DevExpress.XtraEditors.XtraForm
     {

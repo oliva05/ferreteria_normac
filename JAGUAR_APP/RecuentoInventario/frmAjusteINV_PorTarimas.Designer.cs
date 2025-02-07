@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.RecuentoInventario
+namespace JAGUAR_PRO.RecuentoInventario
 {
     partial class frmAjusteINV_PorTarimas
     {
@@ -33,7 +33,7 @@ namespace JAGUAR_APP.RecuentoInventario
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsRecuento1 = new JAGUAR_APP.RecuentoInventario.dsRecuento();
+            this.dsRecuento1 = new JAGUAR_PRO.RecuentoInventario.dsRecuento();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colingreso = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -265,7 +265,7 @@ namespace JAGUAR_APP.RecuentoInventario
             this.cmdAplicar.Appearance.Options.UseBackColor = true;
             this.cmdAplicar.Appearance.Options.UseFont = true;
             this.cmdAplicar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdAplicar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.check32px;
+            this.cmdAplicar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.check32px;
             this.cmdAplicar.Location = new System.Drawing.Point(210, 456);
             this.cmdAplicar.Name = "cmdAplicar";
             this.cmdAplicar.Size = new System.Drawing.Size(199, 48);
@@ -281,7 +281,7 @@ namespace JAGUAR_APP.RecuentoInventario
             this.cmdCerrar.Appearance.Options.UseBackColor = true;
             this.cmdCerrar.Appearance.Options.UseFont = true;
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdCerrar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.close32px;
+            this.cmdCerrar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.close32px;
             this.cmdCerrar.Location = new System.Drawing.Point(415, 456);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(199, 48);

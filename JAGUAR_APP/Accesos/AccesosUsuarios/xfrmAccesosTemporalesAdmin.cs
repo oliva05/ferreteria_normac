@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Accesos.Models;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Accesos.Models;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +12,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static JAGUAR_APP.Accesos.AccesosUsuarios.xfrmAccesosTemporalesCRUD;
+using static JAGUAR_PRO.Accesos.AccesosUsuarios.xfrmAccesosTemporalesCRUD;
 
-namespace JAGUAR_APP.Accesos.AccesosUsuarios
+namespace JAGUAR_PRO.Accesos.AccesosUsuarios
 {
     public partial class xfrmAccesosTemporalesAdmin : DevExpress.XtraEditors.XtraForm
     {

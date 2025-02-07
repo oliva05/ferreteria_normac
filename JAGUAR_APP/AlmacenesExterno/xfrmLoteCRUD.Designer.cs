@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.AlmacenesExterno
+﻿namespace JAGUAR_PRO.AlmacenesExterno
 {
     partial class xfrmLoteCRUD
     {
@@ -118,7 +118,7 @@
             this.btnAtras.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtras.Appearance.Options.UseFont = true;
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAtras.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.btnAtras.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAtras.Location = new System.Drawing.Point(3, 2);
             this.btnAtras.Name = "btnAtras";

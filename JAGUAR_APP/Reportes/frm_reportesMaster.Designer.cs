@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class frm_reportesMaster
     {
@@ -71,7 +71,7 @@ namespace JAGUAR_APP.Reportes
             this.cmdHome.Appearance.Options.UseBackColor = true;
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdHome.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdHome.Location = new System.Drawing.Point(475, 12);
             this.cmdHome.Name = "cmdHome";
             this.cmdHome.Size = new System.Drawing.Size(227, 71);

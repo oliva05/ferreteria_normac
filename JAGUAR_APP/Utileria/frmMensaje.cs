@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace JAGUAR_APP.Utileria
+namespace JAGUAR_PRO.Utileria
 {
     public partial class frmMensaje : DevExpress.XtraEditors.XtraForm
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     partial class frmPTFromKardexFacturacion
     {
@@ -46,7 +46,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.dsFacturasGestion = new JAGUAR_APP.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.dsFacturasGestion = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             ((System.ComponentModel.ISupportInitialize)(this.gcPT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSeleccionar)).BeginInit();
@@ -133,7 +133,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // btnSeleccionar
             // 
             this.btnSeleccionar.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.btnSeleccionar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnSeleccionar.Name = "btnSeleccionar";

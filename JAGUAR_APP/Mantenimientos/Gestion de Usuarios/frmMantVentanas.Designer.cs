@@ -49,7 +49,7 @@
             this.cmdCargarDatos = new DevExpress.XtraEditors.SimpleButton();
             this.cmdAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.dsMant_IT1 = new JAGUAR_APP.Mantenimientos.Gestion_de_Usuarios.dsMant_IT();
+            this.dsMant_IT1 = new JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios.dsMant_IT();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonEditar)).BeginInit();
@@ -273,6 +273,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn functions;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit ButtonFunciones;
         private DevExpress.XtraEditors.SimpleButton btnClose;
-        private JAGUAR_APP.Mantenimientos.Gestion_de_Usuarios.dsMant_IT dsMant_IT1;
+        private JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios.dsMant_IT dsMant_IT1;
     }
 }

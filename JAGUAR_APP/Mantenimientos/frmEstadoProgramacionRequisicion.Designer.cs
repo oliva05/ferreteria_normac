@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Mantenimientos
+﻿namespace JAGUAR_PRO.Mantenimientos
 {
     partial class frmEstadoProgramacionRequisicion
     {
@@ -33,7 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstadoProgramacionRequisicion));
             this.gcEstadosProgramacionesRequisiciones = new DevExpress.XtraGrid.GridControl();
             this.estadosProgramacionesRequisicionesDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gvEstadosProgramacionesRequisiciones = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -160,7 +160,7 @@
             // btnEditar
             // 
             this.btnEditar.AutoHeight = false;
-            editorButtonImageOptions2.Image = global::JAGUAR_APP.Properties.Resources.edit;
+            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.edit;
             this.btnEditar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions2, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
             this.btnEditar.Name = "btnEditar";
@@ -173,7 +173,7 @@
             this.btnAgregar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Appearance.Options.UseFont = true;
             this.btnAgregar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAgregar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.plus;
+            this.btnAgregar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.plus;
             this.btnAgregar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAgregar.Location = new System.Drawing.Point(427, 81);
             this.btnAgregar.Name = "btnAgregar";

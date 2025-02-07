@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     partial class frmShowResum
     {
@@ -44,7 +44,7 @@ namespace JAGUAR_APP.AlmacenesExterno
             this.txtpeso = new DevExpress.XtraEditors.TextEdit();
             this.txtunidades = new DevExpress.XtraEditors.TextEdit();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
-            this.dsAlmacenesExternos = new JAGUAR_APP.AlmacenesExterno.dsAlmacenesExternos();
+            this.dsAlmacenesExternos = new JAGUAR_PRO.AlmacenesExterno.dsAlmacenesExternos();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colnumero_transaccion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();

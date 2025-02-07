@@ -1,7 +1,7 @@
 ﻿
-using JAGUAR_APP.Mantenimientos;
+using JAGUAR_PRO.Mantenimientos;
 
-namespace JAGUAR_APP.Facturacion.Configuraciones
+namespace JAGUAR_PRO.Facturacion.Configuraciones
 {
     partial class xfrmCopiarListaPrecio
     {
@@ -163,7 +163,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.simpleButton1.Location = new System.Drawing.Point(304, 306);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(116, 45);

@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Data;
 using System.Drawing;
 using DevExpress.CodeParser;
 
-namespace JAGUAR_APP.Facturacion.Reportes
+namespace JAGUAR_PRO.Facturacion.Reportes
 {
     public partial class rpt_cierre_dia_completeV2 : DevExpress.XtraReports.UI.XtraReport
     {

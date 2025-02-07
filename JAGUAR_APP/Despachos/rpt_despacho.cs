@@ -4,11 +4,11 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Despachos;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Despachos;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     public partial class rpt_despacho : DevExpress.XtraReports.UI.XtraReport
     {

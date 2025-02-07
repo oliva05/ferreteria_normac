@@ -1,8 +1,8 @@
-﻿namespace JAGUAR_APP.RecuentoInventario
+﻿namespace JAGUAR_PRO.RecuentoInventario
 {
 }
 
-namespace JAGUAR_APP.RecuentoInventario
+namespace JAGUAR_PRO.RecuentoInventario
 {
 
 
@@ -10,7 +10,7 @@ namespace JAGUAR_APP.RecuentoInventario
     {
     }
 }
-namespace JAGUAR_APP.RecuentoInventario {
+namespace JAGUAR_PRO.RecuentoInventario {
     
     
     public partial class dsRecuento {

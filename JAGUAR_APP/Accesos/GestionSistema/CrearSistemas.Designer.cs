@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Accesos.GestionSistemas
+namespace JAGUAR_PRO.Accesos.GestionSistemas
 {
     partial class CrearSistemas
     {

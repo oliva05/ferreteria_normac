@@ -4,11 +4,11 @@ using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Despachos;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Despachos;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Despachos.Reportes
+namespace JAGUAR_PRO.Despachos.Reportes
 {
     public partial class frm_despacho_con_filas : DevExpress.XtraReports.UI.XtraReport
     {

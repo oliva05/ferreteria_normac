@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Configuraciones
+namespace JAGUAR_PRO.Facturacion.Configuraciones
 {
     partial class xfrnListaPrecioAdmin
     {
@@ -53,7 +53,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcListaPrecio = new DevExpress.XtraGrid.GridControl();
             this.dsListaPreciosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsListaPrecios = new JAGUAR_APP.Facturacion.Configuraciones.dsListaPrecios();
+            this.dsListaPrecios = new JAGUAR_PRO.Facturacion.Configuraciones.dsListaPrecios();
             this.gvListaPrecio = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.XtraRichEdit.Export.Doc;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
     public  class TablesId
     {

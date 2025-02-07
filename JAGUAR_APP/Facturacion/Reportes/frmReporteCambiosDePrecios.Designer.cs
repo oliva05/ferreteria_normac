@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Facturacion.Reportes
+﻿namespace JAGUAR_PRO.Facturacion.Reportes
 {
     partial class frmReporteCambiosDePrecios
     {
@@ -35,7 +35,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnRefreshPage1 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsReportesFacturacion1 = new JAGUAR_APP.Facturacion.Reportes.dsReportesFacturacion();
+            this.dsReportesFacturacion1 = new JAGUAR_PRO.Facturacion.Reportes.dsReportesFacturacion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTransactionNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcode = new DevExpress.XtraGrid.Columns.GridColumn();

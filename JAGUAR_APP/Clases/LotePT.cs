@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
     public class LotePT
     {

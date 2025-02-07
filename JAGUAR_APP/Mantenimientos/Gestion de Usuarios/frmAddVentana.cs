@@ -11,7 +11,7 @@ using ACS.Classes;
 using System.Data.SqlClient;
 using DevExpress.XtraSplashScreen;
 using System.Threading;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 
 namespace ACS.IT_Managment
 {

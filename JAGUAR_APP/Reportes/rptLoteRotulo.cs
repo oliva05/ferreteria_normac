@@ -6,7 +6,7 @@ using DevExpress.XtraReports.UI;
 using ACS.Classes;
 using System.Data.SqlClient;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class rptLoteRotulo : DevExpress.XtraReports.UI.XtraReport
     {

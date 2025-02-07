@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.LogisticaJaguar.Models;
+using JAGUAR_PRO.LogisticaJaguar.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.LogisticaJaguar.Despacho
+namespace JAGUAR_PRO.LogisticaJaguar.Despacho
 {
     public partial class xfrmSelectPT : DevExpress.XtraEditors.XtraForm
     {

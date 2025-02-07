@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Despachos
+﻿namespace JAGUAR_PRO.Despachos
 {
     partial class frmentregadeproductoT
     {
@@ -43,7 +43,7 @@
             this.cmdHome.Appearance.Options.UseBackColor = true;
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdHome.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdHome.Location = new System.Drawing.Point(551, 13);
             this.cmdHome.Margin = new System.Windows.Forms.Padding(4);
             this.cmdHome.Name = "cmdHome";
@@ -61,7 +61,7 @@
             this.cmdEntrega.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Bottom;
             this.cmdEntrega.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.cmdEntrega.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdEntrega.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.Forklift_icon;
+            this.cmdEntrega.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.Forklift_icon;
             this.cmdEntrega.Location = new System.Drawing.Point(32, 126);
             this.cmdEntrega.Margin = new System.Windows.Forms.Padding(4);
             this.cmdEntrega.Name = "cmdEntrega";
@@ -78,7 +78,7 @@
             this.cmdDetalleMP.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Bottom;
             this.cmdDetalleMP.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.cmdDetalleMP.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdDetalleMP.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.Checklist_icon;
+            this.cmdDetalleMP.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.Checklist_icon;
             this.cmdDetalleMP.Location = new System.Drawing.Point(429, 126);
             this.cmdDetalleMP.Margin = new System.Windows.Forms.Padding(4);
             this.cmdDetalleMP.Name = "cmdDetalleMP";

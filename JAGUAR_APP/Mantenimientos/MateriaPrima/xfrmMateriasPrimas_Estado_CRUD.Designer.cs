@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos.MateriaPrima
+namespace JAGUAR_PRO.Mantenimientos.MateriaPrima
 {
     partial class xfrmMateriasPrimas_Estado_CRUD
     {
@@ -79,7 +79,7 @@ namespace JAGUAR_APP.Mantenimientos.MateriaPrima
             this.cmdClose.Appearance.Options.UseBackColor = true;
             this.cmdClose.Appearance.Options.UseFont = true;
             this.cmdClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdClose.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdClose.Location = new System.Drawing.Point(200, 157);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(139, 62);
@@ -94,7 +94,7 @@ namespace JAGUAR_APP.Mantenimientos.MateriaPrima
             this.cmdNew.Appearance.Options.UseBackColor = true;
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdNew.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.cmdNew.Location = new System.Drawing.Point(29, 157);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(139, 62);

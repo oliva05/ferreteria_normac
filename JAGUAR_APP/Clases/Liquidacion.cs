@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Classes
+namespace JAGUAR_PRO.Classes
 {
     public class Liquidacion
     {

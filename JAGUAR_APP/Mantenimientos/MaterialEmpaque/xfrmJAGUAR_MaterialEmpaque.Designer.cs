@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos.MaterialEmpaque
+namespace JAGUAR_PRO.Mantenimientos.MaterialEmpaque
 {
     partial class xfrmJAGUAR_MaterialEmpaque
     {
@@ -46,7 +46,7 @@ namespace JAGUAR_APP.Mantenimientos.MaterialEmpaque
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcME = new DevExpress.XtraGrid.GridControl();
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gvME = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -250,7 +250,7 @@ namespace JAGUAR_APP.Mantenimientos.MaterialEmpaque
             this.cmdClose.Appearance.Options.UseBackColor = true;
             this.cmdClose.Appearance.Options.UseFont = true;
             this.cmdClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdClose.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdClose.Location = new System.Drawing.Point(1682, 34);
             this.cmdClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmdClose.Name = "cmdClose";
@@ -316,7 +316,7 @@ namespace JAGUAR_APP.Mantenimientos.MaterialEmpaque
             this.cmdExportExcel.Appearance.Options.UseBackColor = true;
             this.cmdExportExcel.Appearance.Options.UseFont = true;
             this.cmdExportExcel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdExportExcel.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.excel32px;
+            this.cmdExportExcel.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.excel32px;
             this.cmdExportExcel.Location = new System.Drawing.Point(1304, 33);
             this.cmdExportExcel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmdExportExcel.Name = "cmdExportExcel";

@@ -1,12 +1,12 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Mantenimientos.Modelos;
+using JAGUAR_PRO.Mantenimientos.Modelos;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Mantenimientos
+namespace JAGUAR_PRO.Mantenimientos
 {
     public partial class frmTipoPresentacion : Form
     {

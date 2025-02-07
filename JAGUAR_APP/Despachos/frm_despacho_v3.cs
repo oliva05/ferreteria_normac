@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraGrid.Columns;
 
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     public partial class frm_despacho_v3 : DevExpress.XtraEditors.XtraForm
     {

@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 
-namespace JAGUAR_APP.TransaccionesPT
+namespace JAGUAR_PRO.TransaccionesPT
 {
     partial class frmLotePT_Cost
     {

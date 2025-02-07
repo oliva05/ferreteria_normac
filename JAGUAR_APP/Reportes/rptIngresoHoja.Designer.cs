@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Reportes
+﻿namespace JAGUAR_PRO.Reportes
 {
     partial class rptIngresoHoja
     {
@@ -187,7 +187,7 @@
             this.xrLabel107 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel109 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel26 = new DevExpress.XtraReports.UI.XRLabel();
-            this.dsReportes1 = new JAGUAR_APP.Reportes.dsReportes();
+            this.dsReportes1 = new JAGUAR_PRO.Reportes.dsReportes();
             this.ReportFooter1 = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel110 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel111 = new DevExpress.XtraReports.UI.XRLabel();
@@ -965,7 +965,7 @@
             this.xrSubreport1.ParameterBindings.Add(new DevExpress.XtraReports.UI.ParameterBinding("id_ingreso", this.id_ingreso));
             this.xrSubreport1.ParameterBindings.Add(new DevExpress.XtraReports.UI.ParameterBinding("id_materia_prima", this.id_materia_prima));
             this.xrSubreport1.ParameterBindings.Add(new DevExpress.XtraReports.UI.ParameterBinding("is_granel", this.is_granel));
-            this.xrSubreport1.ReportSource = new JAGUAR_APP.Reportes.subReporteIngresoHoja();
+            this.xrSubreport1.ReportSource = new JAGUAR_PRO.Reportes.subReporteIngresoHoja();
             this.xrSubreport1.SizeF = new System.Drawing.SizeF(862.6894F, 100F);
             // 
             // id_ingreso

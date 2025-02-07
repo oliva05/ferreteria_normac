@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Formulas
+namespace JAGUAR_PRO.Formulas
 {
     partial class frmAddIngrediente
     {
@@ -41,7 +41,7 @@ namespace JAGUAR_APP.Formulas
             this.spinEditCantidadMP = new DevExpress.XtraEditors.SpinEdit();
             this.gridLookUpEditMateriaPrima = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourceMateriaPrima = new System.Windows.Forms.BindingSource(this.components);
-            this.dsFormulasCRUD1 = new JAGUAR_APP.Formulas.dsFormulasCRUD();
+            this.dsFormulasCRUD1 = new JAGUAR_PRO.Formulas.dsFormulasCRUD();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();

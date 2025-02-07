@@ -1,8 +1,8 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Despachos;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Despachos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +14,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //using static ACS.Classes.DataOperations;
-using static JAGUAR_APP.Clases.Conf_TablesID;
+using static JAGUAR_PRO.Clases.Conf_TablesID;
 
-namespace JAGUAR_APP.LogisticaJaguar.Despacho
+namespace JAGUAR_PRO.LogisticaJaguar.Despacho
 {
     public partial class xfrmTrasladoRecepcionDetalleFactura : DevExpress.XtraEditors.XtraForm
     {

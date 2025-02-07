@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.ACS.RRHH
+namespace JAGUAR_PRO.ACS.RRHH
 {
     partial class frmReporteAsistencia
     {
@@ -31,7 +31,7 @@ namespace JAGUAR_APP.ACS.RRHH
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReporteAsistencia));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsRRHH_reportes1 = new JAGUAR_APP.ACS.RRHH.dsRRHH_reportes();
+            this.dsRRHH_reportes1 = new JAGUAR_PRO.ACS.RRHH.dsRRHH_reportes();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dt_final = new DevExpress.XtraEditors.DateEdit();
             this.dt_inicial = new DevExpress.XtraEditors.DateEdit();

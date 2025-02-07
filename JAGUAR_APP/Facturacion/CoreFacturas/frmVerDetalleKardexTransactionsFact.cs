@@ -3,7 +3,7 @@ using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
-using JAGUAR_APP.Requisiciones.Reportes;
+using JAGUAR_PRO.Requisiciones.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class frmVerDetalleKardexTransactionsFact : DevExpress.XtraEditors.XtraForm
     {

@@ -5,9 +5,9 @@ using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using ACS.Classes;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
 
     public partial class rptIngresoHoja : DevExpress.XtraReports.UI.XtraReport

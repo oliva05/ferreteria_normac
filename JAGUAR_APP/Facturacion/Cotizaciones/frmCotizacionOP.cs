@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,14 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System.Data.SqlClient;
 using ACS.Classes;
 using LOSA.Calidad.LoteConfConsumo;
-using JAGUAR_APP.Facturacion.Mantenimientos.Models;
+using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.Facturacion.Cotizaciones
+namespace JAGUAR_PRO.Facturacion.Cotizaciones
 {
     public partial class frmCotizacionOP : DevExpress.XtraEditors.XtraForm
     {

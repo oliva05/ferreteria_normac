@@ -11,7 +11,7 @@ using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using ACS.Classes;
 
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     public partial class xfrmViewLotes : DevExpress.XtraEditors.XtraForm
     {

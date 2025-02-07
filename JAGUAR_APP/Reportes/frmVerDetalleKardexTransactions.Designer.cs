@@ -2,7 +2,7 @@
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class frmVerDetalleKardexTransactions
     {
@@ -37,7 +37,7 @@ namespace JAGUAR_APP.Reportes
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsKardexReportes1 = new JAGUAR_APP.Reportes.dsKardexReportes();
+            this.dsKardexReportes1 = new JAGUAR_PRO.Reportes.dsKardexReportes();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha_reg = new DevExpress.XtraGrid.Columns.GridColumn();

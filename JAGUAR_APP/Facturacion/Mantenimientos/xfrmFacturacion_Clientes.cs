@@ -1,9 +1,9 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Facturacion.Mantenimientos;
-using JAGUAR_APP.Facturacion.Mantenimientos.Models;
-using JAGUAR_APP.Mantenimientos.Clientes.Models;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.Mantenimientos;
+using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
+using JAGUAR_PRO.Mantenimientos.Clientes.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Mantenimientos.Facturacion.Mantenimiento
+namespace JAGUAR_PRO.Mantenimientos.Facturacion.Mantenimiento
 {
     public partial class xfrmFacturacion_Clientes : DevExpress.XtraEditors.XtraForm
     {

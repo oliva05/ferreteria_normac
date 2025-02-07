@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Numeracion_Fiscal
+namespace JAGUAR_PRO.Facturacion.Numeracion_Fiscal
 {
     partial class frmNumeracionFiscalCRUD
     {
@@ -45,7 +45,7 @@ namespace JAGUAR_APP.Facturacion.Numeracion_Fiscal
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.luEstado = new DevExpress.XtraEditors.LookUpEdit();
             this.estadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsNumeracionFiscal = new JAGUAR_APP.Facturacion.Numeracion_Fiscal.dsNumeracionFiscal();
+            this.dsNumeracionFiscal = new JAGUAR_PRO.Facturacion.Numeracion_Fiscal.dsNumeracionFiscal();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.tsSecuencia = new DevExpress.XtraEditors.ToggleSwitch();

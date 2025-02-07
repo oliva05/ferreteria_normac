@@ -3,14 +3,14 @@ using Core.Clases.Herramientas;
 using DevExpress.Utils.TouchHelpers;
 using DevExpress.XtraReports.UI;
 using Huellas;
-using JAGUAR_APP.AlmacenesExterno;
-using JAGUAR_APP.AlmacenesExterno.Reporteria;
-using JAGUAR_APP.AlmacenesExterno.Salida_Almacen;
-using JAGUAR_APP.Clases;
-//using JAGUAR_APP.Micro;
-//using JAGUAR_APP.MicroIngredientes;
-using JAGUAR_APP.Reportes;
-using JAGUAR_APP.Utileria;
+using JAGUAR_PRO.AlmacenesExterno;
+using JAGUAR_PRO.AlmacenesExterno.Reporteria;
+using JAGUAR_PRO.AlmacenesExterno.Salida_Almacen;
+using JAGUAR_PRO.Clases;
+//using JAGUAR_PRO.Micro;
+//using JAGUAR_PRO.MicroIngredientes;
+using JAGUAR_PRO.Reportes;
+using JAGUAR_PRO.Utileria;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +25,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP
+namespace JAGUAR_PRO
 {
     public partial class frmMain : Form
     {

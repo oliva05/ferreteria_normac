@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-//using JAGUAR_APP.RecepcionMP;
+//using JAGUAR_PRO.RecepcionMP;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.AlmacenesExterno.AjusteInvAlmaExterno;
+using JAGUAR_PRO.AlmacenesExterno.AjusteInvAlmaExterno;
 
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     public partial class frmReporteExterno : DevExpress.XtraEditors.XtraForm
     {

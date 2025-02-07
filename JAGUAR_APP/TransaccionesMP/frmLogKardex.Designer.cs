@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.TransaccionesMP
+namespace JAGUAR_PRO.TransaccionesMP
 {
     partial class frmLogKardex
     {
@@ -51,7 +51,7 @@ namespace JAGUAR_APP.TransaccionesMP
             this.colid_tipo_consumo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo_consumo_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dsReportesInventario = new JAGUAR_APP.Reportes.dsReportesInventario();
+            this.dsReportesInventario = new JAGUAR_PRO.Reportes.dsReportesInventario();
             ((System.ComponentModel.ISupportInitialize)(this.grdLogkardex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesInventario)).BeginInit();

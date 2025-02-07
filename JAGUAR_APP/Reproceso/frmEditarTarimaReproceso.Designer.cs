@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reproceso
+namespace JAGUAR_PRO.Reproceso
 {
     partial class frmEditarTarimaReproceso
     {
@@ -48,7 +48,7 @@ namespace JAGUAR_APP.Reproceso
             this.txtPesoKg = new DevExpress.XtraEditors.TextEdit();
             this.gridLookUpEditPresentacion = new DevExpress.XtraEditors.GridLookUpEdit();
             this.presentacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            //this.dsRecepcionMP1 = new JAGUAR_APP.RecepcionMP.dsRecepcionMP();
+            //this.dsRecepcionMP1 = new JAGUAR_PRO.RecepcionMP.dsRecepcionMP();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -142,7 +142,7 @@ namespace JAGUAR_APP.Reproceso
             this.txtMP_Name.Name = "txtMP_Name";
             this.txtMP_Name.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtMP_Name.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.wheat;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
             serializableAppearanceObject1.BackColor = System.Drawing.Color.Transparent;
             serializableAppearanceObject1.Options.UseBackColor = true;
             serializableAppearanceObject2.BackColor = System.Drawing.Color.LightBlue;

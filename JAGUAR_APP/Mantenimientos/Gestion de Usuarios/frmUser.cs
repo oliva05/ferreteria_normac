@@ -8,7 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using ACS.Classes;
 
 namespace PRININ.Gestion_de_Usuarios

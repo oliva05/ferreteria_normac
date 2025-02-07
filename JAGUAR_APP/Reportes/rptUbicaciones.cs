@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class rptUbicaciones : DevExpress.XtraEditors.XtraForm
     {

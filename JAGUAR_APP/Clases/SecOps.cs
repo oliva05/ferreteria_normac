@@ -9,7 +9,7 @@ using System.Net.Mail;
 using System.Data;
 //using Microsoft.Exchange.WebServices.Data;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
     class SecOps
     {

@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     public partial class frmRequesicionesDetalle_PT : DevExpress.XtraEditors.XtraForm
     {

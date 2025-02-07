@@ -1,4 +1,4 @@
-﻿using JAGUAR_APP.Clases;
+﻿using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Facturacion.Mantenimientos.Models
+namespace JAGUAR_PRO.Facturacion.Mantenimientos.Models
 {
     public class ClienteEmpresa
     {

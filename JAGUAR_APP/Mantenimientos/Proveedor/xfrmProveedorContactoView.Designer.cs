@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos.Proveedor
+namespace JAGUAR_PRO.Mantenimientos.Proveedor
 {
     partial class xfrmProveedorContactoView
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.Mantenimientos.Proveedor
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcContacto = new DevExpress.XtraGrid.GridControl();
             this.dsMantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gvContacto = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -155,7 +155,7 @@ namespace JAGUAR_APP.Mantenimientos.Proveedor
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.simpleButton1.Location = new System.Drawing.Point(671, 11);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(139, 62);

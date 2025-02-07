@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     partial class frmNotaCRUD
     {
@@ -34,7 +34,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.deFecha = new DevExpress.XtraEditors.DateEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsFacturasGestion = new JAGUAR_APP.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.dsFacturasGestion = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.grd_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -304,7 +304,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.cmdSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdSave.Appearance.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.cmdSave.Appearance.Options.UseBackColor = true;
-            this.cmdSave.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.cmdSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.cmdSave.Location = new System.Drawing.Point(817, 123);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(103, 47);
@@ -317,7 +317,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.cmdClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdClose.Appearance.BackColor = System.Drawing.Color.IndianRed;
             this.cmdClose.Appearance.Options.UseBackColor = true;
-            this.cmdClose.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel2_32;
+            this.cmdClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel2_32;
             this.cmdClose.Location = new System.Drawing.Point(926, 123);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(103, 47);
@@ -439,7 +439,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // 
             // cmdSearchPDV
             // 
-            this.cmdSearchPDV.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.search_24x24;
+            this.cmdSearchPDV.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.search_24x24;
             this.cmdSearchPDV.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.cmdSearchPDV.Location = new System.Drawing.Point(401, 22);
             this.cmdSearchPDV.Name = "cmdSearchPDV";
@@ -467,7 +467,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // 
             // cmdSearchCliente
             // 
-            this.cmdSearchCliente.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.search_24x24;
+            this.cmdSearchCliente.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.search_24x24;
             this.cmdSearchCliente.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.cmdSearchCliente.Location = new System.Drawing.Point(370, 17);
             this.cmdSearchCliente.Name = "cmdSearchCliente";
@@ -492,7 +492,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // 
             // cmdSearchFacturas
             // 
-            this.cmdSearchFacturas.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.search_24x24;
+            this.cmdSearchFacturas.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.search_24x24;
             this.cmdSearchFacturas.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.cmdSearchFacturas.Location = new System.Drawing.Point(27, 177);
             this.cmdSearchFacturas.Name = "cmdSearchFacturas";

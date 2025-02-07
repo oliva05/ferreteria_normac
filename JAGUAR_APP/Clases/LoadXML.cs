@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 using System.IO;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Classes
+namespace JAGUAR_PRO.Classes
 {
     class LoadXML
     {

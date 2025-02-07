@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.LogisticaJaguar.Models
+namespace JAGUAR_PRO.LogisticaJaguar.Models
 {
    public class PT_Selection
     {

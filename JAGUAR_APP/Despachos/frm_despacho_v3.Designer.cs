@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     partial class frm_despacho_v3
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.Despachos
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.cmdHome = new DevExpress.XtraEditors.SimpleButton();
-            this.ds_despachos = new JAGUAR_APP.Despachos.ds_despachos();
+            this.ds_despachos = new JAGUAR_PRO.Despachos.ds_despachos();
             this.timerLimpiarMensaje = new System.Windows.Forms.Timer(this.components);
             this.txtDocumento = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -83,7 +83,7 @@ namespace JAGUAR_APP.Despachos
             this.Anden6 = new DevExpress.XtraEditors.SimpleButton();
             this.Anden7 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.dsTransaccionesDespacho1 = new JAGUAR_APP.Despachos.dsTransaccionesDespacho();
+            this.dsTransaccionesDespacho1 = new JAGUAR_PRO.Despachos.dsTransaccionesDespacho();
             this.gridDetalleDespacho = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colitemcode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -137,7 +137,7 @@ namespace JAGUAR_APP.Despachos
             this.cmdHome.Appearance.Options.UseBackColor = true;
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdHome.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdHome.Location = new System.Drawing.Point(957, 9);
             this.cmdHome.Name = "cmdHome";
             this.cmdHome.Size = new System.Drawing.Size(144, 54);

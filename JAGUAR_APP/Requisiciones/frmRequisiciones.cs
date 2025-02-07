@@ -2,11 +2,11 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Reportes;
-using JAGUAR_APP.Requisiciones;
-using JAGUAR_APP.Requisiciones.Reportes;
+using JAGUAR_PRO;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Reportes;
+using JAGUAR_PRO.Requisiciones;
+using JAGUAR_PRO.Requisiciones.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

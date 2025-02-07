@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.TransaccionesPT;
-using JAGUAR_APP.Reportes;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.TransaccionesPT;
+using JAGUAR_PRO.Reportes;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     public partial class frmKardexFacturacion : DevExpress.XtraEditors.XtraForm
     {

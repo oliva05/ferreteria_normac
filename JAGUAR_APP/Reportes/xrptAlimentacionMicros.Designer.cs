@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Reportes
+﻿namespace JAGUAR_PRO.Reportes
 {
     partial class xrptAlimentacionMicros
     {
@@ -79,7 +79,7 @@
             this.xrLabel33 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel34 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel35 = new DevExpress.XtraReports.UI.XRLabel();
-            this.dsMicro1 = new JAGUAR_APP.Micro.dsMicro();
+            this.dsMicro1 = new JAGUAR_PRO.Micro.dsMicro();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.ReportFooter2 = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel28 = new DevExpress.XtraReports.UI.XRLabel();
@@ -120,7 +120,7 @@
             this.xrTableCell28 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell29 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell30 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.dsReportes2 = new JAGUAR_APP.Reportes.dsReportes();
+            this.dsReportes2 = new JAGUAR_PRO.Reportes.dsReportes();
             this.DetailReport1 = new DevExpress.XtraReports.UI.DetailReportBand();
             this.SubReporte2 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable4 = new DevExpress.XtraReports.UI.XRTable();
@@ -154,7 +154,7 @@
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTableCell59 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell60 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.dsReportes1 = new JAGUAR_APP.Reportes.dsReportes();
+            this.dsReportes1 = new JAGUAR_PRO.Reportes.dsReportes();
             ((System.ComponentModel.ISupportInitialize)(this.dsMicro1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();

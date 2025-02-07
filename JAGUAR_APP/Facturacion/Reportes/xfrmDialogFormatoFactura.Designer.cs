@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Reportes
+namespace JAGUAR_PRO.Facturacion.Reportes
 {
     partial class xfrmDialogFormatoFactura
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.Facturacion.Reportes
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.EditValue = global::JAGUAR_APP.Properties.Resources.information_64X64;
+            this.pictureEdit1.EditValue = global::JAGUAR_PRO.Properties.Resources.information_64X64;
             this.pictureEdit1.Location = new System.Drawing.Point(22, 21);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;

@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     public partial class frm_seleccionar : DevExpress.XtraEditors.XtraForm
     {

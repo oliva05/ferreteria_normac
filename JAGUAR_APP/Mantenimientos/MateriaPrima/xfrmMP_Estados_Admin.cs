@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Mantenimientos.MateriaPrima.Models;
+using JAGUAR_PRO.Mantenimientos.MateriaPrima.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static JAGUAR_APP.Mantenimientos.MateriaPrima.xfrmMateriasPrimas_Estado_CRUD;
+using static JAGUAR_PRO.Mantenimientos.MateriaPrima.xfrmMateriasPrimas_Estado_CRUD;
 
-namespace JAGUAR_APP.Mantenimientos.MateriaPrima
+namespace JAGUAR_PRO.Mantenimientos.MateriaPrima
 {
     public partial class xfrmMP_Estados_Admin : DevExpress.XtraEditors.XtraForm
     {

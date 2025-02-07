@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.TransaccionesPT;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.TransaccionesPT;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
 using System.Diagnostics;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class frmReporteGeneralProductoTerminado : DevExpress.XtraEditors.XtraForm
     {

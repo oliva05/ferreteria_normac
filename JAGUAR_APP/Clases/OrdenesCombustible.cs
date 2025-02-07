@@ -8,7 +8,7 @@ using System.Data;
 using ACS.Classes;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.MigracionACS.Classes
+namespace JAGUAR_PRO.MigracionACS.Classes
 {
     class OrdenesCombustible
     {

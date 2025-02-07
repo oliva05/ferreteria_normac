@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     public partial class frm_seleccionUD : DevExpress.XtraEditors.XtraForm
     {

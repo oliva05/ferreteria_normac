@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Despachos
+﻿namespace JAGUAR_PRO.Despachos
 {
     partial class frm_view_entrega_despacho
     {
@@ -59,7 +59,7 @@
             this.dtFecha = new DevExpress.XtraEditors.DateEdit();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
             this.productocargaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ds_despachos = new JAGUAR_APP.Despachos.ds_despachos();
+            this.ds_despachos = new JAGUAR_PRO.Despachos.ds_despachos();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidad = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -80,7 +80,7 @@
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsReporte1 = new JAGUAR_APP.Despachos.Reportes.dsReporte();
+            this.dsReporte1 = new JAGUAR_PRO.Despachos.Reportes.dsReporte();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.collot = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -128,7 +128,7 @@
             this.cmdHome.Appearance.Options.UseBackColor = true;
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdHome.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdHome.Location = new System.Drawing.Point(737, 3);
             this.cmdHome.Name = "cmdHome";
             this.cmdHome.Size = new System.Drawing.Size(144, 48);
@@ -481,7 +481,7 @@
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton2.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.excel32px;
+            this.simpleButton2.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.excel32px;
             this.simpleButton2.Location = new System.Drawing.Point(573, 3);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(144, 38);

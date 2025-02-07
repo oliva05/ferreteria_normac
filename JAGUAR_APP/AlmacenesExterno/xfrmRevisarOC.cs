@@ -11,10 +11,10 @@ using DevExpress.XtraEditors;
 using ACS.Classes;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.AlmacenesExterno.Models;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.AlmacenesExterno.Models;
+using JAGUAR_PRO.Clases;
 
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     public partial class xfrmRevisarOC : DevExpress.XtraEditors.XtraForm
     {

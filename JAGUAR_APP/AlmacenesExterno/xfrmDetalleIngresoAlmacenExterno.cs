@@ -12,7 +12,7 @@ using ACS.Classes;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     public partial class xfrmDetalleIngresoAlmacenExterno : DevExpress.XtraEditors.XtraForm
     {

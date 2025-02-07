@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Micro
+namespace JAGUAR_PRO.Micro
 {
     partial class frmOpcionesMicro
     {
@@ -45,7 +45,7 @@ namespace JAGUAR_APP.Micro
             this.tabOpciones = new DevExpress.XtraTab.XtraTabControl();
             this.TabLotes = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsMicro1 = new JAGUAR_APP.Micro.dsMicro();
+            this.dsMicro1 = new JAGUAR_PRO.Micro.dsMicro();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colexistencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre_comercial = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -858,7 +858,7 @@ namespace JAGUAR_APP.Micro
             // cmdClose
             // 
             this.cmdClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdClose.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdClose.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.cmdClose.Location = new System.Drawing.Point(1043, 7);
             this.cmdClose.Name = "cmdClose";

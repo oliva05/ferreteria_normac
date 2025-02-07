@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos
+namespace JAGUAR_PRO.Mantenimientos
 {
     partial class xfrmJAGUAR_TipoPresentacionConversion
     {
@@ -48,7 +48,7 @@ namespace JAGUAR_APP.Mantenimientos
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcConversion = new DevExpress.XtraGrid.GridControl();
             this.dsMantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gvConversion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -215,7 +215,7 @@ namespace JAGUAR_APP.Mantenimientos
             this.cmdClose.Appearance.Options.UseBackColor = true;
             this.cmdClose.Appearance.Options.UseFont = true;
             this.cmdClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdClose.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdClose.Location = new System.Drawing.Point(1478, 43);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(111, 45);

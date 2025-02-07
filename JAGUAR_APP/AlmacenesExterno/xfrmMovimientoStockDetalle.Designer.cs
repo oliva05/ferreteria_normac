@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     partial class xfrmMovimientoStockDetalle
     {
@@ -31,7 +31,7 @@ namespace JAGUAR_APP.AlmacenesExterno
         {
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.gcTransferencia = new DevExpress.XtraGrid.GridControl();
-            this.dsSalidasAlmacenesExternos1 = new JAGUAR_APP.AlmacenesExterno.dsSalidasAlmacenesExternos();
+            this.dsSalidasAlmacenesExternos1 = new JAGUAR_PRO.AlmacenesExterno.dsSalidasAlmacenesExternos();
             this.gvTransferencia = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_mp = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -99,7 +99,7 @@ namespace JAGUAR_APP.AlmacenesExterno
             this.btnAtras.Appearance.Options.UseBackColor = true;
             this.btnAtras.Appearance.Options.UseFont = true;
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAtras.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.btnAtras.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAtras.Location = new System.Drawing.Point(1107, 12);
             this.btnAtras.Name = "btnAtras";

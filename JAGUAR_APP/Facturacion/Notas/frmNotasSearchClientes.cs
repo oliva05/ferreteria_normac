@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Facturacion.Notas
+namespace JAGUAR_PRO.Facturacion.Notas
 {
     public partial class frmNotasSearchClientes : DevExpress.XtraEditors.XtraForm
     {

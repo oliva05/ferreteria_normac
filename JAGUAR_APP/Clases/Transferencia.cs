@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
     class Transferencia
     {

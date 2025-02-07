@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
+namespace JAGUAR_PRO.AlmacenesExterno.Salida_Almacen
 {
     public partial class frmTransPendientes : DevExpress.XtraEditors.XtraForm
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.LogisticaJaguar.Despacho
+namespace JAGUAR_PRO.LogisticaJaguar.Despacho
 {
     partial class xfrmDespachoCRUD
     {
@@ -49,7 +49,7 @@ namespace JAGUAR_APP.LogisticaJaguar.Despacho
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtCodigo = new DevExpress.XtraEditors.TextEdit();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsDespacho = new JAGUAR_APP.LogisticaJaguar.Despacho.dsDespacho();
+            this.dsDespacho = new JAGUAR_PRO.LogisticaJaguar.Despacho.dsDespacho();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtObservacion = new DevExpress.XtraEditors.MemoEdit();
             this.gcDespacho = new DevExpress.XtraGrid.GridControl();

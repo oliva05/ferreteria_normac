@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using JAGUAR_APP.Mantenimientos.Modelos;
+using JAGUAR_PRO.Mantenimientos.Modelos;
 using System.Data.SqlClient;
 using ACS.Classes;
 using Core.Clases.Herramientas;
 
-namespace JAGUAR_APP.Mantenimientos
+namespace JAGUAR_PRO.Mantenimientos
 {
     public partial class frmTipoPresentacionCRUD : Form
     {
@@ -73,7 +73,7 @@ namespace JAGUAR_APP.Mantenimientos
             tipoPresentacion.Enable = toggleSwitchEnable.IsOn;
             tipoPresentacion.Factor = Convert.ToDecimal(txtFactor.Text);
 
-            using (SqlConnection conexionJAGUAR_APP = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+            using (SqlConnection conexionJAGUAR_PRO = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
             {
                 try
                 {
@@ -85,8 +85,8 @@ namespace JAGUAR_APP.Mantenimientos
                     }
                     else
                     {
-                        conexionJAGUAR_APP.Open();
-                        using (SqlCommand command = new SqlCommand("dbo.spInsertarActualizarTiposPresentaciones_v2", conexionJAGUAR_APP))
+                        conexionJAGUAR_PRO.Open();
+                        using (SqlCommand command = new SqlCommand("dbo.spInsertarActualizarTiposPresentaciones_v2", conexionJAGUAR_PRO))
                         {
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.Add("@Id", SqlDbType.Int).Value = tipoPresentacion.Id;

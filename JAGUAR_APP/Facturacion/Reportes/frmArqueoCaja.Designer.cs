@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Facturacion.Reportes
+﻿namespace JAGUAR_PRO.Facturacion.Reportes
 {
     partial class frmArqueoCaja
     {
@@ -50,7 +50,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.cmdRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsContabilidad1 = new JAGUAR_APP.Facturacion.CoreFacturas.dsContabilidad();
+            this.dsContabilidad1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsContabilidad();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_tipo_pago = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo_pago_name = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -614,7 +614,7 @@
             // btnAutorizar
             // 
             this.btnAutorizar.AutoHeight = false;
-            editorButtonImageOptions15.Image = global::JAGUAR_APP.Properties.Resources.shield_16X16;
+            editorButtonImageOptions15.Image = global::JAGUAR_PRO.Properties.Resources.shield_16X16;
             this.btnAutorizar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnAutorizar.Name = "btnAutorizar";

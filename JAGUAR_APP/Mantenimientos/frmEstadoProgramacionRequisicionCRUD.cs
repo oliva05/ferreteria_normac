@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using JAGUAR_APP.Mantenimientos.Modelos;
+using JAGUAR_PRO.Mantenimientos.Modelos;
 using System.Data.SqlClient;
 using ACS.Classes;
 using Core.Clases.Herramientas;
 
-namespace JAGUAR_APP.Mantenimientos
+namespace JAGUAR_PRO.Mantenimientos
 {
     public partial class frmEstadoProgramacionRequisicionCRUD : Form
     {
@@ -39,7 +39,7 @@ namespace JAGUAR_APP.Mantenimientos
             estadoProgramacionRequisicion.Descripcion = memoDescripcion.Text;
             estadoProgramacionRequisicion.Enable = chkEnable.Checked;
 
-            using (SqlConnection conexionJAGUAR_APP = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+            using (SqlConnection conexionJAGUAR_PRO = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
             {
                 try
                 {
@@ -52,8 +52,8 @@ namespace JAGUAR_APP.Mantenimientos
                     }
                     else
                     {
-                        conexionJAGUAR_APP.Open();
-                        using (SqlCommand command = new SqlCommand("spInsertarActualizarEstadosProgramacionesRequisiciones", conexionJAGUAR_APP))
+                        conexionJAGUAR_PRO.Open();
+                        using (SqlCommand command = new SqlCommand("spInsertarActualizarEstadosProgramacionesRequisiciones", conexionJAGUAR_PRO))
                         {
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.Add("@Id", SqlDbType.Int).Value = estadoProgramacionRequisicion.Id;

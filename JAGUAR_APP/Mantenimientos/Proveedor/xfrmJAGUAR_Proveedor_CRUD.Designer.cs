@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos.Proveedor
+namespace JAGUAR_PRO.Mantenimientos.Proveedor
 {
     partial class xfrmJAGUAR_Proveedor_CRUD
     {
@@ -49,7 +49,7 @@ namespace JAGUAR_APP.Mantenimientos.Proveedor
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.gcContacto = new DevExpress.XtraGrid.GridControl();
             this.jAGUARProveedorContactoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gvContacto = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -159,7 +159,7 @@ namespace JAGUAR_APP.Mantenimientos.Proveedor
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.simpleButton1.Location = new System.Drawing.Point(529, 62);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(121, 44);
@@ -174,7 +174,7 @@ namespace JAGUAR_APP.Mantenimientos.Proveedor
             this.cmdNew.Appearance.Options.UseBackColor = true;
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdNew.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.cmdNew.Location = new System.Drawing.Point(529, 12);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(121, 44);

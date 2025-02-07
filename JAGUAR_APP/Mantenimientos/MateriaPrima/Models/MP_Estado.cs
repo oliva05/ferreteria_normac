@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Mantenimientos.MateriaPrima.Models
+namespace JAGUAR_PRO.Mantenimientos.MateriaPrima.Models
 {
    public  class MP_Estado
     {

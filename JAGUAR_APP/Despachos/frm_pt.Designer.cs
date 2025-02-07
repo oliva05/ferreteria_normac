@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     partial class frm_pt
     {
@@ -39,7 +39,7 @@ namespace JAGUAR_APP.Despachos
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ds_despachos = new JAGUAR_APP.Despachos.ds_despachos();
+            this.ds_despachos = new JAGUAR_PRO.Despachos.ds_despachos();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colitemcode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldscripcion = new DevExpress.XtraGrid.Columns.GridColumn();

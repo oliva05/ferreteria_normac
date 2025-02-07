@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Configuraciones
+namespace JAGUAR_PRO.Facturacion.Configuraciones
 {
     partial class xfrmSelectPDV
     {
@@ -32,7 +32,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmSelectPDV));
             this.pDVBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsListaPrecios = new JAGUAR_APP.Facturacion.Configuraciones.dsListaPrecios();
+            this.dsListaPrecios = new JAGUAR_PRO.Facturacion.Configuraciones.dsListaPrecios();
             this.cmdApply = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();

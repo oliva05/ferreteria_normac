@@ -11,7 +11,7 @@ using DevExpress.XtraEditors;
 using ACS.Classes;
 using System.Data.SqlClient;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class frm_SalidasMP : DevExpress.XtraEditors.XtraForm
     {

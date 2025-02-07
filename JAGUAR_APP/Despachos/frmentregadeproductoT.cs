@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     public partial class frmentregadeproductoT : DevExpress.XtraEditors.XtraForm
     {

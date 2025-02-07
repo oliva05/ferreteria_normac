@@ -1,8 +1,8 @@
-﻿namespace JAGUAR_APP.Mantenimientos
+﻿namespace JAGUAR_PRO.Mantenimientos
 {
 }
 
-namespace JAGUAR_APP.Mantenimientos
+namespace JAGUAR_PRO.Mantenimientos
 {
 
 
@@ -10,7 +10,7 @@ namespace JAGUAR_APP.Mantenimientos
     {
     }
 }
-namespace JAGUAR_APP.Mantenimientos {
+namespace JAGUAR_PRO.Mantenimientos {
     
     
     public partial class dsMantenimiento {

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reproceso
+namespace JAGUAR_PRO.Reproceso
 {
     partial class rptTarimaReproceso
     {

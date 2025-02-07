@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Autorizaciones
+namespace JAGUAR_PRO.Autorizaciones
 {
     partial class frmSolicitudAutorizacion
     {
@@ -35,7 +35,7 @@ namespace JAGUAR_APP.Autorizaciones
             this.lueUsuario = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsAutorizacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsAutorizaciones = new JAGUAR_APP.Autorizaciones.dsAutorizaciones();
+            this.dsAutorizaciones = new JAGUAR_PRO.Autorizaciones.dsAutorizaciones();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label2 = new System.Windows.Forms.Label();

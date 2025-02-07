@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Mantenimientos
+﻿namespace JAGUAR_PRO.Mantenimientos
 {
     partial class frmRecuento
     {
@@ -32,7 +32,7 @@
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.grd_recuento = new DevExpress.XtraGrid.GridControl();
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCantt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colpesotm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -209,7 +209,7 @@
             this.btnAgregar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Appearance.Options.UseFont = true;
             this.btnAgregar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAgregar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.plus;
+            this.btnAgregar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.plus;
             this.btnAgregar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAgregar.Location = new System.Drawing.Point(11, 11);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);

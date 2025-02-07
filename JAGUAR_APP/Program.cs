@@ -1,6 +1,5 @@
 ﻿using ACS.Classes;
-using JAGUAR_APP.Clases;
-//using JAGUAR_APP.Produccion;
+using JAGUAR_PRO.Clases;
 using PRININ.Gestion_de_Usuarios;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP
+namespace JAGUAR_PRO
 {
     static class Program
     {

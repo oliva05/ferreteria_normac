@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.LogisticaJaguar.Despacho
+namespace JAGUAR_PRO.LogisticaJaguar.Despacho
 {
     partial class xfrmTrasladoRecepcionDetalleFactura
     {
@@ -42,7 +42,7 @@ namespace JAGUAR_APP.LogisticaJaguar.Despacho
             this.colusuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsDespacho1 = new JAGUAR_APP.LogisticaJaguar.Despacho.dsDespacho();
+            this.dsDespacho1 = new JAGUAR_PRO.LogisticaJaguar.Despacho.dsDespacho();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();

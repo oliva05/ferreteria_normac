@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Mantenimientos.Formulas
+namespace JAGUAR_PRO.Mantenimientos.Formulas
 {
     public partial class xfrmFormulas_Tipo_CRUD : DevExpress.XtraEditors.XtraForm
     {

@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.AlmacenesExterno.Reporteria
+﻿namespace JAGUAR_PRO.AlmacenesExterno.Reporteria
 {
     partial class xrptAlmacenesExternos
     {
@@ -85,7 +85,7 @@
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(this.components);
-            this.dsSalidasAlmacenesExternos1 = new JAGUAR_APP.AlmacenesExterno.dsSalidasAlmacenesExternos();
+            this.dsSalidasAlmacenesExternos1 = new JAGUAR_PRO.AlmacenesExterno.dsSalidasAlmacenesExternos();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();

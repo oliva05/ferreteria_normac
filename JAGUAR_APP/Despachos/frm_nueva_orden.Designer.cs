@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     partial class frm_nueva_orden
     {
@@ -41,7 +41,7 @@ namespace JAGUAR_APP.Despachos
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.grid_cardcode = new DevExpress.XtraEditors.GridLookUpEdit();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ds_despachos = new JAGUAR_APP.Despachos.ds_despachos();
+            this.ds_despachos = new JAGUAR_PRO.Despachos.ds_despachos();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colcardcode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -416,8 +416,8 @@ namespace JAGUAR_APP.Despachos
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.BackgroundImage = global::JAGUAR_APP.Properties.Resources.pallet32px1;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            this.simpleButton1.BackgroundImage = global::JAGUAR_PRO.Properties.Resources.pallet32px1;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.simpleButton1.Location = new System.Drawing.Point(598, 106);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(119, 46);

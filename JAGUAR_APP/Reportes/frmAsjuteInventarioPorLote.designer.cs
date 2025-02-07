@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class frmAsjuteInventarioPorLote
     {
@@ -49,7 +49,7 @@ namespace JAGUAR_APP.Reportes
             this.txtNumLote = new DevExpress.XtraEditors.ButtonEdit();
             this.gridLookUpEditPresentacion = new DevExpress.XtraEditors.GridLookUpEdit();
             this.presentaciontipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gvLookUpEditPresentacion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,7 +63,7 @@ namespace JAGUAR_APP.Reportes
             this.lblBodegaOrigen = new DevExpress.XtraEditors.LabelControl();
             this.glueBodega = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bodegaorigenBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsReportesInventario = new JAGUAR_APP.Reportes.dsReportesInventario();
+            this.dsReportesInventario = new JAGUAR_PRO.Reportes.dsReportesInventario();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -140,7 +140,7 @@ namespace JAGUAR_APP.Reportes
             this.txtMP_Name.Name = "txtMP_Name";
             this.txtMP_Name.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtMP_Name.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions1.Image = global::JAGUAR_APP.Properties.Resources.wheat;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
             serializableAppearanceObject1.BackColor = System.Drawing.Color.Transparent;
             serializableAppearanceObject1.Options.UseBackColor = true;
             serializableAppearanceObject2.BackColor = System.Drawing.Color.LightBlue;
@@ -163,7 +163,7 @@ namespace JAGUAR_APP.Reportes
             this.txtNumLote.Name = "txtNumLote";
             this.txtNumLote.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtNumLote.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions2.Image = global::JAGUAR_APP.Properties.Resources.wheat;
+            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
             serializableAppearanceObject5.BackColor = System.Drawing.Color.Transparent;
             serializableAppearanceObject5.Options.UseBackColor = true;
             serializableAppearanceObject6.BackColor = System.Drawing.Color.LightBlue;

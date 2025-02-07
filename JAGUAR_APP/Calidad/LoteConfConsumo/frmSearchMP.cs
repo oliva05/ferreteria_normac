@@ -1,8 +1,8 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Reportes;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Calidad.LoteConfConsumo
+namespace JAGUAR_PRO.Calidad.LoteConfConsumo
 {
     public partial class frmSearchMP : DevExpress.XtraEditors.XtraForm
     {

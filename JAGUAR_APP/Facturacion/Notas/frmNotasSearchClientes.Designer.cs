@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Notas
+namespace JAGUAR_PRO.Facturacion.Notas
 {
     partial class frmNotasSearchClientes
     {
@@ -30,7 +30,7 @@ namespace JAGUAR_APP.Facturacion.Notas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dsMantenimientosFacturacion = new JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
+            this.dsMantenimientosFacturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();

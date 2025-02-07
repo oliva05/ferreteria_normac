@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class frmReporteConsumoMPPorDia
     {
@@ -61,7 +61,7 @@ namespace JAGUAR_APP.Reportes
             this.colunidades1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcosto1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcReporteDiario = new DevExpress.XtraGrid.GridControl();
-            this.dsReportes = new JAGUAR_APP.Reportes.dsReportes();
+            this.dsReportes = new JAGUAR_PRO.Reportes.dsReportes();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_mp = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -409,7 +409,7 @@ namespace JAGUAR_APP.Reportes
             this.cmdExportToExcel.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmdExportToExcel.Appearance.Options.UseFont = true;
             this.cmdExportToExcel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdExportToExcel.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.excel32px;
+            this.cmdExportToExcel.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.excel32px;
             this.cmdExportToExcel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.cmdExportToExcel.Location = new System.Drawing.Point(718, 28);
             this.cmdExportToExcel.Name = "cmdExportToExcel";

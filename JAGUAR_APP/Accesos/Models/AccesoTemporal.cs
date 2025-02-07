@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Accesos.Models
+namespace JAGUAR_PRO.Accesos.Models
 {
     public class AccesoTemporal
     {

@@ -4,10 +4,10 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System.Data.SqlClient;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     
     public partial class rpt_cartillaMicro : DevExpress.XtraReports.UI.XtraReport

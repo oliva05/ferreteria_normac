@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JAGUAR_APP.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta {
+namespace JAGUAR_PRO.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta {
     
     
     /// <summary>

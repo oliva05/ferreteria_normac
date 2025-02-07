@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
+namespace JAGUAR_PRO.AlmacenesExterno.Salida_Almacen
 {
     partial class frmIngresoSeleccion
     {

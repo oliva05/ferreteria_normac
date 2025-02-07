@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Mantenimientos.ProductoTerminado
+﻿namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
 
 

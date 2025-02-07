@@ -1,9 +1,9 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Mantenimientos.Clientes.Models;
-using JAGUAR_APP.Mantenimientos.MaterialEmpaque.Model;
-using JAGUAR_APP.Mantenimientos.Proveedor.Model;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Mantenimientos.Clientes.Models;
+using JAGUAR_PRO.Mantenimientos.MaterialEmpaque.Model;
+using JAGUAR_PRO.Mantenimientos.Proveedor.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +15,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ACS.Classes.DataOperations;
-using static JAGUAR_APP.Clases.Conf_TablesID;
+using static JAGUAR_PRO.Clases.Conf_TablesID;
 
-namespace JAGUAR_APP.Mantenimientos.MaterialEmpaque
+namespace JAGUAR_PRO.Mantenimientos.MaterialEmpaque
 {
     public partial class xfrmJAGUAR_MaterialEmpaque_CRUD : DevExpress.XtraEditors.XtraForm
     {

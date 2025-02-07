@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
     class Kardex
     {

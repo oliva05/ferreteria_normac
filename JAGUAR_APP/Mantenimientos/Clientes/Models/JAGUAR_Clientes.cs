@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Mantenimientos.Clientes.Models
+namespace JAGUAR_PRO.Mantenimientos.Clientes.Models
 {
    public class JAGUAR_Clientes
     {

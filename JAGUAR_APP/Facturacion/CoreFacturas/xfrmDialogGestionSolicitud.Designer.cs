@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     partial class xfrmDialogGestionSolicitud
     {
@@ -32,7 +32,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmDialogGestionSolicitud));
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dsFacturasGestion = new JAGUAR_APP.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.dsFacturasGestion = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.cdmAprobar = new DevExpress.XtraEditors.SimpleButton();
             this.cdmRechazar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -42,7 +42,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.EditValue = global::JAGUAR_APP.Properties.Resources.information_64X64;
+            this.pictureEdit1.EditValue = global::JAGUAR_PRO.Properties.Resources.information_64X64;
             this.pictureEdit1.Location = new System.Drawing.Point(12, 2);
             this.pictureEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureEdit1.Name = "pictureEdit1";
@@ -82,7 +82,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.cdmAprobar.Appearance.Options.UseFont = true;
             this.cdmAprobar.Appearance.Options.UseForeColor = true;
             this.cdmAprobar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cdmAprobar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.check_mark_24X24;
+            this.cdmAprobar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.check_mark_24X24;
             this.cdmAprobar.Location = new System.Drawing.Point(47, 83);
             this.cdmAprobar.Name = "cdmAprobar";
             this.cdmAprobar.Size = new System.Drawing.Size(110, 47);
@@ -114,7 +114,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.close32px;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.close32px;
             this.simpleButton1.Location = new System.Drawing.Point(309, 83);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(110, 47);

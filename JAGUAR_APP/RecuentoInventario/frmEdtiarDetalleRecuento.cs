@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.RecuentoInventario;
+using JAGUAR_PRO.RecuentoInventario;
 
-namespace JAGUAR_APP.RecuentoInventario
+namespace JAGUAR_PRO.RecuentoInventario
 {
     public partial class frmEdtiarDetalleRecuento : DevExpress.XtraEditors.XtraForm
     {

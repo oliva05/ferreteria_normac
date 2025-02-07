@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Mantenimientos
+namespace JAGUAR_PRO.Facturacion.Mantenimientos
 {
     partial class xfrm_PDV
     {
@@ -48,7 +48,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcPanaderos = new DevExpress.XtraGrid.GridControl();
             this.dsMantenimientosFacturacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientosFacturacion = new JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
+            this.dsMantenimientosFacturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
             this.gvPanaderos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -291,7 +291,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             this.cmdClose.Appearance.Options.UseBackColor = true;
             this.cmdClose.Appearance.Options.UseFont = true;
             this.cmdClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdClose.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdClose.Location = new System.Drawing.Point(1229, 31);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(121, 47);

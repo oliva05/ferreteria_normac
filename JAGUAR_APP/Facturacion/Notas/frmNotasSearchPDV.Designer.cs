@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Notas
+namespace JAGUAR_PRO.Facturacion.Notas
 {
     partial class frmNotasSearchPDV
     {
@@ -33,7 +33,7 @@ namespace JAGUAR_APP.Facturacion.Notas
             this.luePDV = new DevExpress.XtraEditors.LookUpEdit();
             this.pDVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsMantenimientosFacturacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientosFacturacion = new JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
+            this.dsMantenimientosFacturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();

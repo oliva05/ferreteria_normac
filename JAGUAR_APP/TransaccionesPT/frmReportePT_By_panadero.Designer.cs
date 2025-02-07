@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.TransaccionesPT
+﻿namespace JAGUAR_PRO.TransaccionesPT
 {
     partial class frmReportePT_By_panadero
     {
@@ -39,7 +39,7 @@
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dsPT1 = new JAGUAR_APP.TransaccionesPT.dsPT();
+            this.dsPT1 = new JAGUAR_PRO.TransaccionesPT.dsPT();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDocNum = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -150,7 +150,7 @@
             this.cmdExportToExcel.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmdExportToExcel.Appearance.Options.UseFont = true;
             this.cmdExportToExcel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdExportToExcel.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.excel32px;
+            this.cmdExportToExcel.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.excel32px;
             this.cmdExportToExcel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.cmdExportToExcel.Location = new System.Drawing.Point(782, 64);
             this.cmdExportToExcel.Name = "cmdExportToExcel";

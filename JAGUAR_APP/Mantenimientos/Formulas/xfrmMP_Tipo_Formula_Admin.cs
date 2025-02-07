@@ -10,9 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static JAGUAR_APP.Mantenimientos.Formulas.xfrmFormulas_Tipo_CRUD;
+using static JAGUAR_PRO.Mantenimientos.Formulas.xfrmFormulas_Tipo_CRUD;
 
-namespace JAGUAR_APP.Mantenimientos.Formulas
+namespace JAGUAR_PRO.Mantenimientos.Formulas
 {
     public partial class xfrmMP_Tipo_Formula_Admin : DevExpress.XtraEditors.XtraForm
     {

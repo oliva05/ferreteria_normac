@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class frm_getfinish
     {
@@ -39,7 +39,7 @@ namespace JAGUAR_APP.Reportes
             this.btn_close = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.pickproductBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsReportesInventario = new JAGUAR_APP.Reportes.dsReportesInventario();
+            this.dsReportesInventario = new JAGUAR_PRO.Reportes.dsReportesInventario();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();

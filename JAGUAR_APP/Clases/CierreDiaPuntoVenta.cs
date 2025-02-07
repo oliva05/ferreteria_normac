@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
     public class FacturacionCierreDiaPuntoVenta
     {

@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Accesos.TurnosUsuario
+namespace JAGUAR_PRO.Accesos.TurnosUsuario
 {
     public partial class EditarTurnos : DevExpress.XtraEditors.XtraForm
     {

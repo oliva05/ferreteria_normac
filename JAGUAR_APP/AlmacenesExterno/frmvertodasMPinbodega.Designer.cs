@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     partial class frmvertodasMPinbodega
     {
@@ -35,7 +35,7 @@ namespace JAGUAR_APP.AlmacenesExterno
             this.txtBodega = new DevExpress.XtraEditors.TextEdit();
             this.txtbodegaName = new DevExpress.XtraEditors.TextEdit();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
-            this.dsReporteAlmacenExterno = new JAGUAR_APP.AlmacenesExterno.dsReporteAlmacenExterno();
+            this.dsReporteAlmacenExterno = new JAGUAR_PRO.AlmacenesExterno.dsReporteAlmacenExterno();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coloc1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfactura = new DevExpress.XtraGrid.Columns.GridColumn();

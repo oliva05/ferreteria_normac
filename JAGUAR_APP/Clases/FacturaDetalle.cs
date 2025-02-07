@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
 
     public class FacturaDetalle

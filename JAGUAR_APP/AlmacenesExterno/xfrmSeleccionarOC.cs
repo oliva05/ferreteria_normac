@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.AlmacenesExterno.Models;
+using JAGUAR_PRO.AlmacenesExterno.Models;
 
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     public partial class xfrmSeleccionarOC : DevExpress.XtraEditors.XtraForm
     {

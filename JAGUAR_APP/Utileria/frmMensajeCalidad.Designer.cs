@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Utileria
+﻿namespace JAGUAR_PRO.Utileria
 {
     partial class frmMensajeCalidad
     {
@@ -70,7 +70,7 @@
             // 
             // pictureBoxInfomation
             // 
-            this.pictureBoxInfomation.Image = global::JAGUAR_APP.Properties.Resources.Status_dialog_information_icon72px;
+            this.pictureBoxInfomation.Image = global::JAGUAR_PRO.Properties.Resources.Status_dialog_information_icon72px;
             this.pictureBoxInfomation.Location = new System.Drawing.Point(357, 106);
             this.pictureBoxInfomation.Name = "pictureBoxInfomation";
             this.pictureBoxInfomation.Size = new System.Drawing.Size(95, 70);
@@ -92,7 +92,7 @@
             // 
             // msjBoxIcon
             // 
-            this.msjBoxIcon.Image = global::JAGUAR_APP.Properties.Resources.delete_1_icon72px;
+            this.msjBoxIcon.Image = global::JAGUAR_PRO.Properties.Resources.delete_1_icon72px;
             this.msjBoxIcon.Location = new System.Drawing.Point(3, 117);
             this.msjBoxIcon.Name = "msjBoxIcon";
             this.msjBoxIcon.Size = new System.Drawing.Size(170, 146);

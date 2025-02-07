@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JAGUAR_APP.Facturacion.Numeracion_Fiscal {
+namespace JAGUAR_PRO.Facturacion.Numeracion_Fiscal {
     
     
     /// <summary>

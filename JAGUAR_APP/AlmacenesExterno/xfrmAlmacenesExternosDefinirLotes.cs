@@ -8,15 +8,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.AlmacenesExterno.Models;
+using JAGUAR_PRO.AlmacenesExterno.Models;
 using DevExpress.XtraGrid.Views.Grid;
 using ACS.Classes;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.AlmacenesExterno.Reporteria;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.AlmacenesExterno.Reporteria;
 using DevExpress.XtraReports.UI;
 
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     public partial class xfrmAlmacenesExternosDefinirLotes : DevExpress.XtraEditors.XtraForm
     {

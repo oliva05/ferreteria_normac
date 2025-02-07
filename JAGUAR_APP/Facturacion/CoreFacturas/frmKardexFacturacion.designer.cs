@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     partial class frmKardexFacturacion
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.grd_inventario = new DevExpress.XtraGrid.GridControl();
-            this.dsFacturasGestion = new JAGUAR_APP.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.dsFacturasGestion = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.grdv_inventario = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_pt1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProducto1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -279,7 +279,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.Excel_2_icon32px;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.Excel_2_icon32px;
             this.simpleButton1.Location = new System.Drawing.Point(1113, 9);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(104, 47);
@@ -292,7 +292,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.cmdAjuste.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdAjuste.Appearance.Options.UseFont = true;
             this.cmdAjuste.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdAjuste.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.alimentacion_manual;
+            this.cmdAjuste.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.alimentacion_manual;
             this.cmdAjuste.Location = new System.Drawing.Point(23, 12);
             this.cmdAjuste.Name = "cmdAjuste";
             this.cmdAjuste.Size = new System.Drawing.Size(172, 47);

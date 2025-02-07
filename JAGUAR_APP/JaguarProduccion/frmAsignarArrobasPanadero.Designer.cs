@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.JaguarProduccion
+namespace JAGUAR_PRO.JaguarProduccion
 {
     partial class frmAsignarArrobasPanadero
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.JaguarProduccion
             this.txtCantidadInicial = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsProduccion1 = new JAGUAR_APP.JaguarProduccion.dsProduccion();
+            this.dsProduccion1 = new JAGUAR_PRO.JaguarProduccion.dsProduccion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();

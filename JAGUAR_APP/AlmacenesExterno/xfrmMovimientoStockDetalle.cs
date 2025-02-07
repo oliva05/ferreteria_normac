@@ -9,15 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.AlmacenesExterno.Models;
+using JAGUAR_PRO.AlmacenesExterno.Models;
 using ACS.Classes;
 using System.Data.SqlClient;
-using JAGUAR_APP.AlmacenesExterno.Salida_Almacen.Models;
-using JAGUAR_APP.AlmacenesExterno.Salida_Almacen;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.AlmacenesExterno.Salida_Almacen.Models;
+using JAGUAR_PRO.AlmacenesExterno.Salida_Almacen;
+using JAGUAR_PRO.Clases;
 
 
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     public partial class xfrmMovimientoStockDetalle : DevExpress.XtraEditors.XtraForm
     {

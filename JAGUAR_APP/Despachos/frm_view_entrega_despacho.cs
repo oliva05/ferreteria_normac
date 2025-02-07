@@ -10,12 +10,12 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Despachos.Reportes;
+using JAGUAR_PRO.Despachos.Reportes;
 using DevExpress.XtraReports.UI;
 
-namespace JAGUAR_APP.Despachos
+namespace JAGUAR_PRO.Despachos
 {
     public partial class frm_view_entrega_despacho : DevExpress.XtraEditors.XtraForm
     {

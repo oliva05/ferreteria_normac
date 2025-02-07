@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.JaguarProduccion
+namespace JAGUAR_PRO.JaguarProduccion
 {
     partial class frmHomeAvanceProduccionBolsas
     {
@@ -31,7 +31,7 @@ namespace JAGUAR_APP.JaguarProduccion
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHomeAvanceProduccionBolsas));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsProduccion1 = new JAGUAR_APP.JaguarProduccion.dsProduccion();
+            this.dsProduccion1 = new JAGUAR_PRO.JaguarProduccion.dsProduccion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_orden = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -221,7 +221,7 @@ namespace JAGUAR_APP.JaguarProduccion
             this.btnAgregar.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnAgregar.Appearance.Options.UseFont = true;
             this.btnAgregar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAgregar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.plus;
+            this.btnAgregar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.plus;
             this.btnAgregar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAgregar.Location = new System.Drawing.Point(2, 50);
             this.btnAgregar.Name = "btnAgregar";

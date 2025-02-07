@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Formulas
+namespace JAGUAR_PRO.Formulas
 {
     partial class frmFormulasJaguar
     {
@@ -41,7 +41,7 @@ namespace JAGUAR_APP.Formulas
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsFormulasCRUD1 = new JAGUAR_APP.Formulas.dsFormulasCRUD();
+            this.dsFormulasCRUD1 = new JAGUAR_PRO.Formulas.dsFormulasCRUD();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();

@@ -1,7 +1,7 @@
 ﻿
 using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using PRININ.Gestion_de_Usuarios;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Accesos.AccesosUsuarios
+namespace JAGUAR_PRO.Accesos.AccesosUsuarios
 {
     public partial class AccesoUsuario : DevExpress.XtraEditors.XtraForm
     {

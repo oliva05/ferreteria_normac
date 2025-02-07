@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno.Reporteria
+namespace JAGUAR_PRO.AlmacenesExterno.Reporteria
 {
     partial class xsr_traslado_lotes
     {

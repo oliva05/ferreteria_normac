@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.AlmacenesExterno.Models
+namespace JAGUAR_PRO.AlmacenesExterno.Models
 {
     public class InfoHeaderRptIngreso
     {

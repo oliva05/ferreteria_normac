@@ -2,8 +2,8 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Facturacion.CoreFacturas;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Facturacion.Reportes
+namespace JAGUAR_PRO.Facturacion.Reportes
 {
     public partial class frmReporteCambiosDePrecios : DevExpress.XtraEditors.XtraForm
     {

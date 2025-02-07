@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.LogisticaJaguar;
+using JAGUAR_PRO.LogisticaJaguar;
 using LOSA.RecepcionMP;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.TransaccionesMP
+namespace JAGUAR_PRO.TransaccionesMP
 {
     public partial class frmLotePorMP : DevExpress.XtraEditors.XtraForm
     {

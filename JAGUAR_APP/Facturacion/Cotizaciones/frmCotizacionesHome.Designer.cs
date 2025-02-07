@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Cotizaciones
+namespace JAGUAR_PRO.Facturacion.Cotizaciones
 {
     partial class frmCotizacionesHome
     {
@@ -46,7 +46,7 @@ namespace JAGUAR_APP.Facturacion.Cotizaciones
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.grdCotizaciones = new DevExpress.XtraGrid.GridControl();
-            this.dsFactCotizacion1 = new JAGUAR_APP.Facturacion.Cotizaciones.dsFactCotizacion();
+            this.dsFactCotizacion1 = new JAGUAR_PRO.Facturacion.Cotizaciones.dsFactCotizacion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcliente = new DevExpress.XtraGrid.Columns.GridColumn();

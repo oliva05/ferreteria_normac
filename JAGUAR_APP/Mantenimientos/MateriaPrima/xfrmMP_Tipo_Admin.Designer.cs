@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos.MateriaPrima
+namespace JAGUAR_PRO.Mantenimientos.MateriaPrima
 {
     partial class xfrmMP_Tipo_Admin
     {
@@ -45,7 +45,7 @@ namespace JAGUAR_APP.Mantenimientos.MateriaPrima
             this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
             this.gcEstado = new DevExpress.XtraGrid.GridControl();
             this.mPTipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gvEstado = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -77,7 +77,7 @@ namespace JAGUAR_APP.Mantenimientos.MateriaPrima
             this.cmdClose.Appearance.Options.UseBackColor = true;
             this.cmdClose.Appearance.Options.UseFont = true;
             this.cmdClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdClose.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdClose.Location = new System.Drawing.Point(1228, 43);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(121, 47);

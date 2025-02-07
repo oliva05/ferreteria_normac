@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Facturacion.Cotizaciones
+namespace JAGUAR_PRO.Facturacion.Cotizaciones
 {
     public class Cotizacion
     {

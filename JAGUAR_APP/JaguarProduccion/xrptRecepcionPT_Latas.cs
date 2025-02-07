@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Drawing;
 
-namespace JAGUAR_APP.JaguarProduccion
+namespace JAGUAR_PRO.JaguarProduccion
 {
     public partial class xrptRecepcionPT_Latas : DevExpress.XtraReports.UI.XtraReport
     {

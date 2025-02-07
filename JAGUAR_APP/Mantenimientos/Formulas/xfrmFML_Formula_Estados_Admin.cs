@@ -10,9 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static JAGUAR_APP.Mantenimientos.Formulas.xfrmFML_Formula_Estado_CRUD;
+using static JAGUAR_PRO.Mantenimientos.Formulas.xfrmFML_Formula_Estado_CRUD;
 
-namespace JAGUAR_APP.Mantenimientos.Formulas
+namespace JAGUAR_PRO.Mantenimientos.Formulas
 {
     public partial class xfrmFML_Formula_Estados_Admin : DevExpress.XtraEditors.XtraForm
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     partial class frm_Unir
     {
@@ -77,7 +77,7 @@ namespace JAGUAR_APP.Reportes
             // 
             // btn_PickOC
             // 
-            this.btn_PickOC.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.tap;
+            this.btn_PickOC.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.tap;
             this.btn_PickOC.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn_PickOC.Location = new System.Drawing.Point(416, 122);
             this.btn_PickOC.Name = "btn_PickOC";
@@ -93,7 +93,7 @@ namespace JAGUAR_APP.Reportes
             this.cmdHome.Appearance.Options.UseBackColor = true;
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdHome.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdHome.Location = new System.Drawing.Point(431, 8);
             this.cmdHome.Name = "cmdHome";
             this.cmdHome.Size = new System.Drawing.Size(199, 71);

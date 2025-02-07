@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Configuraciones
+namespace JAGUAR_PRO.Facturacion.Configuraciones
 {
     partial class xfrmSelectProductos
     {
@@ -33,7 +33,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmSelectProductos));
             this.gcCliente = new DevExpress.XtraGrid.GridControl();
             this.dsListaPreciosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsListaPrecios = new JAGUAR_APP.Facturacion.Configuraciones.dsListaPrecios();
+            this.dsListaPrecios = new JAGUAR_PRO.Facturacion.Configuraciones.dsListaPrecios();
             this.gvCliente = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -225,7 +225,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.simpleButton1.Location = new System.Drawing.Point(829, 12);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(113, 45);

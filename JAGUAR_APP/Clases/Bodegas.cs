@@ -1,5 +1,5 @@
 ﻿using ACS.Classes;
-//using JAGUAR_APP.Logistica;
+//using JAGUAR_PRO.Logistica;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
     public class Bodegas
     {

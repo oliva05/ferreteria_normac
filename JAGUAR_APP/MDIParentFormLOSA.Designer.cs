@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP
+﻿namespace JAGUAR_PRO
 {
     partial class MDIParentFormLOSA
     {

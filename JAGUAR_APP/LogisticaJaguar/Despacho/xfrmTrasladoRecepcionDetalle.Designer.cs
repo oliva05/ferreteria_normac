@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.LogisticaJaguar.Despacho
+namespace JAGUAR_PRO.LogisticaJaguar.Despacho
 {
     partial class xfrmTrasladoRecepcionDetalle
     {
@@ -52,7 +52,7 @@ namespace JAGUAR_APP.LogisticaJaguar.Despacho
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            this.dsDespacho = new JAGUAR_APP.LogisticaJaguar.Despacho.dsDespacho();
+            this.dsDespacho = new JAGUAR_PRO.LogisticaJaguar.Despacho.dsDespacho();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtCodigo = new DevExpress.XtraEditors.TextEdit();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);

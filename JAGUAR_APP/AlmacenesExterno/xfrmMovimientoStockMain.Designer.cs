@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     partial class xfrmMovimientoStockMain
     {
@@ -46,7 +46,7 @@ namespace JAGUAR_APP.AlmacenesExterno
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcTransferencia = new DevExpress.XtraGrid.GridControl();
-            this.dsSalidasAlmacenesExternos1 = new JAGUAR_APP.AlmacenesExterno.dsSalidasAlmacenesExternos();
+            this.dsSalidasAlmacenesExternos1 = new JAGUAR_PRO.AlmacenesExterno.dsSalidasAlmacenesExternos();
             this.gvTransferencia = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colbodega_in = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -319,7 +319,7 @@ namespace JAGUAR_APP.AlmacenesExterno
             this.btnAtras.Appearance.Options.UseBackColor = true;
             this.btnAtras.Appearance.Options.UseFont = true;
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAtras.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.btnAtras.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAtras.Location = new System.Drawing.Point(1148, 3);
             this.btnAtras.Name = "btnAtras";
@@ -335,7 +335,7 @@ namespace JAGUAR_APP.AlmacenesExterno
             this.btnTransferencia.Appearance.Options.UseTextOptions = true;
             this.btnTransferencia.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.btnTransferencia.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnTransferencia.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.logout;
+            this.btnTransferencia.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.logout;
             this.btnTransferencia.Location = new System.Drawing.Point(2, 3);
             this.btnTransferencia.Margin = new System.Windows.Forms.Padding(4);
             this.btnTransferencia.Name = "btnTransferencia";

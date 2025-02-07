@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.LogisticaJaguar.Despacho
+﻿namespace JAGUAR_PRO.LogisticaJaguar.Despacho
 {
     partial class frmBuscarFactura
     {
@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarFactura));
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsDespacho1 = new JAGUAR_APP.LogisticaJaguar.Despacho.dsDespacho();
+            this.dsDespacho1 = new JAGUAR_PRO.LogisticaJaguar.Despacho.dsDespacho();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnumero_documento = new DevExpress.XtraGrid.Columns.GridColumn();

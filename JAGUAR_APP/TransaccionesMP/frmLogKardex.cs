@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace JAGUAR_APP.TransaccionesMP
+namespace JAGUAR_PRO.TransaccionesMP
 {
     public partial class frmLogKardex : DevExpress.XtraEditors.XtraForm
     {

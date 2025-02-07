@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 
-namespace JAGUAR_APP
+namespace JAGUAR_PRO
 {
     partial class frmMain
     {
@@ -92,7 +92,7 @@ namespace JAGUAR_APP
             this.txtClave.Name = "txtClave";
             this.txtClave.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.txtClave.Properties.Appearance.Options.UseFont = true;
-            this.txtClave.Properties.ContextImageOptions.Image = global::JAGUAR_APP.Properties.Resources.key;
+            this.txtClave.Properties.ContextImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.key;
             this.txtClave.Properties.UseSystemPasswordChar = true;
             this.txtClave.Size = new System.Drawing.Size(222, 30);
             this.txtClave.TabIndex = 1;
@@ -108,7 +108,7 @@ namespace JAGUAR_APP
             this.txtUsuario.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.txtUsuario.Properties.Appearance.Options.UseFont = true;
             this.txtUsuario.Properties.ContextImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.txtUsuario.Properties.ContextImageOptions.Image = global::JAGUAR_APP.Properties.Resources.user;
+            this.txtUsuario.Properties.ContextImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.user;
             this.txtUsuario.Size = new System.Drawing.Size(222, 30);
             this.txtUsuario.TabIndex = 0;
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
@@ -249,7 +249,7 @@ namespace JAGUAR_APP
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::JAGUAR_APP.Properties.Resources.Users_Group_icon64px;
+            this.pictureBox1.Image = global::JAGUAR_PRO.Properties.Resources.Users_Group_icon64px;
             this.pictureBox1.Location = new System.Drawing.Point(425, 101);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(99, 94);
@@ -306,7 +306,7 @@ namespace JAGUAR_APP
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::JAGUAR_APP.Properties.Resources.Astahrr_Nfl_Jaguars_128_1_;
+            this.pictureBox2.Image = global::JAGUAR_PRO.Properties.Resources.Astahrr_Nfl_Jaguars_128_1_;
             this.pictureBox2.Location = new System.Drawing.Point(2, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(133, 135);

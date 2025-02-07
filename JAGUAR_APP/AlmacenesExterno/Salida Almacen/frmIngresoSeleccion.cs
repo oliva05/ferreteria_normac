@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using ACS.Classes;
-//using JAGUAR_APP.RecepcionMP;
+//using JAGUAR_PRO.RecepcionMP;
 
-namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
+namespace JAGUAR_PRO.AlmacenesExterno.Salida_Almacen
 {
     public partial class frmIngresoSeleccion : DevExpress.XtraEditors.XtraForm
     {

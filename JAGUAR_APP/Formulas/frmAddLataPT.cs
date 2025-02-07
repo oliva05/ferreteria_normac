@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Formulas
+namespace JAGUAR_PRO.Formulas
 {
     public partial class frmAddLataPT : DevExpress.XtraEditors.XtraForm
     {

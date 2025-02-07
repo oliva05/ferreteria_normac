@@ -1,9 +1,9 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Facturacion.CoreFacturas;
-using JAGUAR_APP.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
+using JAGUAR_PRO.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -8,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JAGUAR_APP.Facturacion.Cotizaciones;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Facturacion.Cotizaciones;
+using JAGUAR_PRO.Clases;
 using System.Data.SqlClient;
 using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 
-namespace JAGUAR_APP.Facturacion.Cotizaciones
+namespace JAGUAR_PRO.Facturacion.Cotizaciones
 {
     public partial class frmSearchCotizaciones : DevExpress.XtraEditors.XtraForm
     {

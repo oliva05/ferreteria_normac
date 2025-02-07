@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Mantenimientos
+﻿namespace JAGUAR_PRO.Mantenimientos
 {
     partial class frmUbicacionesCRUD
     {

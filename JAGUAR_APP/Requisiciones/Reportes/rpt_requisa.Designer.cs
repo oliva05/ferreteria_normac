@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Requisiciones.Reportes
+﻿namespace JAGUAR_PRO.Requisiciones.Reportes
 {
     partial class lblNumeroReq
     {
@@ -40,7 +40,7 @@
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.dSReportes1 = new JAGUAR_APP.Requisiciones.dSReportes();
+            this.dSReportes1 = new JAGUAR_PRO.Requisiciones.dSReportes();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();

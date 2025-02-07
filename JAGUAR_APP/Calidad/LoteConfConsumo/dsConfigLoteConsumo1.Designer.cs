@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JAGUAR_APP.Calidad.LoteConfConsumo {
+namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
     
     
     /// <summary>

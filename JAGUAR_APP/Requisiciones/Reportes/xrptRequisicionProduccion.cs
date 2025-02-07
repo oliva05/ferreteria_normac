@@ -1,15 +1,15 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using static JAGUAR_APP.Clases.Conf_TablesID;
+using static JAGUAR_PRO.Clases.Conf_TablesID;
 
-namespace JAGUAR_APP.Requisiciones.Reportes
+namespace JAGUAR_PRO.Requisiciones.Reportes
 {
     public partial class xrptRequisicionProduccion : DevExpress.XtraReports.UI.XtraReport
     {

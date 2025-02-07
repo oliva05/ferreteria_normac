@@ -4,7 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace JAGUAR_APP.AlmacenesExterno.Reporteria
+namespace JAGUAR_PRO.AlmacenesExterno.Reporteria
 {
     public partial class xrpt_Main_traslado_almacen : DevExpress.XtraReports.UI.XtraReport
     {

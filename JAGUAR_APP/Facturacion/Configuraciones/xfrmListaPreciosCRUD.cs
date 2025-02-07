@@ -8,9 +8,9 @@ using DevExpress.XtraCharts;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.Design;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Facturacion.Configuraciones.Models;
-using JAGUAR_APP.Mantenimientos.Modelos;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.Configuraciones.Models;
+using JAGUAR_PRO.Mantenimientos.Modelos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,14 +25,14 @@ using static DevExpress.Pdf.Native.BouncyCastle.Asn1.X509.Target;
 using static DevExpress.XtraEditors.Mask.Design.MaskSettingsForm.DesignInfo.MaskManagerInfo;
 using static DevExpress.XtraGrid.Views.Grid.DetailTip;
 using static DevExpress.XtraPrinting.Native.ExportOptionsPropertiesNames;
-using static JAGUAR_APP.Clases.Conf_TablesID;
-using JAGUAR_APP.TransaccionesPT;
+using static JAGUAR_PRO.Clases.Conf_TablesID;
+using JAGUAR_PRO.TransaccionesPT;
 using static DevExpress.Xpo.Logger.LogManager;
-using JAGUAR_APP.Facturacion.CoreFacturas;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
 using LOSA.Calidad.LoteConfConsumo;
-using JAGUAR_APP.RecuentoInventario;
+using JAGUAR_PRO.RecuentoInventario;
 
-namespace JAGUAR_APP.Facturacion.Configuraciones
+namespace JAGUAR_PRO.Facturacion.Configuraciones
 {
     public partial class xfrmListaPreciosCRUD : DevExpress.XtraEditors.XtraForm
     {

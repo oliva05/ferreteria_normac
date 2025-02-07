@@ -2,7 +2,7 @@
 {
 }
 
-namespace JAGUAR_APP.Mantenimientos.Gestion_de_Usuarios
+namespace JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios
 {
 
 

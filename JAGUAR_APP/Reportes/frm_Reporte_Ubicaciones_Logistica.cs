@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using ACS.Classes;
 using System.IO;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class frm_Reporte_Ubicaciones_Logistica : DevExpress.XtraEditors.XtraForm
     {

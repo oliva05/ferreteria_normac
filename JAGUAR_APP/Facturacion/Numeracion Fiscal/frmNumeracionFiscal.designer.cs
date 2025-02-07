@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Numeracion_Fiscal
+namespace JAGUAR_PRO.Facturacion.Numeracion_Fiscal
 {
     partial class frmNumeracionFiscal
     {
@@ -41,7 +41,7 @@ namespace JAGUAR_APP.Facturacion.Numeracion_Fiscal
             this.colEstado_desc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.numeracionFiscalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsNumeracionFiscal = new JAGUAR_APP.Facturacion.Numeracion_Fiscal.dsNumeracionFiscal();
+            this.dsNumeracionFiscal = new JAGUAR_PRO.Facturacion.Numeracion_Fiscal.dsNumeracionFiscal();
             this.gvNumeracionFiscal = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcai = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -320,7 +320,7 @@ namespace JAGUAR_APP.Facturacion.Numeracion_Fiscal
             // btnCancel
             // 
             this.btnCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnCancel.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel_48;
+            this.btnCancel.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel_48;
             this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.btnCancel.Location = new System.Drawing.Point(1442, 12);
             this.btnCancel.Name = "btnCancel";

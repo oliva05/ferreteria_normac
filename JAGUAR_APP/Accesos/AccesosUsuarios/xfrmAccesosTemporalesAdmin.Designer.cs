@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Accesos.AccesosUsuarios
+namespace JAGUAR_PRO.Accesos.AccesosUsuarios
 {
     partial class xfrmAccesosTemporalesAdmin
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.Accesos.AccesosUsuarios
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsAccesosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsAccesos = new JAGUAR_APP.Accesos.dsAccesos();
+            this.dsAccesos = new JAGUAR_PRO.Accesos.dsAccesos();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_usuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colusuario = new DevExpress.XtraGrid.Columns.GridColumn();

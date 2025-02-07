@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Drawing;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class rptHistoricoPT : DevExpress.XtraReports.UI.XtraReport
     {

@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Facturacion.Reportes
+﻿namespace JAGUAR_PRO.Facturacion.Reportes
 {
     partial class frmArqueoCajaV2
     {
@@ -60,7 +60,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.cmdRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsContabilidad1 = new JAGUAR_APP.Facturacion.CoreFacturas.dsContabilidad();
+            this.dsContabilidad1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsContabilidad();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_tipo_pago = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo_pago_name = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -119,7 +119,7 @@
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControlRecibos = new DevExpress.XtraGrid.GridControl();
-            this.dsFacturasGestion1 = new JAGUAR_APP.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.dsFacturasGestion1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.gridViewRecibos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_recibo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnum_doc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -663,7 +663,7 @@
             // btnAutorizar
             // 
             this.btnAutorizar.AutoHeight = false;
-            editorButtonImageOptions3.Image = global::JAGUAR_APP.Properties.Resources.shield_16X16;
+            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.shield_16X16;
             this.btnAutorizar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnAutorizar.Name = "btnAutorizar";
@@ -1026,7 +1026,7 @@
             // cmdAnular
             // 
             this.cmdAnular.AutoHeight = false;
-            editorButtonImageOptions5.Image = global::JAGUAR_APP.Properties.Resources.shield_16X16;
+            editorButtonImageOptions5.Image = global::JAGUAR_PRO.Properties.Resources.shield_16X16;
             this.cmdAnular.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdAnular.Name = "cmdAnular";

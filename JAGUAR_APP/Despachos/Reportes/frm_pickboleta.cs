@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.Despachos.Reportes
+namespace JAGUAR_PRO.Despachos.Reportes
 {
     public partial class frm_pickboleta : DevExpress.XtraEditors.XtraForm
     {

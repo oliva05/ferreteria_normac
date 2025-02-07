@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Reportes
+﻿namespace JAGUAR_PRO.Reportes
 {
     partial class frnReporteingreso
     {
@@ -33,7 +33,7 @@
             this.btnclose = new DevExpress.XtraEditors.SimpleButton();
             this.grdYEAR = new DevExpress.XtraEditors.GridLookUpEdit();
             this.yearBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsReportes = new JAGUAR_APP.Reportes.dsReportes();
+            this.dsReportes = new JAGUAR_PRO.Reportes.dsReportes();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colyear = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colyeardate = new DevExpress.XtraGrid.Columns.GridColumn();

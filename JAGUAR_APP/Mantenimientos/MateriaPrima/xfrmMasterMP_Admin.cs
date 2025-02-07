@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Mantenimientos.Clientes.Models;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Mantenimientos.Clientes.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Mantenimientos.MateriaPrima
+namespace JAGUAR_PRO.Mantenimientos.MateriaPrima
 {
     public partial class xfrmMasterMP_Admin : DevExpress.XtraEditors.XtraForm
     {

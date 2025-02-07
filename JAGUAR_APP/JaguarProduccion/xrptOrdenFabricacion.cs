@@ -1,14 +1,14 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.LogisticaJaguar.Models;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.LogisticaJaguar.Models;
 using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Drawing;
 
-namespace JAGUAR_APP.JaguarProduccion
+namespace JAGUAR_PRO.JaguarProduccion
 {
     public partial class xrptOrdenFabricacion : DevExpress.XtraReports.UI.XtraReport
     {

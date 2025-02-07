@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Facturacion.Notas.Model
+namespace JAGUAR_PRO.Facturacion.Notas.Model
 {
   public  class FacturasSeleccionadasParaAplicarNota
     {

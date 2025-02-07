@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.JaguarProduccion
+namespace JAGUAR_PRO.JaguarProduccion
 {
     partial class xrptOrdenFabricacion
     {
@@ -89,7 +89,7 @@ namespace JAGUAR_APP.JaguarProduccion
             this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             this.xrShape4 = new DevExpress.XtraReports.UI.XRShape();
             this.xpPageSelector1 = new DevExpress.Xpo.XPPageSelector(this.components);
-            this.dsLogisticaJaguar1 = new JAGUAR_APP.LogisticaJaguar.dsLogisticaJaguar();
+            this.dsLogisticaJaguar1 = new JAGUAR_PRO.LogisticaJaguar.dsLogisticaJaguar();
             this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
@@ -657,7 +657,7 @@ namespace JAGUAR_APP.JaguarProduccion
             this.xrSubreport2.LocationFloat = new DevExpress.Utils.PointFloat(0.0002034505F, 0F);
             this.xrSubreport2.Name = "xrSubreport2";
             this.xrSubreport2.ParameterBindings.Add(new DevExpress.XtraReports.UI.ParameterBinding("Orden_Fabricacion_ID", this.ID));
-            this.xrSubreport2.ReportSource = new JAGUAR_APP.JaguarProduccion.xrptRecepcionPT_Latas();
+            this.xrSubreport2.ReportSource = new JAGUAR_PRO.JaguarProduccion.xrptRecepcionPT_Latas();
             this.xrSubreport2.SizeF = new System.Drawing.SizeF(747.9999F, 144.2915F);
             // 
             // ID
@@ -681,7 +681,7 @@ namespace JAGUAR_APP.JaguarProduccion
             this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrSubreport1.Name = "xrSubreport1";
             this.xrSubreport1.ParameterBindings.Add(new DevExpress.XtraReports.UI.ParameterBinding("Orden_Fabricacion_ID", this.ID));
-            this.xrSubreport1.ReportSource = new JAGUAR_APP.JaguarProduccion.xrptRecepcionPT();
+            this.xrSubreport1.ReportSource = new JAGUAR_PRO.JaguarProduccion.xrptRecepcionPT();
             this.xrSubreport1.SizeF = new System.Drawing.SizeF(748.0001F, 148.7501F);
             this.xrSubreport1.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.xrSubreport1_BeforePrint_1);
             // 

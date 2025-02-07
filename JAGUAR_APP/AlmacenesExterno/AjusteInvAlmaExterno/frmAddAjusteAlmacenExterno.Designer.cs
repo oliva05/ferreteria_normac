@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.AlmacenesExterno.AjusteInvAlmaExterno
+namespace JAGUAR_PRO.AlmacenesExterno.AjusteInvAlmaExterno
 {
     partial class frmAddAjusteAlmacenExterno
     {
@@ -203,7 +203,7 @@ namespace JAGUAR_APP.AlmacenesExterno.AjusteInvAlmaExterno
             // cmdCancelar
             // 
             this.cmdCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCancelar.Image = global::JAGUAR_APP.Properties.Resources.close32px1;
+            this.cmdCancelar.Image = global::JAGUAR_PRO.Properties.Resources.close32px1;
             this.cmdCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCancelar.Location = new System.Drawing.Point(280, 284);
             this.cmdCancelar.Name = "cmdCancelar";
@@ -217,7 +217,7 @@ namespace JAGUAR_APP.AlmacenesExterno.AjusteInvAlmaExterno
             // cmdguardar
             // 
             this.cmdguardar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdguardar.Image = global::JAGUAR_APP.Properties.Resources.floppy_disk32px;
+            this.cmdguardar.Image = global::JAGUAR_PRO.Properties.Resources.floppy_disk32px;
             this.cmdguardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdguardar.Location = new System.Drawing.Point(169, 284);
             this.cmdguardar.Name = "cmdguardar";

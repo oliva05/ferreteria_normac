@@ -11,11 +11,11 @@ using DevExpress.XtraEditors;
 using ACS.Classes;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.AlmacenesExterno.Reporteria;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.AlmacenesExterno.Reporteria;
 using DevExpress.XtraReports.UI;
 
-namespace JAGUAR_APP.AlmacenesExterno
+namespace JAGUAR_PRO.AlmacenesExterno
 {
     public partial class xfrmAlmacenesExternos_Main : DevExpress.XtraEditors.XtraForm
     {

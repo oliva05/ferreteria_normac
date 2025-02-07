@@ -4,10 +4,10 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System.Data.SqlClient;
 
-namespace JAGUAR_APP.Facturacion.Reportes 
+namespace JAGUAR_PRO.Facturacion.Reportes 
 {
     public partial class rptFactura : DevExpress.XtraReports.UI.XtraReport
     {

@@ -6,7 +6,7 @@ using DevExpress.XtraReports.UI;
 using System.Data.SqlClient;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class xrptAlimentacionMicros : DevExpress.XtraReports.UI.XtraReport
     {

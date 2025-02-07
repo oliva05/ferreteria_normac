@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Facturacion.Reportes
+﻿namespace JAGUAR_PRO.Facturacion.Reportes
 {
     partial class rpt_cierre_dia_complete
     {
@@ -88,7 +88,7 @@
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblResponsable = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
-            this.dsContabilidad1 = new JAGUAR_APP.Facturacion.CoreFacturas.dsContabilidad();
+            this.dsContabilidad1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsContabilidad();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
@@ -694,7 +694,7 @@
             // 
             // xrPictureBox1
             // 
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::JAGUAR_APP.Properties.Resources.Ovejita, true);
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::JAGUAR_PRO.Properties.Resources.Ovejita, true);
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(855.8078F, 5.208302F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(136.1507F, 115.8712F);

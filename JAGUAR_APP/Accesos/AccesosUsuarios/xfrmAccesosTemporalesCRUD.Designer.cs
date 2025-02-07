@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Accesos.AccesosUsuarios
+namespace JAGUAR_PRO.Accesos.AccesosUsuarios
 {
     partial class xfrmAccesosTemporalesCRUD
     {
@@ -38,7 +38,7 @@ namespace JAGUAR_APP.Accesos.AccesosUsuarios
             this.lueUsuario = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.usuariosBindingSource = new System.Windows.Forms.BindingSource();
             this.dsAccesosBindingSource = new System.Windows.Forms.BindingSource();
-            this.dsAccesos = new JAGUAR_APP.Accesos.dsAccesos();
+            this.dsAccesos = new JAGUAR_PRO.Accesos.dsAccesos();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ventanaBindingSource = new System.Windows.Forms.BindingSource();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();

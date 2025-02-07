@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.Mantenimientos
+namespace JAGUAR_PRO.Facturacion.Mantenimientos
 {
     partial class PDV_CRUD
     {
@@ -52,7 +52,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             this.txtDireccion = new DevExpress.XtraEditors.MemoEdit();
             this.slueCiudad = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.municipiosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientosFacturacion = new JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
+            this.dsMantenimientosFacturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.slueDepto = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -85,7 +85,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             this.txtRTN = new DevExpress.XtraEditors.TextEdit();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsCRUDS_Facturacion1 = new JAGUAR_APP.Facturacion.Mantenimientos.dsCRUDS_Facturacion();
+            this.dsCRUDS_Facturacion1 = new JAGUAR_PRO.Facturacion.Mantenimientos.dsCRUDS_Facturacion();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colpc_name = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -192,7 +192,7 @@ namespace JAGUAR_APP.Facturacion.Mantenimientos
             this.cmdNew.Appearance.Options.UseBackColor = true;
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdNew.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.cmdNew.Location = new System.Drawing.Point(362, 507);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(119, 47);

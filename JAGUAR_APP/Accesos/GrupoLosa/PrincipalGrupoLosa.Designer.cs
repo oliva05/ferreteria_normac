@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Accesos.GrupoLosa
+namespace JAGUAR_PRO.Accesos.GrupoLosa
 {
     partial class PrincipalGrupoLosa
     {
@@ -32,7 +32,7 @@ namespace JAGUAR_APP.Accesos.GrupoLosa
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalGrupoLosa));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gridControlGruposJAGUAR_APP = new DevExpress.XtraGrid.GridControl();
+            this.gridControlGruposJAGUAR_PRO = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Grupo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,7 +42,7 @@ namespace JAGUAR_APP.Accesos.GrupoLosa
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlGruposJAGUAR_APP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlGruposJAGUAR_PRO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@ namespace JAGUAR_APP.Accesos.GrupoLosa
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.gridControlGruposJAGUAR_APP);
+            this.panel1.Controls.Add(this.gridControlGruposJAGUAR_PRO);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(23, 80);
             this.panel1.Name = "panel1";
@@ -76,14 +76,14 @@ namespace JAGUAR_APP.Accesos.GrupoLosa
             // 
             // gridControlGruposLosa
             // 
-            this.gridControlGruposJAGUAR_APP.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
-            this.gridControlGruposJAGUAR_APP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlGruposJAGUAR_APP.Location = new System.Drawing.Point(0, 0);
-            this.gridControlGruposJAGUAR_APP.MainView = this.gridView1;
-            this.gridControlGruposJAGUAR_APP.Name = "gridControlGruposJAGUAR_APP";
-            this.gridControlGruposJAGUAR_APP.Size = new System.Drawing.Size(777, 445);
-            this.gridControlGruposJAGUAR_APP.TabIndex = 1;
-            this.gridControlGruposJAGUAR_APP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControlGruposJAGUAR_PRO.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
+            this.gridControlGruposJAGUAR_PRO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlGruposJAGUAR_PRO.Location = new System.Drawing.Point(0, 0);
+            this.gridControlGruposJAGUAR_PRO.MainView = this.gridView1;
+            this.gridControlGruposJAGUAR_PRO.Name = "gridControlGruposJAGUAR_PRO";
+            this.gridControlGruposJAGUAR_PRO.Size = new System.Drawing.Size(777, 445);
+            this.gridControlGruposJAGUAR_PRO.TabIndex = 1;
+            this.gridControlGruposJAGUAR_PRO.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -92,7 +92,7 @@ namespace JAGUAR_APP.Accesos.GrupoLosa
             this.Id,
             this.Grupo,
             this.Habilitado});
-            this.gridView1.GridControl = this.gridControlGruposJAGUAR_APP;
+            this.gridView1.GridControl = this.gridControlGruposJAGUAR_PRO;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsSelection.EnableAppearanceHideSelection = false;
@@ -167,7 +167,7 @@ namespace JAGUAR_APP.Accesos.GrupoLosa
             this.Text = "Gestion grupos Losa";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlGruposJAGUAR_APP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlGruposJAGUAR_PRO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -178,7 +178,7 @@ namespace JAGUAR_APP.Accesos.GrupoLosa
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraGrid.GridControl gridControlGruposJAGUAR_APP;
+        private DevExpress.XtraGrid.GridControl gridControlGruposJAGUAR_PRO;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn Id;
         private DevExpress.XtraGrid.Columns.GridColumn Grupo;

@@ -4,15 +4,15 @@ using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Facturacion.CoreFacturas;
-using JAGUAR_APP.Facturacion.Cotizaciones;
-using JAGUAR_APP.Facturacion.Mantenimientos.Models;
-using JAGUAR_APP.Facturacion.Numeracion_Fiscal;
-using JAGUAR_APP.Facturacion.Reportes;
-using JAGUAR_APP.Mantenimientos;
-using JAGUAR_APP.Mantenimientos.Modelos;
-using JAGUAR_APP.RecuentoInventario;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
+using JAGUAR_PRO.Facturacion.Cotizaciones;
+using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
+using JAGUAR_PRO.Facturacion.Numeracion_Fiscal;
+using JAGUAR_PRO.Facturacion.Reportes;
+using JAGUAR_PRO.Mantenimientos;
+using JAGUAR_PRO.Mantenimientos.Modelos;
+using JAGUAR_PRO.RecuentoInventario;
 using LOSA.Calidad.LoteConfConsumo;
 using Microsoft.VisualBasic;
 using System;
@@ -29,7 +29,7 @@ using System.Windows.Forms;
 using static DevExpress.Data.Filtering.Helpers.SubExprHelper.ThreadHoppingFiltering;
 using static DevExpress.DataProcessing.InMemoryDataProcessor.AddSurrogateOperationAlgorithm;
 using static DevExpress.XtraPrinting.Native.ExportOptionsPropertiesNames;
-using static JAGUAR_APP.Clases.BinGranel;
+using static JAGUAR_PRO.Clases.BinGranel;
 
 
 namespace Eatery.Ventas

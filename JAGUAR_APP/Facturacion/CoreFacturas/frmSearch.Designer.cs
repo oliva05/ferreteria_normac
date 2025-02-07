@@ -51,7 +51,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.cmdCerrar2 = new DevExpress.XtraEditors.SimpleButton();
             this.textSearchRTN = new DevExpress.XtraEditors.TextEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsSearchWindow1 = new JAGUAR_APP.Facturacion.CoreFacturas.dsSearchWindow();
+            this.dsSearchWindow1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsSearchWindow();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdCliente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -464,7 +464,7 @@ namespace LOSA.Calidad.LoteConfConsumo
         private DevExpress.XtraEditors.TextEdit textSearchRTN;
         private DevExpress.XtraEditors.SimpleButton cmdBackPage;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private JAGUAR_APP.Facturacion.CoreFacturas.dsSearchWindow dsSearchWindow1;
+        private JAGUAR_PRO.Facturacion.CoreFacturas.dsSearchWindow dsSearchWindow1;
         private DevExpress.XtraGrid.Columns.GridColumn colIdEmpresa;
         private DevExpress.XtraGrid.Columns.GridColumn colIdCliente;
         private DevExpress.XtraGrid.Columns.GridColumn colNombreLargo;

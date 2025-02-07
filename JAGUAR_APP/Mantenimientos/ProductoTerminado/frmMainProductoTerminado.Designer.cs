@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos.ProductoTerminado
+namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
     partial class frmMainProductoTerminado
     {
@@ -53,7 +53,7 @@ namespace JAGUAR_APP.Mantenimientos.ProductoTerminado
             this.cmdEditarPT = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdReceta = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridDetalleProductosCRUD = new DevExpress.XtraGrid.GridControl();
-            this.dsProductoTerminado1 = new JAGUAR_APP.Mantenimientos.ProductoTerminado.dsProductoTerminado();
+            this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colenable = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -425,7 +425,7 @@ namespace JAGUAR_APP.Mantenimientos.ProductoTerminado
             this.cmdExportExcel.Appearance.Options.UseBackColor = true;
             this.cmdExportExcel.Appearance.Options.UseFont = true;
             this.cmdExportExcel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdExportExcel.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.excel32px;
+            this.cmdExportExcel.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.excel32px;
             this.cmdExportExcel.Location = new System.Drawing.Point(941, 38);
             this.cmdExportExcel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmdExportExcel.Name = "cmdExportExcel";

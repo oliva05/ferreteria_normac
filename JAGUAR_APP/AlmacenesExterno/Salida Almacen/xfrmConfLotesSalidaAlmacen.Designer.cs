@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
+﻿namespace JAGUAR_PRO.AlmacenesExterno.Salida_Almacen
 {
     partial class xfrmConfLotesSalidaAlmacen
     {
@@ -37,7 +37,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gcLote = new DevExpress.XtraGrid.GridControl();
-            this.dsSalidasAlmacenesExternos = new JAGUAR_APP.AlmacenesExterno.dsSalidasAlmacenesExternos();
+            this.dsSalidasAlmacenesExternos = new JAGUAR_PRO.AlmacenesExterno.dsSalidasAlmacenesExternos();
             this.gvLote = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidad_disponible = new DevExpress.XtraGrid.Columns.GridColumn();

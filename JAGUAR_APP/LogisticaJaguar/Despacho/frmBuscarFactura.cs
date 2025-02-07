@@ -2,7 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraExport;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Despachos;
+using JAGUAR_PRO.Despachos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.LogisticaJaguar.Despacho
+namespace JAGUAR_PRO.LogisticaJaguar.Despacho
 {
     public partial class frmBuscarFactura : DevExpress.XtraEditors.XtraForm
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.RecuentoInventario
+namespace JAGUAR_PRO.RecuentoInventario
 {
     partial class frmReporteInvPorLoteA_LaFecha
     {
@@ -30,7 +30,7 @@ namespace JAGUAR_APP.RecuentoInventario
         private void InitializeComponent()
         {
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsReportesRecuentosINV1 = new JAGUAR_APP.RecuentoInventario.dsReportesRecuentosINV();
+            this.dsReportesRecuentosINV1 = new JAGUAR_PRO.RecuentoInventario.dsReportesRecuentosINV();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colexistencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre_comercial = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -212,7 +212,7 @@ namespace JAGUAR_APP.RecuentoInventario
             // cmdGenerarReporte
             // 
             this.cmdGenerarReporte.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.cmdGenerarReporte.Image = global::JAGUAR_APP.Properties.Resources.refresh_button32px;
+            this.cmdGenerarReporte.Image = global::JAGUAR_PRO.Properties.Resources.refresh_button32px;
             this.cmdGenerarReporte.Location = new System.Drawing.Point(407, 46);
             this.cmdGenerarReporte.Name = "cmdGenerarReporte";
             this.cmdGenerarReporte.Size = new System.Drawing.Size(169, 44);
@@ -227,7 +227,7 @@ namespace JAGUAR_APP.RecuentoInventario
             // cmdExcel
             // 
             this.cmdExcel.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.cmdExcel.Image = global::JAGUAR_APP.Properties.Resources.excel32px;
+            this.cmdExcel.Image = global::JAGUAR_PRO.Properties.Resources.excel32px;
             this.cmdExcel.Location = new System.Drawing.Point(582, 46);
             this.cmdExcel.Name = "cmdExcel";
             this.cmdExcel.Size = new System.Drawing.Size(169, 44);
@@ -242,7 +242,7 @@ namespace JAGUAR_APP.RecuentoInventario
             // cmdCerrar
             // 
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.cmdCerrar.Image = global::JAGUAR_APP.Properties.Resources.close32px;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.close32px;
             this.cmdCerrar.Location = new System.Drawing.Point(757, 46);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(169, 44);

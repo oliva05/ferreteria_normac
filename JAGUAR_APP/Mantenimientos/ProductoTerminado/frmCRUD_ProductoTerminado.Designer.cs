@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos.ProductoTerminado
+namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
     partial class frmCRUD_ProductoTerminado
     {
@@ -35,7 +35,7 @@ namespace JAGUAR_APP.Mantenimientos.ProductoTerminado
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.gridLookUpEdit_Presentaciones = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourcePresentacion = new System.Windows.Forms.BindingSource(this.components);
-            this.dsProductoTerminado1 = new JAGUAR_APP.Mantenimientos.ProductoTerminado.dsProductoTerminado();
+            this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,7 +65,7 @@ namespace JAGUAR_APP.Mantenimientos.ProductoTerminado
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.glueTipoFacturacion = new DevExpress.XtraEditors.GridLookUpEdit();
             this.tipoFacturacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientosFacturacion = new JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
+            this.dsMantenimientosFacturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -871,7 +871,7 @@ namespace JAGUAR_APP.Mantenimientos.ProductoTerminado
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private System.Windows.Forms.BindingSource tipoFacturacionBindingSource;
-        private JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion dsMantenimientosFacturacion;
+        private JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion dsMantenimientosFacturacion;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.GridLookUpEdit glueTipoBuffet;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;

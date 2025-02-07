@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JAGUAR_APP.Micro {
+namespace JAGUAR_PRO.Micro {
     
     
     /// <summary>

@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-//using JAGUAR_APP.RecepcionMP;
+//using JAGUAR_PRO.RecepcionMP;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,15 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System.Data.SqlClient;
 using Core.Clases.Herramientas;
 using System.Collections;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Reportes;
+using JAGUAR_PRO.Reportes;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.AlmacenesExterno.Salida_Almacen
+namespace JAGUAR_PRO.AlmacenesExterno.Salida_Almacen
 {
     public partial class frmTipoIngreso_v2 : DevExpress.XtraEditors.XtraForm
     {

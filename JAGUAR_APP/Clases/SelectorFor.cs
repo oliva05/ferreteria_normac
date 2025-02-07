@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ACS.Classes;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System.Data.SqlClient;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {                  
     class SelectorFor
     {

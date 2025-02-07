@@ -5,9 +5,9 @@ using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using ACS.Classes;
 using System.Data.SqlClient;
-using JAGUAR_APP.AlmacenesExterno.Models;
+using JAGUAR_PRO.AlmacenesExterno.Models;
 
-namespace JAGUAR_APP.AlmacenesExterno.Reporteria
+namespace JAGUAR_PRO.AlmacenesExterno.Reporteria
 {
     public partial class xrptAlmacenesExternos : DevExpress.XtraReports.UI.XtraReport
     {

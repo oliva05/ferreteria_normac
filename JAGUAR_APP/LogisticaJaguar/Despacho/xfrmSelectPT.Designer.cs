@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.LogisticaJaguar.Despacho
+namespace JAGUAR_PRO.LogisticaJaguar.Despacho
 {
     partial class xfrmSelectPT
     {
@@ -33,7 +33,7 @@ namespace JAGUAR_APP.LogisticaJaguar.Despacho
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmSelectPT));
             this.gcPT = new DevExpress.XtraGrid.GridControl();
             this.pTSeleccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsDespacho = new JAGUAR_APP.LogisticaJaguar.Despacho.dsDespacho();
+            this.dsDespacho = new JAGUAR_PRO.LogisticaJaguar.Despacho.dsDespacho();
             this.gvPT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -200,7 +200,7 @@ namespace JAGUAR_APP.LogisticaJaguar.Despacho
             this.btnSeleccionar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnSeleccionar.Appearance.Options.UseFont = true;
             this.btnSeleccionar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnSeleccionar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.marca_de_verificacion;
+            this.btnSeleccionar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.marca_de_verificacion;
             this.btnSeleccionar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnSeleccionar.Location = new System.Drawing.Point(658, 10);
             this.btnSeleccionar.Name = "btnSeleccionar";

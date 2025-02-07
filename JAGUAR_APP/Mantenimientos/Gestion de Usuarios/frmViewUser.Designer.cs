@@ -63,7 +63,7 @@
             this.cmdAdd = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtaqfcode = new DevExpress.XtraEditors.TextEdit();
-            this.dsMant_IT1 = new JAGUAR_APP.Mantenimientos.Gestion_de_Usuarios.dsMant_IT();
+            this.dsMant_IT1 = new JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios.dsMant_IT();
             ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuarioAD.Properties)).BeginInit();
@@ -475,6 +475,6 @@
         private DevExpress.XtraEditors.SimpleButton cmdAdd;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit txtaqfcode;
-        private JAGUAR_APP.Mantenimientos.Gestion_de_Usuarios.dsMant_IT dsMant_IT1;
+        private JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios.dsMant_IT dsMant_IT1;
     }
 }

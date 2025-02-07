@@ -1,4 +1,4 @@
-﻿using JAGUAR_APP.Mantenimientos.Gestion_de_Usuarios;
+﻿using JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios;
 
 namespace ACS.IT_Managment
 {
@@ -42,7 +42,7 @@ namespace ACS.IT_Managment
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsMant_IT1 = new JAGUAR_APP.Mantenimientos.Gestion_de_Usuarios.dsMant_IT();
+            this.dsMant_IT1 = new JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios.dsMant_IT();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colaqf_code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();

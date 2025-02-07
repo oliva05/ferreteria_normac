@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.RecuentoInventario
+namespace JAGUAR_PRO.RecuentoInventario
 {
     partial class frmEdtiarDetalleRecuento
     {

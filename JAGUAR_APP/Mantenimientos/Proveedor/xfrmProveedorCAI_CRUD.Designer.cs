@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos.Proveedor
+namespace JAGUAR_PRO.Mantenimientos.Proveedor
 {
     partial class xfrmProveedorCAI_CRUD
     {
@@ -47,7 +47,7 @@ namespace JAGUAR_APP.Mantenimientos.Proveedor
             this.deFechaFin = new DevExpress.XtraEditors.DateEdit();
             this.lueProveedor = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.jAGUARProveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -114,7 +114,7 @@ namespace JAGUAR_APP.Mantenimientos.Proveedor
             this.cmdNew.Appearance.Options.UseBackColor = true;
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdNew.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.cmdNew.Location = new System.Drawing.Point(86, 303);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(139, 42);

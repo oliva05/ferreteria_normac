@@ -4,10 +4,10 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using ACS.Classes;
 
-namespace JAGUAR_APP.Requisiciones.Reportes
+namespace JAGUAR_PRO.Requisiciones.Reportes
 {
     public partial class lblNumeroReq : DevExpress.XtraReports.UI.XtraReport
     {

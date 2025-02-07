@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Accesos.TurnosUsuario
+namespace JAGUAR_PRO.Accesos.TurnosUsuario
 {
     partial class EditarTurnos
     {

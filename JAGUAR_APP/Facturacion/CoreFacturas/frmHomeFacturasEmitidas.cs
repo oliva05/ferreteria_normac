@@ -4,9 +4,9 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.Facturacion.Mantenimientos.Models;
-using JAGUAR_APP.Facturacion.Reportes;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
+using JAGUAR_PRO.Facturacion.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DevExpress.DataProcessing.InMemoryDataProcessor.AddSurrogateOperationAlgorithm;
 
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     public partial class frmHomeFacturasEmitidas : DevExpress.XtraEditors.XtraForm
     {

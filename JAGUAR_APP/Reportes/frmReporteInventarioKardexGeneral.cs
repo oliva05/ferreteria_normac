@@ -9,17 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Threading;
-using JAGUAR_APP.Calidad.LoteConfConsumo;
-using JAGUAR_APP.TransaccionesMP;
+using JAGUAR_PRO.Calidad.LoteConfConsumo;
+using JAGUAR_PRO.TransaccionesMP;
 using DevExpress.XtraPrinting;
 using System.Diagnostics;
 //using LOSA.Calidad.LoteConfConsumo;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class frmReporteInventarioKardexGeneral : DevExpress.XtraEditors.XtraForm
     {

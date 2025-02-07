@@ -12,10 +12,10 @@ using ACS.Classes;
 
 
 using System.Data.SqlClient;
-using JAGUAR_APP.Clases;
-using JAGUAR_APP.TransaccionesPT;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.TransaccionesPT;
 
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     public partial class frmAjusteKardexFactura : DevExpress.XtraEditors.XtraForm
     {

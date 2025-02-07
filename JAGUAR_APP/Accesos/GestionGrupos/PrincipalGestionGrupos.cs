@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Accesos.GestionGrupos
+namespace JAGUAR_PRO.Accesos.GestionGrupos
 {
     public partial class PrincipalGestionGrupos : DevExpress.XtraEditors.XtraForm
     {

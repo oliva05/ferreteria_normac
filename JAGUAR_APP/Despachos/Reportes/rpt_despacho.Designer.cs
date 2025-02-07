@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.Despachos.Reportes
+﻿namespace JAGUAR_PRO.Despachos.Reportes
 {
     partial class rpt_despacho
     {
@@ -77,7 +77,7 @@
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
-            this.ds_despachos1 = new JAGUAR_APP.Despachos.ds_despachos();
+            this.ds_despachos1 = new JAGUAR_PRO.Despachos.ds_despachos();
             this.lblVersionALOSY = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.ds_despachos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();

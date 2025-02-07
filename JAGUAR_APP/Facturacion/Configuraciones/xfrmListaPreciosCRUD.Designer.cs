@@ -1,7 +1,7 @@
 ﻿
-using JAGUAR_APP.Mantenimientos;
+using JAGUAR_PRO.Mantenimientos;
 
-namespace JAGUAR_APP.Facturacion.Configuraciones
+namespace JAGUAR_PRO.Facturacion.Configuraciones
 {
     partial class xfrmListaPreciosCRUD
     {
@@ -75,7 +75,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdAddPuntoVenta = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlClientes = new DevExpress.XtraGrid.GridControl();
-            this.dsListaPrecios = new JAGUAR_APP.Facturacion.Configuraciones.dsListaPrecios();
+            this.dsListaPrecios = new JAGUAR_PRO.Facturacion.Configuraciones.dsListaPrecios();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_detalle_punto_venta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_detalle_punto_venta_clientes = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -249,7 +249,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             this.cmdNew.Appearance.Options.UseBackColor = true;
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdNew.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.save_32x32;
+            this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.cmdNew.Location = new System.Drawing.Point(813, 24);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(116, 45);
@@ -266,7 +266,7 @@ namespace JAGUAR_APP.Facturacion.Configuraciones
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.simpleButton1.Location = new System.Drawing.Point(935, 24);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(116, 45);

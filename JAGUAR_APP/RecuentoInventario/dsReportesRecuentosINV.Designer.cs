@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JAGUAR_APP.RecuentoInventario {
+namespace JAGUAR_PRO.RecuentoInventario {
     
     
     /// <summary>

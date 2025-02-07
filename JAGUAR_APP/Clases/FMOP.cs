@@ -10,9 +10,9 @@ using DevExpress.XtraSplashScreen;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraReports.UI;
 using ACS.Classes;
-//using JAGUAR_APP.MigracionACS.RPTS.PRD;
+//using JAGUAR_PRO.MigracionACS.RPTS.PRD;
 
-namespace JAGUAR_APP.Clases
+namespace JAGUAR_PRO.Clases
 {
     class FMOP
     {

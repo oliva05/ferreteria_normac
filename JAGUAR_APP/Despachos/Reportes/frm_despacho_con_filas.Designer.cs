@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Despachos.Reportes
+namespace JAGUAR_PRO.Despachos.Reportes
 {
     partial class frm_despacho_con_filas
     {
@@ -66,7 +66,7 @@ namespace JAGUAR_APP.Despachos.Reportes
             this.xrLabel37 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel38 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel39 = new DevExpress.XtraReports.UI.XRLabel();
-            this.ds_despachos1 = new JAGUAR_APP.Despachos.ds_despachos();
+            this.ds_despachos1 = new JAGUAR_PRO.Despachos.ds_despachos();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel31 = new DevExpress.XtraReports.UI.XRLabel();
             this.txtunidades = new DevExpress.XtraReports.UI.XRLabel();

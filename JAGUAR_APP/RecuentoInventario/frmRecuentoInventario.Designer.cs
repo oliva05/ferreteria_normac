@@ -1,4 +1,4 @@
-﻿namespace JAGUAR_APP.RecuentoInventario
+﻿namespace JAGUAR_PRO.RecuentoInventario
 {
     partial class frmRecuentoInventario
     {
@@ -32,7 +32,7 @@
             this.cmdHome = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.grd_data = new DevExpress.XtraGrid.GridControl();
-            this.dsRecuento = new JAGUAR_APP.RecuentoInventario.dsRecuento();
+            this.dsRecuento = new JAGUAR_PRO.RecuentoInventario.dsRecuento();
             this.grdv_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colingreso = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,7 +77,7 @@
             this.cmdHome.Appearance.Options.UseBackColor = true;
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdHome.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdHome.Location = new System.Drawing.Point(966, 3);
             this.cmdHome.Name = "cmdHome";
             this.cmdHome.Size = new System.Drawing.Size(199, 48);
@@ -392,7 +392,7 @@
             this.cmdGestionar.Appearance.Options.UseBackColor = true;
             this.cmdGestionar.Appearance.Options.UseFont = true;
             this.cmdGestionar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdGestionar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.web_apply_32px;
+            this.cmdGestionar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.web_apply_32px;
             this.cmdGestionar.Location = new System.Drawing.Point(967, 57);
             this.cmdGestionar.Name = "cmdGestionar";
             this.cmdGestionar.Size = new System.Drawing.Size(199, 48);

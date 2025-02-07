@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta
+namespace JAGUAR_PRO.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta
 {
     public partial class frmOpcionDocumentoFact_PuntoVenta : DevExpress.XtraEditors.XtraForm
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Mantenimientos.Facturacion.Mantenimiento
+namespace JAGUAR_PRO.Mantenimientos.Facturacion.Mantenimiento
 {
     partial class xfrmFacturacion_Clientes
     {
@@ -48,7 +48,7 @@ namespace JAGUAR_APP.Mantenimientos.Facturacion.Mantenimiento
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcClientes = new DevExpress.XtraGrid.GridControl();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientosFacturacion1 = new JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
+            this.dsMantenimientosFacturacion1 = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
             this.gvClientes = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -61,7 +61,7 @@ namespace JAGUAR_APP.Mantenimientos.Facturacion.Mantenimiento
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdContact = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.cmdClose = new DevExpress.XtraEditors.SimpleButton();
             this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -247,7 +247,7 @@ namespace JAGUAR_APP.Mantenimientos.Facturacion.Mantenimiento
             this.cmdClose.Appearance.Options.UseBackColor = true;
             this.cmdClose.Appearance.Options.UseFont = true;
             this.cmdClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdClose.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.cancel;
+            this.cmdClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
             this.cmdClose.Location = new System.Drawing.Point(967, 34);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(114, 47);
@@ -346,7 +346,7 @@ namespace JAGUAR_APP.Mantenimientos.Facturacion.Mantenimiento
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.SimpleButton btnActualizar;
         private System.Windows.Forms.BindingSource clienteBindingSource;
-        private JAGUAR_APP.Facturacion.Mantenimientos.dsMantenimientosFacturacion dsMantenimientosFacturacion1;
+        private JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion dsMantenimientosFacturacion1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
     }
 }

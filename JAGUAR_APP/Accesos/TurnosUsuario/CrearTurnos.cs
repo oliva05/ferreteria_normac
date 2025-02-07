@@ -1,12 +1,12 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Accesos.TurnosUsuario
+namespace JAGUAR_PRO.Accesos.TurnosUsuario
 {
     public partial class CrearTurnos : DevExpress.XtraEditors.XtraForm
     {

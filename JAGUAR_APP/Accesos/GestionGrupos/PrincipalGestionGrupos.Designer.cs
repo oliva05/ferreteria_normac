@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Accesos.GestionGrupos
+namespace JAGUAR_PRO.Accesos.GestionGrupos
 {
     partial class PrincipalGestionGrupos
     {

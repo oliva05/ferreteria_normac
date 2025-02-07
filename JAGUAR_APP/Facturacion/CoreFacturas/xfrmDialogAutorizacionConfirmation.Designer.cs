@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.Facturacion.CoreFacturas
+namespace JAGUAR_PRO.Facturacion.CoreFacturas
 {
     partial class xfrmDialogAutorizacionConfirmation
     {
@@ -32,7 +32,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmDialogAutorizacionConfirmation));
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dsFacturasGestion = new JAGUAR_APP.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.dsFacturasGestion = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.txtJustificacion = new DevExpress.XtraEditors.MemoEdit();
             this.cdmConfirmar = new DevExpress.XtraEditors.SimpleButton();
             this.cdmCancelar = new DevExpress.XtraEditors.SimpleButton();
@@ -43,7 +43,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.EditValue = global::JAGUAR_APP.Properties.Resources.information_64X64;
+            this.pictureEdit1.EditValue = global::JAGUAR_PRO.Properties.Resources.information_64X64;
             this.pictureEdit1.Location = new System.Drawing.Point(12, 2);
             this.pictureEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureEdit1.Name = "pictureEdit1";
@@ -88,7 +88,7 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             this.cdmConfirmar.Appearance.Options.UseFont = true;
             this.cdmConfirmar.Appearance.Options.UseForeColor = true;
             this.cdmConfirmar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cdmConfirmar.ImageOptions.Image = global::JAGUAR_APP.Properties.Resources.check_mark_24X24;
+            this.cdmConfirmar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.check_mark_24X24;
             this.cdmConfirmar.Location = new System.Drawing.Point(345, 60);
             this.cdmConfirmar.Name = "cdmConfirmar";
             this.cdmConfirmar.Size = new System.Drawing.Size(110, 47);

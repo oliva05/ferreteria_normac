@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.LogisticaJaguar.Pedidos
+namespace JAGUAR_PRO.LogisticaJaguar.Pedidos
 {
     partial class frmAddPedidoPRD
     {
@@ -44,7 +44,7 @@ namespace JAGUAR_APP.LogisticaJaguar.Pedidos
             this.dtFechaPedido = new DevExpress.XtraEditors.DateEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsPedidos_PRD1 = new JAGUAR_APP.LogisticaJaguar.Pedidos.dsPedidos_PRD();
+            this.dsPedidos_PRD1 = new JAGUAR_PRO.LogisticaJaguar.Pedidos.dsPedidos_PRD();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -96,7 +96,7 @@ namespace JAGUAR_APP.LogisticaJaguar.Pedidos
             this.label1 = new System.Windows.Forms.Label();
             this.slueCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.jAGUARClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento = new JAGUAR_APP.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();

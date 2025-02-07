@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Accesos.GrupoLosa
+namespace JAGUAR_PRO.Accesos.GrupoLosa
 {
     public partial class EditarGrupoLosa : DevExpress.XtraEditors.XtraForm
     {

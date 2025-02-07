@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Facturacion.Configuraciones.Models
+namespace JAGUAR_PRO.Facturacion.Configuraciones.Models
 {
   public  class ListaPrecioProductosAplicaPDV
     {

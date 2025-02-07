@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JAGUAR_APP.Mantenimientos.MaterialEmpaque.Model
+namespace JAGUAR_PRO.Mantenimientos.MaterialEmpaque.Model
 {
    public class Material_Empaque
     {

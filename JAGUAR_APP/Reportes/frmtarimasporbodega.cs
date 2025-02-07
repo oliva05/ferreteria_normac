@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
-//using JAGUAR_APP.RecepcionMP;
+//using JAGUAR_PRO.RecepcionMP;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JAGUAR_APP.Reportes
+namespace JAGUAR_PRO.Reportes
 {
     public partial class frmtarimasporbodega : DevExpress.XtraEditors.XtraForm
     {

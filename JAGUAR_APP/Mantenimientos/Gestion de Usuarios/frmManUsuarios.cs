@@ -10,7 +10,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Data.SqlClient;
 using PRININ.Gestion_de_Usuarios;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using ACS.Classes;
 
 namespace PRININ.Gestion_de_Usuarios
