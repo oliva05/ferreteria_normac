@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace JAGUAR_APP.BancosYTitulares
+namespace JAGUAR_PRO.BancosYTitulares
 {
     
     public partial class frmTitularOP : DevExpress.XtraEditors.XtraForm

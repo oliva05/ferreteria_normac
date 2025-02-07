@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JAGUAR_APP.BancosYTitulares;
-using JAGUAR_APP.Clases;
+using JAGUAR_PRO.BancosYTitulares;
+using JAGUAR_PRO.Clases;
 using ACS.Classes;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace JAGUAR_APP.BancosYTitulares
+namespace JAGUAR_PRO.BancosYTitulares
 {
     public partial class frmTitularMain : DevExpress.XtraEditors.XtraForm
     {

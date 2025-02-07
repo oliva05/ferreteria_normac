@@ -1,8 +1,8 @@
-﻿namespace JAGUAR_APP.BancosYTitulares
+﻿namespace JAGUAR_PRO.BancosYTitulares
 {
 }
 
-namespace JAGUAR_APP.BancosYTitulares
+namespace JAGUAR_PRO.BancosYTitulares
 {
 
 
@@ -10,7 +10,7 @@ namespace JAGUAR_APP.BancosYTitulares
     {
     }
 }
-namespace JAGUAR_APP.BancosYTitulares {
+namespace JAGUAR_PRO.BancosYTitulares {
     
     
     public partial class dsBancos {

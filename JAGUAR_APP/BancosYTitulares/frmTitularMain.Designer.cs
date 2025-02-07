@@ -1,5 +1,5 @@
 ﻿
-namespace JAGUAR_APP.BancosYTitulares
+namespace JAGUAR_PRO.BancosYTitulares
 {
     partial class frmTitularMain
     {
@@ -36,7 +36,7 @@ namespace JAGUAR_APP.BancosYTitulares
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsBancos1 = new JAGUAR_APP.BancosYTitulares.dsBancos();
+            this.dsBancos1 = new JAGUAR_PRO.BancosYTitulares.dsBancos();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_titular = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
