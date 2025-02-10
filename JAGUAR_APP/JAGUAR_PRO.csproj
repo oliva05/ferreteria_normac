@@ -1353,6 +1353,18 @@
     <Compile Include="Facturacion\Reportes\frmReportesFacturacionParametros.Designer.cs">
       <DependentUpon>frmReportesFacturacionParametros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Reportes\frmRptBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\frmRptBancos.Designer.cs">
+      <DependentUpon>frmRptBancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\frmRptBancosAjuste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\frmRptBancosAjuste.Designer.cs">
+      <DependentUpon>frmRptBancosAjuste.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Reportes\rptEstadoCuenta.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3234,6 +3246,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\frmReportesFacturacionParametros.resx">
       <DependentUpon>frmReportesFacturacionParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Reportes\frmRptBancos.resx">
+      <DependentUpon>frmRptBancos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Reportes\frmRptBancosAjuste.resx">
+      <DependentUpon>frmRptBancosAjuste.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\rptEstadoCuenta.resx">
       <DependentUpon>rptEstadoCuenta.cs</DependentUpon>

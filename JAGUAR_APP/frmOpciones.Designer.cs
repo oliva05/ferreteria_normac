@@ -43,7 +43,6 @@
             this.navBarGroup6 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem24 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem11 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemKardexPT = new DevExpress.XtraNavBar.NavBarItem();
@@ -79,6 +78,7 @@
             this.navBarItem54 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem44 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem45 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem11 = new DevExpress.XtraNavBar.NavBarItem();
             this.TabAdmin = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageCRUDS = new DevExpress.XtraTab.XtraTabPage();
@@ -115,6 +115,30 @@
             this.btnMantoPDV = new DevExpress.XtraEditors.SimpleButton();
             this.btnNumeracion = new DevExpress.XtraEditors.SimpleButton();
             this.btnClienteFacturacion = new DevExpress.XtraEditors.SimpleButton();
+            this.tabRRHH = new DevExpress.XtraTab.XtraTabPage();
+            this.tabContabilidad = new DevExpress.XtraTab.XtraTabPage();
+            this.tabPageFacturacion = new DevExpress.XtraTab.XtraTabPage();
+            this.navBarControl3 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarGroup11 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nbKardexFacturacion = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup10 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarFacturaMain = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemFacturasEmitidas = new DevExpress.XtraNavBar.NavBarItem();
+            this.NBI_Cliente = new DevExpress.XtraNavBar.NavBarItem();
+            this.NBI_NumeracionFiscal = new DevExpress.XtraNavBar.NavBarItem();
+            this.NBI_PuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
+            this.NBI_ListaPrecios = new DevExpress.XtraNavBar.NavBarItem();
+            this.NBI_Despachos = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem55 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbRequest = new DevExpress.XtraNavBar.NavBarItem();
+            this.nB_PagoMultiple = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem56 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem57 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem58 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem64 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarG_ReportesFacturacion = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nbReportesFacturacionMain = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemCambioDePrecio = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbTrazabilidad = new DevExpress.XtraNavBar.NavBarItem();
@@ -157,35 +181,14 @@
             this.navBarItem16 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem17 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem19 = new DevExpress.XtraNavBar.NavBarItem();
-            this.tabRRHH = new DevExpress.XtraTab.XtraTabPage();
-            this.tabContabilidad = new DevExpress.XtraTab.XtraTabPage();
-            this.tabPageFacturacion = new DevExpress.XtraTab.XtraTabPage();
-            this.navBarControl3 = new DevExpress.XtraNavBar.NavBarControl();
-            this.navBarGroup11 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.nbKardexFacturacion = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup10 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarFacturaMain = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemFacturasEmitidas = new DevExpress.XtraNavBar.NavBarItem();
-            this.NBI_Cliente = new DevExpress.XtraNavBar.NavBarItem();
-            this.NBI_NumeracionFiscal = new DevExpress.XtraNavBar.NavBarItem();
-            this.NBI_PuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
-            this.NBI_ListaPrecios = new DevExpress.XtraNavBar.NavBarItem();
-            this.NBI_Despachos = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem55 = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbRequest = new DevExpress.XtraNavBar.NavBarItem();
-            this.nB_PagoMultiple = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem56 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem57 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem58 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem64 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarG_ReportesFacturacion = new DevExpress.XtraNavBar.NavBarGroup();
-            this.nbReportesFacturacionMain = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemCambioDePrecio = new DevExpress.XtraNavBar.NavBarItem();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.rd_OdooMenu = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
+            this.cmdCuentas = new DevExpress.XtraEditors.SimpleButton();
+            this.navBarGroup7 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem20 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -432,19 +435,6 @@
             this.navBarItem24.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem24.ImageOptions.SmallImage")));
             this.navBarItem24.Name = "navBarItem24";
             this.navBarItem24.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem24_LinkClicked);
-            // 
-            // navBarItem11
-            // 
-            this.navBarItem11.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem11.Appearance.Options.UseFont = true;
-            this.navBarItem11.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.navBarItem11.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem11.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.navBarItem11.AppearancePressed.Options.UseFont = true;
-            this.navBarItem11.Caption = "Recetas";
-            this.navBarItem11.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.cook_book32px;
-            this.navBarItem11.Name = "navBarItem11";
-            this.navBarItem11.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem11_LinkClicked);
             // 
             // navBarGroup8
             // 
@@ -880,6 +870,19 @@
             this.navBarItem45.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem45.ImageOptions.SvgImage")));
             this.navBarItem45.Name = "navBarItem45";
             // 
+            // navBarItem11
+            // 
+            this.navBarItem11.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem11.Appearance.Options.UseFont = true;
+            this.navBarItem11.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.navBarItem11.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem11.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.navBarItem11.AppearancePressed.Options.UseFont = true;
+            this.navBarItem11.Caption = "Recetas";
+            this.navBarItem11.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.cook_book32px;
+            this.navBarItem11.Name = "navBarItem11";
+            this.navBarItem11.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem11_LinkClicked);
+            // 
             // TabAdmin
             // 
             this.TabAdmin.Controls.Add(this.xtraTabControl2);
@@ -908,6 +911,7 @@
             // 
             this.xtraTabPageCRUDS.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xtraTabPageCRUDS.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPageCRUDS.Controls.Add(this.cmdCuentas);
             this.xtraTabPageCRUDS.Controls.Add(this.btnME);
             this.xtraTabPageCRUDS.Controls.Add(this.btnClientes);
             this.xtraTabPageCRUDS.Controls.Add(this.cmdPanaderos);
@@ -1180,7 +1184,7 @@
             this.xtraTabPageUsuarios.Controls.Add(this.simpleButton37);
             this.xtraTabPageUsuarios.Controls.Add(this.simpleButton75);
             this.xtraTabPageUsuarios.Name = "xtraTabPageUsuarios";
-            this.xtraTabPageUsuarios.Size = new System.Drawing.Size(1222, 426);
+            this.xtraTabPageUsuarios.Size = new System.Drawing.Size(1222, 442);
             this.xtraTabPageUsuarios.Text = "Gestión de Usuarios";
             // 
             // simpleButton2
@@ -1303,7 +1307,7 @@
             this.xtraTabPageFacturacion.Margin = new System.Windows.Forms.Padding(2);
             this.xtraTabPageFacturacion.Name = "xtraTabPageFacturacion";
             this.xtraTabPageFacturacion.PageVisible = false;
-            this.xtraTabPageFacturacion.Size = new System.Drawing.Size(1222, 426);
+            this.xtraTabPageFacturacion.Size = new System.Drawing.Size(1222, 442);
             this.xtraTabPageFacturacion.Text = "Mantenimiento Facturación";
             // 
             // simpleButton3
@@ -1374,6 +1378,345 @@
             this.btnClienteFacturacion.TabIndex = 6;
             this.btnClienteFacturacion.Text = "Cliente";
             this.btnClienteFacturacion.Click += new System.EventHandler(this.btnClienteFacturacion_Click);
+            // 
+            // tabRRHH
+            // 
+            this.tabRRHH.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.rrhh_24X24;
+            this.tabRRHH.Name = "tabRRHH";
+            this.tabRRHH.PageVisible = false;
+            this.tabRRHH.Size = new System.Drawing.Size(1231, 477);
+            this.tabRRHH.Text = "RRHH";
+            // 
+            // tabContabilidad
+            // 
+            this.tabContabilidad.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.calculo;
+            this.tabContabilidad.Name = "tabContabilidad";
+            this.tabContabilidad.PageVisible = false;
+            this.tabContabilidad.Size = new System.Drawing.Size(1231, 477);
+            this.tabContabilidad.Text = "Contabilidad";
+            // 
+            // tabPageFacturacion
+            // 
+            this.tabPageFacturacion.Controls.Add(this.navBarControl3);
+            this.tabPageFacturacion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabPageFacturacion.ImageOptions.Image")));
+            this.tabPageFacturacion.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPageFacturacion.Name = "tabPageFacturacion";
+            this.tabPageFacturacion.Size = new System.Drawing.Size(1231, 477);
+            this.tabPageFacturacion.Text = "Facturación";
+            // 
+            // navBarControl3
+            // 
+            this.navBarControl3.ActiveGroup = this.navBarGroup11;
+            this.navBarControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.navBarControl3.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
+            this.navBarGroup10,
+            this.navBarGroup11,
+            this.navBarG_ReportesFacturacion,
+            this.navBarGroup7});
+            this.navBarControl3.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.navBarFacturaMain,
+            this.navBarItemFacturasEmitidas,
+            this.NBI_Cliente,
+            this.NBI_NumeracionFiscal,
+            this.NBI_PuntoVenta,
+            this.NBI_ListaPrecios,
+            this.NBI_Despachos,
+            this.navBarItem55,
+            this.nbRequest,
+            this.nB_PagoMultiple,
+            this.navBarItem56,
+            this.navBarItem57,
+            this.nbKardexFacturacion,
+            this.navBarItem58,
+            this.nbReportesFacturacionMain,
+            this.navBarItem64,
+            this.navBarItemCambioDePrecio,
+            this.navBarItem20});
+            this.navBarControl3.Location = new System.Drawing.Point(2, 2);
+            this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
+            this.navBarControl3.Name = "navBarControl3";
+            this.navBarControl3.OptionsNavPane.ExpandedWidth = 308;
+            this.navBarControl3.Size = new System.Drawing.Size(308, 473);
+            this.navBarControl3.TabIndex = 0;
+            this.navBarControl3.Text = "navBarControl3";
+            this.navBarControl3.Click += new System.EventHandler(this.navBarControl3_Click);
+            // 
+            // navBarGroup11
+            // 
+            this.navBarGroup11.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup11.Appearance.Options.UseFont = true;
+            this.navBarGroup11.Caption = "Inventario";
+            this.navBarGroup11.Expanded = true;
+            this.navBarGroup11.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbKardexFacturacion)});
+            this.navBarGroup11.Name = "navBarGroup11";
+            // 
+            // nbKardexFacturacion
+            // 
+            this.nbKardexFacturacion.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbKardexFacturacion.Appearance.Options.UseFont = true;
+            this.nbKardexFacturacion.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbKardexFacturacion.AppearanceDisabled.Options.UseFont = true;
+            this.nbKardexFacturacion.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbKardexFacturacion.AppearanceHotTracked.Options.UseFont = true;
+            this.nbKardexFacturacion.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbKardexFacturacion.AppearancePressed.Options.UseFont = true;
+            this.nbKardexFacturacion.Caption = "Inventario por Punto de Facturación";
+            this.nbKardexFacturacion.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.inventory_24x24;
+            this.nbKardexFacturacion.Name = "nbKardexFacturacion";
+            this.nbKardexFacturacion.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbKardexFacturacion_LinkPressed);
+            // 
+            // navBarGroup10
+            // 
+            this.navBarGroup10.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.navBarGroup10.Appearance.Options.UseFont = true;
+            this.navBarGroup10.Caption = "Ventas";
+            this.navBarGroup10.Expanded = true;
+            this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarFacturaMain),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemFacturasEmitidas),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_Cliente),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_NumeracionFiscal),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_PuntoVenta),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_ListaPrecios),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_Despachos),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem55),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbRequest),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nB_PagoMultiple),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem56),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem57),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem58),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem64)});
+            this.navBarGroup10.Name = "navBarGroup10";
+            // 
+            // navBarFacturaMain
+            // 
+            this.navBarFacturaMain.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.navBarFacturaMain.Appearance.Options.UseFont = true;
+            this.navBarFacturaMain.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarFacturaMain.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarFacturaMain.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarFacturaMain.AppearancePressed.Options.UseFont = true;
+            this.navBarFacturaMain.Caption = "Facturación";
+            this.navBarFacturaMain.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarFacturaMain.ImageOptions.SmallImage")));
+            this.navBarFacturaMain.Name = "navBarFacturaMain";
+            this.navBarFacturaMain.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarFacturaMain_LinkClicked);
+            // 
+            // navBarItemFacturasEmitidas
+            // 
+            this.navBarItemFacturasEmitidas.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemFacturasEmitidas.Appearance.Options.UseFont = true;
+            this.navBarItemFacturasEmitidas.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemFacturasEmitidas.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItemFacturasEmitidas.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemFacturasEmitidas.AppearancePressed.Options.UseFont = true;
+            this.navBarItemFacturasEmitidas.Caption = "Facturas Emitidas";
+            this.navBarItemFacturasEmitidas.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItemFacturasEmitidas.ImageOptions.LargeImage")));
+            this.navBarItemFacturasEmitidas.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemFacturasEmitidas.ImageOptions.SmallImage")));
+            this.navBarItemFacturasEmitidas.Name = "navBarItemFacturasEmitidas";
+            this.navBarItemFacturasEmitidas.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemFacturasEmitidas_LinkClicked);
+            // 
+            // NBI_Cliente
+            // 
+            this.NBI_Cliente.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_Cliente.Appearance.Options.UseFont = true;
+            this.NBI_Cliente.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_Cliente.AppearanceHotTracked.Options.UseFont = true;
+            this.NBI_Cliente.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_Cliente.AppearancePressed.Options.UseFont = true;
+            this.NBI_Cliente.Caption = "Cliente";
+            this.NBI_Cliente.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("NBI_Cliente.ImageOptions.LargeImage")));
+            this.NBI_Cliente.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("NBI_Cliente.ImageOptions.SmallImage")));
+            this.NBI_Cliente.Name = "NBI_Cliente";
+            this.NBI_Cliente.Visible = false;
+            this.NBI_Cliente.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NBI_Cliente_LinkClicked);
+            // 
+            // NBI_NumeracionFiscal
+            // 
+            this.NBI_NumeracionFiscal.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_NumeracionFiscal.Appearance.Options.UseFont = true;
+            this.NBI_NumeracionFiscal.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_NumeracionFiscal.AppearanceHotTracked.Options.UseFont = true;
+            this.NBI_NumeracionFiscal.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_NumeracionFiscal.AppearancePressed.Options.UseFont = true;
+            this.NBI_NumeracionFiscal.Caption = "Numeración Fiscal";
+            this.NBI_NumeracionFiscal.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("NBI_NumeracionFiscal.ImageOptions.LargeImage")));
+            this.NBI_NumeracionFiscal.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("NBI_NumeracionFiscal.ImageOptions.SmallImage")));
+            this.NBI_NumeracionFiscal.Name = "NBI_NumeracionFiscal";
+            this.NBI_NumeracionFiscal.Visible = false;
+            this.NBI_NumeracionFiscal.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NBI_NumeracionFiscal_LinkClicked);
+            // 
+            // NBI_PuntoVenta
+            // 
+            this.NBI_PuntoVenta.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_PuntoVenta.Appearance.Options.UseFont = true;
+            this.NBI_PuntoVenta.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_PuntoVenta.AppearanceHotTracked.Options.UseFont = true;
+            this.NBI_PuntoVenta.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_PuntoVenta.AppearancePressed.Options.UseFont = true;
+            this.NBI_PuntoVenta.Caption = "Puntos de Ventas Config";
+            this.NBI_PuntoVenta.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("NBI_PuntoVenta.ImageOptions.SmallImage")));
+            this.NBI_PuntoVenta.Name = "NBI_PuntoVenta";
+            this.NBI_PuntoVenta.Visible = false;
+            this.NBI_PuntoVenta.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NBI_PuntoVenta_LinkClicked);
+            // 
+            // NBI_ListaPrecios
+            // 
+            this.NBI_ListaPrecios.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_ListaPrecios.Appearance.Options.UseFont = true;
+            this.NBI_ListaPrecios.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_ListaPrecios.AppearanceHotTracked.Options.UseFont = true;
+            this.NBI_ListaPrecios.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_ListaPrecios.AppearancePressed.Options.UseFont = true;
+            this.NBI_ListaPrecios.Caption = "Listas de Precios";
+            this.NBI_ListaPrecios.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("NBI_ListaPrecios.ImageOptions.SmallImage")));
+            this.NBI_ListaPrecios.Name = "NBI_ListaPrecios";
+            this.NBI_ListaPrecios.Visible = false;
+            this.NBI_ListaPrecios.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NBI_ListaPrecios_LinkClicked);
+            // 
+            // NBI_Despachos
+            // 
+            this.NBI_Despachos.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_Despachos.Appearance.Options.UseFont = true;
+            this.NBI_Despachos.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_Despachos.AppearanceHotTracked.Options.UseFont = true;
+            this.NBI_Despachos.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.NBI_Despachos.AppearancePressed.Options.UseFont = true;
+            this.NBI_Despachos.Caption = "Recepción Factura";
+            this.NBI_Despachos.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("NBI_Despachos.ImageOptions.SmallImage")));
+            this.NBI_Despachos.Name = "NBI_Despachos";
+            this.NBI_Despachos.Visible = false;
+            this.NBI_Despachos.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NBI_Despachos_LinkClicked);
+            // 
+            // navBarItem55
+            // 
+            this.navBarItem55.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem55.Appearance.Options.UseFont = true;
+            this.navBarItem55.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem55.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem55.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem55.AppearancePressed.Options.UseFont = true;
+            this.navBarItem55.Caption = "Estado de Cuenta";
+            this.navBarItem55.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem55.ImageOptions.SmallImage")));
+            this.navBarItem55.Name = "navBarItem55";
+            this.navBarItem55.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem55_LinkClicked);
+            // 
+            // nbRequest
+            // 
+            this.nbRequest.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbRequest.Appearance.Options.UseFont = true;
+            this.nbRequest.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbRequest.AppearanceHotTracked.Options.UseFont = true;
+            this.nbRequest.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbRequest.AppearancePressed.Options.UseFont = true;
+            this.nbRequest.Caption = "Solicitudes de Autorizaciones";
+            this.nbRequest.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.shield_16X16;
+            this.nbRequest.Name = "nbRequest";
+            this.nbRequest.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbRequest_LinkClicked);
+            // 
+            // nB_PagoMultiple
+            // 
+            this.nB_PagoMultiple.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nB_PagoMultiple.Appearance.Options.UseFont = true;
+            this.nB_PagoMultiple.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nB_PagoMultiple.AppearanceHotTracked.Options.UseFont = true;
+            this.nB_PagoMultiple.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nB_PagoMultiple.AppearancePressed.Options.UseFont = true;
+            this.nB_PagoMultiple.Caption = "Pago Multiple";
+            this.nB_PagoMultiple.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("nB_PagoMultiple.ImageOptions.SmallImage")));
+            this.nB_PagoMultiple.Name = "nB_PagoMultiple";
+            this.nB_PagoMultiple.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nB_PagoMultiple_LinkClicked);
+            // 
+            // navBarItem56
+            // 
+            this.navBarItem56.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem56.Appearance.Options.UseFont = true;
+            this.navBarItem56.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem56.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem56.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem56.AppearancePressed.Options.UseFont = true;
+            this.navBarItem56.Caption = "Notas de Crédito/Débito";
+            this.navBarItem56.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem56.ImageOptions.SmallImage")));
+            this.navBarItem56.Name = "navBarItem56";
+            this.navBarItem56.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem56_LinkClicked);
+            // 
+            // navBarItem57
+            // 
+            this.navBarItem57.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem57.Appearance.Options.UseFont = true;
+            this.navBarItem57.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem57.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem57.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem57.AppearancePressed.Options.UseFont = true;
+            this.navBarItem57.Caption = "Cierre de Caja";
+            this.navBarItem57.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem57.ImageOptions.SmallImage")));
+            this.navBarItem57.Name = "navBarItem57";
+            this.navBarItem57.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem57_LinkClicked);
+            // 
+            // navBarItem58
+            // 
+            this.navBarItem58.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem58.Appearance.Options.UseFont = true;
+            this.navBarItem58.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem58.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem58.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem58.AppearancePressed.Options.UseFont = true;
+            this.navBarItem58.Caption = "Facturacion Punto de Venta";
+            this.navBarItem58.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem58.ImageOptions.SvgImage")));
+            this.navBarItem58.Name = "navBarItem58";
+            this.navBarItem58.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem58_LinkClicked);
+            // 
+            // navBarItem64
+            // 
+            this.navBarItem64.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem64.Appearance.Options.UseFont = true;
+            this.navBarItem64.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem64.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem64.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem64.AppearancePressed.Options.UseFont = true;
+            this.navBarItem64.Caption = "Pedidos de Cliente";
+            this.navBarItem64.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem64.ImageOptions.SmallImage")));
+            this.navBarItem64.Name = "navBarItem64";
+            this.navBarItem64.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem64_LinkClicked);
+            // 
+            // navBarG_ReportesFacturacion
+            // 
+            this.navBarG_ReportesFacturacion.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
+            this.navBarG_ReportesFacturacion.Appearance.Options.UseFont = true;
+            this.navBarG_ReportesFacturacion.Caption = "Reportes Facturacion";
+            this.navBarG_ReportesFacturacion.Expanded = true;
+            this.navBarG_ReportesFacturacion.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbReportesFacturacionMain),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCambioDePrecio)});
+            this.navBarG_ReportesFacturacion.Name = "navBarG_ReportesFacturacion";
+            // 
+            // nbReportesFacturacionMain
+            // 
+            this.nbReportesFacturacionMain.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbReportesFacturacionMain.Appearance.Options.UseFont = true;
+            this.nbReportesFacturacionMain.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbReportesFacturacionMain.AppearanceHotTracked.Options.UseFont = true;
+            this.nbReportesFacturacionMain.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbReportesFacturacionMain.AppearancePressed.Options.UseFont = true;
+            this.nbReportesFacturacionMain.Caption = "Reportes Principales";
+            this.nbReportesFacturacionMain.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbReportesFacturacionMain.ImageOptions.SmallImage")));
+            this.nbReportesFacturacionMain.Name = "nbReportesFacturacionMain";
+            this.nbReportesFacturacionMain.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbReportesFacturacionMain_LinkClicked);
+            // 
+            // navBarItemCambioDePrecio
+            // 
+            this.navBarItemCambioDePrecio.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemCambioDePrecio.Appearance.Options.UseFont = true;
+            this.navBarItemCambioDePrecio.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemCambioDePrecio.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItemCambioDePrecio.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemCambioDePrecio.AppearancePressed.Options.UseFont = true;
+            this.navBarItemCambioDePrecio.Caption = "Reporte Cambios de precios";
+            this.navBarItemCambioDePrecio.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemCambioDePrecio.ImageOptions.SmallImage")));
+            this.navBarItemCambioDePrecio.Name = "navBarItemCambioDePrecio";
+            this.navBarItemCambioDePrecio.Visible = false;
+            this.navBarItemCambioDePrecio.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemCambioDePrecio_LinkClicked);
             // 
             // navBarGroup1
             // 
@@ -1958,343 +2301,6 @@
             this.navBarItem19.Name = "navBarItem19";
             this.navBarItem19.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem19_LinkClicked);
             // 
-            // tabRRHH
-            // 
-            this.tabRRHH.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.rrhh_24X24;
-            this.tabRRHH.Name = "tabRRHH";
-            this.tabRRHH.PageVisible = false;
-            this.tabRRHH.Size = new System.Drawing.Size(1231, 477);
-            this.tabRRHH.Text = "RRHH";
-            // 
-            // tabContabilidad
-            // 
-            this.tabContabilidad.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.calculo;
-            this.tabContabilidad.Name = "tabContabilidad";
-            this.tabContabilidad.PageVisible = false;
-            this.tabContabilidad.Size = new System.Drawing.Size(1231, 477);
-            this.tabContabilidad.Text = "Contabilidad";
-            // 
-            // tabPageFacturacion
-            // 
-            this.tabPageFacturacion.Controls.Add(this.navBarControl3);
-            this.tabPageFacturacion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabPageFacturacion.ImageOptions.Image")));
-            this.tabPageFacturacion.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPageFacturacion.Name = "tabPageFacturacion";
-            this.tabPageFacturacion.Size = new System.Drawing.Size(1231, 477);
-            this.tabPageFacturacion.Text = "Facturación";
-            // 
-            // navBarControl3
-            // 
-            this.navBarControl3.ActiveGroup = this.navBarGroup11;
-            this.navBarControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.navBarControl3.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navBarGroup10,
-            this.navBarGroup11,
-            this.navBarG_ReportesFacturacion});
-            this.navBarControl3.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.navBarFacturaMain,
-            this.navBarItemFacturasEmitidas,
-            this.NBI_Cliente,
-            this.NBI_NumeracionFiscal,
-            this.NBI_PuntoVenta,
-            this.NBI_ListaPrecios,
-            this.NBI_Despachos,
-            this.navBarItem55,
-            this.nbRequest,
-            this.nB_PagoMultiple,
-            this.navBarItem56,
-            this.navBarItem57,
-            this.nbKardexFacturacion,
-            this.navBarItem58,
-            this.nbReportesFacturacionMain,
-            this.navBarItem64,
-            this.navBarItemCambioDePrecio});
-            this.navBarControl3.Location = new System.Drawing.Point(2, 2);
-            this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
-            this.navBarControl3.Name = "navBarControl3";
-            this.navBarControl3.OptionsNavPane.ExpandedWidth = 308;
-            this.navBarControl3.Size = new System.Drawing.Size(308, 473);
-            this.navBarControl3.TabIndex = 0;
-            this.navBarControl3.Text = "navBarControl3";
-            this.navBarControl3.Click += new System.EventHandler(this.navBarControl3_Click);
-            // 
-            // navBarGroup11
-            // 
-            this.navBarGroup11.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
-            this.navBarGroup11.Appearance.Options.UseFont = true;
-            this.navBarGroup11.Caption = "Inventario";
-            this.navBarGroup11.Expanded = true;
-            this.navBarGroup11.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbKardexFacturacion)});
-            this.navBarGroup11.Name = "navBarGroup11";
-            // 
-            // nbKardexFacturacion
-            // 
-            this.nbKardexFacturacion.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbKardexFacturacion.Appearance.Options.UseFont = true;
-            this.nbKardexFacturacion.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbKardexFacturacion.AppearanceDisabled.Options.UseFont = true;
-            this.nbKardexFacturacion.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbKardexFacturacion.AppearanceHotTracked.Options.UseFont = true;
-            this.nbKardexFacturacion.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbKardexFacturacion.AppearancePressed.Options.UseFont = true;
-            this.nbKardexFacturacion.Caption = "Inventario por Punto de Facturación";
-            this.nbKardexFacturacion.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.inventory_24x24;
-            this.nbKardexFacturacion.Name = "nbKardexFacturacion";
-            this.nbKardexFacturacion.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbKardexFacturacion_LinkPressed);
-            // 
-            // navBarGroup10
-            // 
-            this.navBarGroup10.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.navBarGroup10.Appearance.Options.UseFont = true;
-            this.navBarGroup10.Caption = "Ventas";
-            this.navBarGroup10.Expanded = true;
-            this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarFacturaMain),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemFacturasEmitidas),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_Cliente),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_NumeracionFiscal),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_PuntoVenta),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_ListaPrecios),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_Despachos),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem55),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbRequest),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nB_PagoMultiple),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem56),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem57),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem58),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem64)});
-            this.navBarGroup10.Name = "navBarGroup10";
-            // 
-            // navBarFacturaMain
-            // 
-            this.navBarFacturaMain.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.navBarFacturaMain.Appearance.Options.UseFont = true;
-            this.navBarFacturaMain.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarFacturaMain.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarFacturaMain.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarFacturaMain.AppearancePressed.Options.UseFont = true;
-            this.navBarFacturaMain.Caption = "Facturación";
-            this.navBarFacturaMain.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarFacturaMain.ImageOptions.SmallImage")));
-            this.navBarFacturaMain.Name = "navBarFacturaMain";
-            this.navBarFacturaMain.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarFacturaMain_LinkClicked);
-            // 
-            // navBarItemFacturasEmitidas
-            // 
-            this.navBarItemFacturasEmitidas.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemFacturasEmitidas.Appearance.Options.UseFont = true;
-            this.navBarItemFacturasEmitidas.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemFacturasEmitidas.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItemFacturasEmitidas.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemFacturasEmitidas.AppearancePressed.Options.UseFont = true;
-            this.navBarItemFacturasEmitidas.Caption = "Facturas Emitidas";
-            this.navBarItemFacturasEmitidas.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItemFacturasEmitidas.ImageOptions.LargeImage")));
-            this.navBarItemFacturasEmitidas.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemFacturasEmitidas.ImageOptions.SmallImage")));
-            this.navBarItemFacturasEmitidas.Name = "navBarItemFacturasEmitidas";
-            this.navBarItemFacturasEmitidas.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemFacturasEmitidas_LinkClicked);
-            // 
-            // NBI_Cliente
-            // 
-            this.NBI_Cliente.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_Cliente.Appearance.Options.UseFont = true;
-            this.NBI_Cliente.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_Cliente.AppearanceHotTracked.Options.UseFont = true;
-            this.NBI_Cliente.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_Cliente.AppearancePressed.Options.UseFont = true;
-            this.NBI_Cliente.Caption = "Cliente";
-            this.NBI_Cliente.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("NBI_Cliente.ImageOptions.LargeImage")));
-            this.NBI_Cliente.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("NBI_Cliente.ImageOptions.SmallImage")));
-            this.NBI_Cliente.Name = "NBI_Cliente";
-            this.NBI_Cliente.Visible = false;
-            this.NBI_Cliente.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NBI_Cliente_LinkClicked);
-            // 
-            // NBI_NumeracionFiscal
-            // 
-            this.NBI_NumeracionFiscal.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_NumeracionFiscal.Appearance.Options.UseFont = true;
-            this.NBI_NumeracionFiscal.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_NumeracionFiscal.AppearanceHotTracked.Options.UseFont = true;
-            this.NBI_NumeracionFiscal.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_NumeracionFiscal.AppearancePressed.Options.UseFont = true;
-            this.NBI_NumeracionFiscal.Caption = "Numeración Fiscal";
-            this.NBI_NumeracionFiscal.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("NBI_NumeracionFiscal.ImageOptions.LargeImage")));
-            this.NBI_NumeracionFiscal.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("NBI_NumeracionFiscal.ImageOptions.SmallImage")));
-            this.NBI_NumeracionFiscal.Name = "NBI_NumeracionFiscal";
-            this.NBI_NumeracionFiscal.Visible = false;
-            this.NBI_NumeracionFiscal.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NBI_NumeracionFiscal_LinkClicked);
-            // 
-            // NBI_PuntoVenta
-            // 
-            this.NBI_PuntoVenta.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_PuntoVenta.Appearance.Options.UseFont = true;
-            this.NBI_PuntoVenta.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_PuntoVenta.AppearanceHotTracked.Options.UseFont = true;
-            this.NBI_PuntoVenta.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_PuntoVenta.AppearancePressed.Options.UseFont = true;
-            this.NBI_PuntoVenta.Caption = "Puntos de Ventas Config";
-            this.NBI_PuntoVenta.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("NBI_PuntoVenta.ImageOptions.SmallImage")));
-            this.NBI_PuntoVenta.Name = "NBI_PuntoVenta";
-            this.NBI_PuntoVenta.Visible = false;
-            this.NBI_PuntoVenta.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NBI_PuntoVenta_LinkClicked);
-            // 
-            // NBI_ListaPrecios
-            // 
-            this.NBI_ListaPrecios.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_ListaPrecios.Appearance.Options.UseFont = true;
-            this.NBI_ListaPrecios.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_ListaPrecios.AppearanceHotTracked.Options.UseFont = true;
-            this.NBI_ListaPrecios.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_ListaPrecios.AppearancePressed.Options.UseFont = true;
-            this.NBI_ListaPrecios.Caption = "Listas de Precios";
-            this.NBI_ListaPrecios.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("NBI_ListaPrecios.ImageOptions.SmallImage")));
-            this.NBI_ListaPrecios.Name = "NBI_ListaPrecios";
-            this.NBI_ListaPrecios.Visible = false;
-            this.NBI_ListaPrecios.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NBI_ListaPrecios_LinkClicked);
-            // 
-            // NBI_Despachos
-            // 
-            this.NBI_Despachos.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_Despachos.Appearance.Options.UseFont = true;
-            this.NBI_Despachos.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_Despachos.AppearanceHotTracked.Options.UseFont = true;
-            this.NBI_Despachos.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.NBI_Despachos.AppearancePressed.Options.UseFont = true;
-            this.NBI_Despachos.Caption = "Recepción Factura";
-            this.NBI_Despachos.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("NBI_Despachos.ImageOptions.SmallImage")));
-            this.NBI_Despachos.Name = "NBI_Despachos";
-            this.NBI_Despachos.Visible = false;
-            this.NBI_Despachos.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NBI_Despachos_LinkClicked);
-            // 
-            // navBarItem55
-            // 
-            this.navBarItem55.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem55.Appearance.Options.UseFont = true;
-            this.navBarItem55.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem55.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem55.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem55.AppearancePressed.Options.UseFont = true;
-            this.navBarItem55.Caption = "Estado de Cuenta";
-            this.navBarItem55.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem55.ImageOptions.SmallImage")));
-            this.navBarItem55.Name = "navBarItem55";
-            this.navBarItem55.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem55_LinkClicked);
-            // 
-            // nbRequest
-            // 
-            this.nbRequest.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbRequest.Appearance.Options.UseFont = true;
-            this.nbRequest.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbRequest.AppearanceHotTracked.Options.UseFont = true;
-            this.nbRequest.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbRequest.AppearancePressed.Options.UseFont = true;
-            this.nbRequest.Caption = "Solicitudes de Autorizaciones";
-            this.nbRequest.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.shield_16X16;
-            this.nbRequest.Name = "nbRequest";
-            this.nbRequest.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbRequest_LinkClicked);
-            // 
-            // nB_PagoMultiple
-            // 
-            this.nB_PagoMultiple.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nB_PagoMultiple.Appearance.Options.UseFont = true;
-            this.nB_PagoMultiple.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nB_PagoMultiple.AppearanceHotTracked.Options.UseFont = true;
-            this.nB_PagoMultiple.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nB_PagoMultiple.AppearancePressed.Options.UseFont = true;
-            this.nB_PagoMultiple.Caption = "Pago Multiple";
-            this.nB_PagoMultiple.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("nB_PagoMultiple.ImageOptions.SmallImage")));
-            this.nB_PagoMultiple.Name = "nB_PagoMultiple";
-            this.nB_PagoMultiple.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nB_PagoMultiple_LinkClicked);
-            // 
-            // navBarItem56
-            // 
-            this.navBarItem56.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem56.Appearance.Options.UseFont = true;
-            this.navBarItem56.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem56.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem56.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem56.AppearancePressed.Options.UseFont = true;
-            this.navBarItem56.Caption = "Notas de Crédito/Débito";
-            this.navBarItem56.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem56.ImageOptions.SmallImage")));
-            this.navBarItem56.Name = "navBarItem56";
-            this.navBarItem56.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem56_LinkClicked);
-            // 
-            // navBarItem57
-            // 
-            this.navBarItem57.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem57.Appearance.Options.UseFont = true;
-            this.navBarItem57.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem57.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem57.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem57.AppearancePressed.Options.UseFont = true;
-            this.navBarItem57.Caption = "Cierre de Caja";
-            this.navBarItem57.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem57.ImageOptions.SmallImage")));
-            this.navBarItem57.Name = "navBarItem57";
-            this.navBarItem57.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem57_LinkClicked);
-            // 
-            // navBarItem58
-            // 
-            this.navBarItem58.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem58.Appearance.Options.UseFont = true;
-            this.navBarItem58.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem58.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem58.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem58.AppearancePressed.Options.UseFont = true;
-            this.navBarItem58.Caption = "Facturacion Punto de Venta";
-            this.navBarItem58.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem58.ImageOptions.SvgImage")));
-            this.navBarItem58.Name = "navBarItem58";
-            this.navBarItem58.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem58_LinkClicked);
-            // 
-            // navBarItem64
-            // 
-            this.navBarItem64.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem64.Appearance.Options.UseFont = true;
-            this.navBarItem64.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem64.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem64.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem64.AppearancePressed.Options.UseFont = true;
-            this.navBarItem64.Caption = "Pedidos de Cliente";
-            this.navBarItem64.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem64.ImageOptions.SmallImage")));
-            this.navBarItem64.Name = "navBarItem64";
-            this.navBarItem64.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem64_LinkClicked);
-            // 
-            // navBarG_ReportesFacturacion
-            // 
-            this.navBarG_ReportesFacturacion.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
-            this.navBarG_ReportesFacturacion.Appearance.Options.UseFont = true;
-            this.navBarG_ReportesFacturacion.Caption = "Reportes Facturacion";
-            this.navBarG_ReportesFacturacion.Expanded = true;
-            this.navBarG_ReportesFacturacion.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbReportesFacturacionMain),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCambioDePrecio)});
-            this.navBarG_ReportesFacturacion.Name = "navBarG_ReportesFacturacion";
-            // 
-            // nbReportesFacturacionMain
-            // 
-            this.nbReportesFacturacionMain.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbReportesFacturacionMain.Appearance.Options.UseFont = true;
-            this.nbReportesFacturacionMain.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbReportesFacturacionMain.AppearanceHotTracked.Options.UseFont = true;
-            this.nbReportesFacturacionMain.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbReportesFacturacionMain.AppearancePressed.Options.UseFont = true;
-            this.nbReportesFacturacionMain.Caption = "Reportes Principales";
-            this.nbReportesFacturacionMain.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbReportesFacturacionMain.ImageOptions.SmallImage")));
-            this.nbReportesFacturacionMain.Name = "nbReportesFacturacionMain";
-            this.nbReportesFacturacionMain.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbReportesFacturacionMain_LinkClicked);
-            // 
-            // navBarItemCambioDePrecio
-            // 
-            this.navBarItemCambioDePrecio.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemCambioDePrecio.Appearance.Options.UseFont = true;
-            this.navBarItemCambioDePrecio.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemCambioDePrecio.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItemCambioDePrecio.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemCambioDePrecio.AppearancePressed.Options.UseFont = true;
-            this.navBarItemCambioDePrecio.Caption = "Reporte Cambios de precios";
-            this.navBarItemCambioDePrecio.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemCambioDePrecio.ImageOptions.SmallImage")));
-            this.navBarItemCambioDePrecio.Name = "navBarItemCambioDePrecio";
-            this.navBarItemCambioDePrecio.Visible = false;
-            this.navBarItemCambioDePrecio.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemCambioDePrecio_LinkClicked);
-            // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2346,6 +2352,43 @@
             this.nBarRecepcionFactPuntoVenta.Caption = "Recepcion Factura Punto Venta";
             this.nBarRecepcionFactPuntoVenta.Name = "nBarRecepcionFactPuntoVenta";
             this.nBarRecepcionFactPuntoVenta.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nBarRecepcionFactPuntoVenta_LinkClicked);
+            // 
+            // cmdCuentas
+            // 
+            this.cmdCuentas.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdCuentas.Appearance.Options.UseFont = true;
+            this.cmdCuentas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdCuentas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCuentas.ImageOptions.Image")));
+            this.cmdCuentas.Location = new System.Drawing.Point(468, 182);
+            this.cmdCuentas.Name = "cmdCuentas";
+            this.cmdCuentas.Size = new System.Drawing.Size(227, 58);
+            this.cmdCuentas.TabIndex = 35;
+            this.cmdCuentas.Text = "Master Cuentas";
+            this.cmdCuentas.Click += new System.EventHandler(this.cmdCuentas_Click);
+            // 
+            // navBarGroup7
+            // 
+            this.navBarGroup7.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup7.Appearance.Options.UseFont = true;
+            this.navBarGroup7.Caption = "Bancos";
+            this.navBarGroup7.Expanded = true;
+            this.navBarGroup7.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem20)});
+            this.navBarGroup7.Name = "navBarGroup7";
+            // 
+            // navBarItem20
+            // 
+            this.navBarItem20.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem20.Appearance.Options.UseFont = true;
+            this.navBarItem20.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem20.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem20.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem20.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem20.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem20.AppearancePressed.Options.UseFont = true;
+            this.navBarItem20.Caption = "Reporte de Bancos";
+            this.navBarItem20.Name = "navBarItem20";
+            this.navBarItem20.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem20_LinkClicked_1);
             // 
             // frmOpciones
             // 
@@ -2541,5 +2584,8 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem nbReporteCompras;
         private DevExpress.XtraNavBar.NavBarItem navBarItem64;
         private DevExpress.XtraNavBar.NavBarItem navBarItemCambioDePrecio;
+        private DevExpress.XtraEditors.SimpleButton cmdCuentas;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup7;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem20;
     }
 }
