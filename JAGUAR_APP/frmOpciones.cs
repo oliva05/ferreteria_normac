@@ -437,7 +437,7 @@ namespace JAGUAR_PRO
 
         public void BasicView()
         {
-            TabCalidad.PageVisible = TabLogistica.PageVisible = true;
+            //TabCalidad.PageVisible = TabLogistica.PageVisible = true;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
