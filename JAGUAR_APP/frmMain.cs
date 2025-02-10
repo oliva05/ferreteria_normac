@@ -183,7 +183,7 @@ namespace JAGUAR_PRO
                         user.conn = xconn;
                         user1 = user;
 
-                        
+
                         frmOpciones frm = new frmOpciones(user1);
                         //if (this.MdiParent != null)
                         frm.MdiParent = this.MdiParent;
