@@ -16,6 +16,8 @@ using JAGUAR_PRO.Accesos.TurnosUsuario;
 using JAGUAR_PRO.ACS.RRHH;
 using JAGUAR_PRO.AlmacenesExterno;
 using JAGUAR_PRO.AlmacenesExterno.Salida_Almacen;
+using JAGUAR_PRO.BancosYTitulares;
+
 //using JAGUAR_PRO.Calidad;
 //using JAGUAR_PRO.Calidad.LoteConfConsumo;
 //using JAGUAR_PRO.Calidad.Revision_Sanidad;
@@ -4657,6 +4659,20 @@ namespace JAGUAR_PRO
             }
 
             frmReporteCambiosDePrecios frm = new frmReporteCambiosDePrecios(this.UsuarioLogeado, puntoVenta1);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void cmdCuentas_Click(object sender, EventArgs e)
+        {
+            frmTitularMain frm = new frmTitularMain(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem20_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmRptBancos frm = new frmRptBancos(UsuarioLogeado);
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }

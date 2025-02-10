@@ -125,7 +125,7 @@ namespace JAGUAR_PRO.Clases
                                        nombre, 
 	                                   id_grupo_losa,
                                        ADUser
-                                FROM [ACS].dbo.conf_usuarios 
+                                FROM dbo.conf_usuarios 
                                 where [ADUser] ='" + pUser + "'";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 //cmd.CommandType = CommandType.StoredProcedure;
@@ -161,7 +161,7 @@ namespace JAGUAR_PRO.Clases
                                        nombre, 
 	                                   id_grupo_losa,
                                        tipo
-                                FROM [ACS].conf_usuarios 
+                                FROM conf_usuarios 
                                 where id ="+ pId;
                 SqlCommand cmd = new SqlCommand(sql, con);
                 //cmd.CommandType = CommandType.StoredProcedure;
@@ -331,7 +331,7 @@ namespace JAGUAR_PRO.Clases
                                       ,[habilitado]
                                       ,[id_grupo_losa]
                                       ,isnull([turno_id],0) [turno_id]
-                                  FROM [ACS].[conf_usuarios]
+                                  FROM [dbo].[conf_usuarios]
                                    where [id] = " + pId.ToString();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -386,7 +386,7 @@ namespace JAGUAR_PRO.Clases
 
         public bool GuardarNuevoUsuario()
         {
-            string sql = @"INSERT INTO [ACS].[conf_usuarios]
+            string sql = @"INSERT INTO [dbo].[conf_usuarios]
                                            ([usuario]
                                            ,[password]
                                            ,[habilitado]
@@ -431,7 +431,7 @@ namespace JAGUAR_PRO.Clases
         {
             try
             {
-                string sql = @"UPDATE [ACS].[conf_usuarios]
+                string sql = @"UPDATE [dbo].[conf_usuarios]
                                    SET [usuario] = @alias
                                       ,[password] = @password
                                       ,[habilitado] = @habilitado
