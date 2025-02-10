@@ -286,7 +286,7 @@ namespace JAGUAR_PRO.Clases
                                       ,[password]
                                       ,[habilitado]
                                       ,[id_grupo_losa]
-                                  FROM [conf_usuarios]
+                                  FROM [dbo].[conf_usuarios]
                                    where [usuario] = '" + pAlias + "'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();

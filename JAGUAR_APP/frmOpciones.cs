@@ -150,10 +150,10 @@ namespace JAGUAR_PRO
                             tabOpciones.TabPages[2].PageVisible = false;
                             tabOpciones.TabPages[3].PageVisible = true;
                             tabOpciones.TabPages[4].PageVisible = false;
-                            tabOpciones.TabPages[5].PageVisible = false;
-                            tabOpciones.TabPages[6].PageVisible = false;
-                            tabOpciones.TabPages[7].PageVisible = false;
-                            tabOpciones.TabPages[8].PageVisible = false;
+                            //tabOpciones.TabPages[5].PageVisible = false;
+                            //tabOpciones.TabPages[6].PageVisible = false;
+                            //tabOpciones.TabPages[7].PageVisible = false;
+                            //tabOpciones.TabPages[8].PageVisible = false;
                             navBarItemCambioDePrecio.Visible= true;
                             //Mantenimientos de Facturacion
                             xtraTabControl2.TabPages[2].PageVisible = true;
