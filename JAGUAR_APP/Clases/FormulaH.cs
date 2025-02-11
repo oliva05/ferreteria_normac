@@ -42,7 +42,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_codigo_for_formula_h", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_codigo_for_formula_h", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", 2);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -76,7 +76,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_recuperar_registro_formula_H_from_id", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_recuperar_registro_formula_H_from_id", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", pIdFormula);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -121,7 +121,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_set_update_formula_h_latas_bolsas", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_set_update_formula_h_latas_bolsas", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_formula_h", id);
                 cmd.Parameters.AddWithValue("@cant_bolsas_por_lata", Bolsas);

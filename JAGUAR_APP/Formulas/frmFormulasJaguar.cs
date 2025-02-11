@@ -51,7 +51,7 @@ namespace JAGUAR_PRO.Formulas
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_lista_formulas_from_pt_id", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_lista_formulas_from_pt_id", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_pt", pID_PT);
                 dsFormulasCRUD1.formula_h.Clear();
@@ -74,7 +74,7 @@ namespace JAGUAR_PRO.Formulas
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_detalle_ingredientes_formula", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_detalle_ingredientes_formula", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_formula_h", pdIdFormula);
                 dsFormulasCRUD1.ingredientes.Clear();

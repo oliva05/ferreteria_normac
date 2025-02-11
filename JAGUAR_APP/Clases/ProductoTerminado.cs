@@ -93,7 +93,7 @@ namespace JAGUAR_PRO.Clases
         {
             try
             {//Recupera las caracteristicas 
-                string sql = @"[codesahn].[sp_get_datos_maestros_pt_v6]";
+                string sql = @"[dbo].[sp_get_datos_maestros_pt_v6]";
                 DataOperations dp = new DataOperations();
 
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -162,7 +162,7 @@ namespace JAGUAR_PRO.Clases
         {
             try
             {//Recupera las caracteristicas 
-                string sql = @"[codesahn].[sp_get_datos_maestros_pt_v5]";
+                string sql = @"[dbo].[sp_get_datos_maestros_pt_v5]";
                 DataOperations dp = new DataOperations();
                
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -232,7 +232,7 @@ namespace JAGUAR_PRO.Clases
         {
             try
             {//Recupera las caracteristicas 
-                string sql = @"[codesahn].[jaguar_sp_get_lista_formulas_id_pt]";
+                string sql = @"[dbo].[jaguar_sp_get_lista_formulas_id_pt]";
                 DataOperations dp = new DataOperations();
 
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -258,7 +258,7 @@ namespace JAGUAR_PRO.Clases
             decimal val = 0;
             try
             {//Recupera las caracteristicas 
-                string sql = @"codesahn.jaguar_sp_get_cantidad_inv_kardex_pt";
+                string sql = @"dbo.jaguar_sp_get_cantidad_inv_kardex_pt";
                 DataOperations dp = new DataOperations();
 
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -285,7 +285,7 @@ namespace JAGUAR_PRO.Clases
             decimal val = 0;
             try
             {//Recupera las caracteristicas 
-                string sql = @"[codesahn].[jaguar_sp_get_cantidad_inv_kardex_pt_for_facturacion_v2]";
+                string sql = @"[dbo].[jaguar_sp_get_cantidad_inv_kardex_pt_for_facturacion_v2]";
                 DataOperations dp = new DataOperations();
 
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -317,7 +317,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_siguiente_codigo_pt", con);
+                SqlCommand cmd = new SqlCommand("sp_get_siguiente_codigo_pt", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@ver_todos", 0);
                 SqlDataReader dr = cmd.ExecuteReader();
