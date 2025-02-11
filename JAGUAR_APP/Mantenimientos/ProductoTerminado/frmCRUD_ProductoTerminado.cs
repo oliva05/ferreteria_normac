@@ -140,7 +140,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_presentacion_pt", con);
+                SqlCommand cmd = new SqlCommand("sp_get_presentacion_pt", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@idbodega", idBodega);
                 dsProductoTerminado1.presentaciones.Clear();
@@ -161,7 +161,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_estados_pt", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_estados_pt", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@idbodega", idBodega);
                 dsProductoTerminado1.Estados.Clear();
@@ -182,7 +182,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_tipo_pt", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_tipo_pt", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@idbodega", idBodega);
                 dsProductoTerminado1.TipoPT.Clear();
@@ -333,11 +333,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 switch (TipoOperacionActual)
                 {
                     case TipoOperacion.Insert:
-                        cmd.CommandText = "[codesahn].[sp_set_insert_nuevo_producto_terminado_v5]";
+                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v5]";
 
                         break;
                     case TipoOperacion.Update:
-                        cmd.CommandText = "[codesahn].[sp_set_update_nuevo_producto_terminado_v5]";
+                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v5]";
                         cmd.Parameters.AddWithValue("@id", PT_Class_instance.Id);
                         break;
                 }

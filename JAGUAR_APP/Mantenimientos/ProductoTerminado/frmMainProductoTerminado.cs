@@ -38,7 +38,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[codesahn].sp_get_datos_maestros_pt_list_crudV2", con);
+                SqlCommand cmd = new SqlCommand("sp_get_datos_maestros_pt_list_crudV2", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ver_todos", tggViewFilter.IsOn);
                 dsProductoTerminado1.lista_main_CRUD.Clear();
