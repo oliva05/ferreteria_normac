@@ -4,5 +4,8 @@
 
     partial class dsProductoTerminado
     {
+        partial class claseDataTable
+        {
+        }
     }
 }
