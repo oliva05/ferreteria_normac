@@ -1982,11 +1982,23 @@
     <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminado.Designer.cs">
       <DependentUpon>frmCRUD_ProductoTerminado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTFamilia.Designer.cs">
+      <DependentUpon>frmCRUD_PTFamilia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.Designer.cs">
       <DependentUpon>frmMainProductoTerminado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTFamilia.Designer.cs">
+      <DependentUpon>frmMainPTFamilia.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\Proveedor\Model\FacturaProveedor.cs" />
     <Compile Include="Mantenimientos\Proveedor\Model\JAGUAR_Proveedor.cs" />
@@ -3520,8 +3532,14 @@
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminado.resx">
       <DependentUpon>frmCRUD_ProductoTerminado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_PTFamilia.resx">
+      <DependentUpon>frmCRUD_PTFamilia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.resx">
       <DependentUpon>frmMainProductoTerminado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainPTFamilia.resx">
+      <DependentUpon>frmMainPTFamilia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\Proveedor\xfrmFacturaProveedor_CRUD.resx">
       <DependentUpon>xfrmFacturaProveedor_CRUD.cs</DependentUpon>
