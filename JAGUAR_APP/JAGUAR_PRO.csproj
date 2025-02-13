@@ -1982,11 +1982,23 @@
     <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminado.Designer.cs">
       <DependentUpon>frmCRUD_ProductoTerminado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTClase.Designer.cs">
+      <DependentUpon>frmCRUD_PTClase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTFamilia.Designer.cs">
       <DependentUpon>frmCRUD_PTFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTSubClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTSubClase.Designer.cs">
+      <DependentUpon>frmCRUD_PTSubClase.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.cs">
       <SubType>Form</SubType>
@@ -1994,11 +2006,23 @@
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.Designer.cs">
       <DependentUpon>frmMainProductoTerminado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTClase.Designer.cs">
+      <DependentUpon>frmMainPTClase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTFamilia.Designer.cs">
       <DependentUpon>frmMainPTFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTSubClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTSubClase.Designer.cs">
+      <DependentUpon>frmMainPTSubClase.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\Proveedor\Model\FacturaProveedor.cs" />
     <Compile Include="Mantenimientos\Proveedor\Model\JAGUAR_Proveedor.cs" />
@@ -3532,11 +3556,17 @@
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminado.resx">
       <DependentUpon>frmCRUD_ProductoTerminado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_PTClase.resx">
+      <DependentUpon>frmCRUD_PTClase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_PTFamilia.resx">
       <DependentUpon>frmCRUD_PTFamilia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.resx">
       <DependentUpon>frmMainProductoTerminado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainPTClase.resx">
+      <DependentUpon>frmMainPTClase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainPTFamilia.resx">
       <DependentUpon>frmMainPTFamilia.cs</DependentUpon>
@@ -4144,6 +4174,7 @@
     <None Include="Resources\ready-stock1.png" />
     <None Include="Resources\right-arrow32px.png" />
     <None Include="Resources\right-arrow24px.png" />
+    <None Include="Resources\Setting.svg" />
     <Content Include="Resources\settings.png" />
     <None Include="Resources\shield_24X24.png" />
     <None Include="Resources\shield_16X16.png" />

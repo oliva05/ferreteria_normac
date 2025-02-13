@@ -4676,5 +4676,12 @@ namespace JAGUAR_PRO
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
+
+        private void simpleButton1_Click_2(object sender, EventArgs e)
+        {
+            frmMainPTFamilia frm = new frmMainPTFamilia(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
     }
 }
