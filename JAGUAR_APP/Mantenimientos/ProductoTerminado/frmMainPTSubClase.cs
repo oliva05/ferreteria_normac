@@ -1,8 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
-using JAGUAR_PRO.LogisticaJaguar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +14,13 @@ using System.Windows.Forms;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
-    public partial class frmMainPTFamilia : DevExpress.XtraEditors.XtraForm
+    public partial class frmMainPTSubClase : DevExpress.XtraEditors.XtraForm
     {
         UserLogin UsuarioLogeado;
-
-        public frmMainPTFamilia(UserLogin userLogin)
+        public frmMainPTSubClase(UserLogin userLogin)
         {
             InitializeComponent();
+            UsuarioLogeado = userLogin;
             tggViewFilter.IsOn = false;
             loaddate();
         }
@@ -35,12 +33,12 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("sp_pt_get_familia", con);
+                SqlCommand cmd = new SqlCommand("sp_pt_get_sub_clases", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ver_todos", tggViewFilter.IsOn);
-                dsProductoTerminado1.familia.Clear();
+                dsProductoTerminado1.clase.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                adat.Fill(dsProductoTerminado1.familia);
+                adat.Fill(dsProductoTerminado1.clase);
 
                 con.Close();
             }
@@ -50,22 +48,14 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             }
         }
 
-        private void cmdEditar2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void cmdCerrar_Click(object sender, EventArgs e)
         {
-            var gridview = (GridView)gridDetalleProductosCRUD.FocusedView;
-            var row = (dsProductoTerminado.familiaRow)gridview.GetFocusedDataRow();
-
-            frmCRUD_PTFamilia frm = new frmCRUD_PTFamilia(frmCRUD_PTFamilia.Operacion.Update, row.id, row.descripcion, row.enable , row.codigo);
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                loaddate();
-            }
-
+            this.Close();
         }
 
         private void cmdNuevoPT_Click(object sender, EventArgs e)
         {
-            frmCRUD_PTFamilia frm = new frmCRUD_PTFamilia(frmCRUD_PTFamilia.Operacion.Insert, 0, string.Empty, true, string.Empty);
+            frmCRUD_PTSubClase frm = new frmCRUD_PTSubClase(frmCRUD_PTSubClase.Operacion.Insert, 0, 0, string.Empty, string.Empty, true);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 loaddate();
@@ -75,11 +65,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private void tggViewFilter_Toggled(object sender, EventArgs e)
         {
             loaddate();
-        }
-
-        private void cmdCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -76,8 +76,8 @@
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCodigo.Location = new System.Drawing.Point(201, 69);
+            this.txtCodigo.MaxLength = 3;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(177, 23);
             this.txtCodigo.TabIndex = 34;
             // 
@@ -95,6 +95,7 @@
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDescripcion.Location = new System.Drawing.Point(201, 98);
+            this.txtDescripcion.MaxLength = 50;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(177, 23);
             this.txtDescripcion.TabIndex = 32;

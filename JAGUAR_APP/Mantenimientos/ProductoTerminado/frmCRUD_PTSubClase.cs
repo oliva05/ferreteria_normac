@@ -1,5 +1,4 @@
 ﻿using ACS.Classes;
-using DevExpress.Office.Utils;
 using DevExpress.XtraEditors;
 using JAGUAR_PRO.Clases;
 using System;
@@ -15,35 +14,37 @@ using System.Windows.Forms;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
-    public partial class frmCRUD_PTFamilia : DevExpress.XtraEditors.XtraForm
+    public partial class frmCRUD_PTSubClase : DevExpress.XtraEditors.XtraForm
     {
+        DataOperations dp = new DataOperations();
         public enum Operacion
         {
-            Insert = 1,  Update = 2, View = 3
+            Insert = 1, Update = 2, View = 3
         }
 
         Operacion TipoOP;
 
         int Id;
 
-        public frmCRUD_PTFamilia(frmCRUD_PTFamilia.Operacion pOP, int pid, string pdescripcion, bool penable, string pcode)
+        public frmCRUD_PTSubClase(frmCRUD_PTSubClase.Operacion operacion, int pid_subClase, int pid_clase, string pnombre, string pcodigo, bool penable)
         {
             InitializeComponent();
-
-            TipoOP = pOP;
+            TipoOP = operacion;
+            LoadClases();
             switch (TipoOP)
             {
                 case Operacion.Insert:
 
                     toggleSwitchEnablePT.IsOn = true;
-                    lblTituloVentana.Text = "Crear Familia";
+                    lblTituloVentana.Text = "Crear Sub Clase";
                     break;
                 case Operacion.Update:
-                    lblTituloVentana.Text = "Editar Familia";
-                    Id = pid;
-                    txtDescripcion.Text = pdescripcion;
+                    lblTituloVentana.Text = "Editar Sub Clase";
+                    Id = pid_clase;
+                    grdTipo.EditValue = pid_clase;
+                    txtDescripcion.Text = pnombre;
                     toggleSwitchEnablePT.IsOn = penable;
-                    txtCodigo.Text = pcode;
+                    txtCodigo.Text = pcodigo;
 
                     break;
                 case Operacion.View:
@@ -53,27 +54,45 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             }
         }
 
-        
-
-        private void cmdCerrar_Click(object sender, EventArgs e)
+        private void LoadClases()
         {
-            this.Close();
+            try
+            {
+                SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("[sp_pt_get_sub_clases_activos]", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                dsProductoTerminado1.clase_select.Clear();
+                adapter.Fill(dsProductoTerminado1.clase_select);
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
         }
 
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
-            bool Guardar = false;   
+            bool Guardar = false;
             DataOperations dp = new DataOperations();
 
             TablesId tab = new TablesId();
-          
-            if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 1,Id))
+
+            if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 3,Id))
             {
-                CajaDialogo.Error("Este Codigo ya existe en el Grupo de Familia");
+                CajaDialogo.Error("Este Codigo ya existe en el Grupo de Sub Clases");
                 return;
             }
 
-            if (string.IsNullOrEmpty(txtDescripcion.Text)) 
+            if (string.IsNullOrEmpty(grdTipo.Text))
+            {
+                CajaDialogo.Error("Debe seleccionar Clase de Producto");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
             {
                 CajaDialogo.Error("Debe colocar una descripcion!");
                 return;
@@ -85,11 +104,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
-            if(txtCodigo.Text.Length < 3)
+            if (txtCodigo.TextLength < 3)
             {
-                CajaDialogo.Error("El codio deben ser por lo menos 3 Digitos");
+                CajaDialogo.Error("El Codigo debe ser de 3 Digitos!");
                 return;
-            }    
+            }
 
             switch (TipoOP)
             {
@@ -99,37 +118,37 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     {
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand("sp_pt_insert_familia", conn);
+                        SqlCommand cmd = new SqlCommand("sp_pt_insert_update_clase", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id",0);
-                        cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text.Trim());
+                        cmd.Parameters.AddWithValue("@id_subclase", 0);
+                        cmd.Parameters.AddWithValue("@id_clase", grdTipo.EditValue);
+                        cmd.Parameters.AddWithValue("@nombre", txtDescripcion.Text);
+                        cmd.Parameters.AddWithValue("@codigo", txtCodigo.Text.Trim());
                         cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
-                        cmd.Parameters.AddWithValue("@codigo",txtCodigo.Text);
-                        cmd.Parameters.AddWithValue("@tipoOp", Operacion.Insert);
+
                         cmd.ExecuteNonQuery();
 
                         Guardar = true;
                     }
                     catch (Exception ex)
                     {
-
                         CajaDialogo.Error(ex.Message);
-                        
                     }
+
                     break;
                 case Operacion.Update:
-
                     try
                     {
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand("sp_pt_insert_familia", conn);
+                        SqlCommand cmd = new SqlCommand("sp_pt_insert_sub_clases", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id",Id);
-                        cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text.Trim());
+                        cmd.Parameters.AddWithValue("@id_subclase", Id);
+                        cmd.Parameters.AddWithValue("@id_clase", grdTipo.EditValue);
+                        cmd.Parameters.AddWithValue("@nombre", txtDescripcion.Text);
+                        cmd.Parameters.AddWithValue("@codigo", txtCodigo.Text.Trim());
                         cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
-                        cmd.Parameters.AddWithValue("@codigo", txtCodigo.Text);
-                        cmd.Parameters.AddWithValue("@tipoOp", Operacion.Update);
+
                         cmd.ExecuteNonQuery();
 
                         Guardar = true;
@@ -145,12 +164,17 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     break;
             }
 
-            if(Guardar)
+            if (Guardar)
             {
                 CajaDialogo.Information("Actulizado con Exito!");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void cmdCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

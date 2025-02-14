@@ -4,6 +4,10 @@
 
     partial class dsProductoTerminado
     {
+        partial class clase_selectDataTable
+        {
+        }
+
         partial class claseDataTable
         {
         }

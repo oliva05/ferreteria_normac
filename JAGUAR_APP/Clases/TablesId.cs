@@ -10,13 +10,13 @@ using DevExpress.XtraRichEdit.Export.Doc;
 
 namespace JAGUAR_PRO.Clases
 {
-    public  class TablesId
+    public class TablesId
     {
         public int Id { get; set; }
         public string NameTableOrSecuence { get; set; }
         public string NextCode { get; set; }
         public TablesId() { }
-        public bool RecuperarSiguienteCodigoFromId_table(int pIdTable) 
+        public bool RecuperarSiguienteCodigoFromId_table(int pIdTable)
         {
             bool r = false;
             string codigo_var = "N/D";
@@ -44,6 +44,38 @@ namespace JAGUAR_PRO.Clases
             {
                 CajaDialogo.Error(ec.Message);
             }
+            return r;
+        }
+
+        public bool ValidacionCodigos(string pCode, int pTipo, int pid)
+        {
+            bool r = false;
+
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_pt_validacion_familia]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@code", pCode);
+                cmd.Parameters.AddWithValue("@tipo", pTipo);
+                cmd.Parameters.AddWithValue("@id", pid);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    r = dr.GetBoolean(0);
+                }
+                dr.Close();
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+
             return r;
         }
     }
