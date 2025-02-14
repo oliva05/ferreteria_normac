@@ -78,7 +78,6 @@
             this.txtCodigo.Location = new System.Drawing.Point(201, 69);
             this.txtCodigo.MaxLength = 3;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(177, 23);
             this.txtCodigo.TabIndex = 34;
             // 

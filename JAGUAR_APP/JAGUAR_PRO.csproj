@@ -3562,6 +3562,9 @@
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_PTFamilia.resx">
       <DependentUpon>frmCRUD_PTFamilia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_PTSubClase.resx">
+      <DependentUpon>frmCRUD_PTSubClase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.resx">
       <DependentUpon>frmMainProductoTerminado.cs</DependentUpon>
     </EmbeddedResource>
@@ -3570,6 +3573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainPTFamilia.resx">
       <DependentUpon>frmMainPTFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainPTSubClase.resx">
+      <DependentUpon>frmMainPTSubClase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\Proveedor\xfrmFacturaProveedor_CRUD.resx">
       <DependentUpon>xfrmFacturaProveedor_CRUD.cs</DependentUpon>

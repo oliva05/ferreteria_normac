@@ -52,12 +52,12 @@
             this.colcodFamilia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEditar2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colenable = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdReceta2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.reposClases = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
             this.cmdNuevoPT = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.colenable = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggViewFilter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalleProductosCRUD)).BeginInit();
@@ -156,8 +156,8 @@
             this.colnombre.Name = "colnombre";
             this.colnombre.OptionsColumn.ReadOnly = true;
             this.colnombre.Visible = true;
-            this.colnombre.VisibleIndex = 2;
-            this.colnombre.Width = 200;
+            this.colnombre.VisibleIndex = 1;
+            this.colnombre.Width = 226;
             // 
             // colcodigo
             // 
@@ -166,8 +166,8 @@
             this.colcodigo.Name = "colcodigo";
             this.colcodigo.OptionsColumn.ReadOnly = true;
             this.colcodigo.Visible = true;
-            this.colcodigo.VisibleIndex = 3;
-            this.colcodigo.Width = 167;
+            this.colcodigo.VisibleIndex = 0;
+            this.colcodigo.Width = 89;
             // 
             // colfamilia
             // 
@@ -176,8 +176,8 @@
             this.colfamilia.Name = "colfamilia";
             this.colfamilia.OptionsColumn.ReadOnly = true;
             this.colfamilia.Visible = true;
-            this.colfamilia.VisibleIndex = 1;
-            this.colfamilia.Width = 174;
+            this.colfamilia.VisibleIndex = 3;
+            this.colfamilia.Width = 197;
             // 
             // colcodFamilia
             // 
@@ -185,8 +185,8 @@
             this.colcodFamilia.FieldName = "codFamilia";
             this.colcodFamilia.Name = "colcodFamilia";
             this.colcodFamilia.Visible = true;
-            this.colcodFamilia.VisibleIndex = 0;
-            this.colcodFamilia.Width = 105;
+            this.colcodFamilia.VisibleIndex = 2;
+            this.colcodFamilia.Width = 118;
             // 
             // gridColumn1
             // 
@@ -195,7 +195,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 4;
-            this.gridColumn1.Width = 108;
+            this.gridColumn1.Width = 124;
             // 
             // cmdEditar2
             // 
@@ -206,6 +206,11 @@
             this.cmdEditar2.Name = "cmdEditar2";
             this.cmdEditar2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdEditar2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEditar2_ButtonClick);
+            // 
+            // colenable
+            // 
+            this.colenable.FieldName = "enable";
+            this.colenable.Name = "colenable";
             // 
             // cmdReceta2
             // 
@@ -269,11 +274,6 @@
             this.labelControl1.Size = new System.Drawing.Size(536, 26);
             this.labelControl1.TabIndex = 22;
             this.labelControl1.Text = "Clases de Producto Terminado";
-            // 
-            // colenable
-            // 
-            this.colenable.FieldName = "enable";
-            this.colenable.Name = "colenable";
             // 
             // frmMainPTClase
             // 
