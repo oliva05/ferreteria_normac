@@ -76,5 +76,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         {
             loaddate();
         }
+
+        private void cmdCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

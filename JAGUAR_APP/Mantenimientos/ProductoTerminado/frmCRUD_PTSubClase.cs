@@ -79,7 +79,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             DataOperations dp = new DataOperations();
 
             TablesId tab = new TablesId();
-            if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 3))
+
+            if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 3,Id))
             {
                 CajaDialogo.Error("Este Codigo ya existe en el Grupo de Sub Clases");
                 return;

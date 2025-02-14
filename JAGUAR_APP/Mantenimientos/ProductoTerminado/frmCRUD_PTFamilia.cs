@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using DevExpress.Office.Utils;
 using DevExpress.XtraEditors;
 using JAGUAR_PRO.Clases;
 using System;
@@ -65,7 +66,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             DataOperations dp = new DataOperations();
 
             TablesId tab = new TablesId();
-            if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 1))
+          
+            if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 1,Id))
             {
                 CajaDialogo.Error("Este Codigo ya existe en el Grupo de Familia");
                 return;
@@ -83,6 +85,12 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
+            if(txtCodigo.Text.Length < 3)
+            {
+                CajaDialogo.Error("El codio deben ser por lo menos 3 Digitos");
+                return;
+            }    
+
             switch (TipoOP)
             {
                 case Operacion.Insert:
@@ -98,7 +106,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
                         cmd.Parameters.AddWithValue("@codigo",txtCodigo.Text);
                         cmd.Parameters.AddWithValue("@tipoOp", Operacion.Insert);
-                        //cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
 
                         Guardar = true;
                     }

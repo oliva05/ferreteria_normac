@@ -47,7 +47,7 @@ namespace JAGUAR_PRO.Clases
             return r;
         }
 
-        public bool ValidacionCodigos(string pCode, int pTipo)
+        public bool ValidacionCodigos(string pCode, int pTipo, int pid)
         {
             bool r = false;
 
@@ -61,6 +61,8 @@ namespace JAGUAR_PRO.Clases
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@code", pCode);
                 cmd.Parameters.AddWithValue("@tipo", pTipo);
+                cmd.Parameters.AddWithValue("@id", pid);
+
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {

@@ -69,6 +69,7 @@
             // 
             // labelControl2
             // 
+            this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(274, 52);
@@ -79,6 +80,7 @@
             // 
             // tggViewFilter
             // 
+            this.tggViewFilter.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tggViewFilter.Location = new System.Drawing.Point(393, 50);
             this.tggViewFilter.Name = "tggViewFilter";
             this.tggViewFilter.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
@@ -236,7 +238,7 @@
             this.cmdCerrar.Appearance.Options.UseFont = true;
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCerrar.ImageOptions.SvgImage")));
-            this.cmdCerrar.Location = new System.Drawing.Point(680, 23);
+            this.cmdCerrar.Location = new System.Drawing.Point(670, 23);
             this.cmdCerrar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(101, 42);
@@ -252,7 +254,7 @@
             this.cmdNuevoPT.Appearance.Options.UseFont = true;
             this.cmdNuevoPT.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdNuevoPT.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdNuevoPT.ImageOptions.SvgImage")));
-            this.cmdNuevoPT.Location = new System.Drawing.Point(2, 23);
+            this.cmdNuevoPT.Location = new System.Drawing.Point(11, 23);
             this.cmdNuevoPT.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmdNuevoPT.Name = "cmdNuevoPT";
             this.cmdNuevoPT.Size = new System.Drawing.Size(101, 42);
@@ -262,6 +264,7 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseTextOptions = true;
