@@ -38,12 +38,12 @@ namespace JAGUAR_PRO.Accesos.AccesosUsuarios
                                               T2.nivel,
                                               isnull(T4.enable,0) [enable],
                                               isnull(T4.id,0) [id_conf]
-                                                    from [dbo].conf_usuarios T0
-                                                    cross join [dbo].conf_sistemas_master_data T1
-                                                    cross join [dbo].conf_niveles_acceso T2
-                                                    inner join [dbo].conf_sistemas_niveles_acceso T3 on T3.id_nivel = T2.id and T3.id_sistema = T1.id
-                                                    left join [dbo].conf_usuarios_niveles_acceso T4 on T4.id_nivel = T3.id and T4.id_user = T0.id
-                                                    Where T0.id = @id";
+                                        from [dbo].conf_usuarios T0
+                                        cross join [dbo].conf_sistemas_master_data T1
+                                        cross join [dbo].conf_niveles_acceso T2
+                                        inner join [dbo].conf_sistemas_niveles_acceso T3 on T3.id_nivel = T2.id and T3.id_sistema = T1.id
+                                        left join [dbo].conf_usuarios_niveles_acceso T4 on T4.id_nivel = T3.id and T4.id_user = T0.id
+                                        Where T0.id = @id";
 
         private const string query3 = @"INSERT INTO [dbo].conf_usuarios_niveles_acceso([id_user],[id_nivel],[enable],[date_start])
                                         VALUES(@id_user, @id_nivel, @enable, @date_start)";
