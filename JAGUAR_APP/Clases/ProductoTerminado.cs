@@ -349,6 +349,33 @@ namespace JAGUAR_PRO.Clases
             return codigo_var;
         }
 
+        public string GenerarSiguienteCodigoPTSoloNumero()
+        {
+            string codigo_var = "N/D";
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[sp_get_siguiente_codigo_pt_solo_numero]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@ver_todos", 0);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    codigo_var = dr.GetString(0);
+                }
+                dr.Close();
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+            return codigo_var;
+        }
+
         public int Recuperaridmpgroup(int PidGrup)
         {
             int varidconf = 0;

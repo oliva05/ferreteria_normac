@@ -50,7 +50,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             switch (pTipoOperacion)
             {
                 case TipoOperacion.Insert:
-                    txtCodigoInterno.Text = PT_Class_instance.GenerarSiguienteCodigoPT();
+                    txtCodigoPT.Text = PT_Class_instance.GenerarSiguienteCodigoPT();
                     toggleSwitchEnablePT.IsOn = true;
                     toggleSwitchEnablePT.Enabled = false;
                     break;
@@ -63,7 +63,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         gridLookUpEdit_Presentaciones.EditValue = PT_Class_instance.Id_presentacion;
                         txtDescripcionProducto.Text = PT_Class_instance.Descripcion;
                         toggleSwitchEnablePT.IsOn = PT_Class_instance.Enable;
-                        txtCodigoInterno.Text = PT_Class_instance.Code;
+                        txtCodigoPT.Text = PT_Class_instance.Code;
                         //tggCosteoPorArroba.IsOn = PT_Class_instance.CostoDeMO_porArrobaBit;
                         //txtCostoPorArroba.Text = string.Format("{0:###,##0.00}", PT_Class_instance.CostoPorArroba);
                         //glueTipoFacturacion.EditValue = PT_Class_instance.tipo_facturacion_id;
@@ -370,7 +370,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@id_presentacion", gridLookUpEdit_Presentaciones.EditValue);
                 cmd.Parameters.AddWithValue("@id_estado", gridLookUpEditEstadoPT.EditValue);
                 cmd.Parameters.AddWithValue("@descripcion", txtDescripcionProducto.Text);
-                cmd.Parameters.AddWithValue("@code", txtCodigoInterno.Text);
+                cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
                 cmd.Parameters.AddWithValue("@tipo_id", gridLookUpEditTipoProducto.EditValue);
                 cmd.Parameters.AddWithValue("@costo_mo_por_arroba", 0);
                 cmd.Parameters.AddWithValue("@costo_por_arroba", CostoPorArroba);
@@ -394,7 +394,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     cmd.Parameters.AddWithValue("@id_impuesto_aplicable", DBNull.Value);
                 else
                     cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
-
+                cmd.Parameters.AddWithValue("@codigo_interno", Convert.ToInt32(txtCodigoInterno.Text.Trim()));
+                cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
                 cmd.ExecuteNonQuery();
 
                 this.DialogResult = DialogResult.OK;
@@ -421,7 +422,33 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void gridLookUpEdit1_EditValueChanged(object sender, EventArgs e)
         {
+            if ((int)grdSubClase.EditValue > 0)
+            {
+                try
+                {
+                    DataOperations dp = new DataOperations();
+                    SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("sp_get_pt_concatenacion_codigos", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", (int)grdSubClase.EditValue);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        txtCodigoInterno.Text = dr.GetString(0) + PT_Class_instance.GenerarSiguienteCodigoPTSoloNumero();
+                    }
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    CajaDialogo.Error(ex.Message);
+                }
+            }
+        }
 
+        private void gridView8_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            
         }
     }
 }
