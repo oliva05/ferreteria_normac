@@ -73,7 +73,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             var gridview = (GridView)gridDetalleProductosCRUD.FocusedView;
             var row = (dsProductoTerminado.claseRow)gridview.GetFocusedDataRow();
 
-            frmCRUD_PTClase frm = new frmCRUD_PTClase(frmCRUD_PTClase.Operacion.Update, row.id_clase, row.id_familia, row.nombre, row.codigo, row.enable);
+            frmCRUD_PTClase frm = new frmCRUD_PTClase(frmCRUD_PTClase.Operacion.Update, row.id_clase, row.id_categoria, row.nombre, row.codigo, row.enable);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 loaddate();

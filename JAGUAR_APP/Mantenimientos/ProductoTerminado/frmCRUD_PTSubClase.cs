@@ -118,7 +118,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     {
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand("sp_pt_insert_update_clase", conn);
+                        SqlCommand cmd = new SqlCommand("[sp_pt_insert_sub_clases]", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@id_subclase", 0);
                         cmd.Parameters.AddWithValue("@id_clase", grdTipo.EditValue);
@@ -141,7 +141,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     {
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand("sp_pt_insert_sub_clases", conn);
+                        SqlCommand cmd = new SqlCommand("[sp_pt_insert_sub_clases]", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@id_subclase", Id);
                         cmd.Parameters.AddWithValue("@id_clase", grdTipo.EditValue);
@@ -175,6 +175,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private void cmdCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void grdTipo_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

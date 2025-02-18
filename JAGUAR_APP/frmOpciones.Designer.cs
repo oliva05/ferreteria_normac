@@ -82,6 +82,8 @@
             this.TabAdmin = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageCRUDS = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCuentas = new DevExpress.XtraEditors.SimpleButton();
@@ -191,7 +193,6 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -914,6 +915,7 @@
             // 
             this.xtraTabPageCRUDS.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xtraTabPageCRUDS.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPageCRUDS.Controls.Add(this.simpleButton6);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton5);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton4);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton1);
@@ -939,13 +941,39 @@
             this.xtraTabPageCRUDS.Size = new System.Drawing.Size(1222, 442);
             this.xtraTabPageCRUDS.Text = "Mantenimientos";
             // 
+            // simpleButton6
+            // 
+            this.simpleButton6.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton6.Appearance.Options.UseFont = true;
+            this.simpleButton6.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton6.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
+            this.simpleButton6.Location = new System.Drawing.Point(701, 62);
+            this.simpleButton6.Name = "simpleButton6";
+            this.simpleButton6.Size = new System.Drawing.Size(227, 58);
+            this.simpleButton6.TabIndex = 39;
+            this.simpleButton6.Text = "Categoria";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click_1);
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton5.Appearance.Options.UseFont = true;
+            this.simpleButton5.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton5.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
+            this.simpleButton5.Location = new System.Drawing.Point(701, 182);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(227, 58);
+            this.simpleButton5.TabIndex = 38;
+            this.simpleButton5.Text = "Sub Clases";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click_1);
+            // 
             // simpleButton4
             // 
             this.simpleButton4.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton4.Appearance.Options.UseFont = true;
             this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton4.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
-            this.simpleButton4.Location = new System.Drawing.Point(468, 302);
+            this.simpleButton4.Location = new System.Drawing.Point(701, 122);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(227, 58);
             this.simpleButton4.TabIndex = 37;
@@ -958,7 +986,7 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
-            this.simpleButton1.Location = new System.Drawing.Point(468, 242);
+            this.simpleButton1.Location = new System.Drawing.Point(701, 2);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(227, 58);
             this.simpleButton1.TabIndex = 36;
@@ -2422,19 +2450,6 @@
             this.nBarRecepcionFactPuntoVenta.Name = "nBarRecepcionFactPuntoVenta";
             this.nBarRecepcionFactPuntoVenta.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nBarRecepcionFactPuntoVenta_LinkClicked);
             // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton5.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
-            this.simpleButton5.Location = new System.Drawing.Point(468, 362);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(227, 58);
-            this.simpleButton5.TabIndex = 38;
-            this.simpleButton5.Text = "Sub Clases";
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click_1);
-            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2635,5 +2650,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SimpleButton simpleButton6;
     }
 }

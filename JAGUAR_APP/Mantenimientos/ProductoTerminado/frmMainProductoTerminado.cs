@@ -98,8 +98,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void cmdNuevoPT_Click(object sender, EventArgs e)
         {
-            frmCRUD_ProductoTerminado frm = new frmCRUD_ProductoTerminado(this.UsuarioLogeado, frmCRUD_ProductoTerminado.TipoOperacion.Insert,0);
-            if(frm.ShowDialog()== DialogResult.OK)
+            //frmCRUD_ProductoTerminado frm = new frmCRUD_ProductoTerminado(this.UsuarioLogeado, frmCRUD_ProductoTerminado.TipoOperacion.Insert,0);
+            frmCRUD_ProductoTerminadoV2 frm = new frmCRUD_ProductoTerminadoV2(this.UsuarioLogeado, frmCRUD_ProductoTerminadoV2.TipoOperacion.Insert, 0);
+            if (frm.ShowDialog()== DialogResult.OK)
             {
                 LoadDataDetallePT();
             }
@@ -130,7 +131,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             {
                 if (row.id > 0)
                 {
-                    frmCRUD_ProductoTerminado frm = new frmCRUD_ProductoTerminado(this.UsuarioLogeado, frmCRUD_ProductoTerminado.TipoOperacion.Update, row.id);
+                    //frmCRUD_ProductoTerminado frm = new frmCRUD_ProductoTerminado(this.UsuarioLogeado, frmCRUD_ProductoTerminado.TipoOperacion.Update, row.id);
+                    frmCRUD_ProductoTerminadoV2 frm = new frmCRUD_ProductoTerminadoV2(this.UsuarioLogeado, frmCRUD_ProductoTerminadoV2.TipoOperacion.Update, row.id);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         LoadDataDetallePT();
