@@ -46,11 +46,13 @@
             this.colconcat_ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.categoariaselectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchEnablePT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTipo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiaselectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoariaselectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdGuardar
@@ -160,7 +162,7 @@
             this.grdTipo.Properties.Appearance.Options.UseFont = true;
             this.grdTipo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.grdTipo.Properties.DataSource = this.familiaselectBindingSource;
+            this.grdTipo.Properties.DataSource = this.categoariaselectBindingSource;
             this.grdTipo.Properties.DisplayMember = "concat_";
             this.grdTipo.Properties.NullText = "";
             this.grdTipo.Properties.PopupView = this.gridLookUpEdit1View;
@@ -207,9 +209,14 @@
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(31, 80);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(196, 15);
+            this.labelControl1.Size = new System.Drawing.Size(209, 15);
             this.labelControl1.TabIndex = 47;
-            this.labelControl1.Text = "Código de Familia____________________";
+            this.labelControl1.Text = "Código de Categoria____________________";
+            // 
+            // categoariaselectBindingSource
+            // 
+            this.categoariaselectBindingSource.DataMember = "categoaria_select";
+            this.categoariaselectBindingSource.DataSource = this.dsProductoTerminado1;
             // 
             // frmCRUD_PTClase
             // 
@@ -235,6 +242,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.familiaselectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoariaselectBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,5 +266,6 @@
         private System.Windows.Forms.BindingSource familiaselectBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colconcat_;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private System.Windows.Forms.BindingSource categoariaselectBindingSource;
     }
 }

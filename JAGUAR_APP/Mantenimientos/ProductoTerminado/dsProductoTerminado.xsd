@@ -99,11 +99,11 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_clase" msprop:Generator_ColumnPropNameInTable="id_claseColumn" msprop:Generator_ColumnPropNameInRow="id_clase" msprop:Generator_UserColumnName="id_clase" msprop:Generator_ColumnVarNameInTable="columnid_clase" type="xs:int" minOccurs="0" />
-              <xs:element name="id_familia" msprop:Generator_ColumnPropNameInTable="id_familiaColumn" msprop:Generator_ColumnPropNameInRow="id_familia" msprop:Generator_UserColumnName="id_familia" msprop:Generator_ColumnVarNameInTable="columnid_familia" type="xs:int" minOccurs="0" />
+              <xs:element name="id_categoria" msprop:Generator_ColumnPropNameInTable="id_categoriaColumn" msprop:Generator_ColumnPropNameInRow="id_categoria" msprop:Generator_UserColumnName="id_categoria" msprop:Generator_ColumnVarNameInTable="columnid_categoria" type="xs:int" minOccurs="0" />
               <xs:element name="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" type="xs:string" minOccurs="0" />
               <xs:element name="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_UserColumnName="codigo" msprop:Generator_ColumnVarNameInTable="columncodigo" type="xs:string" minOccurs="0" />
-              <xs:element name="familia" msprop:Generator_ColumnPropNameInTable="familiaColumn" msprop:Generator_ColumnPropNameInRow="familia" msprop:Generator_UserColumnName="familia" msprop:Generator_ColumnVarNameInTable="columnfamilia" type="xs:string" minOccurs="0" />
-              <xs:element name="codFamilia" msprop:Generator_ColumnPropNameInTable="codFamiliaColumn" msprop:Generator_ColumnPropNameInRow="codFamilia" msprop:Generator_UserColumnName="codFamilia" msprop:Generator_ColumnVarNameInTable="columncodFamilia" type="xs:string" minOccurs="0" />
+              <xs:element name="categoria" msprop:Generator_ColumnPropNameInTable="categoriaColumn" msprop:Generator_ColumnPropNameInRow="categoria" msprop:Generator_UserColumnName="categoria" msprop:Generator_ColumnVarNameInTable="columncategoria" type="xs:string" minOccurs="0" />
+              <xs:element name="codCategoria" msprop:Generator_ColumnPropNameInTable="codCategoriaColumn" msprop:Generator_ColumnPropNameInRow="codCategoria" msprop:Generator_UserColumnName="codCategoria" msprop:Generator_ColumnVarNameInTable="columncodCategoria" type="xs:string" minOccurs="0" />
               <xs:element name="enable" msprop:Generator_ColumnPropNameInTable="enableColumn" msprop:Generator_ColumnPropNameInRow="enable" msprop:Generator_UserColumnName="enable" msprop:Generator_ColumnVarNameInTable="columnenable" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
@@ -117,7 +117,8 @@
               <xs:element name="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_UserColumnName="codigo" msprop:Generator_ColumnVarNameInTable="columncodigo" type="xs:string" minOccurs="0" />
               <xs:element name="enable" msprop:Generator_ColumnPropNameInTable="enableColumn" msprop:Generator_ColumnPropNameInRow="enable" msprop:Generator_UserColumnName="enable" msprop:Generator_ColumnVarNameInTable="columnenable" type="xs:boolean" minOccurs="0" />
               <xs:element name="clase" msprop:Generator_ColumnPropNameInTable="claseColumn" msprop:Generator_ColumnPropNameInRow="clase" msprop:Generator_UserColumnName="clase" msprop:Generator_ColumnVarNameInTable="columnclase" type="xs:string" minOccurs="0" />
-              <xs:element name="familia" msprop:Generator_UserColumnName="familia" msprop:Generator_ColumnPropNameInTable="familiaColumn" msprop:Generator_ColumnPropNameInRow="familia" msprop:Generator_ColumnVarNameInTable="columnfamilia" type="xs:string" minOccurs="0" />
+              <xs:element name="familia" msprop:Generator_ColumnPropNameInTable="familiaColumn" msprop:Generator_ColumnPropNameInRow="familia" msprop:Generator_UserColumnName="familia" msprop:Generator_ColumnVarNameInTable="columnfamilia" type="xs:string" minOccurs="0" />
+              <xs:element name="categoria" msprop:Generator_ColumnPropNameInRow="categoria" msprop:Generator_ColumnPropNameInTable="categoriaColumn" msprop:Generator_ColumnVarNameInTable="columncategoria" msprop:Generator_UserColumnName="categoria" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -129,11 +130,39 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="clase_select" msprop:Generator_RowClassName="clase_selectRow" msprop:Generator_RowEvHandlerName="clase_selectRowChangeEventHandler" msprop:Generator_RowDeletedName="clase_selectRowDeleted" msprop:Generator_RowDeletingName="clase_selectRowDeleting" msprop:Generator_RowEvArgName="clase_selectRowChangeEvent" msprop:Generator_TablePropName="clase_select" msprop:Generator_RowChangedName="clase_selectRowChanged" msprop:Generator_UserTableName="clase_select" msprop:Generator_RowChangingName="clase_selectRowChanging" msprop:Generator_TableClassName="clase_selectDataTable" msprop:Generator_TableVarName="tableclase_select">
+        <xs:element name="clase_select" msprop:Generator_RowEvHandlerName="clase_selectRowChangeEventHandler" msprop:Generator_RowDeletedName="clase_selectRowDeleted" msprop:Generator_RowDeletingName="clase_selectRowDeleting" msprop:Generator_RowEvArgName="clase_selectRowChangeEvent" msprop:Generator_TablePropName="clase_select" msprop:Generator_RowChangedName="clase_selectRowChanged" msprop:Generator_UserTableName="clase_select" msprop:Generator_RowChangingName="clase_selectRowChanging" msprop:Generator_RowClassName="clase_selectRow" msprop:Generator_TableClassName="clase_selectDataTable" msprop:Generator_TableVarName="tableclase_select">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id_clase" msprop:Generator_UserColumnName="id_clase" msprop:Generator_ColumnPropNameInTable="id_claseColumn" msprop:Generator_ColumnPropNameInRow="id_clase" msprop:Generator_ColumnVarNameInTable="columnid_clase" type="xs:int" minOccurs="0" />
-              <xs:element name="concat_" msprop:Generator_UserColumnName="concat_" msprop:Generator_ColumnPropNameInTable="concat_Column" msprop:Generator_ColumnPropNameInRow="concat_" msprop:Generator_ColumnVarNameInTable="columnconcat_" type="xs:string" minOccurs="0" />
+              <xs:element name="id_clase" msprop:Generator_ColumnPropNameInTable="id_claseColumn" msprop:Generator_ColumnPropNameInRow="id_clase" msprop:Generator_UserColumnName="id_clase" msprop:Generator_ColumnVarNameInTable="columnid_clase" type="xs:int" minOccurs="0" />
+              <xs:element name="concat_" msprop:Generator_ColumnPropNameInTable="concat_Column" msprop:Generator_ColumnPropNameInRow="concat_" msprop:Generator_UserColumnName="concat_" msprop:Generator_ColumnVarNameInTable="columnconcat_" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="subClaseSelect" msprop:Generator_RowEvHandlerName="subClaseSelectRowChangeEventHandler" msprop:Generator_RowDeletedName="subClaseSelectRowDeleted" msprop:Generator_RowDeletingName="subClaseSelectRowDeleting" msprop:Generator_RowEvArgName="subClaseSelectRowChangeEvent" msprop:Generator_TablePropName="subClaseSelect" msprop:Generator_RowChangedName="subClaseSelectRowChanged" msprop:Generator_UserTableName="subClaseSelect" msprop:Generator_RowChangingName="subClaseSelectRowChanging" msprop:Generator_RowClassName="subClaseSelectRow" msprop:Generator_TableClassName="subClaseSelectDataTable" msprop:Generator_TableVarName="tablesubClaseSelect">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="categoria" msprop:Generator_RowEvHandlerName="categoriaRowChangeEventHandler" msprop:Generator_RowDeletedName="categoriaRowDeleted" msprop:Generator_RowDeletingName="categoriaRowDeleting" msprop:Generator_RowEvArgName="categoriaRowChangeEvent" msprop:Generator_TablePropName="categoria" msprop:Generator_RowChangedName="categoriaRowChanged" msprop:Generator_UserTableName="categoria" msprop:Generator_RowChangingName="categoriaRowChanging" msprop:Generator_RowClassName="categoriaRow" msprop:Generator_TableClassName="categoriaDataTable" msprop:Generator_TableVarName="tablecategoria">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_UserColumnName="codigo" msprop:Generator_ColumnVarNameInTable="columncodigo" type="xs:string" minOccurs="0" />
+              <xs:element name="id_familia" msprop:Generator_ColumnPropNameInTable="id_familiaColumn" msprop:Generator_ColumnPropNameInRow="id_familia" msprop:Generator_UserColumnName="id_familia" msprop:Generator_ColumnVarNameInTable="columnid_familia" type="xs:int" minOccurs="0" />
+              <xs:element name="familia" msprop:Generator_ColumnPropNameInTable="familiaColumn" msprop:Generator_ColumnPropNameInRow="familia" msprop:Generator_UserColumnName="familia" msprop:Generator_ColumnVarNameInTable="columnfamilia" type="xs:string" minOccurs="0" />
+              <xs:element name="enable" msprop:Generator_ColumnPropNameInTable="enableColumn" msprop:Generator_ColumnPropNameInRow="enable" msprop:Generator_UserColumnName="enable" msprop:Generator_ColumnVarNameInTable="columnenable" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="categoaria_select" msprop:Generator_RowEvHandlerName="categoaria_selectRowChangeEventHandler" msprop:Generator_RowDeletedName="categoaria_selectRowDeleted" msprop:Generator_RowDeletingName="categoaria_selectRowDeleting" msprop:Generator_RowEvArgName="categoaria_selectRowChangeEvent" msprop:Generator_TablePropName="categoaria_select" msprop:Generator_RowChangedName="categoaria_selectRowChanged" msprop:Generator_UserTableName="categoaria_select" msprop:Generator_RowChangingName="categoaria_selectRowChanging" msprop:Generator_RowClassName="categoaria_selectRow" msprop:Generator_TableClassName="categoaria_selectDataTable" msprop:Generator_TableVarName="tablecategoaria_select">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
+              <xs:element name="concat_" msprop:Generator_ColumnPropNameInTable="concat_Column" msprop:Generator_ColumnPropNameInRow="concat_" msprop:Generator_UserColumnName="concat_" msprop:Generator_ColumnVarNameInTable="columnconcat_" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

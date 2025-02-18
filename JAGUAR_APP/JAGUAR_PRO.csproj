@@ -1982,6 +1982,18 @@
     <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminado.Designer.cs">
       <DependentUpon>frmCRUD_ProductoTerminado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminadoV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminadoV2.Designer.cs">
+      <DependentUpon>frmCRUD_ProductoTerminadoV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTCategoria.Designer.cs">
+      <DependentUpon>frmCRUD_PTCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTClase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2005,6 +2017,12 @@
     </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.Designer.cs">
       <DependentUpon>frmMainProductoTerminado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTCategoria.Designer.cs">
+      <DependentUpon>frmMainPTCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTClase.cs">
       <SubType>Form</SubType>
@@ -3556,6 +3574,12 @@
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminado.resx">
       <DependentUpon>frmCRUD_ProductoTerminado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminadoV2.resx">
+      <DependentUpon>frmCRUD_ProductoTerminadoV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_PTCategoria.resx">
+      <DependentUpon>frmCRUD_PTCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_PTClase.resx">
       <DependentUpon>frmCRUD_PTClase.cs</DependentUpon>
     </EmbeddedResource>
@@ -3567,6 +3591,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.resx">
       <DependentUpon>frmMainProductoTerminado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainPTCategoria.resx">
+      <DependentUpon>frmMainPTCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainPTClase.resx">
       <DependentUpon>frmMainPTClase.cs</DependentUpon>

@@ -11,11 +11,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DevExpress.DataProcessing.InMemoryDataProcessor.AddSurrogateOperationAlgorithm;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
-    public partial class frmCRUD_PTClase : DevExpress.XtraEditors.XtraForm
+    public partial class frmCRUD_PTCategoria : DevExpress.XtraEditors.XtraForm
     {
         DataOperations dp = new DataOperations();
         public enum Operacion
@@ -26,22 +25,22 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         Operacion TipoOP;
 
         int Id;
-
-        public frmCRUD_PTClase(frmCRUD_PTClase.Operacion operacion, int pid_clase, int pid_familia, string pnombre,string pcodigo, bool penable)
+        public frmCRUD_PTCategoria(frmCRUD_PTCategoria.Operacion operacion, int pid_categoria, int pid_familia, string pnombre, string pcodigo, bool penable)
         {
             InitializeComponent();
             TipoOP = operacion;
             LoadFamilia();
+
             switch (TipoOP)
             {
                 case Operacion.Insert:
 
                     toggleSwitchEnablePT.IsOn = true;
-                    lblTituloVentana.Text = "Crear Clase";
+                    lblTituloVentana.Text = "Crear Categoria";
                     break;
                 case Operacion.Update:
-                    lblTituloVentana.Text = "Editar Clase";
-                    Id = pid_clase;
+                    lblTituloVentana.Text = "Editar Categoria";
+                    Id = pid_categoria;
                     grdTipo.EditValue = pid_familia;
                     txtDescripcion.Text = pnombre;
                     toggleSwitchEnablePT.IsOn = penable;
@@ -61,11 +60,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             {
                 SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("sp_pt_get_categoria_activo", connection);
+                SqlCommand cmd = new SqlCommand("[sp_pt_get_familia_activo]", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                dsProductoTerminado1.categoaria_select.Clear();
-                adapter.Fill(dsProductoTerminado1.categoaria_select);
+                dsProductoTerminado1.familia_select.Clear();
+                adapter.Fill(dsProductoTerminado1.familia_select);
                 connection.Close();
             }
             catch (Exception ex)
@@ -86,9 +85,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
             TablesId tab = new TablesId();
 
-            if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 2, Id))
+            if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 4, Id))
             {
-                CajaDialogo.Error("Este Codigo ya existe en el Grupo de Clases");
+                CajaDialogo.Error("Este Codigo ya existe en el Grupo de Categorias");
                 return;
             }
 
@@ -116,6 +115,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
+
             switch (TipoOP)
             {
                 case Operacion.Insert:
@@ -124,11 +124,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     {
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand("sp_pt_insert_update_clase", conn);
+                        SqlCommand cmd = new SqlCommand("sp_pt_insert_update_categoria", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id_clase", 0);
-                        cmd.Parameters.AddWithValue("@id_categoria", grdTipo.EditValue);
-                        cmd.Parameters.AddWithValue("@nombre", txtDescripcion.Text);
+                        cmd.Parameters.AddWithValue("@id", 0);
+                        cmd.Parameters.AddWithValue("@id_familia", grdTipo.EditValue);
+                        cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
                         cmd.Parameters.AddWithValue("@codigo", txtCodigo.Text.Trim());
                         cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
 
@@ -149,11 +149,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     {
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand("sp_pt_insert_update_clase", conn);
+                        SqlCommand cmd = new SqlCommand("sp_pt_insert_update_categoria", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id_clase", Id);
-                        cmd.Parameters.AddWithValue("@id_categoria", grdTipo.EditValue);
-                        cmd.Parameters.AddWithValue("@nombre", txtDescripcion.Text);
+                        cmd.Parameters.AddWithValue("@id", Id);
+                        cmd.Parameters.AddWithValue("@id_familia", grdTipo.EditValue);
+                        cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
                         cmd.Parameters.AddWithValue("@codigo", txtCodigo.Text.Trim());
                         cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
 
@@ -178,7 +178,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-
         }
     }
 }
