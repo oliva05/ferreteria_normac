@@ -1,5 +1,5 @@
 ﻿
-namespace ERP_INTECOLI.Compras
+namespace JAGUAR_PRO.Compras
 {
     partial class frmSearchOrdenesC
     {
@@ -36,7 +36,7 @@ namespace ERP_INTECOLI.Compras
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.dsCompras1 = new ERP_INTECOLI.Compras.dsCompras();
+            this.dsCompras1 = new JAGUAR_PRO.Compras.dsCompras();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_solicitud = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_user = new DevExpress.XtraGrid.Columns.GridColumn();

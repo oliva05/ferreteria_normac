@@ -448,7 +448,6 @@
             this.navBarGroup8.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup8.AppearancePressed.Options.UseFont = true;
             this.navBarGroup8.Caption = "Inventario";
-            this.navBarGroup8.Expanded = true;
             this.navBarGroup8.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT)});
@@ -489,7 +488,6 @@
             this.navBarGroup9.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup9.Appearance.Options.UseFont = true;
             this.navBarGroup9.Caption = "Reportes";
-            this.navBarGroup9.Expanded = true;
             this.navBarGroup9.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem21)});
             this.navBarGroup9.Name = "navBarGroup9";

@@ -1,5 +1,5 @@
 ﻿
-namespace ERP_INTECOLI.Compras
+namespace JAGUAR_PRO.Compras
 {
     partial class rptOrdenCompra
     {

@@ -1,7 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using ERP_INTECOLI.Clases;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using System;
@@ -15,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ERP_INTECOLI.Compras
+namespace JAGUAR_PRO.Compras
 {
     public partial class frmSearchOrdenesC : DevExpress.XtraEditors.XtraForm
     {
@@ -41,7 +40,7 @@ namespace ERP_INTECOLI.Compras
             this.PuntoVentaActual = pPuntoVentaActual;
             LoadData();
             PuntoVentaID = PuntoVentaActual.ID;
-            LoadSucursales();
+            //LoadSucursales();
             grdSucursales.EditValue = PuntoVentaID;
 
             //int i = Convert.ToInt32(UsuarioLogueado.GrupoUsuario.GrupoUsuarioActivo);

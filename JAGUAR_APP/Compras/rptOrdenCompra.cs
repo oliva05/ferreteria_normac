@@ -1,12 +1,13 @@
-﻿using DevExpress.XtraReports.UI;
-using ERP_INTECOLI.Clases;
+﻿using ACS.Classes;
+using DevExpress.XtraReports.UI;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Drawing;
 
-namespace ERP_INTECOLI.Compras
+namespace JAGUAR_PRO.Compras
 {
     public partial class rptOrdenCompra : DevExpress.XtraReports.UI.XtraReport
     {
@@ -19,8 +20,8 @@ namespace ERP_INTECOLI.Compras
             oc.RecuperarRegistos(pIdOrdenCompraActual);
             lblCliente.Text = oc.Itemcode_Prov + " - " + oc.Nombre_Prov;
             Proveedor prov = new Proveedor();
-            prov.RecuperarRegistroFromItemCode(oc.Itemcode_Prov);
-            lblRTN.Text = prov._RTN;
+            prov.RecuperarRegistroWithRTN(oc.Itemcode_Prov);
+            lblRTN.Text = prov.RTN;
             lblDireccion.Text = oc.Direccion;
             lblNumeroOrden.Text = "Orden de Compra #" + oc.DocNum1;
             lblFechaOrden.Text = string.Format("{0:dd/MM/yyyy}",oc.Fecha_Contabilizacion);
@@ -32,7 +33,7 @@ namespace ERP_INTECOLI.Compras
             lblIsv.Text = oc.Impuesto.ToString();
             lblTotal.Text = oc.Total.ToString();
 
-            PuntoVenta PuntoVentaActual = new PuntoVenta();
+            PDV PuntoVentaActual = new PDV();
             PuntoVentaActual.RecuperaRegistro(oc.Id_PuntoVenta);
             lblDireccionPuntoVenta.Text = PuntoVentaActual.Direccion + " " + PuntoVentaActual.Ciudad + " " + PuntoVentaActual.Departamento;
             lblTelefonoPuntoVenta.Text = PuntoVentaActual.Telefono;
@@ -46,7 +47,7 @@ namespace ERP_INTECOLI.Compras
             {
                 string sql = @"[sp_get_compras_ordenes_detalle]";
 
-                SqlConnection conn = new SqlConnection(dp.ConnectionStringERP);
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;

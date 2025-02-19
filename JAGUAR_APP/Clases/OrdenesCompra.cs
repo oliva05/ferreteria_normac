@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ACS.Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERP_INTECOLI.Clases
+namespace JAGUAR_PRO.Clases
 {
     public class OrdenesCompra
     {
@@ -61,7 +62,7 @@ namespace ERP_INTECOLI.Clases
             {
                 DataOperations dp = new DataOperations();
                 string query = @"sp_get_orden_compra_class";
-                SqlConnection cn = new SqlConnection(dp.ConnectionStringERP);
+                SqlConnection cn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 cn.Open();
                 SqlCommand cmd = new SqlCommand(query, cn);
                 cmd.CommandType = CommandType.StoredProcedure;

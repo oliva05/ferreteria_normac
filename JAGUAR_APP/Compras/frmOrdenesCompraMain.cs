@@ -2,7 +2,6 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
-using ERP_INTECOLI.Clases;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using LOSA.Calidad.LoteConfConsumo;
@@ -17,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ERP_INTECOLI.Compras
+namespace JAGUAR_PRO.Compras
 {
     public partial class frmOrdenesCompraMain : DevExpress.XtraEditors.XtraForm
     {
@@ -42,7 +41,7 @@ namespace ERP_INTECOLI.Compras
             UsuarioLogueado = pUserLog;
             this.PuntoDeVentaActual = pPuntoDeVentaActual;
             PuntoVentaID = PuntoDeVentaActual.ID;
-            LoadSucursales();
+            //LoadSucursales();
             grdSucursales.EditValue = PuntoVentaID;
             tipooperacion = ptipo;
             switch (tipooperacion)
@@ -128,7 +127,7 @@ namespace ERP_INTECOLI.Compras
                 txtCodProv.Text = frm.ItemSeleccionado.ItemCode;
                 txtProveedor.Text = frm.ItemSeleccionado.ItemName;
                 Proveedor prov = new Proveedor();
-                prov.RecuperarRegistro(frm.ItemSeleccionado.id);
+                prov.RecuperarRegistroWithRTN(frm.ItemSeleccionado.ItemCode);
                 direccion = prov.Direccion;
                 cmdNuevo.Enabled = true;
             }
