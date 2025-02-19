@@ -670,6 +670,7 @@
     <Compile Include="Clases\FacturaEstado.cs" />
     <Compile Include="Clases\FacturasPagoMultiple.cs" />
     <Compile Include="Clases\Factura_SolicitudAutorizacion.cs" />
+    <Compile Include="Clases\OrdenesCompra.cs" />
     <Compile Include="Clases\ReciboH.cs" />
     <Compile Include="Clases\Notas_CreditoDebito.cs" />
     <Compile Include="Clases\RegistroPago.cs" />
@@ -751,6 +752,29 @@
     <Compile Include="Clases\Ubicaciones.cs" />
     <Compile Include="Clases\Ubicacion_Tarima.cs" />
     <Compile Include="Clases\UserLogin.cs" />
+    <Compile Include="Compras\dsCompras.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCompras.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmOrdenesCompraMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmOrdenesCompraMain.Designer.cs">
+      <DependentUpon>frmOrdenesCompraMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmSearchOrdenesC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmSearchOrdenesC.Designer.cs">
+      <DependentUpon>frmSearchOrdenesC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\rptOrdenCompra.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\rptOrdenCompra.Designer.cs">
+      <DependentUpon>rptOrdenCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Despachos\dsTransaccionesDespacho.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2193,6 +2217,17 @@
     <None Include="Clases\dsColleccionesClases.xss">
       <DependentUpon>dsColleccionesClases.xsd</DependentUpon>
     </None>
+    <None Include="Compras\dsCompras.xsc">
+      <DependentUpon>dsCompras.xsd</DependentUpon>
+    </None>
+    <None Include="Compras\dsCompras.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCompras.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Compras\dsCompras.xss">
+      <DependentUpon>dsCompras.xsd</DependentUpon>
+    </None>
     <None Include="Despachos\dsTransaccionesDespacho.xsc">
       <DependentUpon>dsTransaccionesDespacho.xsd</DependentUpon>
     </None>
@@ -3051,6 +3086,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMP.resx">
       <DependentUpon>frmSearchMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmOrdenesCompraMain.resx">
+      <DependentUpon>frmOrdenesCompraMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmSearchOrdenesC.resx">
+      <DependentUpon>frmSearchOrdenesC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\rptOrdenCompra.resx">
+      <DependentUpon>rptOrdenCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\frmentregadeproductoT.resx">
       <DependentUpon>frmentregadeproductoT.cs</DependentUpon>

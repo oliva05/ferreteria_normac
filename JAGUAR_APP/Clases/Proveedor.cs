@@ -46,7 +46,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_datos_proveedor", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_datos_proveedor", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo", pCodigo);
                 if (pCodigo == "")
@@ -78,7 +78,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_proveedor_by_id", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_proveedor_by_id", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_proveedor", pidProveedor);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -117,7 +117,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.[sp_get_datos_proveedorv3]", con);
+                SqlCommand cmd = new SqlCommand("dbo.[sp_get_datos_proveedorv3]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo", pCodigo);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -164,7 +164,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_update_master_data_proveedores_losa", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_update_master_data_proveedores_losa", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@option", option_);
                 cmd.Parameters.AddWithValue("@bit", bit_);
