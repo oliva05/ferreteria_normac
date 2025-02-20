@@ -40,6 +40,8 @@
             this.navBarItemmaterialEmpaqueLogistica = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem15 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbReporteCompras = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup12 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem23 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup6 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem24 = new DevExpress.XtraNavBar.NavBarItem();
@@ -265,6 +267,7 @@
             this.navBarControl2.DragDropFlags = DevExpress.XtraNavBar.NavBarDragDrop.None;
             this.navBarControl2.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup5,
+            this.navBarGroup12,
             this.navBarGroup6,
             this.navBarGroup8,
             this.navBarGroup9});
@@ -309,7 +312,8 @@
             this.navBarItem15,
             this.navBarItem21,
             this.navBarItem24,
-            this.nbReporteCompras});
+            this.nbReporteCompras,
+            this.navBarItem23});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -404,6 +408,34 @@
             this.nbReporteCompras.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbReporteCompras.ImageOptions.SmallImage")));
             this.nbReporteCompras.Name = "nbReporteCompras";
             this.nbReporteCompras.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbReporteCompras_LinkClicked);
+            // 
+            // navBarGroup12
+            // 
+            this.navBarGroup12.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup12.Appearance.Options.UseFont = true;
+            this.navBarGroup12.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup12.AppearancePressed.Options.UseFont = true;
+            this.navBarGroup12.Caption = "Compras";
+            this.navBarGroup12.Expanded = true;
+            this.navBarGroup12.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem23)});
+            this.navBarGroup12.Name = "navBarGroup12";
+            // 
+            // navBarItem23
+            // 
+            this.navBarItem23.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem23.Appearance.Options.UseFont = true;
+            this.navBarItem23.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem23.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem23.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem23.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem23.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem23.AppearancePressed.Options.UseFont = true;
+            this.navBarItem23.Caption = "Ordenes de Compra ";
+            this.navBarItem23.ImageOptions.LargeImage = global::JAGUAR_PRO.Properties.Resources.bosaleitem_32x32;
+            this.navBarItem23.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.bosaleitem_32x32;
+            this.navBarItem23.Name = "navBarItem23";
+            this.navBarItem23.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem23_LinkClicked_1);
             // 
             // navBarGroup6
             // 
@@ -2650,5 +2682,7 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup12;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem23;
     }
 }

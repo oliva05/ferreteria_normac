@@ -35,11 +35,11 @@ namespace JAGUAR_PRO.Compras
             Update = 2
         }
 
-        public frmOrdenesCompraMain(UserLogin pUserLog, TipoOperacion ptipo, PDV pPuntoDeVentaActual)
+        public frmOrdenesCompraMain(UserLogin pUserLog, TipoOperacion ptipo)
         {
             InitializeComponent();
             UsuarioLogueado = pUserLog;
-            this.PuntoDeVentaActual = pPuntoDeVentaActual;
+            //this.PuntoDeVentaActual = pPuntoDeVentaActual;
             PuntoVentaID = PuntoDeVentaActual.ID;
             //LoadSucursales();
             grdSucursales.EditValue = PuntoVentaID;

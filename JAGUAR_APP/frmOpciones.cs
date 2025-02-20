@@ -52,6 +52,7 @@ using JAGUAR_PRO.Tools;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
 using LOSA.TransaccionesMP;
+using JAGUAR_PRO.Compras;
 //using JAGUAR_PRO.TransaccionesMP;
 //using JAGUAR_PRO.TransaccionesPT;
 //using JAGUAR_PRO.Trazabilidad;
@@ -4701,6 +4702,13 @@ namespace JAGUAR_PRO
         private void simpleButton6_Click_1(object sender, EventArgs e)
         {
             frmMainPTCategoria frm = new frmMainPTCategoria(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem23_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmOrdenesCompraMain frm = new frmOrdenesCompraMain(UsuarioLogeado, frmOrdenesCompraMain.TipoOperacion.New);
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
