@@ -163,7 +163,7 @@ namespace PRININ.Gestion_de_Usuarios
                     cnx.Open();
                     string sql = @"SELECT id,
                                        grupo
-	                                FROM ACS.conf_grupos_losa
+	                                FROM dbo.conf_grupos_losa
                                 WHERE enable=1";
 
                     SqlDataAdapter da = new SqlDataAdapter(sql,cnx);

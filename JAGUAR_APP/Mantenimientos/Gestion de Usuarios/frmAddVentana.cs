@@ -49,7 +49,7 @@ namespace ACS.IT_Managment
                                           ,[codigo]
                                           ,[descripcion]
                                           ,[habilitada]
-                                      FROM [JAGUAR_DB].[ACS].[conf_ventanas]vv
+                                      FROM [dbo].[conf_ventanas]vv
                                       where vv.id_ventana = " + pIdVentana.ToString();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -108,7 +108,7 @@ namespace ACS.IT_Managment
                     {
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        string sql = @"INSERT INTO [JAGUAR_DB].[ACS].[conf_ventanas]
+                        string sql = @"INSERT INTO [dbo].[conf_ventanas]
                                                    ([nombre]
                                                    ,[codigo]
                                                    ,[descripcion])
@@ -119,7 +119,7 @@ namespace ACS.IT_Managment
                         SqlCommand cmd = new SqlCommand(sql, conn);
                         cmd.ExecuteNonQuery();
 
-                        string sql1 = @"UPDATE [ACS].[conf_tables_id]
+                        string sql1 = @"UPDATE [dbo].[conf_tables_id]
                                     SET [siguiente] = " + (IdSiguiente + 1).ToString() +
                                         "WHERE id = 1;";
                         SqlCommand cmd1 = new SqlCommand(sql1, conn);
@@ -141,7 +141,7 @@ namespace ACS.IT_Managment
                     {
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        string sql = @"UPDATE [JAGUAR_DB].[ACS].[conf_ventanas]
+                        string sql = @"UPDATE [dbo].[conf_ventanas]
                                        SET [nombre] = '" + txtNombre.Text + "'"+
                                           ", [codigo] = '" + txtCodigo.Text +"'" +
                                           ", [descripcion] = '" + txtDescripcion.Text + "'" +

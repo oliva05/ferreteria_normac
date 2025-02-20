@@ -34,10 +34,10 @@ namespace ACS.IT_Managment
 		                                ,[codigo]
 		                                ,[descripcion]
 		                                ,[habilitada]
-                                FROM [ACS].[conf_ventanas] vv 
+                                FROM [dbo].[conf_ventanas] vv 
                                 where vv.habilitada = 1 and vv.[id_ventana] not in (" +
                                "SELECT uu.id_ventana " +
-                               "FROM [ACS].[conf_usuario_ventanas] uu " +
+                               "FROM [dbo].[conf_usuario_ventanas] uu " +
                                "where uu.id_usuario = " + UserID.ToString() + ")";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 dsMant_IT1.view_user.Clear();
@@ -78,7 +78,7 @@ namespace ACS.IT_Managment
                         DataOperations dp = new DataOperations();
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        string sql = @"INSERT INTO [ACS].[conf_usuario_ventanas]
+                        string sql = @"INSERT INTO [dbo].[conf_usuario_ventanas]
                                                 ([id_usuario]
                                                 ,[id_ventana])
                                             VALUES

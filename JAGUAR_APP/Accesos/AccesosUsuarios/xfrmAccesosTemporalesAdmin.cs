@@ -37,7 +37,7 @@ namespace JAGUAR_PRO.Accesos.AccesosUsuarios
                 {
                     cnx.Open();
 
-                    SqlDataAdapter da = new SqlDataAdapter("ACS.sp_getAccessosTemporales",cnx);
+                    SqlDataAdapter da = new SqlDataAdapter("dbo.sp_getAccessosTemporales",cnx);
 
                     dsAccesos.Accesos_Temporales.Clear();
                     da.Fill(dsAccesos.Accesos_Temporales);
@@ -118,7 +118,7 @@ namespace JAGUAR_PRO.Accesos.AccesosUsuarios
                 {
                     cnx.Open();
 
-                    SqlDataAdapter da = new SqlDataAdapter("ACS.sp_load_user", cnx);
+                    SqlDataAdapter da = new SqlDataAdapter("dbo.sp_load_user", cnx);
                     dsAccesos.Usuarios.Clear();
 
                     da.Fill(dsAccesos.Usuarios);

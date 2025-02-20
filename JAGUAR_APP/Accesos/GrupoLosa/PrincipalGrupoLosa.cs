@@ -30,7 +30,7 @@ namespace JAGUAR_PRO.Accesos.GrupoLosa
         {
             try
             {
-                var query = "Select * from ACS.conf_grupos_losa";
+                var query = "Select * from dbo.conf_grupos_losa";
                 sqlCommand = new SqlCommand(query, sqlConnection);
                 if (sqlConnection.State != ConnectionState.Open)
                 {

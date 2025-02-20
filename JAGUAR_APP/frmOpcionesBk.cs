@@ -90,41 +90,41 @@ namespace JAGUAR_PRO
             int idNivel;
             switch (pUser.GrupoUsuario.GrupoUsuarioActivo)
             {
-                case GrupoUser.GrupoUsuario.Montacarga:
-                    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    tabOpciones.TabPages[i].PageVisible = true;
-                    break;
+                //case GrupoUser.GrupoUsuario.Montacarga:
+                //    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                //    tabOpciones.TabPages[i].PageVisible = true;
+                //    break;
                 case GrupoUser.GrupoUsuario.Logistica:
                     tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
                     tabOpciones.TabPages[i].PageVisible = true;
                     break;
-                case GrupoUser.GrupoUsuario.Calidad:
-                    //int idNivel = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
-                    //switch (idNivel)
-                    //{
-                    //    case 1://Basic View
-                    //        BasicView();
-                    //        UsuarioLogeado.Idnivel = idNivel;
-                    //        break;
-                    //    case 2://Basic No Autorization
+                //case GrupoUser.GrupoUsuario.Calidad:
+                //    //int idNivel = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
+                //    //switch (idNivel)
+                //    //{
+                //    //    case 1://Basic View
+                //    //        BasicView();
+                //    //        UsuarioLogeado.Idnivel = idNivel;
+                //    //        break;
+                //    //    case 2://Basic No Autorization
 
-                    //        break;
-                    //    case 3://Medium Autorization
+                //    //        break;
+                //    //    case 3://Medium Autorization
 
-                    //        break;
-                    //    case 4://Depth With Delta
-                    //        tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    //        tabOpciones.TabPages[i].PageVisible = true;
-                    //        break;
-                    //    case 5://Depth Without Delta
+                //    //        break;
+                //    //    case 4://Depth With Delta
+                //    //        tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                //    //        tabOpciones.TabPages[i].PageVisible = true;
+                //    //        break;
+                //    //    case 5://Depth Without Delta
 
-                    //        break;
-                    //    default:
-                    //        tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    //        tabOpciones.TabPages[i].PageVisible = true;
-                    //        break;
-                    //}
-                    break;
+                //    //        break;
+                //    //    default:
+                //    //        tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                //    //        tabOpciones.TabPages[i].PageVisible = true;
+                //    //        break;
+                //    //}
+                //    break;
                 case GrupoUser.GrupoUsuario.Administradores:
                     tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
                     tabOpciones.TabPages[i].PageVisible = true;
@@ -179,47 +179,47 @@ namespace JAGUAR_PRO
                             break;
                     }
                     break;
-                case GrupoUser.GrupoUsuario.Produccion:
-                    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    tabOpciones.TabPages[i].PageVisible = true;
-                    break;
-                case GrupoUser.GrupoUsuario.ProduccionV2:
-                    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    tabOpciones.TabPages[i].PageVisible = true;
-                    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    tabOpciones.TabPages[i - 1].PageVisible = true;
+                //case GrupoUser.GrupoUsuario.Produccion:
+                //    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                //    tabOpciones.TabPages[i].PageVisible = true;
+                //    break;
+                //case GrupoUser.GrupoUsuario.ProduccionV2:
+                //    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                //    tabOpciones.TabPages[i].PageVisible = true;
+                //    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                //    tabOpciones.TabPages[i - 1].PageVisible = true;
 
-                    idNivel = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
-                    switch (idNivel)
-                    {
-                        case 1://Basic View
-                            BasicView();
-                            UsuarioLogeado.Idnivel = idNivel;
-                            break;
-                        case 2://Basic No Autorization
+                //    idNivel = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
+                //    switch (idNivel)
+                //    {
+                //        case 1://Basic View
+                //            BasicView();
+                //            UsuarioLogeado.Idnivel = idNivel;
+                //            break;
+                //        case 2://Basic No Autorization
 
-                            break;
-                        case 3://Medium Autorization
+                //            break;
+                //        case 3://Medium Autorization
 
-                            break;
-                        case 4://Depth With Delta
-                            //tabOpciones.TabPages[0].PageVisible = true;
-                            tabOpciones.TabPages[1].PageVisible = true;
-                            //tabOpciones.TabPages[2].PageVisible = true;
-                            tabOpciones.TabPages[3].PageVisible = true;
-                            //tabOpciones.TabPages[4].PageVisible = true;
-                            //tabOpciones.TabPages[5].PageVisible = true;
+                //            break;
+                //        case 4://Depth With Delta
+                //            //tabOpciones.TabPages[0].PageVisible = true;
+                //            tabOpciones.TabPages[1].PageVisible = true;
+                //            //tabOpciones.TabPages[2].PageVisible = true;
+                //            tabOpciones.TabPages[3].PageVisible = true;
+                //            //tabOpciones.TabPages[4].PageVisible = true;
+                //            //tabOpciones.TabPages[5].PageVisible = true;
                            
-                            break;
-                        case 5://Depth Without Delta
+                //            break;
+                //        case 5://Depth Without Delta
 
-                            break;
-                        default:
-                            tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                            tabOpciones.TabPages[i].PageVisible = true;
-                            break;
-                    }
-                    break;
+                //            break;
+                //        default:
+                //            tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                //            tabOpciones.TabPages[i].PageVisible = true;
+                //            break;
+                //    }
+                //    break;
                 case GrupoUser.GrupoUsuario.Contabilidad:
                     int idNivel2 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
                     //switch (idNivel2)
@@ -276,89 +276,89 @@ namespace JAGUAR_PRO
                     //}
                     break;
 
-                case GrupoUser.GrupoUsuario.Forecasting:
-                    int idNivel4 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
+                //case GrupoUser.GrupoUsuario.Forecasting:
+                //    int idNivel4 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
 
-                    //switch (idNivel4)
-                    //{
-                    //    case 1://Basic View
-                    //        BasicView();
-                    //        UsuarioLogeado.Idnivel = idNivel4;
-                    //        break;
-                    //    case 2://Basic No Autorization
+                //    //switch (idNivel4)
+                //    //{
+                //    //    case 1://Basic View
+                //    //        BasicView();
+                //    //        UsuarioLogeado.Idnivel = idNivel4;
+                //    //        break;
+                //    //    case 2://Basic No Autorization
 
-                    //        break;
-                    //    case 3://Medium Autorization
+                //    //        break;
+                //    //    case 3://Medium Autorization
 
-                    //        break;
-                    //    case 4://Depth With Delta
+                //    //        break;
+                //    //    case 4://Depth With Delta
 
-                    //        break;
-                    //    case 5://Depth Without Delta
+                //    //        break;
+                //    //    case 5://Depth Without Delta
 
-                    //        break;
-                    //    default:
-                    //        tabOpciones.SelectedTabPageIndex = 7;//Forecasting
-                    //        tabOpciones.TabPages[7].PageVisible = true;
-                    //        break;
-                    //}
-                    break;
+                //    //        break;
+                //    //    default:
+                //    //        tabOpciones.SelectedTabPageIndex = 7;//Forecasting
+                //    //        tabOpciones.TabPages[7].PageVisible = true;
+                //    //        break;
+                //    //}
+                //    break;
 
-                case GrupoUser.GrupoUsuario.Bascula:
-                    int idNivel10 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
+                //case GrupoUser.GrupoUsuario.Bascula:
+                //    int idNivel10 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
 
-                    //switch (idNivel10)
-                    //{
-                    //    case 1://Basic View
-                    //        BasicView();
-                    //        UsuarioLogeado.Idnivel = idNivel10;
-                    //        break;
-                    //    case 2://Basic No Autorization
+                //    //switch (idNivel10)
+                //    //{
+                //    //    case 1://Basic View
+                //    //        BasicView();
+                //    //        UsuarioLogeado.Idnivel = idNivel10;
+                //    //        break;
+                //    //    case 2://Basic No Autorization
 
-                    //        break;
-                    //    case 3://Medium Autorization
+                //    //        break;
+                //    //    case 3://Medium Autorization
 
-                    //        break;
-                    //    case 4://Depth With Delta
+                //    //        break;
+                //    //    case 4://Depth With Delta
 
-                    //        break;
-                    //    case 5://Depth Without Delta
+                //    //        break;
+                //    //    case 5://Depth Without Delta
 
-                    //        break;
-                    //    default:
-                    //        tabOpciones.SelectedTabPageIndex = 8;//RRHH
-                    //        tabOpciones.TabPages[8].PageVisible = true;
-                    //        break;
-                    //}
-                    break;
+                //    //        break;
+                //    //    default:
+                //    //        tabOpciones.SelectedTabPageIndex = 8;//RRHH
+                //    //        tabOpciones.TabPages[8].PageVisible = true;
+                //    //        break;
+                //    //}
+                //    break;
 
-                case GrupoUser.GrupoUsuario.Formulacion:
-                    int idNivel11 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
+                //case GrupoUser.GrupoUsuario.Formulacion:
+                //    int idNivel11 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
 
-                    switch (idNivel11)
-                    {
-                        case 1://Basic View
-                            BasicView();
-                            UsuarioLogeado.Idnivel = idNivel11;
-                            break;
-                        case 2://Basic No Autorization
+                //    switch (idNivel11)
+                //    {
+                //        case 1://Basic View
+                //            BasicView();
+                //            UsuarioLogeado.Idnivel = idNivel11;
+                //            break;
+                //        case 2://Basic No Autorization
 
-                            break;
-                        case 3://Medium Autorization
+                //            break;
+                //        case 3://Medium Autorization
 
-                            break;
-                        case 4://Depth With Delta
+                //            break;
+                //        case 4://Depth With Delta
 
-                            break;
-                        case 5://Depth Without Delta
+                //            break;
+                //        case 5://Depth Without Delta
 
-                            break;
-                        default:
-                            tabOpciones.SelectedTabPageIndex = 9;//RRHH
-                            tabOpciones.TabPages[9].PageVisible = true;
-                            break;
-                    }
-                    break;
+                //            break;
+                //        default:
+                //            tabOpciones.SelectedTabPageIndex = 9;//RRHH
+                //            tabOpciones.TabPages[9].PageVisible = true;
+                //            break;
+                //    }
+                //    break;
                 case GrupoUser.GrupoUsuario.Facturacion_Admin:
                     xtraTabControl2.TabPages[2].PageVisible = true;
                     break;

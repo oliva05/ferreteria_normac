@@ -4,8 +4,6 @@ using ACS.Classes;
 using ACS.IT_Managment;
 using DevExpress.XtraReports.UI;
 using Eatery.Ventas;
-//using ACS.Produccion;
-//using ACS.RRHH.HorasExtra;
 using JAGUAR_PRO.Accesos;
 using JAGUAR_PRO.Accesos.AccesosUsuarios;
 using JAGUAR_PRO.Accesos.GestionGrupos;
@@ -17,10 +15,6 @@ using JAGUAR_PRO.ACS.RRHH;
 using JAGUAR_PRO.AlmacenesExterno;
 using JAGUAR_PRO.AlmacenesExterno.Salida_Almacen;
 using JAGUAR_PRO.BancosYTitulares;
-
-//using JAGUAR_PRO.Calidad;
-//using JAGUAR_PRO.Calidad.LoteConfConsumo;
-//using JAGUAR_PRO.Calidad.Revision_Sanidad;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Despachos;
 using JAGUAR_PRO.Facturacion.Configuraciones;
@@ -34,8 +28,6 @@ using JAGUAR_PRO.JaguarProduccion;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.LogisticaJaguar.Despacho;
 using JAGUAR_PRO.LogisticaJaguar.Pedidos;
-//using JAGUAR_PRO.Liquidos;
-//using JAGUAR_PRO.Logistica;
 using JAGUAR_PRO.Mantenimientos;
 using JAGUAR_PRO.Mantenimientos.Clientes;
 using JAGUAR_PRO.Mantenimientos.Facturacion.Mantenimiento;
@@ -52,11 +44,6 @@ using JAGUAR_PRO.Tools;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
 using LOSA.TransaccionesMP;
-using JAGUAR_PRO.Compras;
-//using JAGUAR_PRO.TransaccionesMP;
-//using JAGUAR_PRO.TransaccionesPT;
-//using JAGUAR_PRO.Trazabilidad;
-//using JAGUAR_PRO.Trazabilidad.ReportesTRZ;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -73,8 +60,6 @@ namespace JAGUAR_PRO
         string ActiveUserCode;
         string ActiveUserName;
         string ActiveUserType;
-        //string ActiveADUser;
-        //DataTable UserGroups;
 
         public frmOpciones(UserLogin pUser)
         {
@@ -93,44 +78,14 @@ namespace JAGUAR_PRO
             int idNivel;
             switch (pUser.GrupoUsuario.GrupoUsuarioActivo)
             {
-                case GrupoUser.GrupoUsuario.Montacarga:
-                    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    tabOpciones.TabPages[i].PageVisible = true;
+                case GrupoUser.GrupoUsuario.Logistica: //id: 1
+                    //tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                    //tabOpciones.TabPages[i].PageVisible = true;
                     break;
-                case GrupoUser.GrupoUsuario.Logistica:
-                    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    tabOpciones.TabPages[i].PageVisible = true;
-                    break;
-                case GrupoUser.GrupoUsuario.Calidad:
-                    //int idNivel = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
-                    //switch (idNivel)
-                    //{
-                    //    case 1://Basic View
-                    //        BasicView();
-                    //        UsuarioLogeado.Idnivel = idNivel;
-                    //        break;
-                    //    case 2://Basic No Autorization
-
-                    //        break;
-                    //    case 3://Medium Autorization
-
-                    //        break;
-                    //    case 4://Depth With Delta
-                    //        tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    //        tabOpciones.TabPages[i].PageVisible = true;
-                    //        break;
-                    //    case 5://Depth Without Delta
-
-                    //        break;
-                    //    default:
-                    //        tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    //        tabOpciones.TabPages[i].PageVisible = true;
-                    //        break;
-                    //}
-                    break;
-                case GrupoUser.GrupoUsuario.Administradores:
-                    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    tabOpciones.TabPages[i].PageVisible = true;
+               
+                case GrupoUser.GrupoUsuario.Administradores://id: 2
+                    //tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                    //tabOpciones.TabPages[i].PageVisible = true;
 
                     idNivel = pUser.idNivelAcceso(pUser.Id, 11);//11 = JAGUAR
                     switch (idNivel)
@@ -140,18 +95,26 @@ namespace JAGUAR_PRO
                             UsuarioLogeado.Idnivel = idNivel;
                             break;
                         case 2://Basic No Autorization
-
+                            tabOpciones.TabPages[0].PageVisible = true; //Logistica
+                            tabOpciones.TabPages[1].PageVisible = false;//Administracion
+                            tabOpciones.TabPages[2].PageVisible = false;//RRHH
+                            tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = true; //Facturacion
                             break;
                         case 3://Medium Autorization
-
+                            tabOpciones.TabPages[0].PageVisible = true; //Logistica
+                            tabOpciones.TabPages[1].PageVisible = true; //Administracion
+                            tabOpciones.TabPages[2].PageVisible = false;//RRHH
+                            tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = true; //Facturacion
                             break;
                         case 4://Depth With Delta
-                            //tabOpciones.TabPages[0].PageVisible = true;
-                            tabOpciones.TabPages[1].PageVisible = true;
-                            tabOpciones.TabPages[2].PageVisible = false;
-                            tabOpciones.TabPages[3].PageVisible = true;
-                            tabOpciones.TabPages[4].PageVisible = false;
-                            //tabOpciones.TabPages[5].PageVisible = false;
+                            tabOpciones.TabPages[0].PageVisible = true;
+                            tabOpciones.TabPages[1].PageVisible = true; //Logistica
+                            tabOpciones.TabPages[2].PageVisible = true; //Administracion
+                            tabOpciones.TabPages[3].PageVisible = true; //RRHH
+                            tabOpciones.TabPages[4].PageVisible = true; //Contabilidad
+                            //tabOpciones.TabPages[5].PageVisible = true; //Facturacion
                             //tabOpciones.TabPages[6].PageVisible = false;
                             //tabOpciones.TabPages[7].PageVisible = false;
                             //tabOpciones.TabPages[8].PageVisible = false;
@@ -182,40 +145,66 @@ namespace JAGUAR_PRO
                             break;
                     }
                     break;
-                case GrupoUser.GrupoUsuario.Produccion:
-                    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    tabOpciones.TabPages[i].PageVisible = true;
-                    break;
-                case GrupoUser.GrupoUsuario.ProduccionV2:
-                    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    tabOpciones.TabPages[i].PageVisible = true;
-                    tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
-                    tabOpciones.TabPages[i - 1].PageVisible = true;
+                case GrupoUser.GrupoUsuario.RRHH://id: 3
+                    int idNivel3 = pUser.idNivelAcceso(pUser.Id, 11);//11 = JAGUAR
 
-                    idNivel = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
-                    switch (idNivel)
+                    switch (idNivel3)
                     {
                         case 1://Basic View
                             BasicView();
-                            UsuarioLogeado.Idnivel = idNivel;
+                            UsuarioLogeado.Idnivel = idNivel3;
                             break;
                         case 2://Basic No Autorization
-
+                            tabOpciones.TabPages[0].PageVisible = false; //Logistica
+                            tabOpciones.TabPages[1].PageVisible = false;//Administracion
+                            tabOpciones.TabPages[2].PageVisible = true;//RRHH
+                            tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = false; //Facturacion
                             break;
                         case 3://Medium Autorization
-
+                            tabOpciones.TabPages[0].PageVisible = false;//Logistica
+                            tabOpciones.TabPages[1].PageVisible = false;//Administracion
+                            tabOpciones.TabPages[2].PageVisible = true; //RRHH
+                            tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = false; //Facturacion
                             break;
                         case 4://Depth With Delta
-                            //tabOpciones.TabPages[0].PageVisible = true;
-                            tabOpciones.TabPages[1].PageVisible = true;
-                            //tabOpciones.TabPages[2].PageVisible = true;
-                            tabOpciones.TabPages[3].PageVisible = true;
-                            //tabOpciones.TabPages[4].PageVisible = true;
-                            //tabOpciones.TabPages[5].PageVisible = true;
-                           
+                            tabOpciones.TabPages[0].PageVisible = true;//Logistica
+                            tabOpciones.TabPages[1].PageVisible = true;//Administracion 
+                            tabOpciones.TabPages[2].PageVisible = true;//RRHH
+                            tabOpciones.TabPages[3].PageVisible = true;//Contabilidad 
+                            tabOpciones.TabPages[4].PageVisible = true;//Facturacion
+                            //tabOpciones.TabPages[5].PageVisible = true; 
+                            //tabOpciones.TabPages[6].PageVisible = false;
+                            //tabOpciones.TabPages[7].PageVisible = false;
+                            //tabOpciones.TabPages[8].PageVisible = false;
+                            navBarItemCambioDePrecio.Visible = true;
+                            //Mantenimientos de Facturacion
+                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = true;
+
+
+                            //SubTab
+                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            tabPageFacturacion.PageVisible = true;
                             break;
                         case 5://Depth Without Delta
+                            tabPageFacturacion.PageVisible = true;
+                            navBarItemCambioDePrecio.Visible = true;
 
+                            tabOpciones.TabPages[0].PageVisible = true;//Logistica
+                            tabOpciones.TabPages[1].PageVisible = true;//Administracion
+                            tabOpciones.TabPages[2].PageVisible = true;//RRHH 
+                            tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = true; //Facturacion
+
+                            //Mantenimientos de Facturacion
+                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = true;
                             break;
                         default:
                             tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
@@ -223,149 +212,142 @@ namespace JAGUAR_PRO
                             break;
                     }
                     break;
-                case GrupoUser.GrupoUsuario.Contabilidad:
-                    int idNivel2 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
-                    //switch (idNivel2)
-                    //{
-                    //    case 1://Basic View
-                    //        BasicView();
-                    //        UsuarioLogeado.Idnivel = idNivel2;
-                    //        break;
-                    //    case 2://Basic No Autorization
+                case GrupoUser.GrupoUsuario.Contabilidad://id: 4
+                    int idNivel2 = pUser.idNivelAcceso(pUser.Id, 11);//11 = JAGUAR
 
-                    //        break;
-                    //    case 3://Medium Autorization
-
-                    //        break;
-                    //    case 4://Depth With Delta
-
-                    //        break;
-                    //    case 5://Depth Without Delta
-
-                    //        break;
-                    //    default:
-                    //        tabOpciones.SelectedTabPageIndex = 2;//Calidad
-                    //        //tabOpciones.TabPages[1].PageVisible = true;
-                    //        tabOpciones.TabPages[8].PageVisible = true;
-                    //        break;
-                    //}
-                    break;
-
-                case GrupoUser.GrupoUsuario.RRHH:
-                    int idNivel3 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
-
-                    //switch (idNivel3)
-                    //{
-                    //    case 1://Basic View
-                    //        BasicView();
-                    //        UsuarioLogeado.Idnivel = idNivel3;
-                    //        break;
-                    //    case 2://Basic No Autorization
-
-                    //        break;
-                    //    case 3://Medium Autorization
-
-                    //        break;
-                    //    case 4://Depth With Delta
-
-                    //        break;
-                    //    case 5://Depth Without Delta
-
-                    //        break;
-                    //    default:
-                    //        tabOpciones.SelectedTabPageIndex = 6;//RRHH
-                    //        tabOpciones.TabPages[6].PageVisible = true;
-                    //        break;
-                    //}
-                    break;
-
-                case GrupoUser.GrupoUsuario.Forecasting:
-                    int idNivel4 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
-
-                    //switch (idNivel4)
-                    //{
-                    //    case 1://Basic View
-                    //        BasicView();
-                    //        UsuarioLogeado.Idnivel = idNivel4;
-                    //        break;
-                    //    case 2://Basic No Autorization
-
-                    //        break;
-                    //    case 3://Medium Autorization
-
-                    //        break;
-                    //    case 4://Depth With Delta
-
-                    //        break;
-                    //    case 5://Depth Without Delta
-
-                    //        break;
-                    //    default:
-                    //        tabOpciones.SelectedTabPageIndex = 7;//Forecasting
-                    //        tabOpciones.TabPages[7].PageVisible = true;
-                    //        break;
-                    //}
-                    break;
-
-                case GrupoUser.GrupoUsuario.Bascula:
-                    int idNivel10 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
-
-                    //switch (idNivel10)
-                    //{
-                    //    case 1://Basic View
-                    //        BasicView();
-                    //        UsuarioLogeado.Idnivel = idNivel10;
-                    //        break;
-                    //    case 2://Basic No Autorization
-
-                    //        break;
-                    //    case 3://Medium Autorization
-
-                    //        break;
-                    //    case 4://Depth With Delta
-
-                    //        break;
-                    //    case 5://Depth Without Delta
-
-                    //        break;
-                    //    default:
-                    //        tabOpciones.SelectedTabPageIndex = 8;//RRHH
-                    //        tabOpciones.TabPages[8].PageVisible = true;
-                    //        break;
-                    //}
-                    break;
-
-                case GrupoUser.GrupoUsuario.Formulacion:
-                    int idNivel11 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY
-
-                    switch (idNivel11)
+                    switch (idNivel2)
                     {
                         case 1://Basic View
                             BasicView();
-                            UsuarioLogeado.Idnivel = idNivel11;
+                            UsuarioLogeado.Idnivel = idNivel2;
                             break;
                         case 2://Basic No Autorization
-
+                            tabOpciones.TabPages[0].PageVisible = false; //Logistica
+                            tabOpciones.TabPages[1].PageVisible = false;//Administracion
+                            tabOpciones.TabPages[2].PageVisible = false;//RRHH
+                            tabOpciones.TabPages[3].PageVisible = true;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = false; //Facturacion
                             break;
                         case 3://Medium Autorization
-
+                            tabOpciones.TabPages[0].PageVisible = false;//Logistica
+                            tabOpciones.TabPages[1].PageVisible = false;//Administracion
+                            tabOpciones.TabPages[2].PageVisible = false; //RRHH
+                            tabOpciones.TabPages[3].PageVisible = true;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = false; //Facturacion
                             break;
                         case 4://Depth With Delta
+                            tabOpciones.TabPages[0].PageVisible = true;//Logistica
+                            tabOpciones.TabPages[1].PageVisible = true;//Administracion 
+                            tabOpciones.TabPages[2].PageVisible = true;//RRHH
+                            tabOpciones.TabPages[3].PageVisible = true;//Contabilidad 
+                            tabOpciones.TabPages[4].PageVisible = true;//Facturacion
+                            //tabOpciones.TabPages[5].PageVisible = true; 
+                            //tabOpciones.TabPages[6].PageVisible = false;
+                            //tabOpciones.TabPages[7].PageVisible = false;
+                            //tabOpciones.TabPages[8].PageVisible = false;
+                            navBarItemCambioDePrecio.Visible = true;
+                            //Mantenimientos de Facturacion
+                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = true;
 
+
+                            //SubTab
+                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            tabPageFacturacion.PageVisible = true;
                             break;
                         case 5://Depth Without Delta
+                            tabPageFacturacion.PageVisible = true;
+                            navBarItemCambioDePrecio.Visible = true;
 
+                            tabOpciones.TabPages[0].PageVisible = true;//Logistica
+                            tabOpciones.TabPages[1].PageVisible = true;//Administracion
+                            tabOpciones.TabPages[2].PageVisible = true;//RRHH 
+                            tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = true; //Facturacion
+
+                            //Mantenimientos de Facturacion
+                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = true;
                             break;
                         default:
-                            tabOpciones.SelectedTabPageIndex = 9;//RRHH
-                            tabOpciones.TabPages[9].PageVisible = true;
+                            tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                            tabOpciones.TabPages[i].PageVisible = true;
                             break;
                     }
                     break;
-                case GrupoUser.GrupoUsuario.Facturacion_Admin:
-                    xtraTabControl2.TabPages[2].PageVisible = true;
+
+                case GrupoUser.GrupoUsuario.Facturacion_Admin://id: 5
+                    //xtraTabControl2.TabPages[2].PageVisible = true;
+                    int idNivel1 = pUser.idNivelAcceso(pUser.Id, 11);//11 = JAGUAR
+                    switch (idNivel1)
+                    {
+                        case 1://Basic View
+                            BasicView();
+                            UsuarioLogeado.Idnivel = idNivel1;
+                            break;
+                        case 2://Basic No Autorization
+                            tabOpciones.TabPages[0].PageVisible = false; //Logistica
+                            tabOpciones.TabPages[1].PageVisible = false;//Administracion
+                            tabOpciones.TabPages[2].PageVisible = false;//RRHH
+                            tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = true; //Facturacion
+                            break;
+                        case 3://Medium Autorization
+                            tabOpciones.TabPages[0].PageVisible = false;//Logistica
+                            tabOpciones.TabPages[1].PageVisible = false;//Administracion
+                            tabOpciones.TabPages[2].PageVisible = false; //RRHH
+                            tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = true; //Facturacion
+                            break;
+                        case 4://Depth With Delta
+                            tabOpciones.TabPages[0].PageVisible = true;//Logistica
+                            tabOpciones.TabPages[1].PageVisible = true;//Administracion 
+                            tabOpciones.TabPages[2].PageVisible = true;//RRHH
+                            tabOpciones.TabPages[3].PageVisible = true;//Contabilidad 
+                            tabOpciones.TabPages[4].PageVisible = true;//Facturacion
+                            //tabOpciones.TabPages[5].PageVisible = true; 
+                            //tabOpciones.TabPages[6].PageVisible = false;
+                            //tabOpciones.TabPages[7].PageVisible = false;
+                            //tabOpciones.TabPages[8].PageVisible = false;
+                            navBarItemCambioDePrecio.Visible = true;
+                            //Mantenimientos de Facturacion
+                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = true;
+
+
+                            //SubTab
+                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            tabPageFacturacion.PageVisible = true;
+                            break;
+                        case 5://Depth Without Delta
+                            tabPageFacturacion.PageVisible = true;
+                            navBarItemCambioDePrecio.Visible = true;
+
+                            tabOpciones.TabPages[0].PageVisible = true;//Logistica
+                            tabOpciones.TabPages[1].PageVisible = false;//Administracion
+                            tabOpciones.TabPages[2].PageVisible = false;//RRHH 
+                            tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
+                            tabOpciones.TabPages[4].PageVisible = true; //Facturacion
+
+                            //Mantenimientos de Facturacion
+                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = true;
+                            break;
+                        default:
+                            tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                            tabOpciones.TabPages[i].PageVisible = true;
+                            break;
+                    }
                     break;
-                case GrupoUser.GrupoUsuario.Facturacion_EndUser:
+                case GrupoUser.GrupoUsuario.Facturacion_EndUser://id: 6
                     int idNivel_11 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY 11=JAGUAR
                     switch (idNivel_11)
                     {
@@ -376,19 +358,19 @@ namespace JAGUAR_PRO
 
                             break;
                         case 3://Medium Autorization
-                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            xtraTabControl2.TabPages[4].PageVisible = true;
                             NBI_Despachos.Visible = NBI_ListaPrecios.Visible = 
                             NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible = 
                             NBI_Cliente.Visible = true;
                             break;
                         case 4://Depth With Delta
-                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            xtraTabControl2.TabPages[4].PageVisible = true;
                             NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
                             NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
                             NBI_Cliente.Visible = true;
                             break;
                         case 5://Depth Without Delta
-                            xtraTabControl2.TabPages[2].PageVisible = true;
+                            xtraTabControl2.TabPages[4].PageVisible = true;
                             NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
                             NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
                             NBI_Cliente.Visible = true;
@@ -4702,13 +4684,6 @@ namespace JAGUAR_PRO
         private void simpleButton6_Click_1(object sender, EventArgs e)
         {
             frmMainPTCategoria frm = new frmMainPTCategoria(UsuarioLogeado);
-            frm.MdiParent = this.MdiParent;
-            frm.Show();
-        }
-
-        private void navBarItem23_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            frmOrdenesCompraMain frm = new frmOrdenesCompraMain(UsuarioLogeado, frmOrdenesCompraMain.TipoOperacion.New);
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }

@@ -75,7 +75,7 @@ namespace JAGUAR_PRO.Compras
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTotal = new DevExpress.XtraReports.UI.XRLabel();
             this.lblSub = new DevExpress.XtraReports.UI.XRLabel();
-            this.dsCompras1 = new ERP_INTECOLI.Compras.dsCompras();
+            this.dsCompras1 = new Compras.dsCompras();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();

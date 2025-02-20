@@ -28,7 +28,7 @@ namespace JAGUAR_PRO.Accesos.GestionGrupos
         #region Metodos
         private void RefrescarDatos()
         {
-            var query = "Select * from ACS.conf_group";
+            var query = "Select * from dbo.conf_group";
             sqlCommand = new SqlCommand(query, sqlConnection);
             if (sqlConnection.State != ConnectionState.Open)
             {

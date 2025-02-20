@@ -42,7 +42,7 @@ namespace ACS.IT_Managment
                 string query;
                 query = @"SELECT top 1 
                                 coalesce(aqf_code,' ') as aqf_code
-                                FROM [JAGUAR_DB].[ACS].[conf_usuarios]
+                                FROM [dbo].[conf_usuarios]
                                 where id =" + pidUsuario;
                 SqlCommand cmd = new SqlCommand(query, conn);
                 txtaqfcode.Text = Convert.ToString(cmd.ExecuteScalar());
@@ -57,8 +57,8 @@ namespace ACS.IT_Managment
 		                                ,[update_]
 		                                ,[insert_]
 		                                ,[delete_]
-                                FROM [JAGUAR_DB].[ACS].[conf_ventanas] vv join
-	                                 [JAGUAR_DB].[ACS].[conf_usuario_ventanas] uu 
+                                FROM [dbo].[conf_ventanas] vv join
+	                                 [dbo].[conf_usuario_ventanas] uu 
 	                                 on vv.id_ventana = uu.id_ventana
                                 where uu.id_usuario = " + pidUsuario.ToString();
                 cmd = new SqlCommand(sql, conn);
@@ -104,13 +104,13 @@ namespace ACS.IT_Managment
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                string sql = @"DELETE FROM [ACS].[conf_usuario_ventana_funciones]
+                string sql = @"DELETE FROM [dbo].[conf_usuario_ventana_funciones]
                                 WHERE id_usuario = " + IdUsuarioSeleccionado.ToString() +
                                     " and id_ventana = " + row.id_ventana.ToString();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
 
-                string sql2 = @"DELETE FROM [ACS].[conf_usuario_ventanas]
+                string sql2 = @"DELETE FROM [dbo].[conf_usuario_ventanas]
                                   WHERE [id_ventana] = " + row.id_ventana.ToString() +
                               " and id_usuario = " + IdUsuarioSeleccionado.ToString();
                 SqlCommand cmd2 = new SqlCommand(sql2, conn);

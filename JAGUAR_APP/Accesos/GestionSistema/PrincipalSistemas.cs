@@ -28,7 +28,7 @@ namespace JAGUAR_PRO.Accesos.GestionSistemas
         #region Metodos
         private void RefrescarDatos()
         {
-            var query = "Select * from ACS.conf_sistemas_master_data";
+            var query = "Select * from dbo.conf_sistemas_master_data";
             sqlCommand = new SqlCommand(query, sqlConnection);
             if (sqlConnection.State != ConnectionState.Open)
             {

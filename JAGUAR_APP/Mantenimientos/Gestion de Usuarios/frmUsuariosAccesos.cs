@@ -58,7 +58,7 @@ namespace ACS.IT_Managment
 	                                  fecha_posteo
                                       ,coalesce(aqf_code,' ') as aqf_code
                                       ,usuario as alias
-                              FROM [JAGUAR_DB].[ACS].[conf_usuarios]
+                              FROM [dbo].[conf_usuarios]
                               where activo = " + iVer + @"
                               order by [nombre] asc";
                 SqlCommand cmd = new SqlCommand(sql, conn);
