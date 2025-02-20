@@ -44,12 +44,12 @@ namespace ACS.IT_Managment
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                string sql = @"SELECT [id_ventana]
+                string sql = @"SELECT  [id_ventana]
                                       ,[nombre]
                                       ,[codigo]
                                       ,[descripcion]
                                       ,[habilitada]
-                                  FROM [JAGUAR_DB].[ACS].[conf_ventanas]";
+                                  FROM [dbo].[conf_ventanas]";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 dsMant_IT1.ventanas.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);

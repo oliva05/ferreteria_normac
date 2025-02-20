@@ -47,23 +47,23 @@ namespace JAGUAR_PRO
 
         private void cmdButtonSaltarLogin_Click(object sender, EventArgs e)
         {
-            Teclado.cerrarTeclado();
-            UserLogin Log1 = new UserLogin();
-            if (Log1.RecuperarRegistro(1067))
-            {
-                Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)Log1.IdGrupo;
-            }
-            else
-            {
-                Log1.Id = 1067;
-                Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Produccion;
-            }
+            //Teclado.cerrarTeclado();
+            //UserLogin Log1 = new UserLogin();
+            //if (Log1.RecuperarRegistro(1067))
+            //{
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)Log1.IdGrupo;
+            //}
+            //else
+            //{
+            //    Log1.Id = 1067;
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Produccion;
+            //}
             
-            frmOpciones frm = new frmOpciones(Log1);
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Show();
-            //this.Close();
+            //frmOpciones frm = new frmOpciones(Log1);
+            //frm.MdiParent = this.MdiParent;
+            //frm.WindowState = FormWindowState.Maximized;
+            //frm.Show();
+            ////this.Close();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -253,7 +253,8 @@ namespace JAGUAR_PRO
                 HostName == "DESKTOP-U63MQ6A" ||
                 HostName == "EUCEDA-PC" /*Euceda*/)
             {
-                cmdIngresarAdmin.Visible = SaltarLogin.Visible = simpleButton2.Visible = SaltarLoginPRD.Visible = true;
+                //cmdIngresarAdmin.Visible = SaltarLogin.Visible = simpleButton2.Visible = SaltarLoginPRD.Visible = true;
+                cmdIngresarAdmin.Visible = true;
             }
             else
             {
@@ -292,21 +293,21 @@ namespace JAGUAR_PRO
 
         private void simpleButton1_Click_1(object sender, EventArgs e)
         {
-            Teclado.cerrarTeclado();
-            UserLogin Log1 = new UserLogin();
-            if (Log1.RecuperarRegistro(1069))
-            {
-                Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)Log1.IdGrupo;
-            }
-            else
-            {
-                Log1.Id = 1069;
-                Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Produccion;
-            }                                                                
-            frmOpciones frm = new frmOpciones(Log1);
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Show();
+            //Teclado.cerrarTeclado();
+            //UserLogin Log1 = new UserLogin();
+            //if (Log1.RecuperarRegistro(1069))
+            //{
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)Log1.IdGrupo;
+            //}
+            //else
+            //{
+            //    Log1.Id = 1069;
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Produccion;
+            //}                                                                
+            //frmOpciones frm = new frmOpciones(Log1);
+            //frm.MdiParent = this.MdiParent;
+            //frm.WindowState = FormWindowState.Maximized;
+            //frm.Show();
         }
 
         private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
@@ -319,23 +320,23 @@ namespace JAGUAR_PRO
 
         private void SaltarLogin_Click(object sender, EventArgs e)
         {
-            Teclado.cerrarTeclado();
-            UserLogin Log1 = new UserLogin();
-            if (Log1.RecuperarRegistro(1035))
-            {
-                //Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)Log1.IdGrupo;
-                //Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)1;
-                Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Logistica;
-            }
-            else
-            {
-                Log1.Id = 1069;
-                Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Calidad;
-            }
-            frmOpciones frm = new frmOpciones(Log1);
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Show();
+            //Teclado.cerrarTeclado();
+            //UserLogin Log1 = new UserLogin();
+            //if (Log1.RecuperarRegistro(1035))
+            //{
+            //    //Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)Log1.IdGrupo;
+            //    //Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)1;
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Logistica;
+            //}
+            //else
+            //{
+            //    Log1.Id = 1069;
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Calidad;
+            //}
+            //frmOpciones frm = new frmOpciones(Log1);
+            //frm.MdiParent = this.MdiParent;
+            //frm.WindowState = FormWindowState.Maximized;
+            //frm.Show();
         }
 
         private void cmdMicros_Click(object sender, EventArgs e)
@@ -344,16 +345,16 @@ namespace JAGUAR_PRO
             //frm.MdiParent = this.MdiParent;
             //frm.WindowState = FormWindowState.Maximized;
             //frm.Show();
-            UserLogin Log1 = new UserLogin();
-            if (Log1.RecuperarRegistro(1067))
-            {
-                Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)Log1.IdGrupo;
-            }
-            else
-            {
-                Log1.Id = 1067;
-                Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Produccion;
-            }
+            //UserLogin Log1 = new UserLogin();
+            //if (Log1.RecuperarRegistro(1067))
+            //{
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)Log1.IdGrupo;
+            //}
+            //else
+            //{
+            //    Log1.Id = 1067;
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Produccion;
+            //}
 
             //xfrmMenuMicros menu = new xfrmMenuMicros(Log1);
             //menu.MdiParent = this.MdiParent;
@@ -365,27 +366,27 @@ namespace JAGUAR_PRO
 
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
-            Teclado.cerrarTeclado();
-            UserLogin Log1 = new UserLogin();
-            if (Log1.RecuperarRegistro(1035))
-            {
-                Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Calidad;
-                Log1.ADuser1 = "op_tablet";
-                Log1.Pass = "Tempo1234";
-            }
-            else
-            {
-                Log1.Id = 1067;
-                Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Calidad;
-                Log1.ADuser1 = "op_tablet";
-                Log1.Pass = "Tempo1234";
-            }
+            //Teclado.cerrarTeclado();
+            //UserLogin Log1 = new UserLogin();
+            //if (Log1.RecuperarRegistro(1035))
+            //{
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Calidad;
+            //    Log1.ADuser1 = "op_tablet";
+            //    Log1.Pass = "Tempo1234";
+            //}
+            //else
+            //{
+            //    Log1.Id = 1067;
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Calidad;
+            //    Log1.ADuser1 = "op_tablet";
+            //    Log1.Pass = "Tempo1234";
+            //}
 
-            frmOpciones frm = new frmOpciones(Log1);
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Show();
-            this.Close();
+            //frmOpciones frm = new frmOpciones(Log1);
+            //frm.MdiParent = this.MdiParent;
+            //frm.WindowState = FormWindowState.Maximized;
+            //frm.Show();
+            //this.Close();
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
@@ -395,23 +396,23 @@ namespace JAGUAR_PRO
 
         private void SaltarLoginPRD_Click(object sender, EventArgs e)
         {
-            Teclado.cerrarTeclado();
-            UserLogin Log1 = new UserLogin();
-            if (Log1.RecuperarRegistro(1035))
-            {
-                //Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)Log1.IdGrupo;
-                //Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)1;
-                Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.ProduccionV2;
-            }
-            else
-            {
-                Log1.Id = 1069;
-                Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Calidad;
-            }
-            frmOpciones frm = new frmOpciones(Log1);
-            frm.MdiParent = this.MdiParent;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Show();
+            //Teclado.cerrarTeclado();
+            //UserLogin Log1 = new UserLogin();
+            //if (Log1.RecuperarRegistro(1035))
+            //{
+            //    //Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)Log1.IdGrupo;
+            //    //Log1.GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)1;
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.ProduccionV2;
+            //}
+            //else
+            //{
+            //    Log1.Id = 1069;
+            //    Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Calidad;
+            //}
+            //frmOpciones frm = new frmOpciones(Log1);
+            //frm.MdiParent = this.MdiParent;
+            //frm.WindowState = FormWindowState.Maximized;
+            //frm.Show();
         }
 
         private void cmdAbrirTeclado_Click(object sender, EventArgs e)

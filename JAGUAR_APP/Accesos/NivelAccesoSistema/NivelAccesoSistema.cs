@@ -16,7 +16,7 @@ namespace JAGUAR_PRO.Accesos.NivelAccesoSistema
         private SqlCommand sqlCommand;
         private XtraMessageBoxArgs args;
 
-        private const string query = "SELECT * FROM ACS.[conf_sistemas_master_data] where enable = 1;";
+        private const string query = "SELECT * FROM dbo.[conf_sistemas_master_data] where enable = 1;";
 
         private const string query2 = @"SELECT Distinct
                                                 TT.id,
@@ -30,17 +30,17 @@ namespace JAGUAR_PRO.Accesos.NivelAccesoSistema
 		                                        T1.id as [IdNivel],
 		                                        T1.nivel,
 		                                        T1.enable
-                                        from ACS.[conf_sistemas_master_data] T0 inner join 
-		                                        ACS.conf_niveles_acceso T1 on 1 = 1) TT left join 
-		                                        ACS.conf_sistemas_niveles_acceso T3 
+                                        from dbo.[conf_sistemas_master_data] T0 inner join 
+		                                        dbo.conf_niveles_acceso T1 on 1 = 1) TT left join 
+		                                        dbo.conf_sistemas_niveles_acceso T3 
 		                                        on T3.id_nivel = TT.IdNivel 
 		                                        and TT.id = T3.id_sistema
 		                                        and T3.enable = 1
                                         where TT.enable = 1";
 
-        private const string query3 = "INSERT INTO ACS.[conf_sistemas_niveles_acceso]([id_sistema],[id_nivel],[enable]) VALUES(@id_sistema,@id_nivel,@enable);";
+        private const string query3 = "INSERT INTO dbo.[conf_sistemas_niveles_acceso]([id_sistema],[id_nivel],[enable]) VALUES(@id_sistema,@id_nivel,@enable);";
 
-        private const string query4 = "Update ACS.[conf_sistemas_niveles_acceso] SET [enable]=@enable  WHERE id = @id;";
+        private const string query4 = "Update dbo.[conf_sistemas_niveles_acceso] SET [enable]=@enable  WHERE id = @id;";
         //private const string connectionString = @"Server=DESKTOP-4Q0PPMK\SQLEXPRESS;Database=ACS;User Id=sa;Password=Sap5erver;";
         DataOperations dp = new DataOperations();
         private List<DatosAccesosSistema> ListaDatosAccesosSistemas { get; set; }

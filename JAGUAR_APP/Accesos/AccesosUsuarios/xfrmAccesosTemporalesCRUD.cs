@@ -56,7 +56,7 @@ namespace JAGUAR_PRO.Accesos.AccesosUsuarios
                 {
                     cnx.Open();
 
-                    SqlDataAdapter da = new SqlDataAdapter("ACS.sp_get_Ventanas",cnx);
+                    SqlDataAdapter da = new SqlDataAdapter("dbo.sp_get_Ventanas",cnx);
                     dsAccesos.Ventana.Clear();
 
                     da.Fill(dsAccesos.Ventana);
@@ -80,7 +80,7 @@ namespace JAGUAR_PRO.Accesos.AccesosUsuarios
                 {
                     cnx.Open();
 
-                    SqlDataAdapter da = new SqlDataAdapter("ACS.sp_get_ventanas_by_user", cnx);
+                    SqlDataAdapter da = new SqlDataAdapter("dbo.sp_get_ventanas_by_user", cnx);
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.Add("@id_user",SqlDbType.Int).Value=acceso.UserID;
 
@@ -175,7 +175,7 @@ namespace JAGUAR_PRO.Accesos.AccesosUsuarios
                         {
                             cnx.Open();
                             
-                            SqlCommand cmd = new SqlCommand("ACS.sp_update_ventana_by_user",cnx);
+                            SqlCommand cmd = new SqlCommand("dbo.sp_update_ventana_by_user",cnx);
                             cmd.CommandType = CommandType.StoredProcedure;
 
                             cmd.Parameters.Add("@id_user", SqlDbType.Int).Value = acceso.UserID;
@@ -228,7 +228,7 @@ namespace JAGUAR_PRO.Accesos.AccesosUsuarios
                         {
                             cnx.Open();
 
-                            SqlCommand cmd = new SqlCommand("ACS.sp_delete_acceso_temporal_ventana", cnx);
+                            SqlCommand cmd = new SqlCommand("dbo.sp_delete_acceso_temporal_ventana", cnx);
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.Add("@id", SqlDbType.Int).Value = id_row;
 
@@ -260,7 +260,7 @@ namespace JAGUAR_PRO.Accesos.AccesosUsuarios
                 {
                     cnx.Open();
 
-                    SqlDataAdapter da = new SqlDataAdapter("ACS.sp_get_usuarios_acceso_temporal", cnx);
+                    SqlDataAdapter da = new SqlDataAdapter("dbo.sp_get_usuarios_acceso_temporal", cnx);
                     dsAccesos.Usuarios.Clear();
 
                     da.Fill(dsAccesos.Usuarios);
