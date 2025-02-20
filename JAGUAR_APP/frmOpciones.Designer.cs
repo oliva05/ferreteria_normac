@@ -89,20 +89,14 @@
             this.cmdCuentas = new DevExpress.XtraEditors.SimpleButton();
             this.btnME = new DevExpress.XtraEditors.SimpleButton();
             this.btnClientes = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdPanaderos = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton78 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdFacturas = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton77 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdProveedores = new DevExpress.XtraEditors.SimpleButton();
             this.btnKardexTiposTransacciones = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdFML_Tipo = new DevExpress.XtraEditors.SimpleButton();
             this.btnBodegas = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdTiposMP = new DevExpress.XtraEditors.SimpleButton();
             this.btnTiposPresentaciones = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdEstados = new DevExpress.XtraEditors.SimpleButton();
-            this.cmd_estadosFML = new DevExpress.XtraEditors.SimpleButton();
             this.btnEstadosRequisiciones = new DevExpress.XtraEditors.SimpleButton();
-            this.btnMP = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton74 = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPageUsuarios = new DevExpress.XtraTab.XtraTabPage();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -921,20 +915,14 @@
             this.xtraTabPageCRUDS.Controls.Add(this.cmdCuentas);
             this.xtraTabPageCRUDS.Controls.Add(this.btnME);
             this.xtraTabPageCRUDS.Controls.Add(this.btnClientes);
-            this.xtraTabPageCRUDS.Controls.Add(this.cmdPanaderos);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton78);
             this.xtraTabPageCRUDS.Controls.Add(this.cmdFacturas);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton77);
             this.xtraTabPageCRUDS.Controls.Add(this.cmdProveedores);
             this.xtraTabPageCRUDS.Controls.Add(this.btnKardexTiposTransacciones);
-            this.xtraTabPageCRUDS.Controls.Add(this.cmdFML_Tipo);
             this.xtraTabPageCRUDS.Controls.Add(this.btnBodegas);
-            this.xtraTabPageCRUDS.Controls.Add(this.cmdTiposMP);
             this.xtraTabPageCRUDS.Controls.Add(this.btnTiposPresentaciones);
-            this.xtraTabPageCRUDS.Controls.Add(this.cmdEstados);
-            this.xtraTabPageCRUDS.Controls.Add(this.cmd_estadosFML);
             this.xtraTabPageCRUDS.Controls.Add(this.btnEstadosRequisiciones);
-            this.xtraTabPageCRUDS.Controls.Add(this.btnMP);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton74);
             this.xtraTabPageCRUDS.Name = "xtraTabPageCRUDS";
             this.xtraTabPageCRUDS.Size = new System.Drawing.Size(1222, 442);
@@ -946,7 +934,7 @@
             this.simpleButton6.Appearance.Options.UseFont = true;
             this.simpleButton6.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton6.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
-            this.simpleButton6.Location = new System.Drawing.Point(701, 62);
+            this.simpleButton6.Location = new System.Drawing.Point(468, 62);
             this.simpleButton6.Name = "simpleButton6";
             this.simpleButton6.Size = new System.Drawing.Size(227, 58);
             this.simpleButton6.TabIndex = 39;
@@ -959,7 +947,7 @@
             this.simpleButton5.Appearance.Options.UseFont = true;
             this.simpleButton5.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton5.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
-            this.simpleButton5.Location = new System.Drawing.Point(701, 182);
+            this.simpleButton5.Location = new System.Drawing.Point(468, 188);
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.Size = new System.Drawing.Size(227, 58);
             this.simpleButton5.TabIndex = 38;
@@ -972,7 +960,7 @@
             this.simpleButton4.Appearance.Options.UseFont = true;
             this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton4.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
-            this.simpleButton4.Location = new System.Drawing.Point(701, 122);
+            this.simpleButton4.Location = new System.Drawing.Point(468, 124);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(227, 58);
             this.simpleButton4.TabIndex = 37;
@@ -985,7 +973,7 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
-            this.simpleButton1.Location = new System.Drawing.Point(701, 2);
+            this.simpleButton1.Location = new System.Drawing.Point(468, 2);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(227, 58);
             this.simpleButton1.TabIndex = 36;
@@ -998,7 +986,7 @@
             this.cmdCuentas.Appearance.Options.UseFont = true;
             this.cmdCuentas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCuentas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCuentas.ImageOptions.Image")));
-            this.cmdCuentas.Location = new System.Drawing.Point(468, 182);
+            this.cmdCuentas.Location = new System.Drawing.Point(235, 250);
             this.cmdCuentas.Name = "cmdCuentas";
             this.cmdCuentas.Size = new System.Drawing.Size(227, 58);
             this.cmdCuentas.TabIndex = 35;
@@ -1013,7 +1001,7 @@
             this.btnME.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnME.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnME.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.empaque;
-            this.btnME.Location = new System.Drawing.Point(468, 122);
+            this.btnME.Location = new System.Drawing.Point(235, 186);
             this.btnME.Name = "btnME";
             this.btnME.Size = new System.Drawing.Size(227, 58);
             this.btnME.TabIndex = 33;
@@ -1026,27 +1014,12 @@
             this.btnClientes.Appearance.Options.UseFont = true;
             this.btnClientes.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClientes.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.ImageOptions.Image")));
-            this.btnClientes.Location = new System.Drawing.Point(468, 62);
+            this.btnClientes.Location = new System.Drawing.Point(235, 122);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(227, 58);
             this.btnClientes.TabIndex = 32;
             this.btnClientes.Text = "Master Clientes";
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
-            // 
-            // cmdPanaderos
-            // 
-            this.cmdPanaderos.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdPanaderos.Appearance.Options.UseFont = true;
-            this.cmdPanaderos.Appearance.Options.UseTextOptions = true;
-            this.cmdPanaderos.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.cmdPanaderos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdPanaderos.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.baker;
-            this.cmdPanaderos.Location = new System.Drawing.Point(468, 2);
-            this.cmdPanaderos.Name = "cmdPanaderos";
-            this.cmdPanaderos.Size = new System.Drawing.Size(227, 58);
-            this.cmdPanaderos.TabIndex = 31;
-            this.cmdPanaderos.Text = "Master de Panaderos";
-            this.cmdPanaderos.Click += new System.EventHandler(this.cmdPanaderos_Click_1);
             // 
             // simpleButton78
             // 
@@ -1054,7 +1027,7 @@
             this.simpleButton78.Appearance.Options.UseFont = true;
             this.simpleButton78.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton78.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.dimension32px;
-            this.simpleButton78.Location = new System.Drawing.Point(235, 62);
+            this.simpleButton78.Location = new System.Drawing.Point(2, 314);
             this.simpleButton78.Name = "simpleButton78";
             this.simpleButton78.Size = new System.Drawing.Size(227, 58);
             this.simpleButton78.TabIndex = 30;
@@ -1069,7 +1042,7 @@
             this.cmdFacturas.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.cmdFacturas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdFacturas.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdFacturas.ImageOptions.SvgImage")));
-            this.cmdFacturas.Location = new System.Drawing.Point(235, 362);
+            this.cmdFacturas.Location = new System.Drawing.Point(235, 62);
             this.cmdFacturas.Name = "cmdFacturas";
             this.cmdFacturas.Size = new System.Drawing.Size(227, 58);
             this.cmdFacturas.TabIndex = 29;
@@ -1084,7 +1057,7 @@
             this.simpleButton77.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton77.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton77.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton77.ImageOptions.Image")));
-            this.simpleButton77.Location = new System.Drawing.Point(235, 302);
+            this.simpleButton77.Location = new System.Drawing.Point(2, 250);
             this.simpleButton77.Name = "simpleButton77";
             this.simpleButton77.Size = new System.Drawing.Size(227, 58);
             this.simpleButton77.TabIndex = 28;
@@ -1099,7 +1072,7 @@
             this.cmdProveedores.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.cmdProveedores.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdProveedores.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.usergroup_32x32;
-            this.cmdProveedores.Location = new System.Drawing.Point(2, 362);
+            this.cmdProveedores.Location = new System.Drawing.Point(2, 186);
             this.cmdProveedores.Name = "cmdProveedores";
             this.cmdProveedores.Size = new System.Drawing.Size(227, 58);
             this.cmdProveedores.TabIndex = 27;
@@ -1113,25 +1086,12 @@
             this.btnKardexTiposTransacciones.Appearance.Options.UseTextOptions = true;
             this.btnKardexTiposTransacciones.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnKardexTiposTransacciones.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnKardexTiposTransacciones.Location = new System.Drawing.Point(235, 122);
+            this.btnKardexTiposTransacciones.Location = new System.Drawing.Point(2, 378);
             this.btnKardexTiposTransacciones.Name = "btnKardexTiposTransacciones";
             this.btnKardexTiposTransacciones.Size = new System.Drawing.Size(227, 58);
             this.btnKardexTiposTransacciones.TabIndex = 10;
             this.btnKardexTiposTransacciones.Text = "Tipos de Transacción (Kardex)";
             this.btnKardexTiposTransacciones.Click += new System.EventHandler(this.BtnKardexTiposTransacciones_Click);
-            // 
-            // cmdFML_Tipo
-            // 
-            this.cmdFML_Tipo.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
-            this.cmdFML_Tipo.Appearance.Options.UseFont = true;
-            this.cmdFML_Tipo.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdFML_Tipo.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.recipe32px;
-            this.cmdFML_Tipo.Location = new System.Drawing.Point(235, 242);
-            this.cmdFML_Tipo.Name = "cmdFML_Tipo";
-            this.cmdFML_Tipo.Size = new System.Drawing.Size(227, 58);
-            this.cmdFML_Tipo.TabIndex = 0;
-            this.cmdFML_Tipo.Text = "Tipos de Receta";
-            this.cmdFML_Tipo.Click += new System.EventHandler(this.cmdFML_Tipo_Click_1);
             // 
             // btnBodegas
             // 
@@ -1146,20 +1106,6 @@
             this.btnBodegas.Text = "Bodegas";
             this.btnBodegas.Click += new System.EventHandler(this.BtnBodegas_Click);
             // 
-            // cmdTiposMP
-            // 
-            this.cmdTiposMP.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdTiposMP.Appearance.Options.UseFont = true;
-            this.cmdTiposMP.Appearance.Options.UseTextOptions = true;
-            this.cmdTiposMP.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.cmdTiposMP.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdTiposMP.Location = new System.Drawing.Point(2, 242);
-            this.cmdTiposMP.Name = "cmdTiposMP";
-            this.cmdTiposMP.Size = new System.Drawing.Size(227, 58);
-            this.cmdTiposMP.TabIndex = 23;
-            this.cmdTiposMP.Text = "Tipos de Materia Primas";
-            this.cmdTiposMP.Click += new System.EventHandler(this.cmdTiposMP_Click);
-            // 
             // btnTiposPresentaciones
             // 
             this.btnTiposPresentaciones.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1173,33 +1119,6 @@
             this.btnTiposPresentaciones.Text = "Tipos Presentación";
             this.btnTiposPresentaciones.Click += new System.EventHandler(this.BtnTiposPresentaciones_Click);
             // 
-            // cmdEstados
-            // 
-            this.cmdEstados.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.cmdEstados.Appearance.Options.UseFont = true;
-            this.cmdEstados.Appearance.Options.UseTextOptions = true;
-            this.cmdEstados.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.cmdEstados.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdEstados.Location = new System.Drawing.Point(2, 302);
-            this.cmdEstados.Name = "cmdEstados";
-            this.cmdEstados.Size = new System.Drawing.Size(227, 58);
-            this.cmdEstados.TabIndex = 22;
-            this.cmdEstados.Text = "Estados de Materia Primas";
-            this.cmdEstados.Click += new System.EventHandler(this.cmdEstados_Click);
-            // 
-            // cmd_estadosFML
-            // 
-            this.cmd_estadosFML.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
-            this.cmd_estadosFML.Appearance.Options.UseFont = true;
-            this.cmd_estadosFML.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmd_estadosFML.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.tipos_recetas32px;
-            this.cmd_estadosFML.Location = new System.Drawing.Point(235, 182);
-            this.cmd_estadosFML.Name = "cmd_estadosFML";
-            this.cmd_estadosFML.Size = new System.Drawing.Size(227, 58);
-            this.cmd_estadosFML.TabIndex = 24;
-            this.cmd_estadosFML.Text = "Estados Recetas";
-            this.cmd_estadosFML.Click += new System.EventHandler(this.cmd_estadosFML_Click_1);
-            // 
             // btnEstadosRequisiciones
             // 
             this.btnEstadosRequisiciones.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1207,34 +1126,19 @@
             this.btnEstadosRequisiciones.Appearance.Options.UseTextOptions = true;
             this.btnEstadosRequisiciones.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnEstadosRequisiciones.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnEstadosRequisiciones.Location = new System.Drawing.Point(235, 2);
+            this.btnEstadosRequisiciones.Location = new System.Drawing.Point(235, 3);
             this.btnEstadosRequisiciones.Name = "btnEstadosRequisiciones";
             this.btnEstadosRequisiciones.Size = new System.Drawing.Size(227, 58);
             this.btnEstadosRequisiciones.TabIndex = 11;
             this.btnEstadosRequisiciones.Text = "Estados de Requisiciones";
             this.btnEstadosRequisiciones.Click += new System.EventHandler(this.BtnEstadosRequisiciones_Click);
             // 
-            // btnMP
-            // 
-            this.btnMP.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnMP.Appearance.Options.UseFont = true;
-            this.btnMP.Appearance.Options.UseTextOptions = true;
-            this.btnMP.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btnMP.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnMP.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.material32px;
-            this.btnMP.Location = new System.Drawing.Point(2, 182);
-            this.btnMP.Name = "btnMP";
-            this.btnMP.Size = new System.Drawing.Size(227, 58);
-            this.btnMP.TabIndex = 19;
-            this.btnMP.Text = "Master Materia Primas";
-            this.btnMP.Click += new System.EventHandler(this.btnMP_Click);
-            // 
             // simpleButton74
             // 
             this.simpleButton74.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton74.Appearance.Options.UseFont = true;
             this.simpleButton74.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton74.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.bread32px;
+            this.simpleButton74.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.package_box32px;
             this.simpleButton74.Location = new System.Drawing.Point(2, 122);
             this.simpleButton74.Name = "simpleButton74";
             this.simpleButton74.Size = new System.Drawing.Size(227, 58);
@@ -2545,15 +2449,8 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem2;
         private DevExpress.XtraNavBar.NavBarItem navBarItem9;
         private DevExpress.XtraEditors.SimpleButton simpleButton74;
-        private DevExpress.XtraEditors.SimpleButton btnMP;
         private DevExpress.XtraEditors.SimpleButton simpleButton75;
         private DevExpress.XtraEditors.SimpleButton simpleButton76;
-        
-        
-        private DevExpress.XtraEditors.SimpleButton cmdFML_Tipo;
-        private DevExpress.XtraEditors.SimpleButton cmd_estadosFML;
-        private DevExpress.XtraEditors.SimpleButton cmdEstados;
-        private DevExpress.XtraEditors.SimpleButton cmdTiposMP;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
         private DevExpress.XtraTab.XtraTabPage xtraTabPageUsuarios;
         private DevExpress.XtraTab.XtraTabPage xtraTabPageCRUDS;
@@ -2561,7 +2458,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton77;
         private DevExpress.XtraEditors.SimpleButton cmdFacturas;
         private DevExpress.XtraEditors.SimpleButton simpleButton78;
-        private DevExpress.XtraEditors.SimpleButton cmdPanaderos;
         private DevExpress.XtraNavBar.NavBarControl navBarControl2;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup5;
         private DevExpress.XtraNavBar.NavBarItem navBarItemRecepcionFactura;
