@@ -3534,6 +3534,7 @@ namespace JAGUAR_PRO
                     xfrmFacturacion_Clientes frm = new xfrmFacturacion_Clientes(UsuarioLogeado);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
+                    accesoprevio = true;
                     break;
                 default:
                     break;
@@ -3541,7 +3542,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(11))
+                if (UsuarioLogeado.ValidarNivelPermisos(2))
                 {
 
                     xfrmFacturacion_Clientes frm = new xfrmFacturacion_Clientes(UsuarioLogeado);
@@ -3551,7 +3552,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #11 (Facturacion punto de venta)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #2 (Facturacion punto de venta)");
                 }
             }
             

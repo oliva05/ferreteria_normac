@@ -92,7 +92,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.cmdEdit,
             this.cmdDelete,
             this.cmdContact});
-            this.gcPanaderos.Size = new System.Drawing.Size(1384, 445);
+            this.gcPanaderos.Size = new System.Drawing.Size(1032, 397);
             this.gcPanaderos.TabIndex = 6;
             this.gcPanaderos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPanaderos});
@@ -292,7 +292,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.cmdClose.Appearance.Options.UseFont = true;
             this.cmdClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.cmdClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel;
-            this.cmdClose.Location = new System.Drawing.Point(1229, 31);
+            this.cmdClose.Location = new System.Drawing.Point(877, 31);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(121, 47);
             this.cmdClose.TabIndex = 10;
@@ -325,7 +325,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.Location = new System.Drawing.Point(0, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(1384, 25);
+            this.labelControl1.Size = new System.Drawing.Size(1032, 25);
             this.labelControl1.TabIndex = 11;
             this.labelControl1.Text = "Puntos de Venta";
             // 
@@ -338,7 +338,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.btnActualizar.Appearance.Options.UseFont = true;
             this.btnActualizar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.btnActualizar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.ImageOptions.Image")));
-            this.btnActualizar.Location = new System.Drawing.Point(1078, 31);
+            this.btnActualizar.Location = new System.Drawing.Point(726, 31);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(121, 47);
             this.btnActualizar.TabIndex = 15;
@@ -349,7 +349,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 535);
+            this.ClientSize = new System.Drawing.Size(1032, 487);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.cmdClose);
             this.Controls.Add(this.cmdNew);

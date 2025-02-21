@@ -81,13 +81,13 @@ namespace Eatery.Ventas
                 {
                     if (PuntoDeVentaActual.FacturaComidaBuffet)//Mostramos todas las opciones
                     {
-                        lblOpcionesBuffetRadioButtonGroup.Visible =
+                        //lblOpcionesBuffetRadioButtonGroup.Visible =
                         radioGroupVentaComidaBuffet.Visible = true;
                         LoadDefaultOptionRadioButtos();
                     }
                     else
                     {
-                        lblOpcionesBuffetRadioButtonGroup.Visible = 
+                        //lblOpcionesBuffetRadioButtonGroup.Visible = 
                         radioGroupVentaComidaBuffet.Visible = false;
                         LoadDefaultOptionRadioButtos();
                     }
