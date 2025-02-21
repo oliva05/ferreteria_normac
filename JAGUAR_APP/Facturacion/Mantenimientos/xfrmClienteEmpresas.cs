@@ -157,7 +157,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
         private void ObtenerCorrelativo()
         {
             string sql = @"SELECT id_siguiente FROM dbo.LOSA_tables_id
-                            WHERE id = 14";
+                            WHERE id = 3";
             DataOperations dp = new DataOperations();
 
             SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);

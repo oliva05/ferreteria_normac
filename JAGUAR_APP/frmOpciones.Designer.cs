@@ -90,7 +90,6 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCuentas = new DevExpress.XtraEditors.SimpleButton();
             this.btnME = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClientes = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton78 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdFacturas = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton77 = new DevExpress.XtraEditors.SimpleButton();
@@ -426,8 +425,6 @@
             this.navBarItem23.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem23.AppearancePressed.Options.UseFont = true;
             this.navBarItem23.Caption = "Ordenes de Compra";
-            //this.navBarItem23.ImageOptions.LargeImage = global::JAGUAR_PRO.Properties.Resources.bosaleitem_32x321;
-            //this.navBarItem23.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.bosaleitem_32x321;
             this.navBarItem23.Name = "navBarItem23";
             this.navBarItem23.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem23_LinkClicked_1);
             // 
@@ -946,7 +943,6 @@
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton1);
             this.xtraTabPageCRUDS.Controls.Add(this.cmdCuentas);
             this.xtraTabPageCRUDS.Controls.Add(this.btnME);
-            this.xtraTabPageCRUDS.Controls.Add(this.btnClientes);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton78);
             this.xtraTabPageCRUDS.Controls.Add(this.cmdFacturas);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton77);
@@ -1018,7 +1014,7 @@
             this.cmdCuentas.Appearance.Options.UseFont = true;
             this.cmdCuentas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCuentas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCuentas.ImageOptions.Image")));
-            this.cmdCuentas.Location = new System.Drawing.Point(235, 250);
+            this.cmdCuentas.Location = new System.Drawing.Point(235, 186);
             this.cmdCuentas.Name = "cmdCuentas";
             this.cmdCuentas.Size = new System.Drawing.Size(227, 58);
             this.cmdCuentas.TabIndex = 35;
@@ -1033,25 +1029,12 @@
             this.btnME.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnME.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnME.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.empaque;
-            this.btnME.Location = new System.Drawing.Point(235, 186);
+            this.btnME.Location = new System.Drawing.Point(235, 122);
             this.btnME.Name = "btnME";
             this.btnME.Size = new System.Drawing.Size(227, 58);
             this.btnME.TabIndex = 33;
             this.btnME.Text = "Master Material de Empaque";
             this.btnME.Click += new System.EventHandler(this.btnME_Click);
-            // 
-            // btnClientes
-            // 
-            this.btnClientes.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientes.Appearance.Options.UseFont = true;
-            this.btnClientes.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnClientes.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.ImageOptions.Image")));
-            this.btnClientes.Location = new System.Drawing.Point(235, 122);
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(227, 58);
-            this.btnClientes.TabIndex = 32;
-            this.btnClientes.Text = "Master Clientes";
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // simpleButton78
             // 
@@ -2526,7 +2509,6 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup6;
         private DevExpress.XtraNavBar.NavBarItem navBarItem11;
         private DevExpress.XtraNavBar.NavBarItem navBarItem13;
-        private DevExpress.XtraEditors.SimpleButton btnClientes;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup8;
         private DevExpress.XtraNavBar.NavBarItem navBarItem14;
         private DevExpress.XtraNavBar.NavBarItem  nbKardexPT;

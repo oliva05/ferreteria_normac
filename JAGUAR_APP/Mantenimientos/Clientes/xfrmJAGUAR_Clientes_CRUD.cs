@@ -41,7 +41,7 @@ namespace JAGUAR_PRO.Mantenimientos.Clientes
 
         }
 
-              private void simpleButton1_Click(object sender, EventArgs e)
+        private void simpleButton1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -52,7 +52,7 @@ namespace JAGUAR_PRO.Mantenimientos.Clientes
         {
             try
             {
-                if (tableID.ObtenerIDTable((int)TablesIDOptions.Clientes))
+                if (tableID.ObtenerIDTable((int)TablesIDOptions.ClienteFacturacion))
                 {
                     txtCodigo.Text = tableID.Codigo;
                 }
