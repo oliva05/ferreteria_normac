@@ -554,6 +554,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gle_ClaseProducto.Properties.ValueMember = "id";
             this.gle_ClaseProducto.Size = new System.Drawing.Size(177, 22);
             this.gle_ClaseProducto.TabIndex = 38;
+            this.gle_ClaseProducto.Visible = false;
             // 
             // bindingSourceClaseProducto
             // 
@@ -601,11 +602,12 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl12.Size = new System.Drawing.Size(225, 15);
             this.labelControl12.TabIndex = 39;
             this.labelControl12.Text = "Clase Producto_____________________________";
+            this.labelControl12.Visible = false;
             // 
             // gleImpuestoAplicable
             // 
             this.gleImpuestoAplicable.EditValue = "";
-            this.gleImpuestoAplicable.Location = new System.Drawing.Point(204, 403);
+            this.gleImpuestoAplicable.Location = new System.Drawing.Point(204, 376);
             this.gleImpuestoAplicable.Name = "gleImpuestoAplicable";
             this.gleImpuestoAplicable.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gleImpuestoAplicable.Properties.Appearance.Options.UseFont = true;
@@ -659,7 +661,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl13.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl13.Appearance.Options.UseFont = true;
-            this.labelControl13.Location = new System.Drawing.Point(14, 411);
+            this.labelControl13.Location = new System.Drawing.Point(14, 384);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(247, 15);
             this.labelControl13.TabIndex = 41;
@@ -742,14 +744,12 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 504);
+            this.Controls.Add(this.gleImpuestoAplicable);
+            this.Controls.Add(this.labelControl13);
             this.Controls.Add(this.txtCodigoPT);
             this.Controls.Add(this.labelControl15);
             this.Controls.Add(this.grdSubClase);
             this.Controls.Add(this.labelControl14);
-            this.Controls.Add(this.gleImpuestoAplicable);
-            this.Controls.Add(this.labelControl13);
-            this.Controls.Add(this.gle_ClaseProducto);
-            this.Controls.Add(this.labelControl12);
             this.Controls.Add(this.gridLookUpEditTipoFacturacionDestino);
             this.Controls.Add(this.labelControl11);
             this.Controls.Add(this.glueTipoFacturacion);
@@ -769,6 +769,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.Controls.Add(this.cmdGuardar);
             this.Controls.Add(this.cmdCerrar);
             this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.gle_ClaseProducto);
+            this.Controls.Add(this.labelControl12);
             this.IconOptions.ShowIcon = false;
             this.Name = "frmCRUD_ProductoTerminadoV2";
             this.Text = "Producto Terminado";

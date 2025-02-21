@@ -384,17 +384,17 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
                 cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd", gridLookUpEditTipoFacturacionDestino.EditValue);
                 
-                if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
+                //if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
                     cmd.Parameters.AddWithValue("@id_clase", DBNull.Value);
-                else
-                    cmd.Parameters.AddWithValue("@id_clase", gle_ClaseProducto.EditValue);
+                //else
+                //    cmd.Parameters.AddWithValue("@id_clase", gle_ClaseProducto.EditValue);
 
 
                 if (dp.ValidateNumberInt32(Convert.ToInt32(gleImpuestoAplicable.EditValue)) == 0)
                     cmd.Parameters.AddWithValue("@id_impuesto_aplicable", DBNull.Value);
                 else
                     cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
-                cmd.Parameters.AddWithValue("@codigo_interno", Convert.ToInt32(txtCodigoInterno.Text.Trim()));
+                cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
                 cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
                 cmd.ExecuteNonQuery();
 

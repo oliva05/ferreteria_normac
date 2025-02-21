@@ -40,7 +40,7 @@ namespace JAGUAR_PRO.Clases
         int _id_clase;
         int _id_isv_aplicable;
         int _id_sub_clase;
-        private int _code_interno;
+        private string _code_interno;
 
         public int Id { get => id; set => id = value; }
         public bool Enable { get => enable; set => enable = value; }
@@ -80,7 +80,7 @@ namespace JAGUAR_PRO.Clases
         public int Id_isv_aplicable { get => _id_isv_aplicable; set => _id_isv_aplicable = value; }
         public decimal CantInventarioKardexFor_Facturacion { get => _cantInventarioKardexFor_Facturacion; set => _cantInventarioKardexFor_Facturacion = value; }
         public int Id_sub_clase { get => _id_sub_clase; set => _id_sub_clase = value; }
-        public int Code_interno { get => _code_interno; set => _code_interno = value; }
+        public string Code_interno { get => _code_interno; set => _code_interno = value; }
 
         public ProductoTerminado(string pConnectionString, DateTime fecha = default)
         {
@@ -153,9 +153,9 @@ namespace JAGUAR_PRO.Clases
                         Id_sub_clase = 0;
 
                     if (!dl.IsDBNull(dl.GetOrdinal("code_interno")))
-                        Code_interno = dl.GetInt32(22);
+                        Code_interno = dl.GetString(22);
                     else
-                        Code_interno = 0;
+                        Code_interno = "N/D";
 
                     Recuperado = true;
                     Recuperar_Latas_and_bolsas(Id);

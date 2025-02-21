@@ -312,8 +312,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colReceta.ColumnEdit = this.cmdReceta2;
             this.colReceta.MinWidth = 17;
             this.colReceta.Name = "colReceta";
-            this.colReceta.Visible = true;
-            this.colReceta.VisibleIndex = 9;
             this.colReceta.Width = 59;
             // 
             // cmdReceta2
