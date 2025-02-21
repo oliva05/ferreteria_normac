@@ -426,8 +426,8 @@
             this.navBarItem23.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem23.AppearancePressed.Options.UseFont = true;
             this.navBarItem23.Caption = "Ordenes de Compra";
-            this.navBarItem23.ImageOptions.LargeImage = global::JAGUAR_PRO.Properties.Resources.bosaleitem_32x321;
-            this.navBarItem23.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.bosaleitem_32x321;
+            //this.navBarItem23.ImageOptions.LargeImage = global::JAGUAR_PRO.Properties.Resources.bosaleitem_32x321;
+            //this.navBarItem23.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.bosaleitem_32x321;
             this.navBarItem23.Name = "navBarItem23";
             this.navBarItem23.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem23_LinkClicked_1);
             // 
