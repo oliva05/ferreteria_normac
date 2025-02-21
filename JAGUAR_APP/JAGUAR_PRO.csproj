@@ -4219,6 +4219,7 @@
     <None Include="Resources\PDV.png" />
     <None Include="Resources\molde32X32.png" />
     <None Include="Resources\paquete-danado32X32.png" />
+    <None Include="Resources\package-box32px.png" />
     <Content Include="Resources\plus.png" />
     <None Include="Resources\produccion.png" />
     <None Include="Resources\Producto_terminado.png" />
