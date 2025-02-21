@@ -40,7 +40,7 @@ namespace JAGUAR_PRO.Compras
             this.PuntoVentaActual = pPuntoVentaActual;
             LoadData();
             PuntoVentaID = PuntoVentaActual.ID;
-            //LoadSucursales();
+            LoadSucursales();
             grdSucursales.EditValue = PuntoVentaID;
 
             //int i = Convert.ToInt32(UsuarioLogueado.GrupoUsuario.GrupoUsuarioActivo);

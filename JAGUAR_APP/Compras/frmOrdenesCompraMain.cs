@@ -35,13 +35,13 @@ namespace JAGUAR_PRO.Compras
             Update = 2
         }
 
-        public frmOrdenesCompraMain(UserLogin pUserLog, TipoOperacion ptipo)
+        public frmOrdenesCompraMain(UserLogin pUserLog, TipoOperacion ptipo, PDV pPuntoDeVentaActual)
         {
             InitializeComponent();
             UsuarioLogueado = pUserLog;
-            //this.PuntoDeVentaActual = pPuntoDeVentaActual;
+            this.PuntoDeVentaActual = pPuntoDeVentaActual;
             PuntoVentaID = PuntoDeVentaActual.ID;
-            //LoadSucursales();
+            LoadSucursales();
             grdSucursales.EditValue = PuntoVentaID;
             tipooperacion = ptipo;
             switch (tipooperacion)
@@ -96,7 +96,7 @@ namespace JAGUAR_PRO.Compras
             //        break;
             //}
 
-            //grdSucursales.EditValue = PuntoVentaID;
+            grdSucursales.EditValue = PuntoVentaID;
         }
 
         private void LoadSucursales()
@@ -395,6 +395,9 @@ namespace JAGUAR_PRO.Compras
             txtProveedor.Clear();
             txtDocNum.Clear();
             btnPrint.Enabled = false;
+            txtSubtotal.EditValue = 0;
+            txtImpuesto.EditValue = 0;
+            txtTotal.EditValue = 0;
             //GetSigID();
 
         }
@@ -493,7 +496,7 @@ namespace JAGUAR_PRO.Compras
                 txtProveedor.Text = frm.ItemSeleccionado.ItemName;
                 Proveedor prov = new Proveedor();
                 prov.RecuperarRegistro(frm.ItemSeleccionado.id);
-                direccion = prov.Direccion;
+                direccion = prov.Jaguar_direccion;
                 cmdNuevo.Enabled = true;
             }
         }
@@ -683,7 +686,10 @@ namespace JAGUAR_PRO.Compras
                         //cmd.Parameters.AddWithValue("@id_estado", 2);
                         cmd.Parameters.AddWithValue("@fecha_registro", dtFechaRegistro.Value);
                         cmd.Parameters.AddWithValue("@fecha_contabilizacion",dtFechaContabilizacion.Value);
-                        cmd.Parameters.AddWithValue("@direccion",direccion);
+                        if(string.IsNullOrEmpty(direccion))
+                            cmd.Parameters.AddWithValue("@direccion", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@direccion", direccion);
                         cmd.Parameters.AddWithValue("@comentario", txtComentarios.Text);
                         cmd.Parameters.AddWithValue("@impuesto",txtImpuesto.EditValue);
                         cmd.Parameters.AddWithValue("@subtotal",txtSubtotal.EditValue);
