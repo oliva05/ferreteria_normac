@@ -16,6 +16,7 @@ using JAGUAR_PRO.AlmacenesExterno;
 using JAGUAR_PRO.AlmacenesExterno.Salida_Almacen;
 using JAGUAR_PRO.BancosYTitulares;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.Despachos;
 using JAGUAR_PRO.Facturacion.Configuraciones;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
@@ -4684,6 +4685,13 @@ namespace JAGUAR_PRO
         private void simpleButton6_Click_1(object sender, EventArgs e)
         {
             frmMainPTCategoria frm = new frmMainPTCategoria(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem23_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmOrdenesCompraMain frm = new frmOrdenesCompraMain(UsuarioLogeado, frmOrdenesCompraMain.TipoOperacion.New);
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }

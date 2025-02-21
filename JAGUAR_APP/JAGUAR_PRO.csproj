@@ -4093,6 +4093,7 @@
     <None Include="Resources\back_24X24.png" />
     <None Include="Resources\Astahrr-Nfl-Jaguars.128%281%29.png" />
     <None Include="Resources\bosaleitem_32x32.png" />
+    <None Include="Resources\bosaleitem_32x321.png" />
     <Content Include="Resources\box.png" />
     <None Include="Resources\box32px.png" />
     <None Include="Resources\boxPT32px.png" />
