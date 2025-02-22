@@ -3576,6 +3576,7 @@ namespace JAGUAR_PRO
                 case 5://Depth Without Delta
                     frmNumeracionFiscal frm = new frmNumeracionFiscal(UsuarioLogeado);
                     frm.MdiParent = this.MdiParent;
+                    accesoprevio = true;
                     frm.Show();
                     break;
                 default:
@@ -3584,7 +3585,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(16))
+                if (UsuarioLogeado.ValidarNivelPermisos(3))
                 {
 
                     frmNumeracionFiscal frm = new frmNumeracionFiscal(UsuarioLogeado);
@@ -3594,7 +3595,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #16 (Configuraciones de Facturacion)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #3 (Configuraciones de Facturacion)");
                 }
             }
             
