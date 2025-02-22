@@ -109,6 +109,46 @@ namespace JAGUAR_PRO.Clases
             return Recuperado;
         }
 
+        public bool RecuperarRegistroByCodigo(string pCodigo)
+        {
+            Recuperado = false;
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("dbo.[sp_get_proveedor_by_codigo]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@codigo", pCodigo);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    Jaguar_id = dr.GetInt32(0);
+                    Jaguar_codigo = dr.GetString(1);
+                    Jaguar_nombre = dr.GetString(2);
+
+                    if (!dr.IsDBNull(dr.GetOrdinal("RTN")))
+                        Jaguar_RTN = dr.GetString(3);
+
+                    if (!dr.IsDBNull(dr.GetOrdinal("direccion")))
+                        Jaguar_direccion = dr.GetString(4);
+
+                    if (!dr.IsDBNull(dr.GetOrdinal("enable")))
+                        Jaguar_enable = dr.GetBoolean(5);
+
+                    Recuperado = true;
+                }
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+
+            return Recuperado;
+        }
+
         public bool RecuperarRegistroWithRTN(string pCodigo)
         {
             try

@@ -21,10 +21,12 @@ namespace JAGUAR_PRO.LogisticaJaguar
     {
         UserLogin UsuarioLogeado;
         DataOperations dp;
-        public frmRecepcionFacturaProveedor(UserLogin pUsuarioLogeado)
+        PDV PuntoVentaActual;
+        public frmRecepcionFacturaProveedor(UserLogin pUsuarioLogeado, PDV pPDActual)
         {
             InitializeComponent();
             UsuarioLogeado = pUsuarioLogeado;
+            PuntoVentaActual = pPDActual;
             //LoadFacturasList();
             dp = new DataOperations();
             DateTime fechaActual = dp.NowSetDateTime();
@@ -62,7 +64,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            frmAddFacturaProveedor frm = new frmAddFacturaProveedor(this.UsuarioLogeado);
+            frmAddFacturaProveedor frm = new frmAddFacturaProveedor(this.UsuarioLogeado, PuntoVentaActual);
             if(frm.ShowDialog() == DialogResult.OK)
             {
                 LoadDatos();
