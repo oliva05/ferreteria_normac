@@ -1,7 +1,9 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraSpreadsheet.Model;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.Mantenimientos.MaterialEmpaque.Model;
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
         DataOperations dp;
         Proveedor ProveedorActual;
         FacturaProveedorH FacturaProveedorH_Actual;
-
+        PDV PuntoVentaActual;
         public enum TipoAccionVentana
         {
             Insert = 1,
@@ -31,10 +33,11 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         TipoAccionVentana TipoAccionActualVentana;
 
-        public frmAddFacturaProveedor(UserLogin pUsuarioLogeado)
+        public frmAddFacturaProveedor(UserLogin pUsuarioLogeado, PDV pPVActual)
         {
             InitializeComponent();
             TipoAccionActualVentana = TipoAccionVentana.Insert;
+            PuntoVentaActual = pPVActual; 
             FacturaProveedorH_Actual = new FacturaProveedorH();
             this.UsuarioLogeado = pUsuarioLogeado;
             dp = new DataOperations();
@@ -186,7 +189,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_lines_invoice_supplier_D", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_lines_invoice_supplier_D", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_facturah", pIdFacturaH);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
@@ -208,7 +211,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[codesahn].[sp_get_materias_primas_list_v3]", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_materias_primas_list_v3]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 dsLogisticaJaguar1.MP_List.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
@@ -276,7 +279,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[codesahn].[sp_get_presentacion_for_materia_prima_factura_prv]", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_presentacion_for_materia_prima_factura_prv]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@id_proveedor", pIdProveedor);
                 dsLogisticaJaguar1.unidad_medida_factura.Clear();
@@ -300,7 +303,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[codesahn].[sp_get_presentacion_for_materia_prima_jaguar_mp]", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_presentacion_for_materia_prima_jaguar_mp]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@id_proveedor", pIdProveedor);
                 dsLogisticaJaguar1.unidad_medida_jaguar.Clear();
@@ -323,7 +326,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.jaguar_sp_get_detalle_bodegas_list", con);
+                SqlCommand cmd = new SqlCommand("dbo.jaguar_sp_get_detalle_bodegas_list", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@id_proveedor", pIdProveedor);
                 dsLogisticaJaguar1.bodegas.Clear();
@@ -591,12 +594,12 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         if (TipoAccionActualVentana == TipoAccionVentana.Insert)
                         {
                             //Insert Header
-                            cmd.CommandText = "[codesahn].[jaguar_sp_insert_recepcion_factura_compra_v2]";
+                            cmd.CommandText = "[dbo].[jaguar_sp_insert_recepcion_factura_compra_v2]";
                             cmd.CommandType = CommandType.StoredProcedure;
                         }
                         else
                         {
-                            cmd.CommandText = "[codesahn].[jaguar_sp_update_recepcion_factura_compra]";
+                            cmd.CommandText = "[dbo].[jaguar_sp_update_recepcion_factura_compra]";
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@id_header", FacturaProveedorH_Actual.idFacturaH);
                         }
@@ -639,7 +642,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             if (TipoAccionActualVentana == TipoAccionVentana.Insert)
                             {
                                 //Insert Detalle
-                                cmd.CommandText = "[codesahn].[sp_set_insert_detalle_factura_proveedor_d_v3]";
+                                cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v3]";
                                 cmd.CommandType = CommandType.StoredProcedure;
                                 cmd.Parameters.AddWithValue("@id_factura_h", id_H);//Header id recien insertado en la transaccion
                             }
@@ -654,22 +657,22 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                                 if(id_linea_new == 0)
                                 {
-                                    cmd.CommandText = "[codesahn].[sp_set_insert_detalle_factura_proveedor_d_v3]";
+                                    cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v3]";
                                     cmd.CommandType = CommandType.StoredProcedure;
                                     cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
                                 }
                                 else
                                 {
-                                    cmd.CommandText = "[codesahn].[sp_set_update_detalle_factura_proveedor_d_v2]";
+                                    cmd.CommandText = "[dbo].[sp_set_update_detalle_factura_proveedor_d_v2]";
                                     cmd.CommandType = CommandType.StoredProcedure;
                                     cmd.Parameters.AddWithValue("@id_linea_detalle", row.id);
                                     cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
                                 }
                                 
                             }
-                            //cmd.CommandText = "[codesahn].[sp_set_insert_detalle_factura_proveedor_d_v2]";
+                            //cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v2]";
                             //cmd.CommandType = CommandType.StoredProcedure;
-                            
+
                             cmd.Parameters.AddWithValue("@cantidad_factura", row.cantidad);
                             cmd.Parameters.AddWithValue("@id_unidad_medida_factura", row.id_ud_medida_prv);
                             cmd.Parameters.AddWithValue("@descripcion", row.descripcion_mp);
@@ -739,5 +742,61 @@ namespace JAGUAR_PRO.LogisticaJaguar
             }
 
         }
+
+        private void btnCopyOC_Click(object sender, EventArgs e)
+        {
+            frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.Todas, PuntoVentaActual, UsuarioLogeado);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                if (frm.IdOrdenesSeleccionado != 0)
+                {
+                    CargarInfoOC(frm.IdOrdenesSeleccionado);
+                }
+            }
+        }
+
+        private void CargarInfoOC(int pidOrdenesSeleccionado)
+        {
+            OrdenesCompra oc = new OrdenesCompra();
+            if (oc.RecuperarRegistos(pidOrdenesSeleccionado))
+            {
+                Proveedor prov = new Proveedor();
+                prov.RecuperarRegistroByCodigo(oc.Itemcode_Prov);
+                gridLookUpEditProveedor.EditValue = prov.Jaguar_id;
+
+                txtObservaciones.Text = oc.Comentario;
+
+                
+                CargarDetalleOrdenCompra(oc.Id_OrdenCompra);
+               
+                
+
+            }
+        }
+
+        private void CargarDetalleOrdenCompra(int idSolicitudSeleccionado)
+        {
+
+            try
+            {
+                string query = @"[sp_get_compras_ordenes_detalle]";
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_header_orden", idSolicitudSeleccionado);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsCompras1.oc_detalle.Clear();
+                adat.Fill(dsCompras1.oc_detalle);
+                conn.Close();
+
+                CalcularTotal();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
     }
 }

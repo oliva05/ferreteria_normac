@@ -123,6 +123,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.txtNombreRevisado = new System.Windows.Forms.TextBox();
             this.txtObservaciones = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.btnCopyOC = new DevExpress.XtraEditors.SimpleButton();
+            this.dsCompras1 = new JAGUAR_PRO.Compras.dsCompras();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditProveedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsLogisticaJaguar1)).BeginInit();
@@ -161,6 +163,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.dtHoraRevisado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHoraRevisado.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObservaciones.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCompras1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridLookUpEditProveedor
@@ -1066,6 +1069,24 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.labelControl5.TabIndex = 55;
             this.labelControl5.Text = "Observaciones";
             // 
+            // btnCopyOC
+            // 
+            this.btnCopyOC.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCopyOC.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyOC.Appearance.Options.UseFont = true;
+            this.btnCopyOC.Location = new System.Drawing.Point(678, 94);
+            this.btnCopyOC.Name = "btnCopyOC";
+            this.btnCopyOC.Size = new System.Drawing.Size(248, 29);
+            this.btnCopyOC.TabIndex = 79;
+            this.btnCopyOC.Text = "Copiar de Orden de Compra";
+            this.btnCopyOC.Visible = false;
+            this.btnCopyOC.Click += new System.EventHandler(this.btnCopyOC_Click);
+            // 
+            // dsCompras1
+            // 
+            this.dsCompras1.DataSetName = "dsCompras";
+            this.dsCompras1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // frmAddFacturaProveedor
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -1073,6 +1094,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 543);
+            this.Controls.Add(this.btnCopyOC);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.groupBox3);
@@ -1134,6 +1156,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.dtHoraRevisado.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHoraRevisado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObservaciones.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCompras1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1228,5 +1251,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion5;
         private DevExpress.XtraGrid.Columns.GridColumn coltype;
         private DevExpress.XtraGrid.Columns.GridColumn colid5;
+        private DevExpress.XtraEditors.SimpleButton btnCopyOC;
+        private Compras.dsCompras dsCompras1;
     }
 }
