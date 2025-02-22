@@ -790,7 +790,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 adat.Fill(dsCompras1.oc_detalle);
                 conn.Close();
 
-                CalcularTotal();
+                //CalcularTotal();
             }
             catch (Exception ex)
             {
