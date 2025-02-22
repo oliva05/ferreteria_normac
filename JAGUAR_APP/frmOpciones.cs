@@ -2788,7 +2788,7 @@ namespace JAGUAR_PRO
             {
                 if (UsuarioLogeado.ValidarNivelPermisos(2))
                 {
-                    frmRecepcionFacturaProveedor frm = new frmRecepcionFacturaProveedor(this.UsuarioLogeado);
+                    frmRecepcionFacturaProveedor frm = new frmRecepcionFacturaProveedor(this.UsuarioLogeado, puntoVenta1);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                 }
