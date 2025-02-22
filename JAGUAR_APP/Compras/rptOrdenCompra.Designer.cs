@@ -36,6 +36,7 @@ namespace JAGUAR_PRO.Compras
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.lblDireccionPuntoVenta = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -64,7 +65,6 @@ namespace JAGUAR_PRO.Compras
             this.lblRTNPuntoVenta = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTelefonoPuntoVenta = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.lblComentario = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
@@ -75,7 +75,7 @@ namespace JAGUAR_PRO.Compras
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTotal = new DevExpress.XtraReports.UI.XRLabel();
             this.lblSub = new DevExpress.XtraReports.UI.XRLabel();
-            this.dsCompras1 = new Compras.dsCompras();
+            this.dsCompras1 = new JAGUAR_PRO.Compras.dsCompras();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
@@ -85,7 +85,6 @@ namespace JAGUAR_PRO.Compras
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.lblDireccionPuntoVenta = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsCompras1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -131,10 +130,23 @@ namespace JAGUAR_PRO.Compras
             this.lblNumeroOrden,
             this.lblRTNPuntoVenta,
             this.lblTelefonoPuntoVenta,
-            this.xrLabel6,
-            this.xrPictureBox1});
+            this.xrLabel6});
             this.ReportHeader.HeightF = 306.245F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // lblDireccionPuntoVenta
+            // 
+            this.lblDireccionPuntoVenta.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.lblDireccionPuntoVenta.Font = new DevExpress.Drawing.DXFont("Calibri", 10F);
+            this.lblDireccionPuntoVenta.LocationFloat = new DevExpress.Utils.PointFloat(199.4483F, 33.41668F);
+            this.lblDireccionPuntoVenta.Name = "lblDireccionPuntoVenta";
+            this.lblDireccionPuntoVenta.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblDireccionPuntoVenta.SizeF = new System.Drawing.SizeF(323.9582F, 68.5784F);
+            this.lblDireccionPuntoVenta.StylePriority.UseBorders = false;
+            this.lblDireccionPuntoVenta.StylePriority.UseFont = false;
+            this.lblDireccionPuntoVenta.StylePriority.UseTextAlignment = false;
+            this.lblDireccionPuntoVenta.Text = "Punto de Venta";
+            this.lblDireccionPuntoVenta.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrTable1
             // 
@@ -441,16 +453,8 @@ namespace JAGUAR_PRO.Compras
             this.xrLabel6.SizeF = new System.Drawing.SizeF(323.9582F, 33.41669F);
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
-            this.xrLabel6.Text = "Success English Academy";
+            this.xrLabel6.Text = "Ferreteria Normac";
             this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.ImageUrl = "C:\\Users\\ruben.garcia\\Downloads\\Logo_Success.jpg";
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(199.4483F, 156.9951F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze;
             // 
             // ReportFooter
             // 
@@ -676,20 +680,6 @@ namespace JAGUAR_PRO.Compras
             this.xrTableCell9.Text = "TOTAL";
             this.xrTableCell9.Weight = 1.5906989310258854D;
             // 
-            // lblDireccionPuntoVenta
-            // 
-            this.lblDireccionPuntoVenta.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.lblDireccionPuntoVenta.Font = new DevExpress.Drawing.DXFont("Calibri", 10F);
-            this.lblDireccionPuntoVenta.LocationFloat = new DevExpress.Utils.PointFloat(199.4483F, 33.41668F);
-            this.lblDireccionPuntoVenta.Name = "lblDireccionPuntoVenta";
-            this.lblDireccionPuntoVenta.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblDireccionPuntoVenta.SizeF = new System.Drawing.SizeF(323.9582F, 68.5784F);
-            this.lblDireccionPuntoVenta.StylePriority.UseBorders = false;
-            this.lblDireccionPuntoVenta.StylePriority.UseFont = false;
-            this.lblDireccionPuntoVenta.StylePriority.UseTextAlignment = false;
-            this.lblDireccionPuntoVenta.Text = "Punto de Venta";
-            this.lblDireccionPuntoVenta.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
             // rptOrdenCompra
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -705,7 +695,7 @@ namespace JAGUAR_PRO.Compras
             this.DataSource = this.dsCompras1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Margins = new DevExpress.Drawing.DXMargins(100F, 49F, 16.66667F, 22.91667F);
-            this.Version = "23.1";
+            this.Version = "23.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsCompras1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
@@ -747,7 +737,6 @@ namespace JAGUAR_PRO.Compras
         private DevExpress.XtraReports.UI.XRLabel lblRTNPuntoVenta;
         private DevExpress.XtraReports.UI.XRLabel lblTelefonoPuntoVenta;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
-        private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.XRLabel lblComentario;
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
