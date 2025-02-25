@@ -67,6 +67,8 @@ namespace JAGUAR_PRO.Clases
         public int tipo_facturacion_id { get => _IdTipoFacturacion; set => _IdTipoFacturacion = value; }
         public int tipo_buffet_id { get => _IdTipoBuffet; set => _IdTipoBuffet = value; }
 
+        private int tipoInventario;
+
         /// <summary>
         /// id_tipo_facturacion_prd, tambien conocido como destino del producto terminado.
         /// </summary>
@@ -81,6 +83,7 @@ namespace JAGUAR_PRO.Clases
         public decimal CantInventarioKardexFor_Facturacion { get => _cantInventarioKardexFor_Facturacion; set => _cantInventarioKardexFor_Facturacion = value; }
         public int Id_sub_clase { get => _id_sub_clase; set => _id_sub_clase = value; }
         public string Code_interno { get => _code_interno; set => _code_interno = value; }
+        public int TipoInventario { get => tipoInventario; set => tipoInventario = value; }
 
         public ProductoTerminado(string pConnectionString, DateTime fecha = default)
         {
@@ -225,9 +228,23 @@ namespace JAGUAR_PRO.Clases
                         _id_isv_aplicable = dl.GetInt32(20);
                     else
                         _id_isv_aplicable = 0;
-                     
+                    if (!dl.IsDBNull(dl.GetOrdinal("id_subClase")))
+                        Id_sub_clase = dl.GetInt32(21);
+                    else
+                        Id_sub_clase = 0;
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("code_interno")))
+                        Code_interno = dl.GetString(22);
+                    else
+                        Code_interno = "N/D";
+
+                    if(!dl.IsDBNull(dl.GetOrdinal("[id_tipo_inventario]")))
+                        TipoInventario = dl.GetInt32(23);
+                    else
+                        TipoInventario = 0;
+
                     Recuperado = true;
-                    Recuperar_Latas_and_bolsas(IdProd);
+                    //Recuperar_Latas_and_bolsas(IdProd);
 
                     CantInventarioKardex = Recuperar_Cant_Inv_Actual_by_PT(IdProd);
                     //CantInventarioKardexFor_Facturacion = Recuperar_Cant_Inv_Actual_PT_for_facturacion(IdProd);    

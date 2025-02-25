@@ -126,7 +126,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridDetalleProductosCRUD.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdEditar2,
             this.cmdReceta2});
-            this.gridDetalleProductosCRUD.Size = new System.Drawing.Size(779, 437);
+            this.gridDetalleProductosCRUD.Size = new System.Drawing.Size(1160, 437);
             this.gridDetalleProductosCRUD.TabIndex = 0;
             this.gridDetalleProductosCRUD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -393,7 +393,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.cmdCerrar.Appearance.Options.UseFont = true;
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCerrar.ImageOptions.SvgImage")));
-            this.cmdCerrar.Location = new System.Drawing.Point(670, 38);
+            this.cmdCerrar.Location = new System.Drawing.Point(1051, 38);
             this.cmdCerrar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(101, 42);
@@ -424,7 +424,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.cmdExportExcel.Appearance.Options.UseFont = true;
             this.cmdExportExcel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdExportExcel.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.excel32px;
-            this.cmdExportExcel.Location = new System.Drawing.Point(941, 38);
+            this.cmdExportExcel.Location = new System.Drawing.Point(1322, 38);
             this.cmdExportExcel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmdExportExcel.Name = "cmdExportExcel";
             this.cmdExportExcel.Size = new System.Drawing.Size(157, 42);
@@ -435,7 +435,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // tggViewFilter
             // 
             this.tggViewFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tggViewFilter.Location = new System.Drawing.Point(1027, 10);
+            this.tggViewFilter.Location = new System.Drawing.Point(1408, 10);
             this.tggViewFilter.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tggViewFilter.Name = "tggViewFilter";
             this.tggViewFilter.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
@@ -451,7 +451,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(942, 11);
+            this.labelControl2.Location = new System.Drawing.Point(1323, 11);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(79, 18);
@@ -462,7 +462,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 524);
+            this.ClientSize = new System.Drawing.Size(1163, 524);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.tggViewFilter);
             this.Controls.Add(this.cmdExportExcel);
