@@ -41,6 +41,8 @@ namespace JAGUAR_PRO.Clases
         int _id_isv_aplicable;
         int _id_sub_clase;
         private string _code_interno;
+        private string _barcode;
+        private string _codeOEM;
 
         public int Id { get => id; set => id = value; }
         public bool Enable { get => enable; set => enable = value; }
@@ -84,6 +86,8 @@ namespace JAGUAR_PRO.Clases
         public int Id_sub_clase { get => _id_sub_clase; set => _id_sub_clase = value; }
         public string Code_interno { get => _code_interno; set => _code_interno = value; }
         public int TipoInventario { get => tipoInventario; set => tipoInventario = value; }
+        public string Barcode { get => _barcode; set => _barcode = value; }
+        public string CodeOEM { get => _codeOEM; set => _codeOEM = value; }
 
         public ProductoTerminado(string pConnectionString, DateTime fecha = default)
         {
@@ -238,10 +242,21 @@ namespace JAGUAR_PRO.Clases
                     else
                         Code_interno = "N/D";
 
-                    if(!dl.IsDBNull(dl.GetOrdinal("[id_tipo_inventario]")))
+                    if(!dl.IsDBNull(dl.GetOrdinal("id_tipo_inventario")))
                         TipoInventario = dl.GetInt32(23);
                     else
                         TipoInventario = 0;
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("barcode")))
+                        Barcode = dl.GetString(24);
+                    else
+                        Barcode = "";
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("codeOEM")))
+                        CodeOEM = dl.GetString(25);
+                    else
+                        CodeOEM = "";
+
 
                     Recuperado = true;
                     //Recuperar_Latas_and_bolsas(IdProd);

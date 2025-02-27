@@ -1,5 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
+using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Formulas;
@@ -25,9 +26,23 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         public frmMainProductoTerminado(UserLogin pUserLogin)
         {
             InitializeComponent();
+            MagiaEmbellezedora();
             dp = new DataOperations();
             UsuarioLogeado = pUserLogin;
             LoadDataDetallePT();
+        }
+
+        private void MagiaEmbellezedora()
+        {
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("The Bezier");
+            
+            gridView1.OptionsView.EnableAppearanceEvenRow = true;
+            gridView1.OptionsView.EnableAppearanceOddRow = true;
+            gridView1.Appearance.Row.BackColor = Color.LightGray;
+            gridView1.Appearance.OddRow.BackColor = Color.White;
+
+
+
         }
 
         private void LoadDataDetallePT()

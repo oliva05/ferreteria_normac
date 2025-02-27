@@ -20,6 +20,7 @@ using DevExpress.Office.Utils;
 using DevExpress.XtraCharts.Native;
 using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.LogisticaJaguar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
@@ -40,6 +41,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         public frmCRUD_ProductoTerminadoV2(UserLogin pUser, TipoOperacion pTipoOperacion, int pId_PT)
         {
             InitializeComponent();
+
+            MagiaEmbellezedora();
+            
+
             UsuarioLogeado = pUser;
             LoadPresentacionesPT();
             LoadSubClases();
@@ -80,6 +85,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         grdSubClase.EditValue = PT_Class_instance.Id_sub_clase;
                         txtCodigoInterno.Text = PT_Class_instance.Code_interno;
                         gridTipoInventario.EditValue = PT_Class_instance.TipoInventario;
+                        txtBarCode.Text = PT_Class_instance.Barcode;
+                        txtOEM.Text = PT_Class_instance.CodeOEM;
+
                         gridLookUpEditTipoFacturacionDestino.EditValueChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_EditValueChanged);
                         gridLookUpEditTipoFacturacionDestino.EditValue = PT_Class_instance.id_tipo_facturacion_prd;
                         gridLookUpEditTipoFacturacionDestino.EditValueChanged += new EventHandler(gridLookUpEditTipoFacturacionDestino_EditValueChanged);
@@ -97,6 +105,21 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     break;
             }
             
+        }
+
+        private void MagiaEmbellezedora()
+        {
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("The Bezier");
+            //DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("WXI Compact");
+            gridView9.OptionsView.EnableAppearanceEvenRow = true;
+            gridView9.OptionsView.EnableAppearanceOddRow = true;
+            gridView9.Appearance.Row.BackColor = Color.LightGray;
+            gridView9.Appearance.OddRow.BackColor = Color.White;
+
+            txtDescripcionProducto.Properties.NullText = "Ingrese la descripcion aquí...";
+            txtDescripcionProducto.Properties.Appearance.Font = new Font("Consola", 8, FontStyle.Bold);
+
+
         }
 
         private void LoadSubClases()
@@ -343,6 +366,13 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
+            //if (string.IsNullOrEmpty(txtBarCode.Text))
+            //{
+            //    CajaDialogo.Error("Es necesario indicar el Codigo de Barra para el Escaneo!");
+            //    return;
+            //}
+
+
             //if (string.IsNullOrEmpty(glueTipoBuffet.Text))
             //{
             //    CajaDialogo.Error("Es necesario indicar un tipo de buffet del Producto!");
@@ -414,6 +444,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
                 cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
                 cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
+                cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
+                cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
                 cmd.ExecuteNonQuery();
 
                 FTP_Class ftp = new FTP_Class();
@@ -525,7 +557,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         newRow["path"] = openFileDialog1.FileNames[contador];
                         newRow["file_name"] = item;
                         newRow["id_user"] = UsuarioLogeado.Id;
-                        newRow["user"] = UsuarioLogeado.NombreUser;
+                        newRow["user"] = UsuarioLogeado.Nombre;
                         newRow["id_pt"] = IdPT;
                         newRow["imagen"] = imgBytes;
                         dsProductoTerminado1.PTImagenes.Rows.Add(newRow);
