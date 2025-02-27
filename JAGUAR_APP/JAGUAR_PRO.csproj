@@ -4301,6 +4301,7 @@
     <None Include="Resources\warehouse32px1.png" />
     <Content Include="Resources\weighing_machine24px.png" />
     <Content Include="Resources\wheat.png" />
+    <None Include="Resources\withtextwrapping_topright_32x32.png" />
     <Content Include="Resources\wrench.png" />
   </ItemGroup>
   <ItemGroup>
