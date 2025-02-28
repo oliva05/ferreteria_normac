@@ -20,8 +20,8 @@ namespace JAGUAR_PRO.Compras
             oc.RecuperarRegistos(pIdOrdenCompraActual);
             lblCliente.Text = oc.Itemcode_Prov + " - " + oc.Nombre_Prov;
             Proveedor prov = new Proveedor();
-            prov.RecuperarRegistroWithRTN(oc.Itemcode_Prov);
-            lblRTN.Text = prov.RTN;
+            prov.RecuperarRegistroByCodigo(oc.Itemcode_Prov);
+            lblRTN.Text = prov.Jaguar_RTN;
             lblDireccion.Text = oc.Direccion;
             lblNumeroOrden.Text = "Orden de Compra #" + oc.DocNum1;
             lblFechaOrden.Text = string.Format("{0:dd/MM/yyyy}",oc.Fecha_Contabilizacion);

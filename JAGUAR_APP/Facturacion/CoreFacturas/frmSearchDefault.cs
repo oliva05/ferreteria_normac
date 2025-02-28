@@ -36,7 +36,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             Reproceso = 7,
             Clientes = 8,
             PuntosDeVenta = 9,
-            Proveedor = 10
+            Proveedor = 11
         }
 
         public enum TipoFacturacion

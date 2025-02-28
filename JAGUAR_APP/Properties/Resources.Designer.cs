@@ -863,6 +863,26 @@ namespace JAGUAR_PRO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap contentarrangeinrows_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("contentarrangeinrows_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap contentarrangeinrows_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("contentarrangeinrows_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cook_book32px {
             get {
                 object obj = ResourceManager.GetObject("cook-book32px", resourceCulture);
@@ -2756,6 +2776,16 @@ namespace JAGUAR_PRO.Properties {
         internal static System.Drawing.Bitmap search_32x32 {
             get {
                 object obj = ResourceManager.GetObject("search_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap select_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("select_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

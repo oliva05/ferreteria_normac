@@ -25,6 +25,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
         Proveedor ProveedorActual;
         FacturaProveedorH FacturaProveedorH_Actual;
         PDV PuntoVentaActual;
+        int IdOrdenCompra = 0;
         public enum TipoAccionVentana
         {
             Insert = 1,
@@ -626,6 +627,10 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             cmd.Parameters.AddWithValue("@hora_revisado", dtHoraRevisado.EditValue);
 
                         cmd.Parameters.AddWithValue("@observaciones", txtObservaciones.Text);
+                        if (IdOrdenCompra == 0)
+                            cmd.Parameters.AddWithValue("@id_orden_compra", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_orden_compra", IdOrdenCompra);
 
                         int id_H = 0;
 
@@ -745,14 +750,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void btnCopyOC_Click(object sender, EventArgs e)
         {
-            frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.Todas, PuntoVentaActual, UsuarioLogeado);
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                if (frm.IdOrdenesSeleccionado != 0)
-                {
-                    CargarInfoOC(frm.IdOrdenesSeleccionado);
-                }
-            }
+            
         }
 
         private void CargarInfoOC(int pidOrdenesSeleccionado)
@@ -763,7 +761,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 Proveedor prov = new Proveedor();
                 prov.RecuperarRegistroByCodigo(oc.Itemcode_Prov);
                 gridLookUpEditProveedor.EditValue = prov.Jaguar_id;
-
+                IdOrdenCompra = oc.Id_OrdenCompra;
                 txtObservaciones.Text = oc.Comentario;
 
                 
@@ -779,15 +777,17 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
             try
             {
-                string query = @"[sp_get_compras_ordenes_detalle]";
+                string query = @"[sp_get_obetener_detalle_oc_para_factura_prov]";
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_header_orden", idSolicitudSeleccionado);
+                cmd.Parameters.AddWithValue("@id_ordenCompra", idSolicitudSeleccionado);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                dsCompras1.oc_detalle.Clear();
-                adat.Fill(dsCompras1.oc_detalle);
+                //dsCompras1.oc_detalle.Clear();
+                //adat.Fill(dsCompras1.oc_detalle);
+                dsLogisticaJaguar1.detalle_recepcion_fact.Clear();
+                adat.Fill(dsLogisticaJaguar1.detalle_recepcion_fact);
                 conn.Close();
 
                 //CalcularTotal();
@@ -798,5 +798,21 @@ namespace JAGUAR_PRO.LogisticaJaguar
             }
         }
 
+        private void barButtonOC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.Todas, PuntoVentaActual, UsuarioLogeado);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                if (frm.IdOrdenesSeleccionado != 0)
+                {
+                    CargarInfoOC(frm.IdOrdenesSeleccionado);
+                }
+            }
+        }
+
+        private void btnCopiarDe_Click(object sender, EventArgs e)
+        {
+            popupMenu1.ShowPopup(Cursor.Position);
+        }
     }
 }

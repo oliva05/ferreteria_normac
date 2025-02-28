@@ -33,7 +33,7 @@ namespace JAGUAR_PRO.Mantenimientos
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_tipo_presentaciones_clase", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_tipo_presentaciones_clase", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@idbodega", idBodega);
                 dsMantenimiento1.Presentacion_tipo.Clear();

@@ -125,7 +125,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.txtBarCode = new DevExpress.XtraEditors.TextEdit();
             this.txtOEM = new DevExpress.XtraEditors.TextEdit();
             this.txtDescripcionProducto = new DevExpress.XtraEditors.MemoEdit();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit_Presentaciones.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePresentacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
@@ -166,7 +165,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.txtBarCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOEM.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcionProducto.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdCerrar
@@ -1010,16 +1008,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.txtDescripcionProducto.Size = new System.Drawing.Size(177, 42);
             this.txtDescripcionProducto.TabIndex = 57;
             // 
-            // groupControl2
-            // 
-            this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl2.Location = new System.Drawing.Point(777, 316);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(304, 148);
-            this.groupControl2.TabIndex = 58;
-            this.groupControl2.Text = "Codificación";
-            this.groupControl2.ToolTipController = this.defaultToolTipController1.DefaultController;
-            // 
             // frmCRUD_ProductoTerminadoV2
             // 
             this.defaultToolTipController1.SetAllowHtmlText(this, DevExpress.Utils.DefaultBoolean.Default);
@@ -1028,7 +1016,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1093, 476);
-            this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.txtDescripcionProducto);
             this.Controls.Add(this.txtOEM);
             this.Controls.Add(this.txtBarCode);
@@ -1107,7 +1094,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.txtBarCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOEM.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcionProducto.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1204,6 +1190,5 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private DevExpress.XtraEditors.TextEdit txtBarCode;
         private DevExpress.XtraEditors.TextEdit txtOEM;
         private DevExpress.XtraEditors.MemoEdit txtDescripcionProducto;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
     }
 }
