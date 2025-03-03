@@ -30,12 +30,12 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmJAGUAR_Proveedor_CRUD));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtProveedor = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -45,7 +45,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtDireccion = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.gcContacto = new DevExpress.XtraGrid.GridControl();
             this.jAGUARProveedorContactoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -93,6 +93,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.txtProveedor.Properties.Appearance.Options.UseFont = true;
             this.txtProveedor.Size = new System.Drawing.Size(327, 24);
             this.txtProveedor.TabIndex = 0;
+            this.txtProveedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProveedor_KeyDown);
             // 
             // labelControl2
             // 
@@ -112,7 +113,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.txtCod.Properties.Appearance.Options.UseFont = true;
             this.txtCod.Properties.ReadOnly = true;
             this.txtCod.Size = new System.Drawing.Size(115, 24);
-            this.txtCod.TabIndex = 1;
+            this.txtCod.TabIndex = 6;
             // 
             // labelControl3
             // 
@@ -131,7 +132,8 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.txtRTN.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRTN.Properties.Appearance.Options.UseFont = true;
             this.txtRTN.Size = new System.Drawing.Size(327, 24);
-            this.txtRTN.TabIndex = 2;
+            this.txtRTN.TabIndex = 1;
+            this.txtRTN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRTN_KeyDown);
             // 
             // labelControl4
             // 
@@ -150,7 +152,8 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.txtDireccion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Properties.Appearance.Options.UseFont = true;
             this.txtDireccion.Size = new System.Drawing.Size(327, 24);
-            this.txtDireccion.TabIndex = 3;
+            this.txtDireccion.TabIndex = 2;
+            this.txtDireccion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDireccion_KeyDown);
             // 
             // simpleButton1
             // 
@@ -167,20 +170,20 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.simpleButton1.Text = "Cerrar";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // cmdNew
+            // cmdGuardar
             // 
-            this.cmdNew.Appearance.BackColor = System.Drawing.Color.PowderBlue;
-            this.cmdNew.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdNew.Appearance.Options.UseBackColor = true;
-            this.cmdNew.Appearance.Options.UseFont = true;
-            this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
-            this.cmdNew.Location = new System.Drawing.Point(529, 12);
-            this.cmdNew.Name = "cmdNew";
-            this.cmdNew.Size = new System.Drawing.Size(121, 44);
-            this.cmdNew.TabIndex = 4;
-            this.cmdNew.Text = "Guardar";
-            this.cmdNew.Click += new System.EventHandler(this.cmdNew_Click);
+            this.cmdGuardar.Appearance.BackColor = System.Drawing.Color.PowderBlue;
+            this.cmdGuardar.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdGuardar.Appearance.Options.UseBackColor = true;
+            this.cmdGuardar.Appearance.Options.UseFont = true;
+            this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.cmdGuardar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
+            this.cmdGuardar.Location = new System.Drawing.Point(529, 12);
+            this.cmdGuardar.Name = "cmdGuardar";
+            this.cmdGuardar.Size = new System.Drawing.Size(121, 44);
+            this.cmdGuardar.TabIndex = 4;
+            this.cmdGuardar.Text = "Guardar";
+            this.cmdGuardar.Click += new System.EventHandler(this.cmdNew_Click);
             // 
             // labelControl6
             // 
@@ -201,13 +204,14 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             // 
             this.gcContacto.DataSource = this.jAGUARProveedorContactoBindingSource;
             this.gcContacto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcContacto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.gcContacto.Location = new System.Drawing.Point(0, 0);
             this.gcContacto.MainView = this.gvContacto;
             this.gcContacto.Name = "gcContacto";
             this.gcContacto.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdDelete,
             this.txtCorreo});
-            this.gcContacto.Size = new System.Drawing.Size(662, 289);
+            this.gcContacto.Size = new System.Drawing.Size(662, 283);
             this.gcContacto.TabIndex = 13;
             this.gcContacto.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvContacto});
@@ -293,18 +297,20 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             // cmdDelete
             // 
             this.cmdDelete.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.cmdDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdDelete_ButtonClick);
             // 
             // tabPane1
             // 
+            this.tabPane1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tabPane1.Appearance.Options.UseFont = true;
             this.tabPane1.Controls.Add(this.tabNavigationPage1);
             this.tabPane1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabPane1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPane1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.tabPane1.Location = new System.Drawing.Point(0, 177);
             this.tabPane1.Name = "tabPane1";
             this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
@@ -312,16 +318,18 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.tabPane1.RegularSize = new System.Drawing.Size(662, 316);
             this.tabPane1.SelectedPage = this.tabNavigationPage1;
             this.tabPane1.Size = new System.Drawing.Size(662, 316);
-            this.tabPane1.TabIndex = 14;
+            this.tabPane1.TabIndex = 3;
             this.tabPane1.Text = "tabPane1d";
             // 
             // tabNavigationPage1
             // 
             this.tabNavigationPage1.Caption = "Contacto";
             this.tabNavigationPage1.Controls.Add(this.gcContacto);
-            this.tabNavigationPage1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabNavigationPage1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
-            this.tabNavigationPage1.Size = new System.Drawing.Size(662, 289);
+            this.tabNavigationPage1.Properties.AppearanceCaption.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tabNavigationPage1.Properties.AppearanceCaption.Options.UseFont = true;
+            this.tabNavigationPage1.Size = new System.Drawing.Size(662, 283);
             // 
             // xfrmJAGUAR_Proveedor_CRUD
             // 
@@ -330,7 +338,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.ClientSize = new System.Drawing.Size(662, 493);
             this.Controls.Add(this.tabPane1);
             this.Controls.Add(this.simpleButton1);
-            this.Controls.Add(this.cmdNew);
+            this.Controls.Add(this.cmdGuardar);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtRTN);
             this.Controls.Add(this.txtCod);
@@ -376,7 +384,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtDireccion;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton cmdNew;
+        private DevExpress.XtraEditors.SimpleButton cmdGuardar;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraGrid.GridControl gcContacto;
         private DevExpress.XtraGrid.Views.Grid.GridView gvContacto;

@@ -40,6 +40,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             UsuarioLogin = pUser; 
         }
 
+        //Guardar
         private void cmdNew_Click(object sender, EventArgs e)
         {
             try
@@ -273,6 +274,30 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             {
                 CajaDialogo.Error(ex.Message);
                 throw;
+            }
+        }
+
+        private void txtProveedor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) 
+            {
+                txtRTN.Focus();
+            }
+        }
+
+        private void txtRTN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtDireccion.Focus();
+            }
+        }
+
+        private void txtDireccion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmdGuardar.Focus();
             }
         }
     }

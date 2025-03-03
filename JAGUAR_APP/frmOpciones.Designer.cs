@@ -369,6 +369,7 @@
             this.navBarItemmaterialEmpaqueLogistica.Caption = "Datos Maestros Material Empaque";
             this.navBarItemmaterialEmpaqueLogistica.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.paper_bag32px;
             this.navBarItemmaterialEmpaqueLogistica.Name = "navBarItemmaterialEmpaqueLogistica";
+            this.navBarItemmaterialEmpaqueLogistica.Visible = false;
             this.navBarItemmaterialEmpaqueLogistica.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemmaterialEmpaqueLogistica_LinkClicked);
             // 
             // navBarItem15
@@ -435,6 +436,7 @@
             this.navBarGroup6.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup6.Appearance.Options.UseFont = true;
             this.navBarGroup6.Caption = "Despachos";
+            this.navBarGroup6.Expanded = true;
             this.navBarGroup6.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem13),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem24)});
@@ -451,6 +453,7 @@
             this.navBarItem13.Caption = "Pedidos";
             this.navBarItem13.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem13.ImageOptions.SmallImage")));
             this.navBarItem13.Name = "navBarItem13";
+            this.navBarItem13.Visible = false;
             this.navBarItem13.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem13_LinkClicked);
             // 
             // navBarItem24
@@ -473,6 +476,7 @@
             this.navBarGroup8.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup8.AppearancePressed.Options.UseFont = true;
             this.navBarGroup8.Caption = "Inventario";
+            this.navBarGroup8.Expanded = true;
             this.navBarGroup8.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT)});
@@ -513,6 +517,7 @@
             this.navBarGroup9.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup9.Appearance.Options.UseFont = true;
             this.navBarGroup9.Caption = "Reportes";
+            this.navBarGroup9.Expanded = true;
             this.navBarGroup9.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem21)});
             this.navBarGroup9.Name = "navBarGroup9";

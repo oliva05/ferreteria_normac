@@ -3228,15 +3228,18 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(2))
+                if (UsuarioLogeado.ValidarNivelPermisos(4))
                 {
-                    xfrmProveedorCAI frm = new xfrmProveedorCAI(this.UsuarioLogeado);
+                    //xfrmProveedorCAI frm = new xfrmProveedorCAI(this.UsuarioLogeado);
+                    //frm.MdiParent = this.MdiParent;
+                    //frm.Show();
+                    xfrmJAGUAR_Proveedor_Admin frm = new xfrmJAGUAR_Proveedor_Admin(UsuarioLogeado);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #2 (Recepción de Facturas)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #4 (Gestión de Proveedores)");
                 }
             }
         }
