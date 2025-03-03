@@ -80,7 +80,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         txtCodigoPT.Text = PT_Class_instance.Code;
                         //tggCosteoPorArroba.IsOn = PT_Class_instance.CostoDeMO_porArrobaBit;
                         //txtCostoPorArroba.Text = string.Format("{0:###,##0.00}", PT_Class_instance.CostoPorArroba);
-                        //glueTipoFacturacion.EditValue = PT_Class_instance.tipo_facturacion_id;
+                        glueTipoFacturacion.EditValue = PT_Class_instance.tipo_facturacion_id;
                         //glueTipoBuffet.EditValue = PT_Class_instance.tipo_buffet_id;
                         grdSubClase.EditValue = PT_Class_instance.Id_sub_clase;
                         txtCodigoInterno.Text = PT_Class_instance.Code_interno;
