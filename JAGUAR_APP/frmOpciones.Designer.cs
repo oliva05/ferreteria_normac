@@ -1049,11 +1049,12 @@
             this.simpleButton78.Appearance.Options.UseFont = true;
             this.simpleButton78.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton78.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.dimension32px;
-            this.simpleButton78.Location = new System.Drawing.Point(2, 314);
+            this.simpleButton78.Location = new System.Drawing.Point(235, 250);
             this.simpleButton78.Name = "simpleButton78";
             this.simpleButton78.Size = new System.Drawing.Size(227, 58);
             this.simpleButton78.TabIndex = 30;
             this.simpleButton78.Text = "Conversiones \r\nTipos Presentación";
+            this.simpleButton78.Visible = false;
             this.simpleButton78.Click += new System.EventHandler(this.simpleButton78_Click);
             // 
             // cmdFacturas
@@ -1108,7 +1109,7 @@
             this.btnKardexTiposTransacciones.Appearance.Options.UseTextOptions = true;
             this.btnKardexTiposTransacciones.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnKardexTiposTransacciones.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnKardexTiposTransacciones.Location = new System.Drawing.Point(2, 378);
+            this.btnKardexTiposTransacciones.Location = new System.Drawing.Point(2, 314);
             this.btnKardexTiposTransacciones.Name = "btnKardexTiposTransacciones";
             this.btnKardexTiposTransacciones.Size = new System.Drawing.Size(227, 58);
             this.btnKardexTiposTransacciones.TabIndex = 10;
