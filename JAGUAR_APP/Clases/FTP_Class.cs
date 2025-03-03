@@ -90,5 +90,29 @@ namespace JAGUAR_PRO.Clases
             }
         }
 
+        public bool RemoveFile(string path_file)
+        {
+            string ftpServer = path_file;
+            string ftpUsername = "operador";
+            string ftpPassword = "Tempo1234";
+
+            try
+            {
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpServer);
+                request.Method = WebRequestMethods.Ftp.DeleteFile;
+                request.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
+
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                Console.WriteLine($"Archivo eliminado, status: {response.StatusDescription}");
+                response.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+
     }
 }

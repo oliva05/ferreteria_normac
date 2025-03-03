@@ -133,7 +133,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 con.Open();
 
                 //SqlCommand cmd = new SqlCommand("codesahn.sp_get_detalle_facturas_recibidas", con);
-                SqlCommand cmd = new SqlCommand("codesahn.[sp_get_detalle_facturas_recibidas_v2]", con);
+                SqlCommand cmd = new SqlCommand("dbo.[sp_get_detalle_facturas_recibidas_v2]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ver_todas", toggleSwitchVerTodas.IsOn);
                 cmd.Parameters.AddWithValue("@desde", dtDesde.DateTime);

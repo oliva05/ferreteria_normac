@@ -12,6 +12,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.Utils.CommonDialogs;
+using JAGUAR_PRO.Compras;
+using System.IO;
+using DevExpress.Office.Utils;
+using DevExpress.XtraCharts.Native;
+using DevExpress.XtraGrid.Views.Grid;
+using JAGUAR_PRO.LogisticaJaguar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
@@ -27,18 +36,22 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         Clases.ProductoTerminado PT_Class_instance;
 
         decimal CostoPorArroba;
-
+        int IdPT;
 
         public frmCRUD_ProductoTerminadoV2(UserLogin pUser, TipoOperacion pTipoOperacion, int pId_PT)
         {
             InitializeComponent();
+
+            MagiaEmbellezedora();
+            
+
             UsuarioLogeado = pUser;
             LoadPresentacionesPT();
             LoadSubClases();
             LoadTiposPT();
             LoadEstadosPT();
             LoadTipoFacturacion();
-            LoadTipoBuffet();
+            LoadTipoInventario();
             LoadTipoDestinoFacturacion();
             LoadClasesProductoTerminado();
             LoadImpuestosAplicables();
@@ -55,7 +68,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     toggleSwitchEnablePT.Enabled = false;
                     break;
                 case TipoOperacion.Update:
-                    if (PT_Class_instance.Recuperar_producto(pId_PT))
+                    IdPT = pId_PT;
+                    if (PT_Class_instance.Recuperar_producto(IdPT))
                     {
                         lblTituloVentana.Text = "Edición de Producto Terminado";
                         gridLookUpEditEstadoPT.EditValue = PT_Class_instance.Id_estado;
@@ -68,7 +82,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         //txtCostoPorArroba.Text = string.Format("{0:###,##0.00}", PT_Class_instance.CostoPorArroba);
                         //glueTipoFacturacion.EditValue = PT_Class_instance.tipo_facturacion_id;
                         //glueTipoBuffet.EditValue = PT_Class_instance.tipo_buffet_id;
-
+                        grdSubClase.EditValue = PT_Class_instance.Id_sub_clase;
+                        txtCodigoInterno.Text = PT_Class_instance.Code_interno;
+                        gridTipoInventario.EditValue = PT_Class_instance.TipoInventario;
+                        txtBarCode.Text = PT_Class_instance.Barcode;
+                        txtOEM.Text = PT_Class_instance.CodeOEM;
 
                         gridLookUpEditTipoFacturacionDestino.EditValueChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_EditValueChanged);
                         gridLookUpEditTipoFacturacionDestino.EditValue = PT_Class_instance.id_tipo_facturacion_prd;
@@ -87,6 +105,21 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     break;
             }
             
+        }
+
+        private void MagiaEmbellezedora()
+        {
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("The Bezier");
+            //DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("WXI Compact");
+            gridView9.OptionsView.EnableAppearanceEvenRow = true;
+            gridView9.OptionsView.EnableAppearanceOddRow = true;
+            gridView9.Appearance.Row.BackColor = Color.LightGray;
+            gridView9.Appearance.OddRow.BackColor = Color.White;
+
+            txtDescripcionProducto.Properties.NullText = "Ingrese la descripcion aquí...";
+            txtDescripcionProducto.Properties.Appearance.Font = new Font("Consola", 8, FontStyle.Bold);
+
+
         }
 
         private void LoadSubClases()
@@ -245,7 +278,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             }
         }
 
-        private void LoadTipoBuffet()
+        private void LoadTipoInventario()
         {
             try
             {
@@ -253,14 +286,14 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                string sql = @"dbo.uspGetTipoBuffet_v2";
+                string sql = @"dbo.sp_get_pt_productos_tipo_inventario";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                dsMantenimientosFacturacion.TipoBuffet.Clear();
+                dsProductoTerminado1.tipo_inventario.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                adat.Fill(dsMantenimientosFacturacion.TipoBuffet);
+                adat.Fill(dsProductoTerminado1.tipo_inventario);
                 con.Close();
             }
             catch (Exception ec)
@@ -325,13 +358,27 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 CajaDialogo.Error("Es necesario indicar el Destino del Producto!");
                 return;
             }
-            
+
+
+            if (string.IsNullOrEmpty(gridTipoInventario.Text))
+            {
+                CajaDialogo.Error("Es necesario indicar el Tipo de Producto!");
+                return;
+            }
+
+            //if (string.IsNullOrEmpty(txtBarCode.Text))
+            //{
+            //    CajaDialogo.Error("Es necesario indicar el Codigo de Barra para el Escaneo!");
+            //    return;
+            //}
+
+
             //if (string.IsNullOrEmpty(glueTipoBuffet.Text))
             //{
             //    CajaDialogo.Error("Es necesario indicar un tipo de buffet del Producto!");
             //    return;
             //}
-            
+
             if (string.IsNullOrEmpty(glueTipoFacturacion.Text))
             {
                 CajaDialogo.Error("Es necesario indicar el tipo de facturación del Producto!");
@@ -396,7 +443,34 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
                 cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
                 cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
+                cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
+                cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
+                cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
                 cmd.ExecuteNonQuery();
+
+                FTP_Class ftp = new FTP_Class();
+                string file_name;
+                foreach (dsProductoTerminado.PTImagenesRow item in dsProductoTerminado1.PTImagenes)
+                {
+                    if (item.id == 0)
+                    {
+                        string ext = Path.GetExtension(item.file_name);
+                        file_name = DateTime.Now.ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
+
+                        if (ftp.GuardarArchivo(UsuarioLogeado, file_name, item.path))
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.CommandText = "sp_pt_insert_imagenes";
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                            cmd.Parameters.AddWithValue("@path", dp.FTP_Tickets_LOSA + file_name);
+                            cmd.Parameters.AddWithValue("@file_name", item.file_name);
+                            cmd.Parameters.AddWithValue("@id_user", UsuarioLogeado.Id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    
+                }
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -449,6 +523,101 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private void gridView8_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             
+        }
+
+        private byte[] ImageToByteArray(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Guardar como JPG
+                return ms.ToArray(); // Convertir a byte[]
+            }
+        }
+
+        private void btnAddImage_Click(object sender, EventArgs e)
+        {
+            int contador = 0;
+            try
+            {
+                openFileDialog1.InitialDirectory = "c:\\";
+                openFileDialog1.Filter = "Files|*.jpg;*.jpeg;*.png;*.pdf;*.xlsx";
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK) 
+                {
+                    contador = 0;
+
+                    Image img = Image.FromFile(openFileDialog1.FileName);
+                    byte[] imgBytes = ImageToByteArray(img);
+
+                    foreach (var item in openFileDialog1.SafeFileNames) 
+                    {
+                        DataRow newRow = dsProductoTerminado1.PTImagenes.NewRow();
+                        newRow["id"] = 0;
+                        newRow["fecha_registro"] = DateTime.Now;
+                        newRow["path"] = openFileDialog1.FileNames[contador];
+                        newRow["file_name"] = item;
+                        newRow["id_user"] = UsuarioLogeado.Id;
+                        newRow["user"] = UsuarioLogeado.Nombre;
+                        newRow["id_pt"] = IdPT;
+                        newRow["imagen"] = imgBytes;
+                        dsProductoTerminado1.PTImagenes.Rows.Add(newRow);
+                        contador++;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Show(ex.Message);
+            }
+        }
+
+        private void reposPictureItemImage_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+        }
+
+        private void reposDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+           
+            var row = (dsProductoTerminado.PTImagenesRow)gridView9.GetFocusedDataRow();
+
+            try
+            {
+                if (row.id == 0)//No existe detalle, solo como memoria
+                {
+                    gridView9.DeleteRow(gridView9.FocusedRowHandle);
+                    dsProductoTerminado1.AcceptChanges();
+                }
+                else
+                {
+                    DialogResult r = CajaDialogo.Pregunta("Desea eliminar la imagen?");
+                    if (r != DialogResult.Yes)
+                        return;
+
+                    FTP_Class fTP_Class = new FTP_Class();
+
+                    fTP_Class.RemoveFile(row.path);
+
+                    DataOperations dp = new DataOperations();
+                    SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+
+                    cnx.Open();
+
+                    SqlCommand cmd = new SqlCommand("dbo.sp_pt_producto_delete_imagen", cnx);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = row.id;
+                    cmd.ExecuteNonQuery();
+
+                    gridView9.DeleteRow(gridView9.FocusedRowHandle);
+                    dsProductoTerminado1.AcceptChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+
         }
     }
 }

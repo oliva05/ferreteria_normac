@@ -453,7 +453,7 @@ namespace JAGUAR_PRO.Compras
             this.xrLabel6.SizeF = new System.Drawing.SizeF(323.9582F, 33.41669F);
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
-            this.xrLabel6.Text = "Ferreteria Normac";
+            this.xrLabel6.Text = "NORMAC S. DE R.L. DE C.V.";
             this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // ReportFooter
@@ -474,7 +474,7 @@ namespace JAGUAR_PRO.Compras
             // lblComentario
             // 
             this.lblComentario.Font = new DevExpress.Drawing.DXFont("Calibri", 10F);
-            this.lblComentario.LocationFloat = new DevExpress.Utils.PointFloat(103.4169F, 3.125F);
+            this.lblComentario.LocationFloat = new DevExpress.Utils.PointFloat(103.4169F, 10F);
             this.lblComentario.Name = "lblComentario";
             this.lblComentario.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblComentario.SizeF = new System.Drawing.SizeF(346.5831F, 70.99991F);
@@ -485,7 +485,7 @@ namespace JAGUAR_PRO.Compras
             // xrLabel7
             // 
             this.xrLabel7.Font = new DevExpress.Drawing.DXFont("Calibri", 10F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10F);
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel7.SizeF = new System.Drawing.SizeF(115.9168F, 23.00002F);
@@ -603,7 +603,7 @@ namespace JAGUAR_PRO.Compras
             this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable2.Font = new DevExpress.Drawing.DXFont("Calibri", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrTable2.Font = new DevExpress.Drawing.DXFont("Calibri", 10F);
             this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(1.907349E-05F, 1.046661F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {

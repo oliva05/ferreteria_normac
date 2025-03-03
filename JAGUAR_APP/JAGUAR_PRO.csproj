@@ -4176,6 +4176,8 @@
     <None Include="Resources\despachador.png" />
     <None Include="Resources\delivery32px.png" />
     <None Include="Resources\check-mark_24X24.png" />
+    <None Include="Resources\contentarrangeinrows_32x32.png" />
+    <None Include="Resources\contentarrangeinrows_16x16.png" />
     <Content Include="Resources\devoluciones.png" />
     <None Include="Resources\dimension32px.png" />
     <Content Include="Resources\edit.png" />
@@ -4296,6 +4298,8 @@
     <None Include="Resources\right-arrow32px.png" />
     <None Include="Resources\right-arrow24px.png" />
     <None Include="Resources\Setting.svg" />
+    <None Include="Resources\remove_32x32.png" />
+    <None Include="Resources\select_16x16.png" />
     <Content Include="Resources\settings.png" />
     <None Include="Resources\shield_24X24.png" />
     <None Include="Resources\shield_16X16.png" />
@@ -4341,6 +4345,7 @@
     <None Include="Resources\warehouse32px1.png" />
     <Content Include="Resources\weighing_machine24px.png" />
     <Content Include="Resources\wheat.png" />
+    <None Include="Resources\withtextwrapping_topright_32x32.png" />
     <Content Include="Resources\wrench.png" />
   </ItemGroup>
   <ItemGroup>
