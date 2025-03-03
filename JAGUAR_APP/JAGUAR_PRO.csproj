@@ -667,10 +667,12 @@
     <Compile Include="Clases\Conf_TablesID.cs" />
     <Compile Include="Clases\Cuentas.cs" />
     <Compile Include="Clases\DataOperations.cs" />
+    <Compile Include="Clases\ElejirInvAlmacen.cs" />
     <Compile Include="Clases\FacturaEstado.cs" />
     <Compile Include="Clases\FacturasPagoMultiple.cs" />
     <Compile Include="Clases\Factura_SolicitudAutorizacion.cs" />
     <Compile Include="Clases\OrdenesCompra.cs" />
+    <Compile Include="Clases\PedidoCliente.cs" />
     <Compile Include="Clases\ReciboH.cs" />
     <Compile Include="Clases\Notas_CreditoDebito.cs" />
     <Compile Include="Clases\RegistroPago.cs" />
@@ -907,6 +909,30 @@
     </Compile>
     <Compile Include="Despachos\fromdespacho.Designer.cs">
       <DependentUpon>fromdespacho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\dsPedidosClientesV.cs">
+      <DependentUpon>dsPedidosClientesV.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\dsPedidosClientesV.Designer.cs">
+      <DependentUpon>dsPedidosClientesV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmElejirAlmacenPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmElejirAlmacenPedido.Designer.cs">
+      <DependentUpon>frmElejirAlmacenPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmHomePedidosClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmHomePedidosClientes.Designer.cs">
+      <DependentUpon>frmHomePedidosClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmPedidoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmPedidoCliente.Designer.cs">
+      <DependentUpon>frmPedidoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Despachos\Reportes\dsReporte.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1424,6 +1450,12 @@
     </Compile>
     <Compile Include="Facturacion\Reportes\rptFacturaLetterSize.Designer.cs">
       <DependentUpon>rptFacturaLetterSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\rptPedidoCliente.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\rptPedidoCliente.Designer.cs">
+      <DependentUpon>rptPedidoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\Reportes\rpt_cierre_dia_completeV2.cs">
       <SubType>Component</SubType>
@@ -2232,6 +2264,13 @@
     </None>
     <None Include="Despachos\dsTransaccionesDespacho.xss">
       <DependentUpon>dsTransaccionesDespacho.xsd</DependentUpon>
+    </None>
+    <None Include="Despachos\Pedidos\dsPedidosClientesV.xsc">
+      <DependentUpon>dsPedidosClientesV.xsd</DependentUpon>
+    </None>
+    <None Include="Despachos\Pedidos\dsPedidosClientesV.xsd" />
+    <None Include="Despachos\Pedidos\dsPedidosClientesV.xss">
+      <DependentUpon>dsPedidosClientesV.xsd</DependentUpon>
     </None>
     <None Include="Despachos\Reportes\dsReporte.xsc">
       <DependentUpon>dsReporte.xsd</DependentUpon>
@@ -3150,6 +3189,15 @@
     <EmbeddedResource Include="Despachos\fromdespacho.resx">
       <DependentUpon>fromdespacho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Despachos\Pedidos\frmElejirAlmacenPedido.resx">
+      <DependentUpon>frmElejirAlmacenPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Despachos\Pedidos\frmHomePedidosClientes.resx">
+      <DependentUpon>frmHomePedidosClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Despachos\Pedidos\frmPedidoCliente.resx">
+      <DependentUpon>frmPedidoCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Despachos\Reportes\frmReq_view.resx">
       <DependentUpon>frmReq_view.cs</DependentUpon>
     </EmbeddedResource>
@@ -3362,6 +3410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\rptFacturaLetterSize.resx">
       <DependentUpon>rptFacturaLetterSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Reportes\rptPedidoCliente.resx">
+      <DependentUpon>rptPedidoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\rpt_cierre_dia_completeV2.resx">
       <DependentUpon>rpt_cierre_dia_completeV2.cs</DependentUpon>
