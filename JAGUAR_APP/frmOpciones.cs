@@ -4775,5 +4775,10 @@ namespace JAGUAR_PRO
             //frm.MdiParent = this.MdiParent;
             //frm.Show();
         }
+
+        private void tabPageFacturacion_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

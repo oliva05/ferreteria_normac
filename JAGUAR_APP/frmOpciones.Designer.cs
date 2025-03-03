@@ -135,7 +135,7 @@
             this.navBarItem56 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem57 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem58 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem64 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbPrefactura = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarG_ReportesFacturacion = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbReportesFacturacionMain = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemCambioDePrecio = new DevExpress.XtraNavBar.NavBarItem();
@@ -1396,10 +1396,11 @@
             this.tabPageFacturacion.Name = "tabPageFacturacion";
             this.tabPageFacturacion.Size = new System.Drawing.Size(1231, 477);
             this.tabPageFacturacion.Text = "Facturación";
+            this.tabPageFacturacion.Paint += new System.Windows.Forms.PaintEventHandler(this.tabPageFacturacion_Paint);
             // 
             // navBarControl3
             // 
-            this.navBarControl3.ActiveGroup = this.navBarGroup11;
+            this.navBarControl3.ActiveGroup = this.navBarGroup10;
             this.navBarControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.navBarControl3.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
@@ -1409,6 +1410,7 @@
             this.navBarGroup7});
             this.navBarControl3.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarFacturaMain,
+            this.nbPrefactura,
             this.navBarItemFacturasEmitidas,
             this.NBI_Cliente,
             this.NBI_NumeracionFiscal,
@@ -1423,12 +1425,12 @@
             this.nbKardexFacturacion,
             this.navBarItem58,
             this.nbReportesFacturacionMain,
-            this.navBarItem64,
             this.navBarItemCambioDePrecio,
             this.navBarItem20});
             this.navBarControl3.Location = new System.Drawing.Point(2, 2);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
+            this.navBarControl3.OptionsNavPane.AllowOptionsMenuItem = true;
             this.navBarControl3.OptionsNavPane.ExpandedWidth = 308;
             this.navBarControl3.Size = new System.Drawing.Size(308, 473);
             this.navBarControl3.TabIndex = 0;
@@ -1467,6 +1469,7 @@
             this.navBarGroup10.Caption = "Ventas";
             this.navBarGroup10.Expanded = true;
             this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbPrefactura),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarFacturaMain),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemFacturasEmitidas),
             new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_Cliente),
@@ -1479,8 +1482,7 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.nB_PagoMultiple),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem56),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem57),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem58),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem64)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem58)});
             this.navBarGroup10.Name = "navBarGroup10";
             // 
             // navBarFacturaMain
@@ -1660,18 +1662,18 @@
             this.navBarItem58.Name = "navBarItem58";
             this.navBarItem58.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem58_LinkClicked);
             // 
-            // navBarItem64
+            // nbPrefactura
             // 
-            this.navBarItem64.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem64.Appearance.Options.UseFont = true;
-            this.navBarItem64.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem64.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem64.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem64.AppearancePressed.Options.UseFont = true;
-            this.navBarItem64.Caption = "Pedidos de Cliente";
-            this.navBarItem64.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem64.ImageOptions.SmallImage")));
-            this.navBarItem64.Name = "navBarItem64";
-            this.navBarItem64.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem64_LinkClicked);
+            this.nbPrefactura.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbPrefactura.Appearance.Options.UseFont = true;
+            this.nbPrefactura.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbPrefactura.AppearanceHotTracked.Options.UseFont = true;
+            this.nbPrefactura.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbPrefactura.AppearancePressed.Options.UseFont = true;
+            this.nbPrefactura.Caption = "Pre Factura";
+            this.nbPrefactura.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem64.ImageOptions.SmallImage")));
+            this.nbPrefactura.Name = "nbPrefactura";
+            this.nbPrefactura.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem64_LinkClicked);
             // 
             // navBarG_ReportesFacturacion
             // 
@@ -2553,7 +2555,7 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarGroup navBarG_ReportesFacturacion;
         private DevExpress.XtraNavBar.NavBarItem nbReportesFacturacionMain;
         private DevExpress.XtraNavBar.NavBarItem nbReporteCompras;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem64;
+        private DevExpress.XtraNavBar.NavBarItem nbPrefactura;
         private DevExpress.XtraNavBar.NavBarItem navBarItemCambioDePrecio;
         private DevExpress.XtraEditors.SimpleButton cmdCuentas;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup7;
