@@ -323,7 +323,6 @@
             this.navBarGroup5.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup5.AppearancePressed.Options.UseFont = true;
             this.navBarGroup5.Caption = "Recepción de compras";
-            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemRecepcionFactura),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCAI_Proveedores),
@@ -410,7 +409,6 @@
             this.navBarGroup12.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup12.AppearancePressed.Options.UseFont = true;
             this.navBarGroup12.Caption = "Compras";
-            this.navBarGroup12.Expanded = true;
             this.navBarGroup12.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem23)});
             this.navBarGroup12.Name = "navBarGroup12";
@@ -436,7 +434,6 @@
             this.navBarGroup6.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup6.Appearance.Options.UseFont = true;
             this.navBarGroup6.Caption = "Despachos";
-            this.navBarGroup6.Expanded = true;
             this.navBarGroup6.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem13),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem24)});
@@ -476,7 +473,6 @@
             this.navBarGroup8.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup8.AppearancePressed.Options.UseFont = true;
             this.navBarGroup8.Caption = "Inventario";
-            this.navBarGroup8.Expanded = true;
             this.navBarGroup8.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT)});
@@ -517,7 +513,6 @@
             this.navBarGroup9.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup9.Appearance.Options.UseFont = true;
             this.navBarGroup9.Caption = "Reportes";
-            this.navBarGroup9.Expanded = true;
             this.navBarGroup9.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem21)});
             this.navBarGroup9.Name = "navBarGroup9";
@@ -1183,7 +1178,7 @@
             this.xtraTabPageUsuarios.Controls.Add(this.simpleButton37);
             this.xtraTabPageUsuarios.Controls.Add(this.simpleButton75);
             this.xtraTabPageUsuarios.Name = "xtraTabPageUsuarios";
-            this.xtraTabPageUsuarios.Size = new System.Drawing.Size(1222, 442);
+            this.xtraTabPageUsuarios.Size = new System.Drawing.Size(944, 499);
             this.xtraTabPageUsuarios.Text = "Gestión de Usuarios";
             // 
             // simpleButton2
@@ -1306,7 +1301,7 @@
             this.xtraTabPageFacturacion.Margin = new System.Windows.Forms.Padding(2);
             this.xtraTabPageFacturacion.Name = "xtraTabPageFacturacion";
             this.xtraTabPageFacturacion.PageVisible = false;
-            this.xtraTabPageFacturacion.Size = new System.Drawing.Size(1222, 442);
+            this.xtraTabPageFacturacion.Size = new System.Drawing.Size(944, 499);
             this.xtraTabPageFacturacion.Text = "Mantenimiento Facturación";
             // 
             // simpleButton3
@@ -1383,7 +1378,7 @@
             this.tabRRHH.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.rrhh_24X24;
             this.tabRRHH.Name = "tabRRHH";
             this.tabRRHH.PageVisible = false;
-            this.tabRRHH.Size = new System.Drawing.Size(1231, 477);
+            this.tabRRHH.Size = new System.Drawing.Size(953, 534);
             this.tabRRHH.Text = "RRHH";
             // 
             // tabContabilidad
@@ -1391,7 +1386,7 @@
             this.tabContabilidad.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.calculo;
             this.tabContabilidad.Name = "tabContabilidad";
             this.tabContabilidad.PageVisible = false;
-            this.tabContabilidad.Size = new System.Drawing.Size(1231, 477);
+            this.tabContabilidad.Size = new System.Drawing.Size(953, 534);
             this.tabContabilidad.Text = "Contabilidad";
             // 
             // tabPageFacturacion
@@ -1400,7 +1395,7 @@
             this.tabPageFacturacion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabPageFacturacion.ImageOptions.Image")));
             this.tabPageFacturacion.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageFacturacion.Name = "tabPageFacturacion";
-            this.tabPageFacturacion.Size = new System.Drawing.Size(1231, 477);
+            this.tabPageFacturacion.Size = new System.Drawing.Size(953, 534);
             this.tabPageFacturacion.Text = "Facturación";
             this.tabPageFacturacion.Paint += new System.Windows.Forms.PaintEventHandler(this.tabPageFacturacion_Paint);
             // 
@@ -1438,7 +1433,7 @@
             this.navBarControl3.Name = "navBarControl3";
             this.navBarControl3.OptionsNavPane.AllowOptionsMenuItem = true;
             this.navBarControl3.OptionsNavPane.ExpandedWidth = 308;
-            this.navBarControl3.Size = new System.Drawing.Size(308, 473);
+            this.navBarControl3.Size = new System.Drawing.Size(308, 526);
             this.navBarControl3.TabIndex = 0;
             this.navBarControl3.Text = "navBarControl3";
             this.navBarControl3.Click += new System.EventHandler(this.navBarControl3_Click);
