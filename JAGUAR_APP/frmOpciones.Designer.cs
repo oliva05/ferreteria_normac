@@ -119,9 +119,8 @@
             this.tabContabilidad = new DevExpress.XtraTab.XtraTabPage();
             this.tabPageFacturacion = new DevExpress.XtraTab.XtraTabPage();
             this.navBarControl3 = new DevExpress.XtraNavBar.NavBarControl();
-            this.navBarGroup11 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.nbKardexFacturacion = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup10 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nbPrefactura = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarFacturaMain = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemFacturasEmitidas = new DevExpress.XtraNavBar.NavBarItem();
             this.NBI_Cliente = new DevExpress.XtraNavBar.NavBarItem();
@@ -135,7 +134,8 @@
             this.navBarItem56 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem57 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem58 = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbPrefactura = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup11 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nbKardexFacturacion = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarG_ReportesFacturacion = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbReportesFacturacionMain = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemCambioDePrecio = new DevExpress.XtraNavBar.NavBarItem();
@@ -213,7 +213,7 @@
             this.cmdHome.Appearance.Options.UseFont = true;
             this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdHome.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdHome.ImageOptions.Image")));
-            this.cmdHome.Location = new System.Drawing.Point(1089, 6);
+            this.cmdHome.Location = new System.Drawing.Point(811, 6);
             this.cmdHome.Name = "cmdHome";
             this.cmdHome.Size = new System.Drawing.Size(145, 42);
             this.cmdHome.TabIndex = 6;
@@ -230,7 +230,7 @@
             this.tabOpciones.Location = new System.Drawing.Point(5, 57);
             this.tabOpciones.Name = "tabOpciones";
             this.tabOpciones.SelectedTabPage = this.TabLogistica;
-            this.tabOpciones.Size = new System.Drawing.Size(1233, 521);
+            this.tabOpciones.Size = new System.Drawing.Size(955, 578);
             this.tabOpciones.TabIndex = 8;
             this.tabOpciones.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabLogistica,
@@ -245,7 +245,7 @@
             this.TabLogistica.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TabLogistica.ImageOptions.Image")));
             this.TabLogistica.Name = "TabLogistica";
             this.TabLogistica.PageVisible = false;
-            this.TabLogistica.Size = new System.Drawing.Size(1231, 477);
+            this.TabLogistica.Size = new System.Drawing.Size(953, 534);
             this.TabLogistica.Text = "Logistica";
             // 
             // navBarControl2
@@ -311,7 +311,7 @@
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
             this.navBarControl2.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.ExplorerBar;
-            this.navBarControl2.Size = new System.Drawing.Size(338, 477);
+            this.navBarControl2.Size = new System.Drawing.Size(338, 534);
             this.navBarControl2.SkinExplorerBarViewScrollStyle = DevExpress.XtraNavBar.SkinExplorerBarViewScrollStyle.Buttons;
             this.navBarControl2.TabIndex = 21;
             this.navBarControl2.Text = "navBarControl2";
@@ -922,7 +922,7 @@
             this.TabAdmin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TabAdmin.ImageOptions.Image")));
             this.TabAdmin.Name = "TabAdmin";
             this.TabAdmin.PageVisible = false;
-            this.TabAdmin.Size = new System.Drawing.Size(1231, 477);
+            this.TabAdmin.Size = new System.Drawing.Size(953, 534);
             this.TabAdmin.Text = "Administrador";
             // 
             // xtraTabControl2
@@ -933,7 +933,7 @@
             this.xtraTabControl2.Location = new System.Drawing.Point(4, 3);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPageCRUDS;
-            this.xtraTabControl2.Size = new System.Drawing.Size(1224, 471);
+            this.xtraTabControl2.Size = new System.Drawing.Size(946, 528);
             this.xtraTabControl2.TabIndex = 25;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPageUsuarios,
@@ -960,7 +960,7 @@
             this.xtraTabPageCRUDS.Controls.Add(this.btnEstadosRequisiciones);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton74);
             this.xtraTabPageCRUDS.Name = "xtraTabPageCRUDS";
-            this.xtraTabPageCRUDS.Size = new System.Drawing.Size(1222, 442);
+            this.xtraTabPageCRUDS.Size = new System.Drawing.Size(944, 499);
             this.xtraTabPageCRUDS.Text = "Mantenimientos";
             // 
             // simpleButton6
@@ -1443,31 +1443,6 @@
             this.navBarControl3.Text = "navBarControl3";
             this.navBarControl3.Click += new System.EventHandler(this.navBarControl3_Click);
             // 
-            // navBarGroup11
-            // 
-            this.navBarGroup11.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
-            this.navBarGroup11.Appearance.Options.UseFont = true;
-            this.navBarGroup11.Caption = "Inventario";
-            this.navBarGroup11.Expanded = true;
-            this.navBarGroup11.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbKardexFacturacion)});
-            this.navBarGroup11.Name = "navBarGroup11";
-            // 
-            // nbKardexFacturacion
-            // 
-            this.nbKardexFacturacion.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbKardexFacturacion.Appearance.Options.UseFont = true;
-            this.nbKardexFacturacion.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbKardexFacturacion.AppearanceDisabled.Options.UseFont = true;
-            this.nbKardexFacturacion.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbKardexFacturacion.AppearanceHotTracked.Options.UseFont = true;
-            this.nbKardexFacturacion.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbKardexFacturacion.AppearancePressed.Options.UseFont = true;
-            this.nbKardexFacturacion.Caption = "Inventario por Punto de Facturación";
-            this.nbKardexFacturacion.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.inventory_24x24;
-            this.nbKardexFacturacion.Name = "nbKardexFacturacion";
-            this.nbKardexFacturacion.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbKardexFacturacion_LinkPressed);
-            // 
             // navBarGroup10
             // 
             this.navBarGroup10.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1490,6 +1465,19 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem57),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem58)});
             this.navBarGroup10.Name = "navBarGroup10";
+            // 
+            // nbPrefactura
+            // 
+            this.nbPrefactura.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbPrefactura.Appearance.Options.UseFont = true;
+            this.nbPrefactura.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbPrefactura.AppearanceHotTracked.Options.UseFont = true;
+            this.nbPrefactura.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbPrefactura.AppearancePressed.Options.UseFont = true;
+            this.nbPrefactura.Caption = "Pre Factura";
+            this.nbPrefactura.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbPrefactura.ImageOptions.SmallImage")));
+            this.nbPrefactura.Name = "nbPrefactura";
+            this.nbPrefactura.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem64_LinkClicked);
             // 
             // navBarFacturaMain
             // 
@@ -1668,18 +1656,30 @@
             this.navBarItem58.Name = "navBarItem58";
             this.navBarItem58.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem58_LinkClicked);
             // 
-            // nbPrefactura
+            // navBarGroup11
             // 
-            this.nbPrefactura.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbPrefactura.Appearance.Options.UseFont = true;
-            this.nbPrefactura.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbPrefactura.AppearanceHotTracked.Options.UseFont = true;
-            this.nbPrefactura.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.nbPrefactura.AppearancePressed.Options.UseFont = true;
-            this.nbPrefactura.Caption = "Pre Factura";
-            this.nbPrefactura.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem64.ImageOptions.SmallImage")));
-            this.nbPrefactura.Name = "nbPrefactura";
-            this.nbPrefactura.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem64_LinkClicked);
+            this.navBarGroup11.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup11.Appearance.Options.UseFont = true;
+            this.navBarGroup11.Caption = "Inventario";
+            this.navBarGroup11.Expanded = true;
+            this.navBarGroup11.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbKardexFacturacion)});
+            this.navBarGroup11.Name = "navBarGroup11";
+            // 
+            // nbKardexFacturacion
+            // 
+            this.nbKardexFacturacion.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbKardexFacturacion.Appearance.Options.UseFont = true;
+            this.nbKardexFacturacion.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbKardexFacturacion.AppearanceDisabled.Options.UseFont = true;
+            this.nbKardexFacturacion.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbKardexFacturacion.AppearanceHotTracked.Options.UseFont = true;
+            this.nbKardexFacturacion.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.nbKardexFacturacion.AppearancePressed.Options.UseFont = true;
+            this.nbKardexFacturacion.Caption = "Inventario por Punto de Facturación";
+            this.nbKardexFacturacion.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.inventory_24x24;
+            this.nbKardexFacturacion.Name = "nbKardexFacturacion";
+            this.nbKardexFacturacion.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbKardexFacturacion_LinkPressed);
             // 
             // navBarG_ReportesFacturacion
             // 
@@ -2349,7 +2349,7 @@
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(914, 10);
+            this.labelControl5.Location = new System.Drawing.Point(636, 10);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(118, 15);
             this.labelControl5.TabIndex = 33;
@@ -2358,7 +2358,7 @@
             // txtEquipoLogeadoActual
             // 
             this.txtEquipoLogeadoActual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEquipoLogeadoActual.Location = new System.Drawing.Point(914, 26);
+            this.txtEquipoLogeadoActual.Location = new System.Drawing.Point(636, 26);
             this.txtEquipoLogeadoActual.Name = "txtEquipoLogeadoActual";
             this.txtEquipoLogeadoActual.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEquipoLogeadoActual.Properties.Appearance.Options.UseFont = true;
@@ -2383,7 +2383,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1236, 582);
+            this.ClientSize = new System.Drawing.Size(958, 639);
             this.Controls.Add(this.txtEquipoLogeadoActual);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.cmdHome);
