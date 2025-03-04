@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,9 +12,10 @@ namespace JAGUAR_PRO.Clases
 {
     public class FTP_Class
     {
+    
         public FTP_Class()
         {
-
+            
         }
 
         public bool GuardarArchivo(UserLogin pUsuarioLogeado, string pFileName, string pathFile)
@@ -23,34 +25,35 @@ namespace JAGUAR_PRO.Clases
             {
                 DataOperations dp = new DataOperations();
 
-                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(dp.FTP_Tickets_LOSA + pFileName);
-                //request.Credentials = new NetworkCredential(dp.User_FTP_Server, dp.Password_UserFTPServer);
-                string pass = "Tempo1234";
-                string user_op = "operador";
-                if (pUsuarioLogeado != null)
-                {
-                    if (!string.IsNullOrEmpty(pUsuarioLogeado.Pass))
-                    {
-                        user_op = pUsuarioLogeado.ADuser1;
-                        pass = pUsuarioLogeado.Pass;
-                    }
-                }
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(dp.FTP_Normac_PT + pFileName);
+                request.Method = WebRequestMethods.Ftp.ListDirectory;
+                string pass =  "OPjSn10Z1U";
+                string user_op = "ftp_normac";
 
-                request.Credentials = new NetworkCredential(user_op, pass, "AQUAFEEDHN.COM");
-                //request.Credentials = new NetworkCredential(user_op, pass);
+
+                request.Credentials = new NetworkCredential(user_op, pass);
                 request.Method = WebRequestMethods.Ftp.UploadFile;
                 //request.EnableSsl = false;
+                request.UsePassive = false;  // Prueba cambiar a false si sigue fallando
+                request.UseBinary = true;
+                request.KeepAlive = false;
 
-                using (Stream fileStream = File.OpenRead(pathFile))
-                using (Stream ftpStream = request.GetRequestStream())
+                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
                 {
-                    fileStream.CopyTo(ftpStream);
-                    Guardado = true;
+                    CajaDialogo.Information("Conexión exitosa: " + response.StatusDescription);
                 }
+
+                //using (Stream fileStream = File.OpenRead(pathFile))
+                //using (Stream ftpStream = request.GetRequestStream())
+                //{
+                //    fileStream.CopyTo(ftpStream);
+                //    Guardado = true;
+                //}
             }
             catch(Exception ec)
             {
-                throw new Exception(ec.Message);
+                CajaDialogo.Error("Error de conexión FTP: " + ec.Message);
+                //throw new Exception(ec.Message);
             }
 
             return Guardado;
@@ -61,8 +64,8 @@ namespace JAGUAR_PRO.Clases
             try
             {
                 DataOperations dp = new DataOperations();
-                string pass = "Tempo1234";
-                string user_op = "operador";
+                string pass = "OPjSn10Z1U";
+                string user_op = "ftp_normac";
                 if (pUsuarioLogeado != null)
                 {
                     if (!string.IsNullOrEmpty(pUsuarioLogeado.Pass))
@@ -93,14 +96,14 @@ namespace JAGUAR_PRO.Clases
         public bool RemoveFile(string path_file)
         {
             string ftpServer = path_file;
-            string ftpUsername = "operador";
-            string ftpPassword = "Tempo1234";
+            string pass = "OPjSn10Z1U";
+            string user_op = "ftp_normac";
 
             try
             {
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpServer);
                 request.Method = WebRequestMethods.Ftp.DeleteFile;
-                request.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
+                request.Credentials = new NetworkCredential(user_op, pass);
 
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 Console.WriteLine($"Archivo eliminado, status: {response.StatusDescription}");

@@ -463,7 +463,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                             cmd.CommandText = "sp_pt_insert_imagenes";
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                            cmd.Parameters.AddWithValue("@path", dp.FTP_Tickets_LOSA + file_name);
+                            cmd.Parameters.AddWithValue("@path", dp.FTP_Normac_PT + file_name);
                             cmd.Parameters.AddWithValue("@file_name", item.file_name);
                             cmd.Parameters.AddWithValue("@id_user", UsuarioLogeado.Id);
                             cmd.ExecuteNonQuery();
