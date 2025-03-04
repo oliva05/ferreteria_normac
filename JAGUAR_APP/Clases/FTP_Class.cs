@@ -64,8 +64,8 @@ namespace JAGUAR_PRO.Clases
             try
             {
                 DataOperations dp = new DataOperations();
-                string pass = "ftp_normac";
-                string user_op = "OPjSn10Z1U";
+                string pass = "OPjSn10Z1U";
+                string user_op = "ftp_normac";
                 if (pUsuarioLogeado != null)
                 {
                     if (!string.IsNullOrEmpty(pUsuarioLogeado.Pass))
@@ -96,14 +96,14 @@ namespace JAGUAR_PRO.Clases
         public bool RemoveFile(string path_file)
         {
             string ftpServer = path_file;
-            string ftpUsername = "operador";
-            string ftpPassword = "Tempo1234";
+            string pass = "OPjSn10Z1U";
+            string user_op = "ftp_normac";
 
             try
             {
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpServer);
                 request.Method = WebRequestMethods.Ftp.DeleteFile;
-                request.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
+                request.Credentials = new NetworkCredential(user_op, pass);
 
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 Console.WriteLine($"Archivo eliminado, status: {response.StatusDescription}");
