@@ -187,7 +187,7 @@ namespace JAGUAR_PRO
                         frmOpciones frm = new frmOpciones(user1);
                         //if (this.MdiParent != null)
                         frm.MdiParent = this.MdiParent;
-                        frm.WindowState = FormWindowState.Maximized;
+                        //frm.WindowState = FormWindowState.Maximized;
                         frm.Show();
                         this.DialogResult = DialogResult.OK;
                         this.Close();
