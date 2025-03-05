@@ -21,6 +21,7 @@ using DevExpress.XtraCharts.Native;
 using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.LogisticaJaguar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using JAGUAR_PRO.Clases;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
@@ -43,8 +44,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             InitializeComponent();
 
             MagiaEmbellezedora();
-            
-
+           
             UsuarioLogeado = pUser;
             LoadPresentacionesPT();
             LoadSubClases();
@@ -94,6 +94,29 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
                         gle_ClaseProducto.EditValue = PT_Class_instance.Id_clase;
                         gleImpuestoAplicable.EditValue = PT_Class_instance.Id_isv_aplicable;
+
+                        DataTable dtPTPic = new DataTable();
+                        dtPTPic = PT_Class_instance.GetImagenesPT(IdPT);
+
+                        foreach (DataRow item in dtPTPic.Rows)
+                        {
+                            dsProductoTerminado.PTImagenesRow row1 = dsProductoTerminado1.PTImagenes.NewPTImagenesRow();
+                            row1.id = (int)item.ItemArray[0];
+                            row1.id_pt = (int)item.ItemArray[1];
+                            row1.path = (string)item.ItemArray[2];
+                            row1.file_name = (string)item.ItemArray[3];
+                            row1.fecha_registro = (DateTime)item.ItemArray[4];
+                            row1.user = (string)item.ItemArray[5];
+
+                            FTP_Class ftp = new FTP_Class();
+                           
+                            Image img = ftp.ShowImageFromFtp(row1.path);
+                            byte[] imgBytes = ImageToByteArray(img);
+                            row1.imagen = imgBytes;
+
+                            dsProductoTerminado1.PTImagenes.AddPTImagenesRow(row1);
+                        }
+                        
 
                         //gridLookUpEditTipoFacturacionDestino.TextChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_TextChanged);
                         //gridLookUpEditTipoFacturacionDestino.Text = PT_Class_instance.TipoFacturacion_prd_name;
@@ -455,7 +478,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     if (item.id == 0)
                     {
                         string ext = Path.GetExtension(item.file_name);
-                        file_name = DateTime.Now.ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
+                        file_name = dp.Now().ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
 
                         if (ftp.GuardarArchivo(UsuarioLogeado, file_name, item.path))
                         {
@@ -470,6 +493,19 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         }
                     }
                     
+                }
+
+                switch (TipoOperacionActual)
+                {
+                    case TipoOperacion.Insert:
+                        CajaDialogo.Information("Producto Terminado Creado con Exito!");
+                        break;
+
+                    case TipoOperacion.Update:
+                        CajaDialogo.Information("Producto Terminado Actualizado con Exito!");
+                        break;
+                    default:
+                        break;
                 }
 
                 this.DialogResult = DialogResult.OK;
@@ -595,9 +631,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     if (r != DialogResult.Yes)
                         return;
 
-                    FTP_Class fTP_Class = new FTP_Class();
+                    //FTP_Class fTP_Class = new FTP_Class();
 
-                    fTP_Class.RemoveFile(row.path);
+                    //fTP_Class.RemoveFile(row.path);
 
                     DataOperations dp = new DataOperations();
                     SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);

@@ -28,55 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.galleryPT = new DevExpress.XtraBars.Ribbon.GalleryControl();
+            this.imageSlider = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.galleryControl = new DevExpress.XtraBars.Ribbon.GalleryControl();
             this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.galleryPT)).BeginInit();
-            this.galleryPT.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryControl)).BeginInit();
+            this.galleryControl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // galleryPT
+            // imageSlider
             // 
-            this.galleryPT.Controls.Add(this.galleryControlClient1);
-            this.galleryPT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.galleryPT.Location = new System.Drawing.Point(0, 0);
-            this.galleryPT.Name = "galleryPT";
-            this.galleryPT.Size = new System.Drawing.Size(1134, 664);
-            this.galleryPT.TabIndex = 0;
-            this.galleryPT.Text = "galleryControl1";
+            this.imageSlider.AllowLooping = true;
+            this.imageSlider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.imageSlider.AnimationTime = 5000;
+            this.imageSlider.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Squeeze;
+            this.imageSlider.Location = new System.Drawing.Point(0, -9);
+            this.imageSlider.Name = "imageSlider";
+            this.imageSlider.ScrollButtonFadeAnimationTime = 100;
+            this.imageSlider.ScrollButtonVisibility = DevExpress.Utils.DefaultBoolean.True;
+            this.imageSlider.Size = new System.Drawing.Size(1022, 307);
+            this.imageSlider.TabIndex = 0;
+            // 
+            // galleryControl
+            // 
+            this.galleryControl.Controls.Add(this.galleryControlClient1);
+            this.galleryControl.Location = new System.Drawing.Point(0, 322);
+            this.galleryControl.Name = "galleryControl";
+            this.galleryControl.Size = new System.Drawing.Size(1022, 305);
+            this.galleryControl.TabIndex = 1;
+            this.galleryControl.Text = "galleryControl1";
             // 
             // galleryControlClient1
             // 
-            this.galleryControlClient1.GalleryControl = this.galleryPT;
+            this.galleryControlClient1.GalleryControl = this.galleryControl;
             this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
-            this.galleryControlClient1.Size = new System.Drawing.Size(1113, 660);
-            // 
-            // galleryDropDown1
-            // 
-            this.galleryDropDown1.Manager = null;
-            this.galleryDropDown1.Name = "galleryDropDown1";
+            this.galleryControlClient1.Size = new System.Drawing.Size(1001, 301);
             // 
             // frmPT_VisorImagenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 664);
-            this.Controls.Add(this.galleryPT);
+            this.ClientSize = new System.Drawing.Size(1026, 629);
+            this.Controls.Add(this.galleryControl);
+            this.Controls.Add(this.imageSlider);
             this.Name = "frmPT_VisorImagenes";
             this.Text = "Catalogo";
-            ((System.ComponentModel.ISupportInitialize)(this.galleryPT)).EndInit();
-            this.galleryPT.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryControl)).EndInit();
+            this.galleryControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.GalleryControl galleryPT;
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSlider;
+        private DevExpress.XtraBars.Ribbon.GalleryControl galleryControl;
         private DevExpress.XtraBars.Ribbon.GalleryControlClient galleryControlClient1;
-        private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
     }
 }

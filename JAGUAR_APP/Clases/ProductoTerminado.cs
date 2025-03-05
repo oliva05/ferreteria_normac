@@ -472,6 +472,33 @@ namespace JAGUAR_PRO.Clases
             }
             return cod;
         }
+
+        public DataTable GetImagenesPT(int IdPT)
+        {
+            DataTable dataImagenes = new DataTable();   
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_get_pt_imagenes", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdPt", IdPT);
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    dataImagenes.Load(dr);
+                    dr.Close();
+                    conn.Close();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+
+            return dataImagenes;
+        }
     }
 
 }

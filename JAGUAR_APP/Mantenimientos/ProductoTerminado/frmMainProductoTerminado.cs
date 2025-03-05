@@ -4,6 +4,7 @@ using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Formulas;
+using JAGUAR_PRO.LogisticaJaguar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -176,6 +177,15 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             {
                 CajaDialogo.Error("No cuenta con los privilegios para acceder a esta opción! Permiso requerido #1");
             }
+        }
+
+        private void cmdVistaImagenes_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)gridDetalleProductosCRUD.FocusedView;
+            var row = (dsProductoTerminado.lista_main_CRUDRow)gridview.GetFocusedDataRow();
+
+            frmPT_VisorImagenes frm = new frmPT_VisorImagenes(row.id);
+            frm.ShowDialog();
         }
     }
 }

@@ -2,11 +2,13 @@
 using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace JAGUAR_PRO.Clases
 {
@@ -38,17 +40,12 @@ namespace JAGUAR_PRO.Clases
                 request.UseBinary = true;
                 request.KeepAlive = false;
 
-                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                using (Stream fileStream = System.IO.File.OpenRead(pathFile))
+                using (Stream ftpStream = request.GetRequestStream())
                 {
-                    CajaDialogo.Information("Conexión exitosa: " + response.StatusDescription);
+                    fileStream.CopyTo(ftpStream);
+                    Guardado = true;
                 }
-
-                //using (Stream fileStream = File.OpenRead(pathFile))
-                //using (Stream ftpStream = request.GetRequestStream())
-                //{
-                //    fileStream.CopyTo(ftpStream);
-                //    Guardado = true;
-                //}
             }
             catch(Exception ec)
             {
@@ -81,7 +78,7 @@ namespace JAGUAR_PRO.Clases
                 request.Method = WebRequestMethods.Ftp.DownloadFile;
 
                 using (Stream ftpStream = request.GetResponse().GetResponseStream())
-                using (Stream fileStream = File.Create(pathDestination))
+                using (Stream fileStream = System.IO.File.Create(pathDestination))
                 {
                     ftpStream.CopyTo(fileStream);
                 }
@@ -113,8 +110,45 @@ namespace JAGUAR_PRO.Clases
             catch (Exception ex)
             {
                 return false;
+                CajaDialogo.Error(ex.Message);
             }
 
+        }
+
+        public Image ShowImageFromFtp(string url_ftp)
+        {
+            Image image = null;
+            try
+            {
+                DataOperations dp = new DataOperations();
+                string pass = "OPjSn10Z1U";
+                string user_op = "ftp_normac";
+
+                // Crear la solicitud FTP
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(url_ftp);
+                request.Method = WebRequestMethods.Ftp.DownloadFile;
+
+                // Especificar credenciales FTP
+                request.Credentials = new NetworkCredential(user_op, pass);
+
+                // Obtener la respuesta como un flujo (stream)
+                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                using (Stream responseStream = response.GetResponseStream())
+                {
+                    // Cargar la imagen en un PictureBox desde el stream
+                    if (responseStream != null)
+                    {
+                        image = System.Drawing.Image.FromStream(responseStream);
+                    }
+                    Console.WriteLine("Imagen cargada exitosamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+
+            return image;
         }
 
     }

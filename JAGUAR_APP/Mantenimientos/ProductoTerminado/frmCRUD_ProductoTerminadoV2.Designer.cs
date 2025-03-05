@@ -819,12 +819,14 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.colid4.FieldName = "id";
             this.colid4.Name = "colid4";
+            this.colid4.OptionsColumn.AllowEdit = false;
             // 
             // colfecha_registro
             // 
             this.colfecha_registro.Caption = "Fecha Registro";
             this.colfecha_registro.FieldName = "fecha_registro";
             this.colfecha_registro.Name = "colfecha_registro";
+            this.colfecha_registro.OptionsColumn.AllowEdit = false;
             this.colfecha_registro.Visible = true;
             this.colfecha_registro.VisibleIndex = 1;
             this.colfecha_registro.Width = 281;
@@ -833,22 +835,26 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.colpath.FieldName = "path";
             this.colpath.Name = "colpath";
+            this.colpath.OptionsColumn.AllowEdit = false;
             // 
             // colfile_name
             // 
             this.colfile_name.FieldName = "file_name";
             this.colfile_name.Name = "colfile_name";
+            this.colfile_name.OptionsColumn.AllowEdit = false;
             // 
             // colid_user
             // 
             this.colid_user.FieldName = "id_user";
             this.colid_user.Name = "colid_user";
+            this.colid_user.OptionsColumn.AllowEdit = false;
             // 
             // coluser
             // 
             this.coluser.Caption = "Usuario";
             this.coluser.FieldName = "user";
             this.coluser.Name = "coluser";
+            this.coluser.OptionsColumn.AllowEdit = false;
             this.coluser.Visible = true;
             this.coluser.VisibleIndex = 2;
             this.coluser.Width = 222;
@@ -857,6 +863,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.colid_pt.FieldName = "id_pt";
             this.colid_pt.Name = "colid_pt";
+            this.colid_pt.OptionsColumn.AllowEdit = false;
             // 
             // colimagen
             // 
