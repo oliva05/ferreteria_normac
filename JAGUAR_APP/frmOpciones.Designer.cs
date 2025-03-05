@@ -188,6 +188,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem59 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -1427,7 +1428,8 @@
             this.navBarItem58,
             this.nbReportesFacturacionMain,
             this.navBarItemCambioDePrecio,
-            this.navBarItem20});
+            this.navBarItem20,
+            this.navBarItem59});
             this.navBarControl3.Location = new System.Drawing.Point(2, 2);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
@@ -1446,6 +1448,7 @@
             this.navBarGroup10.Expanded = true;
             this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbPrefactura),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem59),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarFacturaMain),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemFacturasEmitidas),
             new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_Cliente),
@@ -2373,6 +2376,19 @@
             this.nBarRecepcionFactPuntoVenta.Name = "nBarRecepcionFactPuntoVenta";
             this.nBarRecepcionFactPuntoVenta.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nBarRecepcionFactPuntoVenta_LinkClicked);
             // 
+            // navBarItem59
+            // 
+            this.navBarItem59.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem59.Appearance.Options.UseFont = true;
+            this.navBarItem59.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem59.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem59.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem59.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem59.Caption = "Lista Pre Facturas";
+            this.navBarItem59.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem59.ImageOptions.SmallImage")));
+            this.navBarItem59.Name = "navBarItem59";
+            this.navBarItem59.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem59_LinkClicked_1);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2567,5 +2583,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup12;
         private DevExpress.XtraNavBar.NavBarItem navBarItem23;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem59;
     }
 }
