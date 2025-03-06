@@ -1,0 +1,496 @@
+﻿namespace JAGUAR_PRO.LogisticaJaguar
+{
+    partial class frmAddRecepcionCompraVentaUnica
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colitemcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcosto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colmargen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colprecio_venta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colbarcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcorrelativo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnSelecItemCode = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCodigoPT = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtItemName = new DevExpress.XtraEditors.TextEdit();
+            this.txtDescripcion = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.spinUd = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.btnAddLote = new DevExpress.XtraEditors.SimpleButton();
+            this.txtPrecioVenta = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txtMargGanancia = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCosto = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.btnFinalizar = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoPT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItemName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinUd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrecioVenta.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMargGanancia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCosto.Properties)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.DataMember = "pt_venta_unica";
+            this.gridControl1.DataSource = this.dsProductoTerminado1;
+            this.gridControl1.Location = new System.Drawing.Point(2, 134);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(951, 430);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // dsProductoTerminado1
+            // 
+            this.dsProductoTerminado1.DataSetName = "dsProductoTerminado";
+            this.dsProductoTerminado1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid,
+            this.coldescripcion,
+            this.colitemcode,
+            this.colcosto,
+            this.colmargen,
+            this.colprecio_venta,
+            this.colbarcode,
+            this.colcorrelativo});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid
+            // 
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            this.colid.Visible = true;
+            this.colid.VisibleIndex = 0;
+            // 
+            // coldescripcion
+            // 
+            this.coldescripcion.FieldName = "descripcion";
+            this.coldescripcion.Name = "coldescripcion";
+            this.coldescripcion.Visible = true;
+            this.coldescripcion.VisibleIndex = 1;
+            // 
+            // colitemcode
+            // 
+            this.colitemcode.FieldName = "itemcode";
+            this.colitemcode.Name = "colitemcode";
+            this.colitemcode.Visible = true;
+            this.colitemcode.VisibleIndex = 2;
+            // 
+            // colcosto
+            // 
+            this.colcosto.FieldName = "costo";
+            this.colcosto.Name = "colcosto";
+            this.colcosto.Visible = true;
+            this.colcosto.VisibleIndex = 3;
+            // 
+            // colmargen
+            // 
+            this.colmargen.FieldName = "margen";
+            this.colmargen.Name = "colmargen";
+            this.colmargen.Visible = true;
+            this.colmargen.VisibleIndex = 4;
+            // 
+            // colprecio_venta
+            // 
+            this.colprecio_venta.FieldName = "precio_venta";
+            this.colprecio_venta.Name = "colprecio_venta";
+            this.colprecio_venta.Visible = true;
+            this.colprecio_venta.VisibleIndex = 5;
+            // 
+            // colbarcode
+            // 
+            this.colbarcode.FieldName = "barcode";
+            this.colbarcode.Name = "colbarcode";
+            this.colbarcode.Visible = true;
+            this.colbarcode.VisibleIndex = 6;
+            // 
+            // colcorrelativo
+            // 
+            this.colcorrelativo.FieldName = "correlativo";
+            this.colcorrelativo.Name = "colcorrelativo";
+            this.colcorrelativo.Visible = true;
+            this.colcorrelativo.VisibleIndex = 7;
+            // 
+            // btnSelecItemCode
+            // 
+            this.btnSelecItemCode.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnSelecItemCode.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecItemCode.Appearance.Options.UseBackColor = true;
+            this.btnSelecItemCode.Appearance.Options.UseFont = true;
+            this.btnSelecItemCode.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.lookup_reference_16x16;
+            this.btnSelecItemCode.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSelecItemCode.Location = new System.Drawing.Point(226, 54);
+            this.btnSelecItemCode.Name = "btnSelecItemCode";
+            this.btnSelecItemCode.Size = new System.Drawing.Size(117, 34);
+            this.btnSelecItemCode.TabIndex = 33;
+            this.btnSelecItemCode.Text = "Codigo";
+            this.btnSelecItemCode.Click += new System.EventHandler(this.btnSelecItemCode_Click);
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(10, 51);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(86, 15);
+            this.labelControl3.TabIndex = 73;
+            this.labelControl3.Text = "Cod. PT_________";
+            // 
+            // txtCodigoPT
+            // 
+            this.txtCodigoPT.EditValue = "";
+            this.txtCodigoPT.Enabled = false;
+            this.txtCodigoPT.Location = new System.Drawing.Point(85, 48);
+            this.txtCodigoPT.Name = "txtCodigoPT";
+            this.txtCodigoPT.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoPT.Properties.Appearance.Options.UseFont = true;
+            this.txtCodigoPT.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigoPT.Size = new System.Drawing.Size(125, 22);
+            this.txtCodigoPT.TabIndex = 72;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(10, 79);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(82, 15);
+            this.labelControl1.TabIndex = 74;
+            this.labelControl1.Text = "Descripcion____";
+            // 
+            // txtItemName
+            // 
+            this.txtItemName.EditValue = "";
+            this.txtItemName.Enabled = false;
+            this.txtItemName.Location = new System.Drawing.Point(84, 76);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName.Properties.Appearance.Options.UseFont = true;
+            this.txtItemName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtItemName.Size = new System.Drawing.Size(125, 22);
+            this.txtItemName.TabIndex = 75;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.EditValue = "";
+            this.txtDescripcion.Location = new System.Drawing.Point(109, 32);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Properties.Appearance.Options.UseFont = true;
+            this.txtDescripcion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcion.Size = new System.Drawing.Size(135, 22);
+            this.txtDescripcion.TabIndex = 76;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(35, 35);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(87, 15);
+            this.labelControl2.TabIndex = 77;
+            this.labelControl2.Text = "Descripcion_____";
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.btnSelecItemCode);
+            this.groupControl1.Controls.Add(this.txtCodigoPT);
+            this.groupControl1.Controls.Add(this.labelControl3);
+            this.groupControl1.Controls.Add(this.txtItemName);
+            this.groupControl1.Controls.Add(this.labelControl1);
+            this.groupControl1.Location = new System.Drawing.Point(2, -2);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(348, 130);
+            this.groupControl1.TabIndex = 78;
+            this.groupControl1.Text = "Seleccion de Codigo PT";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.spinUd);
+            this.groupControl2.Controls.Add(this.labelControl7);
+            this.groupControl2.Controls.Add(this.btnAddLote);
+            this.groupControl2.Controls.Add(this.txtPrecioVenta);
+            this.groupControl2.Controls.Add(this.labelControl6);
+            this.groupControl2.Controls.Add(this.txtMargGanancia);
+            this.groupControl2.Controls.Add(this.labelControl5);
+            this.groupControl2.Controls.Add(this.txtCosto);
+            this.groupControl2.Controls.Add(this.labelControl4);
+            this.groupControl2.Controls.Add(this.txtDescripcion);
+            this.groupControl2.Controls.Add(this.labelControl2);
+            this.groupControl2.Location = new System.Drawing.Point(356, -2);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(595, 130);
+            this.groupControl2.TabIndex = 79;
+            this.groupControl2.Text = "Detalle de Producto";
+            // 
+            // spinUd
+            // 
+            this.spinUd.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinUd.Location = new System.Drawing.Point(109, 89);
+            this.spinUd.Name = "spinUd";
+            this.spinUd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinUd.Properties.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.spinUd.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinUd.Size = new System.Drawing.Size(89, 20);
+            this.spinUd.TabIndex = 96;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(35, 93);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(98, 15);
+            this.labelControl7.TabIndex = 97;
+            this.labelControl7.Text = "Cantidad__________";
+            // 
+            // btnAddLote
+            // 
+            this.btnAddLote.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAddLote.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddLote.Appearance.Options.UseBackColor = true;
+            this.btnAddLote.Appearance.Options.UseFont = true;
+            this.btnAddLote.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.addnewdatasource_16x16;
+            this.btnAddLote.Location = new System.Drawing.Point(471, 37);
+            this.btnAddLote.Name = "btnAddLote";
+            this.btnAddLote.Size = new System.Drawing.Size(91, 34);
+            this.btnAddLote.TabIndex = 95;
+            this.btnAddLote.Text = "Agregar";
+            this.btnAddLote.Click += new System.EventHandler(this.btnAddLote_Click);
+            // 
+            // txtPrecioVenta
+            // 
+            this.txtPrecioVenta.EditValue = "0";
+            this.txtPrecioVenta.Location = new System.Drawing.Point(367, 60);
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioVenta.Properties.Appearance.Options.UseFont = true;
+            this.txtPrecioVenta.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPrecioVenta.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtPrecioVenta.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.txtPrecioVenta.Properties.MaskSettings.Set("mask", "c");
+            this.txtPrecioVenta.Properties.MaxLength = 100;
+            this.txtPrecioVenta.Properties.NullText = "0";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(89, 22);
+            this.txtPrecioVenta.TabIndex = 82;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Location = new System.Drawing.Point(268, 65);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(101, 15);
+            this.labelControl6.TabIndex = 83;
+            this.labelControl6.Text = "Precio Venta_______";
+            // 
+            // txtMargGanancia
+            // 
+            this.txtMargGanancia.EditValue = "0";
+            this.txtMargGanancia.Location = new System.Drawing.Point(367, 30);
+            this.txtMargGanancia.Name = "txtMargGanancia";
+            this.txtMargGanancia.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMargGanancia.Properties.Appearance.Options.UseFont = true;
+            this.txtMargGanancia.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMargGanancia.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtMargGanancia.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.txtMargGanancia.Properties.MaskSettings.Set("mask", "P");
+            this.txtMargGanancia.Properties.MaxLength = 100;
+            this.txtMargGanancia.Properties.NullText = "0";
+            this.txtMargGanancia.Size = new System.Drawing.Size(89, 22);
+            this.txtMargGanancia.TabIndex = 80;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Location = new System.Drawing.Point(268, 35);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(128, 15);
+            this.labelControl5.TabIndex = 81;
+            this.labelControl5.Text = "Margen Ganancia_______";
+            // 
+            // txtCosto
+            // 
+            this.txtCosto.EditValue = "0";
+            this.txtCosto.Location = new System.Drawing.Point(109, 60);
+            this.txtCosto.Name = "txtCosto";
+            this.txtCosto.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCosto.Properties.Appearance.Options.UseFont = true;
+            this.txtCosto.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCosto.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtCosto.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.txtCosto.Properties.MaskSettings.Set("mask", "c");
+            this.txtCosto.Size = new System.Drawing.Size(89, 22);
+            this.txtCosto.TabIndex = 78;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(35, 63);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(76, 15);
+            this.labelControl4.TabIndex = 79;
+            this.labelControl4.Text = "Costo_________";
+            // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnFinalizar.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.Appearance.Options.UseFont = true;
+            this.btnFinalizar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.apply_16x16;
+            this.btnFinalizar.Location = new System.Drawing.Point(313, 570);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(90, 38);
+            this.btnFinalizar.TabIndex = 80;
+            this.btnFinalizar.Text = "Finalizar";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCancelar.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Appearance.Options.UseFont = true;
+            this.btnCancelar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel_16x16;
+            this.btnCancelar.Location = new System.Drawing.Point(496, 570);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 38);
+            this.btnCancelar.TabIndex = 81;
+            this.btnCancelar.Text = "Cancelar";
+            // 
+            // frmAddRecepcionCompraVentaUnica
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(954, 620);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnFinalizar);
+            this.Controls.Add(this.groupControl2);
+            this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.gridControl1);
+            this.Name = "frmAddRecepcionCompraVentaUnica";
+            this.Text = "Recepcion de Productos Usados";
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoPT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItemName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinUd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrecioVenta.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMargGanancia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCosto.Properties)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.SimpleButton btnSelecItemCode;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.TextEdit txtCodigoPT;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TextEdit txtItemName;
+        private DevExpress.XtraEditors.TextEdit txtDescripcion;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.TextEdit txtMargGanancia;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.TextEdit txtCosto;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.TextEdit txtPrecioVenta;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.SimpleButton btnAddLote;
+        private DevExpress.XtraEditors.SimpleButton btnFinalizar;
+        private DevExpress.XtraEditors.SimpleButton btnCancelar;
+        private DevExpress.XtraEditors.SpinEdit spinUd;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private Mantenimientos.ProductoTerminado.dsProductoTerminado dsProductoTerminado1;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
+        private DevExpress.XtraGrid.Columns.GridColumn colitemcode;
+        private DevExpress.XtraGrid.Columns.GridColumn colcosto;
+        private DevExpress.XtraGrid.Columns.GridColumn colmargen;
+        private DevExpress.XtraGrid.Columns.GridColumn colprecio_venta;
+        private DevExpress.XtraGrid.Columns.GridColumn colbarcode;
+        private DevExpress.XtraGrid.Columns.GridColumn colcorrelativo;
+    }
+}

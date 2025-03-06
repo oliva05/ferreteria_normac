@@ -1699,6 +1699,18 @@
     <Compile Include="LogisticaJaguar\frmAddFacturaProveedor.Designer.cs">
       <DependentUpon>frmAddFacturaProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\frmAddRecepcionCompraVentaUnica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\frmAddRecepcionCompraVentaUnica.Designer.cs">
+      <DependentUpon>frmAddRecepcionCompraVentaUnica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\frmRecepcionCompraVentaUnica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\frmRecepcionCompraVentaUnica.Designer.cs">
+      <DependentUpon>frmRecepcionCompraVentaUnica.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\frmRecepcionFacturaProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3526,6 +3538,12 @@
     <EmbeddedResource Include="LogisticaJaguar\frmAddFacturaProveedor.resx">
       <DependentUpon>frmAddFacturaProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\frmAddRecepcionCompraVentaUnica.resx">
+      <DependentUpon>frmAddRecepcionCompraVentaUnica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\frmRecepcionCompraVentaUnica.resx">
+      <DependentUpon>frmRecepcionCompraVentaUnica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\frmRecepcionFacturaProveedor.resx">
       <DependentUpon>frmRecepcionFacturaProveedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -4124,6 +4142,7 @@
     <None Include="Resources\ACS Icon_64.png" />
     <None Include="Resources\add_24x24.png" />
     <None Include="Resources\add_32x321.png" />
+    <None Include="Resources\addnewdatasource_16x16.png" />
     <Content Include="Resources\admin.png" />
     <None Include="Resources\backspace.png" />
     <None Include="Resources\batch-processing_32X32.png" />
@@ -4144,6 +4163,7 @@
     <None Include="Resources\Astahrr-Nfl-Jaguars.128%281%29.png" />
     <None Include="Resources\bosaleitem_32x32.png" />
     <None Include="Resources\bosaleitem_32x321.png" />
+    <None Include="Resources\apply_16x16.png" />
     <Content Include="Resources\box.png" />
     <None Include="Resources\box32px.png" />
     <None Include="Resources\boxPT32px.png" />
@@ -4153,6 +4173,7 @@
     <Content Include="Resources\cancel.png" />
     <None Include="Resources\cancel_24x24.png" />
     <None Include="Resources\cancel_48.png" />
+    <None Include="Resources\cancel_16x16.png" />
     <Content Include="Resources\cargo.png" />
     <None Include="Resources\CCT-2000C-SQ-800x800.jpg" />
     <Content Include="Resources\check-in.png" />
@@ -4241,6 +4262,7 @@
     <None Include="Resources\material32px.png" />
     <None Include="Resources\Logo.png" />
     <None Include="Resources\marca-de-verificacion.png" />
+    <None Include="Resources\lookup&amp;reference_16x16.png" />
     <Content Include="Resources\medal.png" />
     <None Include="Resources\pallet pallet solo.png" />
     <None Include="Resources\pallet32px.png" />

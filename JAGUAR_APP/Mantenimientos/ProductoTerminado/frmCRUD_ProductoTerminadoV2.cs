@@ -21,6 +21,7 @@ using DevExpress.XtraCharts.Native;
 using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.LogisticaJaguar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using JAGUAR_PRO.Clases;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
@@ -34,7 +35,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         }
         TipoOperacion TipoOperacionActual;
         Clases.ProductoTerminado PT_Class_instance;
-
+        FTP_Class ftp = new FTP_Class();
         decimal CostoPorArroba;
         int IdPT;
 
@@ -43,8 +44,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             InitializeComponent();
 
             MagiaEmbellezedora();
-            
-
+           
             UsuarioLogeado = pUser;
             LoadPresentacionesPT();
             LoadSubClases();
@@ -58,8 +58,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
             TipoOperacionActual = pTipoOperacion;
             PT_Class_instance = new Clases.ProductoTerminado();
-            defaultToolTipController1.SetToolTip(gridLookUpEditTipoFacturacionDestino, "Si el producto se programa para pedido(s) es de tipo producción!" +
-                                                                                        "\nSi el Producto no pasa por producción de panificadora es Factura Detalle.");
+            //defaultToolTipController1.SetToolTip(gridLookUpEditTipoFacturacionDestino, "Si el producto se programa para pedido(s) es de tipo producción!" +
+            //                                                                            "\nSi el Producto no pasa por producción de panificadora es Factura Detalle.");
             switch (pTipoOperacion)
             {
                 case TipoOperacion.Insert:
@@ -73,14 +73,14 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     {
                         lblTituloVentana.Text = "Edición de Producto Terminado";
                         gridLookUpEditEstadoPT.EditValue = PT_Class_instance.Id_estado;
-                        gridLookUpEditTipoProducto.EditValue = PT_Class_instance.Tipo_id;
+                        //gridLookUpEditTipoProducto.EditValue = PT_Class_instance.Tipo_id;
                         gridLookUpEdit_Presentaciones.EditValue = PT_Class_instance.Id_presentacion;
                         txtDescripcionProducto.Text = PT_Class_instance.Descripcion;
                         toggleSwitchEnablePT.IsOn = PT_Class_instance.Enable;
                         txtCodigoPT.Text = PT_Class_instance.Code;
                         //tggCosteoPorArroba.IsOn = PT_Class_instance.CostoDeMO_porArrobaBit;
                         //txtCostoPorArroba.Text = string.Format("{0:###,##0.00}", PT_Class_instance.CostoPorArroba);
-                        glueTipoFacturacion.EditValue = PT_Class_instance.tipo_facturacion_id;
+                        //glueTipoFacturacion.EditValue = PT_Class_instance.tipo_facturacion_id;
                         //glueTipoBuffet.EditValue = PT_Class_instance.tipo_buffet_id;
                         grdSubClase.EditValue = PT_Class_instance.Id_sub_clase;
                         txtCodigoInterno.Text = PT_Class_instance.Code_interno;
@@ -88,12 +88,39 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         txtBarCode.Text = PT_Class_instance.Barcode;
                         txtOEM.Text = PT_Class_instance.CodeOEM;
 
-                        gridLookUpEditTipoFacturacionDestino.EditValueChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_EditValueChanged);
-                        gridLookUpEditTipoFacturacionDestino.EditValue = PT_Class_instance.id_tipo_facturacion_prd;
-                        gridLookUpEditTipoFacturacionDestino.EditValueChanged += new EventHandler(gridLookUpEditTipoFacturacionDestino_EditValueChanged);
+                        //gridLookUpEditTipoFacturacionDestino.EditValueChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_EditValueChanged);
+                        //gridLookUpEditTipoFacturacionDestino.EditValue = PT_Class_instance.id_tipo_facturacion_prd;
+                        //gridLookUpEditTipoFacturacionDestino.EditValueChanged += new EventHandler(gridLookUpEditTipoFacturacionDestino_EditValueChanged);
 
                         gle_ClaseProducto.EditValue = PT_Class_instance.Id_clase;
                         gleImpuestoAplicable.EditValue = PT_Class_instance.Id_isv_aplicable;
+
+                        DataTable dtPTPic = new DataTable();
+                        dtPTPic = PT_Class_instance.GetImagenesPT(IdPT);
+                        
+
+                        if (ftp.ValidateConnection() != false)
+                        {
+                            foreach (DataRow item in dtPTPic.Rows)
+                            {
+                                dsProductoTerminado.PTImagenesRow row1 = dsProductoTerminado1.PTImagenes.NewPTImagenesRow();
+                                row1.id = (int)item.ItemArray[0];
+                                row1.id_pt = (int)item.ItemArray[1];
+                                row1.path = (string)item.ItemArray[2];
+                                row1.file_name = (string)item.ItemArray[3];
+                                row1.fecha_registro = (DateTime)item.ItemArray[4];
+                                row1.user = (string)item.ItemArray[5];
+
+
+                                Image img = ftp.ShowImageFromFtp(row1.path);
+                                byte[] imgBytes = ImageToByteArray(img);
+                                row1.imagen = imgBytes;
+
+                                dsProductoTerminado1.PTImagenes.AddPTImagenesRow(row1);
+                            }
+                        }
+                        
+                        
 
                         //gridLookUpEditTipoFacturacionDestino.TextChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_TextChanged);
                         //gridLookUpEditTipoFacturacionDestino.Text = PT_Class_instance.TipoFacturacion_prd_name;
@@ -353,11 +380,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
-            if (string.IsNullOrEmpty(gridLookUpEditTipoProducto.Text))
-            {
-                CajaDialogo.Error("Es necesario indicar el Destino del Producto!");
-                return;
-            }
+            //if (string.IsNullOrEmpty(gridLookUpEditTipoProducto.Text))
+            //{
+            //    CajaDialogo.Error("Es necesario indicar el Destino del Producto!");
+            //    return;
+            //}
 
 
             if (string.IsNullOrEmpty(gridTipoInventario.Text))
@@ -379,11 +406,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             //    return;
             //}
 
-            if (string.IsNullOrEmpty(glueTipoFacturacion.Text))
-            {
-                CajaDialogo.Error("Es necesario indicar el tipo de facturación del Producto!");
-                return;
-            }
+            //if (string.IsNullOrEmpty(glueTipoFacturacion.Text))
+            //{
+            //    CajaDialogo.Error("Es necesario indicar el tipo de facturación del Producto!");
+            //    return;
+            //}
 
             DialogResult r = CajaDialogo.Pregunta("Desea guardar los cambios?");
             if(r != DialogResult.Yes)
@@ -418,10 +445,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@id_estado", gridLookUpEditEstadoPT.EditValue);
                 cmd.Parameters.AddWithValue("@descripcion", txtDescripcionProducto.Text);
                 cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
-                cmd.Parameters.AddWithValue("@tipo_id", gridLookUpEditTipoProducto.EditValue);
+                cmd.Parameters.AddWithValue("@tipo_id", DBNull.Value/*gridLookUpEditTipoProducto.EditValue*/);
                 cmd.Parameters.AddWithValue("@costo_mo_por_arroba", 0);
                 cmd.Parameters.AddWithValue("@costo_por_arroba", CostoPorArroba);
-                cmd.Parameters.AddWithValue("@id_tipo_facturacion", glueTipoFacturacion.EditValue);
+                cmd.Parameters.AddWithValue("@id_tipo_facturacion",DBNull.Value /*glueTipoFacturacion.EditValue*/);
 
                 //int id_tipoBuffet = dp.ValidateNumberInt32(glueTipoBuffet.EditValue);
                 //if(id_tipoBuffet <= 0)
@@ -429,7 +456,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 //else
                 //    cmd.Parameters.AddWithValue("@id_tipo_buffet", glueTipoBuffet.EditValue);
 
-                cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd", gridLookUpEditTipoFacturacionDestino.EditValue);
+                cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd",DBNull.Value /*gridLookUpEditTipoFacturacionDestino.EditValue*/);
                 
                 //if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
                     cmd.Parameters.AddWithValue("@id_clase", DBNull.Value);
@@ -455,7 +482,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     if (item.id == 0)
                     {
                         string ext = Path.GetExtension(item.file_name);
-                        file_name = DateTime.Now.ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
+                        file_name = dp.Now().ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
 
                         if (ftp.GuardarArchivo(UsuarioLogeado, file_name, item.path))
                         {
@@ -470,6 +497,19 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         }
                     }
                     
+                }
+
+                switch (TipoOperacionActual)
+                {
+                    case TipoOperacion.Insert:
+                        CajaDialogo.Information("Producto Terminado Creado con Exito!");
+                        break;
+
+                    case TipoOperacion.Update:
+                        CajaDialogo.Information("Producto Terminado Actualizado con Exito!");
+                        break;
+                    default:
+                        break;
                 }
 
                 this.DialogResult = DialogResult.OK;
@@ -595,9 +635,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     if (r != DialogResult.Yes)
                         return;
 
-                    FTP_Class fTP_Class = new FTP_Class();
+                    //FTP_Class fTP_Class = new FTP_Class();
 
-                    fTP_Class.RemoveFile(row.path);
+                    //fTP_Class.RemoveFile(row.path);
 
                     DataOperations dp = new DataOperations();
                     SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);

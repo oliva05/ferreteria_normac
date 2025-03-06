@@ -30,12 +30,12 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmProveedorContactoView));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcContacto = new DevExpress.XtraGrid.GridControl();
             this.dsMantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
@@ -108,7 +108,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.colnombre.Caption = "Nombre";
             this.colnombre.FieldName = "nombre";
             this.colnombre.Name = "colnombre";
-            this.colnombre.OptionsColumn.AllowEdit = false;
+            this.colnombre.OptionsColumn.ReadOnly = true;
             this.colnombre.Visible = true;
             this.colnombre.VisibleIndex = 0;
             this.colnombre.Width = 130;
@@ -118,7 +118,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.coltelefono.Caption = "Telefono";
             this.coltelefono.FieldName = "telefono";
             this.coltelefono.Name = "coltelefono";
-            this.coltelefono.OptionsColumn.AllowEdit = false;
+            this.coltelefono.OptionsColumn.ReadOnly = true;
             this.coltelefono.Visible = true;
             this.coltelefono.VisibleIndex = 1;
             this.coltelefono.Width = 130;
@@ -128,7 +128,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.colcorreo.Caption = "Correo";
             this.colcorreo.FieldName = "correo";
             this.colcorreo.Name = "colcorreo";
-            this.colcorreo.OptionsColumn.AllowEdit = false;
+            this.colcorreo.OptionsColumn.ReadOnly = true;
             this.colcorreo.Visible = true;
             this.colcorreo.VisibleIndex = 2;
             this.colcorreo.Width = 188;
@@ -142,9 +142,9 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             // cmdDelete
             // 
             this.cmdDelete.AutoHeight = false;
-            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
+            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
             this.cmdDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 

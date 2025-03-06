@@ -71,25 +71,29 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colEditar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEditar2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colReceta = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmdReceta2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.cmdVistaImagenes = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colid_tipo_facturacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_tipo_facturacion_prd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo_facturacion_prd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdNuevoPT = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmdExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.tggViewFilter = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.coltipo_inventario = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcodeOEM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcount_image = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEditarPT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdReceta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalleProductosCRUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEditar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdReceta2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdVistaImagenes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggViewFilter.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,7 +129,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridDetalleProductosCRUD.Name = "gridDetalleProductosCRUD";
             this.gridDetalleProductosCRUD.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdEditar2,
-            this.cmdReceta2});
+            this.cmdVistaImagenes});
             this.gridDetalleProductosCRUD.Size = new System.Drawing.Size(1160, 437);
             this.gridDetalleProductosCRUD.TabIndex = 0;
             this.gridDetalleProductosCRUD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -162,7 +166,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridColumn1,
             this.colid_tipo_facturacion_prd,
             this.coltipo_facturacion_prd,
-            this.gridColumn2});
+            this.gridColumn2,
+            this.gridColumn3,
+            this.coltipo_inventario,
+            this.colcodeOEM,
+            this.colcount_image});
             this.gridView1.GridControl = this.gridDetalleProductosCRUD;
             this.gridView1.LevelIndent = 0;
             this.gridView1.Name = "gridView1";
@@ -214,8 +222,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colpresentacion_name.OptionsColumn.AllowEdit = false;
             this.colpresentacion_name.OptionsColumn.ReadOnly = true;
             this.colpresentacion_name.Visible = true;
-            this.colpresentacion_name.VisibleIndex = 2;
-            this.colpresentacion_name.Width = 141;
+            this.colpresentacion_name.VisibleIndex = 3;
+            this.colpresentacion_name.Width = 172;
             // 
             // colid_estado
             // 
@@ -234,7 +242,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.coldescripcion.OptionsColumn.ReadOnly = true;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 1;
-            this.coldescripcion.Width = 234;
+            this.coldescripcion.Width = 213;
             // 
             // colcode
             // 
@@ -246,7 +254,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colcode.OptionsColumn.ReadOnly = true;
             this.colcode.Visible = true;
             this.colcode.VisibleIndex = 0;
-            this.colcode.Width = 62;
+            this.colcode.Width = 73;
             // 
             // colfecha
             // 
@@ -271,8 +279,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.coltipo_descripcion.OptionsColumn.AllowEdit = false;
             this.coltipo_descripcion.OptionsColumn.ReadOnly = true;
             this.coltipo_descripcion.Visible = true;
-            this.coltipo_descripcion.VisibleIndex = 3;
-            this.coltipo_descripcion.Width = 100;
+            this.coltipo_descripcion.VisibleIndex = 5;
+            this.coltipo_descripcion.Width = 111;
             // 
             // colestado_descripcion
             // 
@@ -283,8 +291,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colestado_descripcion.OptionsColumn.AllowEdit = false;
             this.colestado_descripcion.OptionsColumn.ReadOnly = true;
             this.colestado_descripcion.Visible = true;
-            this.colestado_descripcion.VisibleIndex = 4;
-            this.colestado_descripcion.Width = 90;
+            this.colestado_descripcion.VisibleIndex = 6;
+            this.colestado_descripcion.Width = 98;
             // 
             // colEditar
             // 
@@ -293,8 +301,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colEditar.MinWidth = 17;
             this.colEditar.Name = "colEditar";
             this.colEditar.Visible = true;
-            this.colEditar.VisibleIndex = 8;
-            this.colEditar.Width = 56;
+            this.colEditar.VisibleIndex = 9;
+            this.colEditar.Width = 67;
             // 
             // cmdEditar2
             // 
@@ -309,20 +317,20 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // colReceta
             // 
             this.colReceta.Caption = "Ver Receta";
-            this.colReceta.ColumnEdit = this.cmdReceta2;
+            this.colReceta.ColumnEdit = this.cmdVistaImagenes;
             this.colReceta.MinWidth = 17;
             this.colReceta.Name = "colReceta";
             this.colReceta.Width = 59;
             // 
-            // cmdReceta2
+            // cmdVistaImagenes
             // 
-            this.cmdReceta2.AutoHeight = false;
+            this.cmdVistaImagenes.AutoHeight = false;
             editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
-            this.cmdReceta2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmdVistaImagenes.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.cmdReceta2.Name = "cmdReceta2";
-            this.cmdReceta2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.cmdReceta2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdReceta2_ButtonClick);
+            this.cmdVistaImagenes.Name = "cmdVistaImagenes";
+            this.cmdVistaImagenes.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdVistaImagenes.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdVistaImagenes_ButtonClick);
             // 
             // colid_tipo_facturacion
             // 
@@ -337,9 +345,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridColumn1.FieldName = "tipo_facturacion";
             this.gridColumn1.MinWidth = 17;
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 6;
-            this.gridColumn1.Width = 83;
+            this.gridColumn1.Width = 101;
             // 
             // colid_tipo_facturacion_prd
             // 
@@ -354,9 +360,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.coltipo_facturacion_prd.MinWidth = 17;
             this.coltipo_facturacion_prd.Name = "coltipo_facturacion_prd";
             this.coltipo_facturacion_prd.OptionsColumn.ReadOnly = true;
-            this.coltipo_facturacion_prd.Visible = true;
-            this.coltipo_facturacion_prd.VisibleIndex = 5;
-            this.coltipo_facturacion_prd.Width = 88;
+            this.coltipo_facturacion_prd.Width = 107;
             // 
             // gridColumn2
             // 
@@ -364,9 +368,16 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridColumn2.FieldName = "tipo_buffet";
             this.gridColumn2.MinWidth = 17;
             this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 7;
             this.gridColumn2.Width = 70;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Ver Imagenes";
+            this.gridColumn3.ColumnEdit = this.cmdVistaImagenes;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 8;
+            this.gridColumn3.Width = 80;
             // 
             // cmdNuevoPT
             // 
@@ -403,12 +414,14 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(310, 53);
+            this.labelControl1.Location = new System.Drawing.Point(322, 53);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(536, 26);
@@ -458,6 +471,36 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl2.TabIndex = 38;
             this.labelControl2.Text = "Ver Todos:";
             // 
+            // coltipo_inventario
+            // 
+            this.coltipo_inventario.Caption = "Tipo de Inventario";
+            this.coltipo_inventario.FieldName = "tipo_inventario";
+            this.coltipo_inventario.Name = "coltipo_inventario";
+            this.coltipo_inventario.OptionsColumn.AllowEdit = false;
+            this.coltipo_inventario.Visible = true;
+            this.coltipo_inventario.VisibleIndex = 4;
+            this.coltipo_inventario.Width = 121;
+            // 
+            // colcodeOEM
+            // 
+            this.colcodeOEM.Caption = "Codigo OEM";
+            this.colcodeOEM.FieldName = "codeOEM";
+            this.colcodeOEM.Name = "colcodeOEM";
+            this.colcodeOEM.OptionsColumn.AllowEdit = false;
+            this.colcodeOEM.Visible = true;
+            this.colcodeOEM.VisibleIndex = 2;
+            this.colcodeOEM.Width = 112;
+            // 
+            // colcount_image
+            // 
+            this.colcount_image.Caption = "# de Imagenes";
+            this.colcount_image.FieldName = "count_image";
+            this.colcount_image.Name = "colcount_image";
+            this.colcount_image.OptionsColumn.AllowEdit = false;
+            this.colcount_image.Visible = true;
+            this.colcount_image.VisibleIndex = 7;
+            this.colcount_image.Width = 88;
+            // 
             // frmMainProductoTerminado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,7 +523,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEditar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdReceta2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdVistaImagenes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggViewFilter.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -521,6 +564,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdEditarPT;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdReceta;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdEditar2;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdReceta2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdVistaImagenes;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn coltipo_inventario;
+        private DevExpress.XtraGrid.Columns.GridColumn colcodeOEM;
+        private DevExpress.XtraGrid.Columns.GridColumn colcount_image;
     }
 }

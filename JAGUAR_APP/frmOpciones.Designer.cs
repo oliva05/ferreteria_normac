@@ -324,6 +324,7 @@
             this.navBarGroup5.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup5.AppearancePressed.Options.UseFont = true;
             this.navBarGroup5.Caption = "Recepción de compras";
+            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemRecepcionFactura),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCAI_Proveedores),
@@ -410,6 +411,7 @@
             this.navBarGroup12.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup12.AppearancePressed.Options.UseFont = true;
             this.navBarGroup12.Caption = "Compras";
+            this.navBarGroup12.Expanded = true;
             this.navBarGroup12.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem23)});
             this.navBarGroup12.Name = "navBarGroup12";
