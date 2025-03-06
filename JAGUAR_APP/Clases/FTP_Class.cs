@@ -151,5 +151,33 @@ namespace JAGUAR_PRO.Clases
             return image;
         }
 
+        public bool ValidateConnection()
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                string pass = "OPjSn10Z1U";
+                string user_op = "ftp_normac";
+                string ftpUrl = "ftp://10.50.13.89";
+
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
+                request.Credentials = new NetworkCredential(user_op, pass);
+                request.Method = WebRequestMethods.Ftp.ListDirectory; // Comprobar si podemos listar archivos
+                request.Timeout = 3000; // Timeout en milisegundos
+
+                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                {
+                    return response.StatusCode == FtpStatusCode.OpeningData; // Si abre la conexión, es válida
+                    
+                }
+
+            }
+            catch (WebException ex)
+            {
+                CajaDialogo.Error($"Error de conexión FTP: {ex.Message}\nContacte a su Proveedor de Software");
+                return false; // Si hay error, la conexión no es válida
+            }
+        }
+
     }
 }

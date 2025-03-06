@@ -184,8 +184,13 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             var gridview = (GridView)gridDetalleProductosCRUD.FocusedView;
             var row = (dsProductoTerminado.lista_main_CRUDRow)gridview.GetFocusedDataRow();
 
-            frmPT_VisorImagenes frm = new frmPT_VisorImagenes(row.id);
-            frm.ShowDialog();
+            FTP_Class ftp = new FTP_Class();
+            if (ftp.ValidateConnection())
+            {
+                frmPT_VisorImagenes frm = new frmPT_VisorImagenes(row.id);
+                frm.ShowDialog();
+            }
+            
         }
     }
 }

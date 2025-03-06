@@ -56,27 +56,12 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtCodigoInterno = new System.Windows.Forms.TextBox();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.gridLookUpEditTipoProducto = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourceTipoPT = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescripcion2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.lblTituloVentana = new DevExpress.XtraEditors.LabelControl();
-            this.glueTipoFacturacion = new DevExpress.XtraEditors.GridLookUpEdit();
             this.tipoFacturacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsMantenimientosFacturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.tipoBuffetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridLookUpEditTipoFacturacionDestino = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourceTipoFact_Destino = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.defaultToolTipController1 = new DevExpress.Utils.DefaultToolTipController(this.components);
             this.txtCodigoPT = new System.Windows.Forms.TextBox();
             this.gle_ClaseProducto = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -133,17 +118,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditEstadoPT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEstados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditTipoProducto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoPT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.glueTipoFacturacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoFacturacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientosFacturacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBuffetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditTipoFacturacionDestino.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoFact_Destino)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gle_ClaseProducto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceClaseProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
@@ -367,62 +346,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl5.TabIndex = 23;
             this.labelControl5.Text = "Código de Interno____________________";
             // 
-            // gridLookUpEditTipoProducto
-            // 
-            this.gridLookUpEditTipoProducto.EditValue = "";
-            this.gridLookUpEditTipoProducto.Location = new System.Drawing.Point(204, 262);
-            this.gridLookUpEditTipoProducto.Name = "gridLookUpEditTipoProducto";
-            this.gridLookUpEditTipoProducto.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridLookUpEditTipoProducto.Properties.Appearance.Options.UseFont = true;
-            this.gridLookUpEditTipoProducto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gridLookUpEditTipoProducto.Properties.DataSource = this.bindingSourceTipoPT;
-            this.gridLookUpEditTipoProducto.Properties.DisplayMember = "descripcion";
-            this.gridLookUpEditTipoProducto.Properties.PopupView = this.gridView2;
-            this.gridLookUpEditTipoProducto.Properties.ValueMember = "id";
-            this.gridLookUpEditTipoProducto.Size = new System.Drawing.Size(177, 22);
-            this.gridLookUpEditTipoProducto.TabIndex = 25;
-            // 
             // bindingSourceTipoPT
             // 
             this.bindingSourceTipoPT.DataMember = "TipoPT";
             this.bindingSourceTipoPT.DataSource = this.dsProductoTerminado1;
-            // 
-            // gridView2
-            // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid2,
-            this.coldescripcion2});
-            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView2.LevelIndent = 0;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsEditForm.PopupEditFormWidth = 400;
-            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            this.gridView2.PreviewIndent = 0;
-            // 
-            // colid2
-            // 
-            this.colid2.FieldName = "id";
-            this.colid2.Name = "colid2";
-            // 
-            // coldescripcion2
-            // 
-            this.coldescripcion2.FieldName = "descripcion";
-            this.coldescripcion2.Name = "coldescripcion2";
-            this.coldescripcion2.OptionsColumn.ReadOnly = true;
-            this.coldescripcion2.Visible = true;
-            this.coldescripcion2.VisibleIndex = 0;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(16, 269);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(201, 15);
-            this.labelControl6.TabIndex = 26;
-            this.labelControl6.Text = "Destino del Producto__________________";
             // 
             // lblTituloVentana
             // 
@@ -434,22 +361,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.lblTituloVentana.TabIndex = 27;
             this.lblTituloVentana.Text = "Nuevo Producto Terminado";
             // 
-            // glueTipoFacturacion
-            // 
-            this.glueTipoFacturacion.EditValue = "";
-            this.glueTipoFacturacion.Location = new System.Drawing.Point(204, 295);
-            this.glueTipoFacturacion.Name = "glueTipoFacturacion";
-            this.glueTipoFacturacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.glueTipoFacturacion.Properties.Appearance.Options.UseFont = true;
-            this.glueTipoFacturacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.glueTipoFacturacion.Properties.DataSource = this.tipoFacturacionBindingSource;
-            this.glueTipoFacturacion.Properties.DisplayMember = "descripcion";
-            this.glueTipoFacturacion.Properties.PopupView = this.gridView3;
-            this.glueTipoFacturacion.Properties.ValueMember = "id";
-            this.glueTipoFacturacion.Size = new System.Drawing.Size(177, 22);
-            this.glueTipoFacturacion.TabIndex = 32;
-            // 
             // tipoFacturacionBindingSource
             // 
             this.tipoFacturacionBindingSource.DataMember = "TipoFacturacion";
@@ -460,107 +371,15 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.dsMantenimientosFacturacion.DataSetName = "dsMantenimientosFacturacion";
             this.dsMantenimientosFacturacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // gridView3
-            // 
-            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2});
-            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView3.LevelIndent = 0;
-            this.gridView3.Name = "gridView3";
-            this.gridView3.OptionsEditForm.PopupEditFormWidth = 400;
-            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView3.OptionsView.ShowGroupPanel = false;
-            this.gridView3.PreviewIndent = 0;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.FieldName = "id";
-            this.gridColumn1.Name = "gridColumn1";
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Tipo Facturación";
-            this.gridColumn2.FieldName = "descripcion";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.OptionsColumn.ReadOnly = true;
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 0;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Location = new System.Drawing.Point(16, 303);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(203, 15);
-            this.labelControl9.TabIndex = 33;
-            this.labelControl9.Text = "Tipo Facturación_______________________";
-            // 
             // tipoBuffetBindingSource
             // 
             this.tipoBuffetBindingSource.DataMember = "TipoBuffet";
             this.tipoBuffetBindingSource.DataSource = this.dsMantenimientosFacturacion;
             // 
-            // gridLookUpEditTipoFacturacionDestino
-            // 
-            this.gridLookUpEditTipoFacturacionDestino.EditValue = "";
-            this.gridLookUpEditTipoFacturacionDestino.Location = new System.Drawing.Point(204, 327);
-            this.gridLookUpEditTipoFacturacionDestino.Name = "gridLookUpEditTipoFacturacionDestino";
-            this.gridLookUpEditTipoFacturacionDestino.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridLookUpEditTipoFacturacionDestino.Properties.Appearance.Options.UseFont = true;
-            this.gridLookUpEditTipoFacturacionDestino.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gridLookUpEditTipoFacturacionDestino.Properties.DataSource = this.bindingSourceTipoFact_Destino;
-            this.gridLookUpEditTipoFacturacionDestino.Properties.DisplayMember = "descripcion";
-            this.gridLookUpEditTipoFacturacionDestino.Properties.PopupView = this.gridView5;
-            this.gridLookUpEditTipoFacturacionDestino.Properties.ValueMember = "id";
-            this.gridLookUpEditTipoFacturacionDestino.Size = new System.Drawing.Size(177, 22);
-            this.gridLookUpEditTipoFacturacionDestino.TabIndex = 36;
-            this.gridLookUpEditTipoFacturacionDestino.EditValueChanged += new System.EventHandler(this.gridLookUpEditTipoFacturacionDestino_EditValueChanged);
-            this.gridLookUpEditTipoFacturacionDestino.TextChanged += new System.EventHandler(this.gridLookUpEditTipoFacturacionDestino_TextChanged);
-            // 
             // bindingSourceTipoFact_Destino
             // 
             this.bindingSourceTipoFact_Destino.DataMember = "tipo_facturacion_destino";
             this.bindingSourceTipoFact_Destino.DataSource = this.dsProductoTerminado1;
-            // 
-            // gridView5
-            // 
-            this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn5,
-            this.gridColumn6});
-            this.gridView5.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView5.LevelIndent = 0;
-            this.gridView5.Name = "gridView5";
-            this.gridView5.OptionsEditForm.PopupEditFormWidth = 400;
-            this.gridView5.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView5.OptionsView.ShowGroupPanel = false;
-            this.gridView5.PreviewIndent = 0;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.FieldName = "id";
-            this.gridColumn5.Name = "gridColumn5";
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Tipo Facturación";
-            this.gridColumn6.FieldName = "descripcion";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.OptionsColumn.ReadOnly = true;
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 0;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(16, 335);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(246, 15);
-            this.labelControl11.TabIndex = 37;
-            this.labelControl11.Text = "Tipo Destino Facturación_______________________";
             // 
             // txtCodigoPT
             // 
@@ -575,7 +394,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // gle_ClaseProducto
             // 
             this.gle_ClaseProducto.EditValue = "";
-            this.gle_ClaseProducto.Location = new System.Drawing.Point(204, 357);
+            this.gle_ClaseProducto.Location = new System.Drawing.Point(204, 261);
             this.gle_ClaseProducto.Name = "gle_ClaseProducto";
             this.gle_ClaseProducto.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gle_ClaseProducto.Properties.Appearance.Options.UseFont = true;
@@ -630,7 +449,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl12.Appearance.Options.UseFont = true;
-            this.labelControl12.Location = new System.Drawing.Point(16, 365);
+            this.labelControl12.Location = new System.Drawing.Point(16, 269);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(225, 15);
             this.labelControl12.TabIndex = 39;
@@ -640,7 +459,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // gleImpuestoAplicable
             // 
             this.gleImpuestoAplicable.EditValue = "";
-            this.gleImpuestoAplicable.Location = new System.Drawing.Point(204, 358);
+            this.gleImpuestoAplicable.Location = new System.Drawing.Point(204, 263);
             this.gleImpuestoAplicable.Name = "gleImpuestoAplicable";
             this.gleImpuestoAplicable.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gleImpuestoAplicable.Properties.Appearance.Options.UseFont = true;
@@ -694,7 +513,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl13.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl13.Appearance.Options.UseFont = true;
-            this.labelControl13.Location = new System.Drawing.Point(14, 366);
+            this.labelControl13.Location = new System.Drawing.Point(16, 270);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(247, 15);
             this.labelControl13.TabIndex = 41;
@@ -906,25 +725,25 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(396, 338);
+            this.labelControl7.Location = new System.Drawing.Point(16, 301);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(185, 15);
+            this.labelControl7.Size = new System.Drawing.Size(195, 15);
             this.labelControl7.TabIndex = 47;
-            this.labelControl7.Text = "Código de Barra____________________";
+            this.labelControl7.Text = "Código de Barra______________________";
             // 
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(396, 372);
+            this.labelControl8.Location = new System.Drawing.Point(16, 335);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(184, 15);
+            this.labelControl8.Size = new System.Drawing.Size(194, 15);
             this.labelControl8.TabIndex = 49;
-            this.labelControl8.Text = "Código de OEM____________________";
+            this.labelControl8.Text = "Código de OEM______________________";
             // 
             // gridTipoInventario
             // 
-            this.gridTipoInventario.Location = new System.Drawing.Point(580, 396);
+            this.gridTipoInventario.Location = new System.Drawing.Point(204, 361);
             this.gridTipoInventario.Name = "gridTipoInventario";
             this.gridTipoInventario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gridTipoInventario.Properties.Appearance.Options.UseFont = true;
@@ -935,7 +754,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridTipoInventario.Properties.NullText = "";
             this.gridTipoInventario.Properties.PopupView = this.gridView4;
             this.gridTipoInventario.Properties.ValueMember = "id";
-            this.gridTipoInventario.Size = new System.Drawing.Size(179, 22);
+            this.gridTipoInventario.Size = new System.Drawing.Size(177, 22);
             this.gridTipoInventario.TabIndex = 51;
             // 
             // tipoinventarioBindingSource
@@ -970,7 +789,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(395, 402);
+            this.labelControl10.Location = new System.Drawing.Point(16, 368);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(211, 15);
             this.labelControl10.TabIndex = 52;
@@ -992,20 +811,20 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             // txtBarCode
             // 
-            this.txtBarCode.Location = new System.Drawing.Point(580, 332);
+            this.txtBarCode.Location = new System.Drawing.Point(204, 294);
             this.txtBarCode.Name = "txtBarCode";
             this.txtBarCode.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBarCode.Properties.Appearance.Options.UseFont = true;
-            this.txtBarCode.Size = new System.Drawing.Size(179, 22);
+            this.txtBarCode.Size = new System.Drawing.Size(177, 22);
             this.txtBarCode.TabIndex = 55;
             // 
             // txtOEM
             // 
-            this.txtOEM.Location = new System.Drawing.Point(580, 365);
+            this.txtOEM.Location = new System.Drawing.Point(204, 328);
             this.txtOEM.Name = "txtOEM";
             this.txtOEM.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtOEM.Properties.Appearance.Options.UseFont = true;
-            this.txtOEM.Size = new System.Drawing.Size(179, 22);
+            this.txtOEM.Size = new System.Drawing.Size(177, 22);
             this.txtOEM.TabIndex = 56;
             // 
             // txtDescripcionProducto
@@ -1038,12 +857,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.Controls.Add(this.labelControl15);
             this.Controls.Add(this.grdSubClase);
             this.Controls.Add(this.labelControl14);
-            this.Controls.Add(this.gridLookUpEditTipoFacturacionDestino);
-            this.Controls.Add(this.labelControl11);
-            this.Controls.Add(this.glueTipoFacturacion);
             this.Controls.Add(this.lblTituloVentana);
-            this.Controls.Add(this.gridLookUpEditTipoProducto);
-            this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.txtCodigoInterno);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.labelControl4);
@@ -1055,7 +869,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdGuardar);
             this.Controls.Add(this.cmdCerrar);
-            this.Controls.Add(this.labelControl9);
             this.Controls.Add(this.gle_ClaseProducto);
             this.Controls.Add(this.labelControl12);
             this.IconOptions.ShowIcon = false;
@@ -1069,17 +882,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditEstadoPT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEstados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditTipoProducto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoPT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.glueTipoFacturacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoFacturacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientosFacturacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBuffetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditTipoFacturacionDestino.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoFact_Destino)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gle_ClaseProducto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceClaseProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
@@ -1124,30 +931,15 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.TextBox txtCodigoInterno;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.GridLookUpEdit gridLookUpEditTipoProducto;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
         private System.Windows.Forms.BindingSource bindingSourceTipoPT;
         private DevExpress.XtraEditors.LabelControl lblTituloVentana;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
         private DevExpress.XtraGrid.Columns.GridColumn colid1;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion1;
-        private DevExpress.XtraGrid.Columns.GridColumn colid2;
-        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion2;
-        private DevExpress.XtraEditors.GridLookUpEdit glueTipoFacturacion;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
         private System.Windows.Forms.BindingSource tipoFacturacionBindingSource;
         private JAGUAR_PRO.Facturacion.Mantenimientos.dsMantenimientosFacturacion dsMantenimientosFacturacion;
         private System.Windows.Forms.BindingSource tipoBuffetBindingSource;
-        private DevExpress.XtraEditors.GridLookUpEdit gridLookUpEditTipoFacturacionDestino;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
         private System.Windows.Forms.BindingSource bindingSourceTipoFact_Destino;
         private DevExpress.Utils.DefaultToolTipController defaultToolTipController1;
         private DevExpress.XtraEditors.GridLookUpEdit gle_ClaseProducto;

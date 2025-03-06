@@ -17,6 +17,10 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor.Model
         public string Direccion { get; set; }
         public string Codigo { get; set; }
         public bool Recuperado { get; set; }
+        public string UsuarioCreador { get; set; }
+        public DateTime? FechaCreacion { get; set; }
+        public string UsuarioModificacion { get; set; }
+        public DateTime? FechaModificacion { get; set; }
 
         public bool RecuperarRegistro(int pId)
         {
@@ -37,6 +41,11 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor.Model
                     Nombre = dr.GetString(2);
                     RTN = dr.GetString(3);
                     Direccion = dr.GetString(4);
+                    FechaCreacion = Convert.IsDBNull(dr["FechaCreacion"]) ? (DateTime?)null : Convert.ToDateTime(dr["FechaCreacion"]);
+                    UsuarioCreador = dr.GetString(6);
+                    FechaModificacion = Convert.IsDBNull(dr["FechaModificacion"]) ? (DateTime?)null : Convert.ToDateTime(dr["FechaModificacion"]);
+                    UsuarioModificacion = dr.IsDBNull(dr.GetOrdinal("usuario_modificacion")) ? "" : dr.GetString(dr.GetOrdinal("usuario_modificacion"));
+
                     Recuperado = true;
                 }
                 con.Close();

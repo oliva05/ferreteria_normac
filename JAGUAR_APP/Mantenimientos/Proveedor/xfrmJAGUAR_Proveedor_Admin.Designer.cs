@@ -29,26 +29,27 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmJAGUAR_Proveedor_Admin));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.cmdClose = new DevExpress.XtraEditors.SimpleButton();
             this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
             this.gcPoveedor = new DevExpress.XtraGrid.GridControl();
-            this.dsMantenimientoBindingSource = new System.Windows.Forms.BindingSource();
+            this.dsMantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gvProveedor = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,6 +65,8 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.cmdContact = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFechaModificacion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colusuario_modificacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnActualizar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gcPoveedor)).BeginInit();
@@ -143,14 +146,18 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.gvProveedor.Appearance.FocusedCell.Options.UseFont = true;
             this.gvProveedor.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gvProveedor.Appearance.FocusedRow.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.gvProveedor.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
             this.gvProveedor.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvProveedor.Appearance.FocusedRow.Options.UseFont = true;
+            this.gvProveedor.Appearance.FocusedRow.Options.UseForeColor = true;
             this.gvProveedor.Appearance.HeaderPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gvProveedor.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvProveedor.Appearance.Row.BackColor = System.Drawing.Color.White;
             this.gvProveedor.Appearance.Row.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvProveedor.Appearance.Row.ForeColor = System.Drawing.Color.Black;
             this.gvProveedor.Appearance.Row.Options.UseBackColor = true;
             this.gvProveedor.Appearance.Row.Options.UseFont = true;
+            this.gvProveedor.Appearance.Row.Options.UseForeColor = true;
             this.gvProveedor.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -161,7 +168,9 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn9,
-            this.gridColumn10});
+            this.gridColumn10,
+            this.colFechaModificacion,
+            this.colusuario_modificacion});
             this.gvProveedor.GridControl = this.gcPoveedor;
             this.gvProveedor.Name = "gvProveedor";
             this.gvProveedor.OptionsView.ShowAutoFilterRow = true;
@@ -173,15 +182,15 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.gridColumn1.ColumnEdit = this.cmdEdit;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 7;
-            this.gridColumn1.Width = 55;
+            this.gridColumn1.VisibleIndex = 9;
+            this.gridColumn1.Width = 60;
             // 
             // cmdEdit
             // 
             this.cmdEdit.AutoHeight = false;
-            editorButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions4.SvgImage")));
+            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
             this.cmdEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdEdit.Name = "cmdEdit";
             this.cmdEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEdit_ButtonClick);
@@ -192,15 +201,15 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.gridColumn2.ColumnEdit = this.cmdDelete;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 8;
-            this.gridColumn2.Width = 55;
+            this.gridColumn2.VisibleIndex = 10;
+            this.gridColumn2.Width = 87;
             // 
             // cmdDelete
             // 
             this.cmdDelete.AutoHeight = false;
-            editorButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions5.SvgImage")));
+            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
             this.cmdDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdDelete_ButtonClick);
@@ -209,6 +218,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             // 
             this.gridColumn3.FieldName = "id";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Width = 201;
             // 
             // gridColumn4
@@ -219,7 +229,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 0;
-            this.gridColumn4.Width = 119;
+            this.gridColumn4.Width = 79;
             // 
             // gridColumn5
             // 
@@ -229,7 +239,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 1;
-            this.gridColumn5.Width = 246;
+            this.gridColumn5.Width = 225;
             // 
             // gridColumn6
             // 
@@ -238,7 +248,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 2;
-            this.gridColumn6.Width = 202;
+            this.gridColumn6.Width = 184;
             // 
             // gridColumn7
             // 
@@ -248,7 +258,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 3;
-            this.gridColumn7.Width = 308;
+            this.gridColumn7.Width = 174;
             // 
             // gridColumn8
             // 
@@ -256,15 +266,15 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.gridColumn8.ColumnEdit = this.cmdContact;
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 6;
-            this.gridColumn8.Width = 92;
+            this.gridColumn8.VisibleIndex = 8;
+            this.gridColumn8.Width = 100;
             // 
             // cmdContact
             // 
             this.cmdContact.AutoHeight = false;
-            editorButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions6.SvgImage")));
+            editorButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions3.SvgImage")));
             this.cmdContact.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdContact.Name = "cmdContact";
             this.cmdContact.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdContact.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdContact_ButtonClick);
@@ -274,18 +284,39 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.gridColumn9.Caption = "Fecha Creación";
             this.gridColumn9.FieldName = "FechaCreacion";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 4;
-            this.gridColumn9.Width = 159;
+            this.gridColumn9.Width = 169;
             // 
             // gridColumn10
             // 
             this.gridColumn10.Caption = "Usuario Creación";
             this.gridColumn10.FieldName = "usuario";
             this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 5;
-            this.gridColumn10.Width = 174;
+            this.gridColumn10.Width = 138;
+            // 
+            // colFechaModificacion
+            // 
+            this.colFechaModificacion.FieldName = "FechaModificacion";
+            this.colFechaModificacion.Name = "colFechaModificacion";
+            this.colFechaModificacion.OptionsColumn.AllowEdit = false;
+            this.colFechaModificacion.Visible = true;
+            this.colFechaModificacion.VisibleIndex = 6;
+            this.colFechaModificacion.Width = 87;
+            // 
+            // colusuario_modificacion
+            // 
+            this.colusuario_modificacion.Caption = "Usuario Modificacion";
+            this.colusuario_modificacion.FieldName = "usuario_modificacion";
+            this.colusuario_modificacion.Name = "colusuario_modificacion";
+            this.colusuario_modificacion.OptionsColumn.AllowEdit = false;
+            this.colusuario_modificacion.Visible = true;
+            this.colusuario_modificacion.VisibleIndex = 7;
+            this.colusuario_modificacion.Width = 100;
             // 
             // labelControl1
             // 
@@ -365,5 +396,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
         private DevExpress.XtraEditors.SimpleButton btnActualizar;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn colFechaModificacion;
+        private DevExpress.XtraGrid.Columns.GridColumn colusuario_modificacion;
     }
 }

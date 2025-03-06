@@ -77,13 +77,16 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colid_tipo_facturacion_prd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo_facturacion_prd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdNuevoPT = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmdExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.tggViewFilter = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltipo_inventario = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcodeOEM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcount_image = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEditarPT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdReceta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalleProductosCRUD)).BeginInit();
@@ -164,7 +167,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colid_tipo_facturacion_prd,
             this.coltipo_facturacion_prd,
             this.gridColumn2,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.coltipo_inventario,
+            this.colcodeOEM,
+            this.colcount_image});
             this.gridView1.GridControl = this.gridDetalleProductosCRUD;
             this.gridView1.LevelIndent = 0;
             this.gridView1.Name = "gridView1";
@@ -216,7 +222,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colpresentacion_name.OptionsColumn.AllowEdit = false;
             this.colpresentacion_name.OptionsColumn.ReadOnly = true;
             this.colpresentacion_name.Visible = true;
-            this.colpresentacion_name.VisibleIndex = 2;
+            this.colpresentacion_name.VisibleIndex = 3;
             this.colpresentacion_name.Width = 172;
             // 
             // colid_estado
@@ -236,7 +242,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.coldescripcion.OptionsColumn.ReadOnly = true;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 1;
-            this.coldescripcion.Width = 285;
+            this.coldescripcion.Width = 213;
             // 
             // colcode
             // 
@@ -248,6 +254,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colcode.OptionsColumn.ReadOnly = true;
             this.colcode.Visible = true;
             this.colcode.VisibleIndex = 0;
+            this.colcode.Width = 73;
             // 
             // colfecha
             // 
@@ -272,8 +279,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.coltipo_descripcion.OptionsColumn.AllowEdit = false;
             this.coltipo_descripcion.OptionsColumn.ReadOnly = true;
             this.coltipo_descripcion.Visible = true;
-            this.coltipo_descripcion.VisibleIndex = 3;
-            this.coltipo_descripcion.Width = 122;
+            this.coltipo_descripcion.VisibleIndex = 5;
+            this.coltipo_descripcion.Width = 111;
             // 
             // colestado_descripcion
             // 
@@ -284,8 +291,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colestado_descripcion.OptionsColumn.AllowEdit = false;
             this.colestado_descripcion.OptionsColumn.ReadOnly = true;
             this.colestado_descripcion.Visible = true;
-            this.colestado_descripcion.VisibleIndex = 4;
-            this.colestado_descripcion.Width = 109;
+            this.colestado_descripcion.VisibleIndex = 6;
+            this.colestado_descripcion.Width = 98;
             // 
             // colEditar
             // 
@@ -294,7 +301,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colEditar.MinWidth = 17;
             this.colEditar.Name = "colEditar";
             this.colEditar.Visible = true;
-            this.colEditar.VisibleIndex = 8;
+            this.colEditar.VisibleIndex = 9;
+            this.colEditar.Width = 67;
             // 
             // cmdEditar2
             // 
@@ -337,8 +345,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridColumn1.FieldName = "tipo_facturacion";
             this.gridColumn1.MinWidth = 17;
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 6;
             this.gridColumn1.Width = 101;
             // 
             // colid_tipo_facturacion_prd
@@ -354,8 +360,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.coltipo_facturacion_prd.MinWidth = 17;
             this.coltipo_facturacion_prd.Name = "coltipo_facturacion_prd";
             this.coltipo_facturacion_prd.OptionsColumn.ReadOnly = true;
-            this.coltipo_facturacion_prd.Visible = true;
-            this.coltipo_facturacion_prd.VisibleIndex = 5;
             this.coltipo_facturacion_prd.Width = 107;
             // 
             // gridColumn2
@@ -365,6 +369,15 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridColumn2.MinWidth = 17;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Width = 70;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Ver Imagenes";
+            this.gridColumn3.ColumnEdit = this.cmdVistaImagenes;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 8;
+            this.gridColumn3.Width = 80;
             // 
             // cmdNuevoPT
             // 
@@ -458,14 +471,35 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl2.TabIndex = 38;
             this.labelControl2.Text = "Ver Todos:";
             // 
-            // gridColumn3
+            // coltipo_inventario
             // 
-            this.gridColumn3.Caption = "Ver Imagenes";
-            this.gridColumn3.ColumnEdit = this.cmdVistaImagenes;
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 7;
-            this.gridColumn3.Width = 89;
+            this.coltipo_inventario.Caption = "Tipo de Inventario";
+            this.coltipo_inventario.FieldName = "tipo_inventario";
+            this.coltipo_inventario.Name = "coltipo_inventario";
+            this.coltipo_inventario.OptionsColumn.AllowEdit = false;
+            this.coltipo_inventario.Visible = true;
+            this.coltipo_inventario.VisibleIndex = 4;
+            this.coltipo_inventario.Width = 121;
+            // 
+            // colcodeOEM
+            // 
+            this.colcodeOEM.Caption = "Codigo OEM";
+            this.colcodeOEM.FieldName = "codeOEM";
+            this.colcodeOEM.Name = "colcodeOEM";
+            this.colcodeOEM.OptionsColumn.AllowEdit = false;
+            this.colcodeOEM.Visible = true;
+            this.colcodeOEM.VisibleIndex = 2;
+            this.colcodeOEM.Width = 112;
+            // 
+            // colcount_image
+            // 
+            this.colcount_image.Caption = "# de Imagenes";
+            this.colcount_image.FieldName = "count_image";
+            this.colcount_image.Name = "colcount_image";
+            this.colcount_image.OptionsColumn.AllowEdit = false;
+            this.colcount_image.Visible = true;
+            this.colcount_image.VisibleIndex = 7;
+            this.colcount_image.Width = 88;
             // 
             // frmMainProductoTerminado
             // 
@@ -532,5 +566,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdEditar2;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdVistaImagenes;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn coltipo_inventario;
+        private DevExpress.XtraGrid.Columns.GridColumn colcodeOEM;
+        private DevExpress.XtraGrid.Columns.GridColumn colcount_image;
     }
 }

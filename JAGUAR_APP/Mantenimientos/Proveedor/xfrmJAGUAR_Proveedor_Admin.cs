@@ -74,7 +74,8 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
                 row1.codigo = proveedor.Codigo;
                 row1.RTN = proveedor.RTN;
                 row1.direccion = proveedor.Direccion;
-
+                row1.FechaCreacion = (DateTime) proveedor.FechaCreacion;
+                row1.usuario = proveedor.UsuarioCreador;
 
                 dsMantenimiento.JAGUAR_Proveedor.AddJAGUAR_ProveedorRow(row1);
                 dsMantenimiento.AcceptChanges();

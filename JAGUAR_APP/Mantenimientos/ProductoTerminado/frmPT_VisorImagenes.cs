@@ -36,26 +36,28 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     imageSlider.Images.Add(ftp.ShowImageFromFtp(row["path"].ToString()));
                 }
 
-                galleryGroup = new GalleryItemGroup();
-                galleryControl.Gallery.Groups.Add(galleryGroup);
-                string[] files = ;
-                foreach (DataRow row in dtImagenes.Rows)
-                {
-                    string path = row["path"].ToString();
+                //GALLERY CONTROL
 
-                    files = Directory.GetFiles(row["path"].ToString());
-                }
+                //galleryGroup = new GalleryItemGroup();
+                //galleryControl.Gallery.Groups.Add(galleryGroup);
+                //string[] files = null;
+                //foreach (DataRow row in dtImagenes.Rows)
+                //{
+                //    string path = row["path"].ToString();
 
-                foreach (string file in files)
-                {
-                    Image img = Image.FromFile(file);
-                    GalleryItem item = new GalleryItem
-                    {
-                        Image = img,
-                        Caption = Path.GetFileName(file)
-                    };
-                    galleryGroup.Items.Add(item);
-                }
+                //    files = Directory.GetFiles(row["path"].ToString());
+                //}
+
+                //foreach (string file in files)
+                //{
+                //    Image img = Image.FromFile(file);
+                //    GalleryItem item = new GalleryItem
+                //    {
+                //        Image = img,
+                //        Caption = Path.GetFileName(file)
+                //    };
+                //    galleryGroup.Items.Add(item);
+                //}
 
 
             }

@@ -149,8 +149,19 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
         private void simpleButton1_Click(object sender, EventArgs e)
         {
 
+            if (string.IsNullOrEmpty(txtNombreLargo.Text))
+            {
+                CajaDialogo.Error("Debe ingresar un Nombre!");
+                txtNombreLargo.Focus();
+                return;
+            }
+
+
             try
             {
+
+
+
 
                 DataOperations dp = new DataOperations();
                 SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);

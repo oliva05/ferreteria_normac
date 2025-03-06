@@ -44,6 +44,8 @@ namespace JAGUAR_PRO.Clases
         private string _barcode;
         private string _codeOEM;
 
+        int _idSiguiente;
+
         public int Id { get => id; set => id = value; }
         public bool Enable { get => enable; set => enable = value; }
         public int Id_user_created { get => id_user_created; set => id_user_created = value; }
@@ -88,6 +90,7 @@ namespace JAGUAR_PRO.Clases
         public int TipoInventario { get => tipoInventario; set => tipoInventario = value; }
         public string Barcode { get => _barcode; set => _barcode = value; }
         public string CodeOEM { get => _codeOEM; set => _codeOEM = value; }
+        public int IdSiguiente { get => _idSiguiente; set => _idSiguiente = value; }
 
         public ProductoTerminado(string pConnectionString, DateTime fecha = default)
         {
@@ -205,7 +208,7 @@ namespace JAGUAR_PRO.Clases
                     Descripcion = dl.GetString(7);
                     code = dl.GetString(8);
                     fecha = dl.GetDateTime(9);
-                    tipo_id = dl.GetInt32(10);
+                    tipo_id = dl.IsDBNull(10) ? 0 : dl.GetInt32(10);
                     TipoDescripcion = dl.GetString(11);
                     EstadoDescripcion = dl.GetString(12);
                     CostoDeMO_porArrobaBit = dl.GetBoolean(13);
@@ -438,6 +441,36 @@ namespace JAGUAR_PRO.Clases
             }
             return varidconf;
         }
+
+        public bool GenerarCodigoPTVentaUnica(string pItemCode)
+        {
+            bool Recuperar = false;
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_get_id_sig_pt_productos_venta_unica", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_sig", pItemCode);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    IdSiguiente = reader.GetInt32(0);
+                    reader.Close();
+                    Recuperar = true;
+                }    
+            }
+            catch (Exception ex)
+            {
+                Recuperar  = false;
+                CajaDialogo.Error(ex.Message);
+                
+            }
+
+            return Recuperar;
+        }
+
         public string GenerarSiguienteCodigo(int pIdSiguiente)
         {
             string cod = "";
