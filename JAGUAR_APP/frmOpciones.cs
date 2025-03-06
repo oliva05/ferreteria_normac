@@ -3702,7 +3702,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(12))
+                if (UsuarioLogeado.ValidarNivelPermisos(6))
                 {
                     xfrnListaPrecioAdmin frm = new xfrnListaPrecioAdmin(this.UsuarioLogeado);
                     frm.MdiParent = this.MdiParent;
@@ -3710,7 +3710,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #12 (Gestion de Lista de Precio)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #6 (Gestion de Lista de Precio)");
                 }
             }
         }
