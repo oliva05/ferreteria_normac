@@ -30,12 +30,12 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddFacturaProveedor));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridLookUpEditProveedor = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourceProveedor = new System.Windows.Forms.BindingSource(this.components);
             this.dsLogisticaJaguar1 = new JAGUAR_PRO.LogisticaJaguar.dsLogisticaJaguar();
@@ -397,7 +397,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.GridLookUpE_Bodega,
             this.cmdEliminar,
             this.gle_MP_y_ME});
-            this.gridControl1.Size = new System.Drawing.Size(933, 272);
+            this.gridControl1.Size = new System.Drawing.Size(935, 272);
             this.gridControl1.TabIndex = 47;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -767,9 +767,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // cmdEliminar
             // 
             this.cmdEliminar.AutoHeight = false;
-            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.cmdEliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdEliminar.Name = "cmdEliminar";
             this.cmdEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEliminar_ButtonClick);
@@ -822,7 +822,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCerrar.ImageOptions.Image")));
             this.cmdCerrar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.cmdCerrar.Location = new System.Drawing.Point(1136, 5);
+            this.cmdCerrar.Location = new System.Drawing.Point(1138, 5);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(108, 41);
             this.cmdCerrar.TabIndex = 50;
@@ -1089,7 +1089,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.btnCopiarDe.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnCopiarDe.Appearance.Options.UseFont = true;
             this.btnCopiarDe.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
-            this.btnCopiarDe.Location = new System.Drawing.Point(702, 95);
+            this.btnCopiarDe.Location = new System.Drawing.Point(703, 95);
             this.btnCopiarDe.Name = "btnCopiarDe";
             this.btnCopiarDe.Size = new System.Drawing.Size(168, 29);
             this.btnCopiarDe.TabIndex = 87;
@@ -1129,15 +1129,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(952, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(954, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 543);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 545);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(952, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(954, 0);
             // 
             // barDockControlLeft
             // 
@@ -1145,15 +1145,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 543);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 545);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(952, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(954, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 543);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 545);
             // 
             // frmAddFacturaProveedor
             // 
@@ -1161,7 +1161,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 543);
+            this.ClientSize = new System.Drawing.Size(954, 545);
             this.Controls.Add(this.btnCopiarDe);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.txtObservaciones);

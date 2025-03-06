@@ -31,8 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCRUD_PTSubClase));
             this.grdTipo = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.claseselectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colconcat_ = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_clase = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
@@ -43,14 +46,11 @@
             this.toggleSwitchEnablePT = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblTituloVentana = new DevExpress.XtraEditors.LabelControl();
-            this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
-            this.claseselectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.colid_clase = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdTipo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.claseselectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchEnablePT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.claseselectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // grdTipo
@@ -70,6 +70,16 @@
             this.grdTipo.TabIndex = 57;
             this.grdTipo.EditValueChanged += new System.EventHandler(this.grdTipo_EditValueChanged);
             // 
+            // claseselectBindingSource
+            // 
+            this.claseselectBindingSource.DataMember = "clase_select";
+            this.claseselectBindingSource.DataSource = this.dsProductoTerminado1;
+            // 
+            // dsProductoTerminado1
+            // 
+            this.dsProductoTerminado1.DataSetName = "dsProductoTerminado";
+            this.dsProductoTerminado1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // gridLookUpEdit1View
             // 
             this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -87,6 +97,12 @@
             this.colconcat_.Name = "colconcat_";
             this.colconcat_.Visible = true;
             this.colconcat_.VisibleIndex = 0;
+            // 
+            // colid_clase
+            // 
+            this.colid_clase.FieldName = "id_clase";
+            this.colid_clase.Name = "colid_clase";
+            this.colid_clase.OptionsColumn.ReadOnly = true;
             // 
             // labelControl1
             // 
@@ -174,7 +190,7 @@
             this.toggleSwitchEnablePT.Properties.Appearance.Options.UseFont = true;
             this.toggleSwitchEnablePT.Properties.OffText = "No";
             this.toggleSwitchEnablePT.Properties.OnText = "Si";
-            this.toggleSwitchEnablePT.Size = new System.Drawing.Size(115, 20);
+            this.toggleSwitchEnablePT.Size = new System.Drawing.Size(115, 22);
             this.toggleSwitchEnablePT.TabIndex = 50;
             // 
             // labelControl2
@@ -197,27 +213,11 @@
             this.lblTituloVentana.TabIndex = 48;
             this.lblTituloVentana.Text = "Crear Sub Clase";
             // 
-            // dsProductoTerminado1
-            // 
-            this.dsProductoTerminado1.DataSetName = "dsProductoTerminado";
-            this.dsProductoTerminado1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // claseselectBindingSource
-            // 
-            this.claseselectBindingSource.DataMember = "clase_select";
-            this.claseselectBindingSource.DataSource = this.dsProductoTerminado1;
-            // 
-            // colid_clase
-            // 
-            this.colid_clase.FieldName = "id_clase";
-            this.colid_clase.Name = "colid_clase";
-            this.colid_clase.OptionsColumn.ReadOnly = true;
-            // 
             // frmCRUD_PTSubClase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 303);
+            this.ClientSize = new System.Drawing.Size(424, 305);
             this.Controls.Add(this.grdTipo);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdGuardar);
@@ -233,10 +233,10 @@
             this.Name = "frmCRUD_PTSubClase";
             this.Text = "Gestion de Sub Clases";
             ((System.ComponentModel.ISupportInitialize)(this.grdTipo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.claseselectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchEnablePT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.claseselectBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

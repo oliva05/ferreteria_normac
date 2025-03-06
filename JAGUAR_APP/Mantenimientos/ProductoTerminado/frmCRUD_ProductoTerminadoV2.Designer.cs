@@ -256,7 +256,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.toggleSwitchEnablePT.Properties.Appearance.Options.UseFont = true;
             this.toggleSwitchEnablePT.Properties.OffText = "No";
             this.toggleSwitchEnablePT.Properties.OnText = "Si";
-            this.toggleSwitchEnablePT.Size = new System.Drawing.Size(115, 20);
+            this.toggleSwitchEnablePT.Size = new System.Drawing.Size(115, 22);
             this.toggleSwitchEnablePT.TabIndex = 18;
             // 
             // labelControl3
@@ -596,7 +596,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(392, 76);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(689, 248);
+            this.groupControl1.Size = new System.Drawing.Size(691, 248);
             this.groupControl1.TabIndex = 46;
             this.groupControl1.Text = "Imagenes";
             this.groupControl1.ToolTipController = this.defaultToolTipController1.DefaultController;
@@ -606,13 +606,13 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridControl1.DataMember = "PTImagenes";
             this.gridControl1.DataSource = this.dsProductoTerminado1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 23);
+            this.gridControl1.Location = new System.Drawing.Point(2, 27);
             this.gridControl1.MainView = this.gridView9;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.reposPictureItemImage,
             this.reposDelete});
-            this.gridControl1.Size = new System.Drawing.Size(685, 223);
+            this.gridControl1.Size = new System.Drawing.Size(687, 219);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView9});
@@ -841,7 +841,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 499);
+            this.ClientSize = new System.Drawing.Size(1095, 501);
             this.Controls.Add(this.txtDescripcionProducto);
             this.Controls.Add(this.txtOEM);
             this.Controls.Add(this.txtBarCode);
