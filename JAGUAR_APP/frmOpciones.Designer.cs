@@ -40,6 +40,7 @@
             this.navBarItemmaterialEmpaqueLogistica = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem15 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbReporteCompras = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarRecepBodegon = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup12 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem23 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup6 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -245,7 +246,7 @@
             this.TabLogistica.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TabLogistica.ImageOptions.Image")));
             this.TabLogistica.Name = "TabLogistica";
             this.TabLogistica.PageVisible = false;
-            this.TabLogistica.Size = new System.Drawing.Size(953, 534);
+            this.TabLogistica.Size = new System.Drawing.Size(953, 530);
             this.TabLogistica.Text = "Logistica";
             // 
             // navBarControl2
@@ -306,12 +307,13 @@
             this.navBarItem21,
             this.navBarItem24,
             this.nbReporteCompras,
-            this.navBarItem23});
+            this.navBarItem23,
+            this.navBarRecepBodegon});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
             this.navBarControl2.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.ExplorerBar;
-            this.navBarControl2.Size = new System.Drawing.Size(338, 534);
+            this.navBarControl2.Size = new System.Drawing.Size(338, 530);
             this.navBarControl2.SkinExplorerBarViewScrollStyle = DevExpress.XtraNavBar.SkinExplorerBarViewScrollStyle.Buttons;
             this.navBarControl2.TabIndex = 21;
             this.navBarControl2.Text = "navBarControl2";
@@ -329,7 +331,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCAI_Proveedores),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemmaterialEmpaqueLogistica),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem15),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbReporteCompras)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbReporteCompras),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarRecepBodegon)});
             this.navBarGroup5.Name = "navBarGroup5";
             // 
             // navBarItemRecepcionFactura
@@ -402,6 +405,19 @@
             this.nbReporteCompras.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbReporteCompras.ImageOptions.SmallImage")));
             this.nbReporteCompras.Name = "nbReporteCompras";
             this.nbReporteCompras.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbReporteCompras_LinkClicked);
+            // 
+            // navBarRecepBodegon
+            // 
+            this.navBarRecepBodegon.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarRecepBodegon.Appearance.Options.UseFont = true;
+            this.navBarRecepBodegon.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.navBarRecepBodegon.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarRecepBodegon.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.navBarRecepBodegon.AppearancePressed.Options.UseFont = true;
+            this.navBarRecepBodegon.Caption = "Recepcion Compras Bodegon";
+            this.navBarRecepBodegon.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.recepcion_compra_x32;
+            this.navBarRecepBodegon.Name = "navBarRecepBodegon";
+            this.navBarRecepBodegon.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarRecepBodegon_LinkClicked);
             // 
             // navBarGroup12
             // 
@@ -919,7 +935,7 @@
             this.TabAdmin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TabAdmin.ImageOptions.Image")));
             this.TabAdmin.Name = "TabAdmin";
             this.TabAdmin.PageVisible = false;
-            this.TabAdmin.Size = new System.Drawing.Size(953, 534);
+            this.TabAdmin.Size = new System.Drawing.Size(953, 530);
             this.TabAdmin.Text = "Administrador";
             // 
             // xtraTabControl2
@@ -957,7 +973,7 @@
             this.xtraTabPageCRUDS.Controls.Add(this.btnEstadosRequisiciones);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton74);
             this.xtraTabPageCRUDS.Name = "xtraTabPageCRUDS";
-            this.xtraTabPageCRUDS.Size = new System.Drawing.Size(944, 499);
+            this.xtraTabPageCRUDS.Size = new System.Drawing.Size(944, 495);
             this.xtraTabPageCRUDS.Text = "Mantenimientos";
             // 
             // simpleButton6
@@ -1180,7 +1196,7 @@
             this.xtraTabPageUsuarios.Controls.Add(this.simpleButton37);
             this.xtraTabPageUsuarios.Controls.Add(this.simpleButton75);
             this.xtraTabPageUsuarios.Name = "xtraTabPageUsuarios";
-            this.xtraTabPageUsuarios.Size = new System.Drawing.Size(944, 499);
+            this.xtraTabPageUsuarios.Size = new System.Drawing.Size(944, 495);
             this.xtraTabPageUsuarios.Text = "Gestión de Usuarios";
             // 
             // simpleButton2
@@ -1303,7 +1319,7 @@
             this.xtraTabPageFacturacion.Margin = new System.Windows.Forms.Padding(2);
             this.xtraTabPageFacturacion.Name = "xtraTabPageFacturacion";
             this.xtraTabPageFacturacion.PageVisible = false;
-            this.xtraTabPageFacturacion.Size = new System.Drawing.Size(944, 499);
+            this.xtraTabPageFacturacion.Size = new System.Drawing.Size(944, 495);
             this.xtraTabPageFacturacion.Text = "Mantenimiento Facturación";
             // 
             // simpleButton3
@@ -1380,7 +1396,7 @@
             this.tabRRHH.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.rrhh_24X24;
             this.tabRRHH.Name = "tabRRHH";
             this.tabRRHH.PageVisible = false;
-            this.tabRRHH.Size = new System.Drawing.Size(953, 534);
+            this.tabRRHH.Size = new System.Drawing.Size(953, 530);
             this.tabRRHH.Text = "RRHH";
             // 
             // tabContabilidad
@@ -1388,7 +1404,7 @@
             this.tabContabilidad.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.calculo;
             this.tabContabilidad.Name = "tabContabilidad";
             this.tabContabilidad.PageVisible = false;
-            this.tabContabilidad.Size = new System.Drawing.Size(953, 534);
+            this.tabContabilidad.Size = new System.Drawing.Size(953, 530);
             this.tabContabilidad.Text = "Contabilidad";
             // 
             // tabPageFacturacion
@@ -1397,7 +1413,7 @@
             this.tabPageFacturacion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabPageFacturacion.ImageOptions.Image")));
             this.tabPageFacturacion.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageFacturacion.Name = "tabPageFacturacion";
-            this.tabPageFacturacion.Size = new System.Drawing.Size(953, 534);
+            this.tabPageFacturacion.Size = new System.Drawing.Size(953, 530);
             this.tabPageFacturacion.Text = "Facturación";
             this.tabPageFacturacion.Paint += new System.Windows.Forms.PaintEventHandler(this.tabPageFacturacion_Paint);
             // 
@@ -2569,5 +2585,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup12;
         private DevExpress.XtraNavBar.NavBarItem navBarItem23;
+        private DevExpress.XtraNavBar.NavBarItem navBarRecepBodegon;
     }
 }

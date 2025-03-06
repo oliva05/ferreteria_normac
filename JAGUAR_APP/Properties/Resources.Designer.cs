@@ -2563,6 +2563,16 @@ namespace JAGUAR_PRO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap recepcion_compra_x32 {
+            get {
+                object obj = ResourceManager.GetObject("recepcion_compra_x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap recipe32px {
             get {
                 object obj = ResourceManager.GetObject("recipe32px", resourceCulture);

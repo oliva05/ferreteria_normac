@@ -452,7 +452,7 @@ namespace JAGUAR_PRO.Clases
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("sp_get_id_sig_pt_productos_venta_unica", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_sig", pItemCode);
+                cmd.Parameters.AddWithValue("@itemcode", pItemCode);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {

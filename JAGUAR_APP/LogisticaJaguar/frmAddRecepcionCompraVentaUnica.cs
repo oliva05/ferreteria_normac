@@ -1,12 +1,15 @@
 ﻿using ACS.Classes;
 using DevExpress.DashboardCommon.Native;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
 using LOSA.Calidad.LoteConfConsumo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,9 +20,12 @@ namespace JAGUAR_PRO.LogisticaJaguar
 {
     public partial class frmAddRecepcionCompraVentaUnica : DevExpress.XtraEditors.XtraForm
     {
-        public frmAddRecepcionCompraVentaUnica()
+        int ContadorVuelta = 0;
+        UserLogin UsuarioLogeado;
+        public frmAddRecepcionCompraVentaUnica(UserLogin pUser)
         {
             InitializeComponent();
+            UsuarioLogeado = pUser;
         }
 
         private void btnSelecItemCode_Click(object sender, EventArgs e)
@@ -43,21 +49,21 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 return;
             }
 
-            if ((decimal)txtCosto.EditValue == 0)
+            if (Convert.ToDecimal(txtCosto.EditValue) == 0)
             {
                 CajaDialogo.Error("El Valor del Costo debe ser mayor a 0");
                 txtCosto.Focus();
                 return;
             }
 
-            if ((decimal)txtPrecioVenta.EditValue == 0)
+            if (Convert.ToDecimal(txtPrecioVenta.EditValue) == 0)
             {
                 CajaDialogo.Error("Debe inidcar el Precio de Venta!");
                 txtPrecioVenta.Focus();
                 return;
             }
 
-            if ((int)spinUd.EditValue <= 0)
+            if (Convert.ToInt32(spinUd.EditValue) <= 0)
             {
                 CajaDialogo.Error("Debe indicar cantidad mayor a 0!");
                 txtPrecioVenta.Focus();
@@ -67,31 +73,202 @@ namespace JAGUAR_PRO.LogisticaJaguar
             try
             {
                 ProductoTerminado pt = new ProductoTerminado();
-                pt.GenerarCodigoPTVentaUnica(txtCodigoPT.Text.Trim());
-                int Contador = (int)spinUd.EditValue;
-                int correlativo = pt.IdSiguiente;
-                
-                while (Contador > 0)
+                if (ContadorVuelta == 0)
                 {
-                    DataRow dr = dsProductoTerminado1.pt_venta_unica.NewRow();
-                    dr[0] = 0;
-                    dr[1] = txtDescripcion.Text;
-                    dr[2] = txtCodigoPT.Text.Trim();
-                    dr[3] = txtCosto.EditValue;
-                    dr[4] = txtMargGanancia.EditValue;
-                    dr[5] = txtPrecioVenta.EditValue;
-                    dr[6] = txtCodigoPT + "00" + correlativo.ToString();
-                    dr[7] = correlativo.ToString();
-                    dsProductoTerminado1.pt_venta_unica.Rows.Add(dr);
-                    dsProductoTerminado1.pt_venta_unica.AcceptChanges();
+                    if (pt.GenerarCodigoPTVentaUnica(txtCodigoPT.Text.Trim()))
+                    {
+                        int Contador = Convert.ToInt32(spinUd.EditValue);
+                        int correlativo = pt.IdSiguiente;
 
-                    Contador--;
+                        while (Contador > 0)
+                        {
+                            DataRow dr = dsProductoTerminado1.pt_venta_unica.NewRow();
+                            dr[0] = 0;
+                            dr[1] = txtDescripcion.Text;
+                            dr[2] = txtCodigoPT.Text.Trim();
+                            dr[3] = txtCosto.EditValue;
+                            dr[4] = txtMargGanancia.EditValue;
+                            dr[5] = txtPrecioVenta.EditValue;
+                            dr[6] = txtCodigoPT.Text + "B" + "00" + correlativo.ToString();
+                            dr[7] = correlativo.ToString();
+                            dsProductoTerminado1.pt_venta_unica.Rows.Add(dr);
+                            dsProductoTerminado1.pt_venta_unica.AcceptChanges();
+
+                            correlativo++;
+                            Contador--;
+                        }
+                        LimpiarControles();
+                        
+                    }
+                    ContadorVuelta++;
                 }
+                else
+                {
+                    int CorrelativoMemoria = dsProductoTerminado1.pt_venta_unica.AsEnumerable()
+                    .Where(row => row.Field<string>("itemcode") == txtCodigoPT.Text)
+                    .Select(row => row["correlativo"] != DBNull.Value ? Convert.ToInt32(row["correlativo"]) : 0) // Conversión segura
+                    .DefaultIfEmpty(0)
+                    .Max();
+
+                    int Contador = Convert.ToInt32(spinUd.EditValue);
+
+                    CorrelativoMemoria++;//Obtenemos el ultimo valor del correlativo y le sumamos 1
+
+                    while (Contador > 0)
+                    {
+                        DataRow dr = dsProductoTerminado1.pt_venta_unica.NewRow();
+                        dr[0] = 0;
+                        dr[1] = txtDescripcion.Text;
+                        dr[2] = txtCodigoPT.Text.Trim();
+                        dr[3] = txtCosto.EditValue;
+                        dr[4] = txtMargGanancia.EditValue;
+                        dr[5] = txtPrecioVenta.EditValue;
+                        dr[6] = txtCodigoPT.Text + "B" + "00" + CorrelativoMemoria.ToString();
+                        dr[7] = CorrelativoMemoria.ToString();
+                        dsProductoTerminado1.pt_venta_unica.Rows.Add(dr);
+                        dsProductoTerminado1.pt_venta_unica.AcceptChanges();
+
+                        CorrelativoMemoria++;
+                        Contador--;
+                    }
+                    LimpiarControles();
+                }
+
+                
+                
+                
             }
             catch (Exception ex)
             {
                 CajaDialogo.Error(ex.Message);
             }
+        }
+
+        private void LimpiarControles()
+        {
+            txtCodigoPT.Text = txtItemName.Text = txtDescripcion.Text = string.Empty;
+            txtCosto.EditValue = txtMargGanancia.EditValue  = txtPrecioVenta.EditValue = 0.00;
+            spinUd.EditValue = 1;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (gridView1.RowCount > 0)
+            {
+                DialogResult r = CajaDialogo.Pregunta("Esta seguro de cerrar la ventana?");
+                if (r == DialogResult.Yes) 
+                    this.Close();
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void txtMargGanancia_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            //try
+            //{
+            //    decimal PrecioVenta = 0;
+            //    decimal MontoMargen = 0;
+            //    decimal Costo = Convert.ToDecimal(txtCosto.EditValue);
+            //    decimal Margen = Convert.ToDecimal(txtMargGanancia.EditValue);
+
+            //    MontoMargen = Costo*(Margen / 100);
+
+            //    txtPrecioVenta.EditValue = MontoMargen + Costo;
+
+            //}
+            //catch (Exception)
+            //{ }
+        }
+
+        private void txtMargGanancia_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal PrecioVenta = 0;
+                decimal MontoMargen = 0;
+                decimal Costo = Convert.ToDecimal(txtCosto.EditValue);
+                decimal Margen = Convert.ToDecimal(txtMargGanancia.EditValue);
+
+                MontoMargen = Costo * (Margen / 100);
+
+                PrecioVenta = MontoMargen + Costo;
+
+                txtPrecioVenta.EditValue = PrecioVenta;
+            }
+            catch (Exception)
+            { }
+        }
+
+        private void reposDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridView1 = (GridView)gridControl1.FocusedView;
+            var row = (dsProductoTerminado.pt_venta_unicaRow)gridView1.GetFocusedDataRow();
+
+            try
+            {
+                gridView1.DeleteRow(gridView1.FocusedRowHandle);
+                dsProductoTerminado1.AcceptChanges();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            SqlTransaction transaction = null;
+            DataOperations dp = new DataOperations();
+            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+            bool Guardar = false;
+
+            try
+            {
+                conn.Open();
+                transaction = conn.BeginTransaction("Transaction Order");
+
+                SqlCommand cmd = conn.CreateCommand();
+
+                foreach (dsProductoTerminado.pt_venta_unicaRow row in dsProductoTerminado1.pt_venta_unica.Rows)
+                {
+                    cmd.CommandText = "sp_get_insert_pt_venta_unica";
+                    cmd.Connection = conn;
+                    cmd.Transaction = transaction;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@descripcion",row.descripcion);
+                    cmd.Parameters.AddWithValue("@itemcode",row.itemcode);
+                    cmd.Parameters.AddWithValue("@costo", row.costo);
+                    cmd.Parameters.AddWithValue("@margen",row.margen);
+                    cmd.Parameters.AddWithValue("@precio_venta",row.precio_venta);
+                    cmd.Parameters.AddWithValue("@barcode",row.barcode);
+                    cmd.Parameters.AddWithValue("@correlativo", row.correlativo);
+                    cmd.Parameters.AddWithValue("@fecha_ingreso", dp.Now());
+                    cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
+                    cmd.ExecuteNonQuery();
+                }
+               
+                transaction.Commit();
+                Guardar = true;
+            }
+            catch (Exception ec)
+            {
+                transaction.Rollback();
+                CajaDialogo.Error(ec.Message);
+                Guardar = false;
+            }
+
+            if (Guardar) 
+            {
+                CajaDialogo.Information("Ingreso realizado con exito!");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+
+
         }
     }
 }
