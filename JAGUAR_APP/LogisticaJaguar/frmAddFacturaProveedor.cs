@@ -647,7 +647,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             if (TipoAccionActualVentana == TipoAccionVentana.Insert)
                             {
                                 //Insert Detalle
-                                cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v3]";
+                                cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v3_compra_pt]";
                                 cmd.CommandType = CommandType.StoredProcedure;
                                 cmd.Parameters.AddWithValue("@id_factura_h", id_H);//Header id recien insertado en la transaccion
                             }
@@ -662,13 +662,13 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                                 if(id_linea_new == 0)
                                 {
-                                    cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v3]";
+                                    cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v3_compra_pt]";
                                     cmd.CommandType = CommandType.StoredProcedure;
                                     cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
                                 }
                                 else
                                 {
-                                    cmd.CommandText = "[dbo].[sp_set_update_detalle_factura_proveedor_d_v2]";
+                                    cmd.CommandText = "[dbo].[sp_set_update_detalle_factura_proveedor_d_v3_compra_pt]";
                                     cmd.CommandType = CommandType.StoredProcedure;
                                     cmd.Parameters.AddWithValue("@id_linea_detalle", row.id);
                                     cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
@@ -684,7 +684,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             cmd.Parameters.AddWithValue("@cantidad_entrada", row.cantidad_ingreso);
                             cmd.Parameters.AddWithValue("@id_unidad_medida_entrada", row.id_ud_medida_jaguar);
                             cmd.Parameters.AddWithValue("@total_linea", row.total_fila);
-                            cmd.Parameters.AddWithValue("@id_materia_prima", row.id_mp);
+                            cmd.Parameters.AddWithValue("@id_producto_terminado", row.id_mp);
                             cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
                             cmd.Parameters.AddWithValue("@num_factura", txtNumeroFactura.Text);
                             cmd.Parameters.AddWithValue("@item_code", row.ItemCode);
