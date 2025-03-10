@@ -40,6 +40,7 @@
             this.navBarItemmaterialEmpaqueLogistica = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem15 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbReporteCompras = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarRecepBodegon = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup12 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem23 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup6 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -305,7 +306,8 @@
             this.navBarItem21,
             this.navBarItem24,
             this.nbReporteCompras,
-            this.navBarItem23});
+            this.navBarItem23,
+            this.navBarRecepBodegon});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -328,7 +330,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCAI_Proveedores),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemmaterialEmpaqueLogistica),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem15),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbReporteCompras)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbReporteCompras),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarRecepBodegon)});
             this.navBarGroup5.Name = "navBarGroup5";
             // 
             // navBarItemRecepcionFactura
@@ -401,6 +404,19 @@
             this.nbReporteCompras.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbReporteCompras.ImageOptions.SmallImage")));
             this.nbReporteCompras.Name = "nbReporteCompras";
             this.nbReporteCompras.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbReporteCompras_LinkClicked);
+            // 
+            // navBarRecepBodegon
+            // 
+            this.navBarRecepBodegon.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarRecepBodegon.Appearance.Options.UseFont = true;
+            this.navBarRecepBodegon.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.navBarRecepBodegon.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarRecepBodegon.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.navBarRecepBodegon.AppearancePressed.Options.UseFont = true;
+            this.navBarRecepBodegon.Caption = "Recepcion Compras Bodegon";
+            this.navBarRecepBodegon.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.recepcion_compra_x32;
+            this.navBarRecepBodegon.Name = "navBarRecepBodegon";
+            this.navBarRecepBodegon.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarRecepBodegon_LinkClicked);
             // 
             // navBarGroup12
             // 
@@ -2583,6 +2599,7 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup12;
         private DevExpress.XtraNavBar.NavBarItem navBarItem23;
+        private DevExpress.XtraNavBar.NavBarItem navBarRecepBodegon;
         private DevExpress.XtraNavBar.NavBarItem navBarItem59;
     }
 }
