@@ -38,6 +38,11 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -53,11 +58,6 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.cmdBorrarCliente = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.txtNombreListaPrecio = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -83,6 +83,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.colid_cliente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colenable = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBorrar2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdBorrar3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colcliente_codigo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcliente_nombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescuento_porcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -120,7 +121,6 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.deHasta = new DevExpress.XtraEditors.DateEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.cmdBorrar3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdBorrarCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreListaPrecio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
@@ -133,6 +133,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             ((System.ComponentModel.ISupportInitialize)(this.gridControlClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsListaPrecios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdBorrar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPuntosVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdBorrar)).BeginInit();
@@ -148,7 +149,6 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             ((System.ComponentModel.ISupportInitialize)(this.deDesde.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deHasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deHasta.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdBorrar3)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdBorrarCliente
@@ -283,7 +283,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.labelControl6.Appearance.Options.UseTextOptions = true;
             this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl6.Location = new System.Drawing.Point(1, -7);
+            this.labelControl6.Location = new System.Drawing.Point(1, -3);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(1059, 25);
             this.labelControl6.TabIndex = 11;
@@ -337,7 +337,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.tpProductos.Controls.Add(this.cmdAdd);
             this.tpProductos.Controls.Add(this.gridControlProductos);
             this.tpProductos.Name = "tpProductos";
-            this.tpProductos.Size = new System.Drawing.Size(1057, 404);
+            this.tpProductos.Size = new System.Drawing.Size(1057, 400);
             this.tpProductos.Text = "Configuracion Lista de Precio";
             // 
             // simpleButton3
@@ -452,6 +452,16 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.colBorrar2.Visible = true;
             this.colBorrar2.VisibleIndex = 3;
             this.colBorrar2.Width = 41;
+            // 
+            // cmdBorrar3
+            // 
+            this.cmdBorrar3.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.cmdBorrar3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdBorrar3.Name = "cmdBorrar3";
+            this.cmdBorrar3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdBorrar3.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdBorrar3_ButtonClick);
             // 
             // colcliente_codigo
             // 
@@ -636,7 +646,6 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.gridView1.OptionsView.ShowViewCaption = true;
             this.gridView1.ViewCaption = "Productos";
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
-            this.gridView1.Click += new System.EventHandler(this.gridView1_Click);
             // 
             // colid_pt
             // 
@@ -694,7 +703,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.tpCliente.Controls.Add(this.gcCliente);
             this.tpCliente.Name = "tpCliente";
             this.tpCliente.PageVisible = false;
-            this.tpCliente.Size = new System.Drawing.Size(1057, 404);
+            this.tpCliente.Size = new System.Drawing.Size(1057, 400);
             this.tpCliente.Text = "Clientes";
             // 
             // gcCliente
@@ -707,7 +716,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.gcCliente.Name = "gcCliente";
             this.gcCliente.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnDelete});
-            this.gcCliente.Size = new System.Drawing.Size(1057, 404);
+            this.gcCliente.Size = new System.Drawing.Size(1057, 400);
             this.gcCliente.TabIndex = 0;
             this.gcCliente.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCliente});
@@ -839,16 +848,6 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.labelControl7.TabIndex = 17;
             this.labelControl7.Text = "Válida hasta__________________________";
             // 
-            // cmdBorrar3
-            // 
-            this.cmdBorrar3.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
-            this.cmdBorrar3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.cmdBorrar3.Name = "cmdBorrar3";
-            this.cmdBorrar3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.cmdBorrar3.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdBorrar3_ButtonClick);
-            // 
             // xfrmListaPreciosCRUD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -889,6 +888,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             ((System.ComponentModel.ISupportInitialize)(this.gridControlClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsListaPrecios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdBorrar3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPuntosVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdBorrar)).EndInit();
@@ -904,7 +904,6 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             ((System.ComponentModel.ISupportInitialize)(this.deDesde.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deHasta.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deHasta.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdBorrar3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

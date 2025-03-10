@@ -4620,7 +4620,8 @@ namespace JAGUAR_PRO
                         accesoprevio = true;
                         //frmRecepcionFacturaProveedor frm = new frmRecepcionFacturaProveedor(this.UsuarioLogeado);
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
-                        frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
+                        //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
+                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual);
                         frm.MdiParent = this.MdiParent;
                         frm.Show();
                         break;
@@ -4633,7 +4634,8 @@ namespace JAGUAR_PRO
                     if (UsuarioLogeado.ValidarNivelPermisos(5))
                     {
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
-                        frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
+                        //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
+                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual);
                         frm.MdiParent = this.MdiParent;
                         frm.Show();
                     }

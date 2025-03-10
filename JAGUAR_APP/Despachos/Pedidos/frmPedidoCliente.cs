@@ -1781,7 +1781,7 @@ namespace Eatery.Ventas
                             SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                             con.Open();
 
-                            SqlCommand cmd = new SqlCommand("[sp_get_cantidad_inv_kardex_pt_for_elejir_stock]", con);
+                            SqlCommand cmd = new SqlCommand("dbo.[sp_get_cantidad_inv_kardex_pt_for_elejir_stock]", con);
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@id_pt", row1.id_pt);
                             SqlDataReader dr = cmd.ExecuteReader();

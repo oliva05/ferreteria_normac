@@ -17,7 +17,7 @@ namespace JAGUAR_PRO.Clases
             //MateriaPrima = 3,
             Proveedores = 4,
             NumDocRecepcionFactura=5,
-            NumeroPedido=6,
+            ListaPrecios = 6,
             //Clientes=3,
             RequisicionesMP=8,
             Material_De_Empaque=9,
@@ -27,7 +27,7 @@ namespace JAGUAR_PRO.Clases
             Empresa=14,
             PuntoDeVenta=15,
             Despacho=17,
-            ListaPrecios=18,
+            NumeroPedido = 18,
             Traslados=19
         }
 
