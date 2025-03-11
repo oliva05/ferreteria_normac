@@ -338,6 +338,8 @@
             // 
             this.navBarItemRecepcionFactura.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItemRecepcionFactura.Appearance.Options.UseFont = true;
+            this.navBarItemRecepcionFactura.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItemRecepcionFactura.AppearanceDisabled.Options.UseFont = true;
             this.navBarItemRecepcionFactura.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navBarItemRecepcionFactura.AppearanceHotTracked.Options.UseFont = true;
             this.navBarItemRecepcionFactura.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
@@ -1419,8 +1421,7 @@
             // navBarControl3
             // 
             this.navBarControl3.ActiveGroup = this.navBarGroup10;
-            this.navBarControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.navBarControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl3.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup10,
             this.navBarGroup11,
@@ -1446,12 +1447,13 @@
             this.navBarItemCambioDePrecio,
             this.navBarItem20,
             this.navBarItem59});
-            this.navBarControl3.Location = new System.Drawing.Point(2, 2);
+            this.navBarControl3.Location = new System.Drawing.Point(0, 0);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
             this.navBarControl3.OptionsNavPane.AllowOptionsMenuItem = true;
             this.navBarControl3.OptionsNavPane.ExpandedWidth = 308;
-            this.navBarControl3.Size = new System.Drawing.Size(308, 526);
+            this.navBarControl3.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.ExplorerBar;
+            this.navBarControl3.Size = new System.Drawing.Size(308, 530);
             this.navBarControl3.TabIndex = 0;
             this.navBarControl3.Text = "navBarControl3";
             this.navBarControl3.Click += new System.EventHandler(this.navBarControl3_Click);
@@ -1501,6 +1503,8 @@
             this.navBarItem59.AppearanceDisabled.Options.UseFont = true;
             this.navBarItem59.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
             this.navBarItem59.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem59.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem59.AppearancePressed.Options.UseFont = true;
             this.navBarItem59.Caption = "Lista Pre Facturas";
             this.navBarItem59.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem59.ImageOptions.SmallImage")));
             this.navBarItem59.Name = "navBarItem59";
