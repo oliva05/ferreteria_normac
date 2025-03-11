@@ -151,102 +151,7 @@ namespace JAGUAR_PRO.TransaccionesPT
 
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPT_Name.Text))
-            {
-                CajaDialogo.Error("Es necesario seleccionar el Producto Terminado!");
-                return;
-            }
-            //if (string.IsNullOrEmpty(txtNumLote.Text))
-            //{
-            //    CajaDialogo.Error("Es Necesario seleccionar un Numero de Lote de Producto Terminado");
-            //    return;
-            //}
-            if (gridLookUpEditPresentacion.EditValue == null)
-            {
-                CajaDialogo.Error("Debe Seleccionar el tipo de presentacion!");
-                return;
-            }
-
-            if (Convert.ToDecimal(txtCantidadUnidades.Text) <= 0)
-            {
-                CajaDialogo.Error("No se puede registrar una cantidad de producto terminado en cero (0)!");
-                return;
-            }
-            if (!string.IsNullOrEmpty(dtFechaDocumento.Text))
-            {
-                if (dtFechaDocumento.DateTime.Year <= 2020)
-                {
-                    CajaDialogo.Error("Es necesario ingresar una fecha de documento valida!");
-                    return;
-                }
-            }
-
-            //if(IdTipoLote ==2)
-            //{
-            //    if(dp1.ValidateNumberDecimal(txtCostoUnitario.Text)<=0)
-            //    {
-            //        CajaDialogo.Error("Es necesario especificar un costo unitario para efectuar este ajuste!");
-            //        return;
-            //    }
-            //}
-           
-            DataOperations dp = new DataOperations();
-
-            int tipoOperacion = 0;
-
-            if (tsTipoTransaccion.IsOn)
-                tipoOperacion = 1;
-            else
-                tipoOperacion = 2;
-
-
-            //if (tipoOperacion == 1) //ENTRADA EN EL KARDEX GENERAL
-            //{
-
-            //string lote = !string.IsNullOrEmpty(txtNumLote.Text) ? txtNumLote.Text : null;
-            try
-            {
-                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("dbo.[usp_InsertAjusteManual_Kardex_PT_V4]", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_pt", Convert.ToDecimal(Id_PT));
-                cmd.Parameters.AddWithValue("@id_Usuario", UsuarioLogeado.Id);
-                cmd.Parameters.AddWithValue("@fecha_doc", dtFechaDocumento.EditValue);
-                cmd.Parameters.AddWithValue("@fecha_reg", DateTime.Now);
-                cmd.Parameters.AddWithValue("@code", ItemCode);
-                cmd.Parameters.AddWithValue("@unidades", txtCantidadUnidades.Text);
-                //cmd.Parameters.Add("@lote", SqlDbType.VarChar).Value = !string.IsNullOrEmpty(txtNumLote.Text) ? txtNumLote.Text : null;
-                if(string.IsNullOrEmpty(txtNumLote.Text))
-                    cmd.Parameters.AddWithValue("@lote", DBNull.Value);
-                else
-                    cmd.Parameters.AddWithValue("@lote", txtNumLote.Text);
-
-                cmd.Parameters.AddWithValue("@tipoTransaccion", tipoOperacion);
-                
-                if(IdTipoLote == 0)
-                    cmd.Parameters.AddWithValue("@id_tipo_lote", DBNull.Value);
-                else
-                    cmd.Parameters.AddWithValue("@id_tipo_lote", IdTipoLote);
-
-
-                if (IdTipoLote==2)
-                    cmd.Parameters.AddWithValue("@costo_unitario", costo_unitario);
-                else
-                    cmd.Parameters.AddWithValue("@costo_unitario", DBNull.Value);
-
-                cmd.ExecuteNonQuery();
-                conn.Close();
-
-                CajaDialogo.Information("Transaccion Entrada!");
-                this.DialogResult = DialogResult.OK;
-
-            }
-            catch (Exception ex)
-            {
-                CajaDialogo.Error(ex.Message);
-            }
-            //}
+            
         }
 
 
@@ -320,6 +225,112 @@ namespace JAGUAR_PRO.TransaccionesPT
 
                 gridLookUpEditPresentacion.EditValue = frm.id_presentacion;
             }
+        }
+
+        private void cmdRecargar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPT_Name.Text))
+            {
+                CajaDialogo.Error("Es necesario seleccionar el Producto Terminado!");
+                return;
+            }
+            //if (string.IsNullOrEmpty(txtNumLote.Text))
+            //{
+            //    CajaDialogo.Error("Es Necesario seleccionar un Numero de Lote de Producto Terminado");
+            //    return;
+            //}
+            if (gridLookUpEditPresentacion.EditValue == null)
+            {
+                CajaDialogo.Error("Debe Seleccionar el tipo de presentacion!");
+                return;
+            }
+
+            if (Convert.ToDecimal(txtCantidadUnidades.Text) <= 0)
+            {
+                CajaDialogo.Error("No se puede registrar una cantidad de producto terminado en cero (0)!");
+                return;
+            }
+            if (!string.IsNullOrEmpty(dtFechaDocumento.Text))
+            {
+                if (dtFechaDocumento.DateTime.Year <= 2020)
+                {
+                    CajaDialogo.Error("Es necesario ingresar una fecha de documento valida!");
+                    return;
+                }
+            }
+
+            //if(IdTipoLote ==2)
+            //{
+            //    if(dp1.ValidateNumberDecimal(txtCostoUnitario.Text)<=0)
+            //    {
+            //        CajaDialogo.Error("Es necesario especificar un costo unitario para efectuar este ajuste!");
+            //        return;
+            //    }
+            //}
+
+            DataOperations dp = new DataOperations();
+
+            int tipoOperacion = 0;
+
+            if (tsTipoTransaccion.IsOn)
+                tipoOperacion = 1;
+            else
+                tipoOperacion = 2;
+
+
+            //if (tipoOperacion == 1) //ENTRADA EN EL KARDEX GENERAL
+            //{
+
+            //string lote = !string.IsNullOrEmpty(txtNumLote.Text) ? txtNumLote.Text : null;
+            try
+            {
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("dbo.[usp_InsertAjusteManual_Kardex_PT_V4]", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_pt", Convert.ToDecimal(Id_PT));
+                cmd.Parameters.AddWithValue("@id_Usuario", UsuarioLogeado.Id);
+                cmd.Parameters.AddWithValue("@fecha_doc", dtFechaDocumento.EditValue);
+                cmd.Parameters.AddWithValue("@fecha_reg", DateTime.Now);
+                cmd.Parameters.AddWithValue("@code", ItemCode);
+                cmd.Parameters.AddWithValue("@unidades", txtCantidadUnidades.Text);
+                //cmd.Parameters.Add("@lote", SqlDbType.VarChar).Value = !string.IsNullOrEmpty(txtNumLote.Text) ? txtNumLote.Text : null;
+                if (string.IsNullOrEmpty(txtNumLote.Text))
+                    cmd.Parameters.AddWithValue("@lote", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@lote", txtNumLote.Text);
+
+                cmd.Parameters.AddWithValue("@tipoTransaccion", tipoOperacion);
+
+                if (IdTipoLote == 0)
+                    cmd.Parameters.AddWithValue("@id_tipo_lote", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@id_tipo_lote", IdTipoLote);
+
+
+                if (IdTipoLote == 2)
+                    cmd.Parameters.AddWithValue("@costo_unitario", costo_unitario);
+                else
+                    cmd.Parameters.AddWithValue("@costo_unitario", DBNull.Value);
+
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                CajaDialogo.Information("Transaccion Entrada!");
+                this.DialogResult = DialogResult.OK;
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+            //}
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

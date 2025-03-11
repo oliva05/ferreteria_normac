@@ -33,16 +33,16 @@ namespace JAGUAR_PRO.TransaccionesPT
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAjusteIKardexPT));
             this.dtFechaDocumento = new DevExpress.XtraEditors.DateEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
@@ -57,11 +57,9 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.tsTipoTransaccion = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtNumLote = new DevExpress.XtraEditors.ButtonEdit();
-            this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.gridLookUpEditPresentacion = new DevExpress.XtraEditors.GridLookUpEdit();
             this.presentacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsRecepcionMP = new dsRecepcionMP();
+            this.dsRecepcionMP = new JAGUAR_PRO.LogisticaJaguar.dsRecepcionMP();
             this.gvLookUpEditPresentacion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -71,6 +69,8 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.txtCantidadUnidades = new DevExpress.XtraEditors.TextEdit();
             this.lblCostoUnitario = new DevExpress.XtraEditors.LabelControl();
             this.txtCostoUnitario = new DevExpress.XtraEditors.TextEdit();
+            this.cmdRecargar = new DevExpress.XtraEditors.SimpleButton();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegadestinoBindingSource1)).BeginInit();
@@ -146,17 +146,17 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.txtPT_Name.Name = "txtPT_Name";
             this.txtPT_Name.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtPT_Name.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
-            serializableAppearanceObject1.BackColor = System.Drawing.Color.Transparent;
-            serializableAppearanceObject1.Options.UseBackColor = true;
-            serializableAppearanceObject2.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject2.Options.UseBackColor = true;
-            serializableAppearanceObject3.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject3.Options.UseBackColor = true;
-            serializableAppearanceObject4.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject4.Options.UseBackColor = true;
+            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
+            serializableAppearanceObject9.BackColor = System.Drawing.Color.Transparent;
+            serializableAppearanceObject9.Options.UseBackColor = true;
+            serializableAppearanceObject10.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject10.Options.UseBackColor = true;
+            serializableAppearanceObject11.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject11.Options.UseBackColor = true;
+            serializableAppearanceObject12.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject12.Options.UseBackColor = true;
             this.txtPT_Name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtPT_Name.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.txtPT_Name.Properties.ReadOnly = true;
             this.txtPT_Name.Size = new System.Drawing.Size(355, 30);
@@ -203,56 +203,23 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.txtNumLote.Name = "txtNumLote";
             this.txtNumLote.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtNumLote.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
-            serializableAppearanceObject5.BackColor = System.Drawing.Color.Transparent;
-            serializableAppearanceObject5.Options.UseBackColor = true;
-            serializableAppearanceObject6.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject6.Options.UseBackColor = true;
-            serializableAppearanceObject7.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject7.Options.UseBackColor = true;
-            serializableAppearanceObject8.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject8.Options.UseBackColor = true;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
+            serializableAppearanceObject1.BackColor = System.Drawing.Color.Transparent;
+            serializableAppearanceObject1.Options.UseBackColor = true;
+            serializableAppearanceObject2.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject2.Options.UseBackColor = true;
+            serializableAppearanceObject3.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject3.Options.UseBackColor = true;
+            serializableAppearanceObject4.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject4.Options.UseBackColor = true;
             this.txtNumLote.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtNumLote.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.txtNumLote.Properties.ReadOnly = true;
             this.txtNumLote.Size = new System.Drawing.Size(355, 30);
             this.txtNumLote.TabIndex = 138;
             this.txtNumLote.Visible = false;
             this.txtNumLote.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtNumLote_ButtonClick);
-            // 
-            // cmdGuardar
-            // 
-            this.cmdGuardar.Appearance.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.cmdGuardar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdGuardar.Appearance.Options.UseBackColor = true;
-            this.cmdGuardar.Appearance.Options.UseFont = true;
-            this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdGuardar.ImageOptions.Image")));
-            this.cmdGuardar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdGuardar.Location = new System.Drawing.Point(22, 29);
-            this.cmdGuardar.Name = "cmdGuardar";
-            this.cmdGuardar.Size = new System.Drawing.Size(167, 49);
-            this.cmdGuardar.TabIndex = 125;
-            this.cmdGuardar.Text = "Guardar";
-            this.cmdGuardar.Click += new System.EventHandler(this.cmdGuardar_Click);
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAtras.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnAtras.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Appearance.Options.UseBackColor = true;
-            this.btnAtras.Appearance.Options.UseFont = true;
-            this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAtras.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.ImageOptions.Image")));
-            this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAtras.Location = new System.Drawing.Point(515, 29);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(167, 49);
-            this.btnAtras.TabIndex = 126;
-            this.btnAtras.Text = "Atras";
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // gridLookUpEditPresentacion
             // 
@@ -351,8 +318,6 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.txtCantidadUnidades.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtCantidadUnidades.Properties.Appearance.Options.UseFont = true;
             this.txtCantidadUnidades.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCantidadUnidades.Properties.Mask.EditMask = "n";
-            this.txtCantidadUnidades.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtCantidadUnidades.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtCantidadUnidades.Properties.MaskSettings.Set("mask", "n");
             this.txtCantidadUnidades.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -387,11 +352,40 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.txtCostoUnitario.TabIndex = 143;
             this.txtCostoUnitario.Visible = false;
             // 
+            // cmdRecargar
+            // 
+            this.cmdRecargar.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRecargar.Appearance.Options.UseFont = true;
+            this.cmdRecargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdRecargar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdRecargar.ImageOptions.SvgImage")));
+            this.cmdRecargar.Location = new System.Drawing.Point(22, 31);
+            this.cmdRecargar.Name = "cmdRecargar";
+            this.cmdRecargar.Size = new System.Drawing.Size(104, 47);
+            this.cmdRecargar.TabIndex = 145;
+            this.cmdRecargar.Text = "Guardar";
+            this.cmdRecargar.Click += new System.EventHandler(this.cmdRecargar_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Appearance.Options.UseFont = true;
+            this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
+            this.btnClose.Location = new System.Drawing.Point(476, 30);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(104, 47);
+            this.btnClose.TabIndex = 146;
+            this.btnClose.Text = "Cerrar";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmAjusteIKardexPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 414);
+            this.ClientSize = new System.Drawing.Size(592, 357);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.cmdRecargar);
             this.Controls.Add(this.lblCostoUnitario);
             this.Controls.Add(this.txtCostoUnitario);
             this.Controls.Add(this.labelControl1);
@@ -405,8 +399,6 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.Controls.Add(this.txtPT_Name);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.tsTipoTransaccion);
-            this.Controls.Add(this.cmdGuardar);
-            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.txtNumLote);
             this.Name = "frmAjusteIKardexPT";
             this.Text = "Ajuste de Inventario Por Lote PT";
@@ -439,8 +431,6 @@ namespace JAGUAR_PRO.TransaccionesPT
         private DevExpress.XtraEditors.ButtonEdit txtPT_Name;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.ToggleSwitch tsTipoTransaccion;
-        private DevExpress.XtraEditors.SimpleButton cmdGuardar;
-        private DevExpress.XtraEditors.SimpleButton btnAtras;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.ButtonEdit txtNumLote;
         private DevExpress.XtraEditors.GridLookUpEdit gridLookUpEditPresentacion;
@@ -460,5 +450,7 @@ namespace JAGUAR_PRO.TransaccionesPT
         private JAGUAR_PRO.LogisticaJaguar.dsRecepcionMP dsRecepcionMP;
         private DevExpress.XtraEditors.LabelControl lblCostoUnitario;
         private DevExpress.XtraEditors.TextEdit txtCostoUnitario;
+        private DevExpress.XtraEditors.SimpleButton cmdRecargar;
+        private DevExpress.XtraEditors.SimpleButton btnClose;
     }
 }

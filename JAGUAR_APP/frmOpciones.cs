@@ -4898,5 +4898,11 @@ namespace JAGUAR_PRO
             //    }
             //}
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;    
+            this.Close();
+        }
     }
 }
