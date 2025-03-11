@@ -13,6 +13,7 @@ namespace JAGUAR_PRO.Mantenimientos.Modelos
         public bool Enable { get; set; }
         public DateTime Fecha { get; set; }
         public bool Recuperado { get; set; }
+        public string CodigoBodega { get; set; }
 
         public Bodega()
         {
@@ -39,6 +40,7 @@ namespace JAGUAR_PRO.Mantenimientos.Modelos
                     DescripcionCorta = dr.GetString(2);
                     Enable = dr.GetBoolean(3);
                     Fecha = dr.GetDateTime(4);
+                    CodigoBodega = dr.GetString(5);
                     Recuperado = true;
                 }
                 dr.Close();

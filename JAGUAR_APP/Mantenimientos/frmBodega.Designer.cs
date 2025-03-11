@@ -30,16 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBodega));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnAgregar = new DevExpress.XtraEditors.SimpleButton();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.gcBodegas = new DevExpress.XtraGrid.GridControl();
-            this.bodegasDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimiento = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
+            this.dsMantenimiento1 = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.gvBodegas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,14 +48,16 @@
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.coleditar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colwhs_equivalente = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bodegasDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gcBodegas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodegasDataTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimiento1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBodegas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegasDataTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -66,9 +67,9 @@
             this.btnAgregar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAgregar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.plus;
             this.btnAgregar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAgregar.Location = new System.Drawing.Point(0, 77);
+            this.btnAgregar.Location = new System.Drawing.Point(13, 77);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(199, 49);
+            this.btnAgregar.Size = new System.Drawing.Size(153, 49);
             this.btnAgregar.TabIndex = 22;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -81,9 +82,9 @@
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAtras.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.ImageOptions.Image")));
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAtras.Location = new System.Drawing.Point(439, 77);
+            this.btnAtras.Location = new System.Drawing.Point(634, 77);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(199, 49);
+            this.btnAtras.Size = new System.Drawing.Size(153, 49);
             this.btnAtras.TabIndex = 20;
             this.btnAtras.Text = "Atras";
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
@@ -93,7 +94,8 @@
             this.gcBodegas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcBodegas.DataSource = this.bodegasDataTableBindingSource;
+            this.gcBodegas.DataMember = "BodegasDataTable";
+            this.gcBodegas.DataSource = this.dsMantenimiento1;
             this.gcBodegas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.gcBodegas.Location = new System.Drawing.Point(0, 132);
             this.gcBodegas.MainView = this.gvBodegas;
@@ -102,20 +104,15 @@
             this.btnEditar,
             this.repositoryItemCheckEdit1,
             this.txtDescripcion});
-            this.gcBodegas.Size = new System.Drawing.Size(638, 428);
+            this.gcBodegas.Size = new System.Drawing.Size(799, 409);
             this.gcBodegas.TabIndex = 23;
             this.gcBodegas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBodegas});
             // 
-            // bodegasDataTableBindingSource
+            // dsMantenimiento1
             // 
-            this.bodegasDataTableBindingSource.DataMember = "BodegasDataTable";
-            this.bodegasDataTableBindingSource.DataSource = this.dsMantenimiento;
-            // 
-            // dsMantenimiento
-            // 
-            this.dsMantenimiento.DataSetName = "LOSADataSet";
-            this.dsMantenimiento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dsMantenimiento1.DataSetName = "LOSADataSet";
+            this.dsMantenimiento1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gvBodegas
             // 
@@ -141,7 +138,8 @@
             this.coldescripcion,
             this.coldescripcion_corta,
             this.colenable,
-            this.coleditar});
+            this.coleditar,
+            this.colwhs_equivalente});
             this.gvBodegas.GridControl = this.gcBodegas;
             this.gvBodegas.Name = "gvBodegas";
             this.gvBodegas.OptionsView.RowAutoHeight = true;
@@ -150,7 +148,6 @@
             // 
             // colid
             // 
-            this.colid.Caption = "Código";
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
             this.colid.OptionsColumn.AllowEdit = false;
@@ -164,8 +161,8 @@
             this.coldescripcion.Name = "coldescripcion";
             this.coldescripcion.OptionsColumn.AllowEdit = false;
             this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 0;
-            this.coldescripcion.Width = 250;
+            this.coldescripcion.VisibleIndex = 2;
+            this.coldescripcion.Width = 342;
             // 
             // txtDescripcion
             // 
@@ -179,18 +176,18 @@
             this.coldescripcion_corta.OptionsColumn.AllowEdit = false;
             this.coldescripcion_corta.Visible = true;
             this.coldescripcion_corta.VisibleIndex = 1;
-            this.coldescripcion_corta.Width = 167;
+            this.coldescripcion_corta.Width = 155;
             // 
             // colenable
             // 
-            this.colenable.Caption = "Enable";
+            this.colenable.Caption = "Activo";
             this.colenable.ColumnEdit = this.repositoryItemCheckEdit1;
             this.colenable.FieldName = "enable";
             this.colenable.Name = "colenable";
             this.colenable.OptionsColumn.AllowEdit = false;
             this.colenable.Visible = true;
-            this.colenable.VisibleIndex = 2;
-            this.colenable.Width = 67;
+            this.colenable.VisibleIndex = 3;
+            this.colenable.Width = 90;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -205,18 +202,33 @@
             this.coleditar.FieldName = "editar";
             this.coleditar.Name = "coleditar";
             this.coleditar.Visible = true;
-            this.coleditar.VisibleIndex = 3;
-            this.coleditar.Width = 53;
+            this.coleditar.VisibleIndex = 4;
+            this.coleditar.Width = 83;
             // 
             // btnEditar
             // 
             this.btnEditar.AutoHeight = false;
-            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.edit;
+            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.edit;
             this.btnEditar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // colwhs_equivalente
+            // 
+            this.colwhs_equivalente.Caption = "Código";
+            this.colwhs_equivalente.FieldName = "whs_equivalente";
+            this.colwhs_equivalente.Name = "colwhs_equivalente";
+            this.colwhs_equivalente.OptionsColumn.AllowEdit = false;
+            this.colwhs_equivalente.Visible = true;
+            this.colwhs_equivalente.VisibleIndex = 0;
+            this.colwhs_equivalente.Width = 102;
+            // 
+            // bodegasDataTableBindingSource
+            // 
+            this.bodegasDataTableBindingSource.DataMember = "BodegasDataTable";
+            this.bodegasDataTableBindingSource.DataSource = this.dsMantenimiento1;
             // 
             // labelControl1
             // 
@@ -228,9 +240,9 @@
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(0, 9);
+            this.labelControl1.Location = new System.Drawing.Point(0, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(638, 30);
+            this.labelControl1.Size = new System.Drawing.Size(799, 30);
             this.labelControl1.TabIndex = 25;
             this.labelControl1.Text = "Mantenimiento de Bodega";
             // 
@@ -239,7 +251,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(638, 560);
+            this.ClientSize = new System.Drawing.Size(799, 541);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.gcBodegas);
             this.Controls.Add(this.btnAgregar);
@@ -247,12 +259,12 @@
             this.Name = "frmBodega";
             this.ShowIcon = false;
             ((System.ComponentModel.ISupportInitialize)(this.gcBodegas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodegasDataTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimiento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimiento1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBodegas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegasDataTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -268,11 +280,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn colenable;
         private System.Windows.Forms.BindingSource bodegasDataTableBindingSource;
   
-        private dsMantenimiento dsMantenimiento;
+        private dsMantenimiento dsMantenimiento1;
         private DevExpress.XtraGrid.Columns.GridColumn coleditar;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnEditar;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit txtDescripcion;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraGrid.Columns.GridColumn colwhs_equivalente;
     }
 }

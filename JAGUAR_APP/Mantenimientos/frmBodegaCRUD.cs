@@ -5,6 +5,9 @@ using JAGUAR_PRO.Mantenimientos.Modelos;
 using System.Data.SqlClient;
 using ACS.Classes;
 using Core.Clases.Herramientas;
+using DevExpress.Utils.Drawing;
+using DevExpress.PivotGrid.Criteria;
+using JAGUAR_PRO.Clases;
 
 namespace JAGUAR_PRO.Mantenimientos
 {
@@ -13,23 +16,43 @@ namespace JAGUAR_PRO.Mantenimientos
         DataOperations dp = new DataOperations();
         private Bodega bodega;
         CajaDialogo CajaDialogo = new CajaDialogo();
-        public frmBodegaCRUD()
+        Operacion operacion;
+        public frmBodegaCRUD(Operacion op, int pId)
         {
             InitializeComponent();
+            operacion = op;
+            switch (operacion)
+            {
+                case Operacion.New:
+                    Conf_TablesID tables = new Conf_TablesID();
+                    tables.ObtenerIDTable(7, 3);//7 Bodegas //3 Caracteres
+                    txtCodBodega.Text = tables.Codigo;
+                    chkEnable.Checked = true;
+                    break;
+                case Operacion.Update:
+                    bodega = new Bodega();
+                    bodega.RecuperarRegistro(pId);
+                    txtCodBodega.Text = bodega.CodigoBodega;
+                    txtDescripcionCorta.Text = bodega.DescripcionCorta;
+                    memoDescripcion.Text = bodega.Descripcion;
+                    chkEnable.Checked = bodega.Enable;
+
+                    break;
+                case Operacion.View:
+                    break;
+                default:
+                    break;
+            }
         }
 
-        public frmBodegaCRUD(Bodega bodega)
+        public enum Operacion
         {
-            InitializeComponent();
-            this.bodega = bodega;
+            New = 1,
+            Update = 2,
+            View = 3
         }
 
-        private void frmBodegaCRUD_Load(object sender, EventArgs e)
-        {
-            memoDescripcion.Text = bodega.Descripcion;
-            txtDescripcionCorta.Text = bodega.DescripcionCorta;
-            chkEnable.Checked = bodega.Enable;
-        }
+
         
         private void btnAtras_Click(object sender, EventArgs e)
         {
@@ -38,9 +61,7 @@ namespace JAGUAR_PRO.Mantenimientos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            bodega.Descripcion = memoDescripcion.Text;
-            bodega.DescripcionCorta = txtDescripcionCorta.Text;
-            bodega.Enable = chkEnable.Checked;
+            
 
             using (SqlConnection conexionJAGUAR_PRO = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
             {
@@ -59,10 +80,11 @@ namespace JAGUAR_PRO.Mantenimientos
                         {
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.Add("@Id", SqlDbType.Int).Value = bodega.Id;
-                            command.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = bodega.Descripcion;
-                            command.Parameters.Add("@DescripcionCorta", SqlDbType.VarChar).Value = bodega.DescripcionCorta;
-                            command.Parameters.Add("@Enable", SqlDbType.Bit).Value = bodega.Enable;
-                            command.Parameters.Add("@Fecha", SqlDbType.DateTime).Value = bodega.Fecha;
+                            command.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = memoDescripcion.Text;
+                            command.Parameters.Add("@DescripcionCorta", SqlDbType.VarChar).Value = txtDescripcionCorta.Text;
+                            command.Parameters.Add("@Enable", SqlDbType.Bit).Value = chkEnable.Checked;
+                            command.Parameters.Add("@Fecha", SqlDbType.DateTime).Value = dp.Now();
+                            command.Parameters.AddWithValue("@CodBodega", txtCodBodega.Text);
                             command.ExecuteNonQuery();
 
                             this.DialogResult = DialogResult.OK;

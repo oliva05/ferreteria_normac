@@ -34,8 +34,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.chkSuperUsuario = new System.Windows.Forms.CheckBox();
-            this.chkUsuarioHabilitado = new System.Windows.Forms.CheckBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAlias = new System.Windows.Forms.TextBox();
@@ -49,114 +47,97 @@
             this.label5 = new System.Windows.Forms.Label();
             this.turnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lueTurno = new DevExpress.XtraEditors.LookUpEdit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPIN = new System.Windows.Forms.TextBox();
+            this.tsIsVendedor = new DevExpress.XtraEditors.ToggleSwitch();
+            this.chkUsuarioHabilitado = new DevExpress.XtraEditors.ToggleSwitch();
+            this.chkSuperUsuario = new DevExpress.XtraEditors.ToggleSwitch();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lueGrupo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accesoGrupoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAccesos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTurno.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tsIsVendedor.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkUsuarioHabilitado.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSuperUsuario.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtConfirmar
             // 
             this.txtConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmar.Location = new System.Drawing.Point(128, 85);
-            this.txtConfirmar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtConfirmar.Location = new System.Drawing.Point(110, 69);
             this.txtConfirmar.Name = "txtConfirmar";
             this.txtConfirmar.PasswordChar = '●';
-            this.txtConfirmar.Size = new System.Drawing.Size(205, 26);
+            this.txtConfirmar.Size = new System.Drawing.Size(176, 22);
             this.txtConfirmar.TabIndex = 23;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(28, 89);
+            this.label7.Location = new System.Drawing.Point(24, 72);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 20);
+            this.label7.Size = new System.Drawing.Size(67, 16);
             this.label7.TabIndex = 37;
             this.label7.Text = "Confirmar:";
             // 
             // txtPass
             // 
             this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(128, 50);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPass.Location = new System.Drawing.Point(110, 41);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '●';
-            this.txtPass.Size = new System.Drawing.Size(205, 26);
+            this.txtPass.Size = new System.Drawing.Size(176, 22);
             this.txtPass.TabIndex = 21;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(28, 54);
+            this.label6.Location = new System.Drawing.Point(24, 44);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 20);
+            this.label6.Size = new System.Drawing.Size(79, 16);
             this.label6.TabIndex = 36;
             this.label6.Text = "Contraseña:";
-            // 
-            // chkSuperUsuario
-            // 
-            this.chkSuperUsuario.AutoSize = true;
-            this.chkSuperUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkSuperUsuario.Location = new System.Drawing.Point(31, 298);
-            this.chkSuperUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chkSuperUsuario.Name = "chkSuperUsuario";
-            this.chkSuperUsuario.Size = new System.Drawing.Size(138, 24);
-            this.chkSuperUsuario.TabIndex = 32;
-            this.chkSuperUsuario.Text = "Super Usuario";
-            this.chkSuperUsuario.UseVisualStyleBackColor = true;
-            // 
-            // chkUsuarioHabilitado
-            // 
-            this.chkUsuarioHabilitado.AutoSize = true;
-            this.chkUsuarioHabilitado.Checked = true;
-            this.chkUsuarioHabilitado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkUsuarioHabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkUsuarioHabilitado.Location = new System.Drawing.Point(31, 266);
-            this.chkUsuarioHabilitado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chkUsuarioHabilitado.Name = "chkUsuarioHabilitado";
-            this.chkUsuarioHabilitado.Size = new System.Drawing.Size(169, 24);
-            this.chkUsuarioHabilitado.TabIndex = 31;
-            this.chkUsuarioHabilitado.Text = "Usuario Habilitado";
-            this.chkUsuarioHabilitado.UseVisualStyleBackColor = true;
             // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(99, 118);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNombre.Location = new System.Drawing.Point(85, 96);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(234, 26);
+            this.txtNombre.Size = new System.Drawing.Size(201, 22);
             this.txtNombre.TabIndex = 24;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(28, 122);
+            this.label2.Location = new System.Drawing.Point(24, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 20);
+            this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 22;
             this.label2.Text = "Nombre";
             // 
             // txtAlias
             // 
             this.txtAlias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlias.Location = new System.Drawing.Point(99, 16);
-            this.txtAlias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtAlias.Location = new System.Drawing.Point(85, 13);
             this.txtAlias.Name = "txtAlias";
-            this.txtAlias.Size = new System.Drawing.Size(234, 26);
+            this.txtAlias.Size = new System.Drawing.Size(201, 22);
             this.txtAlias.TabIndex = 20;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 20);
+            this.label1.Location = new System.Drawing.Point(24, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 20);
+            this.label1.Size = new System.Drawing.Size(37, 16);
             this.label1.TabIndex = 19;
             this.label1.Text = "Alias";
             // 
@@ -168,10 +149,9 @@
             this.cmdSAve.Appearance.Options.UseFont = true;
             this.cmdSAve.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSAve.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSAve.ImageOptions.Image")));
-            this.cmdSAve.Location = new System.Drawing.Point(36, 348);
-            this.cmdSAve.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmdSAve.Location = new System.Drawing.Point(20, 345);
             this.cmdSAve.Name = "cmdSAve";
-            this.cmdSAve.Size = new System.Drawing.Size(127, 49);
+            this.cmdSAve.Size = new System.Drawing.Size(109, 40);
             this.cmdSAve.TabIndex = 38;
             this.cmdSAve.Text = "Guardar";
             this.cmdSAve.Click += new System.EventHandler(this.cmdSAve_Click);
@@ -184,18 +164,16 @@
             this.cmdClose.Appearance.Options.UseFont = true;
             this.cmdClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdClose.ImageOptions.Image")));
-            this.cmdClose.Location = new System.Drawing.Point(206, 348);
-            this.cmdClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmdClose.Location = new System.Drawing.Point(166, 345);
             this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(127, 49);
+            this.cmdClose.Size = new System.Drawing.Size(109, 40);
             this.cmdClose.TabIndex = 39;
             this.cmdClose.Text = "Cerrar";
             this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
             // 
             // lueGrupo
             // 
-            this.lueGrupo.Location = new System.Drawing.Point(99, 153);
-            this.lueGrupo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lueGrupo.Location = new System.Drawing.Point(85, 124);
             this.lueGrupo.Name = "lueGrupo";
             this.lueGrupo.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lueGrupo.Properties.Appearance.Options.UseFont = true;
@@ -205,7 +183,7 @@
             this.lueGrupo.Properties.DisplayMember = "grupo";
             this.lueGrupo.Properties.NullText = "";
             this.lueGrupo.Properties.ValueMember = "id";
-            this.lueGrupo.Size = new System.Drawing.Size(234, 26);
+            this.lueGrupo.Size = new System.Drawing.Size(201, 22);
             this.lueGrupo.TabIndex = 40;
             // 
             // accesoGrupoBindingSource
@@ -222,9 +200,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(38, 156);
+            this.label4.Location = new System.Drawing.Point(24, 127);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 20);
+            this.label4.Size = new System.Drawing.Size(47, 16);
             this.label4.TabIndex = 41;
             this.label4.Text = "Grupo:";
             // 
@@ -232,9 +210,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(38, 194);
+            this.label5.Location = new System.Drawing.Point(24, 158);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 20);
+            this.label5.Size = new System.Drawing.Size(45, 16);
             this.label5.TabIndex = 43;
             this.label5.Text = "Turno:";
             // 
@@ -245,28 +223,139 @@
             // 
             // lueTurno
             // 
-            this.lueTurno.Location = new System.Drawing.Point(99, 191);
-            this.lueTurno.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lueTurno.Location = new System.Drawing.Point(85, 155);
             this.lueTurno.Name = "lueTurno";
             this.lueTurno.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lueTurno.Properties.Appearance.Options.UseFont = true;
             this.lueTurno.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueTurno.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Id", 37, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("descripcion", "descripcion", 90, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Id", 32, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("descripcion", "descripcion", 77, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lueTurno.Properties.DataSource = this.turnoBindingSource;
             this.lueTurno.Properties.DisplayMember = "descripcion";
             this.lueTurno.Properties.NullText = "";
             this.lueTurno.Properties.ValueMember = "Id";
-            this.lueTurno.Size = new System.Drawing.Size(234, 26);
+            this.lueTurno.Size = new System.Drawing.Size(201, 22);
             this.lueTurno.TabIndex = 44;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(24, 188);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 16);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "Codigo:";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(85, 185);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(201, 22);
+            this.txtCodigo.TabIndex = 46;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(24, 219);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(32, 16);
+            this.label8.TabIndex = 47;
+            this.label8.Text = "PIN:";
+            // 
+            // txtPIN
+            // 
+            this.txtPIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPIN.Location = new System.Drawing.Point(85, 213);
+            this.txtPIN.MaxLength = 6;
+            this.txtPIN.Name = "txtPIN";
+            this.txtPIN.PasswordChar = '●';
+            this.txtPIN.Size = new System.Drawing.Size(201, 22);
+            this.txtPIN.TabIndex = 48;
+            // 
+            // tsIsVendedor
+            // 
+            this.tsIsVendedor.Location = new System.Drawing.Point(154, 250);
+            this.tsIsVendedor.Name = "tsIsVendedor";
+            this.tsIsVendedor.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tsIsVendedor.Properties.Appearance.Options.UseFont = true;
+            this.tsIsVendedor.Properties.OffText = "No";
+            this.tsIsVendedor.Properties.OnText = "Si";
+            this.tsIsVendedor.Size = new System.Drawing.Size(95, 21);
+            this.tsIsVendedor.TabIndex = 49;
+            // 
+            // chkUsuarioHabilitado
+            // 
+            this.chkUsuarioHabilitado.EditValue = true;
+            this.chkUsuarioHabilitado.Location = new System.Drawing.Point(154, 277);
+            this.chkUsuarioHabilitado.Name = "chkUsuarioHabilitado";
+            this.chkUsuarioHabilitado.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.chkUsuarioHabilitado.Properties.Appearance.Options.UseFont = true;
+            this.chkUsuarioHabilitado.Properties.OffText = "No";
+            this.chkUsuarioHabilitado.Properties.OnText = "Si";
+            this.chkUsuarioHabilitado.Size = new System.Drawing.Size(95, 21);
+            this.chkUsuarioHabilitado.TabIndex = 50;
+            // 
+            // chkSuperUsuario
+            // 
+            this.chkSuperUsuario.Location = new System.Drawing.Point(154, 304);
+            this.chkSuperUsuario.Name = "chkSuperUsuario";
+            this.chkSuperUsuario.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.chkSuperUsuario.Properties.Appearance.Options.UseFont = true;
+            this.chkSuperUsuario.Properties.OffText = "No";
+            this.chkSuperUsuario.Properties.OnText = "Si";
+            this.chkSuperUsuario.Size = new System.Drawing.Size(95, 21);
+            this.chkSuperUsuario.TabIndex = 51;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(24, 252);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 16);
+            this.label9.TabIndex = 52;
+            this.label9.Text = "Vendedor:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(24, 279);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 16);
+            this.label10.TabIndex = 53;
+            this.label10.Text = "Habilitado:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(24, 306);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(96, 16);
+            this.label11.TabIndex = 54;
+            this.label11.Text = "Super Usuario:";
             // 
             // frmUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 414);
+            this.ClientSize = new System.Drawing.Size(310, 406);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.chkSuperUsuario);
+            this.Controls.Add(this.chkUsuarioHabilitado);
+            this.Controls.Add(this.tsIsVendedor);
+            this.Controls.Add(this.txtPIN);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lueTurno);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -277,20 +366,20 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.chkSuperUsuario);
-            this.Controls.Add(this.chkUsuarioHabilitado);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAlias);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmUser.IconOptions.Icon")));
             this.Name = "frmUser";
             ((System.ComponentModel.ISupportInitialize)(this.lueGrupo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accesoGrupoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAccesos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTurno.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tsIsVendedor.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkUsuarioHabilitado.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSuperUsuario.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,8 +391,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox chkSuperUsuario;
-        private System.Windows.Forms.CheckBox chkUsuarioHabilitado;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAlias;
@@ -317,5 +404,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.BindingSource turnoBindingSource;
         private DevExpress.XtraEditors.LookUpEdit lueTurno;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtPIN;
+        private DevExpress.XtraEditors.ToggleSwitch tsIsVendedor;
+        private DevExpress.XtraEditors.ToggleSwitch chkUsuarioHabilitado;
+        private DevExpress.XtraEditors.ToggleSwitch chkSuperUsuario;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }

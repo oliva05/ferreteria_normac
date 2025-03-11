@@ -989,6 +989,8 @@ namespace JAGUAR_PRO.Mantenimientos {
             
             private global::System.Data.DataColumn columneditar;
             
+            private global::System.Data.DataColumn columnwhs_equivalente;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public BodegasDataTableDataTable() {
@@ -1064,6 +1066,14 @@ namespace JAGUAR_PRO.Mantenimientos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn whs_equivalenteColumn {
+                get {
+                    return this.columnwhs_equivalente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1099,14 +1109,15 @@ namespace JAGUAR_PRO.Mantenimientos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BodegasDataTableRow AddBodegasDataTableRow(string id, string descripcion, string descripcion_corta, bool enable, string editar) {
+            public BodegasDataTableRow AddBodegasDataTableRow(string id, string descripcion, string descripcion_corta, bool enable, string editar, string whs_equivalente) {
                 BodegasDataTableRow rowBodegasDataTableRow = ((BodegasDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         descripcion,
                         descripcion_corta,
                         enable,
-                        editar};
+                        editar,
+                        whs_equivalente};
                 rowBodegasDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBodegasDataTableRow);
                 return rowBodegasDataTableRow;
@@ -1134,6 +1145,7 @@ namespace JAGUAR_PRO.Mantenimientos {
                 this.columndescripcion_corta = base.Columns["descripcion_corta"];
                 this.columnenable = base.Columns["enable"];
                 this.columneditar = base.Columns["editar"];
+                this.columnwhs_equivalente = base.Columns["whs_equivalente"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1149,6 +1161,8 @@ namespace JAGUAR_PRO.Mantenimientos {
                 base.Columns.Add(this.columnenable);
                 this.columneditar = new global::System.Data.DataColumn("editar", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columneditar);
+                this.columnwhs_equivalente = new global::System.Data.DataColumn("whs_equivalente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwhs_equivalente);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7684,6 +7698,22 @@ namespace JAGUAR_PRO.Mantenimientos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string whs_equivalente {
+                get {
+                    try {
+                        return ((string)(this[this.tableBodegasDataTable.whs_equivalenteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'whs_equivalente\' in table \'BodegasDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBodegasDataTable.whs_equivalenteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tableBodegasDataTable.idColumn);
             }
@@ -7740,6 +7770,18 @@ namespace JAGUAR_PRO.Mantenimientos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SeteditarNull() {
                 this[this.tableBodegasDataTable.editarColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iswhs_equivalenteNull() {
+                return this.IsNull(this.tableBodegasDataTable.whs_equivalenteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setwhs_equivalenteNull() {
+                this[this.tableBodegasDataTable.whs_equivalenteColumn] = global::System.Convert.DBNull;
             }
         }
         
