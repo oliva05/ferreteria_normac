@@ -94,5 +94,10 @@ namespace JAGUAR_PRO.Reportes
                 CajaDialogo.Error(ex.Message);
             }
         }
+
+        private void cmdRecargar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

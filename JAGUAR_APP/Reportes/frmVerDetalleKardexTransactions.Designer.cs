@@ -76,6 +76,7 @@ namespace JAGUAR_PRO.Reportes
             this.cmdRecargar.Size = new System.Drawing.Size(104, 47);
             this.cmdRecargar.TabIndex = 10;
             this.cmdRecargar.Text = "Recargar";
+            this.cmdRecargar.Click += new System.EventHandler(this.cmdRecargar_Click);
             // 
             // simpleButton1
             // 
