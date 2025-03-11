@@ -401,7 +401,7 @@
             this.navBarRecepBodegon.AppearanceHotTracked.Options.UseFont = true;
             this.navBarRecepBodegon.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarRecepBodegon.AppearancePressed.Options.UseFont = true;
-            this.navBarRecepBodegon.Caption = "Recepcion Compras Bodegon";
+            this.navBarRecepBodegon.Caption = "Recepcion Compras Usados";
             this.navBarRecepBodegon.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.recepcion_compra_x32;
             this.navBarRecepBodegon.Name = "navBarRecepBodegon";
             this.navBarRecepBodegon.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarRecepBodegon_LinkClicked);
