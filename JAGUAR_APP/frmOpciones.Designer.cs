@@ -492,6 +492,7 @@
             this.navBarGroup8.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup8.AppearancePressed.Options.UseFont = true;
             this.navBarGroup8.Caption = "Inventario";
+            this.navBarGroup8.Expanded = true;
             this.navBarGroup8.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT)});
@@ -510,6 +511,7 @@
             this.navBarItem14.Caption = "Inventario Kardex MP";
             this.navBarItem14.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.in_stock32px;
             this.navBarItem14.Name = "navBarItem14";
+            this.navBarItem14.Visible = false;
             this.navBarItem14.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem14_LinkClicked);
             // 
             // navBarItemKardexPT
@@ -522,7 +524,7 @@
             this.navBarItemKardexPT.AppearanceHotTracked.Options.UseFont = true;
             this.navBarItemKardexPT.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItemKardexPT.AppearancePressed.Options.UseFont = true;
-            this.navBarItemKardexPT.Caption = "Inventario Kardex PT";
+            this.navBarItemKardexPT.Caption = "Inventario";
             this.navBarItemKardexPT.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.ready_stock;
             this.navBarItemKardexPT.Name = "navBarItemKardexPT";
             this.navBarItemKardexPT.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemKardexPT_LinkClicked);
