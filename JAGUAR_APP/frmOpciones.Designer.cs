@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOpciones));
-            this.cmdHome = new DevExpress.XtraEditors.SimpleButton();
             this.tabOpciones = new DevExpress.XtraTab.XtraTabControl();
             this.TabLogistica = new DevExpress.XtraTab.XtraTabPage();
             this.navBarControl2 = new DevExpress.XtraNavBar.NavBarControl();
@@ -190,6 +189,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -205,20 +205,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rd_OdooMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEquipoLogeadoActual.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cmdHome
-            // 
-            this.cmdHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdHome.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdHome.Appearance.Options.UseFont = true;
-            this.cmdHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdHome.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdHome.ImageOptions.Image")));
-            this.cmdHome.Location = new System.Drawing.Point(811, 6);
-            this.cmdHome.Name = "cmdHome";
-            this.cmdHome.Size = new System.Drawing.Size(145, 42);
-            this.cmdHome.TabIndex = 6;
-            this.cmdHome.Text = "Cerrar";
-            this.cmdHome.Click += new System.EventHandler(this.cmdHome_Click);
             // 
             // tabOpciones
             // 
@@ -338,6 +324,8 @@
             // 
             this.navBarItemRecepcionFactura.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItemRecepcionFactura.Appearance.Options.UseFont = true;
+            this.navBarItemRecepcionFactura.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItemRecepcionFactura.AppearanceDisabled.Options.UseFont = true;
             this.navBarItemRecepcionFactura.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navBarItemRecepcionFactura.AppearanceHotTracked.Options.UseFont = true;
             this.navBarItemRecepcionFactura.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
@@ -490,6 +478,7 @@
             this.navBarGroup8.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup8.AppearancePressed.Options.UseFont = true;
             this.navBarGroup8.Caption = "Inventario";
+            this.navBarGroup8.Expanded = true;
             this.navBarGroup8.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT)});
@@ -508,6 +497,7 @@
             this.navBarItem14.Caption = "Inventario Kardex MP";
             this.navBarItem14.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.in_stock32px;
             this.navBarItem14.Name = "navBarItem14";
+            this.navBarItem14.Visible = false;
             this.navBarItem14.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem14_LinkClicked);
             // 
             // navBarItemKardexPT
@@ -520,7 +510,7 @@
             this.navBarItemKardexPT.AppearanceHotTracked.Options.UseFont = true;
             this.navBarItemKardexPT.AppearancePressed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.navBarItemKardexPT.AppearancePressed.Options.UseFont = true;
-            this.navBarItemKardexPT.Caption = "Inventario Kardex PT";
+            this.navBarItemKardexPT.Caption = "Inventario";
             this.navBarItemKardexPT.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.ready_stock;
             this.navBarItemKardexPT.Name = "navBarItemKardexPT";
             this.navBarItemKardexPT.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemKardexPT_LinkClicked);
@@ -1419,8 +1409,7 @@
             // navBarControl3
             // 
             this.navBarControl3.ActiveGroup = this.navBarGroup10;
-            this.navBarControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.navBarControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl3.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup10,
             this.navBarGroup11,
@@ -1446,12 +1435,13 @@
             this.navBarItemCambioDePrecio,
             this.navBarItem20,
             this.navBarItem59});
-            this.navBarControl3.Location = new System.Drawing.Point(2, 2);
+            this.navBarControl3.Location = new System.Drawing.Point(0, 0);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
             this.navBarControl3.OptionsNavPane.AllowOptionsMenuItem = true;
             this.navBarControl3.OptionsNavPane.ExpandedWidth = 308;
-            this.navBarControl3.Size = new System.Drawing.Size(308, 526);
+            this.navBarControl3.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.ExplorerBar;
+            this.navBarControl3.Size = new System.Drawing.Size(308, 530);
             this.navBarControl3.TabIndex = 0;
             this.navBarControl3.Text = "navBarControl3";
             this.navBarControl3.Click += new System.EventHandler(this.navBarControl3_Click);
@@ -1501,6 +1491,8 @@
             this.navBarItem59.AppearanceDisabled.Options.UseFont = true;
             this.navBarItem59.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
             this.navBarItem59.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem59.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem59.AppearancePressed.Options.UseFont = true;
             this.navBarItem59.Caption = "Lista Pre Facturas";
             this.navBarItem59.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem59.ImageOptions.SmallImage")));
             this.navBarItem59.Name = "navBarItem59";
@@ -2405,15 +2397,29 @@
             this.nBarRecepcionFactPuntoVenta.Name = "nBarRecepcionFactPuntoVenta";
             this.nBarRecepcionFactPuntoVenta.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nBarRecepcionFactPuntoVenta_LinkClicked);
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Appearance.Options.UseFont = true;
+            this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
+            this.btnClose.Location = new System.Drawing.Point(847, 8);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(99, 47);
+            this.btnClose.TabIndex = 34;
+            this.btnClose.Text = "Cerrar";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(958, 639);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtEquipoLogeadoActual);
             this.Controls.Add(this.labelControl5);
-            this.Controls.Add(this.cmdHome);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.tabOpciones);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2440,7 +2446,6 @@
         }
 
         #endregion
-        private DevExpress.XtraEditors.SimpleButton cmdHome;
         private DevExpress.XtraTab.XtraTabControl tabOpciones;
         private DevExpress.XtraTab.XtraTabPage TabLogistica;
         private DevExpress.XtraTab.XtraTabPage TabAdmin;
@@ -2601,5 +2606,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem23;
         private DevExpress.XtraNavBar.NavBarItem navBarRecepBodegon;
         private DevExpress.XtraNavBar.NavBarItem navBarItem59;
+        private DevExpress.XtraEditors.SimpleButton btnClose;
     }
 }
