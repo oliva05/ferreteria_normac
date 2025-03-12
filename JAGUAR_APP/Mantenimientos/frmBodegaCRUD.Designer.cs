@@ -48,7 +48,7 @@
             // 
             this.txtDescripcionCorta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescripcionCorta.Location = new System.Drawing.Point(12, 315);
+            this.txtDescripcionCorta.Location = new System.Drawing.Point(12, 281);
             this.txtDescripcionCorta.Name = "txtDescripcionCorta";
             this.txtDescripcionCorta.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcionCorta.Properties.Appearance.Options.UseFont = true;
@@ -61,7 +61,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(12, 152);
+            this.labelControl3.Location = new System.Drawing.Point(15, 155);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(100, 24);
             this.labelControl3.TabIndex = 12;
@@ -71,7 +71,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(12, 291);
+            this.labelControl1.Location = new System.Drawing.Point(15, 256);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(149, 24);
             this.labelControl1.TabIndex = 13;
@@ -80,7 +80,7 @@
             // chkEnable
             // 
             this.chkEnable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkEnable.Location = new System.Drawing.Point(214, 314);
+            this.chkEnable.Location = new System.Drawing.Point(220, 280);
             this.chkEnable.Name = "chkEnable";
             this.chkEnable.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.chkEnable.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
@@ -100,7 +100,7 @@
             this.memoDescripcion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoDescripcion.Properties.Appearance.Options.UseFont = true;
             this.memoDescripcion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.memoDescripcion.Size = new System.Drawing.Size(265, 91);
+            this.memoDescripcion.Size = new System.Drawing.Size(265, 63);
             this.memoDescripcion.TabIndex = 0;
             this.memoDescripcion.Enter += new System.EventHandler(this.memoDescripcion_Enter);
             // 
@@ -137,7 +137,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(12, 98);
+            this.labelControl2.Location = new System.Drawing.Point(15, 97);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(61, 24);
             this.labelControl2.TabIndex = 15;
@@ -161,7 +161,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(506, 387);
+            this.ClientSize = new System.Drawing.Size(506, 436);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.txtCodBodega);
             this.Controls.Add(this.memoDescripcion);

@@ -91,6 +91,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             dr[5] = txtPrecioVenta.EditValue;
                             dr[6] = txtCodigoPT.Text + "B" + "00" + correlativo.ToString();
                             dr[7] = correlativo.ToString();
+                            dr[8] = 0;
                             dsProductoTerminado1.pt_venta_unica.Rows.Add(dr);
                             dsProductoTerminado1.pt_venta_unica.AcceptChanges();
 
@@ -248,6 +249,11 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     cmd.Parameters.AddWithValue("@correlativo", row.correlativo);
                     cmd.Parameters.AddWithValue("@fecha_ingreso", dp.Now());
                     cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
+                    if (row.id_bodega == 0)
+                        cmd.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+
                     cmd.ExecuteNonQuery();
                 }
                
