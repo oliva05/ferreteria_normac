@@ -6033,6 +6033,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             private global::System.Data.DataColumn columncorrelativo;
             
+            private global::System.Data.DataColumn columnid_bodega;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public pt_venta_unicaDataTable() {
@@ -6132,6 +6134,14 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_bodegaColumn {
+                get {
+                    return this.columnid_bodega;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6167,7 +6177,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public pt_venta_unicaRow Addpt_venta_unicaRow(int id, string descripcion, string itemcode, decimal costo, decimal margen, decimal precio_venta, string barcode, string correlativo) {
+            public pt_venta_unicaRow Addpt_venta_unicaRow(int id, string descripcion, string itemcode, decimal costo, decimal margen, decimal precio_venta, string barcode, string correlativo, int id_bodega) {
                 pt_venta_unicaRow rowpt_venta_unicaRow = ((pt_venta_unicaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -6177,7 +6187,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
                         margen,
                         precio_venta,
                         barcode,
-                        correlativo};
+                        correlativo,
+                        id_bodega};
                 rowpt_venta_unicaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpt_venta_unicaRow);
                 return rowpt_venta_unicaRow;
@@ -6208,6 +6219,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
                 this.columnprecio_venta = base.Columns["precio_venta"];
                 this.columnbarcode = base.Columns["barcode"];
                 this.columncorrelativo = base.Columns["correlativo"];
+                this.columnid_bodega = base.Columns["id_bodega"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6229,6 +6241,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
                 base.Columns.Add(this.columnbarcode);
                 this.columncorrelativo = new global::System.Data.DataColumn("correlativo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncorrelativo);
+                this.columnid_bodega = new global::System.Data.DataColumn("id_bodega", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_bodega);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9658,6 +9672,22 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_bodega {
+                get {
+                    try {
+                        return ((int)(this[this.tablept_venta_unica.id_bodegaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'id_bodega\' in table \'pt_venta_unica\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablept_venta_unica.id_bodegaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tablept_venta_unica.idColumn);
             }
@@ -9750,6 +9780,18 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetcorrelativoNull() {
                 this[this.tablept_venta_unica.correlativoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_bodegaNull() {
+                return this.IsNull(this.tablept_venta_unica.id_bodegaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_bodegaNull() {
+                this[this.tablept_venta_unica.id_bodegaColumn] = global::System.Convert.DBNull;
             }
         }
         
