@@ -699,7 +699,51 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void cmdFijarComoEstandar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            var gridView = (GridView)gridControl2.FocusedView;
+            var row = (dsProductoTerminado.config_pt_invRow)gridView.GetFocusedDataRow();
+            bool HabilitarRow = !row.fijado_como_estandar_bit;
+            int idBodega = row.id;
 
+            if (row.fijado_como_estandar_bit)
+                return;
+
+            DialogResult r = CajaDialogo.Pregunta("Esta seguro de fijar esta bodega como estandar para este producto?");
+            if(r != DialogResult.Yes) return;
+
+            //Hacemos el update
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("dbo.sp_fijar_estandar_config_bodega_for_pt", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                cmd.Parameters.AddWithValue("@id_bodega", row.id);
+                cmd.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
+                cmd.ExecuteNonQuery();
+
+                if (HabilitarRow)
+                {
+                    row.fijado_como_estandar_bit = true;
+                    row.fijado_como_estandar_descrip = "Si";  
+                }
+
+                foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
+                {
+                    if (rowI.id != idBodega)
+                    {
+                        rowI.fijado_como_estandar_bit = false;
+                        rowI.fijado_como_estandar_descrip = "No";
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
         }
 
         private void cmdHabilitarAlmacen_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
