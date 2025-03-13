@@ -22,6 +22,8 @@ using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.LogisticaJaguar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.TransaccionesPT;
+using DevExpress.DashboardWin.Design;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
@@ -55,6 +57,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             LoadTipoDestinoFacturacion();
             LoadClasesProductoTerminado();
             LoadImpuestosAplicables();
+            LoadConfiguracionAlmacenes(pId_PT);
 
             TipoOperacionActual = pTipoOperacion;
             PT_Class_instance = new Clases.ProductoTerminado();
@@ -133,6 +136,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             }
             
         }
+
+        
 
         private void MagiaEmbellezedora()
         {
@@ -362,163 +367,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(gridLookUpEdit_Presentaciones.Text))
-            {
-                CajaDialogo.Error("Es necesario indicar la presentación!");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(gridLookUpEditEstadoPT.Text))
-            {
-                CajaDialogo.Error("Es necesario indicar el Estado!");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtDescripcionProducto.Text))
-            {
-                CajaDialogo.Error("Es necesario indicar el Nombre del Producto!");
-                return;
-            }
-
-            //if (string.IsNullOrEmpty(gridLookUpEditTipoProducto.Text))
-            //{
-            //    CajaDialogo.Error("Es necesario indicar el Destino del Producto!");
-            //    return;
-            //}
-
-
-            if (string.IsNullOrEmpty(gridTipoInventario.Text))
-            {
-                CajaDialogo.Error("Es necesario indicar el Tipo de Producto!");
-                return;
-            }
-
-            //if (string.IsNullOrEmpty(txtBarCode.Text))
-            //{
-            //    CajaDialogo.Error("Es necesario indicar el Codigo de Barra para el Escaneo!");
-            //    return;
-            //}
-
-
-            //if (string.IsNullOrEmpty(glueTipoBuffet.Text))
-            //{
-            //    CajaDialogo.Error("Es necesario indicar un tipo de buffet del Producto!");
-            //    return;
-            //}
-
-            //if (string.IsNullOrEmpty(glueTipoFacturacion.Text))
-            //{
-            //    CajaDialogo.Error("Es necesario indicar el tipo de facturación del Producto!");
-            //    return;
-            //}
-
-            DialogResult r = CajaDialogo.Pregunta("Desea guardar los cambios?");
-            if(r != DialogResult.Yes)
-                return;
-
-
-            try
-            {
-                DataOperations dp = new DataOperations();
-                SqlConnection Conn1 = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                Conn1.Open();
-                SqlCommand cmd = new SqlCommand("", Conn1);
-                cmd.CommandType = CommandType.StoredProcedure;
-                switch (TipoOperacionActual)
-                {
-                    case TipoOperacion.Insert:
-                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v5]";
-
-                        break;
-                    case TipoOperacion.Update:
-                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v5]";
-                        cmd.Parameters.AddWithValue("@id", PT_Class_instance.Id);
-                        break;
-                }
-
-                //if (!tggCosteoPorArroba.IsOn)
-                //    CostoPorArroba = 0;
-                
-                cmd.Parameters.AddWithValue("@id_user_created", UsuarioLogeado.Id);
-                cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
-                cmd.Parameters.AddWithValue("@id_presentacion", gridLookUpEdit_Presentaciones.EditValue);
-                cmd.Parameters.AddWithValue("@id_estado", gridLookUpEditEstadoPT.EditValue);
-                cmd.Parameters.AddWithValue("@descripcion", txtDescripcionProducto.Text);
-                cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
-                cmd.Parameters.AddWithValue("@tipo_id", DBNull.Value/*gridLookUpEditTipoProducto.EditValue*/);
-                cmd.Parameters.AddWithValue("@costo_mo_por_arroba", 0);
-                cmd.Parameters.AddWithValue("@costo_por_arroba", CostoPorArroba);
-                cmd.Parameters.AddWithValue("@id_tipo_facturacion",DBNull.Value /*glueTipoFacturacion.EditValue*/);
-
-                //int id_tipoBuffet = dp.ValidateNumberInt32(glueTipoBuffet.EditValue);
-                //if(id_tipoBuffet <= 0)
-                    cmd.Parameters.AddWithValue("@id_tipo_buffet", DBNull.Value);
-                //else
-                //    cmd.Parameters.AddWithValue("@id_tipo_buffet", glueTipoBuffet.EditValue);
-
-                cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd",DBNull.Value /*gridLookUpEditTipoFacturacionDestino.EditValue*/);
-                
-                //if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
-                    cmd.Parameters.AddWithValue("@id_clase", DBNull.Value);
-                //else
-                //    cmd.Parameters.AddWithValue("@id_clase", gle_ClaseProducto.EditValue);
-
-
-                if (dp.ValidateNumberInt32(Convert.ToInt32(gleImpuestoAplicable.EditValue)) == 0)
-                    cmd.Parameters.AddWithValue("@id_impuesto_aplicable", DBNull.Value);
-                else
-                    cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
-                cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
-                cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
-                cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
-                cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
-                cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
-                cmd.ExecuteNonQuery();
-
-                FTP_Class ftp = new FTP_Class();
-                string file_name;
-                foreach (dsProductoTerminado.PTImagenesRow item in dsProductoTerminado1.PTImagenes)
-                {
-                    if (item.id == 0)
-                    {
-                        string ext = Path.GetExtension(item.file_name);
-                        file_name = dp.Now().ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
-
-                        if (ftp.GuardarArchivo(UsuarioLogeado, file_name, item.path))
-                        {
-                            cmd.Parameters.Clear();
-                            cmd.CommandText = "sp_pt_insert_imagenes";
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                            cmd.Parameters.AddWithValue("@path", dp.FTP_Normac_PT + file_name);
-                            cmd.Parameters.AddWithValue("@file_name", item.file_name);
-                            cmd.Parameters.AddWithValue("@id_user", UsuarioLogeado.Id);
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                    
-                }
-
-                switch (TipoOperacionActual)
-                {
-                    case TipoOperacion.Insert:
-                        CajaDialogo.Information("Producto Terminado Creado con Exito!");
-                        break;
-
-                    case TipoOperacion.Update:
-                        CajaDialogo.Information("Producto Terminado Actualizado con Exito!");
-                        break;
-                    default:
-                        break;
-                }
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            catch(Exception ex)
-            {
-                CajaDialogo.Error(ex.Message);
-            }
+            
         }
 
       
@@ -652,6 +501,255 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     gridView9.DeleteRow(gridView9.FocusedRowHandle);
                     dsProductoTerminado1.AcceptChanges();
                 }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(gridLookUpEdit_Presentaciones.Text))
+            {
+                CajaDialogo.Error("Es necesario indicar la presentación!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(gridLookUpEditEstadoPT.Text))
+            {
+                CajaDialogo.Error("Es necesario indicar el Estado!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtDescripcionProducto.Text))
+            {
+                CajaDialogo.Error("Es necesario indicar el Nombre del Producto!");
+                return;
+            }
+
+            //if (string.IsNullOrEmpty(gridLookUpEditTipoProducto.Text))
+            //{
+            //    CajaDialogo.Error("Es necesario indicar el Destino del Producto!");
+            //    return;
+            //}
+
+
+            if (string.IsNullOrEmpty(gridTipoInventario.Text))
+            {
+                CajaDialogo.Error("Es necesario indicar el Tipo de Producto!");
+                return;
+            }
+
+            //if (string.IsNullOrEmpty(txtBarCode.Text))
+            //{
+            //    CajaDialogo.Error("Es necesario indicar el Codigo de Barra para el Escaneo!");
+            //    return;
+            //}
+
+
+            //if (string.IsNullOrEmpty(glueTipoBuffet.Text))
+            //{
+            //    CajaDialogo.Error("Es necesario indicar un tipo de buffet del Producto!");
+            //    return;
+            //}
+
+            //if (string.IsNullOrEmpty(glueTipoFacturacion.Text))
+            //{
+            //    CajaDialogo.Error("Es necesario indicar el tipo de facturación del Producto!");
+            //    return;
+            //}
+
+            DialogResult r = CajaDialogo.Pregunta("Desea guardar los cambios?");
+            if (r != DialogResult.Yes)
+                return;
+
+
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection Conn1 = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                Conn1.Open();
+                SqlCommand cmd = new SqlCommand("", Conn1);
+                cmd.CommandType = CommandType.StoredProcedure;
+                switch (TipoOperacionActual)
+                {
+                    case TipoOperacion.Insert:
+                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v5]";
+
+                        break;
+                    case TipoOperacion.Update:
+                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v5]";
+                        cmd.Parameters.AddWithValue("@id", PT_Class_instance.Id);
+                        break;
+                }
+
+                //if (!tggCosteoPorArroba.IsOn)
+                //    CostoPorArroba = 0;
+
+                cmd.Parameters.AddWithValue("@id_user_created", UsuarioLogeado.Id);
+                cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
+                cmd.Parameters.AddWithValue("@id_presentacion", gridLookUpEdit_Presentaciones.EditValue);
+                cmd.Parameters.AddWithValue("@id_estado", gridLookUpEditEstadoPT.EditValue);
+                cmd.Parameters.AddWithValue("@descripcion", txtDescripcionProducto.Text);
+                cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
+                cmd.Parameters.AddWithValue("@tipo_id", DBNull.Value/*gridLookUpEditTipoProducto.EditValue*/);
+                cmd.Parameters.AddWithValue("@costo_mo_por_arroba", 0);
+                cmd.Parameters.AddWithValue("@costo_por_arroba", CostoPorArroba);
+                cmd.Parameters.AddWithValue("@id_tipo_facturacion", DBNull.Value /*glueTipoFacturacion.EditValue*/);
+
+                //int id_tipoBuffet = dp.ValidateNumberInt32(glueTipoBuffet.EditValue);
+                //if(id_tipoBuffet <= 0)
+                cmd.Parameters.AddWithValue("@id_tipo_buffet", DBNull.Value);
+                //else
+                //    cmd.Parameters.AddWithValue("@id_tipo_buffet", glueTipoBuffet.EditValue);
+
+                cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd", DBNull.Value /*gridLookUpEditTipoFacturacionDestino.EditValue*/);
+
+                //if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
+                cmd.Parameters.AddWithValue("@id_clase", DBNull.Value);
+                //else
+                //    cmd.Parameters.AddWithValue("@id_clase", gle_ClaseProducto.EditValue);
+
+
+                if (dp.ValidateNumberInt32(Convert.ToInt32(gleImpuestoAplicable.EditValue)) == 0)
+                    cmd.Parameters.AddWithValue("@id_impuesto_aplicable", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
+                cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
+                cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
+                cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
+                cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
+                cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
+                cmd.ExecuteNonQuery();
+
+                FTP_Class ftp = new FTP_Class();
+                string file_name;
+                foreach (dsProductoTerminado.PTImagenesRow item in dsProductoTerminado1.PTImagenes)
+                {
+                    if (item.id == 0)
+                    {
+                        string ext = Path.GetExtension(item.file_name);
+                        file_name = dp.Now().ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
+
+                        if (ftp.GuardarArchivo(UsuarioLogeado, file_name, item.path))
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.CommandText = "sp_pt_insert_imagenes";
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                            cmd.Parameters.AddWithValue("@path", dp.FTP_Normac_PT + file_name);
+                            cmd.Parameters.AddWithValue("@file_name", item.file_name);
+                            cmd.Parameters.AddWithValue("@id_user", UsuarioLogeado.Id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                }
+
+                switch (TipoOperacionActual)
+                {
+                    case TipoOperacion.Insert:
+                        CajaDialogo.Information("Producto Terminado Creado con Exito!");
+                        break;
+
+                    case TipoOperacion.Update:
+                        CajaDialogo.Information("Producto Terminado Actualizado con Exito!");
+                        break;
+                    default:
+                        break;
+                }
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+        private void LoadConfiguracionAlmacenes(int pIdPT)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_config_producto_terminado_bodegas", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_pt", pIdPT);
+                dsProductoTerminado1.config_pt_inv.Clear();
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                adat.Fill(dsProductoTerminado1.config_pt_inv);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void cmdFijarComoEstandar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+        }
+
+        private void cmdHabilitarAlmacen_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Habilitar deshabilitar
+            var gridView = (GridView)gridControl2.FocusedView;
+            var row = (dsProductoTerminado.config_pt_invRow)gridView.GetFocusedDataRow();
+            bool HabilitarRow = false;
+
+            DialogResult r;
+            if (row.hablitado_bit)
+            {
+                //Vamos a deshabilitar
+                HabilitarRow = false;
+                r = CajaDialogo.Pregunta("Confirme que desea deshabiltar este producto para el almacen " + row.whs_equivalente + "?");
+            }
+            else
+            {
+                //Vamos a Habilitar
+                HabilitarRow = true;
+                r = CajaDialogo.Pregunta("Confirme que desea habiltar este producto para el almacen " + row.whs_equivalente + "?");
+            }
+
+            if (r != DialogResult.Yes)
+                return;
+
+            //Hacemos el update
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("dbo.sp_add_or_update_config_bodega_for_pt", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                cmd.Parameters.AddWithValue("@id_bodega", row.id);
+                cmd.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
+                cmd.ExecuteNonQuery();
+
+                if (HabilitarRow)
+                {
+                    row.hablitado_bit = true;
+                    row.hablitado_descrip = "Si";
+                }
+                else
+                {
+                    row.hablitado_bit = false;
+                    row.hablitado_descrip = "No";
+                }
+
+                conn.Close();
             }
             catch (Exception ex)
             {

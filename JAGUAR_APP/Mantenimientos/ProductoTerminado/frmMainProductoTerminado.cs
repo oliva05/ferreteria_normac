@@ -192,5 +192,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             }
             
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }

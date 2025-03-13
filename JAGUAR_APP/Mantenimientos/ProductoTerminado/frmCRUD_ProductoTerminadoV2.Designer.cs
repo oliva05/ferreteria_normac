@@ -36,8 +36,16 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridLookUpEdit_Presentaciones = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourcePresentacion = new System.Windows.Forms.BindingSource(this.components);
             this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
@@ -83,20 +91,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfecha_registro = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpath = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfile_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid_user = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coluser = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colimagen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.reposPictureItemImage = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.reposDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.gridTipoInventario = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -110,6 +104,38 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.txtBarCode = new DevExpress.XtraEditors.TextEdit();
             this.txtOEM = new DevExpress.XtraEditors.TextEdit();
             this.txtDescripcionProducto = new DevExpress.XtraEditors.MemoEdit();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.TabImagenes = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha_registro = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colpath = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfile_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_user = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coluser = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colimagen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reposPictureItemImage = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reposDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.tabInventario = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion_corta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colwhs_equivalente = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhablitado_bit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfijado_como_estandar_bit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhablitado_descrip = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfijado_como_estandar_descrip = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcEstablecerComoEstandar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdFijarComoEstandar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gcHabilitar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdHabilitarAlmacen = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit_Presentaciones.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePresentacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
@@ -132,54 +158,30 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.grdSubClase.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subClaseSelectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposPictureItemImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTipoInventario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoinventarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOEM.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcionProducto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.TabImagenes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposPictureItemImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposDelete)).BeginInit();
+            this.tabInventario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdFijarComoEstandar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdHabilitarAlmacen)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cmdCerrar
-            // 
-            this.cmdCerrar.Appearance.BackColor = System.Drawing.Color.Pink;
-            this.cmdCerrar.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.cmdCerrar.Appearance.Options.UseBackColor = true;
-            this.cmdCerrar.Appearance.Options.UseFont = true;
-            this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdCerrar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCerrar.ImageOptions.SvgImage")));
-            this.cmdCerrar.Location = new System.Drawing.Point(513, 441);
-            this.cmdCerrar.Name = "cmdCerrar";
-            this.cmdCerrar.Size = new System.Drawing.Size(157, 42);
-            this.cmdCerrar.TabIndex = 13;
-            this.cmdCerrar.Text = "Cerrar";
-            this.cmdCerrar.Click += new System.EventHandler(this.cmdCerrar_Click);
-            // 
-            // cmdGuardar
-            // 
-            this.cmdGuardar.Appearance.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.cmdGuardar.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.cmdGuardar.Appearance.Options.UseBackColor = true;
-            this.cmdGuardar.Appearance.Options.UseFont = true;
-            this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdGuardar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdGuardar.ImageOptions.SvgImage")));
-            this.cmdGuardar.Location = new System.Drawing.Point(290, 441);
-            this.cmdGuardar.Name = "cmdGuardar";
-            this.cmdGuardar.Size = new System.Drawing.Size(157, 42);
-            this.cmdGuardar.TabIndex = 14;
-            this.cmdGuardar.Text = "Guardar";
-            this.cmdGuardar.Click += new System.EventHandler(this.cmdGuardar_Click);
             // 
             // gridLookUpEdit_Presentaciones
             // 
             this.gridLookUpEdit_Presentaciones.EditValue = "";
-            this.gridLookUpEdit_Presentaciones.Location = new System.Drawing.Point(204, 51);
+            this.gridLookUpEdit_Presentaciones.Location = new System.Drawing.Point(204, 47);
             this.gridLookUpEdit_Presentaciones.Name = "gridLookUpEdit_Presentaciones";
             this.gridLookUpEdit_Presentaciones.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridLookUpEdit_Presentaciones.Properties.Appearance.Options.UseFont = true;
@@ -232,7 +234,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(16, 58);
+            this.labelControl1.Location = new System.Drawing.Point(16, 54);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(198, 15);
             this.labelControl1.TabIndex = 16;
@@ -242,15 +244,15 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(29, 404);
+            this.labelControl2.Location = new System.Drawing.Point(16, 390);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(196, 15);
+            this.labelControl2.Size = new System.Drawing.Size(221, 15);
             this.labelControl2.TabIndex = 17;
-            this.labelControl2.Text = "Producto Activo______________________";
+            this.labelControl2.Text = "Producto Activo___________________________";
             // 
             // toggleSwitchEnablePT
             // 
-            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(217, 400);
+            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(204, 387);
             this.toggleSwitchEnablePT.Name = "toggleSwitchEnablePT";
             this.toggleSwitchEnablePT.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toggleSwitchEnablePT.Properties.Appearance.Options.UseFont = true;
@@ -263,7 +265,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(16, 87);
+            this.labelControl3.Location = new System.Drawing.Point(16, 83);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(201, 15);
             this.labelControl3.TabIndex = 20;
@@ -272,7 +274,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // gridLookUpEditEstadoPT
             // 
             this.gridLookUpEditEstadoPT.EditValue = "";
-            this.gridLookUpEditEstadoPT.Location = new System.Drawing.Point(204, 80);
+            this.gridLookUpEditEstadoPT.Location = new System.Drawing.Point(204, 76);
             this.gridLookUpEditEstadoPT.Name = "gridLookUpEditEstadoPT";
             this.gridLookUpEditEstadoPT.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridLookUpEditEstadoPT.Properties.Appearance.Options.UseFont = true;
@@ -320,7 +322,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(16, 137);
+            this.labelControl4.Location = new System.Drawing.Point(16, 134);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(190, 15);
             this.labelControl4.TabIndex = 21;
@@ -330,7 +332,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.defaultToolTipController1.SetAllowHtmlText(this.txtCodigoInterno, DevExpress.Utils.DefaultBoolean.Default);
             this.txtCodigoInterno.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCodigoInterno.Location = new System.Drawing.Point(204, 196);
+            this.txtCodigoInterno.Location = new System.Drawing.Point(204, 192);
             this.txtCodigoInterno.Name = "txtCodigoInterno";
             this.txtCodigoInterno.ReadOnly = true;
             this.txtCodigoInterno.Size = new System.Drawing.Size(177, 23);
@@ -340,7 +342,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(16, 204);
+            this.labelControl5.Location = new System.Drawing.Point(16, 201);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(196, 15);
             this.labelControl5.TabIndex = 23;
@@ -385,7 +387,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.defaultToolTipController1.SetAllowHtmlText(this.txtCodigoPT, DevExpress.Utils.DefaultBoolean.Default);
             this.txtCodigoPT.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCodigoPT.Location = new System.Drawing.Point(204, 231);
+            this.txtCodigoPT.Location = new System.Drawing.Point(204, 227);
             this.txtCodigoPT.Name = "txtCodigoPT";
             this.txtCodigoPT.ReadOnly = true;
             this.txtCodigoPT.Size = new System.Drawing.Size(177, 23);
@@ -394,7 +396,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // gle_ClaseProducto
             // 
             this.gle_ClaseProducto.EditValue = "";
-            this.gle_ClaseProducto.Location = new System.Drawing.Point(204, 261);
+            this.gle_ClaseProducto.Location = new System.Drawing.Point(204, 257);
             this.gle_ClaseProducto.Name = "gle_ClaseProducto";
             this.gle_ClaseProducto.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gle_ClaseProducto.Properties.Appearance.Options.UseFont = true;
@@ -449,7 +451,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl12.Appearance.Options.UseFont = true;
-            this.labelControl12.Location = new System.Drawing.Point(16, 269);
+            this.labelControl12.Location = new System.Drawing.Point(16, 265);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(225, 15);
             this.labelControl12.TabIndex = 39;
@@ -459,7 +461,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // gleImpuestoAplicable
             // 
             this.gleImpuestoAplicable.EditValue = "";
-            this.gleImpuestoAplicable.Location = new System.Drawing.Point(204, 263);
+            this.gleImpuestoAplicable.Location = new System.Drawing.Point(204, 258);
             this.gleImpuestoAplicable.Name = "gleImpuestoAplicable";
             this.gleImpuestoAplicable.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gleImpuestoAplicable.Properties.Appearance.Options.UseFont = true;
@@ -513,7 +515,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl13.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl13.Appearance.Options.UseFont = true;
-            this.labelControl13.Location = new System.Drawing.Point(16, 270);
+            this.labelControl13.Location = new System.Drawing.Point(16, 266);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(247, 15);
             this.labelControl13.TabIndex = 41;
@@ -523,7 +525,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl14.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl14.Appearance.Options.UseFont = true;
-            this.labelControl14.Location = new System.Drawing.Point(16, 171);
+            this.labelControl14.Location = new System.Drawing.Point(16, 167);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(222, 15);
             this.labelControl14.TabIndex = 42;
@@ -532,7 +534,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // grdSubClase
             // 
             this.grdSubClase.EditValue = "";
-            this.grdSubClase.Location = new System.Drawing.Point(204, 164);
+            this.grdSubClase.Location = new System.Drawing.Point(204, 160);
             this.grdSubClase.Name = "grdSubClase";
             this.grdSubClase.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grdSubClase.Properties.Appearance.Options.UseFont = true;
@@ -582,38 +584,161 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl15.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl15.Appearance.Options.UseFont = true;
-            this.labelControl15.Location = new System.Drawing.Point(16, 238);
+            this.labelControl15.Location = new System.Drawing.Point(16, 236);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(210, 15);
             this.labelControl15.TabIndex = 44;
             this.labelControl15.Text = "Código del Producto____________________";
             // 
-            // groupControl1
+            // labelControl7
             // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(16, 298);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(195, 15);
+            this.labelControl7.TabIndex = 47;
+            this.labelControl7.Text = "Código de Barra______________________";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(16, 332);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(194, 15);
+            this.labelControl8.TabIndex = 49;
+            this.labelControl8.Text = "Código de OEM______________________";
+            // 
+            // gridTipoInventario
+            // 
+            this.gridTipoInventario.Location = new System.Drawing.Point(204, 353);
+            this.gridTipoInventario.Name = "gridTipoInventario";
+            this.gridTipoInventario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gridTipoInventario.Properties.Appearance.Options.UseFont = true;
+            this.gridTipoInventario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gridTipoInventario.Properties.DataSource = this.tipoinventarioBindingSource;
+            this.gridTipoInventario.Properties.DisplayMember = "descripcion";
+            this.gridTipoInventario.Properties.NullText = "";
+            this.gridTipoInventario.Properties.PopupView = this.gridView4;
+            this.gridTipoInventario.Properties.ValueMember = "id";
+            this.gridTipoInventario.Size = new System.Drawing.Size(177, 22);
+            this.gridTipoInventario.TabIndex = 51;
+            // 
+            // tipoinventarioBindingSource
+            // 
+            this.tipoinventarioBindingSource.DataMember = "tipo_inventario";
+            this.tipoinventarioBindingSource.DataSource = this.dsProductoTerminado1;
+            // 
+            // gridView4
+            // 
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid5,
+            this.coldescripcion4});
+            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid5
+            // 
+            this.colid5.FieldName = "id";
+            this.colid5.Name = "colid5";
+            // 
+            // coldescripcion4
+            // 
+            this.coldescripcion4.Caption = "Descripcion";
+            this.coldescripcion4.FieldName = "descripcion";
+            this.coldescripcion4.Name = "coldescripcion4";
+            this.coldescripcion4.Visible = true;
+            this.coldescripcion4.VisibleIndex = 0;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(16, 360);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(211, 15);
+            this.labelControl10.TabIndex = 52;
+            this.labelControl10.Text = "Tipo de Item_____________________________";
+            // 
+            // btnAddImage
+            // 
+            this.btnAddImage.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddImage.ImageOptions.SvgImage")));
+            this.btnAddImage.Location = new System.Drawing.Point(3, 9);
+            this.btnAddImage.Name = "btnAddImage";
+            this.btnAddImage.Size = new System.Drawing.Size(127, 36);
+            this.btnAddImage.TabIndex = 54;
+            this.btnAddImage.Text = "Agregar Imagen";
+            this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // txtBarCode
+            // 
+            this.txtBarCode.Location = new System.Drawing.Point(204, 290);
+            this.txtBarCode.Name = "txtBarCode";
+            this.txtBarCode.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBarCode.Properties.Appearance.Options.UseFont = true;
+            this.txtBarCode.Size = new System.Drawing.Size(177, 22);
+            this.txtBarCode.TabIndex = 55;
+            // 
+            // txtOEM
+            // 
+            this.txtOEM.Location = new System.Drawing.Point(204, 324);
+            this.txtOEM.Name = "txtOEM";
+            this.txtOEM.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtOEM.Properties.Appearance.Options.UseFont = true;
+            this.txtOEM.Size = new System.Drawing.Size(177, 22);
+            this.txtOEM.TabIndex = 56;
+            // 
+            // txtDescripcionProducto
+            // 
+            this.txtDescripcionProducto.Location = new System.Drawing.Point(204, 106);
+            this.txtDescripcionProducto.Name = "txtDescripcionProducto";
+            this.txtDescripcionProducto.Size = new System.Drawing.Size(177, 42);
+            this.txtDescripcionProducto.TabIndex = 57;
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl1.Controls.Add(this.gridControl1);
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl1.Location = new System.Drawing.Point(392, 76);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(691, 248);
-            this.groupControl1.TabIndex = 46;
-            this.groupControl1.Text = "Imagenes";
-            this.groupControl1.ToolTipController = this.defaultToolTipController1.DefaultController;
+            this.xtraTabControl1.Location = new System.Drawing.Point(401, 46);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.TabImagenes;
+            this.xtraTabControl1.Size = new System.Drawing.Size(647, 363);
+            this.xtraTabControl1.TabIndex = 58;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.TabImagenes,
+            this.tabInventario});
+            // 
+            // TabImagenes
+            // 
+            this.TabImagenes.Controls.Add(this.gridControl1);
+            this.TabImagenes.Controls.Add(this.btnAddImage);
+            this.TabImagenes.Name = "TabImagenes";
+            this.TabImagenes.Size = new System.Drawing.Size(645, 334);
+            this.TabImagenes.Text = "Imagenes";
             // 
             // gridControl1
             // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "PTImagenes";
             this.gridControl1.DataSource = this.dsProductoTerminado1;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 27);
+            this.gridControl1.Location = new System.Drawing.Point(3, 51);
             this.gridControl1.MainView = this.gridView9;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.reposPictureItemImage,
             this.reposDelete});
-            this.gridControl1.Size = new System.Drawing.Size(687, 219);
-            this.gridControl1.TabIndex = 0;
+            this.gridControl1.Size = new System.Drawing.Size(635, 280);
+            this.gridControl1.TabIndex = 55;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView9});
             // 
@@ -700,7 +825,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.reposPictureItemImage.Name = "reposPictureItemImage";
             this.reposPictureItemImage.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.reposPictureItemImage.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposPictureItemImage_ButtonClick);
             // 
             // gridColumn3
             // 
@@ -719,120 +843,170 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposDelete.Name = "reposDelete";
             this.reposDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.reposDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposDelete_ButtonClick);
             // 
-            // labelControl7
+            // tabInventario
             // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(16, 301);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(195, 15);
-            this.labelControl7.TabIndex = 47;
-            this.labelControl7.Text = "Código de Barra______________________";
+            this.tabInventario.Controls.Add(this.gridControl2);
+            this.tabInventario.Name = "tabInventario";
+            this.tabInventario.Size = new System.Drawing.Size(645, 334);
+            this.tabInventario.Text = "Inventario";
             // 
-            // labelControl8
+            // gridControl2
             // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(16, 335);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(194, 15);
-            this.labelControl8.TabIndex = 49;
-            this.labelControl8.Text = "Código de OEM______________________";
+            this.gridControl2.DataMember = "config_pt_inv";
+            this.gridControl2.DataSource = this.dsProductoTerminado1;
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmdFijarComoEstandar,
+            this.cmdHabilitarAlmacen});
+            this.gridControl2.Size = new System.Drawing.Size(645, 334);
+            this.gridControl2.TabIndex = 0;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
             // 
-            // gridTipoInventario
+            // gridView2
             // 
-            this.gridTipoInventario.Location = new System.Drawing.Point(204, 361);
-            this.gridTipoInventario.Name = "gridTipoInventario";
-            this.gridTipoInventario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gridTipoInventario.Properties.Appearance.Options.UseFont = true;
-            this.gridTipoInventario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gridTipoInventario.Properties.DataSource = this.tipoinventarioBindingSource;
-            this.gridTipoInventario.Properties.DisplayMember = "descripcion";
-            this.gridTipoInventario.Properties.NullText = "";
-            this.gridTipoInventario.Properties.PopupView = this.gridView4;
-            this.gridTipoInventario.Properties.ValueMember = "id";
-            this.gridTipoInventario.Size = new System.Drawing.Size(177, 22);
-            this.gridTipoInventario.TabIndex = 51;
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid2,
+            this.coldescripcion2,
+            this.coldescripcion_corta,
+            this.colwhs_equivalente,
+            this.colhablitado_bit,
+            this.colfijado_como_estandar_bit,
+            this.colhablitado_descrip,
+            this.colfijado_como_estandar_descrip,
+            this.gcEstablecerComoEstandar,
+            this.gcHabilitar});
+            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.Name = "gridView2";
             // 
-            // tipoinventarioBindingSource
+            // colid2
             // 
-            this.tipoinventarioBindingSource.DataMember = "tipo_inventario";
-            this.tipoinventarioBindingSource.DataSource = this.dsProductoTerminado1;
+            this.colid2.FieldName = "id";
+            this.colid2.Name = "colid2";
             // 
-            // gridView4
+            // coldescripcion2
             // 
-            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid5,
-            this.coldescripcion4});
-            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView4.Name = "gridView4";
-            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView4.OptionsView.ShowGroupPanel = false;
+            this.coldescripcion2.FieldName = "descripcion";
+            this.coldescripcion2.Name = "coldescripcion2";
+            this.coldescripcion2.OptionsColumn.ReadOnly = true;
+            this.coldescripcion2.Visible = true;
+            this.coldescripcion2.VisibleIndex = 1;
+            this.coldescripcion2.Width = 152;
             // 
-            // colid5
+            // coldescripcion_corta
             // 
-            this.colid5.FieldName = "id";
-            this.colid5.Name = "colid5";
+            this.coldescripcion_corta.FieldName = "descripcion_corta";
+            this.coldescripcion_corta.Name = "coldescripcion_corta";
+            this.coldescripcion_corta.OptionsColumn.ReadOnly = true;
             // 
-            // coldescripcion4
+            // colwhs_equivalente
             // 
-            this.coldescripcion4.Caption = "Descripcion";
-            this.coldescripcion4.FieldName = "descripcion";
-            this.coldescripcion4.Name = "coldescripcion4";
-            this.coldescripcion4.Visible = true;
-            this.coldescripcion4.VisibleIndex = 0;
+            this.colwhs_equivalente.FieldName = "whs_equivalente";
+            this.colwhs_equivalente.Name = "colwhs_equivalente";
+            this.colwhs_equivalente.OptionsColumn.ReadOnly = true;
+            this.colwhs_equivalente.Visible = true;
+            this.colwhs_equivalente.VisibleIndex = 0;
+            this.colwhs_equivalente.Width = 43;
             // 
-            // labelControl10
+            // colhablitado_bit
             // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(16, 368);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(211, 15);
-            this.labelControl10.TabIndex = 52;
-            this.labelControl10.Text = "Tipo de Item_____________________________";
+            this.colhablitado_bit.FieldName = "hablitado_bit";
+            this.colhablitado_bit.Name = "colhablitado_bit";
+            this.colhablitado_bit.OptionsColumn.ReadOnly = true;
             // 
-            // btnAddImage
+            // colfijado_como_estandar_bit
             // 
-            this.btnAddImage.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
-            this.btnAddImage.Location = new System.Drawing.Point(406, 42);
-            this.btnAddImage.Name = "btnAddImage";
-            this.btnAddImage.Size = new System.Drawing.Size(118, 28);
-            this.btnAddImage.TabIndex = 54;
-            this.btnAddImage.Text = "Agregar Imagen";
-            this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
+            this.colfijado_como_estandar_bit.FieldName = "fijado_como_estandar_bit";
+            this.colfijado_como_estandar_bit.Name = "colfijado_como_estandar_bit";
+            this.colfijado_como_estandar_bit.OptionsColumn.ReadOnly = true;
             // 
-            // openFileDialog1
+            // colhablitado_descrip
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.colhablitado_descrip.Caption = "Habilitado";
+            this.colhablitado_descrip.FieldName = "hablitado_descrip";
+            this.colhablitado_descrip.Name = "colhablitado_descrip";
+            this.colhablitado_descrip.OptionsColumn.ReadOnly = true;
+            this.colhablitado_descrip.Visible = true;
+            this.colhablitado_descrip.VisibleIndex = 2;
+            this.colhablitado_descrip.Width = 57;
             // 
-            // txtBarCode
+            // colfijado_como_estandar_descrip
             // 
-            this.txtBarCode.Location = new System.Drawing.Point(204, 294);
-            this.txtBarCode.Name = "txtBarCode";
-            this.txtBarCode.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBarCode.Properties.Appearance.Options.UseFont = true;
-            this.txtBarCode.Size = new System.Drawing.Size(177, 22);
-            this.txtBarCode.TabIndex = 55;
+            this.colfijado_como_estandar_descrip.FieldName = "fijado_como_estandar_descrip";
+            this.colfijado_como_estandar_descrip.Name = "colfijado_como_estandar_descrip";
+            this.colfijado_como_estandar_descrip.OptionsColumn.ReadOnly = true;
+            this.colfijado_como_estandar_descrip.Visible = true;
+            this.colfijado_como_estandar_descrip.VisibleIndex = 3;
+            this.colfijado_como_estandar_descrip.Width = 142;
             // 
-            // txtOEM
+            // gcEstablecerComoEstandar
             // 
-            this.txtOEM.Location = new System.Drawing.Point(204, 328);
-            this.txtOEM.Name = "txtOEM";
-            this.txtOEM.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtOEM.Properties.Appearance.Options.UseFont = true;
-            this.txtOEM.Size = new System.Drawing.Size(177, 22);
-            this.txtOEM.TabIndex = 56;
+            this.gcEstablecerComoEstandar.Caption = "Fijar como Bod. Estandar";
+            this.gcEstablecerComoEstandar.ColumnEdit = this.cmdFijarComoEstandar;
+            this.gcEstablecerComoEstandar.Name = "gcEstablecerComoEstandar";
+            this.gcEstablecerComoEstandar.Visible = true;
+            this.gcEstablecerComoEstandar.VisibleIndex = 5;
+            this.gcEstablecerComoEstandar.Width = 150;
             // 
-            // txtDescripcionProducto
+            // cmdFijarComoEstandar
             // 
-            this.txtDescripcionProducto.Location = new System.Drawing.Point(204, 110);
-            this.txtDescripcionProducto.Name = "txtDescripcionProducto";
-            this.txtDescripcionProducto.Size = new System.Drawing.Size(177, 42);
-            this.txtDescripcionProducto.TabIndex = 57;
+            this.cmdFijarComoEstandar.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.cmdFijarComoEstandar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdFijarComoEstandar.Name = "cmdFijarComoEstandar";
+            this.cmdFijarComoEstandar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdFijarComoEstandar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdFijarComoEstandar_ButtonClick);
+            // 
+            // gcHabilitar
+            // 
+            this.gcHabilitar.Caption = "Habilitar Almacen";
+            this.gcHabilitar.ColumnEdit = this.cmdHabilitarAlmacen;
+            this.gcHabilitar.Name = "gcHabilitar";
+            this.gcHabilitar.Visible = true;
+            this.gcHabilitar.VisibleIndex = 4;
+            this.gcHabilitar.Width = 74;
+            // 
+            // cmdHabilitarAlmacen
+            // 
+            this.cmdHabilitarAlmacen.AutoHeight = false;
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            this.cmdHabilitarAlmacen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdHabilitarAlmacen.Name = "cmdHabilitarAlmacen";
+            this.cmdHabilitarAlmacen.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdHabilitarAlmacen.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdHabilitarAlmacen_ButtonClick);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Appearance.Options.UseFont = true;
+            this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
+            this.btnClose.Location = new System.Drawing.Point(485, 415);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(99, 47);
+            this.btnClose.TabIndex = 59;
+            this.btnClose.Text = "Cerrar";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.Location = new System.Drawing.Point(380, 415);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(99, 47);
+            this.simpleButton1.TabIndex = 60;
+            this.simpleButton1.Text = "Guardar";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // frmCRUD_ProductoTerminadoV2
             // 
@@ -841,16 +1015,17 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1095, 501);
+            this.ClientSize = new System.Drawing.Size(1060, 471);
+            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.txtDescripcionProducto);
             this.Controls.Add(this.txtOEM);
             this.Controls.Add(this.txtBarCode);
-            this.Controls.Add(this.btnAddImage);
             this.Controls.Add(this.gridTipoInventario);
             this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.labelControl7);
-            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.gleImpuestoAplicable);
             this.Controls.Add(this.labelControl13);
             this.Controls.Add(this.txtCodigoPT);
@@ -867,8 +1042,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.Controls.Add(this.toggleSwitchEnablePT);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.cmdGuardar);
-            this.Controls.Add(this.cmdCerrar);
             this.Controls.Add(this.gle_ClaseProducto);
             this.Controls.Add(this.labelControl12);
             this.IconOptions.ShowIcon = false;
@@ -896,27 +1069,30 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.grdSubClase.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subClaseSelectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposPictureItemImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTipoInventario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoinventarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOEM.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcionProducto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.TabImagenes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposPictureItemImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposDelete)).EndInit();
+            this.tabInventario.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdFijarComoEstandar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdHabilitarAlmacen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.SimpleButton cmdCerrar;
-        private DevExpress.XtraEditors.SimpleButton cmdGuardar;
         private dsProductoTerminado dsProductoTerminado1;
         private System.Windows.Forms.BindingSource bindingSourcePresentacion;
         private DevExpress.XtraEditors.GridLookUpEdit gridLookUpEdit_Presentaciones;
@@ -962,16 +1138,24 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private System.Windows.Forms.BindingSource subClaseSelectBindingSource;
         private System.Windows.Forms.TextBox txtCodigoPT;
         private DevExpress.XtraEditors.LabelControl labelControl15;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.GridLookUpEdit gridTipoInventario;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
         private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.SimpleButton btnAddImage;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.BindingSource tipoinventarioBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colid5;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion4;
+        private DevExpress.XtraEditors.TextEdit txtBarCode;
+        private DevExpress.XtraEditors.TextEdit txtOEM;
+        private DevExpress.XtraEditors.MemoEdit txtDescripcionProducto;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage TabImagenes;
+        private DevExpress.XtraTab.XtraTabPage tabInventario;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView9;
-        private DevExpress.XtraEditors.SimpleButton btnAddImage;
-        private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit reposPictureItemImage;
         private DevExpress.XtraGrid.Columns.GridColumn colid4;
         private DevExpress.XtraGrid.Columns.GridColumn colfecha_registro;
         private DevExpress.XtraGrid.Columns.GridColumn colpath;
@@ -980,14 +1164,24 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private DevExpress.XtraGrid.Columns.GridColumn coluser;
         private DevExpress.XtraGrid.Columns.GridColumn colid_pt;
         private DevExpress.XtraGrid.Columns.GridColumn colimagen;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit reposPictureItemImage;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposDelete;
-        private System.Windows.Forms.BindingSource tipoinventarioBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colid5;
-        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion4;
-        private DevExpress.XtraEditors.TextEdit txtBarCode;
-        private DevExpress.XtraEditors.TextEdit txtOEM;
-        private DevExpress.XtraEditors.MemoEdit txtDescripcionProducto;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraEditors.SimpleButton btnClose;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraGrid.Columns.GridColumn colid2;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion2;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion_corta;
+        private DevExpress.XtraGrid.Columns.GridColumn colwhs_equivalente;
+        private DevExpress.XtraGrid.Columns.GridColumn colhablitado_bit;
+        private DevExpress.XtraGrid.Columns.GridColumn colfijado_como_estandar_bit;
+        private DevExpress.XtraGrid.Columns.GridColumn colhablitado_descrip;
+        private DevExpress.XtraGrid.Columns.GridColumn colfijado_como_estandar_descrip;
+        private DevExpress.XtraGrid.Columns.GridColumn gcEstablecerComoEstandar;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdFijarComoEstandar;
+        private DevExpress.XtraGrid.Columns.GridColumn gcHabilitar;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdHabilitarAlmacen;
     }
 }
