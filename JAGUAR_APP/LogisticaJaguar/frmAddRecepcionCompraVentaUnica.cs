@@ -249,10 +249,10 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     cmd.Parameters.AddWithValue("@correlativo", row.correlativo);
                     cmd.Parameters.AddWithValue("@fecha_ingreso", dp.Now());
                     cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
-                    //if (row.id_bodega == 0) 
-                    //    cmd.Parameters.AddWithValue("@id_bodega", DBNull.Value);
-                    //else
-                    //    cmd.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                    if (row.id_bodega == 0)
+                        cmd.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@id_bodega", row.id_bodega);
 
                     cmd.ExecuteNonQuery();
                 }
