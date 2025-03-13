@@ -23,7 +23,7 @@
     <Shape ID="DesignTable:categoaria_select" ZOrder="5" X="1244" Y="169" Height="67" Width="151" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="86" />
     <Shape ID="DesignTable:PTImagenes" ZOrder="4" X="67" Y="357" Height="181" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="177" />
     <Shape ID="DesignTable:tipo_inventario" ZOrder="3" X="79" Y="144" Height="67" Width="153" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="82" />
-    <Shape ID="DesignTable:pt_venta_unica" ZOrder="2" X="19" Y="555" Height="181" Width="152" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="177" />
+    <Shape ID="DesignTable:pt_venta_unica" ZOrder="2" X="19" Y="555" Height="200" Width="152" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
     <Shape ID="DesignTable:ingreso_pt_venta_unica" ZOrder="1" X="180" Y="556" Height="238" Width="200" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="234" />
   </Shapes>
   <Connectors />
