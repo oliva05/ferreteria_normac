@@ -24,6 +24,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.TransaccionesPT;
 using DevExpress.DashboardWin.Design;
+using Image = System.Drawing.Image;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
