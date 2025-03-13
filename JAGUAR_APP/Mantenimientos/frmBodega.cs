@@ -21,9 +21,9 @@ namespace JAGUAR_PRO.Mantenimientos
             {
                 using (SqlConnection conexionLOSA = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                 {
-                    dsMantenimiento.BodegasDataTable.Clear();
+                    dsMantenimiento1.BodegasDataTable.Clear();
                     SqlDataAdapter adapter = new SqlDataAdapter("exec spObtenerBodegas", conexionLOSA);
-                    adapter.Fill(dsMantenimiento.BodegasDataTable);
+                    adapter.Fill(dsMantenimiento1.BodegasDataTable);
                 }
 
             }
@@ -40,7 +40,7 @@ namespace JAGUAR_PRO.Mantenimientos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {            
-            frmBodegaCRUD frm = new frmBodegaCRUD(new Bodega());
+            frmBodegaCRUD frm = new frmBodegaCRUD(frmBodegaCRUD.Operacion.New, 0);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 CargarDatos();
@@ -52,12 +52,9 @@ namespace JAGUAR_PRO.Mantenimientos
             Bodega bodega = new Bodega
             {
                 Id = Convert.ToInt32(gvBodegas.GetRowCellValue(gvBodegas.GetRowHandle(gvBodegas.GetSelectedRows()[0]), colid)),
-                Descripcion = gvBodegas.GetRowCellValue(gvBodegas.GetRowHandle(gvBodegas.GetSelectedRows()[0]), coldescripcion).ToString(),
-                DescripcionCorta = gvBodegas.GetRowCellValue(gvBodegas.GetRowHandle(gvBodegas.GetSelectedRows()[0]), coldescripcion_corta).ToString(),
-                Enable = Convert.ToBoolean(gvBodegas.GetRowCellValue(gvBodegas.GetRowHandle(gvBodegas.GetSelectedRows()[0]), colenable))
             };
 
-            frmBodegaCRUD frm = new frmBodegaCRUD(bodega);
+            frmBodegaCRUD frm = new frmBodegaCRUD(frmBodegaCRUD.Operacion.Update, bodega.Id);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 CargarDatos();

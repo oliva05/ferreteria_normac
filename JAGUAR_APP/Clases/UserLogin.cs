@@ -22,6 +22,9 @@ namespace JAGUAR_PRO.Clases
         private string pass;
         private int idnivel;
         private string tipo;
+        private string codigo;
+        private int pIN;
+        private bool isVendedor;
 
         public bool Recuperado { get => recuperado; set => recuperado = value; }
         public int Id { get => id; set => id = value; }
@@ -33,7 +36,6 @@ namespace JAGUAR_PRO.Clases
         public int TurnoId { get => idnivel; set => idnivel = value; }
         public string Tipo { get => tipo; set => tipo = value; }
         public bool Enable { get; set; }
-
 
         //Migracion ACS
 
@@ -80,6 +82,9 @@ namespace JAGUAR_PRO.Clases
         public string Password { get => vPassword; set => vPassword = value; }
         public string Usuario { get; set; }
         public bool Habilitado { get; set; }
+        public string Codigo { get => codigo; set => codigo = value; }
+        public int PIN { get => pIN; set => pIN = value; }
+        public bool IsVendedor { get => isVendedor; set => isVendedor = value; }
         #endregion
 
         public UserLogin()
@@ -160,9 +165,11 @@ namespace JAGUAR_PRO.Clases
                 string sql = @"SELECT id, 
                                        nombre, 
 	                                   id_grupo_losa,
-                                       tipo
+                                       tipo,
+                                        [codigo_vendedor],
+                                        [PIN]
                                 FROM conf_usuarios 
-                                where id ="+ pId;
+                                where id =" + pId;
                 SqlCommand cmd = new SqlCommand(sql, con);
                 //cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -174,6 +181,8 @@ namespace JAGUAR_PRO.Clases
                         idGrupo = dr.GetInt32(2);
                     if (!dr.IsDBNull(dr.GetOrdinal("tipo")))
                         Tipo = dr.GetString(3);
+                    Codigo = dr.IsDBNull(4) ? "" : dr.GetString(4);
+                    PIN = dr.IsDBNull(5) ? 0 : dr.GetInt32(5);
                     recuperado = true;
                 }
                 dr.Close();
@@ -331,6 +340,9 @@ namespace JAGUAR_PRO.Clases
                                       ,[habilitado]
                                       ,[id_grupo_losa]
                                       ,isnull([turno_id],0) [turno_id]
+                                        ,[codigo_vendedor]
+                                        ,[PIN]
+                                        ,isVendedor
                                   FROM [dbo].[conf_usuarios]
                                    where [id] = " + pId.ToString();
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -347,6 +359,9 @@ namespace JAGUAR_PRO.Clases
                     Habilitado = dr.GetBoolean(5);
                     IdGrupo = dr.GetInt32(6);
                     TurnoId = dr.GetInt32(7);
+                    Codigo = dr.IsDBNull(8) ? "" : dr.GetString(8);
+                    PIN = dr.IsDBNull(9) ? 0 : dr.GetInt32(9);
+                    IsVendedor = dr.GetBoolean(10);
                 }
                 x = true;
                 dr.Close();
@@ -393,7 +408,10 @@ namespace JAGUAR_PRO.Clases
                                            ,[nombre]
                                            ,[super_user]
                                             ,[id_grupo_losa]
-                                            ,[turno_id])
+                                            ,[turno_id]
+                                            ,[codigo_vendedor]
+                                            ,[PIN]
+                                            ,[isVendedor])
                                      VALUES
                                            (@alias,
                                             @password,
@@ -401,7 +419,10 @@ namespace JAGUAR_PRO.Clases
                                             @nombre,
                                             @super_user,
                                             @id_grupo,
-                                            @turno_id)";
+                                            @turno_id,
+                                            @codigo_vendedor,
+                                            @PIN,
+                                            @isVendedor)";
             try
             {
                 DataOperations dp = new DataOperations();
@@ -415,6 +436,9 @@ namespace JAGUAR_PRO.Clases
                 cmd.Parameters.Add("id_grupo", SqlDbType.VarChar).Value = this.IdGrupo;
                 cmd.Parameters.Add("super_user", SqlDbType.Bit).Value = this.IsSuperUser;
                 cmd.Parameters.Add("turno_id", SqlDbType.Bit).Value = this.IsSuperUser;
+                cmd.Parameters.AddWithValue("codigo_vendedor", this.Codigo);
+                cmd.Parameters.AddWithValue("PIN", this.PIN);
+                cmd.Parameters.AddWithValue("isVendedor", this.IsVendedor);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
@@ -439,6 +463,9 @@ namespace JAGUAR_PRO.Clases
                                       ,[id_grupo_losa]=@id_grupo
                                       ,[super_user] = @super_user
                                       ,[turno_id] = @turno_id
+                                      ,[codigo_vendedor] = @codigo_vendedor
+                                      ,[PIN] = @PIN
+                                      ,[isVendedor] = @isVendedor
                                  WHERE id = @id";
                 //DBOperations dp = new DBOperations();
                 DataOperations dp = new DataOperations();
@@ -454,6 +481,9 @@ namespace JAGUAR_PRO.Clases
                 cmd.Parameters.Add("id_grupo", SqlDbType.VarChar).Value = IdGrupo;
                 cmd.Parameters.Add("super_user", SqlDbType.Bit).Value = IsSuperUser;
                 cmd.Parameters.Add("turno_id", SqlDbType.Bit).Value = TurnoId;
+                cmd.Parameters.AddWithValue("codigo_vendedor", this.Codigo);
+                cmd.Parameters.AddWithValue("PIN", this.PIN);
+                cmd.Parameters.AddWithValue("isVendedor", this.IsVendedor);
                 cmd.ExecuteScalar();
                 conn.Close();
                 return true;

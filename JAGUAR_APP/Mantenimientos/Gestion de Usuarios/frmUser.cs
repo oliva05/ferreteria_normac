@@ -45,8 +45,8 @@ namespace PRININ.Gestion_de_Usuarios
                     txtAlias.Text = "";
                     txtNombre.Text = "";
                     //txtApellido.Text = "";
-                    chkUsuarioHabilitado.Checked = true;
-                    chkSuperUsuario.Checked = false;
+                    chkUsuarioHabilitado.IsOn = true;
+                    chkSuperUsuario.IsOn = false;
                     ValidoContrasenia = false;
                     txtPass.Text = "";
                     txtConfirmar.Text = "";
@@ -58,11 +58,14 @@ namespace PRININ.Gestion_de_Usuarios
                         txtAlias.Text = UserEdicion.Usuario;
                         txtNombre.Text = UserEdicion.Nombre;
                         lueGrupo.EditValue = UserEdicion.IdGrupo;
-                        chkUsuarioHabilitado.Checked = UserEdicion.Habilitado;
+                        chkUsuarioHabilitado.IsOn = UserEdicion.Habilitado;
                         txtPass.Text = UserParametro.DecryptPassword(UserEdicion.Pass);
                         txtConfirmar.Text = UserParametro.DecryptPassword(UserEdicion.Pass);
-                        chkSuperUsuario.Checked = UserEdicion.IsSuperUser;
+                        chkSuperUsuario.IsOn = UserEdicion.IsSuperUser;
                         lueTurno.EditValue = UserEdicion.TurnoId;
+                        txtCodigo.Text = UserEdicion.Codigo;
+                        txtPIN.Text = UserEdicion.PIN.ToString();
+                        tsIsVendedor.IsOn = UserEdicion.IsVendedor;
                         ValidoContrasenia = true;
                     }
                     break;
@@ -94,22 +97,30 @@ namespace PRININ.Gestion_de_Usuarios
                 ValidoContrasenia = true;
             }
 
+            //if(lueGrupo.EditValue == 4) //Si es Vendedor debe llevar Codigo Obligatoriamente
+            //{
+            //    CajaDialogo.Error("Debe colocar un Codigo de Vendedor");
+            //    return;
+            //}
+
             if (ValidoContrasenia)
             {
                 switch (vTipoEdition)
                 {
-                    case TipoEdicion.Nuevo:
+                    case TipoEdicion.Nuevo: 
                         UserEdicion = new UserLogin();
                         UserEdicion.Usuario = txtAlias.Text.Trim();
                         UserEdicion.Nombre = txtNombre.Text.Trim();
                         UserEdicion.NombreUser = txtNombre.Text.Trim();
                         //UserParametro.apellido = txtApellido.Text.Trim();
-                        UserEdicion.Habilitado = chkUsuarioHabilitado.Checked;
-                        UserEdicion.IsSuperUser = chkSuperUsuario.Checked;
+                        UserEdicion.Habilitado = chkUsuarioHabilitado.IsOn;
+                        UserEdicion.IsSuperUser = chkSuperUsuario.IsOn;
                         UserEdicion.Pass = txtPass.Text;
                         UserEdicion.IdGrupo =Convert.ToInt32( lueGrupo.EditValue);
                         UserEdicion.TurnoId = Convert.ToInt32(lueTurno.EditValue);
-                        
+                        UserEdicion.Codigo = txtCodigo.Text;
+                        UserEdicion.PIN = Convert.ToInt32(txtPIN.Text);
+                        UserEdicion.IsVendedor = tsIsVendedor.IsOn;
                         if (UserEdicion.GuardarNuevoUsuario())
                         {
                             CajaDialogo.Information("Guardado con exito!");
@@ -124,12 +135,14 @@ namespace PRININ.Gestion_de_Usuarios
                         UserEdicion.Usuario = txtAlias.Text.Trim();
                         UserEdicion.Nombre = txtNombre.Text.Trim();
                         UserEdicion.NombreUser = txtNombre.Text.Trim();
-                        UserEdicion.Habilitado = chkUsuarioHabilitado.Checked;
-                        UserEdicion.IsSuperUser = chkSuperUsuario.Checked;
+                        UserEdicion.Habilitado = chkUsuarioHabilitado.IsOn;
+                        UserEdicion.IsSuperUser = chkSuperUsuario.IsOn;
                         UserEdicion.Pass = txtPass.Text;
                         UserEdicion.IdGrupo = Convert.ToInt32(lueGrupo.EditValue);
                         UserEdicion.TurnoId = Convert.ToInt32(lueTurno.EditValue);
-
+                        UserEdicion.Codigo = txtCodigo.Text;
+                        UserEdicion.PIN = Convert.ToInt32(txtPIN.Text);
+                        UserEdicion.IsVendedor = tsIsVendedor.IsOn;
                         if (UserEdicion.ModificarUsuario())
                         {
                             CajaDialogo.Information("Guardado con exito!");

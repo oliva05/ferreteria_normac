@@ -28,7 +28,8 @@ namespace JAGUAR_PRO.Clases
             PuntoDeVenta=15,
             Despacho=17,
             NumeroPedido = 18,
-            Traslados=19
+            Traslados=19,
+            Bodega = 7
         }
 
         public int ID { get; set; }
