@@ -690,10 +690,12 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 dsProductoTerminado1.config_pt_inv.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 adat.Fill(dsProductoTerminado1.config_pt_inv);
-                //gridControl2.SelectedRowHandle = -1;
-                gridView2.ClearSelection();
-                gridView2.FocusedRowHandle = -1;
                 
+                gridView2.ClearSelection(); // Borra cualquier selección
+                gridView2.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
+
+                gridView2.OptionsSelection.EnableAppearanceFocusedRow = false;
+                gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
                 conn.Close();
             }
             catch (Exception ex)
