@@ -25,6 +25,7 @@ using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.TransaccionesPT;
 using DevExpress.DashboardWin.Design;
 using Image = System.Drawing.Image;
+using JAGUAR_PRO.TransaccionesMP;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
@@ -689,6 +690,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 dsProductoTerminado1.config_pt_inv.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 adat.Fill(dsProductoTerminado1.config_pt_inv);
+                //gridControl2.SelectedRowHandle = -1;
+                gridView2.ClearSelection();
+                gridView2.FocusedRowHandle = -1;
+                
                 conn.Close();
             }
             catch (Exception ex)
@@ -780,7 +785,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_pt", IdPT);
                 cmd.Parameters.AddWithValue("@id_bodega", row.id);
-                cmd.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
+                cmd.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id); 
+                cmd.Parameters.AddWithValue("@enable", HabilitarRow);
+
                 cmd.ExecuteNonQuery();
 
                 if (HabilitarRow)
@@ -792,6 +799,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 {
                     row.hablitado_bit = false;
                     row.hablitado_descrip = "No";
+                    row.fijado_como_estandar_bit = false ;
+                    row.fijado_como_estandar_descrip = "No";
                 }
 
                 conn.Close();
@@ -801,6 +810,32 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 CajaDialogo.Error(ex.Message);
             }
 
+        }
+
+        private void gridView2_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view == null) return;
+
+            if (e.RowHandle >= 0)
+            {
+                var gridView = (GridView)gridControl2.FocusedView;
+                var row = (dsProductoTerminado.config_pt_invRow)gridView.GetDataRow(e.RowHandle);// GetFocusedDataRow();
+
+                if (row.fijado_como_estandar_bit)
+                {
+                    e.Appearance.Font = new Font(gridView2.Appearance.Row.Font.FontFamily,
+                        gridView2.Appearance.Row.Font.Size,
+                        FontStyle.Bold);
+
+                    e.Appearance.BackColor = Color.FromArgb(102, 255, 102);
+                }
+                else
+                {
+                    
+                    e.Appearance.BackColor = Color.FromArgb(255, 255, 255);
+                }
+            }
         }
     }
 }

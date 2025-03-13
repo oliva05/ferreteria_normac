@@ -882,6 +882,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gcHabilitar});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
+            this.gridView2.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView2_RowStyle);
             // 
             // colid2
             // 
@@ -895,7 +896,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.coldescripcion2.OptionsColumn.ReadOnly = true;
             this.coldescripcion2.Visible = true;
             this.coldescripcion2.VisibleIndex = 1;
-            this.coldescripcion2.Width = 152;
+            this.coldescripcion2.Width = 160;
             // 
             // coldescripcion_corta
             // 
@@ -910,7 +911,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colwhs_equivalente.OptionsColumn.ReadOnly = true;
             this.colwhs_equivalente.Visible = true;
             this.colwhs_equivalente.VisibleIndex = 0;
-            this.colwhs_equivalente.Width = 43;
+            this.colwhs_equivalente.Width = 52;
             // 
             // colhablitado_bit
             // 
@@ -932,7 +933,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colhablitado_descrip.OptionsColumn.ReadOnly = true;
             this.colhablitado_descrip.Visible = true;
             this.colhablitado_descrip.VisibleIndex = 2;
-            this.colhablitado_descrip.Width = 57;
+            this.colhablitado_descrip.Width = 54;
             // 
             // colfijado_como_estandar_descrip
             // 
@@ -950,7 +951,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gcEstablecerComoEstandar.Name = "gcEstablecerComoEstandar";
             this.gcEstablecerComoEstandar.Visible = true;
             this.gcEstablecerComoEstandar.VisibleIndex = 5;
-            this.gcEstablecerComoEstandar.Width = 150;
+            this.gcEstablecerComoEstandar.Width = 131;
             // 
             // cmdFijarComoEstandar
             // 
@@ -969,7 +970,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gcHabilitar.Name = "gcHabilitar";
             this.gcHabilitar.Visible = true;
             this.gcHabilitar.VisibleIndex = 4;
-            this.gcHabilitar.Width = 74;
+            this.gcHabilitar.Width = 79;
             // 
             // cmdHabilitarAlmacen
             // 
@@ -988,7 +989,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.Location = new System.Drawing.Point(507, 415);
+            this.btnClose.Location = new System.Drawing.Point(529, 415);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 47);
             this.btnClose.TabIndex = 59;
@@ -1001,7 +1002,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(402, 415);
+            this.simpleButton1.Location = new System.Drawing.Point(424, 415);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(99, 47);
             this.simpleButton1.TabIndex = 60;
