@@ -15,6 +15,7 @@ using JAGUAR_PRO.TransaccionesPT;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
 using System.Diagnostics;
+using DevExpress.XtraExport.Helpers;
 
 namespace JAGUAR_PRO.Reportes
 {
@@ -120,6 +121,8 @@ namespace JAGUAR_PRO.Reportes
                 dsReportesInventario1.inventario_kardex_pt.Clear();
                 da.Fill(dsReportesInventario1.inventario_kardex_pt);
                 cn.Close();
+                grdv_inventario.OptionsSelection.EnableAppearanceFocusedRow = false;
+                grdv_inventario.OptionsSelection.EnableAppearanceFocusedCell = false;
             }
             catch (Exception ex)
             {
@@ -193,6 +196,16 @@ namespace JAGUAR_PRO.Reportes
 
             frmVerDetalleKardexTransactions frm = new frmVerDetalleKardexTransactions(row.id_pt, row.PT, row.existencia);
             frm.ShowDialog();
+        }
+
+        private void cmdAgregarAjuste__Click(object sender, EventArgs e)
+        {
+            frmAjusteIKardexPT frm = new frmAjusteIKardexPT(UsuarioLogeado);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                Especie = 2;
+                get_inventario();
+            }
         }
     }
 }

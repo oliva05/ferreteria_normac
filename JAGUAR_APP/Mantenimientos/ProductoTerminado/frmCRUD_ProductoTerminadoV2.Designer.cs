@@ -192,7 +192,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridLookUpEdit_Presentaciones.Properties.PopupView = this.gridLookUpEdit1View;
             this.gridLookUpEdit_Presentaciones.Properties.ValueMember = "id";
             this.gridLookUpEdit_Presentaciones.Size = new System.Drawing.Size(177, 22);
-            this.gridLookUpEdit_Presentaciones.TabIndex = 15;
+            this.gridLookUpEdit_Presentaciones.TabIndex = 0;
             // 
             // bindingSourcePresentacion
             // 
@@ -285,7 +285,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridLookUpEditEstadoPT.Properties.PopupView = this.gridView1;
             this.gridLookUpEditEstadoPT.Properties.ValueMember = "id";
             this.gridLookUpEditEstadoPT.Size = new System.Drawing.Size(177, 22);
-            this.gridLookUpEditEstadoPT.TabIndex = 19;
+            this.gridLookUpEditEstadoPT.TabIndex = 1;
             // 
             // bindingSourceEstados
             // 
@@ -472,7 +472,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gleImpuestoAplicable.Properties.PopupView = this.gridView7;
             this.gleImpuestoAplicable.Properties.ValueMember = "id";
             this.gleImpuestoAplicable.Size = new System.Drawing.Size(177, 22);
-            this.gleImpuestoAplicable.TabIndex = 40;
+            this.gleImpuestoAplicable.TabIndex = 4;
             // 
             // bindingSourceImpuestoAplicable
             // 
@@ -545,7 +545,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.grdSubClase.Properties.PopupView = this.gridView8;
             this.grdSubClase.Properties.ValueMember = "id";
             this.grdSubClase.Size = new System.Drawing.Size(177, 22);
-            this.grdSubClase.TabIndex = 43;
+            this.grdSubClase.TabIndex = 3;
             this.grdSubClase.EditValueChanged += new System.EventHandler(this.gridLookUpEdit1_EditValueChanged);
             // 
             // subClaseSelectBindingSource
@@ -624,7 +624,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridTipoInventario.Properties.PopupView = this.gridView4;
             this.gridTipoInventario.Properties.ValueMember = "id";
             this.gridTipoInventario.Size = new System.Drawing.Size(177, 22);
-            this.gridTipoInventario.TabIndex = 51;
+            this.gridTipoInventario.TabIndex = 7;
+            this.gridTipoInventario.EditValueChanged += new System.EventHandler(this.gridTipoInventario_EditValueChanged);
             // 
             // tipoinventarioBindingSource
             // 
@@ -685,7 +686,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.txtBarCode.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBarCode.Properties.Appearance.Options.UseFont = true;
             this.txtBarCode.Size = new System.Drawing.Size(177, 22);
-            this.txtBarCode.TabIndex = 55;
+            this.txtBarCode.TabIndex = 5;
             // 
             // txtOEM
             // 
@@ -694,14 +695,14 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.txtOEM.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtOEM.Properties.Appearance.Options.UseFont = true;
             this.txtOEM.Size = new System.Drawing.Size(177, 22);
-            this.txtOEM.TabIndex = 56;
+            this.txtOEM.TabIndex = 6;
             // 
             // txtDescripcionProducto
             // 
             this.txtDescripcionProducto.Location = new System.Drawing.Point(204, 106);
             this.txtDescripcionProducto.Name = "txtDescripcionProducto";
             this.txtDescripcionProducto.Size = new System.Drawing.Size(177, 42);
-            this.txtDescripcionProducto.TabIndex = 57;
+            this.txtDescripcionProducto.TabIndex = 2;
             // 
             // xtraTabControl1
             // 
@@ -711,7 +712,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.TabImagenes;
             this.xtraTabControl1.Size = new System.Drawing.Size(647, 363);
-            this.xtraTabControl1.TabIndex = 58;
+            this.xtraTabControl1.TabIndex = 8;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabImagenes,
             this.tabInventario});
@@ -896,7 +897,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.coldescripcion2.OptionsColumn.ReadOnly = true;
             this.coldescripcion2.Visible = true;
             this.coldescripcion2.VisibleIndex = 1;
-            this.coldescripcion2.Width = 160;
+            this.coldescripcion2.Width = 140;
             // 
             // coldescripcion_corta
             // 
@@ -933,7 +934,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colhablitado_descrip.OptionsColumn.ReadOnly = true;
             this.colhablitado_descrip.Visible = true;
             this.colhablitado_descrip.VisibleIndex = 2;
-            this.colhablitado_descrip.Width = 54;
+            this.colhablitado_descrip.Width = 56;
             // 
             // colfijado_como_estandar_descrip
             // 
@@ -942,7 +943,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.colfijado_como_estandar_descrip.OptionsColumn.ReadOnly = true;
             this.colfijado_como_estandar_descrip.Visible = true;
             this.colfijado_como_estandar_descrip.VisibleIndex = 3;
-            this.colfijado_como_estandar_descrip.Width = 142;
+            this.colfijado_como_estandar_descrip.Width = 148;
             // 
             // gcEstablecerComoEstandar
             // 
@@ -951,7 +952,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gcEstablecerComoEstandar.Name = "gcEstablecerComoEstandar";
             this.gcEstablecerComoEstandar.Visible = true;
             this.gcEstablecerComoEstandar.VisibleIndex = 5;
-            this.gcEstablecerComoEstandar.Width = 131;
+            this.gcEstablecerComoEstandar.Width = 126;
             // 
             // cmdFijarComoEstandar
             // 
@@ -970,7 +971,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gcHabilitar.Name = "gcHabilitar";
             this.gcHabilitar.Visible = true;
             this.gcHabilitar.VisibleIndex = 4;
-            this.gcHabilitar.Width = 79;
+            this.gcHabilitar.Width = 96;
             // 
             // cmdHabilitarAlmacen
             // 
@@ -992,7 +993,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.btnClose.Location = new System.Drawing.Point(529, 415);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 47);
-            this.btnClose.TabIndex = 59;
+            this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Cerrar";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -1005,7 +1006,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.simpleButton1.Location = new System.Drawing.Point(424, 415);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(99, 47);
-            this.simpleButton1.TabIndex = 60;
+            this.simpleButton1.TabIndex = 9;
             this.simpleButton1.Text = "Guardar";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 

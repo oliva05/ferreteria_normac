@@ -38,10 +38,31 @@ namespace JAGUAR_PRO.TransaccionesPT
             //gridLookUpEditDestino.EditValue = 10;
 
             LoadPresentaciones();
+            
             //txtNumLote.Visible = true;
         }
 
+        private void LoadBodegasAlmacenes(int pID_PT)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
 
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_config_bodegas_by_pt", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_pt", pID_PT);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsRecepcionMP.bodegas.Clear();
+                adat.Fill(dsRecepcionMP.bodegas);
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
@@ -196,6 +217,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                 {
                     this.ItemCode = productoTerminado.Code;
                     gridLookUpEditPresentacion.EditValue = productoTerminado.Id_presentacion;
+                    LoadBodegasAlmacenes(Id_PT);
                 }
             }
         }
@@ -259,6 +281,19 @@ namespace JAGUAR_PRO.TransaccionesPT
                 }
             }
 
+            int id_bodega = 0;
+            if (!string.IsNullOrEmpty(gleAlmacen.Text))
+            {
+                id_bodega = dp1.ValidateNumberInt32(gleAlmacen.EditValue);
+                if (id_bodega <= 0)
+                {
+                    CajaDialogo.Error("Es necesario indicar el almacen donde se aplicara el ajuste!");
+                    return;
+                }
+            }
+
+
+
             //if(IdTipoLote ==2)
             //{
             //    if(dp1.ValidateNumberDecimal(txtCostoUnitario.Text)<=0)
@@ -286,7 +321,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             {
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("dbo.[usp_InsertAjusteManual_Kardex_PT_V4]", conn);
+                SqlCommand cmd = new SqlCommand("dbo.[usp_InsertAjusteManual_Kardex_PT_V5]", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_pt", Convert.ToDecimal(Id_PT));
                 cmd.Parameters.AddWithValue("@id_Usuario", UsuarioLogeado.Id);
@@ -312,6 +347,11 @@ namespace JAGUAR_PRO.TransaccionesPT
                     cmd.Parameters.AddWithValue("@costo_unitario", costo_unitario);
                 else
                     cmd.Parameters.AddWithValue("@costo_unitario", DBNull.Value);
+
+                if (id_bodega == 0)
+                    cmd.Parameters.AddWithValue("@id_almacen", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@id_almacen", id_bodega);
 
                 cmd.ExecuteNonQuery();
                 conn.Close();

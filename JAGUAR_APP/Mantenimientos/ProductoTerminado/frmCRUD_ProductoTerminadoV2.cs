@@ -26,6 +26,8 @@ using JAGUAR_PRO.TransaccionesPT;
 using DevExpress.DashboardWin.Design;
 using Image = System.Drawing.Image;
 using JAGUAR_PRO.TransaccionesMP;
+using JAGUAR_PRO.Mantenimientos.Modelos;
+using DevExpress.Internal;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
@@ -71,6 +73,26 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     txtCodigoPT.Text = PT_Class_instance.GenerarSiguienteCodigoPT();
                     toggleSwitchEnablePT.IsOn = true;
                     toggleSwitchEnablePT.Enabled = false;
+
+                    gridLookUpEditEstadoPT.EditValue = 1;
+                    int contador = 0;
+                    foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
+                    {
+                        if(contador == 0)
+                        {
+                            rowI.fijado_como_estandar_bit = rowI.hablitado_bit = true;
+                            rowI.fijado_como_estandar_descrip = rowI.hablitado_descrip = "Si";
+                            contador++;
+                        }
+                        else
+                        {
+                            rowI.fijado_como_estandar_bit = false;
+                            rowI.fijado_como_estandar_descrip = "No";
+                            rowI.hablitado_descrip = "Si";
+                            rowI.hablitado_bit = true;
+                        }
+
+                    }
                     break;
                 case TipoOperacion.Update:
                     IdPT = pId_PT;
@@ -625,12 +647,21 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     cmd.Parameters.AddWithValue("@id_impuesto_aplicable", DBNull.Value);
                 else
                     cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
+
                 cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
                 cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
                 cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
                 cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
                 cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
-                cmd.ExecuteNonQuery();
+
+                if (TipoOperacionActual == TipoOperacion.Insert)
+                {
+                    IdPT = dp.ValidateNumberInt32(cmd.ExecuteScalar());  
+                }
+                else
+                {
+                    cmd.ExecuteNonQuery();
+                }
 
                 FTP_Class ftp = new FTP_Class();
                 string file_name;
@@ -655,6 +686,30 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     }
 
                 }
+
+                if (IdPT > 0)
+                {
+                    if (TipoOperacionActual == TipoOperacion.Insert)
+                    {
+                        //Agregamos la informacion de almacenes configurada
+                        foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
+                        {
+                            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                            conn.Open();
+                            SqlCommand cmd_b = new SqlCommand("dbo.[sp_add_or_update_config_bodega_for_pt_v2]", conn);
+                            cmd_b.CommandType = CommandType.StoredProcedure;
+                            cmd_b.Parameters.AddWithValue("@id_pt", IdPT);
+                            cmd_b.Parameters.AddWithValue("@id_bodega", rowI.id);
+                            cmd_b.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
+                            cmd_b.Parameters.AddWithValue("@enable", rowI.hablitado_bit);
+                            cmd_b.Parameters.AddWithValue("@fijar_como_estandar", rowI.fijado_como_estandar_bit);
+                            cmd_b.ExecuteNonQuery();
+                            conn.Close();
+                        }
+                    }
+                }
+                        
+
 
                 switch (TipoOperacionActual)
                 {
@@ -715,42 +770,53 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
 
             DialogResult r = CajaDialogo.Pregunta("Esta seguro de fijar esta bodega como estandar para este producto?");
-            if(r != DialogResult.Yes) return;
+            if (r != DialogResult.Yes) return;
 
-            //Hacemos el update
-            try
+            if (HabilitarRow)
             {
-                DataOperations dp = new DataOperations();
-                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("dbo.sp_fijar_estandar_config_bodega_for_pt", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                cmd.Parameters.AddWithValue("@id_bodega", row.id);
-                cmd.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
-                cmd.ExecuteNonQuery();
+                row.fijado_como_estandar_bit = true;
+                row.fijado_como_estandar_descrip = "Si";
+            }
 
-                if (HabilitarRow)
+            foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
+            {
+                if (rowI.id != idBodega)
                 {
-                    row.fijado_como_estandar_bit = true;
-                    row.fijado_como_estandar_descrip = "Si";  
+                    rowI.fijado_como_estandar_bit = false;
+                    rowI.fijado_como_estandar_descrip = "No";
                 }
+            }
 
-                foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
-                {
-                    if (rowI.id != idBodega)
+            switch (TipoOperacionActual)
+            {
+                case TipoOperacion.Update:
+                    
+                    //Hacemos el update
+                    try
                     {
-                        rowI.fijado_como_estandar_bit = false;
-                        rowI.fijado_como_estandar_descrip = "No";
-                    }
-                }
+                        DataOperations dp = new DataOperations();
+                        SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("dbo.sp_fijar_estandar_config_bodega_for_pt", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                        cmd.Parameters.AddWithValue("@id_bodega", row.id);
+                        cmd.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
+                        cmd.ExecuteNonQuery();
 
-                conn.Close();
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        CajaDialogo.Error(ex.Message);
+                    }
+                    break;
+                case TipoOperacion.Insert:
+                    break;
+                default:
+                    break;
             }
-            catch (Exception ex)
-            {
-                CajaDialogo.Error(ex.Message);
-            }
+            
         }
 
         private void cmdHabilitarAlmacen_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -777,41 +843,51 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             if (r != DialogResult.Yes)
                 return;
 
-            //Hacemos el update
-            try
+            if (HabilitarRow)
             {
-                DataOperations dp = new DataOperations();
-                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("dbo.sp_add_or_update_config_bodega_for_pt", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                cmd.Parameters.AddWithValue("@id_bodega", row.id);
-                cmd.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id); 
-                cmd.Parameters.AddWithValue("@enable", HabilitarRow);
-
-                cmd.ExecuteNonQuery();
-
-                if (HabilitarRow)
-                {
-                    row.hablitado_bit = true;
-                    row.hablitado_descrip = "Si";
-                }
-                else
-                {
-                    row.hablitado_bit = false;
-                    row.hablitado_descrip = "No";
-                    row.fijado_como_estandar_bit = false ;
-                    row.fijado_como_estandar_descrip = "No";
-                }
-
-                conn.Close();
+                row.hablitado_bit = true;
+                row.hablitado_descrip = "Si";
             }
-            catch (Exception ex)
+            else
             {
-                CajaDialogo.Error(ex.Message);
+                row.hablitado_bit = false;
+                row.hablitado_descrip = "No";
+                row.fijado_como_estandar_bit = false;
+                row.fijado_como_estandar_descrip = "No";
             }
 
+            switch (TipoOperacionActual)
+            {
+                case TipoOperacion.Update:
+                    
+
+                    //Hacemos el update
+                    try
+                    {
+                        DataOperations dp = new DataOperations();
+                        SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("dbo.sp_add_or_update_config_bodega_for_pt", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                        cmd.Parameters.AddWithValue("@id_bodega", row.id);
+                        cmd.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
+                        cmd.Parameters.AddWithValue("@enable", HabilitarRow);
+
+                        cmd.ExecuteNonQuery();
+
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        CajaDialogo.Error(ex.Message);
+                    }
+                    break;
+                case TipoOperacion.Insert:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void gridView2_RowStyle(object sender, RowStyleEventArgs e)
@@ -837,6 +913,66 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     
                     e.Appearance.BackColor = Color.FromArgb(255, 255, 255);
                 }
+            }
+        }
+
+        private void gridTipoInventario_EditValueChanged(object sender, EventArgs e)
+        {
+            DataOperations dp = new DataOperations();
+            int tipoInventarioSelected = dp.ValidateNumberInt32(gridTipoInventario.EditValue);
+
+            switch(tipoInventarioSelected)
+            {
+                case 1://Ferreteria
+                    int contador = 0;
+                    foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
+                    {
+                        if (rowI.id == 2)//BG002 Almacen Usados
+                        {
+                            rowI.fijado_como_estandar_bit = false;
+                            rowI.fijado_como_estandar_descrip = "No";
+                            rowI.hablitado_bit = false;
+                            rowI.hablitado_descrip = "No";
+                        }
+                        else
+                        {
+                            rowI.hablitado_bit = true;
+                            rowI.hablitado_descrip = "Si";
+                            rowI.fijado_como_estandar_bit = false;
+                            rowI.fijado_como_estandar_descrip = "No";
+
+                            if (contador == 0)
+                            {
+                                contador++;
+                                rowI.fijado_como_estandar_bit = true;
+                                rowI.fijado_como_estandar_descrip = "Si";
+                            }
+                        }
+                    }
+                    break;
+                case 2://Usados
+                    foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
+                    {
+                        if (rowI.id != 2)//BG002 Almacen Usados
+                        {
+                            rowI.fijado_como_estandar_bit = false;
+                            rowI.fijado_como_estandar_descrip = "No";
+                            rowI.hablitado_bit = false;
+                            rowI.hablitado_descrip = "No";
+                        }
+
+                        if (rowI.id == 2)
+                        {
+                            rowI.fijado_como_estandar_bit = true;
+                            rowI.fijado_como_estandar_descrip = "Si";
+                            rowI.hablitado_bit = true;
+                            rowI.hablitado_descrip = "Si";
+                        }
+                    }
+                    break;
+                default:
+
+                    break;
             }
         }
     }

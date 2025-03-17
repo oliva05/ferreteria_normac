@@ -55,11 +55,13 @@ namespace JAGUAR_PRO.Reportes
             this.colcode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colVerDetalle = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdVerDetalle = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colAlmacenCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAlmacenName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdAjuste = new DevExpress.XtraEditors.SimpleButton();
             this.cmdRecargar = new DevExpress.XtraEditors.SimpleButton();
             this.tggVerSoloMayorA_Cero = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cmdAgregarAjuste_ = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesInventario1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_inventario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdv_inventario)).BeginInit();
@@ -74,7 +76,7 @@ namespace JAGUAR_PRO.Reportes
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.Location = new System.Drawing.Point(1223, 9);
+            this.btnClose.Location = new System.Drawing.Point(1035, 9);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 47);
             this.btnClose.TabIndex = 1;
@@ -93,12 +95,12 @@ namespace JAGUAR_PRO.Reportes
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grd_inventario.DataMember = "inventario_kardex_pt";
             this.grd_inventario.DataSource = this.dsReportesInventario1;
-            this.grd_inventario.Location = new System.Drawing.Point(-2, 62);
+            this.grd_inventario.Location = new System.Drawing.Point(3, 62);
             this.grd_inventario.MainView = this.grdv_inventario;
             this.grd_inventario.Name = "grd_inventario";
             this.grd_inventario.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdVerDetalle});
-            this.grd_inventario.Size = new System.Drawing.Size(1324, 609);
+            this.grd_inventario.Size = new System.Drawing.Size(1136, 413);
             this.grd_inventario.TabIndex = 0;
             this.grd_inventario.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdv_inventario});
@@ -117,7 +119,7 @@ namespace JAGUAR_PRO.Reportes
             this.grdv_inventario.Appearance.HeaderPanel.Options.UseFont = true;
             this.grdv_inventario.Appearance.Preview.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.grdv_inventario.Appearance.Preview.Options.UseFont = true;
-            this.grdv_inventario.Appearance.Row.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.grdv_inventario.Appearance.Row.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grdv_inventario.Appearance.Row.Options.UseFont = true;
             this.grdv_inventario.Appearance.TopNewRow.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.grdv_inventario.Appearance.TopNewRow.Options.UseFont = true;
@@ -134,7 +136,9 @@ namespace JAGUAR_PRO.Reportes
             this.gridColumn3,
             this.colcosto,
             this.colcode,
-            this.colVerDetalle});
+            this.colVerDetalle,
+            this.colAlmacenCode,
+            this.colAlmacenName});
             this.grdv_inventario.GridControl = this.grd_inventario;
             this.grdv_inventario.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "existencia_kg", null, "(Kilogramos: SUMA={0:0.##.##} Kg)"),
@@ -159,8 +163,8 @@ namespace JAGUAR_PRO.Reportes
             this.colProducto1.OptionsColumn.AllowEdit = false;
             this.colProducto1.OptionsColumn.ReadOnly = true;
             this.colProducto1.Visible = true;
-            this.colProducto1.VisibleIndex = 1;
-            this.colProducto1.Width = 292;
+            this.colProducto1.VisibleIndex = 3;
+            this.colProducto1.Width = 285;
             // 
             // collote_pt1
             // 
@@ -213,8 +217,8 @@ namespace JAGUAR_PRO.Reportes
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 3;
-            this.gridColumn1.Width = 292;
+            this.gridColumn1.VisibleIndex = 5;
+            this.gridColumn1.Width = 187;
             // 
             // gridColumn2
             // 
@@ -223,8 +227,8 @@ namespace JAGUAR_PRO.Reportes
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
-            this.gridColumn2.Width = 292;
+            this.gridColumn2.VisibleIndex = 4;
+            this.gridColumn2.Width = 187;
             // 
             // gridColumn3
             // 
@@ -241,8 +245,8 @@ namespace JAGUAR_PRO.Reportes
             this.colcosto.Name = "colcosto";
             this.colcosto.OptionsColumn.ReadOnly = true;
             this.colcosto.Visible = true;
-            this.colcosto.VisibleIndex = 4;
-            this.colcosto.Width = 283;
+            this.colcosto.VisibleIndex = 6;
+            this.colcosto.Width = 158;
             // 
             // colcode
             // 
@@ -251,8 +255,8 @@ namespace JAGUAR_PRO.Reportes
             this.colcode.Name = "colcode";
             this.colcode.OptionsColumn.ReadOnly = true;
             this.colcode.Visible = true;
-            this.colcode.VisibleIndex = 0;
-            this.colcode.Width = 64;
+            this.colcode.VisibleIndex = 2;
+            this.colcode.Width = 67;
             // 
             // colVerDetalle
             // 
@@ -260,8 +264,8 @@ namespace JAGUAR_PRO.Reportes
             this.colVerDetalle.ColumnEdit = this.cmdVerDetalle;
             this.colVerDetalle.Name = "colVerDetalle";
             this.colVerDetalle.Visible = true;
-            this.colVerDetalle.VisibleIndex = 5;
-            this.colVerDetalle.Width = 83;
+            this.colVerDetalle.VisibleIndex = 7;
+            this.colVerDetalle.Width = 95;
             // 
             // cmdVerDetalle
             // 
@@ -273,6 +277,23 @@ namespace JAGUAR_PRO.Reportes
             this.cmdVerDetalle.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdVerDetalle.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdVerDetalle_ButtonClick);
             // 
+            // colAlmacenCode
+            // 
+            this.colAlmacenCode.FieldName = "AlmacenCode";
+            this.colAlmacenCode.Name = "colAlmacenCode";
+            this.colAlmacenCode.OptionsColumn.ReadOnly = true;
+            this.colAlmacenCode.Visible = true;
+            this.colAlmacenCode.VisibleIndex = 0;
+            this.colAlmacenCode.Width = 55;
+            // 
+            // colAlmacenName
+            // 
+            this.colAlmacenName.FieldName = "AlmacenName";
+            this.colAlmacenName.Name = "colAlmacenName";
+            this.colAlmacenName.OptionsColumn.ReadOnly = true;
+            this.colAlmacenName.Visible = true;
+            this.colAlmacenName.VisibleIndex = 1;
+            // 
             // simpleButton1
             // 
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -280,25 +301,12 @@ namespace JAGUAR_PRO.Reportes
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(1113, 9);
+            this.simpleButton1.Location = new System.Drawing.Point(925, 9);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(104, 47);
             this.simpleButton1.TabIndex = 5;
             this.simpleButton1.Text = "Excel";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // cmdAjuste
-            // 
-            this.cmdAjuste.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAjuste.Appearance.Options.UseFont = true;
-            this.cmdAjuste.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdAjuste.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdAjuste.ImageOptions.Image")));
-            this.cmdAjuste.Location = new System.Drawing.Point(12, 8);
-            this.cmdAjuste.Name = "cmdAjuste";
-            this.cmdAjuste.Size = new System.Drawing.Size(172, 47);
-            this.cmdAjuste.TabIndex = 6;
-            this.cmdAjuste.Text = "Ajuste de Inventario";
-            this.cmdAjuste.Click += new System.EventHandler(this.cmdAjuste_Click);
             // 
             // cmdRecargar
             // 
@@ -307,7 +315,7 @@ namespace JAGUAR_PRO.Reportes
             this.cmdRecargar.Appearance.Options.UseFont = true;
             this.cmdRecargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdRecargar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdRecargar.ImageOptions.SvgImage")));
-            this.cmdRecargar.Location = new System.Drawing.Point(1003, 9);
+            this.cmdRecargar.Location = new System.Drawing.Point(815, 9);
             this.cmdRecargar.Name = "cmdRecargar";
             this.cmdRecargar.Size = new System.Drawing.Size(104, 47);
             this.cmdRecargar.TabIndex = 7;
@@ -317,7 +325,7 @@ namespace JAGUAR_PRO.Reportes
             // tggVerSoloMayorA_Cero
             // 
             this.tggVerSoloMayorA_Cero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tggVerSoloMayorA_Cero.Location = new System.Drawing.Point(902, 34);
+            this.tggVerSoloMayorA_Cero.Location = new System.Drawing.Point(714, 34);
             this.tggVerSoloMayorA_Cero.Name = "tggVerSoloMayorA_Cero";
             this.tggVerSoloMayorA_Cero.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.tggVerSoloMayorA_Cero.Properties.Appearance.Options.UseFont = true;
@@ -332,22 +340,35 @@ namespace JAGUAR_PRO.Reportes
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(778, 36);
+            this.labelControl1.Location = new System.Drawing.Point(590, 36);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(118, 17);
             this.labelControl1.TabIndex = 9;
             this.labelControl1.Text = "Ver con INV en cero";
             // 
+            // cmdAgregarAjuste_
+            // 
+            this.cmdAgregarAjuste_.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdAgregarAjuste_.Appearance.Options.UseFont = true;
+            this.cmdAgregarAjuste_.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdAgregarAjuste_.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdAgregarAjuste_.ImageOptions.SvgImage")));
+            this.cmdAgregarAjuste_.Location = new System.Drawing.Point(3, 9);
+            this.cmdAgregarAjuste_.Name = "cmdAgregarAjuste_";
+            this.cmdAgregarAjuste_.Size = new System.Drawing.Size(192, 47);
+            this.cmdAgregarAjuste_.TabIndex = 60;
+            this.cmdAgregarAjuste_.Text = "Nuevo Ajuste de Inventario";
+            this.cmdAgregarAjuste_.Click += new System.EventHandler(this.cmdAgregarAjuste__Click);
+            // 
             // frmReporteGeneralProductoTerminado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 670);
+            this.ClientSize = new System.Drawing.Size(1141, 477);
+            this.Controls.Add(this.cmdAgregarAjuste_);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.tggVerSoloMayorA_Cero);
             this.Controls.Add(this.grd_inventario);
             this.Controls.Add(this.cmdRecargar);
-            this.Controls.Add(this.cmdAjuste);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnClose);
             this.Name = "frmReporteGeneralProductoTerminado";
@@ -370,7 +391,6 @@ namespace JAGUAR_PRO.Reportes
         private DevExpress.XtraGrid.GridControl grd_inventario;
         private DevExpress.XtraGrid.Views.Grid.GridView grdv_inventario;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton cmdAjuste;
         private dsReportesInventario dsReportesInventario1;
         private DevExpress.XtraGrid.Columns.GridColumn colid_pt1;
         private DevExpress.XtraGrid.Columns.GridColumn colProducto1;
@@ -389,5 +409,8 @@ namespace JAGUAR_PRO.Reportes
         private LabelControl labelControl1;
         private DevExpress.XtraGrid.Columns.GridColumn colVerDetalle;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdVerDetalle;
+        private DevExpress.XtraGrid.Columns.GridColumn colAlmacenCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colAlmacenName;
+        private SimpleButton cmdAgregarAjuste_;
     }
 }
