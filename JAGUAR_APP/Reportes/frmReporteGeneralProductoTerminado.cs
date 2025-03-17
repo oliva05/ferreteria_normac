@@ -194,7 +194,7 @@ namespace JAGUAR_PRO.Reportes
             var gridView = (GridView)grd_inventario.FocusedView;
             var row = (dsReportesInventario.inventario_kardex_ptRow)gridView.GetFocusedDataRow();
 
-            frmVerDetalleKardexTransactions frm = new frmVerDetalleKardexTransactions(row.id_pt, row.PT, row.existencia);
+            frmVerDetalleKardexTransactions frm = new frmVerDetalleKardexTransactions(row.id_pt, row.PT, row.existencia, row.id_almacen);
             frm.ShowDialog();
         }
 

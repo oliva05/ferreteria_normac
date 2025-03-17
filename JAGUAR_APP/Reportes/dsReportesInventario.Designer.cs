@@ -8241,6 +8241,8 @@ namespace JAGUAR_PRO.Reportes {
             
             private global::System.Data.DataColumn columnAlmacenName;
             
+            private global::System.Data.DataColumn columnid_almacen;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public inventario_kardex_ptDataTable() {
@@ -8364,6 +8366,14 @@ namespace JAGUAR_PRO.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_almacenColumn {
+                get {
+                    return this.columnid_almacen;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -8399,7 +8409,7 @@ namespace JAGUAR_PRO.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public inventario_kardex_ptRow Addinventario_kardex_ptRow(string PT, string lote, int id_pt, string presentacion, string code, decimal existencia, decimal factor, long id_orden_fabricacion, double costo, string AlmacenCode, string AlmacenName) {
+            public inventario_kardex_ptRow Addinventario_kardex_ptRow(string PT, string lote, int id_pt, string presentacion, string code, decimal existencia, decimal factor, long id_orden_fabricacion, double costo, string AlmacenCode, string AlmacenName, int id_almacen) {
                 inventario_kardex_ptRow rowinventario_kardex_ptRow = ((inventario_kardex_ptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PT,
@@ -8412,7 +8422,8 @@ namespace JAGUAR_PRO.Reportes {
                         id_orden_fabricacion,
                         costo,
                         AlmacenCode,
-                        AlmacenName};
+                        AlmacenName,
+                        id_almacen};
                 rowinventario_kardex_ptRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowinventario_kardex_ptRow);
                 return rowinventario_kardex_ptRow;
@@ -8446,6 +8457,7 @@ namespace JAGUAR_PRO.Reportes {
                 this.columncosto = base.Columns["costo"];
                 this.columnAlmacenCode = base.Columns["AlmacenCode"];
                 this.columnAlmacenName = base.Columns["AlmacenName"];
+                this.columnid_almacen = base.Columns["id_almacen"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8473,6 +8485,8 @@ namespace JAGUAR_PRO.Reportes {
                 base.Columns.Add(this.columnAlmacenCode);
                 this.columnAlmacenName = new global::System.Data.DataColumn("AlmacenName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAlmacenName);
+                this.columnid_almacen = new global::System.Data.DataColumn("id_almacen", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_almacen);
                 this.columncosto.Caption = "Costo por Bolsa";
                 this.columnAlmacenCode.Caption = "Almacen Codigo";
                 this.columnAlmacenName.Caption = "Almacen Nombre";
@@ -15245,6 +15259,23 @@ namespace JAGUAR_PRO.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_almacen {
+                get {
+                    try {
+                        return ((int)(this[this.tableinventario_kardex_pt.id_almacenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_almacen\' de la tabla \'inventario_kardex_pt\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableinventario_kardex_pt.id_almacenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsPTNull() {
                 return this.IsNull(this.tableinventario_kardex_pt.PTColumn);
             }
@@ -15373,6 +15404,18 @@ namespace JAGUAR_PRO.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAlmacenNameNull() {
                 this[this.tableinventario_kardex_pt.AlmacenNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_almacenNull() {
+                return this.IsNull(this.tableinventario_kardex_pt.id_almacenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_almacenNull() {
+                this[this.tableinventario_kardex_pt.id_almacenColumn] = global::System.Convert.DBNull;
             }
         }
         

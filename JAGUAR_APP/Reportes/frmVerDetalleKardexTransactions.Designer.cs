@@ -59,6 +59,8 @@ namespace JAGUAR_PRO.Reportes
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.lblItemName = new DevExpress.XtraEditors.LabelControl();
             this.lblInventario = new DevExpress.XtraEditors.LabelControl();
+            this.lblAlmacen = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsKardexReportes1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -113,10 +115,10 @@ namespace JAGUAR_PRO.Reportes
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "detalle_transacciones_kardex";
             this.gridControl1.DataSource = this.dsKardexReportes1;
-            this.gridControl1.Location = new System.Drawing.Point(3, 65);
+            this.gridControl1.Location = new System.Drawing.Point(3, 94);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(900, 449);
+            this.gridControl1.Size = new System.Drawing.Size(900, 421);
             this.gridControl1.TabIndex = 11;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -290,30 +292,30 @@ namespace JAGUAR_PRO.Reportes
             // 
             // labelControl2
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(4, 30);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(52, 15);
+            this.labelControl2.Size = new System.Drawing.Size(59, 19);
             this.labelControl2.TabIndex = 13;
             this.labelControl2.Text = "Producto:";
             // 
             // labelControl3
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(4, 47);
+            this.labelControl3.Location = new System.Drawing.Point(4, 50);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(93, 15);
+            this.labelControl3.Size = new System.Drawing.Size(107, 19);
             this.labelControl3.TabIndex = 14;
             this.labelControl3.Text = "Inventario Actual:";
             // 
             // lblItemName
             // 
-            this.lblItemName.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.lblItemName.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.lblItemName.Appearance.Options.UseFont = true;
             this.lblItemName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblItemName.Location = new System.Drawing.Point(104, 30);
+            this.lblItemName.Location = new System.Drawing.Point(117, 30);
             this.lblItemName.Name = "lblItemName";
             this.lblItemName.Size = new System.Drawing.Size(412, 15);
             this.lblItemName.TabIndex = 15;
@@ -321,20 +323,43 @@ namespace JAGUAR_PRO.Reportes
             // 
             // lblInventario
             // 
-            this.lblInventario.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.lblInventario.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.lblInventario.Appearance.Options.UseFont = true;
             this.lblInventario.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblInventario.Location = new System.Drawing.Point(104, 47);
+            this.lblInventario.Location = new System.Drawing.Point(117, 50);
             this.lblInventario.Name = "lblInventario";
-            this.lblInventario.Size = new System.Drawing.Size(412, 15);
+            this.lblInventario.Size = new System.Drawing.Size(412, 19);
             this.lblInventario.TabIndex = 16;
             this.lblInventario.Text = "0";
+            // 
+            // lblAlmacen
+            // 
+            this.lblAlmacen.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.lblAlmacen.Appearance.Options.UseFont = true;
+            this.lblAlmacen.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblAlmacen.Location = new System.Drawing.Point(117, 71);
+            this.lblAlmacen.Name = "lblAlmacen";
+            this.lblAlmacen.Size = new System.Drawing.Size(412, 19);
+            this.lblAlmacen.TabIndex = 18;
+            this.lblAlmacen.Text = "0";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Location = new System.Drawing.Point(3, 71);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(55, 19);
+            this.labelControl5.TabIndex = 17;
+            this.labelControl5.Text = "Almacen:";
             // 
             // frmVerDetalleKardexTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 516);
+            this.Controls.Add(this.lblAlmacen);
+            this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.lblInventario);
             this.Controls.Add(this.lblItemName);
             this.Controls.Add(this.labelControl3);
@@ -382,5 +407,7 @@ namespace JAGUAR_PRO.Reportes
         private LabelControl lblItemName;
         private LabelControl lblInventario;
         private DevExpress.XtraGrid.Columns.GridColumn colsaldo;
+        private LabelControl lblAlmacen;
+        private LabelControl labelControl5;
     }
 }

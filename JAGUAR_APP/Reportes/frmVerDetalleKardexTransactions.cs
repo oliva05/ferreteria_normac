@@ -3,6 +3,7 @@ using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
+using JAGUAR_PRO.Mantenimientos.Modelos;
 using JAGUAR_PRO.Requisiciones.Reportes;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace JAGUAR_PRO.Reportes
         int IdPT;
         string NamePT;
         decimal InvActual;
+        int IdAlmacen;
 
         public frmVerDetalleKardexTransactions(int pIdPT, string pName, decimal pInv)
         {
@@ -37,6 +39,26 @@ namespace JAGUAR_PRO.Reportes
             LoadDatos(pIdPT);
         }
 
+        public frmVerDetalleKardexTransactions(int pIdPT, string pName, decimal pInv, int pIdAlmacen)
+        {
+            InitializeComponent();
+            NamePT = pName;
+            InvActual = pInv;
+            IdPT = pIdPT;
+            IdAlmacen = pIdAlmacen;
+
+            lblItemName.Text = pName;
+            lblInventario.Text = string.Format("{0:###,##0}", pInv);
+
+            Bodega bod1 = new Bodega();
+            if (bod1.RecuperarRegistro(IdAlmacen))
+            {
+                lblAlmacen.Text = bod1.CodigoBodega + " - " + bod1.Descripcion;
+            }
+
+            LoadDatos(pIdPT);
+        }
+
         private void LoadDatos(int pIdPT)
         {
             try
@@ -45,9 +67,11 @@ namespace JAGUAR_PRO.Reportes
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("dbo.sp_get_detalle_transacciones_kardex_pt_from_idpt", con);
+                SqlCommand cmd = new SqlCommand("dbo.[sp_get_detalle_transacciones_kardex_pt_from_idpt_v2]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_pt", pIdPT);
+                cmd.Parameters.AddWithValue("@id_almacen", IdAlmacen);
+                
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsKardexReportes1.detalle_transacciones_kardex.Clear();
                 adat.Fill(dsKardexReportes1.detalle_transacciones_kardex);
