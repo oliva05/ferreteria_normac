@@ -16,6 +16,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
 using System.Diagnostics;
 using DevExpress.XtraExport.Helpers;
+using LOSA.TransaccionesMP;
 
 namespace JAGUAR_PRO.Reportes
 {
@@ -33,69 +34,43 @@ namespace JAGUAR_PRO.Reportes
             UsuarioLogeado = pUserLogin;
             Especie = 2;
             VerCostos = false;
-
-            //switch (pUserLogin.Idnivel)
-            //{
-            //    case 1://Basic View
-            //        cmdAjuste.Visible = false;
-            //        break;
-            //    case 2://Basic No Autorization
-            //        cmdAjuste.Visible = false;
-            //        break;
-            //    case 3://Medium Autorization
-
-            //        break;
-            //    case 4://Depth With Delta
-            //        break;
-            //    case 5://Depth Without Delta
-            //        break;
-            //    default:
-            //        break;
-            //}
-
-
-
             grdv_inventario.OptionsMenu.EnableColumnMenu = false;
             grdv_inventario.Columns["costo"].Visible = false;
 
-            //bool accesoprevio = false;
-            //int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
-            //switch (idNivel)
-            //{
-            //    case 1://Basic View
-            //    case 2://Basic No Autorization
-            //    case 3://Medium Autorization
-            //        accesoprevio = false;
-            //        cmdAjuste.Visible = false;
-            //        break;
-            //    case 4://Depth With Delta
-            //    case 5://Depth Without Delta
-            //        accesoprevio = true;
-            //        //Accesso a costos
-            //        grdv_inventario.OptionsMenu.EnableColumnMenu = true;
-            //        grdv_inventario.Columns["costo"].Visible = true;
-            //        VerCostos = true;
-            //        break;
-            //    default:
-            //        grdv_inventario.OptionsMenu.EnableColumnMenu = false;
-            //        break;
-            //}
+            bool accesoprevio = false;
+            cmdAgregarAjuste_.Visible = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = true;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = true;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    cmdAgregarAjuste_.Visible = true;
+                    break;
+                default:
+                    break;
+            }
 
-            //if (!accesoprevio)
-            //{
-            //    if (UsuarioLogeado.ValidarNivelPermisos(7))
-            //    {
-            //        grdv_inventario.OptionsMenu.EnableColumnMenu = true;
-            //        grdv_inventario.Columns["costo"].Visible = true;
-            //        VerCostos = true;
-            //    }
-            //    else
-            //    {
-            //        //CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #2 (Recepción de Facturas)");
-            //    }
-            //}
-
-
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(7))
+                {
+                    cmdAgregarAjuste_.Visible = true;
+                }
+                else
+                {
+                    //CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #7 (Ajustes de Inventario)");
+                    cmdAgregarAjuste_.Visible = false;
+                }
+            }
             get_inventario();
 
         }

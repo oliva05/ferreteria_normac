@@ -62,6 +62,7 @@ namespace JAGUAR_PRO.Reportes
             this.tggVerSoloMayorA_Cero = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmdAgregarAjuste_ = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdSolicitarAjusteInventario = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesInventario1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_inventario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdv_inventario)).BeginInit();
@@ -359,11 +360,24 @@ namespace JAGUAR_PRO.Reportes
             this.cmdAgregarAjuste_.Text = "Nuevo Ajuste de Inventario";
             this.cmdAgregarAjuste_.Click += new System.EventHandler(this.cmdAgregarAjuste__Click);
             // 
+            // cmdSolicitarAjusteInventario
+            // 
+            this.cmdSolicitarAjusteInventario.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSolicitarAjusteInventario.Appearance.Options.UseFont = true;
+            this.cmdSolicitarAjusteInventario.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdSolicitarAjusteInventario.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.cmdSolicitarAjusteInventario.Location = new System.Drawing.Point(201, 9);
+            this.cmdSolicitarAjusteInventario.Name = "cmdSolicitarAjusteInventario";
+            this.cmdSolicitarAjusteInventario.Size = new System.Drawing.Size(192, 47);
+            this.cmdSolicitarAjusteInventario.TabIndex = 61;
+            this.cmdSolicitarAjusteInventario.Text = "Solicitar Ajuste de Inventario";
+            // 
             // frmReporteGeneralProductoTerminado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1141, 477);
+            this.Controls.Add(this.cmdSolicitarAjusteInventario);
             this.Controls.Add(this.cmdAgregarAjuste_);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.tggVerSoloMayorA_Cero);
@@ -412,5 +426,6 @@ namespace JAGUAR_PRO.Reportes
         private DevExpress.XtraGrid.Columns.GridColumn colAlmacenCode;
         private DevExpress.XtraGrid.Columns.GridColumn colAlmacenName;
         private SimpleButton cmdAgregarAjuste_;
+        private SimpleButton cmdSolicitarAjusteInventario;
     }
 }
