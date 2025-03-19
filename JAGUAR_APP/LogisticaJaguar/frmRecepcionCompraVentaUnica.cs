@@ -1,8 +1,11 @@
 ﻿using ACS.Classes;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 using DevExpress.XtraSpreadsheet.Commands;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -89,7 +92,17 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void cmdPrintFromGrid_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            var gridview = (GridView)grd.FocusedView;
+            var row = (dsProductoTerminado.ingreso_pt_venta_unicaRow)gridview.GetFocusedDataRow();
 
+            xrptBarCode report = new xrptBarCode(row.barcode);
+            
+
+            using (ReportPrintTool printTool = new ReportPrintTool(report))
+            {
+                // Send the report to the default printer.
+                printTool.ShowPreviewDialog();
+            }
         }
     }
 }

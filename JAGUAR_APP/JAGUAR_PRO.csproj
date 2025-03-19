@@ -1744,6 +1744,12 @@
     <Compile Include="LogisticaJaguar\Pedidos\frmPedidoHome.Designer.cs">
       <DependentUpon>frmPedidoHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\xrptBarCode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\xrptBarCode.Designer.cs">
+      <DependentUpon>xrptBarCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\xrptRecepcionFacturas.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3557,6 +3563,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\Pedidos\frmPedidoHome.resx">
       <DependentUpon>frmPedidoHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\xrptBarCode.resx">
+      <DependentUpon>xrptBarCode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\xrptRecepcionFacturas.resx">
       <DependentUpon>xrptRecepcionFacturas.cs</DependentUpon>

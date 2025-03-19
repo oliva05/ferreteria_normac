@@ -135,9 +135,9 @@
             this.coldescripcion.Caption = "Descripcion de Venta";
             this.coldescripcion.FieldName = "descripcion";
             this.coldescripcion.Name = "coldescripcion";
-            this.coldescripcion.OptionsColumn.ReadOnly = true;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 0;
+            this.coldescripcion.Width = 158;
             // 
             // colitemcode
             // 
@@ -147,6 +147,7 @@
             this.colitemcode.OptionsColumn.ReadOnly = true;
             this.colitemcode.Visible = true;
             this.colitemcode.VisibleIndex = 1;
+            this.colitemcode.Width = 64;
             // 
             // colcosto
             // 
@@ -207,6 +208,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 6;
+            this.gridColumn1.Width = 146;
             // 
             // reposDelete
             // 

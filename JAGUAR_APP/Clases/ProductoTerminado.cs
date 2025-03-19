@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using DevExpress.XtraSpreadsheet.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace JAGUAR_PRO.Clases
 {
@@ -43,9 +45,14 @@ namespace JAGUAR_PRO.Clases
         private string _code_interno;
         private string _barcode;
         private string _codeOEM;
-
+        int id_Almacen_standard;
         int _idSiguiente;
-
+        decimal costoUsado;
+        decimal margenUsado;
+        decimal precioVentaUsado;
+        int correlativoUsados;
+        int idBodega;
+        int idPT;
         public int Id { get => id; set => id = value; }
         public bool Enable { get => enable; set => enable = value; }
         public int Id_user_created { get => id_user_created; set => id_user_created = value; }
@@ -91,6 +98,13 @@ namespace JAGUAR_PRO.Clases
         public string Barcode { get => _barcode; set => _barcode = value; }
         public string CodeOEM { get => _codeOEM; set => _codeOEM = value; }
         public int IdSiguiente { get => _idSiguiente; set => _idSiguiente = value; }
+        public int Id_Almacen_standard { get => id_Almacen_standard; set => id_Almacen_standard = value; }
+        public decimal CostoUsado { get => costoUsado; set => costoUsado = value; }
+        public decimal MargenUsado { get => margenUsado; set => margenUsado = value; }
+        public decimal PrecioVentaUsado { get => precioVentaUsado; set => precioVentaUsado = value; }
+        public int CorrelativoUsados { get => correlativoUsados; set => correlativoUsados = value; }
+        public int IdBodega { get => idBodega; set => idBodega = value; }
+        public int IdPT { get => idPT; set => idPT = value; }
 
         public ProductoTerminado(string pConnectionString, DateTime fecha = default)
         {
@@ -166,7 +180,10 @@ namespace JAGUAR_PRO.Clases
                         Code_interno = dl.GetString(22);
                     else
                         Code_interno = "N/D";
-
+                    if (!dl.IsDBNull(dl.GetOrdinal("id_almacen_estandar")))
+                        Id_Almacen_standard = dl.GetInt32(23);
+                    else
+                        Id_Almacen_standard = 0;
                     Recuperado = true;
                     Recuperar_Latas_and_bolsas(Id);
 
@@ -466,6 +483,45 @@ namespace JAGUAR_PRO.Clases
                 Recuperar  = false;
                 CajaDialogo.Error(ex.Message);
                 
+            }
+
+            return Recuperar;
+        }
+
+        public bool RecuperarPTVentaUsados(int Pid)
+        {
+            bool Recuperar = false;
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_get_class_productos_usados", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", Pid);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    Id = reader.GetInt32(0);
+                    Descripcion = reader.IsDBNull(reader.GetOrdinal("descripcion")) ? "" : reader.GetString(reader.GetOrdinal("descripcion"));
+                    Code = reader.IsDBNull(reader.GetOrdinal("itemcode")) ? "" : reader.GetString(reader.GetOrdinal("itemcode"));
+                    CostoUsado = reader.IsDBNull(reader.GetOrdinal("costo")) ? 0 : reader.GetDecimal(reader.GetOrdinal("costo"));
+                    MargenUsado = reader.IsDBNull(reader.GetOrdinal("margen")) ? 0 : reader.GetDecimal(reader.GetOrdinal("margen"));
+                    PrecioVentaUsado = reader.IsDBNull(reader.GetOrdinal("precio_venta")) ? 0 : reader.GetDecimal(reader.GetOrdinal("precio_venta"));
+                    Barcode = reader.IsDBNull(reader.GetOrdinal("barcode")) ? "" : reader.GetString(reader.GetOrdinal("barcode"));
+                    CorrelativoUsados = reader.IsDBNull(reader.GetOrdinal("correlativo")) ? 0 : reader.GetInt32(reader.GetOrdinal("correlativo"));
+                    IdBodega = reader.IsDBNull(reader.GetOrdinal("id_bodega")) ? 0 : reader.GetInt32(reader.GetOrdinal("id_bodega"));
+                    IdPT = reader.IsDBNull(reader.GetOrdinal("id_pt")) ? 0 : reader.GetInt32(reader.GetOrdinal("id_pt"));
+
+                    reader.Close();
+                    Recuperar = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Recuperar = false;
+                CajaDialogo.Error(ex.Message);
+
             }
 
             return Recuperar;
