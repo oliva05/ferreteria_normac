@@ -2989,6 +2989,12 @@
     <Compile Include="TransaccionesPT\frmReportePT_By_panadero.Designer.cs">
       <DependentUpon>frmReportePT_By_panadero.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransaccionesPT\frmTrasladoKardexPT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmTrasladoKardexPT.Designer.cs">
+      <DependentUpon>frmTrasladoKardexPT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utileria\frmMensaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3941,6 +3947,9 @@
     <EmbeddedResource Include="TransaccionesPT\frmReportePT_By_panadero.resx">
       <DependentUpon>frmReportePT_By_panadero.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\frmTrasladoKardexPT.resx">
+      <DependentUpon>frmTrasladoKardexPT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utileria\frmMensaje.resx">
       <DependentUpon>frmMensaje.cs</DependentUpon>
     </EmbeddedResource>
@@ -4376,6 +4385,7 @@
     <None Include="Resources\txt_24.png" />
     <None Include="Resources\tipos_recetas32px.png" />
     <None Include="Resources\tienda_16X16.png" />
+    <None Include="Resources\traslado-de-paqueteria.png" />
     <Content Include="Resources\user.png" />
     <None Include="Resources\weighing-machine_32X32.png" />
     <None Include="Resources\web_apply_32px.png" />

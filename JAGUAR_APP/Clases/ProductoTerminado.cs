@@ -50,7 +50,7 @@ namespace JAGUAR_PRO.Clases
         decimal costoUsado;
         decimal margenUsado;
         decimal precioVentaUsado;
-        int correlativoUsados;
+        string correlativoUsados;
         int idBodega;
         int idPT;
         public int Id { get => id; set => id = value; }
@@ -102,7 +102,7 @@ namespace JAGUAR_PRO.Clases
         public decimal CostoUsado { get => costoUsado; set => costoUsado = value; }
         public decimal MargenUsado { get => margenUsado; set => margenUsado = value; }
         public decimal PrecioVentaUsado { get => precioVentaUsado; set => precioVentaUsado = value; }
-        public int CorrelativoUsados { get => correlativoUsados; set => correlativoUsados = value; }
+        public string CorrelativoUsados { get => correlativoUsados; set => correlativoUsados = value; }
         public int IdBodega { get => idBodega; set => idBodega = value; }
         public int IdPT { get => idPT; set => idPT = value; }
 
@@ -509,7 +509,7 @@ namespace JAGUAR_PRO.Clases
                     MargenUsado = reader.IsDBNull(reader.GetOrdinal("margen")) ? 0 : reader.GetDecimal(reader.GetOrdinal("margen"));
                     PrecioVentaUsado = reader.IsDBNull(reader.GetOrdinal("precio_venta")) ? 0 : reader.GetDecimal(reader.GetOrdinal("precio_venta"));
                     Barcode = reader.IsDBNull(reader.GetOrdinal("barcode")) ? "" : reader.GetString(reader.GetOrdinal("barcode"));
-                    CorrelativoUsados = reader.IsDBNull(reader.GetOrdinal("correlativo")) ? 0 : reader.GetInt32(reader.GetOrdinal("correlativo"));
+                    CorrelativoUsados = reader.IsDBNull(reader.GetOrdinal("correlativo")) ? "" : reader.GetString(reader.GetOrdinal("correlativo"));
                     IdBodega = reader.IsDBNull(reader.GetOrdinal("id_bodega")) ? 0 : reader.GetInt32(reader.GetOrdinal("id_bodega"));
                     IdPT = reader.IsDBNull(reader.GetOrdinal("id_pt")) ? 0 : reader.GetInt32(reader.GetOrdinal("id_pt"));
 

@@ -62,6 +62,7 @@ namespace JAGUAR_PRO.Reportes
             this.tggVerSoloMayorA_Cero = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmdAgregarAjuste_ = new DevExpress.XtraEditors.SimpleButton();
+            this.btnTraslado = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesInventario1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_inventario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdv_inventario)).BeginInit();
@@ -359,11 +360,25 @@ namespace JAGUAR_PRO.Reportes
             this.cmdAgregarAjuste_.Text = "Nuevo Ajuste de Inventario";
             this.cmdAgregarAjuste_.Click += new System.EventHandler(this.cmdAgregarAjuste__Click);
             // 
+            // btnTraslado
+            // 
+            this.btnTraslado.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraslado.Appearance.Options.UseFont = true;
+            this.btnTraslado.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnTraslado.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.traslado_de_paqueteria;
+            this.btnTraslado.Location = new System.Drawing.Point(219, 9);
+            this.btnTraslado.Name = "btnTraslado";
+            this.btnTraslado.Size = new System.Drawing.Size(192, 47);
+            this.btnTraslado.TabIndex = 61;
+            this.btnTraslado.Text = "Traslado Entre Almacenes";
+            this.btnTraslado.Click += new System.EventHandler(this.btnTraslado_Click);
+            // 
             // frmReporteGeneralProductoTerminado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1141, 477);
+            this.Controls.Add(this.btnTraslado);
             this.Controls.Add(this.cmdAgregarAjuste_);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.tggVerSoloMayorA_Cero);
@@ -412,5 +427,6 @@ namespace JAGUAR_PRO.Reportes
         private DevExpress.XtraGrid.Columns.GridColumn colAlmacenCode;
         private DevExpress.XtraGrid.Columns.GridColumn colAlmacenName;
         private SimpleButton cmdAgregarAjuste_;
+        private SimpleButton btnTraslado;
     }
 }

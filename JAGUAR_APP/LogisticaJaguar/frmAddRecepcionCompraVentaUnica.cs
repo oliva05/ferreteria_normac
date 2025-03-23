@@ -280,47 +280,49 @@ namespace JAGUAR_PRO.LogisticaJaguar
             if (Guardar) 
             {
                 DialogResult r = CajaDialogo.Pregunta("Guardado con Exito!\nDeseas Imprimir los Codigos de Barra?");
-                if (r != DialogResult.Yes)
-                    return;
-
-                int contador_print = 0;
-                xrptBarCode reportResumen = null;
-
-                foreach (int item in ids)
+                if (r == DialogResult.Yes)
                 {
-                    ProductoTerminado pt = new ProductoTerminado();
-                    pt.RecuperarPTVentaUsados(item);
+                    int contador_print = 0;
+                    xrptBarCode reportResumen = null;
 
-                    if(contador_print == 0)
+                    foreach (int item in ids)
                     {
-                        reportResumen = new xrptBarCode(pt.Barcode);
-                        reportResumen.CreateDocument();
-                        contador_print++;
-                    }
-                    else
-                    {
-                        xrptBarCode report2  = new xrptBarCode(pt.Barcode);
-                        report2.CreateDocument();
-                        if (reportResumen != null)
+                        ProductoTerminado pt = new ProductoTerminado();
+                        pt.RecuperarPTVentaUsados(item);
+
+                        if (contador_print == 0)
                         {
-                            // Add all pages of the second report to the end of the first report.
-                            reportResumen.ModifyDocument(x => { x.AddPages(report2.Pages); });
+                            reportResumen = new xrptBarCode(pt.Barcode);
+                            reportResumen.CreateDocument();
+                            contador_print++;
+                        }
+                        else
+                        {
+                            xrptBarCode report2 = new xrptBarCode(pt.Barcode);
+                            report2.CreateDocument();
+                            if (reportResumen != null)
+                            {
+                                // Add all pages of the second report to the end of the first report.
+                                reportResumen.ModifyDocument(x => { x.AddPages(report2.Pages); });
+                            }
+                        }
+                    }
+
+                    if (reportResumen != null)
+                    {
+                        using (ReportPrintTool printTool = new ReportPrintTool(reportResumen))
+                        {
+                            printTool.ShowPreviewDialog();
                         }
                     }
                 }
 
-                if (reportResumen != null)
-                {
-                    using (ReportPrintTool printTool = new ReportPrintTool(reportResumen))
-                    {
-                        printTool.ShowPreviewDialog();
-                    }
-                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
 
-                
+
             }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            
 
 
         }
