@@ -1,5 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.LogisticaJaguar;
 using System;
@@ -23,7 +24,7 @@ namespace JAGUAR_PRO.TransaccionesPT
         //string code_sap; //Codigo de MP de SAP
         private decimal factorValue;
         decimal costo_unitario;
-
+        decimal existencia_bodega = 0;
         //private decimal FactorUnidades;
         int Id_PT; //ID de Producto Terminado - Tabla en AQFSVR003.ACS4
         string ItemCode; //Id de lote de Producto Terminado
@@ -228,13 +229,26 @@ namespace JAGUAR_PRO.TransaccionesPT
                 }
             }
 
+            if (id_bodega == id_bodgea_destino)
+            {
+                CajaDialogo.Error("No puede trasladar al mismo Almacen");
+                return;
+            }
+
+            if (Convert.ToDecimal(txtCantidadUnidades.EditValue) > existencia_bodega)
+            {
+                CajaDialogo.Error("No puede trasladar mas de la Existencia en Almacen!");
+                return;
+            }
+
+
             DataOperations dp = new DataOperations();
 
             try
             {
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("dbo.[usp_InsertAjusteManual_Kardex_PT_V5]", conn);
+                SqlCommand cmd = new SqlCommand("dbo.[usp_Traslado_Kardex_PT]", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_pt", Convert.ToDecimal(Id_PT));
                 cmd.Parameters.AddWithValue("@id_Usuario", UsuarioLogeado.Id);
@@ -275,6 +289,11 @@ namespace JAGUAR_PRO.TransaccionesPT
             {
                 CajaDialogo.Error(ex.Message);
             }
+        }
+
+        private void gleAlmacen_EditValueChanged(object sender, EventArgs e)
+        {
+            existencia_bodega = Convert.ToInt32(gridLookUpEdit1View.GetRowCellValue(gridLookUpEdit1View.FocusedRowHandle, "existencia"));
         }
     }
 }
