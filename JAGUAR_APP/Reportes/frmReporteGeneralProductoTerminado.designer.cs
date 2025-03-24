@@ -77,7 +77,7 @@ namespace JAGUAR_PRO.Reportes
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.Location = new System.Drawing.Point(1035, 9);
+            this.btnClose.Location = new System.Drawing.Point(1016, 9);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 47);
             this.btnClose.TabIndex = 1;
@@ -101,7 +101,7 @@ namespace JAGUAR_PRO.Reportes
             this.grd_inventario.Name = "grd_inventario";
             this.grd_inventario.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdVerDetalle});
-            this.grd_inventario.Size = new System.Drawing.Size(1136, 413);
+            this.grd_inventario.Size = new System.Drawing.Size(1117, 413);
             this.grd_inventario.TabIndex = 0;
             this.grd_inventario.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdv_inventario});
@@ -302,7 +302,7 @@ namespace JAGUAR_PRO.Reportes
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(925, 9);
+            this.simpleButton1.Location = new System.Drawing.Point(906, 9);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(104, 47);
             this.simpleButton1.TabIndex = 5;
@@ -316,7 +316,7 @@ namespace JAGUAR_PRO.Reportes
             this.cmdRecargar.Appearance.Options.UseFont = true;
             this.cmdRecargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdRecargar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdRecargar.ImageOptions.SvgImage")));
-            this.cmdRecargar.Location = new System.Drawing.Point(815, 9);
+            this.cmdRecargar.Location = new System.Drawing.Point(796, 9);
             this.cmdRecargar.Name = "cmdRecargar";
             this.cmdRecargar.Size = new System.Drawing.Size(104, 47);
             this.cmdRecargar.TabIndex = 7;
@@ -326,7 +326,7 @@ namespace JAGUAR_PRO.Reportes
             // tggVerSoloMayorA_Cero
             // 
             this.tggVerSoloMayorA_Cero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tggVerSoloMayorA_Cero.Location = new System.Drawing.Point(714, 34);
+            this.tggVerSoloMayorA_Cero.Location = new System.Drawing.Point(695, 34);
             this.tggVerSoloMayorA_Cero.Name = "tggVerSoloMayorA_Cero";
             this.tggVerSoloMayorA_Cero.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.tggVerSoloMayorA_Cero.Properties.Appearance.Options.UseFont = true;
@@ -341,7 +341,7 @@ namespace JAGUAR_PRO.Reportes
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(590, 36);
+            this.labelControl1.Location = new System.Drawing.Point(571, 36);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(118, 17);
             this.labelControl1.TabIndex = 9;
@@ -353,7 +353,7 @@ namespace JAGUAR_PRO.Reportes
             this.cmdAgregarAjuste_.Appearance.Options.UseFont = true;
             this.cmdAgregarAjuste_.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdAgregarAjuste_.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdAgregarAjuste_.ImageOptions.SvgImage")));
-            this.cmdAgregarAjuste_.Location = new System.Drawing.Point(3, 9);
+            this.cmdAgregarAjuste_.Location = new System.Drawing.Point(201, 12);
             this.cmdAgregarAjuste_.Name = "cmdAgregarAjuste_";
             this.cmdAgregarAjuste_.Size = new System.Drawing.Size(192, 47);
             this.cmdAgregarAjuste_.TabIndex = 60;
@@ -366,7 +366,7 @@ namespace JAGUAR_PRO.Reportes
             this.cmdSolicitarAjusteInventario.Appearance.Options.UseFont = true;
             this.cmdSolicitarAjusteInventario.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSolicitarAjusteInventario.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.cmdSolicitarAjusteInventario.Location = new System.Drawing.Point(201, 9);
+            this.cmdSolicitarAjusteInventario.Location = new System.Drawing.Point(3, 12);
             this.cmdSolicitarAjusteInventario.Name = "cmdSolicitarAjusteInventario";
             this.cmdSolicitarAjusteInventario.Size = new System.Drawing.Size(192, 47);
             this.cmdSolicitarAjusteInventario.TabIndex = 61;
@@ -376,7 +376,7 @@ namespace JAGUAR_PRO.Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1141, 477);
+            this.ClientSize = new System.Drawing.Size(1122, 477);
             this.Controls.Add(this.cmdSolicitarAjusteInventario);
             this.Controls.Add(this.cmdAgregarAjuste_);
             this.Controls.Add(this.labelControl1);

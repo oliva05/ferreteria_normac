@@ -334,7 +334,9 @@ namespace JAGUAR_PRO.Clases
             decimal val = 0;
             try
             {//Recupera las caracteristicas 
-                string sql = @"[dbo].[jaguar_sp_get_cantidad_inv_kardex_pt_for_facturacion_v2]";
+                //string sql = @"[dbo].[jaguar_sp_get_cantidad_inv_kardex_pt_for_facturacion_v2]";
+                string sql = @"[dbo].[sp_get_inventario_kardex_pt_for_production_all_bodegas]";
+                
                 DataOperations dp = new DataOperations();
 
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -342,7 +344,7 @@ namespace JAGUAR_PRO.Clases
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_pt", IdProd);
-                cmd.Parameters.AddWithValue("@id_punto_facturacion", pIdPuntoVenta);
+                //cmd.Parameters.AddWithValue("@id_punto_facturacion", pIdPuntoVenta);
                 SqlDataReader dl = cmd.ExecuteReader();
                 if (dl.Read())
                 {
