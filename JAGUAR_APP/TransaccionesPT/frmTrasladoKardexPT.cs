@@ -274,9 +274,14 @@ namespace JAGUAR_PRO.TransaccionesPT
                     cmd.Parameters.AddWithValue("@costo_unitario", DBNull.Value);
 
                 if (id_bodega == 0)
-                    cmd.Parameters.AddWithValue("@id_almacen", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@id_almacen_origen", DBNull.Value);
                 else
-                    cmd.Parameters.AddWithValue("@id_almacen", id_bodega);
+                    cmd.Parameters.AddWithValue("@id_almacen_origen", id_bodega);
+
+                if (id_bodgea_destino == 0)
+                    cmd.Parameters.AddWithValue("@id_almacen_destino", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@id_almacen_destino", id_bodgea_destino);
 
                 cmd.ExecuteNonQuery();
                 conn.Close();
