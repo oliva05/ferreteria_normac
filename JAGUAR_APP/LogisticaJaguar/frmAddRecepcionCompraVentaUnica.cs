@@ -2,6 +2,7 @@
 using DevExpress.DashboardCommon.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
 using LOSA.Calidad.LoteConfConsumo;
@@ -79,6 +80,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     {
                         int Contador = Convert.ToInt32(spinUd.EditValue);
                         int correlativo = pt.IdSiguiente;
+                        pt.Recuperar_productoByBarCode(txtCodigoPT.Text.Trim());
+
 
                         while (Contador > 0)
                         {
@@ -91,7 +94,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             dr[5] = txtPrecioVenta.EditValue;
                             dr[6] = txtCodigoPT.Text + "B" + "00" + correlativo.ToString();
                             dr[7] = correlativo.ToString();
-                            dr[8] = 0;
+                            dr[8] = pt.Id_Almacen_standard;
+                            dr[9] = pt.Id;
                             dsProductoTerminado1.pt_venta_unica.Rows.Add(dr);
                             dsProductoTerminado1.pt_venta_unica.AcceptChanges();
 
@@ -126,6 +130,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         dr[5] = txtPrecioVenta.EditValue;
                         dr[6] = txtCodigoPT.Text + "B" + "00" + CorrelativoMemoria.ToString();
                         dr[7] = CorrelativoMemoria.ToString();
+                        dr[8] = pt.Id_Almacen_standard;
+                        dr[9] = pt.Id;
                         dsProductoTerminado1.pt_venta_unica.Rows.Add(dr);
                         dsProductoTerminado1.pt_venta_unica.AcceptChanges();
 
@@ -226,7 +232,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             DataOperations dp = new DataOperations();
             SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
             bool Guardar = false;
-
+            List<int> ids = new List<int>();
             try
             {
                 conn.Open();
@@ -234,12 +240,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                 SqlCommand cmd = conn.CreateCommand();
 
+                cmd.CommandText = "sp_get_insert_pt_venta_unica";
+                cmd.Connection = conn;
+                cmd.Transaction = transaction;
+                cmd.CommandType = CommandType.StoredProcedure;
+
                 foreach (dsProductoTerminado.pt_venta_unicaRow row in dsProductoTerminado1.pt_venta_unica.Rows)
                 {
-                    cmd.CommandText = "sp_get_insert_pt_venta_unica";
-                    cmd.Connection = conn;
-                    cmd.Transaction = transaction;
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    
+                    cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@descripcion",row.descripcion);
                     cmd.Parameters.AddWithValue("@itemcode",row.itemcode);
                     cmd.Parameters.AddWithValue("@costo", row.costo);
@@ -253,8 +262,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         cmd.Parameters.AddWithValue("@id_bodega", DBNull.Value);
                     else
                         cmd.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                    cmd.Parameters.AddWithValue("@id_pt", row.id_pt);
 
-                    cmd.ExecuteNonQuery();
+                    ids.Add(Convert.ToInt32(cmd.ExecuteScalar()));
                 }
                
                 transaction.Commit();
@@ -269,10 +279,50 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
             if (Guardar) 
             {
-                CajaDialogo.Information("Ingreso realizado con exito!");
+                DialogResult r = CajaDialogo.Pregunta("Guardado con Exito!\nDeseas Imprimir los Codigos de Barra?");
+                if (r == DialogResult.Yes)
+                {
+                    int contador_print = 0;
+                    xrptBarCode reportResumen = null;
+
+                    foreach (int item in ids)
+                    {
+                        ProductoTerminado pt = new ProductoTerminado();
+                        pt.RecuperarPTVentaUsados(item);
+
+                        if (contador_print == 0)
+                        {
+                            reportResumen = new xrptBarCode(pt.Barcode);
+                            reportResumen.CreateDocument();
+                            contador_print++;
+                        }
+                        else
+                        {
+                            xrptBarCode report2 = new xrptBarCode(pt.Barcode);
+                            report2.CreateDocument();
+                            if (reportResumen != null)
+                            {
+                                // Add all pages of the second report to the end of the first report.
+                                reportResumen.ModifyDocument(x => { x.AddPages(report2.Pages); });
+                            }
+                        }
+                    }
+
+                    if (reportResumen != null)
+                    {
+                        using (ReportPrintTool printTool = new ReportPrintTool(reportResumen))
+                        {
+                            printTool.ShowPreviewDialog();
+                        }
+                    }
+                }
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+
+
             }
+            
 
 
         }

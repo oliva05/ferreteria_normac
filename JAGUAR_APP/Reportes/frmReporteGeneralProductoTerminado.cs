@@ -182,5 +182,15 @@ namespace JAGUAR_PRO.Reportes
                 get_inventario();
             }
         }
+
+        private void btnTraslado_Click(object sender, EventArgs e)
+        {
+            frmTrasladoKardexPT frm = new frmTrasladoKardexPT(UsuarioLogeado);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                Especie = 2;
+                get_inventario();
+            }
+        }
     }
 }

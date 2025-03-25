@@ -202,7 +202,8 @@
               <xs:element name="precio_venta" msprop:Generator_ColumnPropNameInTable="precio_ventaColumn" msprop:Generator_ColumnPropNameInRow="precio_venta" msprop:Generator_UserColumnName="precio_venta" msprop:Generator_ColumnVarNameInTable="columnprecio_venta" type="xs:decimal" minOccurs="0" />
               <xs:element name="barcode" msprop:Generator_ColumnPropNameInTable="barcodeColumn" msprop:Generator_ColumnPropNameInRow="barcode" msprop:Generator_UserColumnName="barcode" msprop:Generator_ColumnVarNameInTable="columnbarcode" type="xs:string" minOccurs="0" />
               <xs:element name="correlativo" msprop:Generator_ColumnPropNameInTable="correlativoColumn" msprop:Generator_ColumnPropNameInRow="correlativo" msprop:Generator_UserColumnName="correlativo" msprop:Generator_ColumnVarNameInTable="columncorrelativo" type="xs:string" minOccurs="0" />
-              <xs:element name="id_bodega" msprop:Generator_ColumnPropNameInRow="id_bodega" msprop:Generator_ColumnPropNameInTable="id_bodegaColumn" msprop:Generator_ColumnVarNameInTable="columnid_bodega" msprop:Generator_UserColumnName="id_bodega" type="xs:int" minOccurs="0" />
+              <xs:element name="id_bodega" msprop:Generator_UserColumnName="id_bodega" msprop:Generator_ColumnPropNameInTable="id_bodegaColumn" msprop:Generator_ColumnPropNameInRow="id_bodega" msprop:Generator_ColumnVarNameInTable="columnid_bodega" type="xs:int" minOccurs="0" />
+              <xs:element name="id_pt" msprop:Generator_ColumnPropNameInRow="id_pt" msprop:Generator_ColumnPropNameInTable="id_ptColumn" msprop:Generator_ColumnVarNameInTable="columnid_pt" msprop:Generator_UserColumnName="id_pt" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
