@@ -4,5 +4,8 @@
 
     partial class dsPT
     {
+        partial class almacen_destinoDataTable
+        {
+        }
     }
 }

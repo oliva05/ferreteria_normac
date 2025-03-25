@@ -2977,6 +2977,18 @@
     <Compile Include="TransaccionesPT\frmAjusteIKardexPT.designer.cs">
       <DependentUpon>frmAjusteIKardexPT.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransaccionesPT\frmMainTrasladoPT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmMainTrasladoPT.Designer.cs">
+      <DependentUpon>frmMainTrasladoPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmNewTrasladoPT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmNewTrasladoPT.Designer.cs">
+      <DependentUpon>frmNewTrasladoPT.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransaccionesPT\frmPT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2994,6 +3006,12 @@
     </Compile>
     <Compile Include="TransaccionesPT\frmTrasladoKardexPT.Designer.cs">
       <DependentUpon>frmTrasladoKardexPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransaccionesPT\xrptTraslado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\xrptTraslado.Designer.cs">
+      <DependentUpon>xrptTraslado.cs</DependentUpon>
     </Compile>
     <Compile Include="Utileria\frmMensaje.cs">
       <SubType>Form</SubType>
@@ -3941,6 +3959,12 @@
     <EmbeddedResource Include="TransaccionesPT\frmAjusteIKardexPT.resx">
       <DependentUpon>frmAjusteIKardexPT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\frmMainTrasladoPT.resx">
+      <DependentUpon>frmMainTrasladoPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\frmNewTrasladoPT.resx">
+      <DependentUpon>frmNewTrasladoPT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmPT.resx">
       <DependentUpon>frmPT.cs</DependentUpon>
     </EmbeddedResource>
@@ -3949,6 +3973,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmTrasladoKardexPT.resx">
       <DependentUpon>frmTrasladoKardexPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\xrptTraslado.resx">
+      <DependentUpon>xrptTraslado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utileria\frmMensaje.resx">
       <DependentUpon>frmMensaje.cs</DependentUpon>

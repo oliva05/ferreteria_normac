@@ -4904,5 +4904,12 @@ namespace JAGUAR_PRO
             this.DialogResult = DialogResult.Cancel;    
             this.Close();
         }
+
+        private void navBarItem60_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmMainTrasladoPT frm = new frmMainTrasladoPT(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
     }
 }
