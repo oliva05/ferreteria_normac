@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewTrasladoPT));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gleAlmacen = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bodegasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsRecepcionMP1 = new JAGUAR_PRO.LogisticaJaguar.dsRecepcionMP();
@@ -63,6 +63,8 @@
             this.coldescripcion2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colexistencia2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidad_trasladar1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reposDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnRight = new DevExpress.XtraEditors.SimpleButton();
             this.btnLeft = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -80,8 +82,6 @@
             this.presentacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memoDescr = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.reposDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gleAlmacen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecepcionMP1)).BeginInit();
@@ -91,13 +91,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdAlmacenDestino)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleAlmacenDestino.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.presentacionesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoDescr.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // gleAlmacen
@@ -156,8 +156,6 @@
             this.colexistencia1.Caption = "Existencia";
             this.colexistencia1.FieldName = "existencia";
             this.colexistencia1.Name = "colexistencia1";
-            this.colexistencia1.Visible = true;
-            this.colexistencia1.VisibleIndex = 1;
             // 
             // labelControl4
             // 
@@ -171,12 +169,14 @@
             // 
             // grdAlmacenOrigen
             // 
+            this.grdAlmacenOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.grdAlmacenOrigen.DataMember = "almacen_origen";
             this.grdAlmacenOrigen.DataSource = this.dsPT1;
             this.grdAlmacenOrigen.Location = new System.Drawing.Point(4, 211);
             this.grdAlmacenOrigen.MainView = this.gridView1;
             this.grdAlmacenOrigen.Name = "grdAlmacenOrigen";
-            this.grdAlmacenOrigen.Size = new System.Drawing.Size(424, 267);
+            this.grdAlmacenOrigen.Size = new System.Drawing.Size(467, 280);
             this.grdAlmacenOrigen.TabIndex = 161;
             this.grdAlmacenOrigen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -219,7 +219,7 @@
             this.colitemcode.OptionsColumn.ReadOnly = true;
             this.colitemcode.Visible = true;
             this.colitemcode.VisibleIndex = 0;
-            this.colitemcode.Width = 63;
+            this.colitemcode.Width = 61;
             // 
             // colPT
             // 
@@ -229,7 +229,7 @@
             this.colPT.OptionsColumn.ReadOnly = true;
             this.colPT.Visible = true;
             this.colPT.VisibleIndex = 1;
-            this.colPT.Width = 79;
+            this.colPT.Width = 117;
             // 
             // colexistencia
             // 
@@ -284,14 +284,17 @@
             // 
             // grdAlmacenDestino
             // 
+            this.grdAlmacenDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdAlmacenDestino.DataMember = "almacen_destino";
             this.grdAlmacenDestino.DataSource = this.dsPT1;
-            this.grdAlmacenDestino.Location = new System.Drawing.Point(538, 211);
+            this.grdAlmacenDestino.Location = new System.Drawing.Point(558, 211);
             this.grdAlmacenDestino.MainView = this.gridView2;
             this.grdAlmacenDestino.Name = "grdAlmacenDestino";
             this.grdAlmacenDestino.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.reposDelete});
-            this.grdAlmacenDestino.Size = new System.Drawing.Size(506, 267);
+            this.grdAlmacenDestino.Size = new System.Drawing.Size(551, 280);
             this.grdAlmacenDestino.TabIndex = 162;
             this.grdAlmacenDestino.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -324,7 +327,7 @@
             this.colitemcode1.OptionsColumn.ReadOnly = true;
             this.colitemcode1.Visible = true;
             this.colitemcode1.VisibleIndex = 0;
-            this.colitemcode1.Width = 95;
+            this.colitemcode1.Width = 88;
             // 
             // coldescripcion2
             // 
@@ -334,7 +337,7 @@
             this.coldescripcion2.OptionsColumn.ReadOnly = true;
             this.coldescripcion2.Visible = true;
             this.coldescripcion2.VisibleIndex = 1;
-            this.coldescripcion2.Width = 95;
+            this.coldescripcion2.Width = 229;
             // 
             // colexistencia2
             // 
@@ -351,13 +354,32 @@
             this.colcantidad_trasladar1.OptionsColumn.ReadOnly = true;
             this.colcantidad_trasladar1.Visible = true;
             this.colcantidad_trasladar1.VisibleIndex = 2;
-            this.colcantidad_trasladar1.Width = 113;
+            this.colcantidad_trasladar1.Width = 102;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Devolver";
+            this.gridColumn4.ColumnEdit = this.reposDelete;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 105;
+            // 
+            // reposDelete
+            // 
+            this.reposDelete.AutoHeight = false;
+            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
+            this.reposDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.reposDelete.Name = "reposDelete";
+            this.reposDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.reposDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposDelete_ButtonClick);
             // 
             // btnRight
             // 
             this.btnRight.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRight.ImageOptions.Image")));
             this.btnRight.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnRight.Location = new System.Drawing.Point(444, 259);
+            this.btnRight.Location = new System.Drawing.Point(477, 259);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(75, 36);
             this.btnRight.TabIndex = 163;
@@ -367,7 +389,7 @@
             // 
             this.btnLeft.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLeft.ImageOptions.Image")));
             this.btnLeft.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnLeft.Location = new System.Drawing.Point(444, 318);
+            this.btnLeft.Location = new System.Drawing.Point(477, 318);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(75, 36);
             this.btnLeft.TabIndex = 164;
@@ -437,8 +459,6 @@
             this.gridColumn3.Caption = "Existencia";
             this.gridColumn3.FieldName = "existencia";
             this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 1;
             // 
             // labelControl2
             // 
@@ -482,7 +502,7 @@
             this.cmdRecargar.Appearance.Options.UseFont = true;
             this.cmdRecargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdRecargar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdRecargar.ImageOptions.SvgImage")));
-            this.cmdRecargar.Location = new System.Drawing.Point(767, 12);
+            this.cmdRecargar.Location = new System.Drawing.Point(860, 12);
             this.cmdRecargar.Name = "cmdRecargar";
             this.cmdRecargar.Size = new System.Drawing.Size(104, 47);
             this.cmdRecargar.TabIndex = 175;
@@ -496,7 +516,7 @@
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.Location = new System.Drawing.Point(930, 12);
+            this.btnClose.Location = new System.Drawing.Point(995, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(104, 47);
             this.btnClose.TabIndex = 176;
@@ -526,29 +546,11 @@
             this.labelControl3.TabIndex = 178;
             this.labelControl3.Text = "Comentario:";
             // 
-            // reposDelete
-            // 
-            this.reposDelete.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.reposDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.reposDelete.Name = "reposDelete";
-            this.reposDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.reposDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposDelete_ButtonClick);
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Devolver";
-            this.gridColumn4.ColumnEdit = this.reposDelete;
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            // 
             // frmNewTrasladoPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1046, 480);
+            this.ClientSize = new System.Drawing.Size(1111, 493);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.memoDescr);
             this.Controls.Add(this.btnClose);
@@ -577,13 +579,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdAlmacenDestino)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleAlmacenDestino.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.presentacionesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoDescr.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposDelete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

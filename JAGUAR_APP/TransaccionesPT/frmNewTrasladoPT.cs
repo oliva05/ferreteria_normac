@@ -117,9 +117,9 @@ namespace JAGUAR_PRO.TransaccionesPT
                 SqlCommand cmd = new SqlCommand("sp_pt_inventario_by_almacen", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_almacen", id_bodega);
-                dsRecepcionMP1.bodega_origen.Clear();
+                dsPT1.almacen_origen.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                adat.Fill(dsRecepcionMP1.bodega_origen);
+                adat.Fill(dsPT1.almacen_origen);
 
                 con.Close();
             }

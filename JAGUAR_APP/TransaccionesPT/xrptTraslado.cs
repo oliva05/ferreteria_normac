@@ -13,6 +13,7 @@ namespace JAGUAR_PRO.TransaccionesPT
 {
     public partial class xrptTraslado : DevExpress.XtraReports.UI.XtraReport
     {
+        DataOperations dp = new DataOperations();
         public xrptTraslado(int IdTraslado)
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace JAGUAR_PRO.TransaccionesPT
         {
             try
             {
-                SqlConnection conn = new SqlConnection(dp.ConnectionStringLOSA);
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("[sp_pt_rpt_traslados_by_id_traslado]",conn);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -55,7 +56,7 @@ namespace JAGUAR_PRO.TransaccionesPT
         {
             try
             {
-                SqlConnection conn = new SqlConnection(dp.ConnectionStringLOSA);
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("sp_pt_get_detalle_traslado", conn);
                 cmd.CommandType = CommandType.StoredProcedure;

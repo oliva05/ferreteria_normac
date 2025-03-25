@@ -13,6 +13,7 @@ using JAGUAR_PRO.Accesos.AccesosUsuarios;
 using ACS.Classes;
 using JAGUAR_PRO.LogisticaJaguar;
 using System.Data.SqlClient;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace JAGUAR_PRO.TransaccionesPT
 {
@@ -72,6 +73,18 @@ namespace JAGUAR_PRO.TransaccionesPT
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void reposReport_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)gridControl1.FocusedView;
+            var row = (dsPT.traslados_hRow)gridview.GetFocusedDataRow();
+
+
+            if (row != null) 
+            {
+                
+            }
         }
     }
 }

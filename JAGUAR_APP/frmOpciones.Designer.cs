@@ -190,6 +190,7 @@
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.navBarItem60 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -293,7 +294,8 @@
             this.navBarItem24,
             this.nbReporteCompras,
             this.navBarItem23,
-            this.navBarRecepBodegon});
+            this.navBarRecepBodegon,
+            this.navBarItem60});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -481,7 +483,8 @@
             this.navBarGroup8.Expanded = true;
             this.navBarGroup8.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem60)});
             this.navBarGroup8.Name = "navBarGroup8";
             // 
             // navBarItem14
@@ -2411,6 +2414,21 @@
             this.btnClose.Text = "Cerrar";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // navBarItem60
+            // 
+            this.navBarItem60.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem60.Appearance.Options.UseFont = true;
+            this.navBarItem60.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem60.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem60.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem60.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem60.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem60.AppearancePressed.Options.UseFont = true;
+            this.navBarItem60.Caption = "Traslado Entre Almacenes";
+            this.navBarItem60.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.traslado_de_paqueteria;
+            this.navBarItem60.Name = "navBarItem60";
+            this.navBarItem60.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem60_LinkClicked_1);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2607,5 +2625,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarRecepBodegon;
         private DevExpress.XtraNavBar.NavBarItem navBarItem59;
         private DevExpress.XtraEditors.SimpleButton btnClose;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem60;
     }
 }
