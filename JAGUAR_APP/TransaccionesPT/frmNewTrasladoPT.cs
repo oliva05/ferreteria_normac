@@ -4,6 +4,7 @@ using DevExpress.Pdf.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.Design;
+using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.Mantenimientos.Modelos;
@@ -25,12 +26,42 @@ namespace JAGUAR_PRO.TransaccionesPT
         UserLogin UsuarioLogeado;
 
         DataOperations dp = new DataOperations();
+        int IdTrasladoH;
         public frmNewTrasladoPT(UserLogin userLogin)
         {
             InitializeComponent();
             UsuarioLogeado = userLogin;
             dtFechaDocumento.DateTime = dp.Now();
+            lblNumTraslado.Text = GetNumTrasladoSig(1);//Punto Venta
             LoadAlmacenes();
+        }
+
+        private string GetNumTrasladoSig(int PuntoVenta)
+        {
+            string NumTrasladoSiguiente = string.Empty;
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[sp_pt_get_num_traslado_sig]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PuntoVentaId", PuntoVenta);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read()) 
+                {
+                    NumTrasladoSiguiente = dr.GetString(0);
+                    dr.Close();
+                }
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+
+            return NumTrasladoSiguiente;
         }
 
         private void LoadAlmacenes()
@@ -263,23 +294,23 @@ namespace JAGUAR_PRO.TransaccionesPT
                 cmd.Connection = conn;
                 cmd.Transaction = transaction;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@num_traslado",);
+                cmd.Parameters.AddWithValue("@num_traslado", lblNumTraslado.Text);
                 cmd.Parameters.AddWithValue("@descripcion",memoDescr.Text);
                 cmd.Parameters.AddWithValue("@fecha", dtFechaDocumento.DateTime);
                 cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
                 cmd.Parameters.AddWithValue("@bodega_origen",gleAlmacen.EditValue);
                 cmd.Parameters.AddWithValue("@bodega_destino", gleAlmacenDestino.EditValue);
-                int IdTrasladoH = Convert.ToInt32(cmd.ExecuteScalar());
+                IdTrasladoH = Convert.ToInt32(cmd.ExecuteScalar());
 
                 foreach (dsPT.almacen_destinoRow row in dsPT1.almacen_destino.Rows)
                 {
                     cmd.Parameters.Clear();
 
-                    cmd.CommandText = "usp_Traslado_Kardex_PT";
+                    cmd.CommandText = "[usp_Traslado_Kardex_PT]";
                     cmd.Connection = conn;
                     cmd.Transaction = transaction;
                     cmd.CommandType = CommandType.StoredProcedure;
-
+                    cmd.Parameters.AddWithValue("@idTraslado", IdTrasladoH);
                     cmd.Parameters.AddWithValue("@id_pt", row.id_pt);
                     cmd.Parameters.AddWithValue("@id_Usuario", UsuarioLogeado.Id);
                     cmd.Parameters.AddWithValue("@fecha_doc", dtFechaDocumento.EditValue);
@@ -315,7 +346,16 @@ namespace JAGUAR_PRO.TransaccionesPT
 
             if (Guardar)
             {
-                CajaDialogo.Information("Traslado Completado con Exito!");
+                //ActualizarCorrelativo();
+                /*ajaDialogo.Information("Traslado Completado con Exito!");*/
+
+                DialogResult r = CajaDialogo.Pregunta("Traslado Completado con Exito!\nDesea imprimir el traslado?");
+                if (r == DialogResult.Yes)
+                {
+                    xrptTraslado report = new xrptTraslado(IdTrasladoH);
+                    report.ShowPrintMarginsWarning = false;
+                    report.ShowPreview();
+                }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
