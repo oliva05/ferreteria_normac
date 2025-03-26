@@ -17,6 +17,7 @@ using JAGUAR_PRO.Mantenimientos;
 using JAGUAR_PRO.Mantenimientos.Modelos;
 using JAGUAR_PRO.RecuentoInventario;
 using JAGUAR_PRO.TransaccionesPT;
+using JAGUAR_PRO.Utileria;
 using LOSA.Calidad.LoteConfConsumo;
 using Microsoft.VisualBasic;
 using System;
@@ -2740,5 +2741,16 @@ namespace Eatery.Ventas
             }
 
         }
+
+        private void textEdit1_DoubleClick(object sender, EventArgs e)
+        {
+            frmLoginVendedores frmLoginVendedores = new frmLoginVendedores();   
+            if(frmLoginVendedores.ShowDialog() == DialogResult.OK )
+            {
+
+            }
+        }
+
+        //frmLoginVendedores
     }
 }

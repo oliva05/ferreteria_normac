@@ -111,7 +111,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         //glueTipoBuffet.EditValue = PT_Class_instance.tipo_buffet_id;
                         grdSubClase.EditValue = PT_Class_instance.Id_sub_clase;
                         txtCodigoInterno.Text = PT_Class_instance.Code_interno;
+
+                        gridTipoInventario.EditValueChanged -= new EventHandler(gridTipoInventario_EditValueChanged);
                         gridTipoInventario.EditValue = PT_Class_instance.TipoInventario;
+                        gridTipoInventario.EditValueChanged += new EventHandler(gridTipoInventario_EditValueChanged);
+
                         txtBarCode.Text = PT_Class_instance.Barcode;
                         txtOEM.Text = PT_Class_instance.CodeOEM;
 

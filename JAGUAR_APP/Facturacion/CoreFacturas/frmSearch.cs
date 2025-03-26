@@ -273,10 +273,13 @@ namespace LOSA.Calidad.LoteConfConsumo
                 var row = (dsSearchWindow.RTN_ClienteRow)gridView.GetFocusedDataRow();
                 if (Convert.ToBoolean(e.Value))
                 {
-                    EmpresaName = row.NombreLargo;
-                    EmpresaRTN = row.RTN;
-                    EmpresaID = row.IdEmpresa;
-                    row.Seleccionado = true;
+                    if (row != null)
+                    {
+                        EmpresaName = row.NombreLargo;
+                        EmpresaRTN = row.RTN;
+                        EmpresaID = row.IdEmpresa;
+                        row.Seleccionado = true;
+                    }
                 }
 
                 foreach (dsSearchWindow.RTN_ClienteRow row1 in dsSearchWindow1.RTN_Cliente)
