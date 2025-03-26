@@ -72,7 +72,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[spObtenerBodegas]", con);
+                SqlCommand cmd = new SqlCommand("[spObtenerBodegasActivas]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
       
                 dsRecepcionMP1.bodegas.Clear();

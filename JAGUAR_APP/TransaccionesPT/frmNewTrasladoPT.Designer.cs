@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewTrasladoPT));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gleAlmacen = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bodegasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsRecepcionMP1 = new JAGUAR_PRO.LogisticaJaguar.dsRecepcionMP();
@@ -104,7 +104,7 @@
             // 
             this.gleAlmacen.Location = new System.Drawing.Point(206, 179);
             this.gleAlmacen.Name = "gleAlmacen";
-            this.gleAlmacen.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.gleAlmacen.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.gleAlmacen.Properties.Appearance.Options.UseFont = true;
             this.gleAlmacen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -159,11 +159,11 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Location = new System.Drawing.Point(49, 179);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(138, 24);
+            this.labelControl4.Size = new System.Drawing.Size(113, 20);
             this.labelControl4.TabIndex = 159;
             this.labelControl4.Text = "Almacen Origen";
             // 
@@ -368,9 +368,9 @@
             // reposDelete
             // 
             this.reposDelete.AutoHeight = false;
-            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.reposDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposDelete.Name = "reposDelete";
             this.reposDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposDelete_ButtonClick);
@@ -397,21 +397,21 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(24, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(93, 24);
+            this.labelControl1.Size = new System.Drawing.Size(78, 20);
             this.labelControl1.TabIndex = 165;
             this.labelControl1.Text = "Traslado #:";
             // 
             // lblNumTraslado
             // 
-            this.lblNumTraslado.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.lblNumTraslado.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblNumTraslado.Appearance.Options.UseFont = true;
-            this.lblNumTraslado.Location = new System.Drawing.Point(121, 12);
+            this.lblNumTraslado.Location = new System.Drawing.Point(108, 12);
             this.lblNumTraslado.Name = "lblNumTraslado";
-            this.lblNumTraslado.Size = new System.Drawing.Size(30, 24);
+            this.lblNumTraslado.Size = new System.Drawing.Size(27, 20);
             this.lblNumTraslado.TabIndex = 166;
             this.lblNumTraslado.Text = "###";
             // 
@@ -419,7 +419,7 @@
             // 
             this.gleAlmacenDestino.Location = new System.Drawing.Point(793, 176);
             this.gleAlmacenDestino.Name = "gleAlmacenDestino";
-            this.gleAlmacenDestino.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.gleAlmacenDestino.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.gleAlmacenDestino.Properties.Appearance.Options.UseFont = true;
             this.gleAlmacenDestino.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -462,11 +462,11 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(636, 176);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(143, 24);
+            this.labelControl2.Size = new System.Drawing.Size(121, 20);
             this.labelControl2.TabIndex = 167;
             this.labelControl2.Text = "Almacen Destino";
             // 
@@ -475,7 +475,7 @@
             this.dtFechaDocumento.EditValue = null;
             this.dtFechaDocumento.Location = new System.Drawing.Point(206, 48);
             this.dtFechaDocumento.Name = "dtFechaDocumento";
-            this.dtFechaDocumento.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.dtFechaDocumento.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dtFechaDocumento.Properties.Appearance.Options.UseFont = true;
             this.dtFechaDocumento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -488,11 +488,11 @@
             // 
             // labelControl12
             // 
-            this.labelControl12.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelControl12.Appearance.Options.UseFont = true;
             this.labelControl12.Location = new System.Drawing.Point(24, 48);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(162, 24);
+            this.labelControl12.Size = new System.Drawing.Size(136, 20);
             this.labelControl12.TabIndex = 171;
             this.labelControl12.Text = "Fecha Documento:";
             // 
@@ -532,17 +532,19 @@
             // 
             this.memoDescr.Location = new System.Drawing.Point(206, 80);
             this.memoDescr.Name = "memoDescr";
+            this.memoDescr.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.memoDescr.Properties.Appearance.Options.UseFont = true;
             this.memoDescr.Properties.MaxLength = 100;
             this.memoDescr.Size = new System.Drawing.Size(184, 80);
             this.memoDescr.TabIndex = 177;
             // 
             // labelControl3
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(24, 79);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(102, 24);
+            this.labelControl3.Size = new System.Drawing.Size(86, 20);
             this.labelControl3.TabIndex = 178;
             this.labelControl3.Text = "Comentario:";
             // 
