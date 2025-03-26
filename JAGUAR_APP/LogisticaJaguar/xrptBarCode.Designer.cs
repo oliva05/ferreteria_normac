@@ -39,12 +39,12 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 9.375F;
+            this.TopMargin.HeightF = 0F;
             this.TopMargin.Name = "TopMargin";
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 13.54167F;
+            this.BottomMargin.HeightF = 0F;
             this.BottomMargin.Name = "BottomMargin";
             // 
             // Detail
@@ -57,16 +57,16 @@
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrBarCode});
-            this.PageHeader.HeightF = 73.95834F;
+            this.PageHeader.HeightF = 127.0833F;
             this.PageHeader.Name = "PageHeader";
             // 
             // xrBarCode
             // 
             this.xrBarCode.AutoModule = true;
-            this.xrBarCode.LocationFloat = new DevExpress.Utils.PointFloat(88.54166F, 10.00001F);
+            this.xrBarCode.LocationFloat = new DevExpress.Utils.PointFloat(43.75F, 10.00001F);
             this.xrBarCode.Name = "xrBarCode";
             this.xrBarCode.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
-            this.xrBarCode.SizeF = new System.Drawing.SizeF(210.4167F, 46.875F);
+            this.xrBarCode.SizeF = new System.Drawing.SizeF(214.5834F, 90.41666F);
             this.xrBarCode.StylePriority.UseTextAlignment = false;
             this.xrBarCode.Symbology = code93Generator1;
             this.xrBarCode.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -79,7 +79,10 @@
             this.Detail,
             this.PageHeader});
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
-            this.Margins = new DevExpress.Drawing.DXMargins(131F, 341F, 9.375F, 13.54167F);
+            this.Margins = new DevExpress.Drawing.DXMargins(0F, 0F, 0F, 0F);
+            this.PageHeight = 1000;
+            this.PageWidth = 288;
+            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
             this.Version = "23.2";
             xrWatermark1.Id = "Watermark1";
             this.Watermarks.Add(xrWatermark1);
