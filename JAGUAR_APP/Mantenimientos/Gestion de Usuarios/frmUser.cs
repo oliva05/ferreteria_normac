@@ -119,7 +119,7 @@ namespace PRININ.Gestion_de_Usuarios
                         UserEdicion.IdGrupo =Convert.ToInt32( lueGrupo.EditValue);
                         UserEdicion.TurnoId = Convert.ToInt32(lueTurno.EditValue);
                         UserEdicion.Codigo = txtCodigo.Text;
-                        UserEdicion.PIN = Convert.ToInt32(txtPIN.Text);
+                        UserEdicion.PIN = txtPIN.Text;
                         UserEdicion.IsVendedor = tsIsVendedor.IsOn;
                         if (UserEdicion.GuardarNuevoUsuario())
                         {
@@ -141,7 +141,7 @@ namespace PRININ.Gestion_de_Usuarios
                         UserEdicion.IdGrupo = Convert.ToInt32(lueGrupo.EditValue);
                         UserEdicion.TurnoId = Convert.ToInt32(lueTurno.EditValue);
                         UserEdicion.Codigo = txtCodigo.Text;
-                        UserEdicion.PIN = Convert.ToInt32(txtPIN.Text);
+                        UserEdicion.PIN = txtPIN.Text;
                         UserEdicion.IsVendedor = tsIsVendedor.IsOn;
                         if (UserEdicion.ModificarUsuario())
                         {

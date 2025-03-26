@@ -755,6 +755,7 @@
     <Compile Include="Clases\Ubicaciones.cs" />
     <Compile Include="Clases\Ubicacion_Tarima.cs" />
     <Compile Include="Clases\UserLogin.cs" />
+    <Compile Include="Clases\Vendedor.cs" />
     <Compile Include="Compras\dsCompras.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
