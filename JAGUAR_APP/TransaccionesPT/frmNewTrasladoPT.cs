@@ -142,7 +142,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                 cmd.Parameters.AddWithValue("@idPt", PIdPT);
                 cmd.Parameters.AddWithValue("@idAlmacen", Convert.ToInt32(gleAlmacenDestino.EditValue));
                 SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read()) 
+                if (dr.Read())
                 {
                     Permitir = dr.GetBoolean(0);
                     dr.Close();
@@ -162,6 +162,15 @@ namespace JAGUAR_PRO.TransaccionesPT
             bool Error = false;
             string mensaje = "";
 
+
+
+            int id_bodega_destino = Convert.ToInt32(gleAlmacenDestino.EditValue);
+
+            if (id_bodega_destino <= 0)
+            {
+                CajaDialogo.Error("Debe Seleccionar el Almacen Destino!");
+                return;
+            }
 
             foreach (dsPT.almacen_origenRow row in dsPT1.almacen_origen.Rows)
             {
@@ -384,6 +393,23 @@ namespace JAGUAR_PRO.TransaccionesPT
             catch (Exception ec)
             {
                 CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            var gridView = (GridView)grdAlmacenOrigen.FocusedView;
+            var row = (dsPT.almacen_origenRow)gridView.GetFocusedDataRow();
+            if (e.Column.Name == @"colcantidad_trasladar")
+            {
+                if (row.cantidad_trasladar > 0)
+                {
+                    row.seleccion = true;
+                }
+                else
+                {
+                    row.seleccion = false;
+                }
             }
         }
     }

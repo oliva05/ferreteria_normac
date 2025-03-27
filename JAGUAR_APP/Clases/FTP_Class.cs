@@ -153,29 +153,44 @@ namespace JAGUAR_PRO.Clases
 
         public bool ValidateConnection()
         {
-            try
+            Task<bool> task = Task.Run(() =>
             {
-                DataOperations dp = new DataOperations();
-                string pass = "OPjSn10Z1U";
-                string user_op = "ftp_normac";
-                string ftpUrl = "ftp://10.50.13.89";
-
-                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
-                request.Credentials = new NetworkCredential(user_op, pass);
-                request.Method = WebRequestMethods.Ftp.ListDirectory; // Comprobar si podemos listar archivos
-                request.Timeout = 3000; // Timeout en milisegundos
-
-                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                try
                 {
-                    return response.StatusCode == FtpStatusCode.OpeningData; // Si abre la conexión, es válida
-                    
-                }
+                    DataOperations dp = new DataOperations();
+                    string pass = "OPjSn10Z1U";
+                    string user_op = "ftp_normac";
+                    string ftpUrl = "ftp://10.50.13.89";
 
+                    FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
+                    request.Credentials = new NetworkCredential(user_op, pass);
+                    request.Method = WebRequestMethods.Ftp.ListDirectory; // Comprobar si podemos listar archivos
+                    //request.Timeout = 2000; // Timeout en milisegundos
+
+                    using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                    {
+                        return response.StatusCode == FtpStatusCode.OpeningData // Si abre la conexión, es válida
+                        || response.StatusCode == FtpStatusCode.DataAlreadyOpen
+                        || response.StatusCode == FtpStatusCode.CommandOK;
+                    }
+
+                }
+                catch (WebException ex)
+                {
+                    //CajaDialogo.Error($"Error de conexión FTP: {ex.Message}\nContacte a su Proveedor de Software");
+                    return false; // Si hay error, la conexión no es válida
+                }
             }
-            catch (WebException ex)
+            );
+
+            if (Task.WaitAny(task, Task.Delay(3000)) == 0) 
             {
-                CajaDialogo.Error($"Error de conexión FTP: {ex.Message}\nContacte a su Proveedor de Software");
-                return false; // Si hay error, la conexión no es válida
+                return task.Result;// La tarea terminó a tiempo
+            }
+            else
+            {
+                CajaDialogo.Error($"Error de conexión FTP \nContacte a su Proveedor de Software");
+                return false; // Se agotó el tiempo de espera
             }
         }
 

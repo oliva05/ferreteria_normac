@@ -14,6 +14,7 @@ using ACS.Classes;
 using JAGUAR_PRO.LogisticaJaguar;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 
 namespace JAGUAR_PRO.TransaccionesPT
 {
@@ -83,7 +84,9 @@ namespace JAGUAR_PRO.TransaccionesPT
 
             if (row != null) 
             {
-                
+                xrptTraslado report = new xrptTraslado(row.id_traslado);
+                report.ShowPrintMarginsWarning = false;
+                report.ShowPreview();
             }
         }
     }
