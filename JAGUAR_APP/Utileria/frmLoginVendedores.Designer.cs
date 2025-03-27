@@ -67,6 +67,7 @@
             this.txtCode1.TabIndex = 0;
             this.txtCode1.EditValueChanged += new System.EventHandler(this.txtCode1_EditValueChanged);
             this.txtCode1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCode1_KeyDown);
+            this.txtCode1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCode1_KeyPress);
             // 
             // txtCode2
             // 
@@ -81,6 +82,7 @@
             this.txtCode2.TabIndex = 1;
             this.txtCode2.EditValueChanged += new System.EventHandler(this.txtCode2_EditValueChanged);
             this.txtCode2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCode2_KeyDown);
+            this.txtCode2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCode2_KeyPress);
             // 
             // txtCode3
             // 
@@ -95,6 +97,7 @@
             this.txtCode3.TabIndex = 2;
             this.txtCode3.EditValueChanged += new System.EventHandler(this.txtCode3_EditValueChanged);
             this.txtCode3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCode3_KeyDown);
+            this.txtCode3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCode3_KeyPress);
             // 
             // txtCode4
             // 
@@ -109,6 +112,7 @@
             this.txtCode4.TabIndex = 3;
             this.txtCode4.EditValueChanged += new System.EventHandler(this.txtCode4_EditValueChanged);
             this.txtCode4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCode4_KeyDown);
+            this.txtCode4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCode4_KeyPress);
             // 
             // lblNombreUser
             // 
@@ -135,7 +139,9 @@
             this.txtPass4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtPass4.Size = new System.Drawing.Size(48, 62);
             this.txtPass4.TabIndex = 8;
+            this.txtPass4.EditValueChanged += new System.EventHandler(this.txtPass4_EditValueChanged);
             this.txtPass4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass4_KeyDown);
+            this.txtPass4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass4_KeyPress);
             // 
             // txtPass3
             // 
@@ -149,7 +155,9 @@
             this.txtPass3.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtPass3.Size = new System.Drawing.Size(48, 62);
             this.txtPass3.TabIndex = 7;
+            this.txtPass3.EditValueChanged += new System.EventHandler(this.txtPass3_EditValueChanged);
             this.txtPass3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass3_KeyDown);
+            this.txtPass3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass3_KeyPress);
             // 
             // txtPass2
             // 
@@ -163,7 +171,9 @@
             this.txtPass2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtPass2.Size = new System.Drawing.Size(48, 62);
             this.txtPass2.TabIndex = 6;
+            this.txtPass2.EditValueChanged += new System.EventHandler(this.txtPass2_EditValueChanged);
             this.txtPass2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass2_KeyDown);
+            this.txtPass2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass2_KeyPress);
             // 
             // txtPass1
             // 
@@ -177,7 +187,9 @@
             this.txtPass1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtPass1.Size = new System.Drawing.Size(48, 62);
             this.txtPass1.TabIndex = 5;
+            this.txtPass1.EditValueChanged += new System.EventHandler(this.txtPass1_EditValueChanged);
             this.txtPass1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass1_KeyDown);
+            this.txtPass1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass1_KeyPress);
             // 
             // txtPass6
             // 
@@ -191,7 +203,9 @@
             this.txtPass6.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtPass6.Size = new System.Drawing.Size(48, 62);
             this.txtPass6.TabIndex = 10;
+            this.txtPass6.EditValueChanged += new System.EventHandler(this.txtPass6_EditValueChanged);
             this.txtPass6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass6_KeyDown);
+            this.txtPass6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass6_KeyPress);
             // 
             // txtPass5
             // 
@@ -205,7 +219,9 @@
             this.txtPass5.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtPass5.Size = new System.Drawing.Size(48, 62);
             this.txtPass5.TabIndex = 9;
+            this.txtPass5.EditValueChanged += new System.EventHandler(this.txtPass5_EditValueChanged);
             this.txtPass5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass5_KeyDown);
+            this.txtPass5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass5_KeyPress);
             // 
             // simpleButton1
             // 
@@ -239,6 +255,7 @@
             this.cmdGuardar.TabIndex = 52;
             this.cmdGuardar.Text = "Aplicar";
             this.cmdGuardar.ToolTipTitle = "Guardar Entrada de Factura";
+            this.cmdGuardar.Click += new System.EventHandler(this.cmdGuardar_Click);
             // 
             // frmLoginVendedores
             // 

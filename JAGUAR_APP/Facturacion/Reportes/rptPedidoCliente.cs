@@ -31,13 +31,23 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             //psConnection = pConnection;
             //ConfiguracionSuccess conf = new ConfiguracionSuccess(psConnection);
 
-            //lblmail.Text = Factura1.Correo_PDV;
+           
             //lblTelefono.Text ="Telefonos: "+ Factura1.Telefono_PDV;
-            //lblDireccion.Text = Factura1.DireccionPDV;
-            lblCompanyName.Text = "Distribuidora Don Fidel";// Factura1.NombreComercial_PDV;
+            
             //lblLegalName.Text = "Distribuidora Don Fidel";// Factura1.NombreLegal_PDV;
             //lblCai.Text = "CAI: " + Factura1.CAI;
-            //lblRTN.Text = "R.T.N. " + Factura1.RTN_PDV;
+            PDV PuntoVenta1 = new PDV();
+            if (PuntoVenta1.RecuperaRegistro(PedidoCliente1.IdPuntoVenta))
+            {
+                lblRTN.Text = "R.T.N. " + PuntoVenta1.RTN;
+                lblRTN.Visible = lblmail.Visible =  lblDireccion.Visible = true;
+                lblmail.Text = PuntoVenta1.Correo;
+                lblDireccion.Text = PuntoVenta1.Direccion;
+                lblTelefono.Text = "Telefono: " + PuntoVenta1.Telefono;
+                lblLegalName.Text = PuntoVenta1.NombreLegal;
+                lblCompanyName.Text = PuntoVenta1.Nombre;
+            }
+
             lblNumeroFactura.Text = PedidoCliente1.NumeroDocumento;
             ////lblFechaEmision.Text = string.Format("{0:MM/dd/yyyy}", Factura1.FechaDocumento);
             lblFechaEmision.Text = string.Format("{0:dd/MM/yyyy}", PedidoCliente1.FechaDocumento);

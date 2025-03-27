@@ -24,6 +24,9 @@
               <xs:element name="total_linea" msprop:Generator_ColumnPropNameInTable="total_lineaColumn" msprop:Generator_ColumnPropNameInRow="total_linea" msprop:Generator_UserColumnName="total_linea" msprop:Generator_ColumnVarNameInTable="columntotal_linea" type="xs:decimal" minOccurs="0" />
               <xs:element name="impuesto2" msprop:Generator_ColumnPropNameInTable="impuesto2Column" msprop:Generator_ColumnPropNameInRow="impuesto2" msprop:Generator_UserColumnName="impuesto2" msprop:Generator_ColumnVarNameInTable="columnimpuesto2" type="xs:decimal" minOccurs="0" />
               <xs:element name="impuesto3" msprop:Generator_ColumnPropNameInTable="impuesto3Column" msprop:Generator_ColumnPropNameInRow="impuesto3" msprop:Generator_UserColumnName="impuesto3" msprop:Generator_ColumnVarNameInTable="columnimpuesto3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="bodega_id" msprop:Generator_ColumnPropNameInRow="bodega_id" msprop:Generator_ColumnPropNameInTable="bodega_idColumn" msprop:Generator_ColumnVarNameInTable="columnbodega_id" msprop:Generator_UserColumnName="bodega_id" type="xs:int" minOccurs="0" />
+              <xs:element name="bodega_codigo" msdata:Caption="Bodega Codigo" msprop:Generator_ColumnPropNameInRow="bodega_codigo" msprop:Generator_ColumnPropNameInTable="bodega_codigoColumn" msprop:Generator_ColumnVarNameInTable="columnbodega_codigo" msprop:Generator_UserColumnName="bodega_codigo" type="xs:string" minOccurs="0" />
+              <xs:element name="bodega_name" msprop:Generator_ColumnPropNameInRow="bodega_name" msprop:Generator_ColumnPropNameInTable="bodega_nameColumn" msprop:Generator_ColumnVarNameInTable="columnbodega_name" msprop:Generator_UserColumnName="bodega_name" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -122,8 +125,8 @@
               <xs:element name="tipo_formato_impresion" msdata:Caption="Tipo Formato Impresion" msprop:Generator_ColumnPropNameInTable="tipo_formato_impresionColumn" msprop:Generator_ColumnPropNameInRow="tipo_formato_impresion" msprop:Generator_UserColumnName="tipo_formato_impresion" msprop:Generator_ColumnVarNameInTable="columntipo_formato_impresion" type="xs:string" minOccurs="0" />
               <xs:element name="punto_venta_code" msdata:Caption="Codigo Punto Venta" msprop:Generator_ColumnPropNameInTable="punto_venta_codeColumn" msprop:Generator_ColumnPropNameInRow="punto_venta_code" msprop:Generator_UserColumnName="punto_venta_code" msprop:Generator_ColumnVarNameInTable="columnpunto_venta_code" type="xs:string" minOccurs="0" />
               <xs:element name="punto_venta_nombre" msdata:Caption="Punto Venta Nombre" msprop:Generator_ColumnPropNameInTable="punto_venta_nombreColumn" msprop:Generator_ColumnPropNameInRow="punto_venta_nombre" msprop:Generator_UserColumnName="punto_venta_nombre" msprop:Generator_ColumnVarNameInTable="columnpunto_venta_nombre" type="xs:string" minOccurs="0" />
-              <xs:element name="id_estado" msprop:Generator_ColumnPropNameInRow="id_estado" msprop:Generator_ColumnPropNameInTable="id_estadoColumn" msprop:Generator_ColumnVarNameInTable="columnid_estado" msprop:Generator_UserColumnName="id_estado" type="xs:int" minOccurs="0" />
-              <xs:element name="EstadoNombre" msdata:Caption="Estado Nombre" msprop:Generator_ColumnPropNameInRow="EstadoNombre" msprop:Generator_ColumnPropNameInTable="EstadoNombreColumn" msprop:Generator_ColumnVarNameInTable="columnEstadoNombre" msprop:Generator_UserColumnName="EstadoNombre" type="xs:string" minOccurs="0" />
+              <xs:element name="id_estado" msprop:Generator_UserColumnName="id_estado" msprop:Generator_ColumnPropNameInTable="id_estadoColumn" msprop:Generator_ColumnPropNameInRow="id_estado" msprop:Generator_ColumnVarNameInTable="columnid_estado" type="xs:int" minOccurs="0" />
+              <xs:element name="EstadoNombre" msdata:Caption="Estado Nombre" msprop:Generator_UserColumnName="EstadoNombre" msprop:Generator_ColumnPropNameInTable="EstadoNombreColumn" msprop:Generator_ColumnPropNameInRow="EstadoNombre" msprop:Generator_ColumnVarNameInTable="columnEstadoNombre" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -187,7 +190,7 @@
               <xs:element name="Tarjeta" msprop:Generator_ColumnPropNameInTable="TarjetaColumn" msprop:Generator_ColumnPropNameInRow="Tarjeta" msprop:Generator_UserColumnName="Tarjeta" msprop:Generator_ColumnVarNameInTable="columnTarjeta" type="xs:decimal" minOccurs="0" />
               <xs:element name="Efectivo" msprop:Generator_ColumnPropNameInTable="EfectivoColumn" msprop:Generator_ColumnPropNameInRow="Efectivo" msprop:Generator_UserColumnName="Efectivo" msprop:Generator_ColumnVarNameInTable="columnEfectivo" type="xs:decimal" minOccurs="0" />
               <xs:element name="Deposito" msprop:Generator_ColumnPropNameInTable="DepositoColumn" msprop:Generator_ColumnPropNameInRow="Deposito" msprop:Generator_UserColumnName="Deposito" msprop:Generator_ColumnVarNameInTable="columnDeposito" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Descripcion_pago" msdata:Caption="Descripcion Pago" msprop:Generator_UserColumnName="Descripcion_pago" msprop:Generator_ColumnPropNameInTable="Descripcion_pagoColumn" msprop:Generator_ColumnPropNameInRow="Descripcion_pago" msprop:Generator_ColumnVarNameInTable="columnDescripcion_pago" type="xs:string" minOccurs="0" />
+              <xs:element name="Descripcion_pago" msdata:Caption="Descripcion Pago" msprop:Generator_ColumnPropNameInTable="Descripcion_pagoColumn" msprop:Generator_ColumnPropNameInRow="Descripcion_pago" msprop:Generator_UserColumnName="Descripcion_pago" msprop:Generator_ColumnVarNameInTable="columnDescripcion_pago" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

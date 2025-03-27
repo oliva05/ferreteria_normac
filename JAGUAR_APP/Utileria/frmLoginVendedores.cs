@@ -19,7 +19,12 @@ namespace JAGUAR_PRO.Utileria
 {
     public partial class frmLoginVendedores : DevExpress.XtraEditors.XtraForm
     {
-        UserLogin pVendedorLogeado;
+        UserLogin vVendedorLogeado;
+        public string NombreVendedor;
+        public int IdVendedorUser;
+        public string CodigoVendedor;
+        public Vendedor Vendedor_;
+
         public frmLoginVendedores()
         {
             InitializeComponent();
@@ -48,13 +53,13 @@ namespace JAGUAR_PRO.Utileria
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;    
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void txtCode1_EditValueChanged(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(txtCode1.Text))
+            if (!string.IsNullOrEmpty(txtCode1.Text))
             {
                 txtCode2.Focus();
             }
@@ -112,7 +117,7 @@ namespace JAGUAR_PRO.Utileria
                     if (txtCode4.Text.Length > 0)
                         txtCode4.Text = string.Empty;
                 }
-                if(e.KeyCode == Keys.Enter)
+                if (e.KeyCode == Keys.Enter)
                 {
                     LoadDatosVendedor();
                 }
@@ -125,14 +130,18 @@ namespace JAGUAR_PRO.Utileria
 
         private void LoadDatosVendedor()
         {
+            if (string.IsNullOrEmpty(txtCode1.Text) || string.IsNullOrEmpty(txtCode2.Text) || string.IsNullOrEmpty(txtCode3.Text) ||
+                string.IsNullOrEmpty(txtCode4.Text))
+                return;
+
             string Codigo = txtCode1.Text + txtCode2.Text + txtCode3.Text + txtCode4.Text;
 
             Vendedor vend1 = new Vendedor();
             if (vend1.RecuperarRegistro(Codigo))
             {
                 lblNombreUser.Text = vend1.Nombre;
-                pVendedorLogeado = new UserLogin();
-                pVendedorLogeado.RecuperarRegistro(vend1.Id);
+                vVendedorLogeado = new UserLogin();
+                vVendedorLogeado.RecuperarRegistro(vend1.Id);
 
                 if (vend1.Id <= 0)
                 {
@@ -337,85 +346,91 @@ namespace JAGUAR_PRO.Utileria
 
         private void txtPass2_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.NumPad0 ||
-               e.KeyCode == Keys.NumPad1 ||
-               e.KeyCode == Keys.NumPad2 ||
-               e.KeyCode == Keys.NumPad3 ||
-               e.KeyCode == Keys.NumPad4 ||
-               e.KeyCode == Keys.NumPad5 ||
-               e.KeyCode == Keys.NumPad6 ||
-               e.KeyCode == Keys.NumPad7 ||
-               e.KeyCode == Keys.NumPad8 ||
-               e.KeyCode == Keys.NumPad9 ||
-               e.KeyCode == Keys.NumPad0)
+            if (e.KeyCode == Keys.Back)
             {
-                if (txtPass2.Text.Length > 0)
-                    txtPass2.Text = string.Empty;
+                txtPass1.Focus();
             }
             else
             {
-                if (e.KeyCode == Keys.Back)
+                if (e.KeyCode == Keys.NumPad0 ||
+                   e.KeyCode == Keys.NumPad1 ||
+                   e.KeyCode == Keys.NumPad2 ||
+                   e.KeyCode == Keys.NumPad3 ||
+                   e.KeyCode == Keys.NumPad4 ||
+                   e.KeyCode == Keys.NumPad5 ||
+                   e.KeyCode == Keys.NumPad6 ||
+                   e.KeyCode == Keys.NumPad7 ||
+                   e.KeyCode == Keys.NumPad8 ||
+                   e.KeyCode == Keys.NumPad9 ||
+                   e.KeyCode == Keys.NumPad0)
                 {
-                    //lblNombreUser.Text = string.Empty;
+                    if (txtPass2.Text.Length > 0)
+                        txtPass2.Text = string.Empty;
                 }
             }
         }
 
         private void txtPass3_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.NumPad0 ||
-               e.KeyCode == Keys.NumPad1 ||
-               e.KeyCode == Keys.NumPad2 ||
-               e.KeyCode == Keys.NumPad3 ||
-               e.KeyCode == Keys.NumPad4 ||
-               e.KeyCode == Keys.NumPad5 ||
-               e.KeyCode == Keys.NumPad6 ||
-               e.KeyCode == Keys.NumPad7 ||
-               e.KeyCode == Keys.NumPad8 ||
-               e.KeyCode == Keys.NumPad9 ||
-               e.KeyCode == Keys.NumPad0)
+            if (e.KeyCode == Keys.Back)
             {
-                if (txtPass3.Text.Length > 0)
-                    txtPass3.Text = string.Empty;
+                txtPass2.Focus();
             }
             else
             {
-                if (e.KeyCode == Keys.Back)
+                if (e.KeyCode == Keys.NumPad0 ||
+                   e.KeyCode == Keys.NumPad1 ||
+                   e.KeyCode == Keys.NumPad2 ||
+                   e.KeyCode == Keys.NumPad3 ||
+                   e.KeyCode == Keys.NumPad4 ||
+                   e.KeyCode == Keys.NumPad5 ||
+                   e.KeyCode == Keys.NumPad6 ||
+                   e.KeyCode == Keys.NumPad7 ||
+                   e.KeyCode == Keys.NumPad8 ||
+                   e.KeyCode == Keys.NumPad9 ||
+                   e.KeyCode == Keys.NumPad0)
                 {
-                    //lblNombreUser.Text = string.Empty;
+                    if (txtPass3.Text.Length > 0)
+                        txtPass3.Text = string.Empty;
                 }
             }
         }
 
         private void txtPass4_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.NumPad0 ||
-               e.KeyCode == Keys.NumPad1 ||
-               e.KeyCode == Keys.NumPad2 ||
-               e.KeyCode == Keys.NumPad3 ||
-               e.KeyCode == Keys.NumPad4 ||
-               e.KeyCode == Keys.NumPad5 ||
-               e.KeyCode == Keys.NumPad6 ||
-               e.KeyCode == Keys.NumPad7 ||
-               e.KeyCode == Keys.NumPad8 ||
-               e.KeyCode == Keys.NumPad9 ||
-               e.KeyCode == Keys.NumPad0)
+            if (e.KeyCode == Keys.Back)
             {
-                if (txtPass4.Text.Length > 0)
-                    txtPass4.Text = string.Empty;
+                txtPass3.Focus();
             }
             else
             {
-                if (e.KeyCode == Keys.Back)
+                if (e.KeyCode == Keys.NumPad0 ||
+                   e.KeyCode == Keys.NumPad1 ||
+                   e.KeyCode == Keys.NumPad2 ||
+                   e.KeyCode == Keys.NumPad3 ||
+                   e.KeyCode == Keys.NumPad4 ||
+                   e.KeyCode == Keys.NumPad5 ||
+                   e.KeyCode == Keys.NumPad6 ||
+                   e.KeyCode == Keys.NumPad7 ||
+                   e.KeyCode == Keys.NumPad8 ||
+                   e.KeyCode == Keys.NumPad9 ||
+                   e.KeyCode == Keys.NumPad0)
                 {
-                    //lblNombreUser.Text = string.Empty;
+                    if (txtPass4.Text.Length > 0)
+                        txtPass4.Text = string.Empty;
                 }
             }
         }
 
         private void txtPass5_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.NumPad0 ||
+            if (e.KeyCode == Keys.Back)
+            {
+                txtPass4.Focus();
+            }
+            else
+            {
+                if (e.KeyCode == Keys.NumPad0 ||
                e.KeyCode == Keys.NumPad1 ||
                e.KeyCode == Keys.NumPad2 ||
                e.KeyCode == Keys.NumPad3 ||
@@ -426,43 +441,202 @@ namespace JAGUAR_PRO.Utileria
                e.KeyCode == Keys.NumPad8 ||
                e.KeyCode == Keys.NumPad9 ||
                e.KeyCode == Keys.NumPad0)
-            {
-                if (txtPass5.Text.Length > 0)
-                    txtPass5.Text = string.Empty;
-            }
-            else
-            {
-                if (e.KeyCode == Keys.Back)
                 {
-                    //lblNombreUser.Text = string.Empty;
+                    if (txtPass5.Text.Length > 0)
+                        txtPass5.Text = string.Empty;
                 }
             }
         }
 
         private void txtPass6_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.NumPad0 ||
-               e.KeyCode == Keys.NumPad1 ||
-               e.KeyCode == Keys.NumPad2 ||
-               e.KeyCode == Keys.NumPad3 ||
-               e.KeyCode == Keys.NumPad4 ||
-               e.KeyCode == Keys.NumPad5 ||
-               e.KeyCode == Keys.NumPad6 ||
-               e.KeyCode == Keys.NumPad7 ||
-               e.KeyCode == Keys.NumPad8 ||
-               e.KeyCode == Keys.NumPad9 ||
-               e.KeyCode == Keys.NumPad0)
+            if (e.KeyCode == Keys.Back)
             {
-                if (txtPass3.Text.Length > 0)
-                    txtPass3.Text = string.Empty;
+                txtPass5.Focus();
             }
             else
             {
-                if (e.KeyCode == Keys.Back)
+                if (e.KeyCode == Keys.NumPad0 ||
+                   e.KeyCode == Keys.NumPad1 ||
+                   e.KeyCode == Keys.NumPad2 ||
+                   e.KeyCode == Keys.NumPad3 ||
+                   e.KeyCode == Keys.NumPad4 ||
+                   e.KeyCode == Keys.NumPad5 ||
+                   e.KeyCode == Keys.NumPad6 ||
+                   e.KeyCode == Keys.NumPad7 ||
+                   e.KeyCode == Keys.NumPad8 ||
+                   e.KeyCode == Keys.NumPad9 ||
+                   e.KeyCode == Keys.NumPad0)
                 {
-                    //lblNombreUser.Text = string.Empty;
+                    if (txtPass6.Text.Length > 0)
+                        txtPass6.Text = string.Empty;
+                }
+                else
+                {
+                    if (e.KeyCode == Keys.Enter)
+                    {
+                        LoginVendedor_();
+                    }
                 }
             }
+        }
+
+        private void txtPass1_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPass1.Text))
+            {
+                txtPass2.Focus();
+            }
+        }
+
+        private void txtPass2_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPass2.Text))
+            {
+                txtPass3.Focus();
+            }
+        }
+
+        private void txtPass3_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPass3.Text))
+            {
+                txtPass4.Focus();
+            }
+        }
+
+        private void txtPass4_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPass4.Text))
+            {
+                txtPass5.Focus();
+            }
+        }
+
+        private void txtPass5_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPass5.Text))
+            {
+                txtPass6.Focus();
+            }
+        }
+
+        private void txtPass6_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPass6.Text))
+            {
+                //validate user
+                LoginVendedor_();
+            }
+        }
+
+        private void LoginVendedor_()
+        {
+            if(vVendedorLogeado != null)
+            {
+                if (string.IsNullOrEmpty(txtPass1.Text) ||
+                    string.IsNullOrEmpty(txtPass2.Text) ||
+                    string.IsNullOrEmpty(txtPass3.Text) ||
+                    string.IsNullOrEmpty(txtPass4.Text) ||
+                    string.IsNullOrEmpty(txtPass5.Text) ||
+                    string.IsNullOrEmpty(txtPass6.Text))
+                    return;
+
+                string pin = txtPass1.Text + txtPass2.Text + txtPass3.Text + txtPass4.Text + txtPass5.Text + txtPass6.Text;
+
+                if(pin == vVendedorLogeado.PIN)
+                {
+                    NombreVendedor = vVendedorLogeado.NombreUser;
+                    IdVendedorUser = vVendedorLogeado.Id;
+                    CodigoVendedor = vVendedorLogeado.Codigo;
+                    Vendedor_ = new Vendedor();
+                    Vendedor_.Id = vVendedorLogeado.Id;
+                    Vendedor_.Nombre = vVendedorLogeado.NombreUser;
+                    Vendedor_.CodigoVendedor = vVendedorLogeado.Codigo;
+                    Vendedor_.Recuperado = true;
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    CajaDialogo.Error("El pin es incorrecto!");
+                    txtPass1.Focus();
+                }
+            }
+        }
+
+        private void cmdGuardar_Click(object sender, EventArgs e)
+        {
+            LoginVendedor_();
+        }
+
+        private void txtCode1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))// && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtCode2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtCode3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtCode4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtPass1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtPass2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtPass3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtPass4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtPass5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtPass6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

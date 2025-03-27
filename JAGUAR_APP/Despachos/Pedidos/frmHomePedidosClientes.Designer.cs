@@ -258,6 +258,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colImprimir});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
             // 
             // colid
             // 
@@ -366,6 +367,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             // coltotal
             // 
+            this.coltotal.DisplayFormat.FormatString = "n2";
+            this.coltotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coltotal.FieldName = "total";
             this.coltotal.Name = "coltotal";
             this.coltotal.OptionsColumn.ReadOnly = true;
