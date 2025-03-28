@@ -160,7 +160,7 @@ namespace JAGUAR_PRO.Clases
                     DataOperations dp = new DataOperations();
                     string pass = "OPjSn10Z1U";
                     string user_op = "ftp_normac";
-                    string ftpUrl = "ftp://10.50.13.89";
+                    string ftpUrl = "ftp://192.168.21.50";
 
                     FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
                     request.Credentials = new NetworkCredential(user_op, pass);
