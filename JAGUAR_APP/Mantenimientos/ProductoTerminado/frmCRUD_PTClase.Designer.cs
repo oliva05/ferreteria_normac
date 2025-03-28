@@ -40,19 +40,21 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblTituloVentana = new DevExpress.XtraEditors.LabelControl();
             this.grdTipo = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.familiaselectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoariaselectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colconcat_ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.familiaselectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.categoariaselectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtFamilia = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchEnablePT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTipo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.familiaselectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoariaselectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoariaselectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.familiaselectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdGuardar
@@ -63,7 +65,7 @@
             this.cmdGuardar.Appearance.Options.UseFont = true;
             this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGuardar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdGuardar.ImageOptions.SvgImage")));
-            this.cmdGuardar.Location = new System.Drawing.Point(66, 242);
+            this.cmdGuardar.Location = new System.Drawing.Point(64, 202);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(132, 42);
             this.cmdGuardar.TabIndex = 45;
@@ -78,7 +80,7 @@
             this.cmdCerrar.Appearance.Options.UseFont = true;
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCerrar.ImageOptions.SvgImage")));
-            this.cmdCerrar.Location = new System.Drawing.Point(243, 242);
+            this.cmdCerrar.Location = new System.Drawing.Point(241, 202);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(132, 42);
             this.cmdCerrar.TabIndex = 44;
@@ -98,7 +100,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(29, 109);
+            this.labelControl5.Location = new System.Drawing.Point(31, 112);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(191, 15);
             this.labelControl5.TabIndex = 42;
@@ -117,7 +119,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(29, 138);
+            this.labelControl4.Location = new System.Drawing.Point(31, 141);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(184, 15);
             this.labelControl4.TabIndex = 40;
@@ -125,20 +127,20 @@
             // 
             // toggleSwitchEnablePT
             // 
-            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(215, 167);
+            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(201, 162);
             this.toggleSwitchEnablePT.Name = "toggleSwitchEnablePT";
             this.toggleSwitchEnablePT.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toggleSwitchEnablePT.Properties.Appearance.Options.UseFont = true;
             this.toggleSwitchEnablePT.Properties.OffText = "No";
             this.toggleSwitchEnablePT.Properties.OnText = "Si";
-            this.toggleSwitchEnablePT.Size = new System.Drawing.Size(115, 20);
+            this.toggleSwitchEnablePT.Size = new System.Drawing.Size(115, 22);
             this.toggleSwitchEnablePT.TabIndex = 39;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(120, 169);
+            this.labelControl2.Location = new System.Drawing.Point(106, 164);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(159, 15);
             this.labelControl2.TabIndex = 38;
@@ -170,10 +172,10 @@
             this.grdTipo.Size = new System.Drawing.Size(189, 22);
             this.grdTipo.TabIndex = 46;
             // 
-            // familiaselectBindingSource
+            // categoariaselectBindingSource
             // 
-            this.familiaselectBindingSource.DataMember = "familia_select";
-            this.familiaselectBindingSource.DataSource = this.dsProductoTerminado1;
+            this.categoariaselectBindingSource.DataMember = "categoaria_select";
+            this.categoariaselectBindingSource.DataSource = this.dsProductoTerminado1;
             // 
             // dsProductoTerminado1
             // 
@@ -203,26 +205,48 @@
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
             // 
+            // familiaselectBindingSource
+            // 
+            this.familiaselectBindingSource.DataMember = "familia_select";
+            this.familiaselectBindingSource.DataSource = this.dsProductoTerminado1;
+            // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(31, 80);
+            this.labelControl1.Location = new System.Drawing.Point(31, 83);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(209, 15);
             this.labelControl1.TabIndex = 47;
             this.labelControl1.Text = "Código de Categoria____________________";
             // 
-            // categoariaselectBindingSource
+            // labelControl3
             // 
-            this.categoariaselectBindingSource.DataMember = "categoaria_select";
-            this.categoariaselectBindingSource.DataSource = this.dsProductoTerminado1;
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(31, 55);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(209, 15);
+            this.labelControl3.TabIndex = 48;
+            this.labelControl3.Text = "Código de Categoria____________________";
+            // 
+            // txtFamilia
+            // 
+            this.txtFamilia.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtFamilia.Location = new System.Drawing.Point(201, 47);
+            this.txtFamilia.MaxLength = 3;
+            this.txtFamilia.Name = "txtFamilia";
+            this.txtFamilia.ReadOnly = true;
+            this.txtFamilia.Size = new System.Drawing.Size(189, 23);
+            this.txtFamilia.TabIndex = 49;
             // 
             // frmCRUD_PTClase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 303);
+            this.ClientSize = new System.Drawing.Size(422, 261);
+            this.Controls.Add(this.txtFamilia);
+            this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.grdTipo);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdGuardar);
@@ -239,10 +263,10 @@
             this.Text = "Gestion de Clases";
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchEnablePT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTipo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.familiaselectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoariaselectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoariaselectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.familiaselectBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,5 +291,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colconcat_;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private System.Windows.Forms.BindingSource categoariaselectBindingSource;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private System.Windows.Forms.TextBox txtFamilia;
     }
 }
