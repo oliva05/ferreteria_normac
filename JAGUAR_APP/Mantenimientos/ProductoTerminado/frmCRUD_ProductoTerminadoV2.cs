@@ -28,6 +28,7 @@ using Image = System.Drawing.Image;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.Mantenimientos.Modelos;
 using DevExpress.Internal;
+using DevExpress.XtraBars.Ribbon;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
@@ -142,13 +143,22 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                                 row1.fecha_registro = (DateTime)item.ItemArray[4];
                                 row1.user = (string)item.ItemArray[5];
 
-
                                 Image img = ftp.ShowImageFromFtp(row1.path);
                                 byte[] imgBytes = ImageToByteArray(img);
                                 row1.imagen = imgBytes;
 
                                 dsProductoTerminado1.PTImagenes.AddPTImagenesRow(row1);
                             }
+
+                            lblStatusFTP.Visible = true;
+                            lblStatusFTP.Text = "Servidor de Imagenes: DISPONIBLE";
+                            lblStatusFTP.ForeColor = Color.Green;
+                        }
+                        else
+                        {
+                            lblStatusFTP.Visible = true;
+                            lblStatusFTP.Text = "Servidor de Imagenes: NO DISPONIBLE";
+                            lblStatusFTP.ForeColor = Color.Red;
                         }
                         
                         
@@ -453,40 +463,50 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void btnAddImage_Click(object sender, EventArgs e)
         {
-            int contador = 0;
-            try
+            if (ftp.ValidateConnection())
             {
-                openFileDialog1.InitialDirectory = "c:\\";
-                openFileDialog1.Filter = "Files|*.jpg;*.jpeg;*.png;*.pdf;*.xlsx";
-
-                if (openFileDialog1.ShowDialog() == DialogResult.OK) 
+                int contador = 0;
+                try
                 {
-                    contador = 0;
+                    openFileDialog1.InitialDirectory = "c:\\";
+                    openFileDialog1.Filter = "Files|*.jpg;*.jpeg;*.png;*.pdf;*.xlsx";
 
-                    Image img = Image.FromFile(openFileDialog1.FileName);
-                    byte[] imgBytes = ImageToByteArray(img);
-
-                    foreach (var item in openFileDialog1.SafeFileNames) 
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
-                        DataRow newRow = dsProductoTerminado1.PTImagenes.NewRow();
-                        newRow["id"] = 0;
-                        newRow["fecha_registro"] = DateTime.Now;
-                        newRow["path"] = openFileDialog1.FileNames[contador];
-                        newRow["file_name"] = item;
-                        newRow["id_user"] = UsuarioLogeado.Id;
-                        newRow["user"] = UsuarioLogeado.Nombre;
-                        newRow["id_pt"] = IdPT;
-                        newRow["imagen"] = imgBytes;
-                        dsProductoTerminado1.PTImagenes.Rows.Add(newRow);
-                        contador++;
-                    }
-                }
+                        contador = 0;
 
+                        Image img = Image.FromFile(openFileDialog1.FileName);
+                        byte[] imgBytes = ImageToByteArray(img);
+
+                        foreach (var item in openFileDialog1.SafeFileNames)
+                        {
+                            DataRow newRow = dsProductoTerminado1.PTImagenes.NewRow();
+                            newRow["id"] = 0;
+                            newRow["fecha_registro"] = DateTime.Now;
+                            newRow["path"] = openFileDialog1.FileNames[contador];
+                            newRow["file_name"] = item;
+                            newRow["id_user"] = UsuarioLogeado.Id;
+                            newRow["user"] = UsuarioLogeado.Nombre;
+                            newRow["id_pt"] = IdPT;
+                            newRow["imagen"] = imgBytes;
+                            dsProductoTerminado1.PTImagenes.Rows.Add(newRow);
+                            contador++;
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    CajaDialogo.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                CajaDialogo.Show(ex.Message);
+                lblStatusFTP.Visible = true;
+                lblStatusFTP.Text = "Servidor de Imagenes: NO DISPONIBLE";
+                lblStatusFTP.ForeColor = Color.Red;
             }
+            
         }
 
         private void reposPictureItemImage_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
