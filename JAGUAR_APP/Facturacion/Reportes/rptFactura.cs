@@ -39,7 +39,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 lblFechaLimite.Text = string.Format("{0:MM/dd/yyyy}", NumFiscal1.FechaVence);
             }
 
-            lblNombreLega.Text = "Nombre Legal:"+ Factura1.NombreLegal_PDV;
+            lblNombreLega.Text = Factura1.NombreLegal_PDV;
             lblRTN.Text = "R.T.N. " + Factura1.RTN_PDV;
             lblCorreo.Text = Factura1.Correo_PDV;
             lblDireccion.Text = Factura1.DireccionPDV;
