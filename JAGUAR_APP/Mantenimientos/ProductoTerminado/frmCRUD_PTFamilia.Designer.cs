@@ -53,20 +53,20 @@
             // 
             // toggleSwitchEnablePT
             // 
-            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(201, 161);
+            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(201, 127);
             this.toggleSwitchEnablePT.Name = "toggleSwitchEnablePT";
             this.toggleSwitchEnablePT.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toggleSwitchEnablePT.Properties.Appearance.Options.UseFont = true;
             this.toggleSwitchEnablePT.Properties.OffText = "No";
             this.toggleSwitchEnablePT.Properties.OnText = "Si";
-            this.toggleSwitchEnablePT.Size = new System.Drawing.Size(115, 20);
+            this.toggleSwitchEnablePT.Size = new System.Drawing.Size(115, 22);
             this.toggleSwitchEnablePT.TabIndex = 30;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(104, 163);
+            this.labelControl2.Location = new System.Drawing.Point(104, 129);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(159, 15);
             this.labelControl2.TabIndex = 29;
@@ -118,7 +118,7 @@
             this.cmdGuardar.Appearance.Options.UseFont = true;
             this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGuardar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdGuardar.ImageOptions.SvgImage")));
-            this.cmdGuardar.Location = new System.Drawing.Point(50, 236);
+            this.cmdGuardar.Location = new System.Drawing.Point(55, 173);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(132, 42);
             this.cmdGuardar.TabIndex = 36;
@@ -133,7 +133,7 @@
             this.cmdCerrar.Appearance.Options.UseFont = true;
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCerrar.ImageOptions.SvgImage")));
-            this.cmdCerrar.Location = new System.Drawing.Point(227, 236);
+            this.cmdCerrar.Location = new System.Drawing.Point(232, 173);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(132, 42);
             this.cmdCerrar.TabIndex = 35;
@@ -144,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 303);
+            this.ClientSize = new System.Drawing.Size(422, 228);
             this.Controls.Add(this.cmdGuardar);
             this.Controls.Add(this.cmdCerrar);
             this.Controls.Add(this.txtCodigo);

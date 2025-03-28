@@ -85,9 +85,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
-            if(txtCodigo.Text.Length < 3)
+            if(txtCodigo.Text.Length < 2)
             {
-                CajaDialogo.Error("El codio deben ser por lo menos 3 Digitos");
+                CajaDialogo.Error("El codio deben ser por lo menos 2 Digitos");
                 return;
             }    
 
