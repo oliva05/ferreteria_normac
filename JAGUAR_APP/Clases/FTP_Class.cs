@@ -189,7 +189,7 @@ namespace JAGUAR_PRO.Clases
             }
             else
             {
-                CajaDialogo.Error($"Error de conexión FTP \nContacte a su Proveedor de Software");
+                //CajaDialogo.Error($"Error de conexión FTP \nContacte a su Proveedor de Software");
                 return false; // Se agotó el tiempo de espera
             }
         }

@@ -136,6 +136,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.cmdHabilitarAlmacen = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.lblStatusFTP = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit_Presentaciones.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePresentacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
@@ -1010,6 +1011,17 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.simpleButton1.Text = "Guardar";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // lblStatusFTP
+            // 
+            this.lblStatusFTP.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusFTP.Appearance.Options.UseFont = true;
+            this.lblStatusFTP.Location = new System.Drawing.Point(741, 33);
+            this.lblStatusFTP.Name = "lblStatusFTP";
+            this.lblStatusFTP.Size = new System.Drawing.Size(211, 18);
+            this.lblStatusFTP.TabIndex = 53;
+            this.lblStatusFTP.Text = "Servidor De Imagenes: STATUS";
+            this.lblStatusFTP.Visible = false;
+            // 
             // frmCRUD_ProductoTerminadoV2
             // 
             this.defaultToolTipController1.SetAllowHtmlText(this, DevExpress.Utils.DefaultBoolean.Default);
@@ -1018,6 +1030,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1060, 471);
+            this.Controls.Add(this.lblStatusFTP);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.xtraTabControl1);
@@ -1185,5 +1198,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdFijarComoEstandar;
         private DevExpress.XtraGrid.Columns.GridColumn gcHabilitar;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdHabilitarAlmacen;
+        private DevExpress.XtraEditors.LabelControl lblStatusFTP;
     }
 }

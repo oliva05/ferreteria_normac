@@ -36,7 +36,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                 if (dr.Read())
                 {
                     lblNumTraslado.Text = "# Traslado " + dr.GetString(0);
-                    lblFecha.Text = string.Format("{0:d}",dr.GetDateTime(2));
+                    lblFecha.Text = string.Format("{0:G}",dr.GetDateTime(2));
                     lblUsuario.Text = dr.GetString(3);
                     lblAlmOrigen.Text = dr.GetString(4);
                     lblAlmDestino.Text = dr.GetString(5);
