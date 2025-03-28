@@ -2568,6 +2568,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             private global::System.Data.DataColumn columndescripcion;
             
+            private global::System.Data.DataColumn columnisv1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_factura_transaccion_invDataTable() {
@@ -2683,6 +2685,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn isv1Column {
+                get {
+                    return this.columnisv1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2718,7 +2728,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public detalle_factura_transaccion_invRow Adddetalle_factura_transaccion_invRow(int id_pt, int id_bodega, decimal cantidad, string bodega_descripcion, bool chequeado, decimal precio, int id_presentacion, decimal descuento, string item_code, string descripcion) {
+            public detalle_factura_transaccion_invRow Adddetalle_factura_transaccion_invRow(int id_pt, int id_bodega, decimal cantidad, string bodega_descripcion, bool chequeado, decimal precio, int id_presentacion, decimal descuento, string item_code, string descripcion, decimal isv1) {
                 detalle_factura_transaccion_invRow rowdetalle_factura_transaccion_invRow = ((detalle_factura_transaccion_invRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_pt,
@@ -2730,7 +2740,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         id_presentacion,
                         descuento,
                         item_code,
-                        descripcion};
+                        descripcion,
+                        isv1};
                 rowdetalle_factura_transaccion_invRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_factura_transaccion_invRow);
                 return rowdetalle_factura_transaccion_invRow;
@@ -2763,6 +2774,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columndescuento = base.Columns["descuento"];
                 this.columnitem_code = base.Columns["item_code"];
                 this.columndescripcion = base.Columns["descripcion"];
+                this.columnisv1 = base.Columns["isv1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2788,6 +2800,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columnitem_code);
                 this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescripcion);
+                this.columnisv1 = new global::System.Data.DataColumn("isv1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnisv1);
                 this.columncantidad.Caption = "Cantidad";
                 this.columnbodega_descripcion.Caption = "Bodega";
             }
@@ -4471,6 +4485,23 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal isv1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledetalle_factura_transaccion_inv.isv1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'isv1\' de la tabla \'detalle_factura_transaccion_inv\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_factura_transaccion_inv.isv1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_ptNull() {
                 return this.IsNull(this.tabledetalle_factura_transaccion_inv.id_ptColumn);
             }
@@ -4587,6 +4618,18 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetdescripcionNull() {
                 this[this.tabledetalle_factura_transaccion_inv.descripcionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isisv1Null() {
+                return this.IsNull(this.tabledetalle_factura_transaccion_inv.isv1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setisv1Null() {
+                this[this.tabledetalle_factura_transaccion_inv.isv1Column] = global::System.Convert.DBNull;
             }
         }
         

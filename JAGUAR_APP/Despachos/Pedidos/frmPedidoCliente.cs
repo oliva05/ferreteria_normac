@@ -1745,7 +1745,7 @@ namespace Eatery.Ventas
                         //row1.descuento = 0;
                         //row1.itemcode = frm.ItemSeleccionado.ItemCode;
                         //row1.itemname = frm.ItemSeleccionado.ItemName;
-                        //row1.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id);
+                        //row1.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
 
                         //row1.isv1 = row1.isv2 = row1.isv3 = 0;
                         //Impuesto impuesto = new Impuesto();
@@ -1777,6 +1777,31 @@ namespace Eatery.Ventas
                         row1.itemcode = frm.ItemSeleccionado.ItemCode;
                         row1.itemname = frm.ItemSeleccionado.ItemName;
                         decimal invTotal = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
+
+
+                        //Calculo del impuesto
+                        row1.isv1 = row1.isv2 = row1.isv3 = 0;
+                        Impuesto impuesto = new Impuesto();
+                        decimal tasaISV = 0;
+
+                        if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
+                        {
+                            tasaISV = impuesto.Valor / 100;
+                            row1.isv1 = ((row1.precio - row1.descuento) / 100) * impuesto.Valor;
+                            row1.precio = (row1.precio - row1.descuento) - row1.isv1;
+
+                            row1.tasa_isv = tasaISV;
+                            row1.id_isv_aplicable = impuesto.Id;
+                        }
+                        else
+                        {
+                            row1.tasa_isv = 0;
+                            row1.id_isv_aplicable = 0;
+                            row1.precio = (row1.precio - row1.descuento);
+                            row1.isv1 = 0;
+                        }
+
+                        row1.total_linea = (row1.cantidad * row1.precio) + (row1.cantidad * row1.isv1) + (row1.cantidad * row1.isv2) + (row1.cantidad * row1.isv3);
                         try
                         {
                             DataOperations dp = new DataOperations();
@@ -1798,7 +1823,7 @@ namespace Eatery.Ventas
 
                                 AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_, 
                                                                      Cantidad_, pt1.Id_presentacion, row1.precio, row1.descuento,
-                                                                     pt1.Code, pt1.Descripcion);
+                                                                     pt1.Code, pt1.Descripcion, row1.isv1);
                             }
                             else
                             {
@@ -1815,27 +1840,6 @@ namespace Eatery.Ventas
                         
 
 
-                        row1.isv1 = row1.isv2 = row1.isv3 = 0;
-                        Impuesto impuesto = new Impuesto();
-                        decimal tasaISV = 0;
-
-                        if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
-                        {
-                            tasaISV = impuesto.Valor / 100;
-                            row1.isv1 = ((row1.precio - row1.descuento) / 100) * impuesto.Valor;
-                            row1.precio = (row1.precio - row1.descuento) - row1.isv1;
-
-                            row1.tasa_isv = tasaISV;
-                            row1.id_isv_aplicable = impuesto.Id;
-                        }
-                        else
-                        {
-                            row1.tasa_isv = 0;
-                            row1.id_isv_aplicable = 0;
-                            row1.precio = (row1.precio - row1.descuento);
-                        }
-
-                        row1.total_linea = (row1.cantidad * row1.precio) + (row1.cantidad * row1.isv1) + (row1.cantidad * row1.isv2) + (row1.cantidad * row1.isv3);
 
 
                         //dsCompras.oc_d_normal.Addoc_d_normalRow(row1);
@@ -2078,7 +2082,7 @@ namespace Eatery.Ventas
 
         private void AgregarDetalleInventarioSeleccionado(int id_pt, int idBodega_, string bodegaName_, decimal cantidad_, 
                                                           int pIdPresentacion, decimal pPrecio, decimal pDescuento,
-                                                          string pItemCode, string pItemName)
+                                                          string pItemCode, string pItemName, decimal isv1)
         {
             dsVentas.detalle_factura_transaccion_invRow row = dsVentas1.detalle_factura_transaccion_inv.Newdetalle_factura_transaccion_invRow();
             row.id_pt = id_pt;
@@ -2091,6 +2095,7 @@ namespace Eatery.Ventas
             row.id_presentacion = pIdPresentacion;
             row.item_code = pItemCode;
             row.descripcion = pItemName;
+            row.isv1 = isv1;
             dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
             dsVentas1.AcceptChanges();
         }
@@ -2131,6 +2136,7 @@ namespace Eatery.Ventas
                     row.id_presentacion = i.id_presentacion;
                     row.item_code = i.ItemCode;
                     row.descripcion = i.Descripcion;
+                    row.isv1 = i.isv1;
                     dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
                     dsVentas1.AcceptChanges();
                 }
@@ -2176,6 +2182,7 @@ namespace Eatery.Ventas
                     item.id_presentacion = rowi.id_presentacion;
                     item.ItemCode= rowi.item_code;
                     item.Descripcion = rowi.descripcion;
+                    item.isv1 = rowi.isv1;
                     ListaActual.Add(item);
                 }
             }
@@ -2336,28 +2343,29 @@ namespace Eatery.Ventas
 
                         //Posteamos lineas de factura y Transaccion en Kardex
                         //foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
-                        foreach(dsVentas.detalle_factura_transaccion_invRow row in dsVentas1.detalle_factura_transaccion_inv)
+                        foreach (dsVentas.detalle_factura_transaccion_invRow row in dsVentas1.detalle_factura_transaccion_inv)
                         {
                             //ProductoTerminado PtIterado = new ProductoTerminado();
                             //if (PtIterado.Recuperar_producto(row.id_pt))
                             //{
-                                command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
-                                command.Parameters.Clear();
-                                command.CommandType = CommandType.StoredProcedure;
-                                command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
-                                command.Parameters.AddWithValue("@id_pt", row.id_pt);
-                                command.Parameters.AddWithValue("@item_code", row.item_code);
-                                command.Parameters.AddWithValue("@descripcion", row.descripcion);
-                                command.Parameters.AddWithValue("@cantidad", row.cantidad);
-                                command.Parameters.AddWithValue("@precio", row.precio);
-                                command.Parameters.AddWithValue("@descuento", row.descuento);
-                                command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
-                                command.Parameters.AddWithValue("@fecha_hora_row", Pedido_.FechaDocumento);
-                                command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
-                                command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
-                                command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
-                                command.ExecuteNonQuery();
-                            
+                            command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
+                            command.Parameters.Clear();
+                            command.CommandType = CommandType.StoredProcedure;
+                            command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
+                            command.Parameters.AddWithValue("@id_pt", row.id_pt);
+                            command.Parameters.AddWithValue("@item_code", row.item_code);
+                            command.Parameters.AddWithValue("@descripcion", row.descripcion);
+                            command.Parameters.AddWithValue("@cantidad", row.cantidad);
+                            command.Parameters.AddWithValue("@precio", row.precio);
+                            command.Parameters.AddWithValue("@descuento", row.descuento);
+                            command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
+                            command.Parameters.AddWithValue("@fecha_hora_row", Pedido_.FechaDocumento);
+                            command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                            command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
+                            command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                            command.Parameters.AddWithValue("@isv", row.isv1);
+                            command.ExecuteNonQuery();
+
                             TotalFactura += (row.cantidad * row.precio) - row.descuento;
                         }
 
