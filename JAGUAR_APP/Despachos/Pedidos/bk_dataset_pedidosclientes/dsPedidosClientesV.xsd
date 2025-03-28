@@ -46,6 +46,7 @@
               <xs:element name="itemname" msprop:Generator_ColumnPropNameInTable="itemnameColumn" msprop:Generator_ColumnPropNameInRow="itemname" msprop:Generator_UserColumnName="itemname" msprop:Generator_ColumnVarNameInTable="columnitemname" type="xs:string" minOccurs="0" />
               <xs:element name="id_presentacion" msprop:Generator_ColumnPropNameInTable="id_presentacionColumn" msprop:Generator_ColumnPropNameInRow="id_presentacion" msprop:Generator_UserColumnName="id_presentacion" msprop:Generator_ColumnVarNameInTable="columnid_presentacion" type="xs:int" minOccurs="0" />
               <xs:element name="isv1" msprop:Generator_ColumnPropNameInTable="isv1Column" msprop:Generator_ColumnPropNameInRow="isv1" msprop:Generator_UserColumnName="isv1" msprop:Generator_ColumnVarNameInTable="columnisv1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="isv" msprop:Generator_UserColumnName="isv" msprop:Generator_ColumnPropNameInTable="isvColumn" msprop:Generator_ColumnPropNameInRow="isv" msprop:Generator_ColumnVarNameInTable="columnisv" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -65,11 +66,10 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="table_add_danys" msprop:Generator_RowClassName="table_add_danysRow" msprop:Generator_RowEvHandlerName="table_add_danysRowChangeEventHandler" msprop:Generator_RowDeletedName="table_add_danysRowDeleted" msprop:Generator_RowDeletingName="table_add_danysRowDeleting" msprop:Generator_RowEvArgName="table_add_danysRowChangeEvent" msprop:Generator_TablePropName="table_add_danys" msprop:Generator_RowChangedName="table_add_danysRowChanged" msprop:Generator_UserTableName="table_add_danys" msprop:Generator_RowChangingName="table_add_danysRowChanging" msprop:Generator_TableClassName="table_add_danysDataTable" msprop:Generator_TableVarName="tabletable_add_danys">
+        <xs:element name="table_add_danys" msprop:Generator_RowEvHandlerName="table_add_danysRowChangeEventHandler" msprop:Generator_RowDeletedName="table_add_danysRowDeleted" msprop:Generator_RowDeletingName="table_add_danysRowDeleting" msprop:Generator_RowEvArgName="table_add_danysRowChangeEvent" msprop:Generator_TablePropName="table_add_danys" msprop:Generator_RowChangedName="table_add_danysRowChanged" msprop:Generator_RowChangingName="table_add_danysRowChanging" msprop:Generator_TableClassName="table_add_danysDataTable" msprop:Generator_RowClassName="table_add_danysRow" msprop:Generator_TableVarName="tabletable_add_danys" msprop:Generator_UserTableName="table_add_danys">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:string" minOccurs="0" />
-              <xs:element name="name" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_UserColumnName="id" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

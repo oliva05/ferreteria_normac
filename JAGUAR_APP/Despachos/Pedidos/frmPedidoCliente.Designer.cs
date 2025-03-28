@@ -45,7 +45,6 @@ namespace Eatery.Ventas
             this.txtNombreCliente = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.cmdAbrirBusqueda = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdFacturar = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSalir = new DevExpress.XtraEditors.SimpleButton();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
@@ -56,6 +55,7 @@ namespace Eatery.Ventas
             this.dsVentas1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsVentas();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.label11 = new System.Windows.Forms.Label();
             this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
@@ -108,7 +108,6 @@ namespace Eatery.Ventas
             this.colGestionAlmacen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdElejirAlmacen = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colinventario_seleccionado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCliente.Properties)).BeginInit();
             this.panelNotificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsVentas1)).BeginInit();
@@ -168,21 +167,6 @@ namespace Eatery.Ventas
             this.cmdAbrirBusqueda.TabIndex = 3;
             this.cmdAbrirBusqueda.Text = "&Buscar Cliente";
             this.cmdAbrirBusqueda.Click += new System.EventHandler(this.cmdAbrirBusqueda_Click);
-            // 
-            // cmdFacturar
-            // 
-            this.cmdFacturar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdFacturar.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdFacturar.Appearance.Options.UseFont = true;
-            this.cmdFacturar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdFacturar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdFacturar.ImageOptions.Image")));
-            this.cmdFacturar.Location = new System.Drawing.Point(255, 562);
-            this.cmdFacturar.Name = "cmdFacturar";
-            this.cmdFacturar.Size = new System.Drawing.Size(246, 38);
-            this.cmdFacturar.TabIndex = 7;
-            this.cmdFacturar.Text = "&Facturar";
-            this.cmdFacturar.Visible = false;
-            this.cmdFacturar.Click += new System.EventHandler(this.cmdFacturar_Click);
             // 
             // cmdSalir
             // 
@@ -286,6 +270,7 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
+            this.navigationPage1.Caption = "navigationPage1";
             this.navigationPage1.Controls.Add(this.label11);
             this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
             this.navigationPage1.Controls.Add(this.textEdit1);
@@ -314,7 +299,6 @@ namespace Eatery.Ventas
             this.navigationPage1.Controls.Add(this.cmdSalir);
             this.navigationPage1.Controls.Add(this.cmdNew);
             this.navigationPage1.Controls.Add(this.txtScanProducto);
-            this.navigationPage1.Controls.Add(this.cmdFacturar);
             this.navigationPage1.Controls.Add(this.gridControl1);
             this.navigationPage1.Controls.Add(this.txtTotal);
             this.navigationPage1.Controls.Add(this.lblfecha);
@@ -325,6 +309,16 @@ namespace Eatery.Ventas
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(1155, 675);
             this.navigationPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.navigationPage1_Paint);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label11.Location = new System.Drawing.Point(12, 135);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 20);
+            this.label11.TabIndex = 54;
+            this.label11.Text = "Código";
             // 
             // cmdChangeVendedor
             // 
@@ -877,16 +871,6 @@ namespace Eatery.Ventas
             this.colinventario_seleccionado.VisibleIndex = 3;
             this.colinventario_seleccionado.Width = 58;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label11.Location = new System.Drawing.Point(12, 135);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 20);
-            this.label11.TabIndex = 54;
-            this.label11.Text = "Código";
-            // 
             // frmPedidoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -932,7 +916,6 @@ namespace Eatery.Ventas
         private DevExpress.XtraEditors.TextEdit txtNombreCliente;
         private DevExpress.XtraEditors.SimpleButton cmdAbrirBusqueda;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.SimpleButton cmdFacturar;
         private DevExpress.XtraEditors.SimpleButton cmdSalir;
         private System.Windows.Forms.TextBox txtTotal;
         private DevExpress.XtraEditors.SimpleButton cmdNew;

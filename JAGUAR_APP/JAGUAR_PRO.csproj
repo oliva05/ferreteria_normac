@@ -918,6 +918,11 @@
     <Compile Include="Despachos\Pedidos\dsPedidosClientesV.Designer.cs">
       <DependentUpon>dsPedidosClientesV.cs</DependentUpon>
     </Compile>
+    <Compile Include="Despachos\Pedidos\dsPrefacturas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPrefacturas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Despachos\Pedidos\frmElejirAlmacenPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2303,6 +2308,17 @@
     <None Include="Despachos\Pedidos\dsPedidosClientesV.xsd" />
     <None Include="Despachos\Pedidos\dsPedidosClientesV.xss">
       <DependentUpon>dsPedidosClientesV.xsd</DependentUpon>
+    </None>
+    <None Include="Despachos\Pedidos\dsPrefacturas.xsc">
+      <DependentUpon>dsPrefacturas.xsd</DependentUpon>
+    </None>
+    <None Include="Despachos\Pedidos\dsPrefacturas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPrefacturas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Despachos\Pedidos\dsPrefacturas.xss">
+      <DependentUpon>dsPrefacturas.xsd</DependentUpon>
     </None>
     <None Include="Despachos\Reportes\dsReporte.xsc">
       <DependentUpon>dsReporte.xsd</DependentUpon>

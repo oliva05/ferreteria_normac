@@ -42,9 +42,11 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.dsPrefacturas1 = new JAGUAR_PRO.Despachos.Pedidos.dsPrefacturas();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPedidosClientesV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrefacturas1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -53,7 +55,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "stock_por_almacen";
-            this.gridControl1.DataSource = this.dsPedidosClientesV1;
+            this.gridControl1.DataSource = this.dsPrefacturas1;
             this.gridControl1.Location = new System.Drawing.Point(1, 54);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -188,6 +190,11 @@
             this.simpleButton1.ToolTipTitle = "Guardar Entrada de Factura";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // dsPrefacturas1
+            // 
+            this.dsPrefacturas1.DataSetName = "dsPrefacturas";
+            this.dsPrefacturas1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // frmElejirAlmacenPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +212,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPedidosClientesV1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrefacturas1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,5 +233,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcantidad_seleccionada;
         private DevExpress.XtraEditors.SimpleButton cmdGuardar;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private dsPrefacturas dsPrefacturas1;
     }
 }

@@ -146,30 +146,6 @@
         jXbAs4CSOH/+QkNISMh+at9A2/lZQr3Cn5C95S+GX7DgJVd3EwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="cmdFacturar.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABE9JREFUWEe9
-        1/tPW3UUAPBL/wJaI4ItIC2v0bEBBf1h9aclmmwjmIniSDaqMmEd0cIm6x5chhQ6tuHkkahREzMHbood
-        64QV3cAxsDjg8hwFDCWhajKD3VAYj7Ycv9/ultL2C3Rbu5N8mttzz/ec2942917qVcUur2SUBHJKbwZL
-        a8f5NKJBGMTIwts4R5d1hEgzy7gcUg8SYnI1Rf2z3JoxAY2YEPASrqU/bAjiknquRkxi6UWBAVWjfHn1
-        mMCMwGMyV48K5Jnl3ADSDIyYPNTwHK9qVKBDwEd0yqvBPNIsj8SJlmB+lSHUgICPGUraQvju81ze5F8K
-        4n2CChHwE8MRres3sbKRdiQw4NxIqA4BP9O9peKt/CZWDqByOFT+8Z0weErkLgeQ80UQt3I4zIzAU2JW
-        XAq2/0XtB3BmKJw+OxQOvtTypxK0U7nEfRieaT+AnYe4nNODL5gQ8BX93VrAYVu2QdNUPrEGMaWffIZD
-        FVwWSCsGIsA3hND995f24Y6wLVuhYTKbUBsBx6+HSSl1n5BW9wvhSZ3qFwEzXceOdYbNZoMrvxcS1+DZ
-        VDkj1JQzIlhLzfA2+HpsN3Gfg7ovGgb/0bAjnWG1WqFpTAVlveR1eDal6hUxqt5IIKka3Ab3F/+AZXQu
-        2/+qRo2iPGrUTCyMmJvZkc6wWi3QaCgCVY9rvSsRQ5X2RBoRcHemLwnuPhhl2z2M8fut9ryjRt0rhvF7
-        N9i9zrBYluD7O4VQ2u3Z142RKrkdZSzpjgJ3zUYV+uTLbEtnTM9PwqfDO9DwLTAx08FmnbFkWYT6oQ8A
-        9fXo6QHNpor10czJ36LB3Udd8dA+cd5+Ht3DYluA2aVp9p0zFpbm4fzAAY9ea8GzqRMdMRq6KwaI9DFQ
-        N5APs/Mz7Ii1Y35xFr5i3iX3WQOeTSlbY+kifSysp7JrB0xNjxBPCY65hX/h8559xLXrOdoWS1OyzyKk
-        xzo3wfENFN+SgH5SY/9fr47/HtyD2tt7iGvWg2fmXIiUUlJZEKewLc509FYcbETZHgcX+2mYX5izD5+Z
-        m4ZzXW+AklC7ETxze14Ix34xUjSL6cKbYihs9wKqO9uZDr9ONMLpztfINRtBPfKviR9ejPBLalE4t+Dn
-        zebDv8SD19oIOS/hWemnhM7LMXZQEy8vuLEFClr9DM3IuxLvekOCvbgnOOCgdqtOcX0r+BOe8XL28563
-        ZFhqiYgn1yYY3v8pAfwB995dEU2+KXV4vTKGn9OYYMjTJUJei4+gXrmoZ0bNpvVvyx12Fkfy9jck6g40
-        JYH82pPBPXCvtDLXT+7gkXCQvBkSIKtLlGf/IDHn/CiB3KZHg9fgtW/XJ8lf2st/tEez1bYfjuRm1Uno
-        d75LNmVfTob92mR47yoZ3odrcK2sXkK/cizq8R9O3SVl8DmparF07zfJdFZ9iibr2xRGdjHFiOFtnNt3
-        IYVOq9gsTc4UePl4vov6H4JHCOn971OEAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="cmdSalir.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABU5JREFUWEel

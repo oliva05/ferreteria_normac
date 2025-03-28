@@ -43,6 +43,7 @@ namespace Eatery.Ventas
         ClienteFacturacion ClienteFactura;
         int IdTerminoPago;
         int IdPedido = 0;
+        PedidoCliente PedidoRecuperado;
 
         UserLogin UsuarioLogeado;
         public enum Busqueda
@@ -461,6 +462,12 @@ namespace Eatery.Ventas
                 }
             }
 
+            if (dsVentas1.detalle_factura_transaction.Count <= 0)
+            {
+                CajaDialogo.Error("Es necesario agregar al menos un producto para generar la Factura!");
+                return;
+            }
+
             bool ImprimirFactura = false;
             Factura facturaGenerada = null;
 
@@ -684,6 +691,24 @@ namespace Eatery.Ventas
                                 command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
                                 command.ExecuteNonQuery();
                             }
+
+                            if (PedidoRecuperado != null)
+                            {
+                                if (PedidoRecuperado.Recuperado)
+                                {
+                                    //Actualizamos el estado del pedido a facturado!
+                                    command.CommandText = "dbo.[sp_set_update_prefactura_pedido]";
+                                    command.CommandType = CommandType.StoredProcedure;
+                                    command.Parameters.Clear();
+                                    //command.Parameters.AddWithValue("@num_doc", factura.NumeroDocumento);
+                                    command.Parameters.AddWithValue("@id_pedido", PedidoRecuperado.Id);
+                                    command.Parameters.AddWithValue("@id_estado", 2);//Facturado
+                                    command.Parameters.AddWithValue("@id_factura", IdFacturaH);
+                                    command.ExecuteNonQuery();
+                                }
+                            }
+
+
 
                             // Attempt to commit the transaction.
                             transaction.Commit();
@@ -2173,6 +2198,13 @@ namespace Eatery.Ventas
                     ProIdCliente = Pedido1.IdCliente;
                     if (ClienteFactura == null)
                         ClienteFactura = new ClienteFacturacion();
+
+                    this.UsuarioLogeado = new UserLogin();
+                    if (UsuarioLogeado.RecuperarRegistro(Pedido1.IdUser))
+                    {
+                        txtVendedor.Text = UsuarioLogeado.Codigo + " - " + UsuarioLogeado.NombreUser;
+                    }
+                    PedidoRecuperado = Pedido1;
 
                     if (ClienteFactura.RecuperarRegistro(Pedido1.IdCliente))
                     {

@@ -2188,7 +2188,7 @@ namespace Eatery.Ventas
             }
 
             frmElejirAlmacenPedido frm = new frmElejirAlmacenPedido(row.id_pt, row.itemcode + " - " + row.itemname, row.cantidad, ListaActual,
-                                                                    row.descuento, row.precio, row.id_presentacion, row.itemcode, row.itemname);
+                                                                    row.descuento, row.precio, row.id_presentacion, row.itemcode, row.itemname, row.isv1);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 row.inventario_seleccionado = row.cantidad = AgregarDetalleInventarioSeleccionadoList(frm.ListaSeleccionAlmacen);
@@ -2770,6 +2770,11 @@ namespace Eatery.Ventas
             {
                 textEdit1.Text = frmLoginVendedores.CodigoVendedor + " - " + frmLoginVendedores.NombreVendedor;
                 VendedorActual = frmLoginVendedores.Vendedor_;
+                this.UsuarioLogeado = new UserLogin();
+                if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
+
+                }
             }
         }
 
@@ -2780,6 +2785,11 @@ namespace Eatery.Ventas
             {
                 textEdit1.Text = frmLoginVendedores.CodigoVendedor + " - " + frmLoginVendedores.NombreVendedor;
                 VendedorActual = frmLoginVendedores.Vendedor_;
+                this.UsuarioLogeado = new UserLogin();
+                if(UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
+
+                }
             }
         }
 

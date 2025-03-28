@@ -110,7 +110,7 @@
             this.btnImprimir,
             this.cmdPagarFactura,
             this.btnAutorizar});
-            this.gridControl1.Size = new System.Drawing.Size(886, 424);
+            this.gridControl1.Size = new System.Drawing.Size(1088, 451);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFacturas});
@@ -393,7 +393,7 @@
             this.cmdExportToExcel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdExportToExcel.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.excel32px;
             this.cmdExportToExcel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdExportToExcel.Location = new System.Drawing.Point(592, 24);
+            this.cmdExportToExcel.Location = new System.Drawing.Point(794, 24);
             this.cmdExportToExcel.Name = "cmdExportToExcel";
             this.cmdExportToExcel.Size = new System.Drawing.Size(144, 44);
             this.cmdExportToExcel.TabIndex = 50;
@@ -408,7 +408,7 @@
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAtras.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.ImageOptions.Image")));
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAtras.Location = new System.Drawing.Point(743, 24);
+            this.btnAtras.Location = new System.Drawing.Point(945, 24);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(145, 44);
             this.btnAtras.TabIndex = 49;
@@ -493,7 +493,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 497);
+            this.ClientSize = new System.Drawing.Size(1091, 524);
             this.Controls.Add(this.dtHasta);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.dtDesde);
