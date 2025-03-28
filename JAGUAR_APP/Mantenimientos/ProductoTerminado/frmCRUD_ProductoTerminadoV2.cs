@@ -494,6 +494,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         }
                     }
 
+                    lblStatusFTP.Visible = true;
+                    lblStatusFTP.Text = "Servidor de Imagenes: DISPONIBLE";
+                    lblStatusFTP.ForeColor = Color.Green;
+
                 }
                 catch (Exception ex)
                 {
