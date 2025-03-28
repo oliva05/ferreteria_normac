@@ -137,6 +137,7 @@
             this.txtPass4.Properties.Appearance.Options.UseFont = true;
             this.txtPass4.Properties.Appearance.Options.UseTextOptions = true;
             this.txtPass4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtPass4.Properties.PasswordChar = '●';
             this.txtPass4.Size = new System.Drawing.Size(48, 62);
             this.txtPass4.TabIndex = 8;
             this.txtPass4.EditValueChanged += new System.EventHandler(this.txtPass4_EditValueChanged);
@@ -153,6 +154,7 @@
             this.txtPass3.Properties.Appearance.Options.UseFont = true;
             this.txtPass3.Properties.Appearance.Options.UseTextOptions = true;
             this.txtPass3.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtPass3.Properties.PasswordChar = '●';
             this.txtPass3.Size = new System.Drawing.Size(48, 62);
             this.txtPass3.TabIndex = 7;
             this.txtPass3.EditValueChanged += new System.EventHandler(this.txtPass3_EditValueChanged);
@@ -169,6 +171,7 @@
             this.txtPass2.Properties.Appearance.Options.UseFont = true;
             this.txtPass2.Properties.Appearance.Options.UseTextOptions = true;
             this.txtPass2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtPass2.Properties.PasswordChar = '●';
             this.txtPass2.Size = new System.Drawing.Size(48, 62);
             this.txtPass2.TabIndex = 6;
             this.txtPass2.EditValueChanged += new System.EventHandler(this.txtPass2_EditValueChanged);
@@ -185,6 +188,7 @@
             this.txtPass1.Properties.Appearance.Options.UseFont = true;
             this.txtPass1.Properties.Appearance.Options.UseTextOptions = true;
             this.txtPass1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtPass1.Properties.PasswordChar = '●';
             this.txtPass1.Size = new System.Drawing.Size(48, 62);
             this.txtPass1.TabIndex = 5;
             this.txtPass1.EditValueChanged += new System.EventHandler(this.txtPass1_EditValueChanged);
@@ -201,6 +205,7 @@
             this.txtPass6.Properties.Appearance.Options.UseFont = true;
             this.txtPass6.Properties.Appearance.Options.UseTextOptions = true;
             this.txtPass6.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtPass6.Properties.PasswordChar = '●';
             this.txtPass6.Size = new System.Drawing.Size(48, 62);
             this.txtPass6.TabIndex = 10;
             this.txtPass6.EditValueChanged += new System.EventHandler(this.txtPass6_EditValueChanged);
@@ -217,6 +222,7 @@
             this.txtPass5.Properties.Appearance.Options.UseFont = true;
             this.txtPass5.Properties.Appearance.Options.UseTextOptions = true;
             this.txtPass5.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtPass5.Properties.PasswordChar = '●';
             this.txtPass5.Size = new System.Drawing.Size(48, 62);
             this.txtPass5.TabIndex = 9;
             this.txtPass5.EditValueChanged += new System.EventHandler(this.txtPass5_EditValueChanged);
