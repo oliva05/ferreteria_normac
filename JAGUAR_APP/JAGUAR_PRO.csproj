@@ -755,6 +755,7 @@
     <Compile Include="Clases\Ubicaciones.cs" />
     <Compile Include="Clases\Ubicacion_Tarima.cs" />
     <Compile Include="Clases\UserLogin.cs" />
+    <Compile Include="Clases\Vendedor.cs" />
     <Compile Include="Compras\dsCompras.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -916,6 +917,11 @@
     </Compile>
     <Compile Include="Despachos\Pedidos\dsPedidosClientesV.Designer.cs">
       <DependentUpon>dsPedidosClientesV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\dsPrefacturas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPrefacturas.xsd</DependentUpon>
     </Compile>
     <Compile Include="Despachos\Pedidos\frmElejirAlmacenPedido.cs">
       <SubType>Form</SubType>
@@ -1252,6 +1258,12 @@
     </Compile>
     <Compile Include="Facturacion\Cotizaciones\frmCotizacionOP.Designer.cs">
       <DependentUpon>frmCotizacionOP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmSearchPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmSearchPedidos.Designer.cs">
+      <DependentUpon>frmSearchPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\Cotizaciones\frmSearchCotizaciones.cs">
       <SubType>Form</SubType>
@@ -2296,6 +2308,17 @@
     <None Include="Despachos\Pedidos\dsPedidosClientesV.xsd" />
     <None Include="Despachos\Pedidos\dsPedidosClientesV.xss">
       <DependentUpon>dsPedidosClientesV.xsd</DependentUpon>
+    </None>
+    <None Include="Despachos\Pedidos\dsPrefacturas.xsc">
+      <DependentUpon>dsPrefacturas.xsd</DependentUpon>
+    </None>
+    <None Include="Despachos\Pedidos\dsPrefacturas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPrefacturas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Despachos\Pedidos\dsPrefacturas.xss">
+      <DependentUpon>dsPrefacturas.xsd</DependentUpon>
     </None>
     <None Include="Despachos\Reportes\dsReporte.xsc">
       <DependentUpon>dsReporte.xsd</DependentUpon>
@@ -3378,6 +3401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Cotizaciones\frmCotizacionOP.resx">
       <DependentUpon>frmCotizacionOP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Despachos\Pedidos\frmSearchPedidos.resx">
+      <DependentUpon>frmSearchPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Cotizaciones\frmSearchCotizaciones.resx">
       <DependentUpon>frmSearchCotizaciones.cs</DependentUpon>

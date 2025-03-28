@@ -143,24 +143,6 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
                 frm.ShowDialog();
 
-                //if (factura.RecuperarRegistro(row.id))
-                //{
-                //    if (factura.CantPrint == 0)
-                //    {
-                //        rptFactura report = new rptFactura(factura, rptFactura.TipoCopia.Blanco);
-
-                //        using (ReportPrintTool printTool = new ReportPrintTool(report))
-                //        {
-                //            // Send the report to the default printer.
-                //            factura.UpdatePrintCount(row.id);
-                //            printTool.ShowPreviewDialog();
-                //        }
-                //    }
-                //    else
-                //    {
-                //        CajaDialogo.Error("Esta factura ya se imprimió! Para una reimpresión debe solicitar una autorización!");
-                //    }
-                //}
             }
             catch (Exception ex)
             {

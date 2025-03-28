@@ -31,18 +31,13 @@ namespace Eatery.Ventas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFactura));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFactura));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.cmdDeleteRowFactura = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.txtNombreCliente = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.cmdAbrirBusqueda = new DevExpress.XtraEditors.SimpleButton();
@@ -56,9 +51,9 @@ namespace Eatery.Ventas
             this.timerLimpiarMensaje = new System.Windows.Forms.Timer(this.components);
             this.lblfecha = new System.Windows.Forms.Label();
             this.dsVentas1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsVentas();
-            this.radioGroupVentaComidaBuffet = new DevExpress.XtraEditors.RadioGroup();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.label5 = new System.Windows.Forms.Label();
             this.cmdCopiarFromPedido = new DevExpress.XtraEditors.SimpleButton();
             this.rdCredito = new System.Windows.Forms.RadioButton();
             this.rdContado = new System.Windows.Forms.RadioButton();
@@ -70,15 +65,6 @@ namespace Eatery.Ventas
             this.label2 = new System.Windows.Forms.Label();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.txtScanProducto = new DevExpress.XtraEditors.TextEdit();
-            this.cmdTodosLosProductos = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdLoMasVendido = new DevExpress.XtraEditors.SimpleButton();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colitem_code = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAddToCart = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmdAddToCart = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_pt1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -93,23 +79,32 @@ namespace Eatery.Ventas
             this.coltotal_linea = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colinventario = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
+            this.txtVendedor = new DevExpress.XtraEditors.TextEdit();
+            this.label10 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdDeleteRowFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCliente.Properties)).BeginInit();
             this.panelNotificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsVentas1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroupVentaComidaBuffet.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRTN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtScanProducto.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdAddToCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(repositoryItemButtonEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVendedor.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cmdDeleteRowFactura
+            // 
+            this.cmdDeleteRowFactura.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.cmdDeleteRowFactura.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdDeleteRowFactura.Name = "cmdDeleteRowFactura";
+            this.cmdDeleteRowFactura.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // txtNombreCliente
             // 
@@ -137,9 +132,9 @@ namespace Eatery.Ventas
             this.cmdAbrirBusqueda.Appearance.Options.UseFont = true;
             this.cmdAbrirBusqueda.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdAbrirBusqueda.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdAbrirBusqueda.ImageOptions.Image")));
-            this.cmdAbrirBusqueda.Location = new System.Drawing.Point(597, 78);
+            this.cmdAbrirBusqueda.Location = new System.Drawing.Point(597, 76);
             this.cmdAbrirBusqueda.Name = "cmdAbrirBusqueda";
-            this.cmdAbrirBusqueda.Size = new System.Drawing.Size(161, 34);
+            this.cmdAbrirBusqueda.Size = new System.Drawing.Size(161, 38);
             this.cmdAbrirBusqueda.TabIndex = 3;
             this.cmdAbrirBusqueda.Text = "&Buscar Cliente";
             this.cmdAbrirBusqueda.Click += new System.EventHandler(this.cmdAbrirBusqueda_Click);
@@ -254,26 +249,6 @@ namespace Eatery.Ventas
             this.dsVentas1.DataSetName = "dsVentas";
             this.dsVentas1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // radioGroupVentaComidaBuffet
-            // 
-            this.radioGroupVentaComidaBuffet.EditValue = true;
-            this.radioGroupVentaComidaBuffet.Location = new System.Drawing.Point(13, 125);
-            this.radioGroupVentaComidaBuffet.Margin = new System.Windows.Forms.Padding(2);
-            this.radioGroupVentaComidaBuffet.Name = "radioGroupVentaComidaBuffet";
-            this.radioGroupVentaComidaBuffet.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.radioGroupVentaComidaBuffet.Properties.Appearance.Options.UseFont = true;
-            this.radioGroupVentaComidaBuffet.Properties.Appearance.Options.UseTextOptions = true;
-            this.radioGroupVentaComidaBuffet.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.radioGroupVentaComidaBuffet.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.radioGroupVentaComidaBuffet.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Desayuno"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Almuerzo"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Cena")});
-            this.radioGroupVentaComidaBuffet.Properties.ItemVertAlignment = DevExpress.XtraEditors.RadioItemVertAlignment.Top;
-            this.radioGroupVentaComidaBuffet.Size = new System.Drawing.Size(342, 33);
-            this.radioGroupVentaComidaBuffet.TabIndex = 17;
-            this.radioGroupVentaComidaBuffet.SelectedIndexChanged += new System.EventHandler(this.radioGroupVentaComidaBuffet_SelectedIndexChanged);
-            // 
             // navigationFrame1
             // 
             this.navigationFrame1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -292,6 +267,10 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
+            this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
+            this.navigationPage1.Controls.Add(this.txtVendedor);
+            this.navigationPage1.Controls.Add(this.label10);
+            this.navigationPage1.Controls.Add(this.label5);
             this.navigationPage1.Controls.Add(this.cmdCopiarFromPedido);
             this.navigationPage1.Controls.Add(this.rdCredito);
             this.navigationPage1.Controls.Add(this.rdContado);
@@ -307,12 +286,8 @@ namespace Eatery.Ventas
             this.navigationPage1.Controls.Add(this.cmdNew);
             this.navigationPage1.Controls.Add(this.txtScanProducto);
             this.navigationPage1.Controls.Add(this.cmdFacturar);
-            this.navigationPage1.Controls.Add(this.cmdTodosLosProductos);
-            this.navigationPage1.Controls.Add(this.cmdLoMasVendido);
-            this.navigationPage1.Controls.Add(this.gridControl2);
             this.navigationPage1.Controls.Add(this.gridControl1);
             this.navigationPage1.Controls.Add(this.txtTotal);
-            this.navigationPage1.Controls.Add(this.radioGroupVentaComidaBuffet);
             this.navigationPage1.Controls.Add(this.lblfecha);
             this.navigationPage1.Controls.Add(this.cmdAbrirBusqueda);
             this.navigationPage1.Controls.Add(this.label1);
@@ -323,24 +298,34 @@ namespace Eatery.Ventas
             this.navigationPage1.Size = new System.Drawing.Size(1121, 675);
             this.navigationPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.navigationPage1_Paint);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label5.Location = new System.Drawing.Point(12, 135);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 20);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Código";
+            // 
             // cmdCopiarFromPedido
             // 
-            this.cmdCopiarFromPedido.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
+            this.cmdCopiarFromPedido.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.cmdCopiarFromPedido.Appearance.Options.UseFont = true;
             this.cmdCopiarFromPedido.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCopiarFromPedido.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCopiarFromPedido.ImageOptions.SvgImage")));
-            this.cmdCopiarFromPedido.Location = new System.Drawing.Point(941, 120);
+            this.cmdCopiarFromPedido.Location = new System.Drawing.Point(763, 121);
             this.cmdCopiarFromPedido.Name = "cmdCopiarFromPedido";
             this.cmdCopiarFromPedido.Size = new System.Drawing.Size(172, 38);
             this.cmdCopiarFromPedido.TabIndex = 40;
-            this.cmdCopiarFromPedido.Text = "Copiar de Pedido";
+            this.cmdCopiarFromPedido.Text = "Copiar de Prefactura";
             this.cmdCopiarFromPedido.Click += new System.EventHandler(this.cmdCopiarFromPedido_Click);
             // 
             // rdCredito
             // 
             this.rdCredito.AutoSize = true;
             this.rdCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdCredito.Location = new System.Drawing.Point(770, 33);
+            this.rdCredito.Location = new System.Drawing.Point(676, 48);
             this.rdCredito.Name = "rdCredito";
             this.rdCredito.Size = new System.Drawing.Size(74, 22);
             this.rdCredito.TabIndex = 39;
@@ -353,7 +338,7 @@ namespace Eatery.Ventas
             this.rdContado.AutoSize = true;
             this.rdContado.Checked = true;
             this.rdContado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdContado.Location = new System.Drawing.Point(676, 33);
+            this.rdContado.Location = new System.Drawing.Point(675, 27);
             this.rdContado.Name = "rdContado";
             this.rdContado.Size = new System.Drawing.Size(83, 22);
             this.rdContado.TabIndex = 38;
@@ -366,7 +351,7 @@ namespace Eatery.Ventas
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label4.Location = new System.Drawing.Point(600, 32);
+            this.label4.Location = new System.Drawing.Point(600, 28);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 20);
             this.label4.TabIndex = 37;
@@ -398,9 +383,9 @@ namespace Eatery.Ventas
             this.cmdConsumidorFinal.Appearance.Options.UseFont = true;
             this.cmdConsumidorFinal.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdConsumidorFinal.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdConsumidorFinal.ImageOptions.Image")));
-            this.cmdConsumidorFinal.Location = new System.Drawing.Point(763, 78);
+            this.cmdConsumidorFinal.Location = new System.Drawing.Point(763, 76);
             this.cmdConsumidorFinal.Name = "cmdConsumidorFinal";
-            this.cmdConsumidorFinal.Size = new System.Drawing.Size(172, 34);
+            this.cmdConsumidorFinal.Size = new System.Drawing.Size(172, 38);
             this.cmdConsumidorFinal.TabIndex = 34;
             this.cmdConsumidorFinal.Text = "Consumidor Final";
             this.cmdConsumidorFinal.Click += new System.EventHandler(this.cmdConsumidorFinal_Click);
@@ -431,126 +416,23 @@ namespace Eatery.Ventas
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(763, 123);
+            this.simpleButton1.Location = new System.Drawing.Point(597, 121);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(172, 35);
+            this.simpleButton1.Size = new System.Drawing.Size(161, 38);
             this.simpleButton1.TabIndex = 31;
             this.simpleButton1.Text = "&Buscar Producto";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_2);
             // 
             // txtScanProducto
             // 
-            this.txtScanProducto.Location = new System.Drawing.Point(360, 126);
+            this.txtScanProducto.Location = new System.Drawing.Point(99, 129);
             this.txtScanProducto.Name = "txtScanProducto";
             this.txtScanProducto.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.txtScanProducto.Properties.Appearance.Options.UseFont = true;
             this.txtScanProducto.Properties.NullValuePrompt = "Leer código";
-            this.txtScanProducto.Size = new System.Drawing.Size(399, 30);
+            this.txtScanProducto.Size = new System.Drawing.Size(495, 30);
             this.txtScanProducto.TabIndex = 30;
             this.txtScanProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtScanProducto_KeyDown);
-            // 
-            // cmdTodosLosProductos
-            // 
-            this.cmdTodosLosProductos.Appearance.BackColor = System.Drawing.Color.White;
-            this.cmdTodosLosProductos.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.cmdTodosLosProductos.Appearance.Options.UseBackColor = true;
-            this.cmdTodosLosProductos.Appearance.Options.UseFont = true;
-            this.cmdTodosLosProductos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdTodosLosProductos.Location = new System.Drawing.Point(192, 164);
-            this.cmdTodosLosProductos.Name = "cmdTodosLosProductos";
-            this.cmdTodosLosProductos.Size = new System.Drawing.Size(164, 34);
-            this.cmdTodosLosProductos.TabIndex = 29;
-            this.cmdTodosLosProductos.Text = "&Todos";
-            this.cmdTodosLosProductos.Click += new System.EventHandler(this.cmdTodosLosProductos_Click);
-            // 
-            // cmdLoMasVendido
-            // 
-            this.cmdLoMasVendido.Appearance.BackColor = System.Drawing.Color.White;
-            this.cmdLoMasVendido.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.cmdLoMasVendido.Appearance.Options.UseBackColor = true;
-            this.cmdLoMasVendido.Appearance.Options.UseFont = true;
-            this.cmdLoMasVendido.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdLoMasVendido.Location = new System.Drawing.Point(13, 164);
-            this.cmdLoMasVendido.Name = "cmdLoMasVendido";
-            this.cmdLoMasVendido.Size = new System.Drawing.Size(164, 34);
-            this.cmdLoMasVendido.TabIndex = 28;
-            this.cmdLoMasVendido.Text = "Lo &más vendido";
-            this.cmdLoMasVendido.Click += new System.EventHandler(this.cmdLoMasVendido_Click);
-            // 
-            // gridControl2
-            // 
-            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.gridControl2.DataMember = "mas_vendidos";
-            this.gridControl2.DataSource = this.dsVentas1;
-            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gridControl2.Location = new System.Drawing.Point(13, 203);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Margin = new System.Windows.Forms.Padding(2);
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.cmdAddToCart});
-            this.gridControl2.Size = new System.Drawing.Size(342, 354);
-            this.gridControl2.TabIndex = 27;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid_pt,
-            this.colitem_code,
-            this.coldescripcion,
-            this.colAddToCart});
-            this.gridView2.DetailHeight = 182;
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.LevelIndent = 0;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsEditForm.PopupEditFormWidth = 400;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            this.gridView2.PreviewIndent = 0;
-            // 
-            // colid_pt
-            // 
-            this.colid_pt.FieldName = "id_pt";
-            this.colid_pt.Name = "colid_pt";
-            // 
-            // colitem_code
-            // 
-            this.colitem_code.FieldName = "item_code";
-            this.colitem_code.Name = "colitem_code";
-            this.colitem_code.OptionsColumn.ReadOnly = true;
-            this.colitem_code.Visible = true;
-            this.colitem_code.VisibleIndex = 0;
-            this.colitem_code.Width = 58;
-            // 
-            // coldescripcion
-            // 
-            this.coldescripcion.FieldName = "descripcion";
-            this.coldescripcion.Name = "coldescripcion";
-            this.coldescripcion.OptionsColumn.ReadOnly = true;
-            this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 1;
-            this.coldescripcion.Width = 204;
-            // 
-            // colAddToCart
-            // 
-            this.colAddToCart.Caption = "Agregar";
-            this.colAddToCart.ColumnEdit = this.cmdAddToCart;
-            this.colAddToCart.Name = "colAddToCart";
-            this.colAddToCart.Visible = true;
-            this.colAddToCart.VisibleIndex = 2;
-            this.colAddToCart.Width = 59;
-            // 
-            // cmdAddToCart
-            // 
-            this.cmdAddToCart.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
-            this.cmdAddToCart.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.cmdAddToCart.Name = "cmdAddToCart";
-            this.cmdAddToCart.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.cmdAddToCart.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdAddToCart_ButtonClick);
             // 
             // gridControl1
             // 
@@ -560,11 +442,11 @@ namespace Eatery.Ventas
             this.gridControl1.DataMember = "detalle_factura_transaction";
             this.gridControl1.DataSource = this.dsVentas1;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gridControl1.Location = new System.Drawing.Point(360, 164);
+            this.gridControl1.Location = new System.Drawing.Point(11, 164);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(758, 393);
+            this.gridControl1.Size = new System.Drawing.Size(1107, 393);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -645,7 +527,6 @@ namespace Eatery.Ventas
             this.coldescuento.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coldescuento.FieldName = "descuento";
             this.coldescuento.Name = "coldescuento";
-            this.coldescuento.OptionsColumn.ReadOnly = true;
             this.coldescuento.Visible = true;
             this.coldescuento.VisibleIndex = 5;
             this.coldescuento.Width = 47;
@@ -686,13 +567,7 @@ namespace Eatery.Ventas
             // colDelete
             // 
             this.colDelete.Caption = "Elminar";
-            repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
-            repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            repositoryItemButtonEdit1.Name = "cmdDeleteRowFactura";
-            repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.colDelete.ColumnEdit = repositoryItemButtonEdit1;
+            this.colDelete.ColumnEdit = this.cmdDeleteRowFactura;
             this.colDelete.Name = "colDelete";
             this.colDelete.Visible = true;
             this.colDelete.VisibleIndex = 8;
@@ -710,6 +585,35 @@ namespace Eatery.Ventas
             this.colinventario.VisibleIndex = 2;
             this.colinventario.Width = 48;
             // 
+            // cmdChangeVendedor
+            // 
+            this.cmdChangeVendedor.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.cmdChangeVendedor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdChangeVendedor.ImageOptions.Image")));
+            this.cmdChangeVendedor.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.cmdChangeVendedor.Location = new System.Drawing.Point(1079, 26);
+            this.cmdChangeVendedor.Name = "cmdChangeVendedor";
+            this.cmdChangeVendedor.Size = new System.Drawing.Size(39, 24);
+            this.cmdChangeVendedor.TabIndex = 56;
+            // 
+            // txtVendedor
+            // 
+            this.txtVendedor.Location = new System.Drawing.Point(867, 26);
+            this.txtVendedor.Name = "txtVendedor";
+            this.txtVendedor.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVendedor.Properties.Appearance.Options.UseFont = true;
+            this.txtVendedor.Size = new System.Drawing.Size(209, 24);
+            this.txtVendedor.TabIndex = 55;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label10.Location = new System.Drawing.Point(799, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 20);
+            this.label10.TabIndex = 54;
+            this.label10.Text = "Asesor";
+            // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -721,10 +625,10 @@ namespace Eatery.Ventas
             this.Text = "Factura";
             this.Activated += new System.EventHandler(this.frmFactura_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFactura_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.cmdDeleteRowFactura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCliente.Properties)).EndInit();
             this.panelNotificacion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dsVentas1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroupVentaComidaBuffet.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
             this.navigationFrame1.ResumeLayout(false);
             this.navigationPage1.ResumeLayout(false);
@@ -732,12 +636,9 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRTN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtScanProducto.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdAddToCart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(repositoryItemButtonEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVendedor.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -756,23 +657,12 @@ namespace Eatery.Ventas
         private System.Windows.Forms.Timer timerLimpiarMensaje;
         private System.Windows.Forms.Label lblfecha;
         private dsVentas dsVentas1;
-        private DevExpress.XtraEditors.RadioGroup radioGroupVentaComidaBuffet;
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        //private Infragistics.Win.Misc.UltraTilePanel ultraTilePanel1;
-        private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.SimpleButton cmdTodosLosProductos;
-        private DevExpress.XtraEditors.SimpleButton cmdLoMasVendido;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.TextEdit txtScanProducto;
-        private DevExpress.XtraGrid.Columns.GridColumn colid_pt;
-        private DevExpress.XtraGrid.Columns.GridColumn colitem_code;
-        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
-        private DevExpress.XtraGrid.Columns.GridColumn colAddToCart;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdAddToCart;
         private DevExpress.XtraGrid.Columns.GridColumn colid_pt1;
         private DevExpress.XtraGrid.Columns.GridColumn colitemcode;
         private DevExpress.XtraGrid.Columns.GridColumn colitemname;
@@ -794,5 +684,10 @@ namespace Eatery.Ventas
         private System.Windows.Forms.RadioButton rdContado;
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.SimpleButton cmdCopiarFromPedido;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdDeleteRowFactura;
+        private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.SimpleButton cmdChangeVendedor;
+        private DevExpress.XtraEditors.TextEdit txtVendedor;
+        private System.Windows.Forms.Label label10;
     }
 }

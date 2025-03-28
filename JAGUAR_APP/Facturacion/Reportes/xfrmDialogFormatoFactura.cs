@@ -40,22 +40,90 @@ namespace JAGUAR_PRO.Facturacion.Reportes
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            //if (factura.RecuperarRegistro(factura_id))
+            //{
+            //    if (factura.CantidadImpresionesFactura == 0)
+            //    {
+            //        rptFactura report = new rptFactura(factura, rptFactura.TipoCopia.Blanco);
+
+            //        using (ReportPrintTool printTool = new ReportPrintTool(report))
+            //        {
+            //            // Send the report to the default printer.
+            //            factura.UpdatePrintCount(factura_id);
+            //            printTool.ShowPreviewDialog();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        CajaDialogo.Error("Esta factura ya se imprimió! Para una reimpresión debe solicitar una autorización!");
+            //    }
+            //}
+            //this.Close();
             if (factura.RecuperarRegistro(factura_id))
             {
-                if (factura.CantidadImpresionesFactura == 0)
+                if (PuntoVentaActual.PermiteReimpresionFacturaConAutorizacion)
                 {
-                    rptFactura report = new rptFactura(factura, rptFactura.TipoCopia.Blanco);
-
-                    using (ReportPrintTool printTool = new ReportPrintTool(report))
+                    if (factura.CantidadImpresionesFactura == 0)
                     {
-                        // Send the report to the default printer.
-                        factura.UpdatePrintCount(factura_id);
-                        printTool.ShowPreviewDialog();
+                        Reimpresion();
+                    }
+                    else
+                    {
+                        DialogResult r = CajaDialogo.Pregunta("Esta factura ya se imprimió! Desea solicitar una reimpresión por autorización?");
+                        if (r == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                //var row = (dsFacturasGestion.HomeFacturasRow)gvFacturas.GetFocusedDataRow();
+                                Factura_SolicitudAutorizacion solicitud = new Factura_SolicitudAutorizacion();
+                                solicitud.Facturas_seleccionadas = new List<FacturasSeleccionada>();
+                                solicitud.Clientes_Seleccionados = new List<int>();
+
+                                if (factura.IdEstado == (int)EstadosFactura.Anulada)
+                                {
+                                    CajaDialogo.Error("No se puede proceder con facturas que estan anuladas");
+                                    return;
+                                }
+
+                                solicitud.Facturas_seleccionadas.Add(new FacturasSeleccionada()
+                                {
+                                    FacturaId = factura.Id,
+                                    NumeroFactura = factura.NumeroDocumento,
+                                    Monto = factura.TotalFactura,
+                                    PuntoVenda_Id = this.PuntoVentaActual.ID,
+                                    PuntoVenta = this.PuntoVentaActual.Nombre
+                                });
+                                //solicitud.Facturas_seleccionadas.Add(item.id);
+                                DataOperations dp = new DataOperations();
+                                solicitud.Clientes_Seleccionados.Add(dp.ValidateNumberInt32(factura.IdCliente));
+                                solicitud.UsuarioSolicita_Id = UsuarioLogeado.Id;
+                                solicitud.FacturaId = factura.Id;
+                                solicitud.PuntoDeVenta_Id = this.PuntoVentaActual.ID;
+                                solicitud.ClienteId = dp.ValidateNumberInt32(factura.IdCliente);
+                                solicitud.Cliente = factura.ClienteNombre;
+                                solicitud.Cliente_RTN = factura.RTN;
+                                //xfrmDialogAutorizacion authorize = new xfrmDialogAutorizacion(solicitud, this.PuntoDeVentaActual);
+                                frmNavigationPageAutorizacion authorize = new frmNavigationPageAutorizacion(solicitud, this.PuntoVentaActual);
+
+                                if (authorize.ShowDialog() == DialogResult.OK)
+                                {
+                                    if (authorize.tipoAutorizacionActual == frmNavigationPageAutorizacion.TipoAutorizacion.Reimpresion && authorize.autorizacion_directa == true)
+                                    {
+                                        //row.EstadoName = "Anulada";
+                                        Reimpresion();
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                CajaDialogo.Error(ex.Message);
+                            }
+                        }
                     }
                 }
                 else
                 {
-                    CajaDialogo.Error("Esta factura ya se imprimió! Para una reimpresión debe solicitar una autorización!");
+                    Reimpresion();
                 }
             }
             this.Close();
@@ -137,8 +205,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
         {
             if (factura.IdNumeracionFiscal == 0)
             {
-                rptFact_ReciboVentaLetterSize report = new rptFact_ReciboVentaLetterSize(factura, rptFact_ReciboVentaLetterSize.TipoCopia.Blanco);
-
+                //rptFact_ReciboVentaLetterSize report = new rptFact_ReciboVentaLetterSize(factura, rptFact_ReciboVentaLetterSize.TipoCopia.Blanco);
+                rptFactura report = new rptFactura(factura, rptFactura.TipoCopia.Blanco);
                 using (ReportPrintTool printTool = new ReportPrintTool(report))
                 {
                     // Send the report to the default printer.
@@ -148,8 +216,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             }
             else
             {
-                rptFacturaLetterSize report = new rptFacturaLetterSize(factura, rptFacturaLetterSize.TipoCopia.Blanco);
-
+                //rptFacturaLetterSize report = new rptFacturaLetterSize(factura, rptFacturaLetterSize.TipoCopia.Blanco);
+                rptFactura report = new rptFactura(factura, rptFactura.TipoCopia.Blanco);
                 using (ReportPrintTool printTool = new ReportPrintTool(report))
                 {
                     // Send the report to the default printer.

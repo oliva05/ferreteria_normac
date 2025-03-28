@@ -1,8 +1,7 @@
-﻿using JAGUAR_PRO.Despachos.Pedidos;
-
-namespace JAGUAR_PRO.Despachos.Pedidos
+﻿
+namespace JAGUAR_PRO.Facturacion.Cotizaciones
 {
-    partial class frmHomePedidosClientes
+    partial class frmSearchPedidos
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +29,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHomePedidosClientes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchPedidos));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -41,17 +40,14 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.cmdCargar = new DevExpress.XtraEditors.SimpleButton();
-            this.dtHasta = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.dtDesde = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnAgregar = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdRefreshDisponibles = new DevExpress.XtraEditors.SimpleButton();
+            this.dtFechaHastaDisponibles = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.dtFechaDesdeDisponibles = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.dsFactCotizacion1 = new JAGUAR_PRO.Facturacion.Cotizaciones.dsFactCotizacion();
             this.dsPedidosClientesV1 = new JAGUAR_PRO.Despachos.Pedidos.dsPedidosClientesV();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.grdPedidos = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -72,168 +68,113 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.cmdEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colImprimir = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdImprimir = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaHastaDisponibles.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaHastaDisponibles.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaDesdeDisponibles.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaDesdeDisponibles.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsFactCotizacion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPedidosClientesV1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPedidos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdImprimir)).BeginInit();
             this.SuspendLayout();
             // 
-            // cmdCargar
+            // cmdRefreshDisponibles
             // 
-            this.cmdCargar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.cmdCargar.Appearance.Options.UseFont = true;
-            this.cmdCargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdCargar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdCargar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCargar.ImageOptions.SvgImage")));
-            this.cmdCargar.Location = new System.Drawing.Point(713, 16);
-            this.cmdCargar.Name = "cmdCargar";
-            this.cmdCargar.Size = new System.Drawing.Size(145, 44);
-            this.cmdCargar.TabIndex = 106;
-            this.cmdCargar.Text = "Cargar Datos";
-            this.cmdCargar.Click += new System.EventHandler(this.cmdCargar_Click);
+            this.cmdRefreshDisponibles.Appearance.BackColor = System.Drawing.Color.Lavender;
+            this.cmdRefreshDisponibles.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.cmdRefreshDisponibles.Appearance.Options.UseBackColor = true;
+            this.cmdRefreshDisponibles.Appearance.Options.UseFont = true;
+            this.cmdRefreshDisponibles.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdRefreshDisponibles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdRefreshDisponibles.ImageOptions.Image")));
+            this.cmdRefreshDisponibles.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.cmdRefreshDisponibles.Location = new System.Drawing.Point(523, 10);
+            this.cmdRefreshDisponibles.Name = "cmdRefreshDisponibles";
+            this.cmdRefreshDisponibles.Size = new System.Drawing.Size(106, 39);
+            this.cmdRefreshDisponibles.TabIndex = 116;
+            this.cmdRefreshDisponibles.Text = "Refresh";
+            this.cmdRefreshDisponibles.Click += new System.EventHandler(this.cmdRefreshDisponibles_Click);
             // 
-            // dtHasta
+            // dtFechaHastaDisponibles
             // 
-            this.dtHasta.EditValue = null;
-            this.dtHasta.Location = new System.Drawing.Point(580, 36);
-            this.dtHasta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dtHasta.Name = "dtHasta";
-            this.dtHasta.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtHasta.Properties.Appearance.Options.UseFont = true;
-            this.dtHasta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtFechaHastaDisponibles.EditValue = null;
+            this.dtFechaHastaDisponibles.Location = new System.Drawing.Point(362, 19);
+            this.dtFechaHastaDisponibles.Name = "dtFechaHastaDisponibles";
+            this.dtFechaHastaDisponibles.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtFechaHastaDisponibles.Properties.Appearance.Options.UseFont = true;
+            this.dtFechaHastaDisponibles.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtHasta.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            this.dtHasta.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtFechaHastaDisponibles.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtHasta.Properties.EditFormat.FormatString = "dd/MM/yyyy";
-            this.dtHasta.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtHasta.Size = new System.Drawing.Size(128, 26);
-            this.dtHasta.TabIndex = 105;
+            this.dtFechaHastaDisponibles.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.dtFechaHastaDisponibles.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.dtFechaHastaDisponibles.Size = new System.Drawing.Size(142, 22);
+            this.dtFechaHastaDisponibles.TabIndex = 114;
             // 
-            // labelControl3
+            // labelControl9
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(498, 41);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(73, 17);
-            this.labelControl3.TabIndex = 104;
-            this.labelControl3.Text = "Fecha Hasta:";
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(276, 23);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(80, 16);
+            this.labelControl9.TabIndex = 115;
+            this.labelControl9.Text = "Fecha Hasta:";
             // 
-            // dtDesde
+            // dtFechaDesdeDisponibles
             // 
-            this.dtDesde.EditValue = null;
-            this.dtDesde.Location = new System.Drawing.Point(580, 6);
-            this.dtDesde.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dtDesde.Name = "dtDesde";
-            this.dtDesde.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtDesde.Properties.Appearance.Options.UseFont = true;
-            this.dtDesde.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtFechaDesdeDisponibles.EditValue = null;
+            this.dtFechaDesdeDisponibles.Location = new System.Drawing.Point(115, 19);
+            this.dtFechaDesdeDisponibles.Name = "dtFechaDesdeDisponibles";
+            this.dtFechaDesdeDisponibles.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtFechaDesdeDisponibles.Properties.Appearance.Options.UseFont = true;
+            this.dtFechaDesdeDisponibles.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtDesde.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            this.dtDesde.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtFechaDesdeDisponibles.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtDesde.Properties.EditFormat.FormatString = "dd/MM/yyyy";
-            this.dtDesde.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtDesde.Size = new System.Drawing.Size(128, 26);
-            this.dtDesde.TabIndex = 103;
+            this.dtFechaDesdeDisponibles.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.dtFechaDesdeDisponibles.Properties.MinValue = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
+            this.dtFechaDesdeDisponibles.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.dtFechaDesdeDisponibles.Size = new System.Drawing.Size(142, 22);
+            this.dtFechaDesdeDisponibles.TabIndex = 112;
             // 
-            // labelControl5
+            // labelControl8
             // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(498, 11);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(77, 17);
-            this.labelControl5.TabIndex = 102;
-            this.labelControl5.Text = "Fecha Desde:";
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(24, 22);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(85, 16);
+            this.labelControl8.TabIndex = 113;
+            this.labelControl8.Text = "Fecha Desde:";
             // 
-            // simpleButton1
+            // dsFactCotizacion1
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.excel32px;
-            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(861, 16);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(145, 44);
-            this.simpleButton1.TabIndex = 101;
-            this.simpleButton1.Text = "Exportar a Excel";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseTextOptions = true;
-            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(147, 29);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(334, 34);
-            this.labelControl1.TabIndex = 99;
-            this.labelControl1.Text = "Pedidos de clientes";
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Appearance.Options.UseFont = true;
-            this.btnAgregar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAgregar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.plus;
-            this.btnAgregar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAgregar.Location = new System.Drawing.Point(2, 16);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(144, 44);
-            this.btnAgregar.TabIndex = 98;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAtras.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Appearance.Options.UseFont = true;
-            this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnAtras.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.ImageOptions.Image")));
-            this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAtras.Location = new System.Drawing.Point(1012, 16);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(145, 44);
-            this.btnAtras.TabIndex = 97;
-            this.btnAtras.Text = "Cerrar";
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            this.dsFactCotizacion1.DataSetName = "dsFactCotizacion";
+            this.dsFactCotizacion1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dsPedidosClientesV1
             // 
             this.dsPedidosClientesV1.DataSetName = "dsPedidosClientesV";
             this.dsPedidosClientesV1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // gridControl1
+            // grdPedidos
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grdPedidos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.DataMember = "lista_pedidos";
-            this.gridControl1.DataSource = this.dsPedidosClientesV1;
-            this.gridControl1.Location = new System.Drawing.Point(2, 66);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.grdPedidos.DataMember = "lista_pedidos";
+            this.grdPedidos.DataSource = this.dsPedidosClientesV1;
+            this.grdPedidos.Location = new System.Drawing.Point(1, 55);
+            this.grdPedidos.MainView = this.gridView1;
+            this.grdPedidos.Name = "grdPedidos";
+            this.grdPedidos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdEditar,
             this.cmdImprimir});
-            this.gridControl1.Size = new System.Drawing.Size(1155, 405);
-            this.gridControl1.TabIndex = 107;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdPedidos.Size = new System.Drawing.Size(1124, 349);
+            this.grdPedidos.TabIndex = 117;
+            this.grdPedidos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -256,20 +197,23 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.coltotal,
             this.colEditar,
             this.colImprimir});
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.grdPedidos;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick_1);
             // 
             // colid
             // 
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
+            this.colid.OptionsColumn.AllowEdit = false;
             this.colid.OptionsColumn.ReadOnly = true;
             // 
             // colfecha
             // 
             this.colfecha.FieldName = "fecha";
             this.colfecha.Name = "colfecha";
+            this.colfecha.OptionsColumn.AllowEdit = false;
             this.colfecha.OptionsColumn.ReadOnly = true;
             this.colfecha.Visible = true;
             this.colfecha.VisibleIndex = 0;
@@ -279,18 +223,21 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.colfecha_row.FieldName = "fecha_row";
             this.colfecha_row.Name = "colfecha_row";
+            this.colfecha_row.OptionsColumn.AllowEdit = false;
             this.colfecha_row.OptionsColumn.ReadOnly = true;
             // 
             // colid_user
             // 
             this.colid_user.FieldName = "id_user";
             this.colid_user.Name = "colid_user";
+            this.colid_user.OptionsColumn.AllowEdit = false;
             this.colid_user.OptionsColumn.ReadOnly = true;
             // 
             // colusuario_nombre
             // 
             this.colusuario_nombre.FieldName = "usuario_nombre";
             this.colusuario_nombre.Name = "colusuario_nombre";
+            this.colusuario_nombre.OptionsColumn.AllowEdit = false;
             this.colusuario_nombre.OptionsColumn.ReadOnly = true;
             this.colusuario_nombre.Visible = true;
             this.colusuario_nombre.VisibleIndex = 1;
@@ -300,12 +247,14 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.colenable.FieldName = "enable";
             this.colenable.Name = "colenable";
+            this.colenable.OptionsColumn.AllowEdit = false;
             this.colenable.OptionsColumn.ReadOnly = true;
             // 
             // colcomentario
             // 
             this.colcomentario.FieldName = "comentario";
             this.colcomentario.Name = "colcomentario";
+            this.colcomentario.OptionsColumn.AllowEdit = false;
             this.colcomentario.OptionsColumn.ReadOnly = true;
             this.colcomentario.Visible = true;
             this.colcomentario.VisibleIndex = 6;
@@ -315,18 +264,21 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.colDocNum.FieldName = "DocNum";
             this.colDocNum.Name = "colDocNum";
+            this.colDocNum.OptionsColumn.AllowEdit = false;
             this.colDocNum.OptionsColumn.ReadOnly = true;
             // 
             // colid_estado
             // 
             this.colid_estado.FieldName = "id_estado";
             this.colid_estado.Name = "colid_estado";
+            this.colid_estado.OptionsColumn.AllowEdit = false;
             this.colid_estado.OptionsColumn.ReadOnly = true;
             // 
             // colestado_name
             // 
             this.colestado_name.FieldName = "estado_name";
             this.colestado_name.Name = "colestado_name";
+            this.colestado_name.OptionsColumn.AllowEdit = false;
             this.colestado_name.OptionsColumn.ReadOnly = true;
             this.colestado_name.Visible = true;
             this.colestado_name.VisibleIndex = 2;
@@ -336,12 +288,14 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.colid_cliente.FieldName = "id_cliente";
             this.colid_cliente.Name = "colid_cliente";
+            this.colid_cliente.OptionsColumn.AllowEdit = false;
             this.colid_cliente.OptionsColumn.ReadOnly = true;
             // 
             // colNombreCorto
             // 
             this.colNombreCorto.FieldName = "NombreCorto";
             this.colNombreCorto.Name = "colNombreCorto";
+            this.colNombreCorto.OptionsColumn.AllowEdit = false;
             this.colNombreCorto.OptionsColumn.ReadOnly = true;
             this.colNombreCorto.Visible = true;
             this.colNombreCorto.VisibleIndex = 3;
@@ -351,6 +305,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.colfecha_entrega_estimada.FieldName = "fecha_entrega_estimada";
             this.colfecha_entrega_estimada.Name = "colfecha_entrega_estimada";
+            this.colfecha_entrega_estimada.OptionsColumn.AllowEdit = false;
             this.colfecha_entrega_estimada.OptionsColumn.ReadOnly = true;
             this.colfecha_entrega_estimada.Visible = true;
             this.colfecha_entrega_estimada.VisibleIndex = 4;
@@ -360,6 +315,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.coldireccion.FieldName = "direccion";
             this.coldireccion.Name = "coldireccion";
+            this.coldireccion.OptionsColumn.AllowEdit = false;
             this.coldireccion.OptionsColumn.ReadOnly = true;
             this.coldireccion.Visible = true;
             this.coldireccion.VisibleIndex = 5;
@@ -371,6 +327,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.coltotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coltotal.FieldName = "total";
             this.coltotal.Name = "coltotal";
+            this.coltotal.OptionsColumn.AllowEdit = false;
             this.coltotal.OptionsColumn.ReadOnly = true;
             this.coltotal.Visible = true;
             this.coltotal.VisibleIndex = 7;
@@ -381,6 +338,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colEditar.Caption = "Editar";
             this.colEditar.ColumnEdit = this.cmdEditar;
             this.colEditar.Name = "colEditar";
+            this.colEditar.OptionsColumn.AllowEdit = false;
             // 
             // cmdEditar
             // 
@@ -390,15 +348,12 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdEditar.Name = "cmdEditar";
             this.cmdEditar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.cmdEditar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEditar_ButtonClick);
             // 
             // colImprimir
             // 
             this.colImprimir.Caption = "Vista Previa";
             this.colImprimir.ColumnEdit = this.cmdImprimir;
             this.colImprimir.Name = "colImprimir";
-            this.colImprimir.Visible = true;
-            this.colImprimir.VisibleIndex = 8;
             // 
             // cmdImprimir
             // 
@@ -408,31 +363,27 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdImprimir.Name = "cmdImprimir";
             this.cmdImprimir.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.cmdImprimir.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdImprimir_ButtonClick);
             // 
-            // frmHomePedidosClientes
+            // frmSearchPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 471);
-            this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.cmdCargar);
-            this.Controls.Add(this.dtHasta);
-            this.Controls.Add(this.labelControl3);
-            this.Controls.Add(this.dtDesde);
-            this.Controls.Add(this.labelControl5);
-            this.Controls.Add(this.simpleButton1);
-            this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.btnAtras);
-            this.Name = "frmHomePedidosClientes";
-            this.Text = "Lista de pedidos de clientes";
-            ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).EndInit();
+            this.ClientSize = new System.Drawing.Size(1129, 408);
+            this.Controls.Add(this.grdPedidos);
+            this.Controls.Add(this.cmdRefreshDisponibles);
+            this.Controls.Add(this.dtFechaHastaDisponibles);
+            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.dtFechaDesdeDisponibles);
+            this.Controls.Add(this.labelControl8);
+            this.Name = "frmSearchPedidos";
+            this.Text = "Doble Click para seleccionar la Pre Factura";
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaHastaDisponibles.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaHastaDisponibles.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaDesdeDisponibles.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaDesdeDisponibles.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsFactCotizacion1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPedidosClientesV1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPedidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdImprimir)).EndInit();
@@ -443,17 +394,14 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton cmdCargar;
-        private DevExpress.XtraEditors.DateEdit dtHasta;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.DateEdit dtDesde;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.SimpleButton btnAgregar;
-        private DevExpress.XtraEditors.SimpleButton btnAtras;
-        private dsPedidosClientesV dsPedidosClientesV1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraEditors.SimpleButton cmdRefreshDisponibles;
+        private DevExpress.XtraEditors.DateEdit dtFechaHastaDisponibles;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.DateEdit dtFechaDesdeDisponibles;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private dsFactCotizacion dsFactCotizacion1;
+        private Despachos.Pedidos.dsPedidosClientesV dsPedidosClientesV1;
+        private DevExpress.XtraGrid.GridControl grdPedidos;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colfecha;

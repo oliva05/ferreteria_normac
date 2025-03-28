@@ -44,6 +44,7 @@ namespace Eatery.Ventas
     {
         DataOperations dp = new DataOperations();
         PDV PuntoDeVentaActual;
+        Vendedor VendedorActual;
         FacturacionEquipo EquipoActual;
         int ProIdCliente;
         ClienteFacturacion ClienteFactura;
@@ -1620,72 +1621,72 @@ namespace Eatery.Ventas
 
         private void cmdAddToCart_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            //agregar al carrito para facturar 
-            var gridView = (GridView)gridControl2.FocusedView;
-            var row = (dsVentas.mas_vendidosRow)gridView.GetFocusedDataRow();
+            ////agregar al carrito para facturar 
+            //var gridView = (GridView)gridControl2.FocusedView;
+            //var row = (dsVentas.mas_vendidosRow)gridView.GetFocusedDataRow();
 
-            decimal valor_total = 0;
+            //decimal valor_total = 0;
 
-            bool AgregarNuevo = true;
-            foreach (dsVentas.detalle_factura_transactionRow rowF in dsVentas1.detalle_factura_transaction) 
-            {
-                if(rowF.id_pt == row.id_pt)
-                {
-                    //Sumar cantidad nada mas
-                    rowF.cantidad = rowF.cantidad + 1;
-                    rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
-                    rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
-                    rowF.total_linea = (rowF.cantidad * rowF.precio) - rowF.descuento + rowF.isv1 + rowF.isv2 + rowF.isv3;
-                    AgregarNuevo = false;
-                }
-                valor_total += (rowF.total_linea);
-                txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total,2));
-            }
+            //bool AgregarNuevo = true;
+            //foreach (dsVentas.detalle_factura_transactionRow rowF in dsVentas1.detalle_factura_transaction) 
+            //{
+            //    if(rowF.id_pt == row.id_pt)
+            //    {
+            //        //Sumar cantidad nada mas
+            //        rowF.cantidad = rowF.cantidad + 1;
+            //        rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
+            //        rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
+            //        rowF.total_linea = (rowF.cantidad * rowF.precio) - rowF.descuento + rowF.isv1 + rowF.isv2 + rowF.isv3;
+            //        AgregarNuevo = false;
+            //    }
+            //    valor_total += (rowF.total_linea);
+            //    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total,2));
+            //}
 
-            if (AgregarNuevo)
-            {
-                dsVentas.detalle_factura_transactionRow row1 = dsVentas1.detalle_factura_transaction.Newdetalle_factura_transactionRow();
-                //dsCompras.oc_d_normalRow row1 = dsCompras1.oc_d_normal.Newoc_d_normalRow();
-                row1.id_pt = row.id_pt;
-                row1.cantidad = 1;
-                //row1.precio = 50;
-                row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, this.PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+            //if (AgregarNuevo)
+            //{
+            //    dsVentas.detalle_factura_transactionRow row1 = dsVentas1.detalle_factura_transaction.Newdetalle_factura_transactionRow();
+            //    //dsCompras.oc_d_normalRow row1 = dsCompras1.oc_d_normal.Newoc_d_normalRow();
+            //    row1.id_pt = row.id_pt;
+            //    row1.cantidad = 1;
+            //    //row1.precio = 50;
+            //    row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, this.PuntoDeVentaActual.ID, this.ClienteFactura.Id);
 
-                if (row1.precio == 0)
-                {
-                    SetErrorBarra("Este producto no tiene definido un precio. Por favor valide Lista de Precios!");
-                }
+            //    if (row1.precio == 0)
+            //    {
+            //        SetErrorBarra("Este producto no tiene definido un precio. Por favor valide Lista de Precios!");
+            //    }
 
-                row1.descuento = 0;
-                row1.itemcode = row.item_code;
-                row1.itemname = row.descripcion;
-                ProductoTerminado pt1= new ProductoTerminado();
-                row1.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(row.id_pt, this.PuntoDeVentaActual.ID);
+            //    row1.descuento = 0;
+            //    row1.itemcode = row.item_code;
+            //    row1.itemname = row.descripcion;
+            //    ProductoTerminado pt1= new ProductoTerminado();
+            //    row1.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(row.id_pt, this.PuntoDeVentaActual.ID);
 
-                row1.isv1 = row1.isv2 = row1.isv3 = 0;
-                Impuesto impuesto = new Impuesto();
-                decimal tasaISV = 0;
+            //    row1.isv1 = row1.isv2 = row1.isv3 = 0;
+            //    Impuesto impuesto = new Impuesto();
+            //    decimal tasaISV = 0;
 
-                if (impuesto.RecuperarRegistro(row.id_isv_aplicable))
-                {
-                    tasaISV = impuesto.Valor / 100;
-                    row1.isv1 = ((row1.cantidad * row1.precio) - row1.descuento) * tasaISV;
-                    row1.tasa_isv = tasaISV;
-                    row1.id_isv_aplicable = impuesto.Id;
-                }
-                else
-                {
-                    row1.tasa_isv = 0;
-                    row1.id_isv_aplicable = 0;
-                }
+            //    if (impuesto.RecuperarRegistro(row.id_isv_aplicable))
+            //    {
+            //        tasaISV = impuesto.Valor / 100;
+            //        row1.isv1 = ((row1.cantidad * row1.precio) - row1.descuento) * tasaISV;
+            //        row1.tasa_isv = tasaISV;
+            //        row1.id_isv_aplicable = impuesto.Id;
+            //    }
+            //    else
+            //    {
+            //        row1.tasa_isv = 0;
+            //        row1.id_isv_aplicable = 0;
+            //    }
 
-                row1.total_linea = (row1.cantidad * row1.precio) - row1.descuento + row1.isv1 + row1.isv2 + row1.isv3;
+            //    row1.total_linea = (row1.cantidad * row1.precio) - row1.descuento + row1.isv1 + row1.isv2 + row1.isv3;
                 
-                //dsCompras.oc_d_normal.Addoc_d_normalRow(row1);
-                dsVentas1.detalle_factura_transaction.Adddetalle_factura_transactionRow(row1);
-                valor_total += (row1.total_linea );
-                txtTotal.Text= string.Format("{0:#,###,##0.00}", Math.Round(valor_total,2));
-            }
+            //    //dsCompras.oc_d_normal.Addoc_d_normalRow(row1);
+            //    dsVentas1.detalle_factura_transaction.Adddetalle_factura_transactionRow(row1);
+            //    valor_total += (row1.total_linea );
+            //    txtTotal.Text= string.Format("{0:#,###,##0.00}", Math.Round(valor_total,2));
+            //}
         }
 
         private void simpleButton1_Click_2(object sender, EventArgs e)
@@ -1730,9 +1731,9 @@ namespace Eatery.Ventas
 
 
                         row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
-                        row1.descuento_porcentaje = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+                        //row1.descuento_porcentaje = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                         
-                        row1.descuento = ((row1.cantidad * row1.precio) * (row1.descuento_porcentaje / 100));
+                        //row1.descuento = ((row1.cantidad * row1.precio) * (row1.descuento_porcentaje / 100));
                         row1.id_presentacion = pt1.Id_presentacion;
 
                         #region Calculo del precio base mas ISV
@@ -1744,7 +1745,7 @@ namespace Eatery.Ventas
                         //row1.descuento = 0;
                         //row1.itemcode = frm.ItemSeleccionado.ItemCode;
                         //row1.itemname = frm.ItemSeleccionado.ItemName;
-                        //row1.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id);
+                        //row1.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
 
                         //row1.isv1 = row1.isv2 = row1.isv3 = 0;
                         //Impuesto impuesto = new Impuesto();
@@ -1776,6 +1777,31 @@ namespace Eatery.Ventas
                         row1.itemcode = frm.ItemSeleccionado.ItemCode;
                         row1.itemname = frm.ItemSeleccionado.ItemName;
                         decimal invTotal = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
+
+
+                        //Calculo del impuesto
+                        row1.isv1 = row1.isv2 = row1.isv3 = 0;
+                        Impuesto impuesto = new Impuesto();
+                        decimal tasaISV = 0;
+
+                        if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
+                        {
+                            tasaISV = impuesto.Valor / 100;
+                            row1.isv1 = ((row1.precio - row1.descuento) / 100) * impuesto.Valor;
+                            row1.precio = (row1.precio - row1.descuento) - row1.isv1;
+
+                            row1.tasa_isv = tasaISV;
+                            row1.id_isv_aplicable = impuesto.Id;
+                        }
+                        else
+                        {
+                            row1.tasa_isv = 0;
+                            row1.id_isv_aplicable = 0;
+                            row1.precio = (row1.precio - row1.descuento);
+                            row1.isv1 = 0;
+                        }
+
+                        row1.total_linea = (row1.cantidad * row1.precio) + (row1.cantidad * row1.isv1) + (row1.cantidad * row1.isv2) + (row1.cantidad * row1.isv3);
                         try
                         {
                             DataOperations dp = new DataOperations();
@@ -1797,7 +1823,7 @@ namespace Eatery.Ventas
 
                                 AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_, 
                                                                      Cantidad_, pt1.Id_presentacion, row1.precio, row1.descuento,
-                                                                     pt1.Code, pt1.Descripcion);
+                                                                     pt1.Code, pt1.Descripcion, row1.isv1);
                             }
                             else
                             {
@@ -1814,27 +1840,6 @@ namespace Eatery.Ventas
                         
 
 
-                        row1.isv1 = row1.isv2 = row1.isv3 = 0;
-                        Impuesto impuesto = new Impuesto();
-                        decimal tasaISV = 0;
-
-                        if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
-                        {
-                            tasaISV = impuesto.Valor / 100;
-                            row1.isv1 = ((row1.precio - row1.descuento) / 100) * impuesto.Valor;
-                            row1.precio = (row1.precio - row1.descuento) - row1.isv1;
-
-                            row1.tasa_isv = tasaISV;
-                            row1.id_isv_aplicable = impuesto.Id;
-                        }
-                        else
-                        {
-                            row1.tasa_isv = 0;
-                            row1.id_isv_aplicable = 0;
-                            row1.precio = (row1.precio - row1.descuento);
-                        }
-
-                        row1.total_linea = (row1.cantidad * row1.precio) + (row1.cantidad * row1.isv1) + (row1.cantidad * row1.isv2) + (row1.cantidad * row1.isv3);
 
 
                         //dsCompras.oc_d_normal.Addoc_d_normalRow(row1);
@@ -2077,7 +2082,7 @@ namespace Eatery.Ventas
 
         private void AgregarDetalleInventarioSeleccionado(int id_pt, int idBodega_, string bodegaName_, decimal cantidad_, 
                                                           int pIdPresentacion, decimal pPrecio, decimal pDescuento,
-                                                          string pItemCode, string pItemName)
+                                                          string pItemCode, string pItemName, decimal isv1)
         {
             dsVentas.detalle_factura_transaccion_invRow row = dsVentas1.detalle_factura_transaccion_inv.Newdetalle_factura_transaccion_invRow();
             row.id_pt = id_pt;
@@ -2090,6 +2095,7 @@ namespace Eatery.Ventas
             row.id_presentacion = pIdPresentacion;
             row.item_code = pItemCode;
             row.descripcion = pItemName;
+            row.isv1 = isv1;
             dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
             dsVentas1.AcceptChanges();
         }
@@ -2130,6 +2136,7 @@ namespace Eatery.Ventas
                     row.id_presentacion = i.id_presentacion;
                     row.item_code = i.ItemCode;
                     row.descripcion = i.Descripcion;
+                    row.isv1 = i.isv1;
                     dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
                     dsVentas1.AcceptChanges();
                 }
@@ -2175,12 +2182,13 @@ namespace Eatery.Ventas
                     item.id_presentacion = rowi.id_presentacion;
                     item.ItemCode= rowi.item_code;
                     item.Descripcion = rowi.descripcion;
+                    item.isv1 = rowi.isv1;
                     ListaActual.Add(item);
                 }
             }
 
             frmElejirAlmacenPedido frm = new frmElejirAlmacenPedido(row.id_pt, row.itemcode + " - " + row.itemname, row.cantidad, ListaActual,
-                                                                    row.descuento, row.precio, row.id_presentacion, row.itemcode, row.itemname);
+                                                                    row.descuento, row.precio, row.id_presentacion, row.itemcode, row.itemname, row.isv1);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 row.inventario_seleccionado = row.cantidad = AgregarDetalleInventarioSeleccionadoList(frm.ListaSeleccionAlmacen);
@@ -2192,11 +2200,11 @@ namespace Eatery.Ventas
 
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
-            DialogResult r = CajaDialogo.Pregunta("Esta seguro de realizar este pedido?");
-            if(r != DialogResult.Yes) 
-            {
-                return;
-            }
+            //DialogResult r = CajaDialogo.Pregunta("Esta seguro de realizar este pedido?");
+            //if(r != DialogResult.Yes) 
+            //{
+            //    return;
+            //}
 
             DataOperations dp = new DataOperations();
             if (dp.ValidateStringIsNullOrEmpty(txtNombreCliente.Text))
@@ -2222,6 +2230,18 @@ namespace Eatery.Ventas
                         return;
                     }
                 }
+            }
+
+            if(VendedorActual == null)
+            {
+                CajaDialogo.Error("Es necesario indicar el Asesor!");
+                return;
+            }
+
+            if (!VendedorActual.Recuperado)
+            {
+                CajaDialogo.Error("Es necesario indicar el Asesor!");
+                return;
             }
 
             bool ImprimirFactura = false;
@@ -2323,28 +2343,29 @@ namespace Eatery.Ventas
 
                         //Posteamos lineas de factura y Transaccion en Kardex
                         //foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
-                        foreach(dsVentas.detalle_factura_transaccion_invRow row in dsVentas1.detalle_factura_transaccion_inv)
+                        foreach (dsVentas.detalle_factura_transaccion_invRow row in dsVentas1.detalle_factura_transaccion_inv)
                         {
                             //ProductoTerminado PtIterado = new ProductoTerminado();
                             //if (PtIterado.Recuperar_producto(row.id_pt))
                             //{
-                                command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
-                                command.Parameters.Clear();
-                                command.CommandType = CommandType.StoredProcedure;
-                                command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
-                                command.Parameters.AddWithValue("@id_pt", row.id_pt);
-                                command.Parameters.AddWithValue("@item_code", row.item_code);
-                                command.Parameters.AddWithValue("@descripcion", row.descripcion);
-                                command.Parameters.AddWithValue("@cantidad", row.cantidad);
-                                command.Parameters.AddWithValue("@precio", row.precio);
-                                command.Parameters.AddWithValue("@descuento", row.descuento);
-                                command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
-                                command.Parameters.AddWithValue("@fecha_hora_row", Pedido_.FechaDocumento);
-                                command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
-                                command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
-                                command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
-                                command.ExecuteNonQuery();
-                            
+                            command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
+                            command.Parameters.Clear();
+                            command.CommandType = CommandType.StoredProcedure;
+                            command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
+                            command.Parameters.AddWithValue("@id_pt", row.id_pt);
+                            command.Parameters.AddWithValue("@item_code", row.item_code);
+                            command.Parameters.AddWithValue("@descripcion", row.descripcion);
+                            command.Parameters.AddWithValue("@cantidad", row.cantidad);
+                            command.Parameters.AddWithValue("@precio", row.precio);
+                            command.Parameters.AddWithValue("@descuento", row.descuento);
+                            command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
+                            command.Parameters.AddWithValue("@fecha_hora_row", Pedido_.FechaDocumento);
+                            command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                            command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
+                            command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                            command.Parameters.AddWithValue("@isv", row.isv1);
+                            command.ExecuteNonQuery();
+
                             TotalFactura += (row.cantidad * row.precio) - row.descuento;
                         }
 
@@ -2747,7 +2768,28 @@ namespace Eatery.Ventas
             frmLoginVendedores frmLoginVendedores = new frmLoginVendedores();   
             if(frmLoginVendedores.ShowDialog() == DialogResult.OK )
             {
+                textEdit1.Text = frmLoginVendedores.CodigoVendedor + " - " + frmLoginVendedores.NombreVendedor;
+                VendedorActual = frmLoginVendedores.Vendedor_;
+                this.UsuarioLogeado = new UserLogin();
+                if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
 
+                }
+            }
+        }
+
+        private void cmdChangeVendedor_Click(object sender, EventArgs e)
+        {
+            frmLoginVendedores frmLoginVendedores = new frmLoginVendedores();
+            if (frmLoginVendedores.ShowDialog() == DialogResult.OK)
+            {
+                textEdit1.Text = frmLoginVendedores.CodigoVendedor + " - " + frmLoginVendedores.NombreVendedor;
+                VendedorActual = frmLoginVendedores.Vendedor_;
+                this.UsuarioLogeado = new UserLogin();
+                if(UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
+
+                }
             }
         }
 

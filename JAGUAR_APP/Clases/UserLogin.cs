@@ -23,7 +23,7 @@ namespace JAGUAR_PRO.Clases
         private int idnivel;
         private string tipo;
         private string codigo;
-        private int pIN;
+        private string pIN;
         private bool isVendedor;
 
         public bool Recuperado { get => recuperado; set => recuperado = value; }
@@ -83,7 +83,7 @@ namespace JAGUAR_PRO.Clases
         public string Usuario { get; set; }
         public bool Habilitado { get; set; }
         public string Codigo { get => codigo; set => codigo = value; }
-        public int PIN { get => pIN; set => pIN = value; }
+        public string PIN { get => pIN; set => pIN = value; }
         public bool IsVendedor { get => isVendedor; set => isVendedor = value; }
         #endregion
 
@@ -181,8 +181,13 @@ namespace JAGUAR_PRO.Clases
                         idGrupo = dr.GetInt32(2);
                     if (!dr.IsDBNull(dr.GetOrdinal("tipo")))
                         Tipo = dr.GetString(3);
-                    Codigo = dr.IsDBNull(4) ? "" : dr.GetString(4);
-                    PIN = dr.IsDBNull(5) ? 0 : dr.GetInt32(5);
+
+                    if (!dr.IsDBNull(dr.GetOrdinal("codigo_vendedor")))
+                        Codigo = dr.GetString(4);
+
+                    if (!dr.IsDBNull(dr.GetOrdinal("PIN")))
+                        PIN = dr.GetString(5);
+
                     recuperado = true;
                 }
                 dr.Close();
@@ -360,7 +365,7 @@ namespace JAGUAR_PRO.Clases
                     IdGrupo = dr.GetInt32(6);
                     TurnoId = dr.GetInt32(7);
                     Codigo = dr.IsDBNull(8) ? "" : dr.GetString(8);
-                    PIN = dr.IsDBNull(9) ? 0 : dr.GetInt32(9);
+                    PIN = dr.IsDBNull(9) ? "" : dr.GetString(9);
                     IsVendedor = dr.GetBoolean(10);
                 }
                 x = true;

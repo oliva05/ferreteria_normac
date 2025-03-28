@@ -18,6 +18,7 @@ using JAGUAR_PRO.BancosYTitulares;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.Despachos;
+using JAGUAR_PRO.Despachos.Pedidos;
 using JAGUAR_PRO.Facturacion.Configuraciones;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.Facturacion.Cotizaciones;
@@ -4827,7 +4828,8 @@ namespace JAGUAR_PRO
                     case 5://Depth Without Delta
                         accesoprevio = true;
                         //frmRecepcionFacturaProveedor frm = new frmRecepcionFacturaProveedor(this.UsuarioLogeado);
-                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
+                        //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
+                        frmHomePedidosClientes frm = new frmHomePedidosClientes(this.UsuarioLogeado, puntoVenta1);
                         frm.MdiParent = this.MdiParent;
                         frm.Show();
                         break;

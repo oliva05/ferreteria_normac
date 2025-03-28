@@ -28,11 +28,13 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         UserLogin UsuarioLogeado;
         DataOperations dp;
         FacturacionEquipo equipo;
-        public frmHomePedidosClientes(UserLogin pUsuarioLogeado)
+        PDV PuntoVentaActual;
+        public frmHomePedidosClientes(UserLogin pUsuarioLogeado, PDV pPuntoVenta)
         {
             InitializeComponent();
             equipo = new FacturacionEquipo();
             UsuarioLogeado = pUsuarioLogeado;
+            PuntoVentaActual = pPuntoVenta;
             dp = new DataOperations();
             DateTime fechaActual = dp.NowSetDateTime();
             DateTime FechaInicial = new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day, 0, 0, 0);

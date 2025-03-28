@@ -822,6 +822,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             private global::System.Data.DataColumn columnimpuesto3;
             
+            private global::System.Data.DataColumn columnbodega_id;
+            
+            private global::System.Data.DataColumn columnbodega_codigo;
+            
+            private global::System.Data.DataColumn columnbodega_name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Factura_DetalleDataTable() {
@@ -929,6 +935,30 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bodega_idColumn {
+                get {
+                    return this.columnbodega_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bodega_codigoColumn {
+                get {
+                    return this.columnbodega_codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bodega_nameColumn {
+                get {
+                    return this.columnbodega_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -964,7 +994,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Factura_DetalleRow AddFactura_DetalleRow(string item_code, string descripcion, decimal cantidad, decimal precio, decimal descuento, string impuesto1, decimal total_linea, decimal impuesto2, decimal impuesto3) {
+            public Factura_DetalleRow AddFactura_DetalleRow(string item_code, string descripcion, decimal cantidad, decimal precio, decimal descuento, string impuesto1, decimal total_linea, decimal impuesto2, decimal impuesto3, int bodega_id, string bodega_codigo, string bodega_name) {
                 Factura_DetalleRow rowFactura_DetalleRow = ((Factura_DetalleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         item_code,
@@ -975,7 +1005,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         impuesto1,
                         total_linea,
                         impuesto2,
-                        impuesto3};
+                        impuesto3,
+                        bodega_id,
+                        bodega_codigo,
+                        bodega_name};
                 rowFactura_DetalleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFactura_DetalleRow);
                 return rowFactura_DetalleRow;
@@ -1007,6 +1040,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columntotal_linea = base.Columns["total_linea"];
                 this.columnimpuesto2 = base.Columns["impuesto2"];
                 this.columnimpuesto3 = base.Columns["impuesto3"];
+                this.columnbodega_id = base.Columns["bodega_id"];
+                this.columnbodega_codigo = base.Columns["bodega_codigo"];
+                this.columnbodega_name = base.Columns["bodega_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1030,6 +1066,13 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columnimpuesto2);
                 this.columnimpuesto3 = new global::System.Data.DataColumn("impuesto3", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuesto3);
+                this.columnbodega_id = new global::System.Data.DataColumn("bodega_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbodega_id);
+                this.columnbodega_codigo = new global::System.Data.DataColumn("bodega_codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbodega_codigo);
+                this.columnbodega_name = new global::System.Data.DataColumn("bodega_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbodega_name);
+                this.columnbodega_codigo.Caption = "Bodega Codigo";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7000,6 +7043,54 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bodega_id {
+                get {
+                    try {
+                        return ((int)(this[this.tableFactura_Detalle.bodega_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'bodega_id\' de la tabla \'Factura_Detalle\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactura_Detalle.bodega_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string bodega_codigo {
+                get {
+                    try {
+                        return ((string)(this[this.tableFactura_Detalle.bodega_codigoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'bodega_codigo\' de la tabla \'Factura_Detalle\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactura_Detalle.bodega_codigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string bodega_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableFactura_Detalle.bodega_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'bodega_name\' de la tabla \'Factura_Detalle\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactura_Detalle.bodega_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isitem_codeNull() {
                 return this.IsNull(this.tableFactura_Detalle.item_codeColumn);
             }
@@ -7104,6 +7195,42 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setimpuesto3Null() {
                 this[this.tableFactura_Detalle.impuesto3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbodega_idNull() {
+                return this.IsNull(this.tableFactura_Detalle.bodega_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbodega_idNull() {
+                this[this.tableFactura_Detalle.bodega_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbodega_codigoNull() {
+                return this.IsNull(this.tableFactura_Detalle.bodega_codigoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbodega_codigoNull() {
+                this[this.tableFactura_Detalle.bodega_codigoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbodega_nameNull() {
+                return this.IsNull(this.tableFactura_Detalle.bodega_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbodega_nameNull() {
+                this[this.tableFactura_Detalle.bodega_nameColumn] = global::System.Convert.DBNull;
             }
         }
         

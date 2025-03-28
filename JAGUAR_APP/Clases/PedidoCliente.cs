@@ -81,7 +81,9 @@ namespace JAGUAR_PRO.Clases
                         Comentario = reader["comentario"].ToString();
                         EstadoNombre = reader["estado_nombre"].ToString();
                         TotalPedido = Convert.ToDecimal(reader["total"]);
-                        OrdenCompra = reader["orden_compra"].ToString(); 
+                        OrdenCompra = reader["orden_compra"].ToString();
+                        if (!reader.IsDBNull(reader.GetOrdinal("id_punto_venta")))
+                            IdPuntoVenta = (int)reader["id_punto_venta"];
                         //RecuperaDatosPDVFromPedidoCliente(IdPuntoVenta);
                         Recuperado = true;
                     }

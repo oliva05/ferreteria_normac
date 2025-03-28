@@ -25,11 +25,12 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         public ArrayList ListaSeleccionAlmacen;
         decimal descuento;
         decimal precio;
+        decimal isv1;
         int id_presentacion;
         string itemcode;
         string itemname;
         public frmElejirAlmacenPedido(int pIdPt, string ProductoName, decimal pCantidarReq, ArrayList pListaActual,
-                                      decimal pdescuento, decimal pprecio, int id_presentacion, string itemcode, string itemname)
+                                      decimal pdescuento, decimal pprecio, int id_presentacion, string itemcode, string itemname, decimal itemIsv1)
         {
             InitializeComponent();
             ListaSeleccionAlmacen = new ArrayList();
@@ -42,17 +43,18 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.id_presentacion = id_presentacion;
             this.itemcode = itemcode;
             this.itemname = itemname;
+            this.isv1 = itemIsv1;
             LoadInventarios();
             RecuperarCantidadSeleccionada(pListaActual);
         }
 
         private void RecuperarCantidadSeleccionada(ArrayList pListaActual)
         {
-            foreach (dsPedidosClientesV.stock_por_almacenRow row in dsPedidosClientesV1.stock_por_almacen.Rows)
+            foreach (dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
             {
                 foreach(ElejirInvAlmacen item in pListaActual)
                 {
-                    if(row.id_bodega == item.IdBodega && IdPT == item.id_pt)
+                    if (row.id_bodega == item.IdBodega && IdPT == item.id_pt)
                     {
                         row.cantidad_seleccionada = item.CantSeleccionada;
                         row.itemcode = itemcode;
@@ -60,6 +62,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                         row.id_presentacion = id_presentacion;
                         row.descuento = descuento;
                         row.precio = precio;
+                        row.isv1 = isv1;
+                        //row. = isv1;
                         //break;
                     }
                 }
@@ -77,17 +81,18 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 SqlCommand cmd = new SqlCommand("[jaguar_sp_get_cantidad_inv_kardex_pt_for_elejir_stock]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                dsPedidosClientesV1.stock_por_almacen.Clear();
+                dsPrefacturas1.stock_por_almacen.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                adat.Fill(dsPedidosClientesV1.stock_por_almacen);
+                adat.Fill(dsPrefacturas1.stock_por_almacen);
 
-                foreach (dsPedidosClientesV.stock_por_almacenRow row in dsPedidosClientesV1.stock_por_almacen.Rows)
+                foreach (dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
                 {
                     row.itemcode = itemcode;
                     row.itemname = itemname;
                     row.id_presentacion = id_presentacion;
                     row.descuento = descuento;
                     row.precio = precio;
+                    row.isv1 = isv1;
                 }
 
                 con.Close();
@@ -107,7 +112,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
             decimal CantSeleccionada = 0;
-            foreach(dsPedidosClientesV.stock_por_almacenRow row in dsPedidosClientesV1.stock_por_almacen.Rows)
+            foreach(dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
             {
                 CantSeleccionada += row.cantidad_seleccionada;
             }
@@ -118,7 +123,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 return;
             }
             //
-            foreach (dsPedidosClientesV.stock_por_almacenRow row in dsPedidosClientesV1.stock_por_almacen.Rows)
+            foreach (dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
             {
                 if (row.cantidad_seleccionada > 0)
                 {
@@ -132,6 +137,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     Eleccion.ItemCode = row.itemcode;
                     Eleccion.Descripcion = row.itemname;
                     Eleccion.id_presentacion = row.id_presentacion;
+                    Eleccion.isv1 = row.isv1;
                     ListaSeleccionAlmacen.Add(Eleccion);
                 }
             }
@@ -143,7 +149,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             var gridView = (GridView)gridControl1.FocusedView;
-            var row = (dsPedidosClientesV.stock_por_almacenRow)gridView.GetFocusedDataRow();
+            var row = (dsPrefacturas.stock_por_almacenRow)gridView.GetFocusedDataRow();
             //cantidad_seleccionada
 
             if(row.cantidad_seleccionada> row.cantidad)
