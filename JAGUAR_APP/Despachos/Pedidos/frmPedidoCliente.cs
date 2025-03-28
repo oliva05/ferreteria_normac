@@ -1731,9 +1731,9 @@ namespace Eatery.Ventas
 
 
                         row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
-                        row1.descuento_porcentaje = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+                        //row1.descuento_porcentaje = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                         
-                        row1.descuento = ((row1.cantidad * row1.precio) * (row1.descuento_porcentaje / 100));
+                        //row1.descuento = ((row1.cantidad * row1.precio) * (row1.descuento_porcentaje / 100));
                         row1.id_presentacion = pt1.Id_presentacion;
 
                         #region Calculo del precio base mas ISV

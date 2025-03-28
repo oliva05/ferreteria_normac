@@ -1960,11 +1960,12 @@ namespace Eatery.Ventas
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
+            var gridView = (GridView)gridControl1.FocusedView;
+            var row = (dsVentas.detalle_factura_transactionRow)gridView.GetFocusedDataRow();
             switch (e.Column.FieldName)
             {
                 case "cantidad":
-                    var gridView = (GridView)gridControl1.FocusedView;
-                    var row = (dsVentas.detalle_factura_transactionRow)gridView.GetFocusedDataRow();
+                    
                     if (row.cantidad > 0)
                     {
                         //No permitiremos facturar mas que lo que hay en inventario
@@ -1979,6 +1980,36 @@ namespace Eatery.Ventas
                         }
                     }
                     break;
+                case "descuento":
+                    decimal vDescuento = dp.ValidateNumberDecimal(e.Value);
+
+                    if (vDescuento < 0)
+                    {
+                        CajaDialogo.Error("No se permite valores menores a cero (0)!");
+                        return;
+                    }
+
+                    if (vDescuento > 100)
+                    {
+                        CajaDialogo.Error("No se permite valores mayores a cien (100)!");
+                        return;
+                    }
+
+
+                    decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(row.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+
+                    if (vDescuento > vPorcentajeDescuento)
+                    {
+                        CajaDialogo.Error("No se permite un descuento mayor al permitido!");
+                        row.descuento = 0;
+                        return;
+                    }
+
+                    decimal vDescuentoLinea = ((row.cantidad * row.precio) * (vDescuento / 100));
+                    row.descuento = vDescuentoLinea;
+
+                    //recalculamos 
+                    break;
             }
             CalcularTotalFactura();
         }
@@ -1991,7 +2022,7 @@ namespace Eatery.Ventas
                 row.total_linea = (row.cantidad * row.precio) - row.descuento;
                 //row.total_linea = row.total_linea + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
 
-                row.total_linea = (row.cantidad * row.precio) + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
+                row.total_linea = ((row.cantidad * row.precio) - row.descuento ) + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
 
                 total += row.total_linea;    
             }
