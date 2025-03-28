@@ -103,7 +103,7 @@ namespace ACS.Classes
 
         //internal string FTP_Tickets_LOSA = @"ftp://10.50.11.32/ALOSY/";
         //internal string FTP_Tickets_ACS = @"ftp://10.50.11.32/Tickets/";
-        internal string FTP_Normac_PT = @"ftp://10.50.13.89/Productos/";
+        internal string FTP_Normac_PT = @"ftp://192.168.21.50/Productos/";
         internal string User_FTP_Server = "ftp_normac";
         internal string Password_UserFTPServer = "OPjSn10Z1U";
 

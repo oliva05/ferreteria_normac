@@ -153,6 +153,7 @@ namespace JAGUAR_PRO.Clases
 
         public bool ValidateConnection()
         {
+            bool Recuperado = false;
             Task<bool> task = Task.Run(() =>
             {
                 try
@@ -172,7 +173,9 @@ namespace JAGUAR_PRO.Clases
                         return response.StatusCode == FtpStatusCode.OpeningData // Si abre la conexión, es válida
                         || response.StatusCode == FtpStatusCode.DataAlreadyOpen
                         || response.StatusCode == FtpStatusCode.CommandOK;
+                        
                     }
+                    Recuperado = true;
 
                 }
                 catch (WebException ex)
@@ -180,6 +183,8 @@ namespace JAGUAR_PRO.Clases
                     //CajaDialogo.Error($"Error de conexión FTP: {ex.Message}\nContacte a su Proveedor de Software");
                     return false; // Si hay error, la conexión no es válida
                 }
+
+                
             }
             );
 
@@ -190,8 +195,10 @@ namespace JAGUAR_PRO.Clases
             else
             {
                 //CajaDialogo.Error($"Error de conexión FTP \nContacte a su Proveedor de Software");
-                return false; // Se agotó el tiempo de espera
+                Recuperado = false; // Se agotó el tiempo de espera
             }
+
+            return Recuperado;
         }
 
     }
