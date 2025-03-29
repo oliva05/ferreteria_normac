@@ -540,48 +540,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         }
 
-        private void reposDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-           
-            var row = (dsProductoTerminado.PTImagenesRow)gridView9.GetFocusedDataRow();
-
-            try
-            {
-                if (row.id == 0)//No existe detalle, solo como memoria
-                {
-                    gridView9.DeleteRow(gridView9.FocusedRowHandle);
-                    dsProductoTerminado1.AcceptChanges();
-                }
-                else
-                {
-                    DialogResult r = CajaDialogo.Pregunta("Desea eliminar la imagen?");
-                    if (r != DialogResult.Yes)
-                        return;
-
-                    //FTP_Class fTP_Class = new FTP_Class();
-
-                    //fTP_Class.RemoveFile(row.path);
-
-                    DataOperations dp = new DataOperations();
-                    SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-
-                    cnx.Open();
-
-                    SqlCommand cmd = new SqlCommand("dbo.sp_pt_producto_delete_imagen", cnx);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = row.id;
-                    cmd.ExecuteNonQuery();
-
-                    gridView9.DeleteRow(gridView9.FocusedRowHandle);
-                    dsProductoTerminado1.AcceptChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                CajaDialogo.Error(ex.Message);
-            }
-
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -1030,6 +988,47 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 default:
 
                     break;
+            }
+        }
+
+        private void reposDelete_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var row = (dsProductoTerminado.PTImagenesRow)gridView9.GetFocusedDataRow();
+
+            try
+            {
+                if (row.id == 0)//No existe detalle, solo como memoria
+                {
+                    gridView9.DeleteRow(gridView9.FocusedRowHandle);
+                    dsProductoTerminado1.AcceptChanges();
+                }
+                else
+                {
+                    DialogResult r = CajaDialogo.Pregunta("Desea eliminar la imagen?");
+                    if (r != DialogResult.Yes)
+                        return;
+
+                    //FTP_Class fTP_Class = new FTP_Class();
+
+                    //fTP_Class.RemoveFile(row.path);
+
+                    DataOperations dp = new DataOperations();
+                    SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+
+                    cnx.Open();
+
+                    SqlCommand cmd = new SqlCommand("dbo.sp_pt_producto_delete_imagen", cnx);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = row.id;
+                    cmd.ExecuteNonQuery();
+
+                    gridView9.DeleteRow(gridView9.FocusedRowHandle);
+                    dsProductoTerminado1.AcceptChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
     }

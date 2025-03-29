@@ -29,6 +29,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             InitializeComponent();
             MagiaEmbellezedora();
             dp = new DataOperations();
+            tggViewFilter.IsOn = false;
             UsuarioLogeado = pUserLogin;
             LoadDataDetallePT();
         }
