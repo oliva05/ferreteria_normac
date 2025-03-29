@@ -138,11 +138,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.lblStatusFTP = new DevExpress.XtraEditors.LabelControl();
             this.grdMarca = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.listamarcasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.listamarcasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit_Presentaciones.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePresentacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
@@ -184,8 +184,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.cmdFijarComoEstandar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdHabilitarAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMarca.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listamarcasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // gridLookUpEdit_Presentaciones
@@ -854,6 +854,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposDelete.Name = "reposDelete";
             this.reposDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.reposDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposDelete_ButtonClick_1);
             // 
             // tabInventario
             // 
@@ -1047,6 +1048,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.grdMarca.Size = new System.Drawing.Size(177, 22);
             this.grdMarca.TabIndex = 54;
             // 
+            // listamarcasBindingSource
+            // 
+            this.listamarcasBindingSource.DataMember = "lista_marcas";
+            this.listamarcasBindingSource.DataSource = this.dsProductoTerminado1;
+            // 
             // gridView3
             // 
             this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -1083,11 +1089,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl6.Size = new System.Drawing.Size(198, 15);
             this.labelControl6.TabIndex = 55;
             this.labelControl6.Text = "Marca_________________________________";
-            // 
-            // listamarcasBindingSource
-            // 
-            this.listamarcasBindingSource.DataMember = "lista_marcas";
-            this.listamarcasBindingSource.DataSource = this.dsProductoTerminado1;
             // 
             // frmCRUD_ProductoTerminadoV2
             // 
@@ -1172,8 +1173,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.cmdFijarComoEstandar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdHabilitarAlmacen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMarca.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listamarcasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
