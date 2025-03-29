@@ -672,6 +672,7 @@
     <Compile Include="Clases\FacturaEstado.cs" />
     <Compile Include="Clases\FacturasPagoMultiple.cs" />
     <Compile Include="Clases\Factura_SolicitudAutorizacion.cs" />
+    <Compile Include="Clases\Marcas.cs" />
     <Compile Include="Clases\OrdenesCompra.cs" />
     <Compile Include="Clases\PedidoCliente.cs" />
     <Compile Include="Clases\ReciboH.cs" />
@@ -2057,6 +2058,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsProductoTerminado.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_Marca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_Marca.Designer.cs">
+      <DependentUpon>frmCRUD_Marca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2092,6 +2099,12 @@
     </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmCRUD_PTSubClase.Designer.cs">
       <DependentUpon>frmCRUD_PTSubClase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainMarcas.Designer.cs">
+      <DependentUpon>frmMainMarcas.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.cs">
       <SubType>Form</SubType>
@@ -3746,6 +3759,9 @@
     <EmbeddedResource Include="Mantenimientos\Panaderos\xfrmJAGUAR_Panaderos_CRUD.resx">
       <DependentUpon>xfrmJAGUAR_Panaderos_CRUD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_Marca.resx">
+      <DependentUpon>frmCRUD_Marca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_ProductoTerminado.resx">
       <DependentUpon>frmCRUD_ProductoTerminado.cs</DependentUpon>
     </EmbeddedResource>
@@ -3763,6 +3779,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmCRUD_PTSubClase.resx">
       <DependentUpon>frmCRUD_PTSubClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainMarcas.resx">
+      <DependentUpon>frmMainMarcas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainProductoTerminado.resx">
       <DependentUpon>frmMainProductoTerminado.cs</DependentUpon>
