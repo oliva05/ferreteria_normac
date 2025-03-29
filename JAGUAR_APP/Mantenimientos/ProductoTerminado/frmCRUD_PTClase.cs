@@ -31,7 +31,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         {
             InitializeComponent();
             TipoOP = operacion;
-            LoadFamilia();
+            
             switch (TipoOP)
             {
                 case Operacion.Insert:
@@ -53,6 +53,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 default:
                     break;
             }
+            LoadFamilia();
         }
 
         private void LoadFamilia()
@@ -67,6 +68,19 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 dsProductoTerminado1.categoaria_select.Clear();
                 adapter.Fill(dsProductoTerminado1.categoaria_select);
                 connection.Close();
+                ProductoClase ClaseActual = new ProductoClase();
+                if(ClaseActual.ObtenerPorId(Id))
+                {
+                    ProductoCategoria categoriaActual = new ProductoCategoria();
+                    if (categoriaActual.ObtenerPorId(ClaseActual.IdCategoria))
+                    {
+                        ProductoFamilia FamiliaActual =  new ProductoFamilia();
+                        if(FamiliaActual.ObtenerPorId(categoriaActual.IdFamilia))
+                        {
+                            txtFamilia_.Text = FamiliaActual.Codigo + " - " + FamiliaActual.Descripcion;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
