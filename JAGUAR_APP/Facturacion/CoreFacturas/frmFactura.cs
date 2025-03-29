@@ -13,6 +13,7 @@ using JAGUAR_PRO.Facturacion.Reportes;
 using JAGUAR_PRO.Mantenimientos;
 using JAGUAR_PRO.Mantenimientos.Modelos;
 using JAGUAR_PRO.RecuentoInventario;
+using JAGUAR_PRO.Utileria;
 using LOSA.Calidad.LoteConfConsumo;
 using Microsoft.VisualBasic;
 using System;
@@ -30,6 +31,7 @@ using static DevExpress.Data.Filtering.Helpers.SubExprHelper.ThreadHoppingFilter
 using static DevExpress.DataProcessing.InMemoryDataProcessor.AddSurrogateOperationAlgorithm;
 using static DevExpress.XtraPrinting.Native.ExportOptionsPropertiesNames;
 using static JAGUAR_PRO.Clases.BinGranel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 
 namespace Eatery.Ventas
@@ -44,6 +46,7 @@ namespace Eatery.Ventas
         int IdTerminoPago;
         int IdPedido = 0;
         PedidoCliente PedidoRecuperado;
+        Vendedor VendedorActual;
 
         UserLogin UsuarioLogeado;
         public enum Busqueda
@@ -2276,6 +2279,34 @@ namespace Eatery.Ventas
             }
         }//End cmd copiar from pedido
 
+        private void cmdChangeVendedor_Click(object sender, EventArgs e)
+        {
+            frmLoginVendedores frmLogin1 = new frmLoginVendedores();
+            if (frmLogin1.ShowDialog() == DialogResult.OK)
+            {
+                txtVendedor.Text = frmLogin1.CodigoVendedor + " - " + frmLogin1.NombreVendedor;
+                VendedorActual = frmLogin1.Vendedor_;
+                this.UsuarioLogeado = new UserLogin();
+                if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
 
+                }
+            }
+        }
+
+        private void txtVendedor_DoubleClick(object sender, EventArgs e)
+        {
+            frmLoginVendedores frmLogin1 = new frmLoginVendedores();
+            if (frmLogin1.ShowDialog() == DialogResult.OK)
+            {
+                txtVendedor.Text = frmLogin1.CodigoVendedor + " - " + frmLogin1.NombreVendedor;
+                VendedorActual = frmLogin1.Vendedor_;
+                this.UsuarioLogeado = new UserLogin();
+                if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
+
+                }
+            }
+        }
     }
 }

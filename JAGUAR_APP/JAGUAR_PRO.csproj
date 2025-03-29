@@ -675,6 +675,10 @@
     <Compile Include="Clases\Marcas.cs" />
     <Compile Include="Clases\OrdenesCompra.cs" />
     <Compile Include="Clases\PedidoCliente.cs" />
+    <Compile Include="Clases\ProductoCategoria.cs" />
+    <Compile Include="Clases\ProductoClase.cs" />
+    <Compile Include="Clases\ProductoFamilia.cs" />
+    <Compile Include="Clases\ProductoSubClase.cs" />
     <Compile Include="Clases\ReciboH.cs" />
     <Compile Include="Clases\Notas_CreditoDebito.cs" />
     <Compile Include="Clases\RegistroPago.cs" />
@@ -3834,6 +3838,7 @@
     <EmbeddedResource Include="Micro\frmOpcionesMicro.resx">
       <DependentUpon>frmOpcionesMicro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
