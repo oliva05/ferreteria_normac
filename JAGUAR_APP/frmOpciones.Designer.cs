@@ -48,6 +48,7 @@
             this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemKardexPT = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem60 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem21 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem25 = new DevExpress.XtraNavBar.NavBarItem();
@@ -84,6 +85,7 @@
             this.TabAdmin = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageCRUDS = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
@@ -190,7 +192,6 @@
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.navBarItem60 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -517,6 +518,21 @@
             this.navBarItemKardexPT.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.ready_stock;
             this.navBarItemKardexPT.Name = "navBarItemKardexPT";
             this.navBarItemKardexPT.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemKardexPT_LinkClicked);
+            // 
+            // navBarItem60
+            // 
+            this.navBarItem60.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem60.Appearance.Options.UseFont = true;
+            this.navBarItem60.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem60.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem60.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem60.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem60.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem60.AppearancePressed.Options.UseFont = true;
+            this.navBarItem60.Caption = "Traslado Entre Almacenes";
+            this.navBarItem60.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.traslado_de_paqueteria;
+            this.navBarItem60.Name = "navBarItem60";
+            this.navBarItem60.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem60_LinkClicked_1);
             // 
             // navBarGroup9
             // 
@@ -949,6 +965,7 @@
             // 
             this.xtraTabPageCRUDS.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xtraTabPageCRUDS.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPageCRUDS.Controls.Add(this.simpleButton7);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton6);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton5);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton4);
@@ -967,6 +984,19 @@
             this.xtraTabPageCRUDS.Name = "xtraTabPageCRUDS";
             this.xtraTabPageCRUDS.Size = new System.Drawing.Size(944, 495);
             this.xtraTabPageCRUDS.Text = "Mantenimientos";
+            // 
+            // simpleButton7
+            // 
+            this.simpleButton7.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.simpleButton7.Appearance.Options.UseFont = true;
+            this.simpleButton7.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton7.ImageOptions.SvgImage")));
+            this.simpleButton7.Location = new System.Drawing.Point(468, 250);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.Size = new System.Drawing.Size(227, 58);
+            this.simpleButton7.TabIndex = 40;
+            this.simpleButton7.Text = "Marcas";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click_1);
             // 
             // simpleButton6
             // 
@@ -2414,21 +2444,6 @@
             this.btnClose.Text = "Cerrar";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // navBarItem60
-            // 
-            this.navBarItem60.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem60.Appearance.Options.UseFont = true;
-            this.navBarItem60.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem60.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem60.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem60.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem60.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem60.AppearancePressed.Options.UseFont = true;
-            this.navBarItem60.Caption = "Traslado Entre Almacenes";
-            this.navBarItem60.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.traslado_de_paqueteria;
-            this.navBarItem60.Name = "navBarItem60";
-            this.navBarItem60.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem60_LinkClicked_1);
-            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2626,5 +2641,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem59;
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private DevExpress.XtraNavBar.NavBarItem navBarItem60;
+        private DevExpress.XtraEditors.SimpleButton simpleButton7;
     }
 }

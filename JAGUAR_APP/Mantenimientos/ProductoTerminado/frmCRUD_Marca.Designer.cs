@@ -75,14 +75,15 @@
             this.cmdCerrar.Size = new System.Drawing.Size(132, 42);
             this.cmdCerrar.TabIndex = 44;
             this.cmdCerrar.Text = "Cerrar";
+            this.cmdCerrar.Click += new System.EventHandler(this.cmdCerrar_Click);
             // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNombre.Location = new System.Drawing.Point(226, 83);
-            this.txtNombre.MaxLength = 3;
+            this.txtNombre.Location = new System.Drawing.Point(194, 83);
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(177, 23);
+            this.txtNombre.Size = new System.Drawing.Size(209, 23);
             this.txtNombre.TabIndex = 43;
             // 
             // labelControl5
@@ -98,10 +99,10 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtDescripcion.Location = new System.Drawing.Point(226, 120);
+            this.txtDescripcion.Location = new System.Drawing.Point(194, 120);
             this.txtDescripcion.MaxLength = 50;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(177, 23);
+            this.txtDescripcion.Size = new System.Drawing.Size(209, 23);
             this.txtDescripcion.TabIndex = 41;
             // 
             // labelControl4
@@ -117,7 +118,7 @@
             // toggleSwitchEnablePT
             // 
             this.toggleSwitchEnablePT.EditValue = true;
-            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(211, 233);
+            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(220, 231);
             this.toggleSwitchEnablePT.Name = "toggleSwitchEnablePT";
             this.toggleSwitchEnablePT.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toggleSwitchEnablePT.Properties.Appearance.Options.UseFont = true;
@@ -130,7 +131,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(114, 235);
+            this.labelControl2.Location = new System.Drawing.Point(123, 233);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(159, 15);
             this.labelControl2.TabIndex = 38;
@@ -148,13 +149,13 @@
             // 
             // comboBoxPaises
             // 
-            this.comboBoxPaises.Location = new System.Drawing.Point(226, 157);
+            this.comboBoxPaises.Location = new System.Drawing.Point(194, 157);
             this.comboBoxPaises.Name = "comboBoxPaises";
             this.comboBoxPaises.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.comboBoxPaises.Properties.Appearance.Options.UseFont = true;
             this.comboBoxPaises.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxPaises.Size = new System.Drawing.Size(177, 22);
+            this.comboBoxPaises.Size = new System.Drawing.Size(209, 22);
             this.comboBoxPaises.TabIndex = 46;
             // 
             // labelControl1
@@ -169,11 +170,13 @@
             // 
             // hyperSitio
             // 
-            this.hyperSitio.Location = new System.Drawing.Point(226, 194);
+            this.hyperSitio.Location = new System.Drawing.Point(194, 194);
             this.hyperSitio.Name = "hyperSitio";
             this.hyperSitio.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.hyperSitio.Properties.Appearance.Options.UseFont = true;
-            this.hyperSitio.Size = new System.Drawing.Size(177, 22);
+            this.hyperSitio.Properties.StartKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None);
+            this.hyperSitio.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.hyperSitio.Size = new System.Drawing.Size(209, 22);
             this.hyperSitio.TabIndex = 48;
             // 
             // labelControl3

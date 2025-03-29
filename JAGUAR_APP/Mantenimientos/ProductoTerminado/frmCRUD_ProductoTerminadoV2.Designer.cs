@@ -142,6 +142,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.listamarcasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit_Presentaciones.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePresentacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
@@ -184,6 +185,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.cmdHabilitarAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMarca.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listamarcasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gridLookUpEdit_Presentaciones
@@ -1038,10 +1040,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.grdMarca.Properties.Appearance.Options.UseFont = true;
             this.grdMarca.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.grdMarca.Properties.DataSource = this.subClaseSelectBindingSource;
-            this.grdMarca.Properties.DisplayMember = "descripcion";
+            this.grdMarca.Properties.DataSource = this.listamarcasBindingSource;
+            this.grdMarca.Properties.DisplayMember = "nombre";
             this.grdMarca.Properties.PopupView = this.gridView3;
-            this.grdMarca.Properties.ValueMember = "id";
+            this.grdMarca.Properties.ValueMember = "id_marca";
             this.grdMarca.Size = new System.Drawing.Size(177, 22);
             this.grdMarca.TabIndex = 54;
             // 
@@ -1060,12 +1062,13 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             // gridColumn1
             // 
-            this.gridColumn1.FieldName = "id";
+            this.gridColumn1.FieldName = "id_marca";
             this.gridColumn1.Name = "gridColumn1";
             // 
             // gridColumn2
             // 
-            this.gridColumn2.FieldName = "descripcion";
+            this.gridColumn2.Caption = "Marca";
+            this.gridColumn2.FieldName = "nombre";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
@@ -1080,6 +1083,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl6.Size = new System.Drawing.Size(198, 15);
             this.labelControl6.TabIndex = 55;
             this.labelControl6.Text = "Marca_________________________________";
+            // 
+            // listamarcasBindingSource
+            // 
+            this.listamarcasBindingSource.DataMember = "lista_marcas";
+            this.listamarcasBindingSource.DataSource = this.dsProductoTerminado1;
             // 
             // frmCRUD_ProductoTerminadoV2
             // 
@@ -1165,6 +1173,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.cmdHabilitarAlmacen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMarca.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listamarcasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1267,5 +1276,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private System.Windows.Forms.BindingSource listamarcasBindingSource;
     }
 }

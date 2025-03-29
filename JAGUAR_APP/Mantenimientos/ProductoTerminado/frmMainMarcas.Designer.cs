@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMarcas));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -41,6 +47,7 @@
             this.coluser_create = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluser_modi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reposEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.tsAll = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -48,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsAll.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +69,8 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 86);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.reposEdit});
             this.gridControl1.Size = new System.Drawing.Size(1176, 462);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -90,33 +100,41 @@
             this.gridColumn1});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             // 
             // colid_marca
             // 
             this.colid_marca.FieldName = "id_marca";
             this.colid_marca.Name = "colid_marca";
+            this.colid_marca.OptionsColumn.ReadOnly = true;
             // 
             // colnombre
             // 
             this.colnombre.Caption = "Nombre de la Marca";
             this.colnombre.FieldName = "nombre";
             this.colnombre.Name = "colnombre";
+            this.colnombre.OptionsColumn.ReadOnly = true;
             this.colnombre.Visible = true;
             this.colnombre.VisibleIndex = 0;
+            this.colnombre.Width = 126;
             // 
             // coldescripcion
             // 
             this.coldescripcion.Caption = "Descripcion";
             this.coldescripcion.FieldName = "descripcion";
             this.coldescripcion.Name = "coldescripcion";
+            this.coldescripcion.OptionsColumn.ReadOnly = true;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 1;
+            this.coldescripcion.Width = 174;
             // 
             // colpais_origen
             // 
             this.colpais_origen.Caption = "Pais Origen";
             this.colpais_origen.FieldName = "pais_origen";
             this.colpais_origen.Name = "colpais_origen";
+            this.colpais_origen.OptionsColumn.ReadOnly = true;
             this.colpais_origen.Visible = true;
             this.colpais_origen.VisibleIndex = 2;
             // 
@@ -125,14 +143,17 @@
             this.colsitio_web.Caption = "Sitio Web";
             this.colsitio_web.FieldName = "sitio_web";
             this.colsitio_web.Name = "colsitio_web";
+            this.colsitio_web.OptionsColumn.ReadOnly = true;
             this.colsitio_web.Visible = true;
             this.colsitio_web.VisibleIndex = 3;
+            this.colsitio_web.Width = 182;
             // 
             // colfecha_creacion
             // 
             this.colfecha_creacion.Caption = "Fecha Creacion";
             this.colfecha_creacion.FieldName = "fecha_creacion";
             this.colfecha_creacion.Name = "colfecha_creacion";
+            this.colfecha_creacion.OptionsColumn.ReadOnly = true;
             this.colfecha_creacion.Visible = true;
             this.colfecha_creacion.VisibleIndex = 4;
             // 
@@ -141,6 +162,7 @@
             this.colfecha_actualizacion.Caption = "Fecha Modificacion";
             this.colfecha_actualizacion.FieldName = "fecha_actualizacion";
             this.colfecha_actualizacion.Name = "colfecha_actualizacion";
+            this.colfecha_actualizacion.OptionsColumn.ReadOnly = true;
             this.colfecha_actualizacion.Visible = true;
             this.colfecha_actualizacion.VisibleIndex = 5;
             // 
@@ -149,6 +171,7 @@
             this.coluser_create.Caption = "Creado por:";
             this.coluser_create.FieldName = "user_create";
             this.coluser_create.Name = "coluser_create";
+            this.coluser_create.OptionsColumn.ReadOnly = true;
             this.coluser_create.Visible = true;
             this.coluser_create.VisibleIndex = 6;
             // 
@@ -157,15 +180,29 @@
             this.coluser_modi.Caption = "Modificado por:";
             this.coluser_modi.FieldName = "user_modi";
             this.coluser_modi.Name = "coluser_modi";
+            this.coluser_modi.OptionsColumn.ReadOnly = true;
             this.coluser_modi.Visible = true;
             this.coluser_modi.VisibleIndex = 7;
+            this.coluser_modi.Width = 118;
             // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Editar";
+            this.gridColumn1.ColumnEdit = this.reposEdit;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 8;
+            this.gridColumn1.Width = 134;
+            // 
+            // reposEdit
+            // 
+            this.reposEdit.AutoHeight = false;
+            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
+            this.reposEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.reposEdit.Name = "reposEdit";
+            this.reposEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.reposEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposEdit_ButtonClick);
             // 
             // btnNew
             // 
@@ -182,7 +219,8 @@
             // tsAll
             // 
             this.tsAll.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tsAll.Location = new System.Drawing.Point(507, 48);
+            this.tsAll.EditValue = true;
+            this.tsAll.Location = new System.Drawing.Point(520, 49);
             this.tsAll.Name = "tsAll";
             this.tsAll.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tsAll.Properties.Appearance.Options.UseFont = true;
@@ -199,9 +237,9 @@
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(449, 52);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(52, 15);
+            this.labelControl1.Size = new System.Drawing.Size(65, 15);
             this.labelControl1.TabIndex = 4;
-            this.labelControl1.Text = "Ver Todos";
+            this.labelControl1.Text = "Solo Activos";
             // 
             // btnClose
             // 
@@ -232,6 +270,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsAll.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -257,5 +296,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn coluser_create;
         private DevExpress.XtraGrid.Columns.GridColumn coluser_modi;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposEdit;
     }
 }

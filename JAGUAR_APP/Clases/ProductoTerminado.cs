@@ -53,6 +53,7 @@ namespace JAGUAR_PRO.Clases
         string correlativoUsados;
         int idBodega;
         int idPT;
+        int idMarca;
         public int Id { get => id; set => id = value; }
         public bool Enable { get => enable; set => enable = value; }
         public int Id_user_created { get => id_user_created; set => id_user_created = value; }
@@ -105,6 +106,7 @@ namespace JAGUAR_PRO.Clases
         public string CorrelativoUsados { get => correlativoUsados; set => correlativoUsados = value; }
         public int IdBodega { get => idBodega; set => idBodega = value; }
         public int IdPT { get => idPT; set => idPT = value; }
+        public int IdMarca { get => idMarca; set => idMarca = value; }
 
         public ProductoTerminado(string pConnectionString, DateTime fecha = default)
         {
@@ -276,8 +278,8 @@ namespace JAGUAR_PRO.Clases
                         CodeOEM = dl.GetString(25);
                     else
                         CodeOEM = "";
-
-
+                    IdMarca = dl.IsDBNull(26) ? 0 : dl.GetInt32(26);
+ 
                     Recuperado = true;
                     //Recuperar_Latas_and_bolsas(IdProd);
 

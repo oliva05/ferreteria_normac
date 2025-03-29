@@ -1,7 +1,9 @@
 ﻿using ACS.Classes;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.LogisticaJaguar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +27,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             InitializeComponent();
        
             UsuarioLogeado = user;
-            tsAll.IsOn = false;
+            tsAll.IsOn = true;
 
             LoadData();
   
@@ -70,6 +72,22 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             {
                 LoadData();
             }
+        }
+
+        private void reposEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)gridControl1.FocusedView;
+            var row = (dsProductoTerminado.lista_marcasRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                frmCRUD_Marca frm = new frmCRUD_Marca(frmCRUD_Marca.TipoOperacion.Editar, UsuarioLogeado, row.id_marca);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+
         }
     }
 }

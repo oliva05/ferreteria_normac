@@ -63,6 +63,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             LoadClasesProductoTerminado();
             LoadImpuestosAplicables();
             LoadConfiguracionAlmacenes(pId_PT);
+            LoadMarcas();
 
             TipoOperacionActual = pTipoOperacion;
             PT_Class_instance = new Clases.ProductoTerminado();
@@ -119,6 +120,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
                         txtBarCode.Text = PT_Class_instance.Barcode;
                         txtOEM.Text = PT_Class_instance.CodeOEM;
+                        grdMarca.EditValue = PT_Class_instance.IdMarca;
 
                         //gridLookUpEditTipoFacturacionDestino.EditValueChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_EditValueChanged);
                         //gridLookUpEditTipoFacturacionDestino.EditValue = PT_Class_instance.id_tipo_facturacion_prd;
@@ -175,7 +177,27 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             
         }
 
-        
+        private void LoadMarcas()
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_pt_get_marcas_activos", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@idbodega", idBodega);
+                dsProductoTerminado1.lista_marcas.Clear();
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                adat.Fill(dsProductoTerminado1.lista_marcas);
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
 
         private void MagiaEmbellezedora()
         {
@@ -587,6 +609,12 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
+            if (string.IsNullOrEmpty(grdMarca.Text))
+            {
+                CajaDialogo.Error("Debe colocar la Marca del Producto!");
+                return;
+            }
+
             //if (string.IsNullOrEmpty(gridLookUpEditTipoProducto.Text))
             //{
             //    CajaDialogo.Error("Es necesario indicar el Destino del Producto!");
@@ -681,6 +709,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
                 cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
                 cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
+                cmd.Parameters.AddWithValue("@id_marca", grdMarca.EditValue);
 
                 if (TipoOperacionActual == TipoOperacion.Insert)
                 {
