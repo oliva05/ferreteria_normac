@@ -262,7 +262,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(45, 43);
+            this.label3.Location = new System.Drawing.Point(33, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 16);
             this.label3.TabIndex = 45;
@@ -270,8 +270,9 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(106, 40);
+            this.txtCodigo.Location = new System.Drawing.Point(94, 39);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(201, 22);
             this.txtCodigo.TabIndex = 46;
@@ -280,7 +281,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(45, 83);
+            this.label8.Location = new System.Drawing.Point(33, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 16);
             this.label8.TabIndex = 47;
@@ -289,7 +290,7 @@
             // txtPIN
             // 
             this.txtPIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPIN.Location = new System.Drawing.Point(106, 77);
+            this.txtPIN.Location = new System.Drawing.Point(94, 76);
             this.txtPIN.MaxLength = 6;
             this.txtPIN.Name = "txtPIN";
             this.txtPIN.PasswordChar = '●';
@@ -298,7 +299,7 @@
             // 
             // tsIsVendedor
             // 
-            this.tsIsVendedor.Location = new System.Drawing.Point(177, 242);
+            this.tsIsVendedor.Location = new System.Drawing.Point(190, 242);
             this.tsIsVendedor.Name = "tsIsVendedor";
             this.tsIsVendedor.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.tsIsVendedor.Properties.Appearance.Options.UseFont = true;
@@ -335,7 +336,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(91, 244);
+            this.label9.Location = new System.Drawing.Point(92, 244);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 16);
             this.label9.TabIndex = 52;

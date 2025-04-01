@@ -12,11 +12,13 @@ using JAGUAR_PRO.Clases;
 using ACS.Classes;
 using JAGUAR_PRO.Accesos;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.Accessibility;
 
 namespace PRININ.Gestion_de_Usuarios
 {
     public partial class frmUser : DevExpress.XtraEditors.XtraForm
     {
+        int IdUser = 0;
         public enum TipoEdicion
         {
             Nuevo = 1,
@@ -37,6 +39,7 @@ namespace PRININ.Gestion_de_Usuarios
             InitializeComponent();
             vTipoEdition = pTipo;
             op = new DataOperations();
+            IdUser = pIdUserEditar;
             UserParametro = pUser;
             LoadGroup();
             LoadTurnos();
@@ -184,6 +187,17 @@ namespace PRININ.Gestion_de_Usuarios
             else
             {
                 ValidoContrasenia = true;
+            }
+
+            if (tsIsVendedor.IsOn) 
+            {
+                if (string.IsNullOrEmpty(txtPIN.Text))
+                {
+                    CajaDialogo.Error("El Usuario es Vendedor\nAgregar PIN!");
+                    return;
+                }
+                
+
             }
 
             //if(lueGrupo.EditValue == 4) //Si es Vendedor debe llevar Codigo Obligatoriamente
@@ -350,6 +364,28 @@ namespace PRININ.Gestion_de_Usuarios
             if (tsIsVendedor.IsOn)
             {
                 groupVendedor.Enabled = true;
+                switch (vTipoEdition)
+                {
+                    case TipoEdicion.Nuevo:
+                        SugerirCodigoVendedor();
+                        break;
+                    case TipoEdicion.Editar:
+                        if(UserEdicion.RecuperarRegistroJAGUAR(IdUser))
+                        {
+                            if (string.IsNullOrEmpty(UserEdicion.Codigo))
+                            {
+                                SugerirCodigoVendedor();
+                            }
+                            else
+                            {
+                                txtCodigo.Text = UserEdicion.Codigo;
+                            }
+                        }
+
+                        break;
+                    default:
+                        break;
+                }
             }
             else
             {
@@ -359,9 +395,31 @@ namespace PRININ.Gestion_de_Usuarios
             }
         }
 
+        private void SugerirCodigoVendedor()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(op.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                string sql = "ft_cargar_codigo_siguiente_vendedor";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    //IdSiguiente = dr.GetInt32(1);
+                    txtCodigo.Text = dr.GetString(2);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
         private void frmUser_Load(object sender, EventArgs e)
         {
-            tsIsVendedor.IsOn = false;
             tsIsVendedor_Toggled(tsIsVendedor, EventArgs.Empty);
         }
     }
