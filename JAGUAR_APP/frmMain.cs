@@ -1,6 +1,7 @@
 ﻿using ACS.Classes;
 using Core.Clases.Herramientas;
 using DevExpress.Utils.TouchHelpers;
+using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using Huellas;
 using JAGUAR_PRO.AlmacenesExterno;
@@ -27,7 +28,7 @@ using System.Windows.Forms;
 
 namespace JAGUAR_PRO
 {
-    public partial class frmMain : Form
+    public partial class frmMain : XtraForm
     {
         private UserLogin user1;
         //int IdUser;

@@ -503,6 +503,7 @@
             this.Controls.Add(this.cmdSAve);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmUser.IconOptions.Icon")));
             this.Name = "frmUser";
+            this.Load += new System.EventHandler(this.frmUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lueGrupo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accesoGrupoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAccesos1)).EndInit();

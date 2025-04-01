@@ -2,6 +2,7 @@
 using ACS.Classes;
 //using ACS.Forecast;
 using ACS.IT_Managment;
+using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using Eatery.Ventas;
 using JAGUAR_PRO.Accesos;
@@ -54,9 +55,10 @@ using System.Net;
 using System.Reflection;
 using System.Windows.Forms;
 
+
 namespace JAGUAR_PRO
 {
-    public partial class frmOpciones : Form
+    public partial class frmOpciones : XtraForm
     {
         UserLogin UsuarioLogeado;
         string ActiveUserCode;

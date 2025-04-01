@@ -358,5 +358,11 @@ namespace PRININ.Gestion_de_Usuarios
                 txtCodigo.Text = "";
             }
         }
+
+        private void frmUser_Load(object sender, EventArgs e)
+        {
+            tsIsVendedor.IsOn = false;
+            tsIsVendedor_Toggled(tsIsVendedor, EventArgs.Empty);
+        }
     }
 }
