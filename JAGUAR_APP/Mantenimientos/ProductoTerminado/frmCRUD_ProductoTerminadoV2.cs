@@ -75,8 +75,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     txtCodigoPT.Text = PT_Class_instance.GenerarSiguienteCodigoPT();
                     toggleSwitchEnablePT.IsOn = true;
                     toggleSwitchEnablePT.Enabled = false;
-
-                    gridLookUpEditEstadoPT.EditValue = 1;
+                    gridLookUpEdit_Presentaciones.EditValue = 1;
+                   
                     int contador = 0;
                     foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
                     {
@@ -555,11 +555,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
-            if (string.IsNullOrEmpty(gridLookUpEditEstadoPT.Text))
-            {
-                CajaDialogo.Error("Es necesario indicar el Estado!");
-                return;
-            }
+           
 
             if (string.IsNullOrEmpty(txtDescripcionProducto.Text))
             {
@@ -635,7 +631,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@id_user_created", UsuarioLogeado.Id);
                 cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
                 cmd.Parameters.AddWithValue("@id_presentacion", gridLookUpEdit_Presentaciones.EditValue);
-                cmd.Parameters.AddWithValue("@id_estado", gridLookUpEditEstadoPT.EditValue);
+                cmd.Parameters.AddWithValue("@id_estado", 1);
                 cmd.Parameters.AddWithValue("@descripcion", txtDescripcionProducto.Text);
                 cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
                 cmd.Parameters.AddWithValue("@tipo_id", DBNull.Value/*gridLookUpEditTipoProducto.EditValue*/);
