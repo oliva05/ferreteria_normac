@@ -376,7 +376,6 @@
             this.gridViewAccesos.Name = "gridViewAccesos";
             this.gridViewAccesos.OptionsView.AllowHtmlDrawGroups = false;
             this.gridViewAccesos.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.Hidden;
-            this.gridViewAccesos.OptionsView.ShowAutoFilterRow = true;
             this.gridViewAccesos.OptionsView.ShowGroupPanel = false;
             this.gridViewAccesos.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridViewAccesos_CellValueChanging);
             // 

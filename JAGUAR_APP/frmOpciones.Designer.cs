@@ -1238,11 +1238,12 @@
             this.cmdUsuarios.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdUsuarios.Appearance.Options.UseFont = true;
             this.cmdUsuarios.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdUsuarios.Location = new System.Drawing.Point(2, 2);
+            this.cmdUsuarios.Location = new System.Drawing.Point(225, 56);
             this.cmdUsuarios.Name = "cmdUsuarios";
             this.cmdUsuarios.Size = new System.Drawing.Size(203, 48);
             this.cmdUsuarios.TabIndex = 12;
             this.cmdUsuarios.Text = "Usuarios";
+            this.cmdUsuarios.Visible = false;
             this.cmdUsuarios.Click += new System.EventHandler(this.cmdUsuarios_Click);
             // 
             // cmdGrupos
@@ -1252,7 +1253,7 @@
             this.cmdGrupos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGrupos.Location = new System.Drawing.Point(2, 52);
             this.cmdGrupos.Name = "cmdGrupos";
-            this.cmdGrupos.Size = new System.Drawing.Size(203, 48);
+            this.cmdGrupos.Size = new System.Drawing.Size(202, 48);
             this.cmdGrupos.TabIndex = 13;
             this.cmdGrupos.Text = "Gestión \r\nDepartamentos";
             this.cmdGrupos.Click += new System.EventHandler(this.cmdGrupos_Click);
@@ -1264,7 +1265,7 @@
             this.cmdSistemas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSistemas.Location = new System.Drawing.Point(2, 102);
             this.cmdSistemas.Name = "cmdSistemas";
-            this.cmdSistemas.Size = new System.Drawing.Size(203, 48);
+            this.cmdSistemas.Size = new System.Drawing.Size(202, 48);
             this.cmdSistemas.TabIndex = 14;
             this.cmdSistemas.Text = "Gestion Sistemas";
             this.cmdSistemas.Click += new System.EventHandler(this.cmdSistemas_Click);
@@ -1288,21 +1289,23 @@
             this.cmdAccesoSistemas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdAccesoSistemas.Location = new System.Drawing.Point(2, 152);
             this.cmdAccesoSistemas.Name = "cmdAccesoSistemas";
-            this.cmdAccesoSistemas.Size = new System.Drawing.Size(203, 48);
+            this.cmdAccesoSistemas.Size = new System.Drawing.Size(202, 48);
             this.cmdAccesoSistemas.TabIndex = 16;
             this.cmdAccesoSistemas.Text = "Nivel Acceso Sistemas";
             this.cmdAccesoSistemas.Click += new System.EventHandler(this.cmdAccesoSistemas_Click);
             // 
             // simpleButton76
             // 
-            this.simpleButton76.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton76.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton76.Appearance.Options.UseFont = true;
+            this.simpleButton76.Appearance.Options.UseTextOptions = true;
+            this.simpleButton76.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton76.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton76.Location = new System.Drawing.Point(3, 357);
+            this.simpleButton76.Location = new System.Drawing.Point(2, 2);
             this.simpleButton76.Name = "simpleButton76";
-            this.simpleButton76.Size = new System.Drawing.Size(203, 48);
+            this.simpleButton76.Size = new System.Drawing.Size(202, 48);
             this.simpleButton76.TabIndex = 21;
-            this.simpleButton76.Text = "Delegación de Accesos";
+            this.simpleButton76.Text = "Gestion de Usuarios y Accesos";
             this.simpleButton76.Click += new System.EventHandler(this.simpleButton76_Click);
             // 
             // simpleButton37

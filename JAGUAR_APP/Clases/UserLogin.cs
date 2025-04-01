@@ -348,9 +348,9 @@ namespace JAGUAR_PRO.Clases
                                         ,[codigo_vendedor]
                                         ,[PIN]
                                         ,isVendedor
-										,(select top 1 isnull(B.id_nivel,0)
+										,isnull((select top 1 isnull(B.id_nivel,0)
 											from conf_usuarios_niveles_acceso B
-											where B.id_user = A.id) AS id_nivel
+											where B.id_user = A.id),0) AS id_nivel
                                   FROM [dbo].[conf_usuarios] A
                                    where A.[id] = " + pId.ToString();
                 SqlCommand cmd = new SqlCommand(sql, conn);
