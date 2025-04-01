@@ -101,7 +101,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     if (PT_Class_instance.Recuperar_producto(IdPT))
                     {
                         lblTituloVentana.Text = "Edición de Producto Terminado";
-                        gridLookUpEditEstadoPT.EditValue = PT_Class_instance.Id_estado;
+                        
                         //gridLookUpEditTipoProducto.EditValue = PT_Class_instance.Tipo_id;
                         gridLookUpEdit_Presentaciones.EditValue = PT_Class_instance.Id_presentacion;
                         txtDescripcionProducto.Text = PT_Class_instance.Descripcion;

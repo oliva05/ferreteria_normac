@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantVentanas));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.dsMant_IT1 = new JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios.dsMant_IT();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_ventana = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,12 +50,11 @@
             this.cmdCargarDatos = new DevExpress.XtraEditors.SimpleButton();
             this.cmdAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.dsMant_IT1 = new JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios.dsMant_IT();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMant_IT1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonFunciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMant_IT1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -74,6 +74,11 @@
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // dsMant_IT1
+            // 
+            this.dsMant_IT1.DataSetName = "dsMant_IT";
+            this.dsMant_IT1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -101,7 +106,7 @@
             this.colid_ventana.OptionsColumn.AllowEdit = false;
             this.colid_ventana.Visible = true;
             this.colid_ventana.VisibleIndex = 0;
-            this.colid_ventana.Width = 56;
+            this.colid_ventana.Width = 64;
             // 
             // colnombre
             // 
@@ -111,7 +116,7 @@
             this.colnombre.OptionsColumn.AllowEdit = false;
             this.colnombre.Visible = true;
             this.colnombre.VisibleIndex = 1;
-            this.colnombre.Width = 210;
+            this.colnombre.Width = 231;
             // 
             // colcodigo
             // 
@@ -121,7 +126,7 @@
             this.colcodigo.OptionsColumn.AllowEdit = false;
             this.colcodigo.Visible = true;
             this.colcodigo.VisibleIndex = 2;
-            this.colcodigo.Width = 50;
+            this.colcodigo.Width = 104;
             // 
             // coldescripcion
             // 
@@ -131,7 +136,7 @@
             this.coldescripcion.OptionsColumn.AllowEdit = false;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 3;
-            this.coldescripcion.Width = 265;
+            this.coldescripcion.Width = 280;
             // 
             // colhabilitada
             // 
@@ -141,7 +146,7 @@
             this.colhabilitada.OptionsColumn.AllowEdit = false;
             this.colhabilitada.Visible = true;
             this.colhabilitada.VisibleIndex = 4;
-            this.colhabilitada.Width = 67;
+            this.colhabilitada.Width = 70;
             // 
             // edit
             // 
@@ -150,13 +155,14 @@
             this.edit.Name = "edit";
             this.edit.Visible = true;
             this.edit.VisibleIndex = 5;
+            this.edit.Width = 85;
             // 
             // ButtonEditar
             // 
             this.ButtonEditar.AutoHeight = false;
-            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.ButtonEditar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.ButtonEditar.Name = "ButtonEditar";
             this.ButtonEditar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.ButtonEditar.Click += new System.EventHandler(this.ButtonEditar_Click);
@@ -223,11 +229,6 @@
             this.btnClose.TabIndex = 4;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // dsMant_IT1
-            // 
-            this.dsMant_IT1.DataSetName = "dsMant_IT";
-            this.dsMant_IT1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // frmMantVentanas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,10 +247,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMantVentanas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMant_IT1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonFunciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMant_IT1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

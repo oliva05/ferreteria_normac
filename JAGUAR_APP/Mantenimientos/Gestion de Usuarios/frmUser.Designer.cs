@@ -42,7 +42,7 @@
             this.cmdClose = new DevExpress.XtraEditors.SimpleButton();
             this.lueGrupo = new DevExpress.XtraEditors.LookUpEdit();
             this.accesoGrupoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsAccesos = new JAGUAR_PRO.Accesos.dsAccesos();
+            this.dsAccesos1 = new JAGUAR_PRO.Accesos.dsAccesos();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.turnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -57,14 +57,25 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.gridControlAccesos = new DevExpress.XtraGrid.GridControl();
+            this.gridViewAccesos = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colnivel = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colselected = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lueGrupo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accesoGrupoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsAccesos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsAccesos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTurno.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsIsVendedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkUsuarioHabilitado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSuperUsuario.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlAccesos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewAccesos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtConfirmar
@@ -189,12 +200,12 @@
             // accesoGrupoBindingSource
             // 
             this.accesoGrupoBindingSource.DataMember = "Acceso_Grupo";
-            this.accesoGrupoBindingSource.DataSource = this.dsAccesos;
+            this.accesoGrupoBindingSource.DataSource = this.dsAccesos1;
             // 
-            // dsAccesos
+            // dsAccesos1
             // 
-            this.dsAccesos.DataSetName = "dsAccesos";
-            this.dsAccesos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dsAccesos1.DataSetName = "dsAccesos";
+            this.dsAccesos1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label4
             // 
@@ -219,7 +230,7 @@
             // turnoBindingSource
             // 
             this.turnoBindingSource.DataMember = "Turno";
-            this.turnoBindingSource.DataSource = this.dsAccesos;
+            this.turnoBindingSource.DataSource = this.dsAccesos1;
             // 
             // lueTurno
             // 
@@ -341,11 +352,83 @@
             this.label11.TabIndex = 54;
             this.label11.Text = "Super Usuario:";
             // 
+            // gridControlAccesos
+            // 
+            this.gridControlAccesos.DataMember = "niveles_acceso";
+            this.gridControlAccesos.DataSource = this.dsAccesos1;
+            this.gridControlAccesos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlAccesos.Location = new System.Drawing.Point(2, 27);
+            this.gridControlAccesos.MainView = this.gridViewAccesos;
+            this.gridControlAccesos.Name = "gridControlAccesos";
+            this.gridControlAccesos.Size = new System.Drawing.Size(534, 379);
+            this.gridControlAccesos.TabIndex = 55;
+            this.gridControlAccesos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewAccesos});
+            // 
+            // gridViewAccesos
+            // 
+            this.gridViewAccesos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid,
+            this.colnivel,
+            this.colcodigo,
+            this.colselected});
+            this.gridViewAccesos.GridControl = this.gridControlAccesos;
+            this.gridViewAccesos.Name = "gridViewAccesos";
+            this.gridViewAccesos.OptionsView.AllowHtmlDrawGroups = false;
+            this.gridViewAccesos.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.Hidden;
+            this.gridViewAccesos.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewAccesos.OptionsView.ShowGroupPanel = false;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.gridControlAccesos);
+            this.groupControl1.Location = new System.Drawing.Point(292, 1);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(538, 408);
+            this.groupControl1.TabIndex = 56;
+            this.groupControl1.Text = "Nivel de Acceso";
+            // 
+            // colid
+            // 
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            this.colid.OptionsColumn.AllowEdit = false;
+            // 
+            // colnivel
+            // 
+            this.colnivel.Caption = "Nivel";
+            this.colnivel.FieldName = "nivel";
+            this.colnivel.Name = "colnivel";
+            this.colnivel.OptionsColumn.AllowEdit = false;
+            this.colnivel.Visible = true;
+            this.colnivel.VisibleIndex = 1;
+            // 
+            // colcodigo
+            // 
+            this.colcodigo.Caption = "Codigo";
+            this.colcodigo.FieldName = "codigo";
+            this.colcodigo.Name = "colcodigo";
+            this.colcodigo.OptionsColumn.AllowEdit = false;
+            this.colcodigo.Visible = true;
+            this.colcodigo.VisibleIndex = 0;
+            // 
+            // colselected
+            // 
+            this.colselected.Caption = "Seleccion";
+            this.colselected.FieldName = "selected";
+            this.colselected.Name = "colselected";
+            this.colselected.Visible = true;
+            this.colselected.VisibleIndex = 2;
+            // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 406);
+            this.ClientSize = new System.Drawing.Size(831, 409);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -374,12 +457,16 @@
             this.Name = "frmUser";
             ((System.ComponentModel.ISupportInitialize)(this.lueGrupo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accesoGrupoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsAccesos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsAccesos1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTurno.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsIsVendedor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkUsuarioHabilitado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSuperUsuario.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlAccesos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewAccesos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,7 +487,7 @@
         private DevExpress.XtraEditors.LookUpEdit lueGrupo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.BindingSource accesoGrupoBindingSource;
-        private JAGUAR_PRO.Accesos.dsAccesos dsAccesos;
+        private JAGUAR_PRO.Accesos.dsAccesos dsAccesos1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.BindingSource turnoBindingSource;
         private DevExpress.XtraEditors.LookUpEdit lueTurno;
@@ -414,5 +501,12 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private DevExpress.XtraGrid.GridControl gridControlAccesos;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewAccesos;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn colnivel;
+        private DevExpress.XtraGrid.Columns.GridColumn colcodigo;
+        private DevExpress.XtraGrid.Columns.GridColumn colselected;
     }
 }

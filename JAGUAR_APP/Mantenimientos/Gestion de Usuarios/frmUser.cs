@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using JAGUAR_PRO.Clases;
 using ACS.Classes;
+using JAGUAR_PRO.Accesos;
 
 namespace PRININ.Gestion_de_Usuarios
 {
@@ -38,6 +39,7 @@ namespace PRININ.Gestion_de_Usuarios
             UserParametro = pUser;
             LoadGroup();
             LoadTurnos();
+            LoadNivelesAcceso();
 
             switch (vTipoEdition)
             {
@@ -67,8 +69,45 @@ namespace PRININ.Gestion_de_Usuarios
                         txtPIN.Text = UserEdicion.PIN.ToString();
                         tsIsVendedor.IsOn = UserEdicion.IsVendedor;
                         ValidoContrasenia = true;
+
+                        if (UserEdicion.Idnivel != 0)
+                        {
+                            foreach (dsAccesos.niveles_accesoRow item in dsAccesos1.niveles_acceso.Rows)
+                            {
+                                if (UserEdicion.Idnivel == item.id)
+                                {
+                                    item.selected = true;
+                                }
+                            }
+                        }
+
                     }
                     break;
+            }
+        }
+
+        private void LoadNivelesAcceso()
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+
+                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                {
+                    cnx.Open();
+                    string sql = @"sp_get_niveles_accesos";
+                    SqlDataAdapter da = new SqlDataAdapter(sql, cnx);
+
+                    dsAccesos1.niveles_acceso.Clear();
+                    da.Fill(dsAccesos1.niveles_acceso);
+
+                    cnx.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
 
@@ -181,8 +220,8 @@ namespace PRININ.Gestion_de_Usuarios
 
                     SqlDataAdapter da = new SqlDataAdapter(sql,cnx);
 
-                    dsAccesos.Acceso_Grupo.Clear();
-                    da.Fill(dsAccesos.Acceso_Grupo);
+                    dsAccesos1.Acceso_Grupo.Clear();
+                    da.Fill(dsAccesos1.Acceso_Grupo);
 
                     cnx.Close();
                 }
@@ -210,8 +249,8 @@ namespace PRININ.Gestion_de_Usuarios
 
                     SqlDataAdapter da = new SqlDataAdapter(sql, cnx);
 
-                    dsAccesos.Turno.Clear();
-                    da.Fill(dsAccesos.Turno);
+                    dsAccesos1.Turno.Clear();
+                    da.Fill(dsAccesos1.Turno);
 
                     cnx.Close();
                 }

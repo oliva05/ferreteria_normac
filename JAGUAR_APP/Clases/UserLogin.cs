@@ -337,7 +337,7 @@ namespace JAGUAR_PRO.Clases
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                string sql = @"SELECT [id]
+                string sql = @"SELECT A.[id]
                                       ,usuario--[alias]
                                       ,[nombre]
                                       ,[super_user]
@@ -348,8 +348,11 @@ namespace JAGUAR_PRO.Clases
                                         ,[codigo_vendedor]
                                         ,[PIN]
                                         ,isVendedor
-                                  FROM [dbo].[conf_usuarios]
-                                   where [id] = " + pId.ToString();
+										,(select top 1 isnull(B.id_nivel,0)
+											from conf_usuarios_niveles_acceso B
+											where B.id_user = A.id) AS id_nivel
+                                  FROM [dbo].[conf_usuarios] A
+                                   where A.[id] = " + pId.ToString();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
@@ -367,6 +370,7 @@ namespace JAGUAR_PRO.Clases
                     Codigo = dr.IsDBNull(8) ? "" : dr.GetString(8);
                     PIN = dr.IsDBNull(9) ? "" : dr.GetString(9);
                     IsVendedor = dr.GetBoolean(10);
+                    Idnivel = dr.GetInt32(11);
                 }
                 x = true;
                 dr.Close();
