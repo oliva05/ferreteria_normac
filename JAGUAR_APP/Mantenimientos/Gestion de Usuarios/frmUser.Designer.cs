@@ -59,11 +59,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.gridControlAccesos = new DevExpress.XtraGrid.GridControl();
             this.gridViewAccesos = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnivel = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colselected = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.lueGrupo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accesoGrupoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAccesos1)).BeginInit();
@@ -378,18 +378,7 @@
             this.gridViewAccesos.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.Hidden;
             this.gridViewAccesos.OptionsView.ShowAutoFilterRow = true;
             this.gridViewAccesos.OptionsView.ShowGroupPanel = false;
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl1.Controls.Add(this.gridControlAccesos);
-            this.groupControl1.Location = new System.Drawing.Point(292, 1);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(538, 408);
-            this.groupControl1.TabIndex = 56;
-            this.groupControl1.Text = "Nivel de Acceso";
+            this.gridViewAccesos.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridViewAccesos_CellValueChanging);
             // 
             // colid
             // 
@@ -422,6 +411,18 @@
             this.colselected.Name = "colselected";
             this.colselected.Visible = true;
             this.colselected.VisibleIndex = 2;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.gridControlAccesos);
+            this.groupControl1.Location = new System.Drawing.Point(292, 1);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(538, 408);
+            this.groupControl1.TabIndex = 56;
+            this.groupControl1.Text = "Nivel de Acceso";
             // 
             // frmUser
             // 

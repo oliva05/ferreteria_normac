@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using JAGUAR_PRO.Clases;
 using ACS.Classes;
 using JAGUAR_PRO.Accesos;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace PRININ.Gestion_de_Usuarios
 {
@@ -30,7 +31,7 @@ namespace PRININ.Gestion_de_Usuarios
         private TipoEdicion vTipoEdition;
         private UserLogin UserParametro;
         private UserLogin UserEdicion;
-
+        int IdNivel = 0;
         public frmUser(TipoEdicion pTipo, UserLogin pUser, int pIdUserEditar)
         {
             InitializeComponent();
@@ -111,6 +112,31 @@ namespace PRININ.Gestion_de_Usuarios
             }
         }
 
+        public bool GuardarNivelAcceso()
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                {
+                    cnx.Open();
+                    string sql = @"sp_guardar_nivel_acceso";
+                    SqlCommand cmd = new SqlCommand(sql, cnx);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_user", UserEdicion.Id);
+                    cmd.Parameters.AddWithValue("@id_nivel", IdNivel);
+                    cmd.ExecuteNonQuery();
+                    cnx.Close();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+                return false;
+            }
+        }
+
         private void cmdSAve_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtAlias.Text) 
@@ -162,9 +188,14 @@ namespace PRININ.Gestion_de_Usuarios
                         UserEdicion.IsVendedor = tsIsVendedor.IsOn;
                         if (UserEdicion.GuardarNuevoUsuario())
                         {
+                            if (IdNivel > 0)
+                            {
+                                GuardarNivelAcceso();
+                            }
                             CajaDialogo.Information("Guardado con exito!");
                             this.DialogResult = DialogResult.OK;
                             this.Close();
+
                         }
 
 
@@ -184,6 +215,10 @@ namespace PRININ.Gestion_de_Usuarios
                         UserEdicion.IsVendedor = tsIsVendedor.IsOn;
                         if (UserEdicion.ModificarUsuario())
                         {
+                            if (IdNivel > 0)
+                            {
+                                GuardarNivelAcceso();
+                            }
                             CajaDialogo.Information("Guardado con exito!");
                             this.DialogResult = DialogResult.OK;
                             this.Close();
@@ -260,6 +295,30 @@ namespace PRININ.Gestion_de_Usuarios
             {
                 CajaDialogo.Error(ex.Message);
             }
+        }
+
+        private void gridViewAccesos_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "selected")
+            {
+                var gridView = (GridView)gridControlAccesos.FocusedView;
+                var row = (dsAccesos.niveles_accesoRow)gridView.GetFocusedDataRow();
+                
+                if (Convert.ToBoolean(e.Value))
+                {
+                    UserEdicion.Idnivel = IdNivel = row.id;
+                }
+
+                foreach (dsAccesos.niveles_accesoRow item in dsAccesos1.niveles_acceso)
+                {
+                    if (UserEdicion.Idnivel != item.id)
+                    {
+                        item.selected = false;
+                    }
+                }
+            }
+
+           
         }
     }
 }

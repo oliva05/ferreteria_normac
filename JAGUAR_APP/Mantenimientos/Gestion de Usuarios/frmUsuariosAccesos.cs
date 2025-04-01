@@ -13,10 +13,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace ACS.IT_Managment
 {
-    public partial class frmUsuariosAccesos : Form
+    public partial class frmUsuariosAccesos : XtraForm
     {
         UserLogin UsuarioLogeado ;
         public frmUsuariosAccesos(UserLogin pUsuarioLogeado)
