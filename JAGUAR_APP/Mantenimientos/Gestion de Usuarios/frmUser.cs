@@ -53,6 +53,8 @@ namespace PRININ.Gestion_de_Usuarios
                     ValidoContrasenia = false;
                     txtPass.Text = "";
                     txtConfirmar.Text = "";
+                    tsIsVendedor.IsOn = false;
+                    GetCodeSig();
                     break;
                 case TipoEdicion.Editar:
                     UserEdicion = new UserLogin();
@@ -70,7 +72,7 @@ namespace PRININ.Gestion_de_Usuarios
                         txtPIN.Text = UserEdicion.PIN.ToString();
                         tsIsVendedor.IsOn = UserEdicion.IsVendedor;
                         ValidoContrasenia = true;
-
+                        txtCodigoEmpleado.Text = UserEdicion.CodigoEmpleado;
                         if (UserEdicion.Idnivel != 0)
                         {
                             foreach (dsAccesos.niveles_accesoRow item in dsAccesos1.niveles_acceso.Rows)
@@ -87,13 +89,35 @@ namespace PRININ.Gestion_de_Usuarios
             }
         }
 
+        private void GetCodeSig()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(op.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                string sql = "ft_cargar_codigo_siguiente_empleados";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    //IdSiguiente = dr.GetInt32(1);
+                    txtCodigoEmpleado.Text = dr.GetString(2);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+
         private void LoadNivelesAcceso()
         {
             try
             {
-                DataOperations dp = new DataOperations();
-
-                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+           
+                using (SqlConnection cnx = new SqlConnection(op.ConnectionStringJAGUAR_DB))
                 {
                     cnx.Open();
                     string sql = @"sp_get_niveles_accesos";
@@ -116,8 +140,8 @@ namespace PRININ.Gestion_de_Usuarios
         {
             try
             {
-                DataOperations dp = new DataOperations();
-                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                
+                using (SqlConnection cnx = new SqlConnection(op.ConnectionStringJAGUAR_DB))
                 {
                     cnx.Open();
                     string sql = @"sp_guardar_nivel_acceso";
@@ -319,6 +343,20 @@ namespace PRININ.Gestion_de_Usuarios
             }
 
            
+        }
+
+        private void tsIsVendedor_Toggled(object sender, EventArgs e)
+        {
+            if (tsIsVendedor.IsOn)
+            {
+                groupVendedor.Enabled = true;
+            }
+            else
+            {
+                groupVendedor.Enabled = false;
+                txtPIN.Text = "";
+                txtCodigo.Text = "";
+            }
         }
     }
 }

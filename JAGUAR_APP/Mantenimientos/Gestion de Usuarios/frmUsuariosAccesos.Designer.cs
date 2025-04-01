@@ -30,17 +30,17 @@ namespace ACS.IT_Managment
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuariosAccesos));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsMant_IT1 = new JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios.dsMant_IT();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -107,6 +107,7 @@ namespace ACS.IT_Managment
             this.colfecha_posteo,
             this.colEdit,
             this.colalias});
+            this.gridView1.CustomizationFormBounds = new System.Drawing.Rectangle(896, 431, 259, 337);
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -114,11 +115,13 @@ namespace ACS.IT_Managment
             // 
             // colaqf_code
             // 
-            this.colaqf_code.Caption = "Code";
+            this.colaqf_code.Caption = "Codigo";
             this.colaqf_code.FieldName = "aqf_code";
             this.colaqf_code.Name = "colaqf_code";
             this.colaqf_code.OptionsColumn.AllowEdit = false;
-            this.colaqf_code.Width = 70;
+            this.colaqf_code.Visible = true;
+            this.colaqf_code.VisibleIndex = 0;
+            this.colaqf_code.Width = 81;
             // 
             // colid
             // 
@@ -135,8 +138,8 @@ namespace ACS.IT_Managment
             this.colnombre.Name = "colnombre";
             this.colnombre.OptionsColumn.AllowEdit = false;
             this.colnombre.Visible = true;
-            this.colnombre.VisibleIndex = 0;
-            this.colnombre.Width = 211;
+            this.colnombre.VisibleIndex = 1;
+            this.colnombre.Width = 252;
             // 
             // colad_user
             // 
@@ -152,15 +155,15 @@ namespace ACS.IT_Managment
             this.accesos.ColumnEdit = this.ButtonEdit;
             this.accesos.Name = "accesos";
             this.accesos.Visible = true;
-            this.accesos.VisibleIndex = 4;
-            this.accesos.Width = 102;
+            this.accesos.VisibleIndex = 5;
+            this.accesos.Width = 122;
             // 
             // ButtonEdit
             // 
             this.ButtonEdit.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.ButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.ButtonEdit.Name = "ButtonEdit";
             this.ButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.ButtonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
@@ -172,8 +175,8 @@ namespace ACS.IT_Managment
             this.colactivo.Name = "colactivo";
             this.colactivo.OptionsColumn.AllowEdit = false;
             this.colactivo.Visible = true;
-            this.colactivo.VisibleIndex = 3;
-            this.colactivo.Width = 109;
+            this.colactivo.VisibleIndex = 4;
+            this.colactivo.Width = 130;
             // 
             // colfecha_posteo
             // 
@@ -182,8 +185,8 @@ namespace ACS.IT_Managment
             this.colfecha_posteo.Name = "colfecha_posteo";
             this.colfecha_posteo.OptionsColumn.AllowEdit = false;
             this.colfecha_posteo.Visible = true;
-            this.colfecha_posteo.VisibleIndex = 2;
-            this.colfecha_posteo.Width = 129;
+            this.colfecha_posteo.VisibleIndex = 3;
+            this.colfecha_posteo.Width = 154;
             // 
             // colEdit
             // 
@@ -191,15 +194,15 @@ namespace ACS.IT_Managment
             this.colEdit.ColumnEdit = this.btnEditar;
             this.colEdit.Name = "colEdit";
             this.colEdit.Visible = true;
-            this.colEdit.VisibleIndex = 5;
-            this.colEdit.Width = 114;
+            this.colEdit.VisibleIndex = 6;
+            this.colEdit.Width = 143;
             // 
             // btnEditar
             // 
             this.btnEditar.AutoHeight = false;
-            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.btnEditar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -210,8 +213,8 @@ namespace ACS.IT_Managment
             this.colalias.Name = "colalias";
             this.colalias.OptionsColumn.ReadOnly = true;
             this.colalias.Visible = true;
-            this.colalias.VisibleIndex = 1;
-            this.colalias.Width = 165;
+            this.colalias.VisibleIndex = 2;
+            this.colalias.Width = 197;
             // 
             // lblTitulo
             // 
