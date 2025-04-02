@@ -186,14 +186,20 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
             if (IdFamilia > 0)
             {
-                ProductoFamilia pf = new ProductoFamilia();
-                if (pf.ObtenerPorId(IdFamilia))
-                {
-                    if (pf.IdSig > 9)
-                        txtCodigo.Text = Convert.ToString(pf.IdSig.ToString());
-                    else
-                        txtCodigo.Text = Convert.ToString("0" + pf.IdSig.ToString());
-                }
+                //ProductoFamilia pf = new ProductoFamilia();
+                //if (pf.ObtenerPorId(IdFamilia))
+                //{
+                //    if (pf.IdSig > 9)
+                //        txtCodigo.Text = Convert.ToString(pf.IdSig.ToString());
+                //    else
+                //        txtCodigo.Text = Convert.ToString("0" + pf.IdSig.ToString());
+                //}
+                ProductoCategoria pc = new ProductoCategoria();
+                int IdSiguiente = pc.ObtenerIdSigCategoria();
+                if (IdSiguiente > 9)
+                    txtCodigo.Text = Convert.ToString(IdSiguiente.ToString());
+                else
+                    txtCodigo.Text = Convert.ToString("0" + IdSiguiente.ToString());
             }
         }
     }
