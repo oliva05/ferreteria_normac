@@ -496,7 +496,7 @@ namespace JAGUAR_PRO.Clases
                 cmd.Parameters.Add("id_grupo", SqlDbType.VarChar).Value = IdGrupo;
                 cmd.Parameters.Add("super_user", SqlDbType.Bit).Value = IsSuperUser;
                 cmd.Parameters.Add("turno_id", SqlDbType.Bit).Value = TurnoId;
-                cmd.Parameters.AddWithValue("codigo_vendedor", this.Codigo);
+                cmd.Parameters.AddWithValue("codigo_vendedor", this.Codigo.Trim());
                 cmd.Parameters.AddWithValue("PIN", this.PIN);
                 cmd.Parameters.AddWithValue("isVendedor", this.IsVendedor);
                 cmd.ExecuteScalar();
