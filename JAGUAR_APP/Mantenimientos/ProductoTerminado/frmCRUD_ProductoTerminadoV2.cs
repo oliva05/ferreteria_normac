@@ -155,6 +155,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                             }
                         }
 
+                        txtCodigoReferencia.Text = PT_Class_instance.Codig_Referencia;
+
                         //grdSubClase.EditValue = PT_Class_instance.Id_sub_clase;
 
                         DataTable dtPTPic = new DataTable();
