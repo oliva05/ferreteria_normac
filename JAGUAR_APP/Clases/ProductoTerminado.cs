@@ -54,6 +54,9 @@ namespace JAGUAR_PRO.Clases
         int idBodega;
         int idPT;
         int idMarca;
+        private int id_Familia;
+        private int id_Categoria;
+        private string codig_Referencia;
         public int Id { get => id; set => id = value; }
         public bool Enable { get => enable; set => enable = value; }
         public int Id_user_created { get => id_user_created; set => id_user_created = value; }
@@ -107,6 +110,9 @@ namespace JAGUAR_PRO.Clases
         public int IdBodega { get => idBodega; set => idBodega = value; }
         public int IdPT { get => idPT; set => idPT = value; }
         public int IdMarca { get => idMarca; set => idMarca = value; }
+        public int Id_Familia { get => id_Familia; set => id_Familia = value; }
+        public int Id_Categoria { get => id_Categoria; set => id_Categoria = value; }
+        public string Codig_Referencia { get => codig_Referencia; set => codig_Referencia = value; }
 
         public ProductoTerminado(string pConnectionString, DateTime fecha = default)
         {
@@ -205,7 +211,7 @@ namespace JAGUAR_PRO.Clases
         {
             try
             {//Recupera las caracteristicas 
-                string sql = @"[dbo].[sp_get_datos_maestros_pt_v5]";
+                string sql = @"[dbo].[sp_get_datos_maestros_pt_v6]";
                 DataOperations dp = new DataOperations();
                
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -278,8 +284,12 @@ namespace JAGUAR_PRO.Clases
                         CodeOEM = dl.GetString(25);
                     else
                         CodeOEM = "";
+
                     IdMarca = dl.IsDBNull(26) ? 0 : dl.GetInt32(26);
- 
+                    Id_Familia = dl.GetInt32(27);
+                    Id_Categoria = dl.GetInt32(28);
+                    Codig_Referencia = dl.IsDBNull(29)? "" : dl.GetString(29);
+
                     Recuperado = true;
                     //Recuperar_Latas_and_bolsas(IdProd);
 

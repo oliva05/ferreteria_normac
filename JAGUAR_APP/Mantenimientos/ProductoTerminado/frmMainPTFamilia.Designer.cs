@@ -74,7 +74,7 @@
             this.cmdCerrar.Appearance.Options.UseFont = true;
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCerrar.ImageOptions.SvgImage")));
-            this.cmdCerrar.Location = new System.Drawing.Point(663, 27);
+            this.cmdCerrar.Location = new System.Drawing.Point(913, 27);
             this.cmdCerrar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(101, 42);
@@ -106,7 +106,7 @@
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(117, 12);
+            this.labelControl1.Location = new System.Drawing.Point(242, 12);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(536, 26);
@@ -129,7 +129,7 @@
             this.cmdEditar2,
             this.cmdReceta2,
             this.reposClases});
-            this.gridDetalleProductosCRUD.Size = new System.Drawing.Size(779, 437);
+            this.gridDetalleProductosCRUD.Size = new System.Drawing.Size(1029, 593);
             this.gridDetalleProductosCRUD.TabIndex = 17;
             this.gridDetalleProductosCRUD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -239,13 +239,13 @@
             // tggViewFilter
             // 
             this.tggViewFilter.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tggViewFilter.Location = new System.Drawing.Point(392, 54);
+            this.tggViewFilter.Location = new System.Drawing.Point(517, 54);
             this.tggViewFilter.Name = "tggViewFilter";
             this.tggViewFilter.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.tggViewFilter.Properties.Appearance.Options.UseFont = true;
             this.tggViewFilter.Properties.OffText = "No";
             this.tggViewFilter.Properties.OnText = "Si";
-            this.tggViewFilter.Size = new System.Drawing.Size(95, 24);
+            this.tggViewFilter.Size = new System.Drawing.Size(113, 26);
             this.tggViewFilter.TabIndex = 18;
             this.tggViewFilter.Toggled += new System.EventHandler(this.tggViewFilter_Toggled);
             // 
@@ -254,7 +254,7 @@
             this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(273, 56);
+            this.labelControl2.Location = new System.Drawing.Point(398, 56);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(113, 20);
             this.labelControl2.TabIndex = 19;
@@ -264,7 +264,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 524);
+            this.ClientSize = new System.Drawing.Size(1032, 680);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.tggViewFilter);
             this.Controls.Add(this.gridDetalleProductosCRUD);
