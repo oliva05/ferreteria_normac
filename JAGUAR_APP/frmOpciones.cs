@@ -2,6 +2,7 @@
 using ACS.Classes;
 //using ACS.Forecast;
 using ACS.IT_Managment;
+using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using Eatery.Ventas;
 using JAGUAR_PRO.Accesos;
@@ -54,9 +55,10 @@ using System.Net;
 using System.Reflection;
 using System.Windows.Forms;
 
+
 namespace JAGUAR_PRO
 {
-    public partial class frmOpciones : Form
+    public partial class frmOpciones : XtraForm
     {
         UserLogin UsuarioLogeado;
         string ActiveUserCode;
@@ -4917,6 +4919,18 @@ namespace JAGUAR_PRO
         private void simpleButton7_Click_1(object sender, EventArgs e)
         {
             frmMainMarcas frm = new frmMainMarcas(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarIteSoliTraslado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            
+        }
+
+        private void simpleButton8_Click_1(object sender, EventArgs e)
+        {
+            frmMainPTCombinaciones frm = new frmMainPTCombinaciones(UsuarioLogeado);
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }

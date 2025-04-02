@@ -29,12 +29,15 @@ using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.Mantenimientos.Modelos;
 using DevExpress.Internal;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraGauges.Core.Primitive;
+using JAGUAR_PRO.Reportes;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
     public partial class frmCRUD_ProductoTerminadoV2 : DevExpress.XtraEditors.XtraForm
     {
         UserLogin UsuarioLogeado;
+        DataOperations dp = new DataOperations();
         public enum TipoOperacion
         {
             Insert = 1,
@@ -54,7 +57,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
            
             UsuarioLogeado = pUser;
             LoadPresentacionesPT();
-            LoadSubClases();
+            
             LoadTiposPT();
             LoadEstadosPT();
             LoadTipoFacturacion();
@@ -64,6 +67,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             LoadImpuestosAplicables();
             LoadConfiguracionAlmacenes(pId_PT);
             LoadMarcas();
+            LoadFamilia();
 
             TipoOperacionActual = pTipoOperacion;
             PT_Class_instance = new Clases.ProductoTerminado();
@@ -75,8 +79,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     txtCodigoPT.Text = PT_Class_instance.GenerarSiguienteCodigoPT();
                     toggleSwitchEnablePT.IsOn = true;
                     toggleSwitchEnablePT.Enabled = false;
-
-                    gridLookUpEditEstadoPT.EditValue = 1;
+                    gridLookUpEdit_Presentaciones.EditValue = 1;
+                   
                     int contador = 0;
                     foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
                     {
@@ -101,7 +105,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     if (PT_Class_instance.Recuperar_producto(IdPT))
                     {
                         lblTituloVentana.Text = "Edición de Producto Terminado";
-                        gridLookUpEditEstadoPT.EditValue = PT_Class_instance.Id_estado;
+                        
                         //gridLookUpEditTipoProducto.EditValue = PT_Class_instance.Tipo_id;
                         gridLookUpEdit_Presentaciones.EditValue = PT_Class_instance.Id_presentacion;
                         txtDescripcionProducto.Text = PT_Class_instance.Descripcion;
@@ -111,7 +115,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         //txtCostoPorArroba.Text = string.Format("{0:###,##0.00}", PT_Class_instance.CostoPorArroba);
                         //glueTipoFacturacion.EditValue = PT_Class_instance.tipo_facturacion_id;
                         //glueTipoBuffet.EditValue = PT_Class_instance.tipo_buffet_id;
-                        grdSubClase.EditValue = PT_Class_instance.Id_sub_clase;
+                        
                         txtCodigoInterno.Text = PT_Class_instance.Code_interno;
 
                         gridTipoInventario.EditValueChanged -= new EventHandler(gridTipoInventario_EditValueChanged);
@@ -128,6 +132,30 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
                         gle_ClaseProducto.EditValue = PT_Class_instance.Id_clase;
                         gleImpuestoAplicable.EditValue = PT_Class_instance.Id_isv_aplicable;
+
+                        LoadFamilia();
+                        CargarCategorias(0); 
+                        CargarClases(0); 
+                        CargarSubClases(0);
+
+                        if (PT_Class_instance.Id_Familia > 0)
+                        {
+                            grdTipoFamilia.EditValue = PT_Class_instance.Id_Familia;
+                            if (PT_Class_instance.Id_Categoria > 0)
+                            {
+                                grdTipoCategoria.EditValue = PT_Class_instance.Id_Categoria;
+                                if (PT_Class_instance.Id_clase > 0)
+                                {
+                                    grdTipoClase.EditValue = PT_Class_instance.Id_clase;
+                                    if (PT_Class_instance.Id_sub_clase > 0)
+                                    {
+                                        grdSubClase.EditValue = PT_Class_instance.Id_sub_clase;
+                                    }
+                                }
+                            }
+                        }
+
+                        //grdSubClase.EditValue = PT_Class_instance.Id_sub_clase;
 
                         DataTable dtPTPic = new DataTable();
                         dtPTPic = PT_Class_instance.GetImagenesPT(IdPT);
@@ -177,6 +205,25 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             
         }
 
+        private void LoadFamilia()
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("[sp_pt_get_familia_activo]", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                dsProductoTerminado1.familia_select.Clear();
+                adapter.Fill(dsProductoTerminado1.familia_select);
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
         private void LoadMarcas()
         {
             try
@@ -216,24 +263,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void LoadSubClases()
         {
-            try
-            {
-                DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                con.Open();
-
-                SqlCommand cmd = new SqlCommand("sp_pt_get_sub_clases_actives", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.Parameters.AddWithValue("@idbodega", idBodega);
-                dsProductoTerminado1.subClaseSelect.Clear();
-                SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                adat.Fill(dsProductoTerminado1.subClaseSelect);
-                con.Close();
-            }
-            catch (Exception ec)
-            {
-                CajaDialogo.Error(ec.Message);
-            }
+            
         }
 
         private void LoadClasesProductoTerminado()
@@ -458,7 +488,19 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     SqlDataReader dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        txtCodigoInterno.Text = dr.GetString(0) + PT_Class_instance.GenerarSiguienteCodigoPTSoloNumero();
+                        switch (TipoOperacionActual)
+                        {
+                            case TipoOperacion.Insert:
+                                txtCodigoInterno.Text = dr.GetString(0) + PT_Class_instance.GenerarSiguienteCodigoPTSoloNumero();
+                                break;
+                            case TipoOperacion.Update:
+                                string solo_numero = txtCodigoPT.Text.Substring(2);
+                                txtCodigoInterno.Text = dr.GetString(0) + solo_numero;
+                                break;
+                            default:
+                                break;
+                        }
+                        
                     }
                     conn.Close();
                 }
@@ -555,10 +597,35 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
-            if (string.IsNullOrEmpty(gridLookUpEditEstadoPT.Text))
+            if ((string)grdTipoFamilia.Text == "")
             {
-                CajaDialogo.Error("Es necesario indicar el Estado!");
+                CajaDialogo.Error("Debe Seleccionar una Familia!");
                 return;
+            }
+            else
+            {
+                if ((string)grdTipoCategoria.Text == "")
+                {
+                    CajaDialogo.Error("Debe Seleccionar una Categoria!");
+                    return;
+                }
+                else
+                {
+                    if ((string)grdTipoClase.Text == "")
+                    {
+                        CajaDialogo.Error("Debe Seleccionar una Clase!");
+                        return;
+                    }
+                    else
+                    {
+                        if ((string)grdSubClase.Text == "")
+                        {
+                            CajaDialogo.Error("Debe Seleccionar una SubClase!");
+                            return;
+                        }
+                    }
+                }
+
             }
 
             if (string.IsNullOrEmpty(txtDescripcionProducto.Text))
@@ -620,11 +687,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 switch (TipoOperacionActual)
                 {
                     case TipoOperacion.Insert:
-                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v5]";
+                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v6]";
 
                         break;
                     case TipoOperacion.Update:
-                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v5]";
+                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v6]";
                         cmd.Parameters.AddWithValue("@id", PT_Class_instance.Id);
                         break;
                 }
@@ -635,7 +702,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@id_user_created", UsuarioLogeado.Id);
                 cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
                 cmd.Parameters.AddWithValue("@id_presentacion", gridLookUpEdit_Presentaciones.EditValue);
-                cmd.Parameters.AddWithValue("@id_estado", gridLookUpEditEstadoPT.EditValue);
+                cmd.Parameters.AddWithValue("@id_estado", 1);
                 cmd.Parameters.AddWithValue("@descripcion", txtDescripcionProducto.Text);
                 cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
                 cmd.Parameters.AddWithValue("@tipo_id", DBNull.Value/*gridLookUpEditTipoProducto.EditValue*/);
@@ -652,7 +719,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd", DBNull.Value /*gridLookUpEditTipoFacturacionDestino.EditValue*/);
 
                 //if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
-                cmd.Parameters.AddWithValue("@id_clase", DBNull.Value);
+                cmd.Parameters.AddWithValue("@id_clase", dp.ValidateNumberInt32(grdTipoClase.EditValue));
                 //else
                 //    cmd.Parameters.AddWithValue("@id_clase", gle_ClaseProducto.EditValue);
 
@@ -668,7 +735,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
                 cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
                 cmd.Parameters.AddWithValue("@id_marca", grdMarca.EditValue);
-
+                cmd.Parameters.AddWithValue("@id_familia", dp.ValidateNumberInt32(grdTipoFamilia.EditValue));
+                cmd.Parameters.AddWithValue("@id_categoria", dp.ValidateNumberInt32(grdTipoCategoria.EditValue));
+                cmd.Parameters.AddWithValue("@code_referencia", txtCodigoReferencia.Text);
                 if (TipoOperacionActual == TipoOperacion.Insert)
                 {
                     IdPT = dp.ValidateNumberInt32(cmd.ExecuteScalar());  
@@ -1029,6 +1098,92 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             catch (Exception ex)
             {
                 CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void grdTipo_EditValueChanged(object sender, EventArgs e)
+        {
+            
+            int IdFamilia = dp.ValidateNumberInt32(grdTipoFamilia.EditValue);
+
+            CargarCategorias(IdFamilia);
+        }
+
+        private void CargarCategorias(int idFamilia)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("[sp_pt_get_categoria_activo_by_familia]", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@id_familia", idFamilia);
+                dsProductoTerminado1.categoaria_select.Clear();
+                adapter.Fill(dsProductoTerminado1.categoaria_select);
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void grdTipoCategoria_EditValueChanged(object sender, EventArgs e)
+        {
+            int IdCategoria = dp.ValidateNumberInt32(grdTipoCategoria.EditValue);
+
+            CargarClases(IdCategoria);
+
+        }
+
+        private void CargarClases(int idCategoria)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("[sp_pt_get_clases_activos_by_categoria]", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@IdCategoria", idCategoria);
+                dsProductoTerminado1.clase_select.Clear();
+                adapter.Fill(dsProductoTerminado1.clase_select);
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void grdTipoClase_EditValueChanged(object sender, EventArgs e)
+        {
+            int IdClase = dp.ValidateNumberInt32(grdTipoClase.EditValue);
+
+            CargarSubClases(IdClase);
+
+        }
+
+        private void CargarSubClases(int idClase)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[sp_pt_get_sub_clases_actives_by_id_clase]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdClase", idClase);
+                dsProductoTerminado1.subClaseSelect.Clear();
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                adat.Fill(dsProductoTerminado1.subClaseSelect);
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
             }
         }
     }

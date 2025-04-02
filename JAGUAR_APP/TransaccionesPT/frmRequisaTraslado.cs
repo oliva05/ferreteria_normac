@@ -1,29 +1,26 @@
-﻿using DevExpress.XtraEditors;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JAGUAR_PRO.Clases;
-using JAGUAR_PRO.Accesos.AccesosUsuarios;
 using ACS.Classes;
-using JAGUAR_PRO.LogisticaJaguar;
-using System.Data.SqlClient;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraReports.UI;
+using DevExpress.XtraEditors;
+using JAGUAR_PRO.Clases;
 
 namespace JAGUAR_PRO.TransaccionesPT
 {
-    public partial class frmMainTrasladoPT : DevExpress.XtraEditors.XtraForm
+    public partial class frmRequisaTraslado : DevExpress.XtraEditors.XtraForm
     {
         UserLogin UsuarioLogeado;
         DataOperations dp = new DataOperations();
 
-        public frmMainTrasladoPT(UserLogin userLogin)
+
+        public frmRequisaTraslado(UserLogin userLogin)
         {
             InitializeComponent();
             UsuarioLogeado = userLogin;
@@ -32,14 +29,11 @@ namespace JAGUAR_PRO.TransaccionesPT
             LoadDatos();
         }
 
-        private void btnTraslado_Click(object sender, EventArgs e)
+        private void cmdCargar_Click(object sender, EventArgs e)
         {
-            frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.TrasladoFinal);
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                LoadDatos();
-            }
+            LoadDatos();
         }
+
         private void LoadDatos()
         {
             try
@@ -49,14 +43,14 @@ namespace JAGUAR_PRO.TransaccionesPT
                 con.Open();
 
                 //SqlCommand cmd = new SqlCommand("codesahn.sp_get_detalle_facturas_recibidas", con);
-                SqlCommand cmd = new SqlCommand("dbo.[sp_pt_traslados_almacenes_by_dates]", con);
+                SqlCommand cmd = new SqlCommand("dbo.[sp_get_solicitudes_traslados_by_date]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@ver_todas", toggleSwitchVerTodas.IsOn);
                 cmd.Parameters.AddWithValue("@desde", dtDesde.DateTime);
                 cmd.Parameters.AddWithValue("@hasta", dtHasta.DateTime);
-                dsPT1.traslados_h.Clear();
+                dsPT1.solcitudes_h.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                adat.Fill(dsPT1.traslados_h);
+                adat.Fill(dsPT1.solcitudes_h);
 
                 con.Close();
             }
@@ -66,28 +60,18 @@ namespace JAGUAR_PRO.TransaccionesPT
             }
         }
 
-        private void cmdCargar_Click(object sender, EventArgs e)
+        private void btnTraslado_Click(object sender, EventArgs e)
         {
-            LoadDatos();
+            frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.SolicitudTraslado);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                LoadDatos();
+            }
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void reposReport_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            var gridview = (GridView)gridControl1.FocusedView;
-            var row = (dsPT.traslados_hRow)gridview.GetFocusedDataRow();
-
-
-            if (row != null) 
-            {
-                xrptTraslado report = new xrptTraslado(row.id_traslado);
-                report.ShowPrintMarginsWarning = false;
-                report.ShowPreview();
-            }
         }
     }
 }

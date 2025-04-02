@@ -25,6 +25,7 @@ namespace JAGUAR_PRO.Clases
         private string codigo;
         private string pIN;
         private bool isVendedor;
+        private string codigoEmpleado;
 
         public bool Recuperado { get => recuperado; set => recuperado = value; }
         public int Id { get => id; set => id = value; }
@@ -85,6 +86,8 @@ namespace JAGUAR_PRO.Clases
         public string Codigo { get => codigo; set => codigo = value; }
         public string PIN { get => pIN; set => pIN = value; }
         public bool IsVendedor { get => isVendedor; set => isVendedor = value; }
+        public string CodigoEmpleado { get => codigoEmpleado; set => codigoEmpleado = value; }
+        public string CodigoEmpleado1 { get => codigoEmpleado; set => codigoEmpleado = value; }
         #endregion
 
         public UserLogin()
@@ -337,7 +340,7 @@ namespace JAGUAR_PRO.Clases
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                string sql = @"SELECT [id]
+                string sql = @"SELECT A.[id]
                                       ,usuario--[alias]
                                       ,[nombre]
                                       ,[super_user]
@@ -348,8 +351,12 @@ namespace JAGUAR_PRO.Clases
                                         ,[codigo_vendedor]
                                         ,[PIN]
                                         ,isVendedor
-                                  FROM [dbo].[conf_usuarios]
-                                   where [id] = " + pId.ToString();
+										,isnull((select top 1 isnull(B.id_nivel,0)
+											from conf_usuarios_niveles_acceso B
+											where B.id_user = A.id),0) AS id_nivel
+                                      ,aqf_code
+                                  FROM [dbo].[conf_usuarios] A
+                                   where A.[id] = " + pId.ToString();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
@@ -367,6 +374,8 @@ namespace JAGUAR_PRO.Clases
                     Codigo = dr.IsDBNull(8) ? "" : dr.GetString(8);
                     PIN = dr.IsDBNull(9) ? "" : dr.GetString(9);
                     IsVendedor = dr.GetBoolean(10);
+                    Idnivel = dr.GetInt32(11);
+                    CodigoEmpleado = dr.GetString(12);
                 }
                 x = true;
                 dr.Close();
@@ -406,34 +415,35 @@ namespace JAGUAR_PRO.Clases
 
         public bool GuardarNuevoUsuario()
         {
-            string sql = @"INSERT INTO [dbo].[conf_usuarios]
-                                           ([usuario]
-                                           ,[password]
-                                           ,[habilitado]
-                                           ,[nombre]
-                                           ,[super_user]
-                                            ,[id_grupo_losa]
-                                            ,[turno_id]
-                                            ,[codigo_vendedor]
-                                            ,[PIN]
-                                            ,[isVendedor])
-                                     VALUES
-                                           (@alias,
-                                            @password,
-                                            @habilitado,
-                                            @nombre,
-                                            @super_user,
-                                            @id_grupo,
-                                            @turno_id,
-                                            @codigo_vendedor,
-                                            @PIN,
-                                            @isVendedor)";
+            //string sql = @"INSERT INTO [dbo].[conf_usuarios]
+            //                               ([usuario]
+            //                               ,[password]
+            //                               ,[habilitado]
+            //                               ,[nombre]
+            //                               ,[super_user]
+            //                                ,[id_grupo_losa]
+            //                                ,[turno_id]
+            //                                ,[codigo_vendedor]
+            //                                ,[PIN]
+            //                                ,[isVendedor])
+            //                         VALUES
+            //                               (@alias,
+            //                                @password,
+            //                                @habilitado,
+            //                                @nombre,
+            //                                @super_user,
+            //                                @id_grupo,
+            //                                @turno_id,
+            //                                @codigo_vendedor,
+            //                                @PIN,
+            //                                @isVendedor)";
             try
             {
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlCommand cmd = new SqlCommand("sp_insert_new_user", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("alias", SqlDbType.VarChar).Value = this.Usuario;
                 cmd.Parameters.Add("password", SqlDbType.VarChar).Value = EncrypPassword(this.Pass);
                 cmd.Parameters.Add("habilitado", SqlDbType.Bit).Value = this.Habilitado;
@@ -486,7 +496,7 @@ namespace JAGUAR_PRO.Clases
                 cmd.Parameters.Add("id_grupo", SqlDbType.VarChar).Value = IdGrupo;
                 cmd.Parameters.Add("super_user", SqlDbType.Bit).Value = IsSuperUser;
                 cmd.Parameters.Add("turno_id", SqlDbType.Bit).Value = TurnoId;
-                cmd.Parameters.AddWithValue("codigo_vendedor", this.Codigo);
+                cmd.Parameters.AddWithValue("codigo_vendedor", this.Codigo.Trim());
                 cmd.Parameters.AddWithValue("PIN", this.PIN);
                 cmd.Parameters.AddWithValue("isVendedor", this.IsVendedor);
                 cmd.ExecuteScalar();

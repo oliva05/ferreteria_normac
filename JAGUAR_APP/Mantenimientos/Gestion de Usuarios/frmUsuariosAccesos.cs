@@ -13,10 +13,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace ACS.IT_Managment
 {
-    public partial class frmUsuariosAccesos : Form
+    public partial class frmUsuariosAccesos : XtraForm
     {
         UserLogin UsuarioLogeado ;
         public frmUsuariosAccesos(UserLogin pUsuarioLogeado)
@@ -60,7 +61,7 @@ namespace ACS.IT_Managment
                                       ,usuario as alias
                               FROM [dbo].[conf_usuarios]
                               where activo = " + iVer + @"
-                              order by [nombre] asc";
+                              order by [aqf_code] desc";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 dsMant_IT1.usuarios.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);

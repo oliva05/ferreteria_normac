@@ -49,6 +49,7 @@
             this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemKardexPT = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem60 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarIteSoliTraslado = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem21 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem25 = new DevExpress.XtraNavBar.NavBarItem();
@@ -192,6 +193,7 @@
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -296,7 +298,8 @@
             this.nbReporteCompras,
             this.navBarItem23,
             this.navBarRecepBodegon,
-            this.navBarItem60});
+            this.navBarItem60,
+            this.navBarIteSoliTraslado});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -485,7 +488,8 @@
             this.navBarGroup8.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem60)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem60),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarIteSoliTraslado)});
             this.navBarGroup8.Name = "navBarGroup8";
             // 
             // navBarItem14
@@ -533,6 +537,20 @@
             this.navBarItem60.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.traslado_de_paqueteria;
             this.navBarItem60.Name = "navBarItem60";
             this.navBarItem60.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem60_LinkClicked_1);
+            // 
+            // navBarIteSoliTraslado
+            // 
+            this.navBarIteSoliTraslado.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.Appearance.Options.UseFont = true;
+            this.navBarIteSoliTraslado.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.AppearanceDisabled.Options.UseFont = true;
+            this.navBarIteSoliTraslado.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarIteSoliTraslado.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.AppearancePressed.Options.UseFont = true;
+            this.navBarIteSoliTraslado.Caption = "Requisa de Traslado";
+            this.navBarIteSoliTraslado.Name = "navBarIteSoliTraslado";
+            this.navBarIteSoliTraslado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarIteSoliTraslado_LinkClicked);
             // 
             // navBarGroup9
             // 
@@ -965,6 +983,7 @@
             // 
             this.xtraTabPageCRUDS.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xtraTabPageCRUDS.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPageCRUDS.Controls.Add(this.simpleButton8);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton7);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton6);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton5);
@@ -991,7 +1010,7 @@
             this.simpleButton7.Appearance.Options.UseFont = true;
             this.simpleButton7.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton7.ImageOptions.SvgImage")));
-            this.simpleButton7.Location = new System.Drawing.Point(468, 250);
+            this.simpleButton7.Location = new System.Drawing.Point(235, 315);
             this.simpleButton7.Name = "simpleButton7";
             this.simpleButton7.Size = new System.Drawing.Size(227, 58);
             this.simpleButton7.TabIndex = 40;
@@ -1238,11 +1257,12 @@
             this.cmdUsuarios.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdUsuarios.Appearance.Options.UseFont = true;
             this.cmdUsuarios.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdUsuarios.Location = new System.Drawing.Point(2, 2);
+            this.cmdUsuarios.Location = new System.Drawing.Point(225, 56);
             this.cmdUsuarios.Name = "cmdUsuarios";
             this.cmdUsuarios.Size = new System.Drawing.Size(203, 48);
             this.cmdUsuarios.TabIndex = 12;
             this.cmdUsuarios.Text = "Usuarios";
+            this.cmdUsuarios.Visible = false;
             this.cmdUsuarios.Click += new System.EventHandler(this.cmdUsuarios_Click);
             // 
             // cmdGrupos
@@ -1252,7 +1272,7 @@
             this.cmdGrupos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGrupos.Location = new System.Drawing.Point(2, 52);
             this.cmdGrupos.Name = "cmdGrupos";
-            this.cmdGrupos.Size = new System.Drawing.Size(203, 48);
+            this.cmdGrupos.Size = new System.Drawing.Size(202, 48);
             this.cmdGrupos.TabIndex = 13;
             this.cmdGrupos.Text = "Gestión \r\nDepartamentos";
             this.cmdGrupos.Click += new System.EventHandler(this.cmdGrupos_Click);
@@ -1264,7 +1284,7 @@
             this.cmdSistemas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSistemas.Location = new System.Drawing.Point(2, 102);
             this.cmdSistemas.Name = "cmdSistemas";
-            this.cmdSistemas.Size = new System.Drawing.Size(203, 48);
+            this.cmdSistemas.Size = new System.Drawing.Size(202, 48);
             this.cmdSistemas.TabIndex = 14;
             this.cmdSistemas.Text = "Gestion Sistemas";
             this.cmdSistemas.Click += new System.EventHandler(this.cmdSistemas_Click);
@@ -1288,21 +1308,23 @@
             this.cmdAccesoSistemas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdAccesoSistemas.Location = new System.Drawing.Point(2, 152);
             this.cmdAccesoSistemas.Name = "cmdAccesoSistemas";
-            this.cmdAccesoSistemas.Size = new System.Drawing.Size(203, 48);
+            this.cmdAccesoSistemas.Size = new System.Drawing.Size(202, 48);
             this.cmdAccesoSistemas.TabIndex = 16;
             this.cmdAccesoSistemas.Text = "Nivel Acceso Sistemas";
             this.cmdAccesoSistemas.Click += new System.EventHandler(this.cmdAccesoSistemas_Click);
             // 
             // simpleButton76
             // 
-            this.simpleButton76.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton76.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton76.Appearance.Options.UseFont = true;
+            this.simpleButton76.Appearance.Options.UseTextOptions = true;
+            this.simpleButton76.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton76.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton76.Location = new System.Drawing.Point(3, 357);
+            this.simpleButton76.Location = new System.Drawing.Point(2, 2);
             this.simpleButton76.Name = "simpleButton76";
-            this.simpleButton76.Size = new System.Drawing.Size(203, 48);
+            this.simpleButton76.Size = new System.Drawing.Size(202, 48);
             this.simpleButton76.TabIndex = 21;
-            this.simpleButton76.Text = "Delegación de Accesos";
+            this.simpleButton76.Text = "Gestion de Usuarios y Accesos";
             this.simpleButton76.Click += new System.EventHandler(this.simpleButton76_Click);
             // 
             // simpleButton37
@@ -2444,18 +2466,32 @@
             this.btnClose.Text = "Cerrar";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // simpleButton8
+            // 
+            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton8.Appearance.Options.UseFont = true;
+            this.simpleButton8.Appearance.Options.UseTextOptions = true;
+            this.simpleButton8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.simpleButton8.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton8.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
+            this.simpleButton8.Location = new System.Drawing.Point(468, 250);
+            this.simpleButton8.Name = "simpleButton8";
+            this.simpleButton8.Size = new System.Drawing.Size(227, 58);
+            this.simpleButton8.TabIndex = 41;
+            this.simpleButton8.Text = "Combinaciones de Codigos";
+            this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click_1);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(958, 639);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtEquipoLogeadoActual);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.tabOpciones);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmOpciones.IconOptions.Icon")));
             this.Name = "frmOpciones";
             this.Text = "Opciones";
             this.Load += new System.EventHandler(this.frmOpciones_Load);
@@ -2642,5 +2678,7 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private DevExpress.XtraNavBar.NavBarItem navBarItem60;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraNavBar.NavBarItem navBarIteSoliTraslado;
+        private DevExpress.XtraEditors.SimpleButton simpleButton8;
     }
 }

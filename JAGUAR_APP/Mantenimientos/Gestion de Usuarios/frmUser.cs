@@ -10,11 +10,15 @@ using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using JAGUAR_PRO.Clases;
 using ACS.Classes;
+using JAGUAR_PRO.Accesos;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.Accessibility;
 
 namespace PRININ.Gestion_de_Usuarios
 {
     public partial class frmUser : DevExpress.XtraEditors.XtraForm
     {
+        int IdUser = 0;
         public enum TipoEdicion
         {
             Nuevo = 1,
@@ -29,15 +33,17 @@ namespace PRININ.Gestion_de_Usuarios
         private TipoEdicion vTipoEdition;
         private UserLogin UserParametro;
         private UserLogin UserEdicion;
-
+        int IdNivel = 0;
         public frmUser(TipoEdicion pTipo, UserLogin pUser, int pIdUserEditar)
         {
             InitializeComponent();
             vTipoEdition = pTipo;
             op = new DataOperations();
+            IdUser = pIdUserEditar;
             UserParametro = pUser;
             LoadGroup();
             LoadTurnos();
+            LoadNivelesAcceso();
 
             switch (vTipoEdition)
             {
@@ -50,6 +56,8 @@ namespace PRININ.Gestion_de_Usuarios
                     ValidoContrasenia = false;
                     txtPass.Text = "";
                     txtConfirmar.Text = "";
+                    tsIsVendedor.IsOn = false;
+                    GetCodeSig();
                     break;
                 case TipoEdicion.Editar:
                     UserEdicion = new UserLogin();
@@ -67,8 +75,92 @@ namespace PRININ.Gestion_de_Usuarios
                         txtPIN.Text = UserEdicion.PIN.ToString();
                         tsIsVendedor.IsOn = UserEdicion.IsVendedor;
                         ValidoContrasenia = true;
+                        txtCodigoEmpleado.Text = UserEdicion.CodigoEmpleado;
+                        if (UserEdicion.Idnivel != 0)
+                        {
+                            foreach (dsAccesos.niveles_accesoRow item in dsAccesos1.niveles_acceso.Rows)
+                            {
+                                if (UserEdicion.Idnivel == item.id)
+                                {
+                                    item.selected = true;
+                                }
+                            }
+                        }
+
                     }
                     break;
+            }
+        }
+
+        private void GetCodeSig()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(op.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                string sql = "ft_cargar_codigo_siguiente_empleados";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    //IdSiguiente = dr.GetInt32(1);
+                    txtCodigoEmpleado.Text = dr.GetString(2);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void LoadNivelesAcceso()
+        {
+            try
+            {
+           
+                using (SqlConnection cnx = new SqlConnection(op.ConnectionStringJAGUAR_DB))
+                {
+                    cnx.Open();
+                    string sql = @"sp_get_niveles_accesos";
+                    SqlDataAdapter da = new SqlDataAdapter(sql, cnx);
+
+                    dsAccesos1.niveles_acceso.Clear();
+                    da.Fill(dsAccesos1.niveles_acceso);
+
+                    cnx.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        public bool GuardarNivelAcceso()
+        {
+            try
+            {
+                
+                using (SqlConnection cnx = new SqlConnection(op.ConnectionStringJAGUAR_DB))
+                {
+                    cnx.Open();
+                    string sql = @"sp_guardar_nivel_acceso";
+                    SqlCommand cmd = new SqlCommand(sql, cnx);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_user", UserEdicion.Id);
+                    cmd.Parameters.AddWithValue("@id_nivel", IdNivel);
+                    cmd.ExecuteNonQuery();
+                    cnx.Close();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+                return false;
             }
         }
 
@@ -97,6 +189,17 @@ namespace PRININ.Gestion_de_Usuarios
                 ValidoContrasenia = true;
             }
 
+            if (tsIsVendedor.IsOn) 
+            {
+                if (string.IsNullOrEmpty(txtPIN.Text))
+                {
+                    CajaDialogo.Error("El Usuario es Vendedor\nAgregar PIN!");
+                    return;
+                }
+                
+
+            }
+
             //if(lueGrupo.EditValue == 4) //Si es Vendedor debe llevar Codigo Obligatoriamente
             //{
             //    CajaDialogo.Error("Debe colocar un Codigo de Vendedor");
@@ -123,9 +226,14 @@ namespace PRININ.Gestion_de_Usuarios
                         UserEdicion.IsVendedor = tsIsVendedor.IsOn;
                         if (UserEdicion.GuardarNuevoUsuario())
                         {
+                            if (IdNivel > 0)
+                            {
+                                GuardarNivelAcceso();
+                            }
                             CajaDialogo.Information("Guardado con exito!");
                             this.DialogResult = DialogResult.OK;
                             this.Close();
+
                         }
 
 
@@ -145,6 +253,10 @@ namespace PRININ.Gestion_de_Usuarios
                         UserEdicion.IsVendedor = tsIsVendedor.IsOn;
                         if (UserEdicion.ModificarUsuario())
                         {
+                            if (IdNivel > 0)
+                            {
+                                GuardarNivelAcceso();
+                            }
                             CajaDialogo.Information("Guardado con exito!");
                             this.DialogResult = DialogResult.OK;
                             this.Close();
@@ -181,8 +293,8 @@ namespace PRININ.Gestion_de_Usuarios
 
                     SqlDataAdapter da = new SqlDataAdapter(sql,cnx);
 
-                    dsAccesos.Acceso_Grupo.Clear();
-                    da.Fill(dsAccesos.Acceso_Grupo);
+                    dsAccesos1.Acceso_Grupo.Clear();
+                    da.Fill(dsAccesos1.Acceso_Grupo);
 
                     cnx.Close();
                 }
@@ -210,8 +322,8 @@ namespace PRININ.Gestion_de_Usuarios
 
                     SqlDataAdapter da = new SqlDataAdapter(sql, cnx);
 
-                    dsAccesos.Turno.Clear();
-                    da.Fill(dsAccesos.Turno);
+                    dsAccesos1.Turno.Clear();
+                    da.Fill(dsAccesos1.Turno);
 
                     cnx.Close();
                 }
@@ -221,6 +333,94 @@ namespace PRININ.Gestion_de_Usuarios
             {
                 CajaDialogo.Error(ex.Message);
             }
+        }
+
+        private void gridViewAccesos_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "selected")
+            {
+                var gridView = (GridView)gridControlAccesos.FocusedView;
+                var row = (dsAccesos.niveles_accesoRow)gridView.GetFocusedDataRow();
+                
+                if (Convert.ToBoolean(e.Value))
+                {
+                    UserEdicion.Idnivel = IdNivel = row.id;
+                }
+
+                foreach (dsAccesos.niveles_accesoRow item in dsAccesos1.niveles_acceso)
+                {
+                    if (UserEdicion.Idnivel != item.id)
+                    {
+                        item.selected = false;
+                    }
+                }
+            }
+
+           
+        }
+
+        private void tsIsVendedor_Toggled(object sender, EventArgs e)
+        {
+            if (tsIsVendedor.IsOn)
+            {
+                groupVendedor.Enabled = true;
+                switch (vTipoEdition)
+                {
+                    case TipoEdicion.Nuevo:
+                        SugerirCodigoVendedor();
+                        break;
+                    case TipoEdicion.Editar:
+                        if(UserEdicion.RecuperarRegistroJAGUAR(IdUser))
+                        {
+                            if (string.IsNullOrEmpty(UserEdicion.Codigo))
+                            {
+                                SugerirCodigoVendedor();
+                            }
+                            else
+                            {
+                                txtCodigo.Text = UserEdicion.Codigo;
+                            }
+                        }
+
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                groupVendedor.Enabled = false;
+                txtPIN.Text = "";
+                txtCodigo.Text = "";
+            }
+        }
+
+        private void SugerirCodigoVendedor()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(op.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                string sql = "ft_cargar_codigo_siguiente_vendedor";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    //IdSiguiente = dr.GetInt32(1);
+                    txtCodigo.Text = dr.GetString(2);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void frmUser_Load(object sender, EventArgs e)
+        {
+            tsIsVendedor_Toggled(tsIsVendedor, EventArgs.Empty);
         }
     }
 }

@@ -46,7 +46,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     txtDescripcion.Text = pnombre;
                     toggleSwitchEnablePT.IsOn = penable;
                     txtCodigo.Text = pcodigo;
-
+                    grdTipo.Enabled = false;
                     break;
                 case Operacion.View:
                     break;
@@ -193,6 +193,31 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 this.Close();
             }
 
+        }
+
+        private void grdTipo_EditValueChanged(object sender, EventArgs e)
+        {
+            int IdCategoria = Convert.ToInt32(grdTipo.EditValue);
+
+            if (IdCategoria > 0)
+            {
+                ProductoCategoria pf = new ProductoCategoria();
+                if (pf.ObtenerPorId(IdCategoria))
+                {
+                    if (pf.IdSig > 9)
+                        txtCodigo.Text = Convert.ToString(pf.IdSig.ToString());
+                    else
+                        txtCodigo.Text = Convert.ToString("0" + pf.IdSig.ToString());
+
+                    ProductoFamilia FamiliaActual = new ProductoFamilia();
+                    if (FamiliaActual.ObtenerPorId(pf.IdFamilia))
+                    {
+                        txtFamilia_.Text = FamiliaActual.Codigo + " - " + FamiliaActual.Descripcion;
+                    }
+                }
+
+
+            }
         }
     }
 }

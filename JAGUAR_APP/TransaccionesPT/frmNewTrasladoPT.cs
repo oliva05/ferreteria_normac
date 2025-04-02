@@ -27,13 +27,33 @@ namespace JAGUAR_PRO.TransaccionesPT
 
         DataOperations dp = new DataOperations();
         int IdTrasladoH;
-        public frmNewTrasladoPT(UserLogin userLogin)
+
+        public enum TipoOperacion
+        {
+            SolicitudTraslado = 1,
+            TrasladoFinal = 2
+        }
+        TipoOperacion operacion;
+
+        
+        public frmNewTrasladoPT(UserLogin userLogin, frmNewTrasladoPT.TipoOperacion pOperacion)
         {
             InitializeComponent();
+            operacion = pOperacion;
             UsuarioLogeado = userLogin;
             dtFechaDocumento.DateTime = dp.Now();
-            lblNumTraslado.Text = GetNumTrasladoSig(1);//Punto Venta
             LoadAlmacenes();
+
+            switch (operacion)
+            {
+                case TipoOperacion.SolicitudTraslado:
+                    break;
+                case TipoOperacion.TrasladoFinal:
+                    lblNumTraslado.Text = GetNumTrasladoSig(1);//Punto Venta
+                    break;
+                default:
+                    break;
+            }
         }
 
         private string GetNumTrasladoSig(int PuntoVenta)
