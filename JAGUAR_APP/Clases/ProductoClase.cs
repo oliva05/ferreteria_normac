@@ -16,7 +16,7 @@ namespace JAGUAR_PRO.Clases
         public bool Enable { get; set; }
         public int IdCategoria { get; set; }
         public bool Recuperado { get; set; }
-
+        public int IdSig { get; set; }
         private string connectionString = "your_connection_string_here";
 
         public bool ObtenerPorId(int id)
@@ -26,7 +26,7 @@ namespace JAGUAR_PRO.Clases
             Recuperado = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT id_clase, nombre, codigo, enable, id_categoria FROM PT_Producto_Clase WHERE id_clase = @id";
+                string query = "SELECT id_clase, nombre, codigo, enable, id_categoria, id_sig FROM PT_Producto_Clase WHERE id_clase = @id";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@id", id);
 
@@ -42,6 +42,7 @@ namespace JAGUAR_PRO.Clases
                         Codigo = reader["codigo"].ToString();
                         Enable = Convert.ToBoolean(reader["enable"]);
                         IdCategoria = Convert.ToInt32(reader["id_categoria"]);
+                        IdSig = Convert.ToInt32(reader["id_sig"]);
                         Recuperado = true;
                         return true;
                     }

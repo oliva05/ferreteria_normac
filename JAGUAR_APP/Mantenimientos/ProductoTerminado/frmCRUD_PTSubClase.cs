@@ -45,7 +45,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     txtDescripcion.Text = pnombre;
                     toggleSwitchEnablePT.IsOn = penable;
                     txtCodigo.Text = pcodigo;
-
+                    grdTipo.Enabled = false;
                     break;
                 case Operacion.View:
                     break;
@@ -80,11 +80,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
             TablesId tab = new TablesId();
 
-            if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 3,Id))
-            {
-                CajaDialogo.Error("Este Codigo ya existe en el Grupo de Sub Clases");
-                return;
-            }
+            //if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 3,Id))
+            //{
+            //    CajaDialogo.Error("Este Codigo ya existe en el Grupo de Sub Clases");
+            //    return;
+            //}
 
             if (string.IsNullOrEmpty(grdTipo.Text))
             {
@@ -179,7 +179,31 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void grdTipo_EditValueChanged(object sender, EventArgs e)
         {
+            int IdClase = Convert.ToInt32(grdTipo.EditValue);
 
+            if (IdClase > 0)
+            {
+                ProductoClase pc = new ProductoClase();
+                if (pc.ObtenerPorId(IdClase))
+                {
+                    if (pc.IdSig > 9)
+                        txtCodigo.Text = Convert.ToString(pc.IdSig.ToString());
+                    else
+                        txtCodigo.Text = Convert.ToString("0" + pc.IdSig.ToString());
+
+                    ProductoCategoria pca = new ProductoCategoria();
+                    if (pca.ObtenerPorId(pc.IdCategoria))
+                    {
+                        txtCategoria.Text= pca.Codigo + " - " + pca.Descripcion;
+
+                        ProductoFamilia pf = new ProductoFamilia();
+                        if (pf.ObtenerPorId(pca.IdFamilia))
+                        {
+                            txtFamilia.Text = pf.Codigo + " - " + pf.Descripcion;
+                        }
+                    }
+                }
+            }
         }
     }
 }

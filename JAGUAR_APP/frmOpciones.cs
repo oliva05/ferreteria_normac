@@ -4927,5 +4927,12 @@ namespace JAGUAR_PRO
         {
             
         }
+
+        private void simpleButton8_Click_1(object sender, EventArgs e)
+        {
+            frmMainPTCombinaciones frm = new frmMainPTCombinaciones(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
     }
 }

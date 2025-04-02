@@ -46,6 +46,10 @@
             this.toggleSwitchEnablePT = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblTituloVentana = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.txtFamilia = new System.Windows.Forms.TextBox();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdTipo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.claseselectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
@@ -55,7 +59,7 @@
             // 
             // grdTipo
             // 
-            this.grdTipo.Location = new System.Drawing.Point(203, 76);
+            this.grdTipo.Location = new System.Drawing.Point(236, 117);
             this.grdTipo.Name = "grdTipo";
             this.grdTipo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.grdTipo.Properties.Appearance.Options.UseFont = true;
@@ -66,7 +70,7 @@
             this.grdTipo.Properties.NullText = "";
             this.grdTipo.Properties.PopupView = this.gridLookUpEdit1View;
             this.grdTipo.Properties.ValueMember = "id_clase";
-            this.grdTipo.Size = new System.Drawing.Size(189, 22);
+            this.grdTipo.Size = new System.Drawing.Size(232, 22);
             this.grdTipo.TabIndex = 57;
             this.grdTipo.EditValueChanged += new System.EventHandler(this.grdTipo_EditValueChanged);
             // 
@@ -108,7 +112,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(33, 80);
+            this.labelControl1.Location = new System.Drawing.Point(64, 124);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(186, 15);
             this.labelControl1.TabIndex = 58;
@@ -122,7 +126,7 @@
             this.cmdGuardar.Appearance.Options.UseFont = true;
             this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGuardar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdGuardar.ImageOptions.SvgImage")));
-            this.cmdGuardar.Location = new System.Drawing.Point(68, 242);
+            this.cmdGuardar.Location = new System.Drawing.Point(126, 251);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(132, 42);
             this.cmdGuardar.TabIndex = 56;
@@ -137,7 +141,7 @@
             this.cmdCerrar.Appearance.Options.UseFont = true;
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCerrar.ImageOptions.SvgImage")));
-            this.cmdCerrar.Location = new System.Drawing.Point(245, 242);
+            this.cmdCerrar.Location = new System.Drawing.Point(303, 251);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(132, 42);
             this.cmdCerrar.TabIndex = 55;
@@ -146,18 +150,19 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCodigo.Location = new System.Drawing.Point(203, 104);
+            this.txtCodigo.Location = new System.Drawing.Point(236, 145);
             this.txtCodigo.MaxLength = 3;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(189, 23);
+            this.txtCodigo.Size = new System.Drawing.Size(232, 23);
             this.txtCodigo.TabIndex = 54;
             // 
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(31, 109);
+            this.labelControl5.Location = new System.Drawing.Point(64, 153);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(214, 15);
             this.labelControl5.TabIndex = 53;
@@ -166,17 +171,17 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtDescripcion.Location = new System.Drawing.Point(203, 133);
+            this.txtDescripcion.Location = new System.Drawing.Point(236, 174);
             this.txtDescripcion.MaxLength = 50;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(189, 23);
+            this.txtDescripcion.Size = new System.Drawing.Size(232, 23);
             this.txtDescripcion.TabIndex = 52;
             // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(31, 138);
+            this.labelControl4.Location = new System.Drawing.Point(64, 182);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(207, 15);
             this.labelControl4.TabIndex = 51;
@@ -184,7 +189,7 @@
             // 
             // toggleSwitchEnablePT
             // 
-            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(217, 167);
+            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(268, 212);
             this.toggleSwitchEnablePT.Name = "toggleSwitchEnablePT";
             this.toggleSwitchEnablePT.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toggleSwitchEnablePT.Properties.Appearance.Options.UseFont = true;
@@ -197,7 +202,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(122, 169);
+            this.labelControl2.Location = new System.Drawing.Point(173, 214);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(159, 15);
             this.labelControl2.TabIndex = 49;
@@ -207,17 +212,61 @@
             // 
             this.lblTituloVentana.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloVentana.Appearance.Options.UseFont = true;
-            this.lblTituloVentana.Location = new System.Drawing.Point(161, 23);
+            this.lblTituloVentana.Location = new System.Drawing.Point(220, 24);
             this.lblTituloVentana.Name = "lblTituloVentana";
             this.lblTituloVentana.Size = new System.Drawing.Size(106, 20);
             this.lblTituloVentana.TabIndex = 48;
             this.lblTituloVentana.Text = "Crear Sub Clase";
             // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(64, 94);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(186, 15);
+            this.labelControl3.TabIndex = 59;
+            this.labelControl3.Text = "Categoria___________________________";
+            // 
+            // txtCategoria
+            // 
+            this.txtCategoria.Enabled = false;
+            this.txtCategoria.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCategoria.Location = new System.Drawing.Point(236, 86);
+            this.txtCategoria.MaxLength = 3;
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(232, 23);
+            this.txtCategoria.TabIndex = 60;
+            // 
+            // txtFamilia
+            // 
+            this.txtFamilia.Enabled = false;
+            this.txtFamilia.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtFamilia.Location = new System.Drawing.Point(236, 57);
+            this.txtFamilia.MaxLength = 3;
+            this.txtFamilia.Name = "txtFamilia";
+            this.txtFamilia.Size = new System.Drawing.Size(232, 23);
+            this.txtFamilia.TabIndex = 62;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Location = new System.Drawing.Point(64, 65);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(183, 15);
+            this.labelControl6.TabIndex = 61;
+            this.labelControl6.Text = "Familia_____________________________";
+            // 
             // frmCRUD_PTSubClase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 305);
+            this.ClientSize = new System.Drawing.Size(531, 305);
+            this.Controls.Add(this.txtFamilia);
+            this.Controls.Add(this.labelControl6);
+            this.Controls.Add(this.txtCategoria);
+            this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.grdTipo);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdGuardar);
@@ -260,5 +309,9 @@
         private dsProductoTerminado dsProductoTerminado1;
         private System.Windows.Forms.BindingSource claseselectBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colid_clase;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private System.Windows.Forms.TextBox txtCategoria;
+        private System.Windows.Forms.TextBox txtFamilia;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
     }
 }

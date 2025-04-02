@@ -55,7 +55,7 @@
             // 
             // grdTipo
             // 
-            this.grdTipo.Location = new System.Drawing.Point(203, 52);
+            this.grdTipo.Location = new System.Drawing.Point(236, 43);
             this.grdTipo.Name = "grdTipo";
             this.grdTipo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.grdTipo.Properties.Appearance.Options.UseFont = true;
@@ -66,7 +66,7 @@
             this.grdTipo.Properties.NullText = "";
             this.grdTipo.Properties.PopupView = this.gridLookUpEdit1View;
             this.grdTipo.Properties.ValueMember = "id";
-            this.grdTipo.Size = new System.Drawing.Size(189, 22);
+            this.grdTipo.Size = new System.Drawing.Size(221, 22);
             this.grdTipo.TabIndex = 57;
             this.grdTipo.EditValueChanged += new System.EventHandler(this.grdTipo_EditValueChanged);
             // 
@@ -107,7 +107,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(33, 56);
+            this.labelControl1.Location = new System.Drawing.Point(53, 47);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(196, 15);
             this.labelControl1.TabIndex = 58;
@@ -121,7 +121,7 @@
             this.cmdGuardar.Appearance.Options.UseFont = true;
             this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGuardar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdGuardar.ImageOptions.SvgImage")));
-            this.cmdGuardar.Location = new System.Drawing.Point(67, 182);
+            this.cmdGuardar.Location = new System.Drawing.Point(115, 186);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(132, 42);
             this.cmdGuardar.TabIndex = 56;
@@ -136,7 +136,7 @@
             this.cmdCerrar.Appearance.Options.UseFont = true;
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCerrar.ImageOptions.SvgImage")));
-            this.cmdCerrar.Location = new System.Drawing.Point(244, 182);
+            this.cmdCerrar.Location = new System.Drawing.Point(292, 186);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(132, 42);
             this.cmdCerrar.TabIndex = 55;
@@ -145,18 +145,19 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCodigo.Location = new System.Drawing.Point(203, 80);
+            this.txtCodigo.Location = new System.Drawing.Point(236, 71);
             this.txtCodigo.MaxLength = 3;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(189, 23);
+            this.txtCodigo.Size = new System.Drawing.Size(173, 23);
             this.txtCodigo.TabIndex = 54;
             // 
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(31, 85);
+            this.labelControl5.Location = new System.Drawing.Point(51, 76);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(214, 15);
             this.labelControl5.TabIndex = 53;
@@ -165,17 +166,17 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtDescripcion.Location = new System.Drawing.Point(203, 109);
+            this.txtDescripcion.Location = new System.Drawing.Point(236, 100);
             this.txtDescripcion.MaxLength = 50;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(189, 23);
+            this.txtDescripcion.Size = new System.Drawing.Size(221, 23);
             this.txtDescripcion.TabIndex = 52;
             // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(31, 114);
+            this.labelControl4.Location = new System.Drawing.Point(51, 105);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(207, 15);
             this.labelControl4.TabIndex = 51;
@@ -183,7 +184,7 @@
             // 
             // toggleSwitchEnablePT
             // 
-            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(217, 143);
+            this.toggleSwitchEnablePT.Location = new System.Drawing.Point(247, 142);
             this.toggleSwitchEnablePT.Name = "toggleSwitchEnablePT";
             this.toggleSwitchEnablePT.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toggleSwitchEnablePT.Properties.Appearance.Options.UseFont = true;
@@ -196,7 +197,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(122, 145);
+            this.labelControl2.Location = new System.Drawing.Point(152, 144);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(159, 15);
             this.labelControl2.TabIndex = 49;
@@ -206,7 +207,7 @@
             // 
             this.lblTituloVentana.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloVentana.Appearance.Options.UseFont = true;
-            this.lblTituloVentana.Location = new System.Drawing.Point(156, 17);
+            this.lblTituloVentana.Location = new System.Drawing.Point(194, 17);
             this.lblTituloVentana.Name = "lblTituloVentana";
             this.lblTituloVentana.Size = new System.Drawing.Size(107, 20);
             this.lblTituloVentana.TabIndex = 48;
@@ -216,7 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 240);
+            this.ClientSize = new System.Drawing.Size(523, 240);
             this.Controls.Add(this.grdTipo);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdGuardar);

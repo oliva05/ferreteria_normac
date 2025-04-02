@@ -71,7 +71,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void cmdNuevoPT_Click(object sender, EventArgs e)
         {
-            frmCRUD_PTCategoria frm = new frmCRUD_PTCategoria(frmCRUD_PTCategoria.Operacion.Update, 0, 0, string.Empty, string.Empty, true);
+            frmCRUD_PTCategoria frm = new frmCRUD_PTCategoria(frmCRUD_PTCategoria.Operacion.Insert, 0, 0, string.Empty, string.Empty, true);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 loaddate();

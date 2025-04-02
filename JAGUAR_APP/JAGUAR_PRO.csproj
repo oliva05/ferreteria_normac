@@ -2128,6 +2128,12 @@
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTClase.Designer.cs">
       <DependentUpon>frmMainPTClase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTCombinaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTCombinaciones.Designer.cs">
+      <DependentUpon>frmMainPTCombinaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\frmMainPTFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3801,6 +3807,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainPTClase.resx">
       <DependentUpon>frmMainPTClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainPTCombinaciones.resx">
+      <DependentUpon>frmMainPTCombinaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ProductoTerminado\frmMainPTFamilia.resx">
       <DependentUpon>frmMainPTFamilia.cs</DependentUpon>

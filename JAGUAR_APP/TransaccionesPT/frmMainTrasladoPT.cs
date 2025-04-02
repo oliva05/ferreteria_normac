@@ -34,7 +34,7 @@ namespace JAGUAR_PRO.TransaccionesPT
 
         private void btnTraslado_Click(object sender, EventArgs e)
         {
-            frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado);
+            frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.TrasladoFinal);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 LoadDatos();

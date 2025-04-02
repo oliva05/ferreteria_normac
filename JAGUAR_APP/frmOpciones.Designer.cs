@@ -49,6 +49,7 @@
             this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemKardexPT = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem60 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarIteSoliTraslado = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem21 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem25 = new DevExpress.XtraNavBar.NavBarItem();
@@ -192,7 +193,7 @@
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.navBarIteSoliTraslado = new DevExpress.XtraNavBar.NavBarItem();
+            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -536,6 +537,20 @@
             this.navBarItem60.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.traslado_de_paqueteria;
             this.navBarItem60.Name = "navBarItem60";
             this.navBarItem60.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem60_LinkClicked_1);
+            // 
+            // navBarIteSoliTraslado
+            // 
+            this.navBarIteSoliTraslado.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.Appearance.Options.UseFont = true;
+            this.navBarIteSoliTraslado.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.AppearanceDisabled.Options.UseFont = true;
+            this.navBarIteSoliTraslado.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarIteSoliTraslado.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.AppearancePressed.Options.UseFont = true;
+            this.navBarIteSoliTraslado.Caption = "Requisa de Traslado";
+            this.navBarIteSoliTraslado.Name = "navBarIteSoliTraslado";
+            this.navBarIteSoliTraslado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarIteSoliTraslado_LinkClicked);
             // 
             // navBarGroup9
             // 
@@ -968,6 +983,7 @@
             // 
             this.xtraTabPageCRUDS.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xtraTabPageCRUDS.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPageCRUDS.Controls.Add(this.simpleButton8);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton7);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton6);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton5);
@@ -994,7 +1010,7 @@
             this.simpleButton7.Appearance.Options.UseFont = true;
             this.simpleButton7.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton7.ImageOptions.SvgImage")));
-            this.simpleButton7.Location = new System.Drawing.Point(468, 250);
+            this.simpleButton7.Location = new System.Drawing.Point(235, 315);
             this.simpleButton7.Name = "simpleButton7";
             this.simpleButton7.Size = new System.Drawing.Size(227, 58);
             this.simpleButton7.TabIndex = 40;
@@ -2450,19 +2466,20 @@
             this.btnClose.Text = "Cerrar";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // navBarIteSoliTraslado
+            // simpleButton8
             // 
-            this.navBarIteSoliTraslado.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarIteSoliTraslado.Appearance.Options.UseFont = true;
-            this.navBarIteSoliTraslado.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarIteSoliTraslado.AppearanceDisabled.Options.UseFont = true;
-            this.navBarIteSoliTraslado.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarIteSoliTraslado.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarIteSoliTraslado.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarIteSoliTraslado.AppearancePressed.Options.UseFont = true;
-            this.navBarIteSoliTraslado.Caption = "Requisa de Traslado";
-            this.navBarIteSoliTraslado.Name = "navBarIteSoliTraslado";
-            this.navBarIteSoliTraslado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarIteSoliTraslado_LinkClicked);
+            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton8.Appearance.Options.UseFont = true;
+            this.simpleButton8.Appearance.Options.UseTextOptions = true;
+            this.simpleButton8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.simpleButton8.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton8.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
+            this.simpleButton8.Location = new System.Drawing.Point(468, 250);
+            this.simpleButton8.Name = "simpleButton8";
+            this.simpleButton8.Size = new System.Drawing.Size(227, 58);
+            this.simpleButton8.TabIndex = 41;
+            this.simpleButton8.Text = "Combinaciones de Codigos";
+            this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click_1);
             // 
             // frmOpciones
             // 
@@ -2662,5 +2679,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem60;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private DevExpress.XtraNavBar.NavBarItem navBarIteSoliTraslado;
+        private DevExpress.XtraEditors.SimpleButton simpleButton8;
     }
 }

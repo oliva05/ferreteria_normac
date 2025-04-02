@@ -45,7 +45,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     txtDescripcion.Text = pnombre;
                     toggleSwitchEnablePT.IsOn = penable;
                     txtCodigo.Text = pcodigo;
-
+                    grdTipo.Enabled = false;
                     break;
                 case Operacion.View:
                     break;
@@ -182,7 +182,19 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void grdTipo_EditValueChanged(object sender, EventArgs e)
         {
+            int IdFamilia = Convert.ToInt32(grdTipo.EditValue);
 
+            if (IdFamilia > 0)
+            {
+                ProductoFamilia pf = new ProductoFamilia();
+                if (pf.ObtenerPorId(IdFamilia))
+                {
+                    if (pf.IdSig > 9)
+                        txtCodigo.Text = Convert.ToString(pf.IdSig.ToString());
+                    else
+                        txtCodigo.Text = Convert.ToString("0" + pf.IdSig.ToString());
+                }
+            }
         }
     }
 }
