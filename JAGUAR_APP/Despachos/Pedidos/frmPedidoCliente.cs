@@ -1856,6 +1856,7 @@ namespace Eatery.Ventas
                         gridView1.ShowEditor();
                     }
                 }
+                txtScanProducto.Focus();
             }
         }
 
