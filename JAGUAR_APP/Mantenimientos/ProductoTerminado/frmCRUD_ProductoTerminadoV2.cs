@@ -255,10 +255,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             gridView9.Appearance.Row.BackColor = Color.LightGray;
             gridView9.Appearance.OddRow.BackColor = Color.White;
 
-            txtDescripcionProducto.Properties.NullText = "Ingrese la descripcion aquí...";
-            txtDescripcionProducto.Properties.Appearance.Font = new Font("Consola", 8, FontStyle.Bold);
-
-
         }
 
         private void LoadSubClases()
