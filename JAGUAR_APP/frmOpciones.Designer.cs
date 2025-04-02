@@ -192,6 +192,7 @@
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.navBarIteSoliTraslado = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -296,7 +297,8 @@
             this.nbReporteCompras,
             this.navBarItem23,
             this.navBarRecepBodegon,
-            this.navBarItem60});
+            this.navBarItem60,
+            this.navBarIteSoliTraslado});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -485,7 +487,8 @@
             this.navBarGroup8.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem60)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem60),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarIteSoliTraslado)});
             this.navBarGroup8.Name = "navBarGroup8";
             // 
             // navBarItem14
@@ -2447,18 +2450,31 @@
             this.btnClose.Text = "Cerrar";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // navBarIteSoliTraslado
+            // 
+            this.navBarIteSoliTraslado.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.Appearance.Options.UseFont = true;
+            this.navBarIteSoliTraslado.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.AppearanceDisabled.Options.UseFont = true;
+            this.navBarIteSoliTraslado.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarIteSoliTraslado.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarIteSoliTraslado.AppearancePressed.Options.UseFont = true;
+            this.navBarIteSoliTraslado.Caption = "Requisa de Traslado";
+            this.navBarIteSoliTraslado.Name = "navBarIteSoliTraslado";
+            this.navBarIteSoliTraslado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarIteSoliTraslado_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(958, 639);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtEquipoLogeadoActual);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.tabOpciones);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmOpciones.IconOptions.Icon")));
             this.Name = "frmOpciones";
             this.Text = "Opciones";
             this.Load += new System.EventHandler(this.frmOpciones_Load);
@@ -2645,5 +2661,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private DevExpress.XtraNavBar.NavBarItem navBarItem60;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraNavBar.NavBarItem navBarIteSoliTraslado;
     }
 }

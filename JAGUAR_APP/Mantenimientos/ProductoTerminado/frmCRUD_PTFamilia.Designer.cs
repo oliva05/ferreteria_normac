@@ -156,7 +156,7 @@
             this.Controls.Add(this.lblTituloVentana);
             this.IconOptions.ShowIcon = false;
             this.Name = "frmCRUD_PTFamilia";
-            this.Text = "CRUD Familia";
+            this.Text = "Gestion de Familia";
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchEnablePT.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -179,5 +179,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 this.Close();
             }
         }
+
+        private void grdTipo_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

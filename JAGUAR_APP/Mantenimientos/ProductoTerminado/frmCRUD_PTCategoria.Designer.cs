@@ -68,6 +68,7 @@
             this.grdTipo.Properties.ValueMember = "id";
             this.grdTipo.Size = new System.Drawing.Size(189, 22);
             this.grdTipo.TabIndex = 57;
+            this.grdTipo.EditValueChanged += new System.EventHandler(this.grdTipo_EditValueChanged);
             // 
             // familiaselectBindingSource
             // 
@@ -227,8 +228,9 @@
             this.Controls.Add(this.toggleSwitchEnablePT);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.lblTituloVentana);
+            this.IconOptions.ShowIcon = false;
             this.Name = "frmCRUD_PTCategoria";
-            this.Text = "frmCRUD_PTCategoria";
+            this.Text = "Gestion de Categoria";
             ((System.ComponentModel.ISupportInitialize)(this.grdTipo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiaselectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).EndInit();
