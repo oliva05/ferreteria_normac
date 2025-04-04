@@ -4925,7 +4925,9 @@ namespace JAGUAR_PRO
 
         private void navBarIteSoliTraslado_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            
+            frmRequisaTraslado frm = new frmRequisaTraslado(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
         }
 
         private void simpleButton8_Click_1(object sender, EventArgs e)

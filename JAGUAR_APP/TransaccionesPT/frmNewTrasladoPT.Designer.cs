@@ -67,7 +67,7 @@
             this.reposDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnRight = new DevExpress.XtraEditors.SimpleButton();
             this.btnLeft = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lbltipo = new DevExpress.XtraEditors.LabelControl();
             this.lblNumTraslado = new DevExpress.XtraEditors.LabelControl();
             this.gleAlmacenDestino = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -102,7 +102,7 @@
             // 
             // gleAlmacen
             // 
-            this.gleAlmacen.Location = new System.Drawing.Point(206, 179);
+            this.gleAlmacen.Location = new System.Drawing.Point(168, 173);
             this.gleAlmacen.Name = "gleAlmacen";
             this.gleAlmacen.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.gleAlmacen.Properties.Appearance.Options.UseFont = true;
@@ -112,7 +112,7 @@
             this.gleAlmacen.Properties.DisplayMember = "descripcion";
             this.gleAlmacen.Properties.PopupView = this.gridLookUpEdit1View;
             this.gleAlmacen.Properties.ValueMember = "id";
-            this.gleAlmacen.Size = new System.Drawing.Size(184, 26);
+            this.gleAlmacen.Size = new System.Drawing.Size(247, 26);
             this.gleAlmacen.TabIndex = 160;
             this.gleAlmacen.EditValueChanged += new System.EventHandler(this.gleAlmacen_EditValueChanged);
             // 
@@ -396,15 +396,15 @@
             this.btnLeft.TabIndex = 164;
             this.btnLeft.Visible = false;
             // 
-            // labelControl1
+            // lbltipo
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(24, 12);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(78, 20);
-            this.labelControl1.TabIndex = 165;
-            this.labelControl1.Text = "Traslado #:";
+            this.lbltipo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbltipo.Appearance.Options.UseFont = true;
+            this.lbltipo.Location = new System.Drawing.Point(24, 12);
+            this.lbltipo.Name = "lbltipo";
+            this.lbltipo.Size = new System.Drawing.Size(78, 20);
+            this.lbltipo.TabIndex = 165;
+            this.lbltipo.Text = "Traslado #:";
             // 
             // lblNumTraslado
             // 
@@ -418,7 +418,7 @@
             // 
             // gleAlmacenDestino
             // 
-            this.gleAlmacenDestino.Location = new System.Drawing.Point(793, 176);
+            this.gleAlmacenDestino.Location = new System.Drawing.Point(763, 170);
             this.gleAlmacenDestino.Name = "gleAlmacenDestino";
             this.gleAlmacenDestino.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.gleAlmacenDestino.Properties.Appearance.Options.UseFont = true;
@@ -428,7 +428,7 @@
             this.gleAlmacenDestino.Properties.DisplayMember = "descripcion";
             this.gleAlmacenDestino.Properties.PopupView = this.gridView3;
             this.gleAlmacenDestino.Properties.ValueMember = "id";
-            this.gleAlmacenDestino.Size = new System.Drawing.Size(192, 26);
+            this.gleAlmacenDestino.Size = new System.Drawing.Size(245, 26);
             this.gleAlmacenDestino.TabIndex = 168;
             // 
             // gridView3
@@ -563,7 +563,7 @@
             this.Controls.Add(this.gleAlmacenDestino);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.lblNumTraslado);
-            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.lbltipo);
             this.Controls.Add(this.btnLeft);
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.grdAlmacenDestino);
@@ -608,7 +608,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraEditors.SimpleButton btnRight;
         private DevExpress.XtraEditors.SimpleButton btnLeft;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl lbltipo;
         private DevExpress.XtraEditors.LabelControl lblNumTraslado;
         private DevExpress.XtraEditors.GridLookUpEdit gleAlmacenDestino;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;

@@ -549,8 +549,8 @@
             this.navBarIteSoliTraslado.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarIteSoliTraslado.AppearancePressed.Options.UseFont = true;
             this.navBarIteSoliTraslado.Caption = "Requisa de Traslado";
+            this.navBarIteSoliTraslado.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarIteSoliTraslado.Name = "navBarIteSoliTraslado";
-            this.navBarIteSoliTraslado.Visible = false;
             this.navBarIteSoliTraslado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarIteSoliTraslado_LinkClicked);
             // 
             // navBarGroup9

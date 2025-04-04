@@ -27,6 +27,7 @@ namespace JAGUAR_PRO.TransaccionesPT
 
         DataOperations dp = new DataOperations();
         int IdTrasladoH;
+        int IdSoliciudTrasladoH;
 
         public enum TipoOperacion
         {
@@ -47,13 +48,44 @@ namespace JAGUAR_PRO.TransaccionesPT
             switch (operacion)
             {
                 case TipoOperacion.SolicitudTraslado:
+                    lbltipo.Text = "Requisa #:";
+                    lblNumTraslado.Text = GetNumSolicitudTrasladoSig(1);//Punto Venta
                     break;
                 case TipoOperacion.TrasladoFinal:
+                    lbltipo.Text = "Traslado #:";
                     lblNumTraslado.Text = GetNumTrasladoSig(1);//Punto Venta
                     break;
                 default:
                     break;
             }
+        }
+
+        private string GetNumSolicitudTrasladoSig(int PuntoVenta)
+        {
+            string NumReqTrasladoSiguiente = string.Empty;
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[sp_pt_get_num_solicitud_traslado_sig]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PuntoVentaId", PuntoVenta);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    NumReqTrasladoSiguiente = dr.GetString(0);
+                    dr.Close();
+                }
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+
+            return NumReqTrasladoSiguiente;
         }
 
         private string GetNumTrasladoSig(int PuntoVenta)
@@ -123,6 +155,8 @@ namespace JAGUAR_PRO.TransaccionesPT
             if (id_bodega != 0)
             {
                 LoadInvAlmacenes(id_bodega);
+
+                dsPT1.almacen_destino.Clear();
             }
         }
 
@@ -182,13 +216,19 @@ namespace JAGUAR_PRO.TransaccionesPT
             bool Error = false;
             string mensaje = "";
 
-
+            int id_bodeg_origen = Convert.ToInt32(gleAlmacen.EditValue);
 
             int id_bodega_destino = Convert.ToInt32(gleAlmacenDestino.EditValue);
 
             if (id_bodega_destino <= 0)
             {
                 CajaDialogo.Error("Debe Seleccionar el Almacen Destino!");
+                return;
+            }
+
+            if (id_bodeg_origen == id_bodega_destino)
+            {
+                CajaDialogo.Error("No puede trasladar Producto al mismo Almacen");
                 return;
             }
 
@@ -224,30 +264,44 @@ namespace JAGUAR_PRO.TransaccionesPT
                 CajaDialogo.Error(mensaje);
                 return;
             }
-
-            if (Convert.ToInt32(gleAlmacen.EditValue) > 0)
+            else
             {
-                foreach (dsPT.almacen_origenRow row in dsPT1.almacen_origen.Rows)
+                if (Convert.ToInt32(gleAlmacen.EditValue) > 0)
                 {
-                    DataRow dr = dsPT1.almacen_destino.NewRow();
-                    dr[0] = row.id_pt;
-                    dr[1] = row.itemcode;
-                    dr[2] = row.PT;
-                    dr[3] = 0;
-                    dr[4] = row.cantidad_trasladar;
-                    dsPT1.almacen_destino.Rows.Add(dr);
-                    dsPT1.almacen_destino.AcceptChanges();
-                }
-
-                foreach (dsPT.almacen_origenRow row in dsPT1.almacen_origen.Rows)
-                {
-                    if (row.seleccion)
+                    
+                    foreach (dsPT.almacen_origenRow row in dsPT1.almacen_origen.Rows)
                     {
-                        row.existencia = row.existencia - row.cantidad_trasladar;
-                        row.seleccion = false;
+                        if (row.seleccion)
+                        {
+                            try
+                            {
+                                DataRow dr = dsPT1.almacen_destino.NewRow();
+                                dr[0] = row.id_pt;
+                                dr[1] = row.itemcode;
+                                dr[2] = row.PT;
+                                dr[3] = 0;
+                                dr[4] = row.cantidad_trasladar;
+                                dsPT1.almacen_destino.Rows.Add(dr);
+                                dsPT1.almacen_destino.AcceptChanges();
+                            }
+                            catch (Exception ex)
+                            {
+                                CajaDialogo.Error(ex.Message);
+                            }
+                        }
+                        
+
+                        if (row.seleccion)
+                        {
+                            row.existencia = row.existencia - row.cantidad_trasladar;
+                            row.cantidad_trasladar = 0;
+                            row.seleccion = false;
+                        }
                     }
                 }
             }
+
+            
         }
 
         private void cmdRecargar_Click(object sender, EventArgs e)
@@ -306,85 +360,169 @@ namespace JAGUAR_PRO.TransaccionesPT
                 }
             }
 
-
-           
-            SqlTransaction transaction = null;
-            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
             bool Guardar = false;
 
-            try
+            SqlTransaction transaction = null;
+            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+
+            conn.Open();
+            transaction = conn.BeginTransaction("Transaction Order");
+
+            SqlCommand cmd = conn.CreateCommand();
+
+            switch (operacion)
             {
-                conn.Open();
-                transaction = conn.BeginTransaction("Transaction Order");
+                case TipoOperacion.SolicitudTraslado:
 
-                SqlCommand cmd = conn.CreateCommand();
+                    try
+                    {
+                        cmd.CommandText = "sp_pt_insert_solicitud_traslado_header";
+                        cmd.Connection = conn;
+                        cmd.Transaction = transaction;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@descripcion", memoDescr.Text);
+                        cmd.Parameters.AddWithValue("@fecha", dtFechaDocumento.DateTime);
+                        cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
+                        cmd.Parameters.AddWithValue("@bodega_origen", gleAlmacen.EditValue);
+                        cmd.Parameters.AddWithValue("@bodega_destino", gleAlmacenDestino.EditValue);
+                        int IdEstado = 1; //Pendiente Aprobacion
+                        if (UsuarioLogeado.GrupoUsuario.GrupoUsuarioActivo == GrupoUser.GrupoUsuario.Administradores)
+                            IdEstado = 2; //Aprobado
+                        cmd.Parameters.AddWithValue("@id_estado", IdEstado);
+                        cmd.Parameters.AddWithValue("@num_requisa", lblNumTraslado.Text.Trim());
+                        IdSoliciudTrasladoH = Convert.ToInt32(cmd.ExecuteScalar());
 
-                cmd.CommandText = "sp_pt_insert_traslado_header";
-                cmd.Connection = conn;
-                cmd.Transaction = transaction;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@num_traslado", lblNumTraslado.Text);
-                cmd.Parameters.AddWithValue("@descripcion",memoDescr.Text);
-                cmd.Parameters.AddWithValue("@fecha", dtFechaDocumento.DateTime);
-                cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
-                cmd.Parameters.AddWithValue("@bodega_origen",gleAlmacen.EditValue);
-                cmd.Parameters.AddWithValue("@bodega_destino", gleAlmacenDestino.EditValue);
-                IdTrasladoH = Convert.ToInt32(cmd.ExecuteScalar());
+                        foreach (dsPT.almacen_destinoRow row in dsPT1.almacen_destino.Rows)
+                        {
+                            cmd.Parameters.Clear();
 
-                foreach (dsPT.almacen_destinoRow row in dsPT1.almacen_destino.Rows)
-                {
-                    cmd.Parameters.Clear();
+                            cmd.CommandText = "sp_pt_insert_solicitud_tralsado_detalle";
+                            cmd.Connection = conn;
+                            cmd.Transaction = transaction;
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id_solicitud_h", IdSoliciudTrasladoH);
+                            cmd.Parameters.AddWithValue("@id_pt", row.id_pt);
+                            cmd.Parameters.AddWithValue("@item_code", row.itemcode);
+                            cmd.Parameters.AddWithValue("@cantidad", row.cantidad_trasladar);
 
-                    cmd.CommandText = "[usp_Traslado_Kardex_PT]";
-                    cmd.Connection = conn;
-                    cmd.Transaction = transaction;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@idTraslado", IdTrasladoH);
-                    cmd.Parameters.AddWithValue("@id_pt", row.id_pt);
-                    cmd.Parameters.AddWithValue("@id_Usuario", UsuarioLogeado.Id);
-                    cmd.Parameters.AddWithValue("@fecha_doc", dtFechaDocumento.EditValue);
-                    cmd.Parameters.AddWithValue("@fecha_reg", dtFechaDocumento.EditValue);
-                    cmd.Parameters.AddWithValue("@code", row.itemcode);
-                    cmd.Parameters.AddWithValue("@unidades", row.cantidad_trasladar);
-                    cmd.Parameters.AddWithValue("@lote", DBNull.Value);
-                    cmd.Parameters.AddWithValue("@id_tipo_lote", DBNull.Value);
-                    cmd.Parameters.AddWithValue("@costo_unitario", DBNull.Value);
+                            //if (id_bodega == 0)
+                            //    cmd.Parameters.AddWithValue("@id_almacen_origen", DBNull.Value);
+                            //else
+                            //    cmd.Parameters.AddWithValue("@id_almacen_origen", id_bodega);
 
-                    if (id_bodega == 0)
-                        cmd.Parameters.AddWithValue("@id_almacen_origen", DBNull.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@id_almacen_origen", id_bodega);
+                            //if (id_bodega_destino == 0)
+                            //    cmd.Parameters.AddWithValue("@id_almacen_destino", DBNull.Value);
+                            //else
+                            //    cmd.Parameters.AddWithValue("@id_almacen_destino", id_bodega_destino);
 
-                    if (id_bodega_destino == 0)
-                        cmd.Parameters.AddWithValue("@id_almacen_destino", DBNull.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@id_almacen_destino", id_bodega_destino);
+                            cmd.ExecuteNonQuery();
+                        }
 
-                    cmd.ExecuteNonQuery();
-                }
+                        transaction.Commit();
+                        Guardar = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        CajaDialogo.Error(ex.Message);
+                        Guardar = false;
+                    }
 
-                transaction.Commit();
-                Guardar = true;
-                
+                    break;
+
+                case TipoOperacion.TrasladoFinal:
+                    
+                    try
+                    {
+                        cmd.CommandText = "sp_pt_insert_traslado_header";
+                        cmd.Connection = conn;
+                        cmd.Transaction = transaction;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@num_traslado", lblNumTraslado.Text);
+                        cmd.Parameters.AddWithValue("@descripcion", memoDescr.Text);
+                        cmd.Parameters.AddWithValue("@fecha", dtFechaDocumento.DateTime);
+                        cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
+                        cmd.Parameters.AddWithValue("@bodega_origen", gleAlmacen.EditValue);
+                        cmd.Parameters.AddWithValue("@bodega_destino", gleAlmacenDestino.EditValue);
+                        IdTrasladoH = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        foreach (dsPT.almacen_destinoRow row in dsPT1.almacen_destino.Rows)
+                        {
+                            cmd.Parameters.Clear();
+
+                            cmd.CommandText = "[usp_Traslado_Kardex_PT]";
+                            cmd.Connection = conn;
+                            cmd.Transaction = transaction;
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@idTraslado", IdTrasladoH);
+                            cmd.Parameters.AddWithValue("@id_pt", row.id_pt);
+                            cmd.Parameters.AddWithValue("@id_Usuario", UsuarioLogeado.Id);
+                            cmd.Parameters.AddWithValue("@fecha_doc", dtFechaDocumento.EditValue);
+                            cmd.Parameters.AddWithValue("@fecha_reg", dtFechaDocumento.EditValue);
+                            cmd.Parameters.AddWithValue("@code", row.itemcode);
+                            cmd.Parameters.AddWithValue("@unidades", row.cantidad_trasladar);
+                            cmd.Parameters.AddWithValue("@lote", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@id_tipo_lote", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@costo_unitario", DBNull.Value);
+
+                            if (id_bodega == 0)
+                                cmd.Parameters.AddWithValue("@id_almacen_origen", DBNull.Value);
+                            else
+                                cmd.Parameters.AddWithValue("@id_almacen_origen", id_bodega);
+
+                            if (id_bodega_destino == 0)
+                                cmd.Parameters.AddWithValue("@id_almacen_destino", DBNull.Value);
+                            else
+                                cmd.Parameters.AddWithValue("@id_almacen_destino", id_bodega_destino);
+
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        Guardar = true;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        CajaDialogo.Error(ex.Message);
+                        Guardar = false;
+                    }
+
+
+                    break;
+                default:
+                    break;
             }
-            catch (Exception ex)
-            {
-                CajaDialogo.Error(ex.Message);
-                Guardar = false;
-            }
+
+
+
+            
 
             if (Guardar)
             {
                 //ActualizarCorrelativo();
                 /*ajaDialogo.Information("Traslado Completado con Exito!");*/
 
-                DialogResult r = CajaDialogo.Pregunta("Traslado Completado con Exito!\nDesea imprimir el traslado?");
-                if (r == DialogResult.Yes)
+                switch (operacion)
                 {
-                    xrptTraslado report = new xrptTraslado(IdTrasladoH);
-                    report.ShowPrintMarginsWarning = false;
-                    report.ShowPreview();
+                    case TipoOperacion.SolicitudTraslado:
+                        CajaDialogo.Information("Requisa de Traslado Generada");
+                        break;
+                    case TipoOperacion.TrasladoFinal:
+
+                        DialogResult r = CajaDialogo.Pregunta("Traslado Completado con Exito!\nDesea imprimir el traslado?");
+                        if (r == DialogResult.Yes)
+                        {
+                            xrptTraslado report = new xrptTraslado(IdTrasladoH);
+                            report.ShowPrintMarginsWarning = false;
+                            report.ShowPreview();
+                        }
+
+                        break;
+                    default:
+                        break;
                 }
+
+                
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
