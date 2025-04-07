@@ -32,19 +32,21 @@ namespace JAGUAR_PRO.TransaccionesPT
         public enum TipoOperacion
         {
             SolicitudTraslado = 1,
-            TrasladoFinal = 2
+            TrasladoFinal = 2,
+            SoloVista = 3
         }
         TipoOperacion operacion;
 
         
-        public frmNewTrasladoPT(UserLogin userLogin, frmNewTrasladoPT.TipoOperacion pOperacion)
+        public frmNewTrasladoPT(UserLogin userLogin, frmNewTrasladoPT.TipoOperacion pOperacion, int pIdTraslado)
         {
             InitializeComponent();
             operacion = pOperacion;
             UsuarioLogeado = userLogin;
+            IdSoliciudTrasladoH = pIdTraslado;
             dtFechaDocumento.DateTime = dp.Now();
             LoadAlmacenes();
-
+            RequisaTraslado requisa = new RequisaTraslado();
             switch (operacion)
             {
                 case TipoOperacion.SolicitudTraslado:
@@ -54,9 +56,71 @@ namespace JAGUAR_PRO.TransaccionesPT
                 case TipoOperacion.TrasladoFinal:
                     lbltipo.Text = "Traslado #:";
                     lblNumTraslado.Text = GetNumTrasladoSig(1);//Punto Venta
+
+                    if (IdSoliciudTrasladoH > 0)
+                    {
+                        btnRight.Visible = false;
+                        grdAlmacenOrigen.Enabled = false;
+                        gleAlmacen.Enabled = false;
+                        gleAlmacenDestino.Enabled = false;
+                        gridView2.Columns["cantidad_trasladar"].OptionsColumn.AllowEdit = true;
+                        requisa.RecuperarRegistros(IdSoliciudTrasladoH);
+                        //lblNumTraslado.Text = requisa.NumRequisa;
+                        //dtFechaDocumento.EditValue = requisa.Fecha;
+                        gleAlmacen.EditValue = requisa.BodegaOrigen;
+                        gleAlmacenDestino.EditValue = requisa.BodegaDestino;
+
+                        LoadDetalleDestino(IdSoliciudTrasladoH);
+                    }
+
+                    break;
+                case TipoOperacion.SoloVista:
+
+                    gridView2.OptionsMenu.EnableColumnMenu = false;
+                    gridView2.Columns["eliminar"].Visible = false;
+                    cmdRecargar.Visible = false;
+                    grdAlmacenOrigen.Enabled = false;
+                    btnRight.Visible = false;
+                    btnLeft.Visible = false;
+                    memoDescr.Enabled = false;
+                    dtFechaDocumento.Enabled = false;
+                    gleAlmacen.Enabled = false;
+                    gleAlmacenDestino.Enabled = false;
+
+                    lbltipo.Text = "Requisa #:";
+                  
+                    requisa.RecuperarRegistros(IdSoliciudTrasladoH);
+                    lblNumTraslado.Text = requisa.NumRequisa;
+                    dtFechaDocumento.EditValue = requisa.Fecha;
+                    gleAlmacen.EditValue = requisa.BodegaOrigen;
+                    gleAlmacenDestino.EditValue = requisa.BodegaDestino;
+
+                    LoadDetalleDestino(IdSoliciudTrasladoH);
+
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void LoadDetalleDestino(int pIdSoliciudTrasladoH)
+        {
+            try
+            {
+                string query = @"sp_get_requisa_traslado_detalle";
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idTraslado",pIdSoliciudTrasladoH);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsPT1.almacen_destino.Clear();
+                adat.Fill(dsPT1.almacen_destino);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
 
@@ -443,6 +507,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                         cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
                         cmd.Parameters.AddWithValue("@bodega_origen", gleAlmacen.EditValue);
                         cmd.Parameters.AddWithValue("@bodega_destino", gleAlmacenDestino.EditValue);
+                        cmd.Parameters.AddWithValue("@idSolicitudTraslado", IdSoliciudTrasladoH);
                         IdTrasladoH = Convert.ToInt32(cmd.ExecuteScalar());
 
                         foreach (dsPT.almacen_destinoRow row in dsPT1.almacen_destino.Rows)

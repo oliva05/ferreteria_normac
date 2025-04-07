@@ -682,6 +682,7 @@
     <Compile Include="Clases\ReciboH.cs" />
     <Compile Include="Clases\Notas_CreditoDebito.cs" />
     <Compile Include="Clases\RegistroPago.cs" />
+    <Compile Include="Clases\RequisaTraslado.cs" />
     <Compile Include="Clases\TablesId.cs" />
     <Compile Include="Clases\Traslado.cs" />
     <Compile Include="Clases\TrasladoDetalle.cs" />
@@ -3005,6 +3006,12 @@
     <Compile Include="TransaccionesMP\frmLotePorMP.designer.cs">
       <DependentUpon>frmLotePorMP.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransaccionesPT\frmCambiarEstadoDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmCambiarEstadoDoc.Designer.cs">
+      <DependentUpon>frmCambiarEstadoDoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransaccionesPT\frmLotePT_Cost.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4019,6 +4026,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesMP\frmReporteDeCompras.resx">
       <DependentUpon>frmReporteDeCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\frmCambiarEstadoDoc.resx">
+      <DependentUpon>frmCambiarEstadoDoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmLotePT_Cost.resx">
       <DependentUpon>frmLotePT_Cost.cs</DependentUpon>

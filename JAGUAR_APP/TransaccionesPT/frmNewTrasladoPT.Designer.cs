@@ -361,6 +361,7 @@
             // 
             this.gridColumn4.Caption = "Devolver";
             this.gridColumn4.ColumnEdit = this.reposDelete;
+            this.gridColumn4.FieldName = "eliminar";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
