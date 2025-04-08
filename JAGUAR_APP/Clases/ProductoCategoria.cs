@@ -56,5 +56,37 @@ namespace JAGUAR_PRO.Clases
                 }
             }
         }
+
+        public int ObtenerIdSigCategoria()
+        {
+            int idSig = 0;
+            DataOperations dp = new DataOperations();
+            connectionString = dp.ConnectionStringJAGUAR_DB;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "sp_pt_get_table_id_sig_cat";
+                SqlCommand command = new SqlCommand(query, connection); 
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read()) 
+                    {
+                        IdSig = Convert.ToInt32(reader["id_siguiente"]);
+                        
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    CajaDialogo.Error(ex.Message);
+                    return idSig;
+                }
+            }
+
+            return IdSig;
+        }
     }
 }

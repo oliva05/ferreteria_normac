@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACS.Classes;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.LogisticaJaguar;
 
 namespace JAGUAR_PRO.TransaccionesPT
 {
@@ -27,6 +29,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             dtDesde.DateTime = dp.Now().AddDays(-30);
             dtHasta.DateTime = dp.Now().AddDays(1);
             LoadDatos();
+            gridView1.ExpandAllGroups();
         }
 
         private void cmdCargar_Click(object sender, EventArgs e)
@@ -62,7 +65,7 @@ namespace JAGUAR_PRO.TransaccionesPT
 
         private void btnTraslado_Click(object sender, EventArgs e)
         {
-            frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.SolicitudTraslado);
+            frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.SolicitudTraslado, 0);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 LoadDatos();
@@ -72,6 +75,180 @@ namespace JAGUAR_PRO.TransaccionesPT
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void toggleSwitch1_Toggled(object sender, EventArgs e)
+        {
+            if (tsExpandir.IsOn)
+            {
+                gridView1.ExpandAllGroups();
+            }
+            else
+            {
+                gridView1.CollapseAllGroups();
+                
+            }
+        }
+
+        private void reposVerDetalle_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)gridControl1.FocusedView;
+            var row = (dsPT.solcitudes_hRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.SoloVista, row.id);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadDatos();
+                }
+
+            }    
+
+        }
+
+        private void reposTraslado_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)gridControl1.FocusedView;
+            var row = (dsPT.solcitudes_hRow)gridview.GetFocusedDataRow();
+
+            bool Permitir = false;
+            if (row != null)
+            {
+                switch (row.id_estado)
+                {
+                    case 1: //Pendiente de Aprobación
+                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa no ha sido aprobada.");
+                        break;
+
+                    case 2://Autorizado
+                        Permitir = true;
+                        break;
+
+                    case 3://Cancelado
+                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido Cancelada.");
+                        
+                        break;
+
+                    case 4://Rechazado
+                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido Rechazada.");
+
+                        break;
+
+                    case 5://Completado
+                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido completada.");
+                        break;
+                    default:
+                        break;
+                }
+
+                if (Permitir)
+                {
+                    frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.TrasladoFinal, row.id);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadDatos();
+                    }
+                }
+                
+            }
+
+        }
+
+        private void reposAprobacion_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)gridControl1.FocusedView;
+            var row = (dsPT.solcitudes_hRow)gridview.GetFocusedDataRow();
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = true;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = true;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    break;
+
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(9))
+                {
+                    accesoprevio = true;
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #9 (Gestion Estado de Requisas-Traslados)");
+                }
+
+            }
+
+            bool Permitir = false;
+            if (accesoprevio)
+            {
+                switch (row.id_estado)
+                {
+                    case 1: //Pendiente de Aprobación
+                        Permitir = true;
+                        break;
+
+                    case 2://Autorizado
+                        CajaDialogo.Error("No se puede Cambiar el Estado, la Requisa ya ha sido Aprobada.");
+                        break;
+
+                    case 3://Cancelado
+                        CajaDialogo.Error("No se puede Cambiar el Estado, la Requisa ya ha sido Cancelada.");
+
+                        break;
+
+                    case 4://Rechazado
+                        CajaDialogo.Error("No se puede Cambiar el Estado, la Requisa ya ha sido Rechazada.");
+
+                        break;
+
+                    case 5://Completado
+                        CajaDialogo.Error("No se puede Cambiar el Estado, la Requisa ya ha sido completada.");
+                        break;
+                    default:
+                        break;
+                }
+
+                if (Permitir)
+                {
+                    frmCambiarEstadoDoc frm = new frmCambiarEstadoDoc(row.id_estado);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                            conn.Open();
+                            SqlCommand cmd = new SqlCommand("sp_update_requisa_estado", conn);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@idRequisa", row.id);
+                            cmd.Parameters.AddWithValue("@idEstado", frm.IdEstadoSeleccionado);
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            CajaDialogo.Error(ex.Message);
+                        }
+
+                        CajaDialogo.Information("Requisa Actualizada!");
+                        LoadDatos();
+                    }
+                }
+            }
         }
     }
 }

@@ -155,6 +155,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                             }
                         }
 
+                        txtCodigoReferencia.Text = PT_Class_instance.Codig_Referencia;
+
                         //grdSubClase.EditValue = PT_Class_instance.Id_sub_clase;
 
                         DataTable dtPTPic = new DataTable();
@@ -254,10 +256,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             gridView9.OptionsView.EnableAppearanceOddRow = true;
             gridView9.Appearance.Row.BackColor = Color.LightGray;
             gridView9.Appearance.OddRow.BackColor = Color.White;
-
-            txtDescripcionProducto.Properties.NullText = "Ingrese la descripcion aquí...";
-            txtDescripcionProducto.Properties.Appearance.Font = new Font("Consola", 8, FontStyle.Bold);
-
 
         }
 

@@ -40,7 +40,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     break;
                 case Operacion.Update:
                     lblTituloVentana.Text = "Editar Sub Clase";
-                    Id = pid_clase;
+                    Id = pid_subClase;
                     grdTipo.EditValue = pid_clase;
                     txtDescripcion.Text = pnombre;
                     toggleSwitchEnablePT.IsOn = penable;
@@ -143,7 +143,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         conn.Open();
                         SqlCommand cmd = new SqlCommand("[sp_pt_insert_sub_clases]", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id_subclase", Id);
+                        cmd.Parameters.AddWithValue("@id_subclase",Id);
                         cmd.Parameters.AddWithValue("@id_clase", grdTipo.EditValue);
                         cmd.Parameters.AddWithValue("@nombre", txtDescripcion.Text);
                         cmd.Parameters.AddWithValue("@codigo", txtCodigo.Text.Trim());

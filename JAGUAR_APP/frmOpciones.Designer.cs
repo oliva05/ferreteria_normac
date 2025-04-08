@@ -86,6 +86,7 @@
             this.TabAdmin = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageCRUDS = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
@@ -193,7 +194,7 @@
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnConfigComisiones = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -549,6 +550,7 @@
             this.navBarIteSoliTraslado.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarIteSoliTraslado.AppearancePressed.Options.UseFont = true;
             this.navBarIteSoliTraslado.Caption = "Requisa de Traslado";
+            this.navBarIteSoliTraslado.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarIteSoliTraslado.Name = "navBarIteSoliTraslado";
             this.navBarIteSoliTraslado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarIteSoliTraslado_LinkClicked);
             // 
@@ -983,6 +985,7 @@
             // 
             this.xtraTabPageCRUDS.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xtraTabPageCRUDS.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPageCRUDS.Controls.Add(this.btnConfigComisiones);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton8);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton7);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton6);
@@ -1003,6 +1006,21 @@
             this.xtraTabPageCRUDS.Name = "xtraTabPageCRUDS";
             this.xtraTabPageCRUDS.Size = new System.Drawing.Size(944, 495);
             this.xtraTabPageCRUDS.Text = "Mantenimientos";
+            // 
+            // simpleButton8
+            // 
+            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton8.Appearance.Options.UseFont = true;
+            this.simpleButton8.Appearance.Options.UseTextOptions = true;
+            this.simpleButton8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.simpleButton8.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton8.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
+            this.simpleButton8.Location = new System.Drawing.Point(468, 250);
+            this.simpleButton8.Name = "simpleButton8";
+            this.simpleButton8.Size = new System.Drawing.Size(227, 58);
+            this.simpleButton8.TabIndex = 41;
+            this.simpleButton8.Text = "Combinaciones de Codigos";
+            this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click_1);
             // 
             // simpleButton7
             // 
@@ -2466,20 +2484,20 @@
             this.btnClose.Text = "Cerrar";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // simpleButton8
+            // btnConfigComisiones
             // 
-            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton8.Appearance.Options.UseFont = true;
-            this.simpleButton8.Appearance.Options.UseTextOptions = true;
-            this.simpleButton8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.simpleButton8.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton8.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
-            this.simpleButton8.Location = new System.Drawing.Point(468, 250);
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.Size = new System.Drawing.Size(227, 58);
-            this.simpleButton8.TabIndex = 41;
-            this.simpleButton8.Text = "Combinaciones de Codigos";
-            this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click_1);
+            this.btnConfigComisiones.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfigComisiones.Appearance.Options.UseFont = true;
+            this.btnConfigComisiones.Appearance.Options.UseTextOptions = true;
+            this.btnConfigComisiones.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.btnConfigComisiones.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnConfigComisiones.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
+            this.btnConfigComisiones.Location = new System.Drawing.Point(468, 315);
+            this.btnConfigComisiones.Name = "btnConfigComisiones";
+            this.btnConfigComisiones.Size = new System.Drawing.Size(227, 58);
+            this.btnConfigComisiones.TabIndex = 42;
+            this.btnConfigComisiones.Text = "Configuracion de Comisiones";
+            this.btnConfigComisiones.Click += new System.EventHandler(this.btnConfigComisiones_Click);
             // 
             // frmOpciones
             // 
@@ -2680,5 +2698,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private DevExpress.XtraNavBar.NavBarItem navBarIteSoliTraslado;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.SimpleButton btnConfigComisiones;
     }
 }
