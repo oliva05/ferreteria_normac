@@ -194,6 +194,7 @@
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.btnConfigComisiones = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -984,6 +985,7 @@
             // 
             this.xtraTabPageCRUDS.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xtraTabPageCRUDS.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPageCRUDS.Controls.Add(this.btnConfigComisiones);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton8);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton7);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton6);
@@ -2482,6 +2484,21 @@
             this.btnClose.Text = "Cerrar";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnConfigComisiones
+            // 
+            this.btnConfigComisiones.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfigComisiones.Appearance.Options.UseFont = true;
+            this.btnConfigComisiones.Appearance.Options.UseTextOptions = true;
+            this.btnConfigComisiones.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.btnConfigComisiones.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnConfigComisiones.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
+            this.btnConfigComisiones.Location = new System.Drawing.Point(468, 315);
+            this.btnConfigComisiones.Name = "btnConfigComisiones";
+            this.btnConfigComisiones.Size = new System.Drawing.Size(227, 58);
+            this.btnConfigComisiones.TabIndex = 42;
+            this.btnConfigComisiones.Text = "Configuracion de Comisiones";
+            this.btnConfigComisiones.Click += new System.EventHandler(this.btnConfigComisiones_Click);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2681,5 +2698,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private DevExpress.XtraNavBar.NavBarItem navBarIteSoliTraslado;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.SimpleButton btnConfigComisiones;
     }
 }

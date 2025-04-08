@@ -160,8 +160,42 @@ namespace JAGUAR_PRO.TransaccionesPT
             var gridview = (GridView)gridControl1.FocusedView;
             var row = (dsPT.solcitudes_hRow)gridview.GetFocusedDataRow();
 
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = true;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = true;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    break;
+
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(9))
+                {
+                    accesoprevio = true;
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #9 (Gestion Estado de Requisas-Traslados)");
+                }
+
+            }
+
             bool Permitir = false;
-            if (row != null)
+            if (accesoprevio)
             {
                 switch (row.id_estado)
                 {
@@ -170,21 +204,21 @@ namespace JAGUAR_PRO.TransaccionesPT
                         break;
 
                     case 2://Autorizado
-                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido Aprobada.");
+                        CajaDialogo.Error("No se puede Cambiar el Estado, la Requisa ya ha sido Aprobada.");
                         break;
 
                     case 3://Cancelado
-                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido Cancelada.");
+                        CajaDialogo.Error("No se puede Cambiar el Estado, la Requisa ya ha sido Cancelada.");
 
                         break;
 
                     case 4://Rechazado
-                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido Rechazada.");
+                        CajaDialogo.Error("No se puede Cambiar el Estado, la Requisa ya ha sido Rechazada.");
 
                         break;
 
                     case 5://Completado
-                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido completada.");
+                        CajaDialogo.Error("No se puede Cambiar el Estado, la Requisa ya ha sido completada.");
                         break;
                     default:
                         break;

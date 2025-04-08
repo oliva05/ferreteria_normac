@@ -33,6 +33,7 @@ using JAGUAR_PRO.LogisticaJaguar.Despacho;
 using JAGUAR_PRO.LogisticaJaguar.Pedidos;
 using JAGUAR_PRO.Mantenimientos;
 using JAGUAR_PRO.Mantenimientos.Clientes;
+using JAGUAR_PRO.Mantenimientos.Comisiones;
 using JAGUAR_PRO.Mantenimientos.Facturacion.Mantenimiento;
 using JAGUAR_PRO.Mantenimientos.Formulas;
 using JAGUAR_PRO.Mantenimientos.MaterialEmpaque;
@@ -4935,6 +4936,34 @@ namespace JAGUAR_PRO
             frmMainPTCombinaciones frm = new frmMainPTCombinaciones(UsuarioLogeado);
             frm.MdiParent = this.MdiParent;
             frm.Show();
+        }
+
+        private void btnConfigComisiones_Click(object sender, EventArgs e)
+        {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmMainComisiones mtx = new frmMainComisiones(UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+
+
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
