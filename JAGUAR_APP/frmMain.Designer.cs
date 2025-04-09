@@ -158,7 +158,7 @@ namespace JAGUAR_PRO
             this.lblVersion.Location = new System.Drawing.Point(119, 501);
             this.lblVersion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(47, 13);
+            this.lblVersion.Size = new System.Drawing.Size(46, 13);
             this.lblVersion.TabIndex = 13;
             this.lblVersion.Text = "Ninguna";
             // 
@@ -306,21 +306,23 @@ namespace JAGUAR_PRO
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::JAGUAR_PRO.Properties.Resources.Astahrr_Nfl_Jaguars_128_1_;
+            this.pictureBox2.Image = global::JAGUAR_PRO.Properties.Resources.WhatsApp_Image_2025_03_01_at_11_16_12_AM;
             this.pictureBox2.Location = new System.Drawing.Point(2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(133, 135);
+            this.pictureBox2.Size = new System.Drawing.Size(181, 135);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
             // 
             // frmMain
             // 
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(638, 585);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdIngresarAdmin);
             this.Controls.Add(this.cmdAbrirTeclado);
@@ -338,7 +340,6 @@ namespace JAGUAR_PRO
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.cmdLogin);
             this.Controls.Add(this.cmdCerrar);
-            this.Controls.Add(this.pictureBox2);
             this.Name = "frmMain";
             this.Text = "LOGIN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
