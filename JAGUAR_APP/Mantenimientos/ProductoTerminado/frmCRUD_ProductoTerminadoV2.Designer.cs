@@ -644,7 +644,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.Location = new System.Drawing.Point(16, 478);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(211, 15);
+            this.labelControl10.Size = new System.Drawing.Size(212, 15);
             this.labelControl10.TabIndex = 52;
             this.labelControl10.Text = "Tipo de Item_____________________________";
             // 
@@ -967,7 +967,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.Location = new System.Drawing.Point(567, 499);
+            this.btnClose.Location = new System.Drawing.Point(562, 499);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 47);
             this.btnClose.TabIndex = 10;
