@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsComisiones" targetNamespace="http://tempuri.org/dsComisiones.xsd" xmlns:mstns="http://tempuri.org/dsComisiones.xsd" xmlns="http://tempuri.org/dsComisiones.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsComisiones" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsComisiones" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsComisiones">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="lista_planes_comisiones" msprop:Generator_RowEvHandlerName="lista_planes_comisionesRowChangeEventHandler" msprop:Generator_RowDeletedName="lista_planes_comisionesRowDeleted" msprop:Generator_RowDeletingName="lista_planes_comisionesRowDeleting" msprop:Generator_RowEvArgName="lista_planes_comisionesRowChangeEvent" msprop:Generator_TablePropName="lista_planes_comisiones" msprop:Generator_RowChangedName="lista_planes_comisionesRowChanged" msprop:Generator_UserTableName="lista_planes_comisiones" msprop:Generator_RowChangingName="lista_planes_comisionesRowChanging" msprop:Generator_RowClassName="lista_planes_comisionesRow" msprop:Generator_TableClassName="lista_planes_comisionesDataTable" msprop:Generator_TableVarName="tablelista_planes_comisiones">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
+              <xs:element name="anio" msprop:Generator_ColumnPropNameInTable="anioColumn" msprop:Generator_ColumnPropNameInRow="anio" msprop:Generator_UserColumnName="anio" msprop:Generator_ColumnVarNameInTable="columnanio" type="xs:int" minOccurs="0" />
+              <xs:element name="fecha_inicio" msprop:Generator_ColumnPropNameInTable="fecha_inicioColumn" msprop:Generator_ColumnPropNameInRow="fecha_inicio" msprop:Generator_UserColumnName="fecha_inicio" msprop:Generator_ColumnVarNameInTable="columnfecha_inicio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha_fin" msprop:Generator_ColumnPropNameInTable="fecha_finColumn" msprop:Generator_ColumnPropNameInRow="fecha_fin" msprop:Generator_UserColumnName="fecha_fin" msprop:Generator_ColumnVarNameInTable="columnfecha_fin" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="activa" msprop:Generator_ColumnPropNameInTable="activaColumn" msprop:Generator_ColumnPropNameInRow="activa" msprop:Generator_UserColumnName="activa" msprop:Generator_ColumnVarNameInTable="columnactiva" type="xs:boolean" minOccurs="0" />
+              <xs:element name="user_id" msprop:Generator_ColumnPropNameInTable="user_idColumn" msprop:Generator_ColumnPropNameInRow="user_id" msprop:Generator_UserColumnName="user_id" msprop:Generator_ColumnVarNameInTable="columnuser_id" type="xs:int" minOccurs="0" />
+              <xs:element name="tipo_plan" msprop:Generator_ColumnPropNameInTable="tipo_planColumn" msprop:Generator_ColumnPropNameInRow="tipo_plan" msprop:Generator_UserColumnName="tipo_plan" msprop:Generator_ColumnVarNameInTable="columntipo_plan" type="xs:int" minOccurs="0" />
+              <xs:element name="plan" msprop:Generator_ColumnPropNameInTable="planColumn" msprop:Generator_ColumnPropNameInRow="plan" msprop:Generator_UserColumnName="plan" msprop:Generator_ColumnVarNameInTable="columnplan" type="xs:string" minOccurs="0" />
+              <xs:element name="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_UserColumnName="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="detalle_comisiones" msprop:Generator_RowEvHandlerName="detalle_comisionesRowChangeEventHandler" msprop:Generator_RowDeletedName="detalle_comisionesRowDeleted" msprop:Generator_RowDeletingName="detalle_comisionesRowDeleting" msprop:Generator_RowEvArgName="detalle_comisionesRowChangeEvent" msprop:Generator_TablePropName="detalle_comisiones" msprop:Generator_RowChangedName="detalle_comisionesRowChanged" msprop:Generator_UserTableName="detalle_comisiones" msprop:Generator_RowChangingName="detalle_comisionesRowChanging" msprop:Generator_RowClassName="detalle_comisionesRow" msprop:Generator_TableClassName="detalle_comisionesDataTable" msprop:Generator_TableVarName="tabledetalle_comisiones">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="id_header" msprop:Generator_ColumnPropNameInTable="id_headerColumn" msprop:Generator_ColumnPropNameInRow="id_header" msprop:Generator_UserColumnName="id_header" msprop:Generator_ColumnVarNameInTable="columnid_header" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="piso" msprop:Generator_ColumnPropNameInTable="pisoColumn" msprop:Generator_ColumnPropNameInRow="piso" msprop:Generator_UserColumnName="piso" msprop:Generator_ColumnVarNameInTable="columnpiso" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="techo" msprop:Generator_ColumnPropNameInTable="techoColumn" msprop:Generator_ColumnPropNameInRow="techo" msprop:Generator_UserColumnName="techo" msprop:Generator_ColumnVarNameInTable="columntecho" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="porcentaje" msprop:Generator_ColumnPropNameInTable="porcentajeColumn" msprop:Generator_ColumnPropNameInRow="porcentaje" msprop:Generator_UserColumnName="porcentaje" msprop:Generator_ColumnVarNameInTable="columnporcentaje" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="porcentaje_lps" msprop:Generator_ColumnPropNameInTable="porcentaje_lpsColumn" msprop:Generator_ColumnPropNameInRow="porcentaje_lps" msprop:Generator_UserColumnName="porcentaje_lps" msprop:Generator_ColumnVarNameInTable="columnporcentaje_lps" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="bonificacion_extra" msprop:Generator_ColumnPropNameInTable="bonificacion_extraColumn" msprop:Generator_ColumnPropNameInRow="bonificacion_extra" msprop:Generator_UserColumnName="bonificacion_extra" msprop:Generator_ColumnVarNameInTable="columnbonificacion_extra" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="total_pago" msprop:Generator_ColumnPropNameInTable="total_pagoColumn" msprop:Generator_ColumnPropNameInRow="total_pago" msprop:Generator_UserColumnName="total_pago" msprop:Generator_ColumnVarNameInTable="columntotal_pago" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="limite_techo" msprop:Generator_ColumnPropNameInRow="limite_techo" msprop:Generator_ColumnPropNameInTable="limite_techoColumn" msprop:Generator_ColumnVarNameInTable="columnlimite_techo" msprop:Generator_UserColumnName="limite_techo" type="xs:boolean" default="false" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tipo_planes" msprop:Generator_RowEvHandlerName="tipo_planesRowChangeEventHandler" msprop:Generator_RowDeletedName="tipo_planesRowDeleted" msprop:Generator_RowDeletingName="tipo_planesRowDeleting" msprop:Generator_RowEvArgName="tipo_planesRowChangeEvent" msprop:Generator_TablePropName="tipo_planes" msprop:Generator_RowChangedName="tipo_planesRowChanged" msprop:Generator_UserTableName="tipo_planes" msprop:Generator_RowChangingName="tipo_planesRowChanging" msprop:Generator_RowClassName="tipo_planesRow" msprop:Generator_TableClassName="tipo_planesDataTable" msprop:Generator_TableVarName="tabletipo_planes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="id_criterio" msprop:Generator_ColumnPropNameInTable="id_criterioColumn" msprop:Generator_ColumnPropNameInRow="id_criterio" msprop:Generator_UserColumnName="id_criterio" msprop:Generator_ColumnVarNameInTable="columnid_criterio" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

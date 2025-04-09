@@ -15,6 +15,7 @@ using JAGUAR_PRO.LogisticaJaguar;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraRichEdit;
 
 namespace JAGUAR_PRO.TransaccionesPT
 {
@@ -26,6 +27,7 @@ namespace JAGUAR_PRO.TransaccionesPT
         public frmMainTrasladoPT(UserLogin userLogin)
         {
             InitializeComponent();
+
             UsuarioLogeado = userLogin;
             dtDesde.DateTime = dp.Now().AddDays(-30);
             dtHasta.DateTime = dp.Now().AddDays(1);
@@ -34,11 +36,52 @@ namespace JAGUAR_PRO.TransaccionesPT
 
         private void btnTraslado_Click(object sender, EventArgs e)
         {
-            frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.TrasladoFinal);
-            if (frm.ShowDialog() == DialogResult.OK)
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)
             {
-                LoadDatos();
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = true;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = true;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.TrasladoFinal, 0);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                    break;
+
+                default:
+                    break;
             }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(8))
+                {
+                    frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.TrasladoFinal, 0);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadDatos();
+                    }
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #8 (Crear Traslados)");
+                }
+
+            }
+
+            
+
+
+
+
         }
         private void LoadDatos()
         {

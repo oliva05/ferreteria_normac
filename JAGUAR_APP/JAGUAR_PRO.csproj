@@ -682,6 +682,7 @@
     <Compile Include="Clases\ReciboH.cs" />
     <Compile Include="Clases\Notas_CreditoDebito.cs" />
     <Compile Include="Clases\RegistroPago.cs" />
+    <Compile Include="Clases\RequisaTraslado.cs" />
     <Compile Include="Clases\TablesId.cs" />
     <Compile Include="Clases\Traslado.cs" />
     <Compile Include="Clases\TrasladoDetalle.cs" />
@@ -1786,6 +1787,26 @@
     <Compile Include="Mantenimientos\Clientes\xfrmJAGUAR_Clientes_CRUD.Designer.cs">
       <DependentUpon>xfrmJAGUAR_Clientes_CRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\Comisiones\dsComisiones.cs">
+      <DependentUpon>dsComisiones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Comisiones\dsComisiones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsComisiones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Comisiones\frmCRUDComisionesDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Comisiones\frmCRUDComisionesDetalle.Designer.cs">
+      <DependentUpon>frmCRUDComisionesDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Comisiones\frmMainComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Comisiones\frmMainComisiones.Designer.cs">
+      <DependentUpon>frmMainComisiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\dsBackupForMerges.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2576,6 +2597,17 @@
     <None Include="LogisticaJaguar\Pedidos\dsPedidos_PRD.xss">
       <DependentUpon>dsPedidos_PRD.xsd</DependentUpon>
     </None>
+    <None Include="Mantenimientos\Comisiones\dsComisiones.xsc">
+      <DependentUpon>dsComisiones.xsd</DependentUpon>
+    </None>
+    <None Include="Mantenimientos\Comisiones\dsComisiones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsComisiones.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Mantenimientos\Comisiones\dsComisiones.xss">
+      <DependentUpon>dsComisiones.xsd</DependentUpon>
+    </None>
     <None Include="Mantenimientos\dsBackupForMerges.xsc">
       <DependentUpon>dsBackupForMerges.xsd</DependentUpon>
     </None>
@@ -3004,6 +3036,12 @@
     </Compile>
     <Compile Include="TransaccionesMP\frmLotePorMP.designer.cs">
       <DependentUpon>frmLotePorMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmCambiarEstadoDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmCambiarEstadoDoc.Designer.cs">
+      <DependentUpon>frmCambiarEstadoDoc.cs</DependentUpon>
     </Compile>
     <Compile Include="TransaccionesPT\frmLotePT_Cost.cs">
       <SubType>Form</SubType>
@@ -3661,6 +3699,12 @@
     <EmbeddedResource Include="Mantenimientos\Clientes\xfrmJAGUAR_Clientes_CRUD.resx">
       <DependentUpon>xfrmJAGUAR_Clientes_CRUD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\Comisiones\frmCRUDComisionesDetalle.resx">
+      <DependentUpon>frmCRUDComisionesDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\Comisiones\frmMainComisiones.resx">
+      <DependentUpon>frmMainComisiones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\Formulas\xfrmFormulas_Tipo_CRUD.resx">
       <DependentUpon>xfrmFormulas_Tipo_CRUD.cs</DependentUpon>
     </EmbeddedResource>
@@ -4018,6 +4062,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesMP\frmReporteDeCompras.resx">
       <DependentUpon>frmReporteDeCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\frmCambiarEstadoDoc.resx">
+      <DependentUpon>frmCambiarEstadoDoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmLotePT_Cost.resx">
       <DependentUpon>frmLotePT_Cost.cs</DependentUpon>

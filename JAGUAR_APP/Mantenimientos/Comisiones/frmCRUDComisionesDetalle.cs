@@ -1,0 +1,264 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using ACS.Classes;
+using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.LogisticaJaguar;
+
+namespace JAGUAR_PRO.Mantenimientos.Comisiones
+{
+    public partial class frmCRUDComisionesDetalle : DevExpress.XtraEditors.XtraForm
+    {
+        public enum TipoOperacion
+        {
+            Nuevo = 1,
+            Editar = 2
+        }
+        TipoOperacion tipoOperacion;
+        UserLogin UsuarioLogeado;
+        DataOperations dp = new DataOperations();
+        int IdComision = 0;
+        public frmCRUDComisionesDetalle(frmCRUDComisionesDetalle.TipoOperacion tipo, UserLogin userLogin, int Pid)
+        {
+            InitializeComponent();
+            UsuarioLogeado = userLogin;
+            IdComision = Pid;
+            tipoOperacion = tipo;
+            CargarTiposPlanes();
+            switch (tipoOperacion)
+            {
+                case TipoOperacion.Nuevo:
+                    txtAnio.Text = dp.Now().Year.ToString();
+
+                    break;
+                case TipoOperacion.Editar:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void CargarTiposPlanes()
+        {
+            try
+            {
+                string query = @"sp_comisiones_get_tipo_plan";
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("",);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsComisiones1.tipo_planes.Clear();
+                adat.Fill(dsComisiones1.tipo_planes);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtAnio.Text))
+            {
+                CajaDialogo.Error("Debe Seleccionar el Año!");
+                return;
+            }
+
+            if (gvComisiones.RowCount == 0)
+            {
+                CajaDialogo.Error("Debe de ingresar la configuración de las Comisiones.");
+                return;
+            }
+
+            if (dtDesde.DateTime >= dtHasta.DateTime)
+            {
+                CajaDialogo.Error("La fecha de inicio no puede ser mayor o igual a la fecha de fin.");
+                return;
+            }
+            bool Guardar = false;
+            switch (tipoOperacion)
+            {
+                case TipoOperacion.Nuevo:
+
+                    SqlTransaction transaction = null;
+
+                    SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    
+
+                    try
+                    {
+                        conn.Open();
+                        transaction = conn.BeginTransaction("Transaction Order");
+
+                        SqlCommand cmd = conn.CreateCommand();
+                        cmd.CommandText = "sp_comisiones_insert_h";
+                        cmd.Connection = conn;
+                        cmd.Transaction = transaction;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@anio",dp.ValidateNumberInt32(txtAnio.Text));
+                        cmd.Parameters.AddWithValue("@fecha_inicio",dtDesde.DateTime);
+                        cmd.Parameters.AddWithValue("@fecha_fin",dtHasta.DateTime);
+                        cmd.Parameters.AddWithValue("@descripcion",txtDescripcion.Text);
+                        cmd.Parameters.AddWithValue("@user_id",UsuarioLogeado.Id);
+                        cmd.Parameters.AddWithValue("@tipo_plan",gridLookUpEdit1.EditValue);
+                        //cmd.Parameters.AddWithValue("", Istraslado ? Convert.ToDecimal(row.id_traslado) : 0);
+
+                        int id_header= Convert.ToInt32(cmd.ExecuteScalar());
+
+                        foreach (dsComisiones.detalle_comisionesRow row in dsComisiones1.detalle_comisiones.Rows)
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.CommandText = "sp_comisiones_insert_d";
+                            cmd.Connection = conn;
+                            cmd.Transaction = transaction;
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id_header", id_header); 
+                            cmd.Parameters.AddWithValue("@piso", row.piso);
+                            cmd.Parameters.AddWithValue("@techo", row.techo);
+                            cmd.Parameters.AddWithValue("@porcentaje", row.porcentaje);
+                            cmd.Parameters.AddWithValue("@porcentaje_lps", row.porcentaje_lps);
+                            cmd.Parameters.AddWithValue("@bonificacion_extra", row.bonificacion_extra);
+                            cmd.Parameters.AddWithValue("@tiene_limite_techo", row.limite_techo);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        Guardar = true;
+
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+
+                    }
+                    catch (Exception ec)
+                    {
+                        transaction.Rollback();
+                        CajaDialogo.Error(ec.Message);
+                        Guardar = false;
+                    }
+
+                    break;
+                case TipoOperacion.Editar:
+                    break;
+                default:
+                    break;
+            }
+
+            if (Guardar)
+            {
+                CajaDialogo.Information("Configuracion Guardada con Exito!");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+
+
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void gvComisiones_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            var gridview = (GridView)gcComisiones.FocusedView;
+            var row = (dsComisiones.detalle_comisionesRow)gridview.GetFocusedDataRow();
+
+            decimal InicioComision = Convert.ToDecimal(txtInicioComision.EditValue);
+
+            if (InicioComision == 0)
+            {
+                CajaDialogo.Error("Debe indicar un monto minimo de comision!");
+                return;
+            }
+
+            switch (e.Column.FieldName)
+            {
+                case "porcentaje":
+
+                    if (row.limite_techo)
+                    {
+                        row.porcentaje_lps = row.piso * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
+                    }
+                    else
+                    {
+                        if (row.techo < InicioComision)
+                        {
+                            row.porcentaje = 0;
+                            row.porcentaje_lps = 0;
+                            row.bonificacion_extra = 0;
+                            row.total_pago = 0;
+                        }
+                        else
+                        {
+
+                            row.porcentaje_lps = row.techo * (row.porcentaje / 100);
+                            row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
+
+                        }
+                    }
+                   
+
+                    break;
+
+                case "techo":
+                    if (row.techo < InicioComision)
+                    {
+                        row.porcentaje = 0;
+                        row.porcentaje_lps = 0;
+                        row.bonificacion_extra = 0;
+                        row.total_pago = 0;
+                    }
+                    else
+                    {
+                        row.porcentaje_lps = row.techo * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
+                    }
+
+                    break;
+
+                case "bonificacion_extra":
+                    if (row.techo < InicioComision)
+                    {
+                        row.porcentaje = 0;
+                        row.porcentaje_lps = 0;
+                        row.bonificacion_extra = 0;
+                        row.total_pago = 0;
+                    }
+                    else
+                    {
+                        row.porcentaje_lps = row.techo * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
+                    }
+                    break;
+
+                case "limite_techo":
+
+                    bool TieneLimiteMaximo = Convert.ToBoolean(e.Value);
+                    if (TieneLimiteMaximo)
+                    {
+                        row.techo = 0;// DBNull.Value;
+                        row.porcentaje_lps = row.piso * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
