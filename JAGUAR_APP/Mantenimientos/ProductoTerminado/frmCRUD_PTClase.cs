@@ -100,11 +100,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
             TablesId tab = new TablesId();
 
-            if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 2, Id))
-            {
-                CajaDialogo.Error("Este Codigo ya existe en el Grupo de Clases");
-                return;
-            }
+            //if (!tab.ValidacionCodigos(txtCodigo.Text.Trim(), 2, Id))
+            //{
+            //    CajaDialogo.Error("Este Codigo ya existe en el Grupo de Clases");
+            //    return;
+            //}
 
             if (string.IsNullOrEmpty(grdTipo.Text))
             {
