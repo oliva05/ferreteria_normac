@@ -3303,6 +3303,26 @@ namespace JAGUAR_PRO.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2025_03_01_at_11_15_59_AM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2025-03-01 at 11.15.59 AM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2025_03_01_at_11_16_12_AM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2025-03-01 at 11.16.12 AM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wheat {
             get {
                 object obj = ResourceManager.GetObject("wheat", resourceCulture);
