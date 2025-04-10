@@ -365,6 +365,13 @@
     <Compile Include="Accesos\GrupoLosa\EditarGrupoLosa.Designer.cs">
       <DependentUpon>EditarGrupoLosa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\GrupoLosa\frmAccesosPorGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\GrupoLosa\frmAccesosPorGrupos.Designer.cs">
+      <DependentUpon>frmAccesosPorGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\GrupoLosa\Grupos.cs" />
     <Compile Include="Accesos\GrupoLosa\PrincipalGrupoLosa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3150,6 +3157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\GrupoLosa\EditarGrupoLosa.resx">
       <DependentUpon>EditarGrupoLosa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\GrupoLosa\frmAccesosPorGrupos.resx">
+      <DependentUpon>frmAccesosPorGrupos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\GrupoLosa\PrincipalGrupoLosa.resx">
       <DependentUpon>PrincipalGrupoLosa.cs</DependentUpon>

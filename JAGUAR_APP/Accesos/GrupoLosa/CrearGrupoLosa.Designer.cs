@@ -59,7 +59,7 @@ namespace JAGUAR_PRO.Accesos.GrupoLosa
             this.checkEditHabilitado.Location = new System.Drawing.Point(24, 112);
             this.checkEditHabilitado.Name = "checkEditHabilitado";
             this.checkEditHabilitado.Properties.Caption = "Habilitado";
-            this.checkEditHabilitado.Size = new System.Drawing.Size(75, 19);
+            this.checkEditHabilitado.Size = new System.Drawing.Size(75, 20);
             this.checkEditHabilitado.TabIndex = 2;
             // 
             // botonGuardar
@@ -93,7 +93,7 @@ namespace JAGUAR_PRO.Accesos.GrupoLosa
             this.Controls.Add(this.textEditGrupo);
             this.Controls.Add(this.labelControlGrupo);
             this.Name = "CrearGrupoLosa";
-            this.Text = "Crear Grupo Losa";
+            this.Text = "Crear Grupo";
             ((System.ComponentModel.ISupportInitialize)(this.textEditGrupo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditHabilitado.Properties)).EndInit();
             this.ResumeLayout(false);
