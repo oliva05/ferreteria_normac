@@ -57,6 +57,10 @@ namespace ACS.IT_Managment
 		                                ,[update_]
 		                                ,[insert_]
 		                                ,[delete_]
+	                                    ,case uu.[type_access]
+										    when 1 then 'Concedido Manualmente'
+										    when 2 then 'Concedido Por Grupo'
+										    end as type_access
                                 FROM [dbo].[conf_ventanas] vv join
 	                                 [dbo].[conf_usuario_ventanas] uu 
 	                                 on vv.id_ventana = uu.id_ventana

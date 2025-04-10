@@ -139,19 +139,20 @@ namespace PRININ.Gestion_de_Usuarios
             }
         }
 
-        public bool GuardarNivelAcceso()
+        public bool GuardarNivelAccesoYAccesosPorDefecto(bool pCambioGrupo)
         {
             try
             {
-                
                 using (SqlConnection cnx = new SqlConnection(op.ConnectionStringJAGUAR_DB))
                 {
                     cnx.Open();
-                    string sql = @"sp_guardar_nivel_acceso";
+                    string sql = @"[sp_guardar_nivel_accesoV2]";
                     SqlCommand cmd = new SqlCommand(sql, cnx);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@id_user", UserEdicion.Id);
                     cmd.Parameters.AddWithValue("@id_nivel", IdNivel);
+                    cmd.Parameters.AddWithValue("@id_grupo", UserEdicion.IdGrupo);
+                    cmd.Parameters.AddWithValue("@cambio_grupo", pCambioGrupo);
                     cmd.ExecuteNonQuery();
                     cnx.Close();
                 }
@@ -200,6 +201,22 @@ namespace PRININ.Gestion_de_Usuarios
 
             }
 
+            bool ValidoAcceso = false;
+            foreach (dsAccesos.niveles_accesoRow item in dsAccesos1.niveles_acceso)
+            {
+                if (item.selected)
+                {
+                    ValidoAcceso = true;
+                    IdNivel = item.id;
+                }
+            }
+
+            if (!ValidoAcceso)
+            {
+                CajaDialogo.Error("DEBE DE SELECCIONAR UN NIVEL DE ACCESO");
+                return;
+            }
+
             //if(lueGrupo.EditValue == 4) //Si es Vendedor debe llevar Codigo Obligatoriamente
             //{
             //    CajaDialogo.Error("Debe colocar un Codigo de Vendedor");
@@ -228,7 +245,7 @@ namespace PRININ.Gestion_de_Usuarios
                         {
                             if (IdNivel > 0)
                             {
-                                GuardarNivelAcceso();
+                                GuardarNivelAccesoYAccesosPorDefecto(true);
                             }
                             CajaDialogo.Information("Guardado con exito!");
                             this.DialogResult = DialogResult.OK;
@@ -240,6 +257,11 @@ namespace PRININ.Gestion_de_Usuarios
                         break;
                     case TipoEdicion.Editar:
                         //UserEdicion = new UserLogin();
+                        bool CambioGrupo = false;
+                        if (UserEdicion.IdGrupo != Convert.ToInt32(lueGrupo.EditValue))
+                        {
+                            CambioGrupo = true;
+                        }
                         UserEdicion.Usuario = txtAlias.Text.Trim();
                         UserEdicion.Nombre = txtNombre.Text.Trim();
                         UserEdicion.NombreUser = txtNombre.Text.Trim();
@@ -255,7 +277,8 @@ namespace PRININ.Gestion_de_Usuarios
                         {
                             if (IdNivel > 0)
                             {
-                                GuardarNivelAcceso();
+                                GuardarNivelAccesoYAccesosPorDefecto(CambioGrupo);
+
                             }
                             CajaDialogo.Information("Guardado con exito!");
                             this.DialogResult = DialogResult.OK;

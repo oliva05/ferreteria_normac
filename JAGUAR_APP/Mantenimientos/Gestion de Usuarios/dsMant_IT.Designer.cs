@@ -1428,6 +1428,8 @@ namespace JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios {
             
             private global::System.Data.DataColumn columnseleccionar;
             
+            private global::System.Data.DataColumn columntype_access;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public view_userDataTable() {
@@ -1551,6 +1553,14 @@ namespace JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn type_accessColumn {
+                get {
+                    return this.columntype_access;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1586,7 +1596,7 @@ namespace JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public view_userRow Addview_userRow(int id_ventana, string nombre, string codigo, string descripcion, bool habilitada, System.DateTime fecha_vinculo, bool select_, bool update_, bool insert_, bool delete_, bool seleccionar) {
+            public view_userRow Addview_userRow(int id_ventana, string nombre, string codigo, string descripcion, bool habilitada, System.DateTime fecha_vinculo, bool select_, bool update_, bool insert_, bool delete_, bool seleccionar, string type_access) {
                 view_userRow rowview_userRow = ((view_userRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_ventana,
@@ -1599,7 +1609,8 @@ namespace JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios {
                         update_,
                         insert_,
                         delete_,
-                        seleccionar};
+                        seleccionar,
+                        type_access};
                 rowview_userRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowview_userRow);
                 return rowview_userRow;
@@ -1633,6 +1644,7 @@ namespace JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios {
                 this.columninsert_ = base.Columns["insert_"];
                 this.columndelete_ = base.Columns["delete_"];
                 this.columnseleccionar = base.Columns["seleccionar"];
+                this.columntype_access = base.Columns["type_access"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1660,6 +1672,8 @@ namespace JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios {
                 base.Columns.Add(this.columndelete_);
                 this.columnseleccionar = new global::System.Data.DataColumn("seleccionar", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnseleccionar);
+                this.columntype_access = new global::System.Data.DataColumn("type_access", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntype_access);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3203,6 +3217,22 @@ namespace JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string type_access {
+                get {
+                    try {
+                        return ((string)(this[this.tableview_user.type_accessColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'type_access\' de la tabla \'view_user\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableview_user.type_accessColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_ventanaNull() {
                 return this.IsNull(this.tableview_user.id_ventanaColumn);
             }
@@ -3331,6 +3361,18 @@ namespace JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetseleccionarNull() {
                 this[this.tableview_user.seleccionarColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istype_accessNull() {
+                return this.IsNull(this.tableview_user.type_accessColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settype_accessNull() {
+                this[this.tableview_user.type_accessColumn] = global::System.Convert.DBNull;
             }
         }
         

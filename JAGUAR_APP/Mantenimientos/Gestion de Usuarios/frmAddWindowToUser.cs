@@ -33,7 +33,7 @@ namespace ACS.IT_Managment
 		                                ,[nombre]
 		                                ,[codigo]
 		                                ,[descripcion]
-		                                ,[habilitada]
+		                                ,[habilitada]   
                                 FROM [dbo].[conf_ventanas] vv 
                                 where vv.habilitada = 1 and vv.[id_ventana] not in (" +
                                "SELECT uu.id_ventana " +

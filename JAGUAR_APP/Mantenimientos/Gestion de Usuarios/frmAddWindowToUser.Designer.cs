@@ -30,20 +30,10 @@ namespace ACS.IT_Managment
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddWindowToUser));
             this.button_funciones = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsMant_IT1 = new dsMant_IT();
+            this.dsMant_IT1 = new JAGUAR_PRO.Mantenimientos.Gestion_de_Usuarios.dsMant_IT();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_ventana = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,6 +49,7 @@ namespace ACS.IT_Managment
             this.seleccionar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.fun = new DevExpress.XtraGrid.Columns.GridColumn();
             this.funciones_button_n = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cmdCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
@@ -72,9 +63,8 @@ namespace ACS.IT_Managment
             // button_funciones
             // 
             this.button_funciones.AutoHeight = false;
-            //editorButtonImageOptions1.Image = global::ACS.Properties.Resources.application_settings16px1;
             this.button_funciones.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
             this.button_funciones.Name = "button_funciones";
             this.button_funciones.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -90,7 +80,7 @@ namespace ACS.IT_Managment
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.funciones_button_n});
-            this.gridControl1.Size = new System.Drawing.Size(811, 330);
+            this.gridControl1.Size = new System.Drawing.Size(951, 330);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -119,7 +109,8 @@ namespace ACS.IT_Managment
             this.coldelete_,
             this.Eliminar,
             this.seleccionar,
-            this.fun});
+            this.fun,
+            this.gridColumn1});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -138,8 +129,8 @@ namespace ACS.IT_Managment
             this.colnombre.Name = "colnombre";
             this.colnombre.OptionsColumn.AllowEdit = false;
             this.colnombre.Visible = true;
-            this.colnombre.VisibleIndex = 0;
-            this.colnombre.Width = 181;
+            this.colnombre.VisibleIndex = 1;
+            this.colnombre.Width = 265;
             // 
             // colcodigo
             // 
@@ -148,8 +139,8 @@ namespace ACS.IT_Managment
             this.colcodigo.Name = "colcodigo";
             this.colcodigo.OptionsColumn.AllowEdit = false;
             this.colcodigo.Visible = true;
-            this.colcodigo.VisibleIndex = 1;
-            this.colcodigo.Width = 45;
+            this.colcodigo.VisibleIndex = 0;
+            this.colcodigo.Width = 66;
             // 
             // coldescripcion
             // 
@@ -158,8 +149,8 @@ namespace ACS.IT_Managment
             this.coldescripcion.Name = "coldescripcion";
             this.coldescripcion.OptionsColumn.AllowEdit = false;
             this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 2;
-            this.coldescripcion.Width = 166;
+            this.coldescripcion.VisibleIndex = 3;
+            this.coldescripcion.Width = 202;
             // 
             // colhabilitada
             // 
@@ -221,7 +212,8 @@ namespace ACS.IT_Managment
             this.seleccionar.FieldName = "seleccionar";
             this.seleccionar.Name = "seleccionar";
             this.seleccionar.Visible = true;
-            this.seleccionar.VisibleIndex = 3;
+            this.seleccionar.VisibleIndex = 4;
+            this.seleccionar.Width = 89;
             // 
             // fun
             // 
@@ -229,17 +221,27 @@ namespace ACS.IT_Managment
             this.fun.ColumnEdit = this.funciones_button_n;
             this.fun.Name = "fun";
             this.fun.Visible = true;
-            this.fun.VisibleIndex = 4;
+            this.fun.VisibleIndex = 5;
+            this.fun.Width = 102;
             // 
             // funciones_button_n
             // 
             this.funciones_button_n.AutoHeight = false;
-            //editorButtonImageOptions2.Image = global::ACS.Properties.Resources.window_24x24;
             this.funciones_button_n.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
             this.funciones_button_n.Name = "funciones_button_n";
             this.funciones_button_n.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.funciones_button_n.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.funciones_button_n_ButtonClick);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Tipo Acceso";
+            this.gridColumn1.FieldName = "type_access";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 2;
+            this.gridColumn1.Width = 200;
             // 
             // labelControl4
             // 
@@ -259,7 +261,7 @@ namespace ACS.IT_Managment
             this.cmdCancelar.Appearance.Options.UseFont = true;
             this.cmdCancelar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCancelar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCancelar.ImageOptions.Image")));
-            this.cmdCancelar.Location = new System.Drawing.Point(392, 384);
+            this.cmdCancelar.Location = new System.Drawing.Point(482, 384);
             this.cmdCancelar.Name = "cmdCancelar";
             this.cmdCancelar.Size = new System.Drawing.Size(156, 39);
             this.cmdCancelar.TabIndex = 15;
@@ -274,7 +276,7 @@ namespace ACS.IT_Managment
             this.cmdGuardar.Appearance.Options.UseFont = true;
             this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdGuardar.ImageOptions.Image")));
-            this.cmdGuardar.Location = new System.Drawing.Point(230, 384);
+            this.cmdGuardar.Location = new System.Drawing.Point(320, 384);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(156, 39);
             this.cmdGuardar.TabIndex = 14;
@@ -285,7 +287,7 @@ namespace ACS.IT_Managment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 428);
+            this.ClientSize = new System.Drawing.Size(948, 428);
             this.Controls.Add(this.cmdCancelar);
             this.Controls.Add(this.cmdGuardar);
             this.Controls.Add(this.labelControl4);
@@ -331,5 +333,6 @@ namespace ACS.IT_Managment
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit button_funciones;
         private DevExpress.XtraGrid.Columns.GridColumn fun;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit funciones_button_n;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }
