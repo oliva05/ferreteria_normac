@@ -957,7 +957,6 @@ namespace JAGUAR_PRO
             if (this.MdiParent != null)
                 frm.MdiParent = this.MdiParent;
 
-            frm.WindowState = FormWindowState.Normal;
             frm.Show();
         }
 

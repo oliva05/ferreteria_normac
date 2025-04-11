@@ -86,6 +86,7 @@
             this.TabAdmin = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageCRUDS = new DevExpress.XtraTab.XtraTabPage();
+            this.btnConfigComisiones = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
@@ -194,7 +195,6 @@
             this.txtEquipoLogeadoActual = new DevExpress.XtraEditors.TextEdit();
             this.nBarRecepcionFactPuntoVenta = new DevExpress.XtraNavBar.NavBarItem();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.btnConfigComisiones = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -1007,6 +1007,21 @@
             this.xtraTabPageCRUDS.Size = new System.Drawing.Size(944, 495);
             this.xtraTabPageCRUDS.Text = "Mantenimientos";
             // 
+            // btnConfigComisiones
+            // 
+            this.btnConfigComisiones.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfigComisiones.Appearance.Options.UseFont = true;
+            this.btnConfigComisiones.Appearance.Options.UseTextOptions = true;
+            this.btnConfigComisiones.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.btnConfigComisiones.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnConfigComisiones.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
+            this.btnConfigComisiones.Location = new System.Drawing.Point(468, 315);
+            this.btnConfigComisiones.Name = "btnConfigComisiones";
+            this.btnConfigComisiones.Size = new System.Drawing.Size(227, 58);
+            this.btnConfigComisiones.TabIndex = 42;
+            this.btnConfigComisiones.Text = "Configuracion de Comisiones";
+            this.btnConfigComisiones.Click += new System.EventHandler(this.btnConfigComisiones_Click);
+            // 
             // simpleButton8
             // 
             this.simpleButton8.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1288,11 +1303,12 @@
             this.cmdGrupos.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdGrupos.Appearance.Options.UseFont = true;
             this.cmdGrupos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdGrupos.Location = new System.Drawing.Point(2, 52);
+            this.cmdGrupos.Location = new System.Drawing.Point(225, 110);
             this.cmdGrupos.Name = "cmdGrupos";
             this.cmdGrupos.Size = new System.Drawing.Size(202, 48);
             this.cmdGrupos.TabIndex = 13;
             this.cmdGrupos.Text = "Gestión \r\nDepartamentos";
+            this.cmdGrupos.Visible = false;
             this.cmdGrupos.Click += new System.EventHandler(this.cmdGrupos_Click);
             // 
             // cmdSistemas
@@ -1300,7 +1316,7 @@
             this.cmdSistemas.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSistemas.Appearance.Options.UseFont = true;
             this.cmdSistemas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdSistemas.Location = new System.Drawing.Point(2, 102);
+            this.cmdSistemas.Location = new System.Drawing.Point(2, 110);
             this.cmdSistemas.Name = "cmdSistemas";
             this.cmdSistemas.Size = new System.Drawing.Size(202, 48);
             this.cmdSistemas.TabIndex = 14;
@@ -1312,7 +1328,7 @@
             this.cmdGruposAlosy.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdGruposAlosy.Appearance.Options.UseFont = true;
             this.cmdGruposAlosy.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdGruposAlosy.Location = new System.Drawing.Point(1, 203);
+            this.cmdGruposAlosy.Location = new System.Drawing.Point(1, 56);
             this.cmdGruposAlosy.Name = "cmdGruposAlosy";
             this.cmdGruposAlosy.Size = new System.Drawing.Size(203, 48);
             this.cmdGruposAlosy.TabIndex = 15;
@@ -1324,7 +1340,7 @@
             this.cmdAccesoSistemas.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdAccesoSistemas.Appearance.Options.UseFont = true;
             this.cmdAccesoSistemas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdAccesoSistemas.Location = new System.Drawing.Point(2, 152);
+            this.cmdAccesoSistemas.Location = new System.Drawing.Point(1, 164);
             this.cmdAccesoSistemas.Name = "cmdAccesoSistemas";
             this.cmdAccesoSistemas.Size = new System.Drawing.Size(202, 48);
             this.cmdAccesoSistemas.TabIndex = 16;
@@ -1350,7 +1366,7 @@
             this.simpleButton37.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton37.Appearance.Options.UseFont = true;
             this.simpleButton37.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton37.Location = new System.Drawing.Point(1, 254);
+            this.simpleButton37.Location = new System.Drawing.Point(0, 218);
             this.simpleButton37.Name = "simpleButton37";
             this.simpleButton37.Size = new System.Drawing.Size(203, 48);
             this.simpleButton37.TabIndex = 17;
@@ -1362,7 +1378,7 @@
             this.simpleButton75.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton75.Appearance.Options.UseFont = true;
             this.simpleButton75.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton75.Location = new System.Drawing.Point(1, 303);
+            this.simpleButton75.Location = new System.Drawing.Point(0, 276);
             this.simpleButton75.Name = "simpleButton75";
             this.simpleButton75.Size = new System.Drawing.Size(203, 48);
             this.simpleButton75.TabIndex = 20;
@@ -2483,21 +2499,6 @@
             this.btnClose.TabIndex = 34;
             this.btnClose.Text = "Cerrar";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnConfigComisiones
-            // 
-            this.btnConfigComisiones.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfigComisiones.Appearance.Options.UseFont = true;
-            this.btnConfigComisiones.Appearance.Options.UseTextOptions = true;
-            this.btnConfigComisiones.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btnConfigComisiones.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnConfigComisiones.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
-            this.btnConfigComisiones.Location = new System.Drawing.Point(468, 315);
-            this.btnConfigComisiones.Name = "btnConfigComisiones";
-            this.btnConfigComisiones.Size = new System.Drawing.Size(227, 58);
-            this.btnConfigComisiones.TabIndex = 42;
-            this.btnConfigComisiones.Text = "Configuracion de Comisiones";
-            this.btnConfigComisiones.Click += new System.EventHandler(this.btnConfigComisiones_Click);
             // 
             // frmOpciones
             // 
