@@ -936,6 +936,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPrefacturas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Despachos\Pedidos\frmElejirAlmacenPedidoOutStok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmElejirAlmacenPedidoOutStok.Designer.cs">
+      <DependentUpon>frmElejirAlmacenPedidoOutStok.cs</DependentUpon>
+    </Compile>
     <Compile Include="Despachos\Pedidos\frmElejirAlmacenPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3343,6 +3349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\fromdespacho.resx">
       <DependentUpon>fromdespacho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Despachos\Pedidos\frmElejirAlmacenPedidoOutStok.resx">
+      <DependentUpon>frmElejirAlmacenPedidoOutStok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\Pedidos\frmElejirAlmacenPedido.resx">
       <DependentUpon>frmElejirAlmacenPedido.cs</DependentUpon>

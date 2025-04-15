@@ -891,6 +891,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             private global::System.Data.DataColumn columnisv1;
             
+            private global::System.Data.DataColumn columnwhs_code;
+            
+            private global::System.Data.DataColumn columncomprometido;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public stock_por_almacenDataTable() {
@@ -1006,6 +1010,22 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn whs_codeColumn {
+                get {
+                    return this.columnwhs_code;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn comprometidoColumn {
+                get {
+                    return this.columncomprometido;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1041,7 +1061,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public stock_por_almacenRow Addstock_por_almacenRow(int id_bodega, string bodega_name, decimal cantidad, decimal cantidad_seleccionada, decimal precio, decimal descuento, string itemcode, string itemname, int id_presentacion, decimal isv1) {
+            public stock_por_almacenRow Addstock_por_almacenRow(int id_bodega, string bodega_name, decimal cantidad, decimal cantidad_seleccionada, decimal precio, decimal descuento, string itemcode, string itemname, int id_presentacion, decimal isv1, string whs_code, decimal comprometido) {
                 stock_por_almacenRow rowstock_por_almacenRow = ((stock_por_almacenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_bodega,
@@ -1053,7 +1073,9 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                         itemcode,
                         itemname,
                         id_presentacion,
-                        isv1};
+                        isv1,
+                        whs_code,
+                        comprometido};
                 rowstock_por_almacenRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowstock_por_almacenRow);
                 return rowstock_por_almacenRow;
@@ -1086,6 +1108,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 this.columnitemname = base.Columns["itemname"];
                 this.columnid_presentacion = base.Columns["id_presentacion"];
                 this.columnisv1 = base.Columns["isv1"];
+                this.columnwhs_code = base.Columns["whs_code"];
+                this.columncomprometido = base.Columns["comprometido"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1111,9 +1135,15 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 base.Columns.Add(this.columnid_presentacion);
                 this.columnisv1 = new global::System.Data.DataColumn("isv1", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnisv1);
+                this.columnwhs_code = new global::System.Data.DataColumn("whs_code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwhs_code);
+                this.columncomprometido = new global::System.Data.DataColumn("comprometido", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncomprometido);
                 this.columnbodega_name.Caption = "Almacen";
                 this.columncantidad.Caption = "Cantidad";
                 this.columncantidad_seleccionada.Caption = "Cantidad Seleccionada";
+                this.columnwhs_code.Caption = "Codigo";
+                this.columncomprometido.Caption = "Comprometido";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2641,6 +2671,38 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string whs_code {
+                get {
+                    try {
+                        return ((string)(this[this.tablestock_por_almacen.whs_codeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'whs_code\' de la tabla \'stock_por_almacen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestock_por_almacen.whs_codeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal comprometido {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablestock_por_almacen.comprometidoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'comprometido\' de la tabla \'stock_por_almacen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestock_por_almacen.comprometidoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_bodegaNull() {
                 return this.IsNull(this.tablestock_por_almacen.id_bodegaColumn);
             }
@@ -2757,6 +2819,30 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setisv1Null() {
                 this[this.tablestock_por_almacen.isv1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iswhs_codeNull() {
+                return this.IsNull(this.tablestock_por_almacen.whs_codeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setwhs_codeNull() {
+                this[this.tablestock_por_almacen.whs_codeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscomprometidoNull() {
+                return this.IsNull(this.tablestock_por_almacen.comprometidoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcomprometidoNull() {
+                this[this.tablestock_por_almacen.comprometidoColumn] = global::System.Convert.DBNull;
             }
         }
         

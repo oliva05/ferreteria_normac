@@ -879,7 +879,7 @@ namespace Eatery.Ventas
             this.ClientSize = new System.Drawing.Size(1155, 678);
             this.Controls.Add(this.navigationFrame1);
             this.Name = "frmPedidoCliente";
-            this.Text = "Pedido";
+            this.Text = "Pre Factura";
             this.Activated += new System.EventHandler(this.frmPedidoCliente_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPedidoCliente_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCliente.Properties)).EndInit();
