@@ -4993,7 +4993,7 @@ namespace JAGUAR_PRO
             {
                 try
                 {
-                    if (UsuarioLogeado.ValidarNivelPermisos(58))
+                    if (UsuarioLogeado.ValidarNivelPermisos(10))
                     {
                         frmPlanillaDepartmentHome frm = new frmPlanillaDepartmentHome(UsuarioLogeado);
                         frm.MdiParent = this.MdiParent;

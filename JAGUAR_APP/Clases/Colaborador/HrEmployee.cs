@@ -242,7 +242,7 @@ namespace JAGUAR_PRO.Clases.Colaborador
         public bool RecuperarDatosPorCodigo(string pCodigo)
         {
             Recuperado = false;
-            string connectionString = dp.ConnectionStringRRHH; // Reemplaza con tu cadena de conexión
+            string connectionString = dp.ConnectionStringJAGUAR_DB; // Reemplaza con tu cadena de conexión
             string query = @"dbo.[get_dato_maestro_hr_employee_by_codeV4]";
 
             try
