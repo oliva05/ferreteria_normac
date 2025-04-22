@@ -4975,7 +4975,6 @@ namespace JAGUAR_PRO
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
-                    accesoprevio = false;
                     break;
                 case 3://Medium Autorization
                 case 4://Depth With Delta

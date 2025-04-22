@@ -140,31 +140,31 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosContrato
                             cnx.Open();
                             cmd.CommandType = CommandType.StoredProcedure;
 
-                            cmd.Parameters.Add("@fecha_efectiva", deFechaEfectiva.EditValue);
-                            cmd.Parameters.Add("@user_id",usuarioLog.Id);
-                            cmd.Parameters.Add("@id_tipo_accion", slueTipoAcccion.EditValue);
+                            cmd.Parameters.AddWithValue("@fecha_efectiva", deFechaEfectiva.EditValue);
+                            cmd.Parameters.AddWithValue("@user_id",usuarioLog.Id);
+                            cmd.Parameters.AddWithValue("@id_tipo_accion", slueTipoAcccion.EditValue);
                            
 
                             if ((int)slueTipoAcccion.EditValue== (int)tipo_accion.AumentoSalarial)
                             {
-                                cmd.Parameters.Add("@job_id_anterior",DBNull.Value);
-                                cmd.Parameters.Add("@job_id_nuevo",  DBNull.Value);
+                                cmd.Parameters.AddWithValue("@job_id_anterior",DBNull.Value);
+                                cmd.Parameters.AddWithValue("@job_id_nuevo",  DBNull.Value);
 
-                                cmd.Parameters.Add("@salario_anterior", contratoActual.Wage);
-                                cmd.Parameters.Add("@salario_nuevo", txtSalarioNuevo.EditValue);
+                                cmd.Parameters.AddWithValue("@salario_anterior", contratoActual.Wage);
+                                cmd.Parameters.AddWithValue("@salario_nuevo", txtSalarioNuevo.EditValue);
                             }
 
                             if ((int)slueTipoAcccion.EditValue == (int)tipo_accion.Cambio_de_puesto)
                             {
-                                cmd.Parameters.Add("@salario_anterior", DBNull.Value);
-                                cmd.Parameters.Add("@salario_nuevo", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@salario_anterior", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@salario_nuevo", DBNull.Value);
 
-                                cmd.Parameters.Add("@job_id_anterior", empleado.JobId);
-                                cmd.Parameters.Add("@job_id_nuevo", sluePuesto.EditValue);
+                                cmd.Parameters.AddWithValue("@job_id_anterior", empleado.JobId);
+                                cmd.Parameters.AddWithValue("@job_id_nuevo", sluePuesto.EditValue);
                             }
 
                                 //cmd.Parameters.Add("@job_id_anterior", (int)sluePuesto.EditValue != 2 ?? DBNull.Value : empleado.JobId.GetValueOrDefault());
-                                cmd.Parameters.Add("@contrato_id", contrato_id);
+                                cmd.Parameters.AddWithValue("@contrato_id", contrato_id);
 
                             cmd.ExecuteNonQuery();
 
@@ -182,33 +182,33 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosContrato
                             cmd.CommandType = CommandType.StoredProcedure;
 
 
-                            cmd.Parameters.Add("@fecha_efectiva", deFechaEfectiva.EditValue);
+                            cmd.Parameters.AddWithValue("@fecha_efectiva", deFechaEfectiva.EditValue);
                             //cmd.Parameters.Add("@user_id", usuarioLog.Id);
-                            cmd.Parameters.Add("@id_tipo_accion", slueTipoAcccion.EditValue);
+                            cmd.Parameters.AddWithValue("@id_tipo_accion", slueTipoAcccion.EditValue);
 
 
                             if ((int)slueTipoAcccion.EditValue == (int)tipo_accion.AumentoSalarial)
                             {
-                                cmd.Parameters.Add("@job_id_anterior", DBNull.Value);
-                                cmd.Parameters.Add("@job_id_nuevo", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@job_id_anterior", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@job_id_nuevo", DBNull.Value);
 
-                                cmd.Parameters.Add("@salario_anterior", contratoActual.Wage);
-                                cmd.Parameters.Add("@salario_nuevo", txtSalarioNuevo.EditValue);
+                                cmd.Parameters.AddWithValue("@salario_anterior", contratoActual.Wage);
+                                cmd.Parameters.AddWithValue("@salario_nuevo", txtSalarioNuevo.EditValue);
                             }
 
                             if ((int)slueTipoAcccion.EditValue == (int)tipo_accion.Cambio_de_puesto)
                             {
-                                cmd.Parameters.Add("@salario_anterior", DBNull.Value);
-                                cmd.Parameters.Add("@salario_nuevo", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@salario_anterior", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@salario_nuevo", DBNull.Value);
 
-                                cmd.Parameters.Add("@job_id_anterior", empleado.JobId);
-                                cmd.Parameters.Add("@job_id_nuevo", sluePuesto.EditValue);
+                                cmd.Parameters.AddWithValue("@job_id_anterior", empleado.JobId);
+                                cmd.Parameters.AddWithValue("@job_id_nuevo", sluePuesto.EditValue);
                             }
 
                             //cmd.Parameters.Add("@job_id_anterior", (int)sluePuesto.EditValue != 2 ?? DBNull.Value : empleado.JobId.GetValueOrDefault());
-                            cmd.Parameters.Add("@contrato_id", contrato_id);
+                            cmd.Parameters.AddWithValue("@contrato_id", contrato_id);
 
-                            cmd.Parameters.Add("@id", accion.IdAccion);
+                            cmd.Parameters.AddWithValue("@id", accion.IdAccion);
 
 
                             cmd.ExecuteNonQuery();
