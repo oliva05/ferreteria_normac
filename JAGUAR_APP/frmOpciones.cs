@@ -44,6 +44,7 @@ using JAGUAR_PRO.Mantenimientos.Proveedor;
 using JAGUAR_PRO.RecuentoInventario;
 using JAGUAR_PRO.Reportes;
 using JAGUAR_PRO.Reproceso;
+using JAGUAR_PRO.RRHH_Planilla.Mantenimientos;
 using JAGUAR_PRO.Tools;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
@@ -4967,7 +4968,50 @@ namespace JAGUAR_PRO
 
         private void navBarItem62_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmPlanillaDepartmentHome frm = new frmPlanillaDepartmentHome(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
 
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                try
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(58))
+                    {
+                        frmPlanillaDepartmentHome frm = new frmPlanillaDepartmentHome(UsuarioLogeado);
+                        frm.MdiParent = this.MdiParent;
+                        frm.Show();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #58");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    CajaDialogo.Error(ex.Message);
+                }
+            }
+
+            
         }
 
         private void navBarItem63_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
