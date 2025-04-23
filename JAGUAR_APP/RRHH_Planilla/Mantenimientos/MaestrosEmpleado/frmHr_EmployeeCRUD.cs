@@ -1752,17 +1752,23 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 //request.Credentials = new NetworkCredential(ftp1.UserFTP, ftp1.PassFTP);
                 request.Credentials = new NetworkCredential(dp.User_FTP_Server, dp.Password_UserFTPServer);
 
-                // Obtener la respuesta como un flujo (stream)
-                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
-                using (Stream responseStream = response.GetResponseStream())
+
+                if (ftp1.ValidateConnection())
                 {
-                    // Cargar la imagen en un PictureBox desde el stream
-                    if (responseStream != null)
+                    // Obtener la respuesta como un flujo (stream)
+                    using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                    using (Stream responseStream = response.GetResponseStream())
                     {
-                        pbPhoto.Image = System.Drawing.Image.FromStream(responseStream);
+                        // Cargar la imagen en un PictureBox desde el stream
+                        if (responseStream != null)
+                        {
+                            pbPhoto.Image = System.Drawing.Image.FromStream(responseStream);
+                        }
+                        Console.WriteLine("Imagen cargada exitosamente.");
                     }
-                    Console.WriteLine("Imagen cargada exitosamente.");
                 }
+
+                
             }
             catch (Exception ex)
             {

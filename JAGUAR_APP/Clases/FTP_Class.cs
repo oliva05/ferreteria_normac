@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using DevExpress.DocumentServices.ServiceModel.ServiceOperations;
 using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
@@ -350,7 +351,6 @@ namespace JAGUAR_PRO.Clases
                     return false; // Si hay error, la conexión no es válida
                 }
 
-                
             }
             );
 
@@ -366,6 +366,8 @@ namespace JAGUAR_PRO.Clases
 
             return Recuperado;
         }
+
+       
 
     }
 }
