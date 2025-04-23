@@ -1191,7 +1191,7 @@
             this.btnBeneficiarios.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.btnBeneficiarios.Location = new System.Drawing.Point(541, 416);
             this.btnBeneficiarios.Name = "btnBeneficiarios";
-            this.btnBeneficiarios.Size = new System.Drawing.Size(39, 22);
+            this.btnBeneficiarios.Size = new System.Drawing.Size(44, 31);
             this.btnBeneficiarios.TabIndex = 81;
             this.btnBeneficiarios.Click += new System.EventHandler(this.btnBeneficiarios_Click);
             // 
@@ -1290,11 +1290,11 @@
             // 
             // btnChildren
             // 
-            this.btnChildren.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.view2_32x32;
+            this.btnChildren.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.usergroup_32x32;
             this.btnChildren.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnChildren.Location = new System.Drawing.Point(375, 294);
+            this.btnChildren.Location = new System.Drawing.Point(375, 288);
             this.btnChildren.Name = "btnChildren";
-            this.btnChildren.Size = new System.Drawing.Size(39, 22);
+            this.btnChildren.Size = new System.Drawing.Size(36, 28);
             this.btnChildren.TabIndex = 70;
             this.btnChildren.Click += new System.EventHandler(this.btnChildren_Click);
             // 
@@ -3239,6 +3239,7 @@
             // 
             this.xtraTabPage8.Controls.Add(this.xtraTabControl2);
             this.xtraTabPage8.Name = "xtraTabPage8";
+            this.xtraTabPage8.PageVisible = false;
             this.xtraTabPage8.Size = new System.Drawing.Size(1193, 527);
             this.xtraTabPage8.Text = "Capacitaciones";
             // 

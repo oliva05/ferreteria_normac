@@ -5079,5 +5079,26 @@ namespace JAGUAR_PRO
                 }
             }
         }
+
+        private void navBarItem197_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaBandaSalarialHome frm = new frmPlanillaBandaSalarialHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem198_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaTipoExpedienteHome frm = new frmPlanillaTipoExpedienteHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem199_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaTipoAsignacionHome frm = new frmPlanillaTipoAsignacionHome(UsuarioLogeado);
+            frm.MdiParent= this.MdiParent;
+            frm.Show();
+        }
     }
 }

@@ -3104,6 +3104,12 @@
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaBancosHome.Designer.cs">
       <DependentUpon>frmPlanillaBancosHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaBandaSalarialHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaBandaSalarialHome.Designer.cs">
+      <DependentUpon>frmPlanillaBandaSalarialHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3151,6 +3157,30 @@
     </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaPuestoTrabajoHome.Designer.cs">
       <DependentUpon>frmPlanillaPuestoTrabajoHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoAsignacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoAsignacion.Designer.cs">
+      <DependentUpon>frmPlanillaTipoAsignacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoAsignacionHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoAsignacionHome.Designer.cs">
+      <DependentUpon>frmPlanillaTipoAsignacionHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoExpediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoExpediente.Designer.cs">
+      <DependentUpon>frmPlanillaTipoExpediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoExpedienteHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoExpedienteHome.Designer.cs">
+      <DependentUpon>frmPlanillaTipoExpedienteHome.cs</DependentUpon>
     </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frm_aumento_CRUD.cs">
       <SubType>Form</SubType>
@@ -4362,6 +4392,9 @@
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaBancosHome.resx">
       <DependentUpon>frmPlanillaBancosHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaBandaSalarialHome.resx">
+      <DependentUpon>frmPlanillaBandaSalarialHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaCategoria.resx">
       <DependentUpon>frmPlanillaCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -4385,6 +4418,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaPuestoTrabajoHome.resx">
       <DependentUpon>frmPlanillaPuestoTrabajoHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoAsignacion.resx">
+      <DependentUpon>frmPlanillaTipoAsignacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoAsignacionHome.resx">
+      <DependentUpon>frmPlanillaTipoAsignacionHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoExpediente.resx">
+      <DependentUpon>frmPlanillaTipoExpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoExpedienteHome.resx">
+      <DependentUpon>frmPlanillaTipoExpedienteHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frm_aumento_CRUD.resx">
       <DependentUpon>frm_aumento_CRUD.cs</DependentUpon>

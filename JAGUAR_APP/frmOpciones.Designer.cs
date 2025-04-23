@@ -2433,6 +2433,7 @@
             this.navBarItem197.AppearancePressed.Options.UseFont = true;
             this.navBarItem197.Caption = "Banda Salarial";
             this.navBarItem197.Name = "navBarItem197";
+            this.navBarItem197.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem197_LinkClicked);
             // 
             // navBarItem198
             // 
@@ -2444,6 +2445,7 @@
             this.navBarItem198.AppearancePressed.Options.UseFont = true;
             this.navBarItem198.Caption = "Tipo Expediente";
             this.navBarItem198.Name = "navBarItem198";
+            this.navBarItem198.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem198_LinkClicked);
             // 
             // navBarItem199
             // 
@@ -2455,6 +2457,7 @@
             this.navBarItem199.AppearancePressed.Options.UseFont = true;
             this.navBarItem199.Caption = "Tipo Asignación";
             this.navBarItem199.Name = "navBarItem199";
+            this.navBarItem199.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem199_LinkClicked);
             // 
             // navBarGroup17
             // 
