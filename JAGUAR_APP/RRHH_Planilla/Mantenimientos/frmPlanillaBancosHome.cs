@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static LOSA.RRHH_Planilla.Mantenimientos.frmPlanillaCategoria;
+using static JAGUAR_PRO.RRHH_Planilla.Mantenimientos.frmPlanillaCategoria;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
 {
     public partial class frmPlanillaBancosHome : DevExpress.XtraEditors.XtraForm
     {
@@ -31,7 +31,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsMantenimientoPlanilla1.res_bank.Clear();
 
@@ -106,7 +106,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
                 var row = (dsMantenimientoPlanilla.res_bankRow)gvBancos.GetFocusedDataRow();
 
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                    var respuesta= CajaDialogo.Pregunta("¿Desea eliminar el registro?");
 

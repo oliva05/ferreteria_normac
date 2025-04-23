@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     partial class frmEmployeeBeneficiariosHome
     {
@@ -40,7 +40,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcBeneficiarios = new DevExpress.XtraGrid.GridControl();
-            this.dsMaestroEmpleados1 = new LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
+            this.dsMaestroEmpleados1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
             this.gvBeneficiarios = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colidentidad = new DevExpress.XtraGrid.Columns.GridColumn();

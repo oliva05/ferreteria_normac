@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraRichEdit.Layout.Engine;
-using LOSA.Clases;
+using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     public partial class frmNewItemBasic : DevExpress.XtraEditors.XtraForm
     {
@@ -44,7 +44,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_insert_new_school_or_college", con);

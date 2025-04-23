@@ -45,6 +45,7 @@ using JAGUAR_PRO.RecuentoInventario;
 using JAGUAR_PRO.Reportes;
 using JAGUAR_PRO.Reproceso;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos;
+using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
 using JAGUAR_PRO.Tools;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
@@ -5015,17 +5016,68 @@ namespace JAGUAR_PRO
 
         private void navBarItem63_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-
+            frmPlanillaProfessionHome frm = new frmPlanillaProfessionHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
         }
 
         private void navBarItem64_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-
+            frmPlanillaBancosHome frmPlanillaBancos = new frmPlanillaBancosHome(UsuarioLogeado);
+            frmPlanillaBancos.MdiParent = this.MdiParent;
+            frmPlanillaBancos.Show();
         }
 
         private void navBarItem65_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            frmPlanillaPuestoTrabajoHome frm = new frmPlanillaPuestoTrabajoHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
 
+        private void navBarItem66_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    break;
+                case 3://Medium Autorization
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frm_Hr_Employee_List frm = new frm_Hr_Employee_List(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                try
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(11))
+                    {
+                        frm_Hr_Employee_List frm = new frm_Hr_Employee_List(UsuarioLogeado);
+                        frm.MdiParent = this.MdiParent;
+                        frm.Show();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #11");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    CajaDialogo.Error(ex.Message);
+                }
+            }
         }
     }
 }

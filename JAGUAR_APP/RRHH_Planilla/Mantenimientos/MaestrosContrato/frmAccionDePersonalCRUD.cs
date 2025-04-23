@@ -1,6 +1,5 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases;
 using JAGUAR_PRO.Clases.Colaborador;
 using JAGUAR_PRO.Clases.Contrato;
 using System;

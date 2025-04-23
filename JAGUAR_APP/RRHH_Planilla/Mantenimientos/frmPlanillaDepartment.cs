@@ -9,7 +9,6 @@ using DevExpress.XtraSpreadsheet.Forms;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Clases.Planilla;
 using JAGUAR_PRO.RRHH_Planilla.Clases;
-using LOSA.Clases;
 using LOSA.RecepcionMP;
 using System;
 using System.Collections.Generic;

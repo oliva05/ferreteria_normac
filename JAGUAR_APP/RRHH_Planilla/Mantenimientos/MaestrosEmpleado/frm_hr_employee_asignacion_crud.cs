@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases;
-using LOSA.Clases.Planilla;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Planilla;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     public partial class frm_hr_employee_asignacion_crud : DevExpress.XtraEditors.XtraForm
     {
@@ -58,7 +58,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsMantenimientoPlanilla1.hr_employee_asignacion_type.Clear();
 
@@ -116,7 +116,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 switch (transaccion_tipo)
                 {

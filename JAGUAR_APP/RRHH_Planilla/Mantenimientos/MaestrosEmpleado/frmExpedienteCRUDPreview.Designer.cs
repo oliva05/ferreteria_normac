@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     partial class frmExpedienteCRUDPreview
     {
@@ -35,7 +35,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcArchivos = new DevExpress.XtraGrid.GridControl();
-            this.dsMaestroEmpleados1 = new LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
+            this.dsMaestroEmpleados1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
             this.gvArchivos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colpath = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -150,7 +150,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.ImageOptions.Image = global::LOSA.Properties.Resources.Custom_Save_24;
+            this.btnSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
             this.btnSave.Location = new System.Drawing.Point(474, 26);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 31);
@@ -160,7 +160,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.ImageOptions.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.btnCancelar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel2_32;
             this.btnCancelar.Location = new System.Drawing.Point(568, 26);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 31);

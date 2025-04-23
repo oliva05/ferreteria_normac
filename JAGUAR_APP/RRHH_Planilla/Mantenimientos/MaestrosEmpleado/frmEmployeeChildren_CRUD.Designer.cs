@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     partial class frmEmployeeChildren_CRUD
     {
@@ -97,7 +97,7 @@
             this.btnClose.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Appearance.Options.UseBackColor = true;
             this.btnClose.Appearance.Options.UseFont = true;
-            this.btnClose.ImageOptions.Image = global::LOSA.Properties.Resources.cancel_24x24;
+            this.btnClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.btnClose.Location = new System.Drawing.Point(177, 139);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(96, 46);
@@ -111,7 +111,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseBackColor = true;
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.ImageOptions.Image = global::LOSA.Properties.Resources.save_24x24;
+            this.btnSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
             this.btnSave.Location = new System.Drawing.Point(60, 139);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 46);

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LOSA.Clases.Planilla
+namespace JAGUAR_PRO.Clases.Planilla
 {
     public class EmpleadoExpediente
     {

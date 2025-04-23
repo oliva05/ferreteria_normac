@@ -2,6 +2,7 @@
 using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -18,6 +19,171 @@ namespace JAGUAR_PRO.Clases
         public FTP_Class()
         {
             
+        }
+
+        public bool DownloadFileV2(string pathSource, string pathDestination, UserLogin pUsuarioLogeado, string file_name)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                string localFilePath = Path.Combine(pathDestination, file_name);
+
+                string pass = "Tempo1234";
+                string user_op = "operador";
+                if (pUsuarioLogeado != null)
+                {
+                    if (!string.IsNullOrEmpty(pUsuarioLogeado.Pass))
+                    {
+                        user_op = pUsuarioLogeado.ADuser1;
+                        pass = pUsuarioLogeado.Pass;
+                    }
+                }
+
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(pathSource);
+                request.Credentials = new NetworkCredential(user_op, pass, "AQUAFEEDHN.COM");
+                request.Method = WebRequestMethods.Ftp.DownloadFile;
+
+                // Obtener la respuesta del servidor FTP
+                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                using (Stream responseStream = response.GetResponseStream())
+                using (FileStream fileStream = new FileStream(localFilePath, FileMode.Create))
+                {
+                    // Copiar el archivo desde el stream de respuesta al archivo local
+                    responseStream.CopyTo(fileStream);
+                }
+
+                return true;
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                CajaDialogo.Error("No se tiene acceso al archivo o carpeta: " + ex.Message);
+                return false;
+
+            }
+
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+                return false;
+            }
+        }
+
+        public void OpenFile(string pathSource, string pathDestination, UserLogin pUsuarioLogeado)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(pathSource);
+                string password = "";
+                string puser = "";
+
+                if (string.IsNullOrEmpty(pUsuarioLogeado.Password))
+                {
+                    
+                    puser = dp.Password_UserFTPServer;//"Tempo1234";
+                    password = dp.User_FTP_Server;//= "operador";
+                }
+                else
+                {
+                    puser = pUsuarioLogeado.AD_User;
+                    password = pUsuarioLogeado.Password;
+                }
+
+                request.Credentials = new NetworkCredential(puser, password, "AQUAFEEDHN.COM");
+                //request.Credentials = new NetworkCredential(UsuarioLogueado.AD_User, UsuarioLogueado.Password);
+                request.Method = WebRequestMethods.Ftp.DownloadFile;
+
+                using (Stream ftpStream = request.GetResponse().GetResponseStream())
+                using (Stream fileStream = System.IO.File.Create(pathDestination))
+                {
+
+                    ftpStream.CopyTo(fileStream);
+
+                    Process.Start(pathDestination);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        public bool GuardarArchivoRRHHExpediente(UserLogin pUsuarioLogeado, string pFileName, string pathFile)
+        {
+            bool Guardado = false;
+            try
+            {
+                DataOperations dp = new DataOperations();
+
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(dp.FTP_Normac_RRHH_Expedientes + pFileName);
+                string pass = dp.Password_UserFTPServer;//"Tempo1234";
+                string user_op = dp.User_FTP_Server;//= "operador";
+                if (pUsuarioLogeado != null)
+                {
+                    if (!string.IsNullOrEmpty(pUsuarioLogeado.Pass))
+                    {
+                        user_op = pUsuarioLogeado.ADuser1;
+                        pass = pUsuarioLogeado.Pass;
+                    }
+                }
+
+                request.Credentials = new NetworkCredential(user_op, pass, "AQUAFEEDHN.COM");
+                request.Method = WebRequestMethods.Ftp.UploadFile;
+
+                using (Stream fileStream = System.IO.File.OpenRead(pathFile))
+                using (Stream ftpStream = request.GetRequestStream())
+                {
+                    fileStream.CopyTo(ftpStream);
+                    Guardado = true;
+                }
+            }
+            catch (Exception ec)
+            {
+                throw new Exception(ec.Message);
+            }
+
+            return Guardado;
+        }
+
+        public bool GuardarArchivoRRHHEmpleado(UserLogin pUsuarioLogeado, string pFileName, string pathFile)
+        {
+            bool Guardado = false;
+            try
+            {
+                DataOperations dp = new DataOperations();
+
+
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(dp.FTP_Normac_Empleados + pFileName);
+                string pass = dp.Password_UserFTPServer;//"Tempo1234";
+                string user_op = dp.User_FTP_Server;//= "operador";
+                if (pUsuarioLogeado != null)
+                {
+                    if (!string.IsNullOrEmpty(pUsuarioLogeado.Pass))
+                    {
+                        user_op = pUsuarioLogeado.ADuser1;
+                        pass = pUsuarioLogeado.Pass;
+                    }
+                }
+
+                request.Credentials = new NetworkCredential(user_op, pass, "AQUAFEEDHN.COM");
+                request.Method = WebRequestMethods.Ftp.UploadFile;
+
+                using (Stream fileStream = System.IO.File.OpenRead(pathFile))
+                using (Stream ftpStream = request.GetRequestStream())
+                {
+                    fileStream.CopyTo(ftpStream);
+                    Guardado = true;
+                }
+            }
+            catch (Exception ec)
+            {
+                throw new Exception(ec.Message);
+            }
+
+            return Guardado;
         }
 
         public bool GuardarArchivo(UserLogin pUsuarioLogeado, string pFileName, string pathFile)

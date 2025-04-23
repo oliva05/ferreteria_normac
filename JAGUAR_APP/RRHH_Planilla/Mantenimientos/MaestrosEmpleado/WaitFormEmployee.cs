@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     public partial class WaitFormEmployee : WaitForm
     {

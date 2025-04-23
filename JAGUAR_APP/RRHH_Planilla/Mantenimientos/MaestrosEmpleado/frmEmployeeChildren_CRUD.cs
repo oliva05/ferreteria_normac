@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases.Colaborador;
+using JAGUAR_PRO.Clases.Colaborador;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     public partial class frmEmployeeChildren_CRUD : DevExpress.XtraEditors.XtraForm
     {
@@ -78,7 +78,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 }
 
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 switch (transaccionActual)
                 {

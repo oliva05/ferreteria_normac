@@ -4,9 +4,9 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Huellas;
-using LOSA.Clases;
-using LOSA.Presupuesto;
-using LOSA.RRHH_Planilla.Planilla;
+using JAGUAR_PRO.Clases;
+//using LOSA.Presupuesto;
+using JAGUAR_PRO.RRHH_Planilla.Planilla;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +19,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     public partial class frm_Hr_Employee_List : DevExpress.XtraEditors.XtraForm
     {
@@ -38,7 +38,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.get_home_hr_employee_list", con);
@@ -93,7 +93,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             Thread threadSplash = new Thread(new ThreadStart(Splash));
             threadSplash.Start();
 
-            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//7 = ALOSY
             switch (idNivel)
             {
                 case 1://Basic View
@@ -122,7 +122,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(106))//Acceso privilegiado para la edicion de datos confidenciales de RRHH
+                if (UsuarioLogeado.ValidarNivelPermisos(12))//Acceso privilegiado para la edicion de datos confidenciales de RRHH
                 {
                     TipoTransaccionSet = frmHr_EmployeeCRUD.TipoTransaccion.Update;
                     frmHr_EmployeeCRUD frm = new frmHr_EmployeeCRUD(this.UsuarioLogeado, row.barcode, TipoTransaccionSet);
@@ -149,7 +149,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             frmHr_EmployeeCRUD.TipoTransaccion TipoTransaccionSet = frmHr_EmployeeCRUD.TipoTransaccion.View;
 
             bool accesoprevio = false;
-            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//7 = ALOSY
             switch (idNivel)
             {
                 case 1://Basic View
@@ -176,7 +176,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(106))//Acceso privilegiado para la edicion de datos confidenciales de RRHH
+                if (UsuarioLogeado.ValidarNivelPermisos(12))//Acceso privilegiado para la edicion de datos confidenciales de RRHH
                 {
                     TipoTransaccionSet = frmHr_EmployeeCRUD.TipoTransaccion.Insert;
                     frmHr_EmployeeCRUD frm = new frmHr_EmployeeCRUD(this.UsuarioLogeado, string.Empty, TipoTransaccionSet);
@@ -246,7 +246,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     //Thread.Sleep(1000);
 
                     bool accesoprevio = false;
-                    int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
+                    int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//7 = ALOSY
                     switch (idNivel)
                     {
                         case 1://Basic View
@@ -278,7 +278,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
                     if (!accesoprevio)
                     {
-                        if (UsuarioLogeado.ValidarNivelPermisos(106))//Acceso privilegiado para la edicion de datos confidenciales de RRHH
+                        if (UsuarioLogeado.ValidarNivelPermisos(12))//Acceso privilegiado para la edicion de datos confidenciales de RRHH
                         {
                             TipoTransaccionSet = frmHr_EmployeeCRUD.TipoTransaccion.Update;
                             //splashScreenManager1.ShowWaitForm();

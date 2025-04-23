@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases;
-using LOSA.Clases.Colaborador;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Colaborador;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     public partial class frmExpedienteCRUDPreview : DevExpress.XtraEditors.XtraForm
     {
@@ -72,7 +72,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
         private void btnSave_Click(object sender, EventArgs e)
         {
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 cnx.Open();
 
                 SqlTransaction transaction = cnx.BeginTransaction();
@@ -86,7 +86,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Transaction = transaction;
 
-                        cmd.Parameters.AddWithValue("@path",dp.FTP_RRHH_Expedientes+item.file_name_);
+                        cmd.Parameters.AddWithValue("@path",dp.FTP_Normac_RRHH_Expedientes +item.file_name_);
                         cmd.Parameters.AddWithValue("@file_name",item.file_name_original);
                         cmd.Parameters.AddWithValue("@id_tipo", item.tipo_expediente_id);
                         cmd.Parameters.AddWithValue("@descripcion",item.descripcion);

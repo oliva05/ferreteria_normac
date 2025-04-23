@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     partial class frmHr_EmployeeCRUD
     {
@@ -29,47 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions16 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHr_EmployeeCRUD));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject61 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject62 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject63 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject64 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions17 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject65 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject66 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject67 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject68 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions18 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject69 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject70 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject71 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject72 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions19 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject73 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject74 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject75 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions20 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject77 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject78 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject79 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject80 = new DevExpress.Utils.SerializableAppearanceObject();
             this.lblNombreEmpleado = new DevExpress.XtraEditors.LabelControl();
             this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.lblCodigo = new DevExpress.XtraEditors.LabelControl();
@@ -81,7 +66,7 @@
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.gleResponsable = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bsResponsable = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMaestroEmpleados1 = new LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
+            this.dsMaestroEmpleados1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -261,7 +246,7 @@
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.glueTipoContrato = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bsContratotipocontrato = new System.Windows.Forms.BindingSource(this.components);
-            this.dsColaborador1 = new LOSA.RRHH_Planilla.dsColaborador();
+            this.dsColaborador1 = new JAGUAR_PRO.RRHH_Planilla.dsColaborador();
             this.gridView15 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -339,7 +324,7 @@
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
             this.gcCapacitaciones = new DevExpress.XtraGrid.GridControl();
-            this.dsCapacitacion1 = new LOSA.RRHH_Planilla.Capacitacion.dsCapacitacion();
+            this.dsCapacitacion1 = new JAGUAR_PRO.RRHH_Planilla.Capacitacion.dsCapacitacion();
             this.gvCapacitaciones = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -504,7 +489,7 @@
             // 
             this.lblNombreEmpleado.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreEmpleado.Appearance.Options.UseFont = true;
-            this.lblNombreEmpleado.Location = new System.Drawing.Point(3, 65);
+            this.lblNombreEmpleado.Location = new System.Drawing.Point(6, 65);
             this.lblNombreEmpleado.Name = "lblNombreEmpleado";
             this.lblNombreEmpleado.Size = new System.Drawing.Size(119, 21);
             this.lblNombreEmpleado.TabIndex = 2;
@@ -514,7 +499,7 @@
             // 
             this.pbPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbPhoto.Location = new System.Drawing.Point(946, 0);
+            this.pbPhoto.Location = new System.Drawing.Point(1033, 4);
             this.pbPhoto.Name = "pbPhoto";
             this.pbPhoto.Size = new System.Drawing.Size(156, 147);
             this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -525,7 +510,7 @@
             // 
             this.lblCodigo.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.Appearance.Options.UseFont = true;
-            this.lblCodigo.Location = new System.Drawing.Point(3, 95);
+            this.lblCodigo.Location = new System.Drawing.Point(7, 95);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(50, 21);
             this.lblCodigo.TabIndex = 4;
@@ -539,7 +524,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(3, 127);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1114, 558);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1195, 558);
             this.xtraTabControl1.TabIndex = 5;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -580,7 +565,7 @@
             this.xtraTabPage1.Controls.Add(this.labelControl2);
             this.xtraTabPage1.Controls.Add(this.labelControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1112, 531);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1193, 527);
             this.xtraTabPage1.Text = "Información de Trabajo";
             // 
             // txtCorreo
@@ -611,7 +596,7 @@
             this.tggIsManager.Properties.Appearance.Options.UseFont = true;
             this.tggIsManager.Properties.OffText = "No";
             this.tggIsManager.Properties.OnText = "Si";
-            this.tggIsManager.Size = new System.Drawing.Size(95, 20);
+            this.tggIsManager.Size = new System.Drawing.Size(95, 22);
             this.tggIsManager.TabIndex = 37;
             // 
             // labelControl30
@@ -1167,7 +1152,7 @@
             this.xtraTabPage2.Controls.Add(this.labelControl12);
             this.xtraTabPage2.Controls.Add(this.spinEditCantHijos);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1112, 531);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1193, 527);
             this.xtraTabPage2.Text = "Información Privada";
             // 
             // txtCorreoPersonal
@@ -1202,7 +1187,7 @@
             // 
             // btnBeneficiarios
             // 
-            this.btnBeneficiarios.ImageOptions.Image = global::LOSA.Properties.Resources.eye24X24;
+            this.btnBeneficiarios.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.view2_32x32;
             this.btnBeneficiarios.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.btnBeneficiarios.Location = new System.Drawing.Point(541, 416);
             this.btnBeneficiarios.Name = "btnBeneficiarios";
@@ -1228,7 +1213,7 @@
             this.tsPagaDependientes.Properties.Appearance.Options.UseFont = true;
             this.tsPagaDependientes.Properties.OffText = "No";
             this.tsPagaDependientes.Properties.OnText = "Si";
-            this.tsPagaDependientes.Size = new System.Drawing.Size(95, 20);
+            this.tsPagaDependientes.Size = new System.Drawing.Size(95, 22);
             this.tsPagaDependientes.TabIndex = 79;
             // 
             // labelControl60
@@ -1289,7 +1274,7 @@
             this.tsDiscapacitado.Properties.Appearance.Options.UseFont = true;
             this.tsDiscapacitado.Properties.OffText = "No";
             this.tsDiscapacitado.Properties.OnText = "Si";
-            this.tsDiscapacitado.Size = new System.Drawing.Size(95, 20);
+            this.tsDiscapacitado.Size = new System.Drawing.Size(95, 22);
             this.tsDiscapacitado.TabIndex = 72;
             this.tsDiscapacitado.Toggled += new System.EventHandler(this.tsDiscapacitado_Toggled);
             // 
@@ -1305,7 +1290,7 @@
             // 
             // btnChildren
             // 
-            this.btnChildren.ImageOptions.Image = global::LOSA.Properties.Resources.eye24X24;
+            this.btnChildren.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.view2_32x32;
             this.btnChildren.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.btnChildren.Location = new System.Drawing.Point(375, 294);
             this.btnChildren.Name = "btnChildren";
@@ -1405,9 +1390,9 @@
             this.cmdAgregarUniversidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAgregarUniversidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAgregarUniversidad.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAgregarUniversidad.Image = global::LOSA.Properties.Resources.boton_mas16px;
+            this.cmdAgregarUniversidad.Image = global::JAGUAR_PRO.Properties.Resources.add_16x16;
             this.cmdAgregarUniversidad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdAgregarUniversidad.Location = new System.Drawing.Point(859, 343);
+            this.cmdAgregarUniversidad.Location = new System.Drawing.Point(940, 343);
             this.cmdAgregarUniversidad.Name = "cmdAgregarUniversidad";
             this.cmdAgregarUniversidad.Size = new System.Drawing.Size(119, 27);
             this.cmdAgregarUniversidad.TabIndex = 64;
@@ -1758,9 +1743,9 @@
             this.cmdAddNewDireccionPrivada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAddNewDireccionPrivada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAddNewDireccionPrivada.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAddNewDireccionPrivada.Image = global::LOSA.Properties.Resources.boton_mas16px;
+            this.cmdAddNewDireccionPrivada.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.cmdAddNewDireccionPrivada.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdAddNewDireccionPrivada.Location = new System.Drawing.Point(859, 34);
+            this.cmdAddNewDireccionPrivada.Location = new System.Drawing.Point(940, 34);
             this.cmdAddNewDireccionPrivada.Name = "cmdAddNewDireccionPrivada";
             this.cmdAddNewDireccionPrivada.Size = new System.Drawing.Size(119, 27);
             this.cmdAddNewDireccionPrivada.TabIndex = 39;
@@ -2186,7 +2171,7 @@
             this.xtraTabPage3.Controls.Add(this.labelControl40);
             this.xtraTabPage3.Controls.Add(this.labelControl39);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1112, 531);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1112, 527);
             this.xtraTabPage3.Text = "Asignación de Equipos";
             // 
             // btnAsignacion
@@ -2194,7 +2179,7 @@
             this.btnAsignacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAsignacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsignacion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignacion.Image = global::LOSA.Properties.Resources.boton_mas16px;
+            this.btnAsignacion.Image = global::JAGUAR_PRO.Properties.Resources.add_16x16;
             this.btnAsignacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAsignacion.Location = new System.Drawing.Point(909, 3);
             this.btnAsignacion.Name = "btnAsignacion";
@@ -2323,9 +2308,9 @@
             // btnEditar
             // 
             this.btnEditar.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions16.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions16.Image")));
             this.btnEditar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions16, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject61, serializableAppearanceObject62, serializableAppearanceObject63, serializableAppearanceObject64, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnEditar.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEditar_ButtonPressed);
@@ -2341,9 +2326,9 @@
             // btnDeleteAsignacion
             // 
             this.btnDeleteAsignacion.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions17.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions17.Image")));
             this.btnDeleteAsignacion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions17, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject65, serializableAppearanceObject66, serializableAppearanceObject67, serializableAppearanceObject68, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnDeleteAsignacion.Name = "btnDeleteAsignacion";
             this.btnDeleteAsignacion.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDeleteAsignacion.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDeleteAsignacion_ButtonPressed);
@@ -2488,7 +2473,7 @@
             this.xtraTabPage4.Controls.Add(this.labelControl46);
             this.xtraTabPage4.Controls.Add(this.labelControl47);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(1112, 531);
+            this.xtraTabPage4.Size = new System.Drawing.Size(1112, 527);
             this.xtraTabPage4.Text = "Configuración RRHH";
             // 
             // glueTipoContrato
@@ -2555,7 +2540,7 @@
             this.cmdCopiarClipBoardAccountEmployeeNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCopiarClipBoardAccountEmployeeNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCopiarClipBoardAccountEmployeeNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCopiarClipBoardAccountEmployeeNumber.Image = global::LOSA.Properties.Resources.Custom_Icon_Design_Mono_General_2_Copy_24;
+            this.cmdCopiarClipBoardAccountEmployeeNumber.Image = global::JAGUAR_PRO.Properties.Resources.copy_24x24;
             this.cmdCopiarClipBoardAccountEmployeeNumber.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCopiarClipBoardAccountEmployeeNumber.Location = new System.Drawing.Point(384, 142);
             this.cmdCopiarClipBoardAccountEmployeeNumber.Name = "cmdCopiarClipBoardAccountEmployeeNumber";
@@ -2574,7 +2559,7 @@
             this.tggRecibeDepreciacionVehicular.Properties.Appearance.Options.UseFont = true;
             this.tggRecibeDepreciacionVehicular.Properties.OffText = "No";
             this.tggRecibeDepreciacionVehicular.Properties.OnText = "Si";
-            this.tggRecibeDepreciacionVehicular.Size = new System.Drawing.Size(95, 20);
+            this.tggRecibeDepreciacionVehicular.Size = new System.Drawing.Size(95, 22);
             this.tggRecibeDepreciacionVehicular.TabIndex = 43;
             // 
             // gleTipoTurno
@@ -2770,7 +2755,7 @@
             this.tggMarcaAsistencia.Properties.Appearance.Options.UseFont = true;
             this.tggMarcaAsistencia.Properties.OffText = "No";
             this.tggMarcaAsistencia.Properties.OnText = "Si";
-            this.tggMarcaAsistencia.Size = new System.Drawing.Size(95, 20);
+            this.tggMarcaAsistencia.Size = new System.Drawing.Size(95, 22);
             this.tggMarcaAsistencia.TabIndex = 36;
             // 
             // labelControl53
@@ -2862,7 +2847,7 @@
             this.xtraTabPage5.Controls.Add(this.btnAddExpediente);
             this.xtraTabPage5.Controls.Add(this.gcExpediente);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(1112, 531);
+            this.xtraTabPage5.Size = new System.Drawing.Size(1112, 527);
             this.xtraTabPage5.Text = "Expedientes";
             // 
             // btnAddExpediente
@@ -2871,7 +2856,7 @@
             this.btnAddExpediente.Enabled = false;
             this.btnAddExpediente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddExpediente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddExpediente.Image = global::LOSA.Properties.Resources.boton_mas24px;
+            this.btnAddExpediente.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.btnAddExpediente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddExpediente.Location = new System.Drawing.Point(17, 4);
             this.btnAddExpediente.Name = "btnAddExpediente";
@@ -3000,9 +2985,9 @@
             // btnDownload
             // 
             this.btnDownload.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            editorButtonImageOptions18.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions18.Image")));
             this.btnDownload.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions18, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject69, serializableAppearanceObject70, serializableAppearanceObject71, serializableAppearanceObject72, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDownload.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDownload_ButtonPressed);
@@ -3019,9 +3004,9 @@
             // btnOpen
             // 
             this.btnOpen.AutoHeight = false;
-            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
+            editorButtonImageOptions19.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions19.Image")));
             this.btnOpen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnOpen.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnOpen_ButtonPressed);
@@ -3037,9 +3022,9 @@
             // btnDelete
             // 
             this.btnDelete.AutoHeight = false;
-            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
+            editorButtonImageOptions20.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions20.Image")));
             this.btnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions20, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject77, serializableAppearanceObject78, serializableAppearanceObject79, serializableAppearanceObject80, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDelete_ButtonClick);
@@ -3052,7 +3037,7 @@
             this.xtraTabPage6.Appearance.HeaderActive.Options.UseFont = true;
             this.xtraTabPage6.Name = "xtraTabPage6";
             this.xtraTabPage6.PageVisible = false;
-            this.xtraTabPage6.Size = new System.Drawing.Size(1112, 531);
+            this.xtraTabPage6.Size = new System.Drawing.Size(1112, 527);
             this.xtraTabPage6.Text = "Pagos del ISR";
             // 
             // xtraTabPage7
@@ -3061,7 +3046,7 @@
             this.xtraTabPage7.Controls.Add(this.btnNewContract);
             this.xtraTabPage7.Controls.Add(this.gcContratoHistorico);
             this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(1112, 531);
+            this.xtraTabPage7.Size = new System.Drawing.Size(1112, 527);
             this.xtraTabPage7.Text = "Contrato";
             // 
             // btnContract
@@ -3069,7 +3054,6 @@
             this.btnContract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContract.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContract.Image = global::LOSA.Properties.Resources.contrato_24X24;
             this.btnContract.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnContract.Location = new System.Drawing.Point(1007, 3);
             this.btnContract.Name = "btnContract";
@@ -3084,7 +3068,7 @@
             // btnNewContract
             // 
             this.btnNewContract.Enabled = false;
-            this.btnNewContract.ImageOptions.Image = global::LOSA.Properties.Resources.boton_mas24px;
+            this.btnNewContract.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.btnNewContract.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnNewContract.Location = new System.Drawing.Point(20, 2);
             this.btnNewContract.Name = "btnNewContract";
@@ -3231,9 +3215,8 @@
             // btnViewContract
             // 
             this.btnViewContract.AutoHeight = false;
-            editorButtonImageOptions6.Image = global::LOSA.Properties.Resources.contrato_24X24;
             this.btnViewContract.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
             this.btnViewContract.Name = "btnViewContract";
             this.btnViewContract.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnViewContract.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnViewContract_ButtonPressed);
@@ -3252,7 +3235,7 @@
             // 
             this.xtraTabPage8.Controls.Add(this.xtraTabControl2);
             this.xtraTabPage8.Name = "xtraTabPage8";
-            this.xtraTabPage8.Size = new System.Drawing.Size(1112, 531);
+            this.xtraTabPage8.Size = new System.Drawing.Size(1112, 527);
             this.xtraTabPage8.Text = "Capacitaciones";
             // 
             // xtraTabControl2
@@ -3261,7 +3244,7 @@
             this.xtraTabControl2.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPage9;
-            this.xtraTabControl2.Size = new System.Drawing.Size(1112, 531);
+            this.xtraTabControl2.Size = new System.Drawing.Size(1112, 527);
             this.xtraTabControl2.TabIndex = 3;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage9,
@@ -3271,7 +3254,7 @@
             // 
             this.xtraTabPage9.Controls.Add(this.gcCapacitaciones);
             this.xtraTabPage9.Name = "xtraTabPage9";
-            this.xtraTabPage9.Size = new System.Drawing.Size(1110, 506);
+            this.xtraTabPage9.Size = new System.Drawing.Size(1110, 498);
             this.xtraTabPage9.Text = "Completadas";
             // 
             // gcCapacitaciones
@@ -3284,7 +3267,7 @@
             this.gcCapacitaciones.Name = "gcCapacitaciones";
             this.gcCapacitaciones.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-            this.gcCapacitaciones.Size = new System.Drawing.Size(1110, 506);
+            this.gcCapacitaciones.Size = new System.Drawing.Size(1110, 498);
             this.gcCapacitaciones.TabIndex = 2;
             this.gcCapacitaciones.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCapacitaciones});
@@ -3365,9 +3348,8 @@
             // repositoryItemButtonEdit1
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions7.Image = global::LOSA.Properties.Resources.contrato_24X24;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -3375,7 +3357,7 @@
             // 
             this.xtraTabPage10.Controls.Add(this.gridControl2);
             this.xtraTabPage10.Name = "xtraTabPage10";
-            this.xtraTabPage10.Size = new System.Drawing.Size(1110, 506);
+            this.xtraTabPage10.Size = new System.Drawing.Size(1110, 498);
             this.xtraTabPage10.Text = "Programadas";
             // 
             // gridControl2
@@ -3388,7 +3370,7 @@
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit2});
-            this.gridControl2.Size = new System.Drawing.Size(1110, 506);
+            this.gridControl2.Size = new System.Drawing.Size(1110, 498);
             this.gridControl2.TabIndex = 3;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView20});
@@ -3464,9 +3446,8 @@
             // repositoryItemButtonEdit2
             // 
             this.repositoryItemButtonEdit2.AutoHeight = false;
-            editorButtonImageOptions8.Image = global::LOSA.Properties.Resources.contrato_24X24;
             this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
             this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -3496,9 +3477,8 @@
             // 
             this.cmdEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdEditar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditar.Image = global::LOSA.Properties.Resources.boligrafo24;
             this.cmdEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdEditar.Location = new System.Drawing.Point(4, 0);
+            this.cmdEditar.Location = new System.Drawing.Point(4, 4);
             this.cmdEditar.Name = "cmdEditar";
             this.cmdEditar.Size = new System.Drawing.Size(86, 33);
             this.cmdEditar.TabIndex = 8;
@@ -3511,9 +3491,9 @@
             // 
             this.cmdGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdGuardar.Image = global::LOSA.Properties.Resources.Custom_Save_24;
+            this.cmdGuardar.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
             this.cmdGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdGuardar.Location = new System.Drawing.Point(188, 0);
+            this.cmdGuardar.Location = new System.Drawing.Point(188, 4);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(86, 33);
             this.cmdGuardar.TabIndex = 9;
@@ -3527,9 +3507,9 @@
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_32x32;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdCerrar.Location = new System.Drawing.Point(854, 0);
+            this.cmdCerrar.Location = new System.Drawing.Point(917, 4);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(86, 33);
             this.cmdCerrar.TabIndex = 10;
@@ -3542,9 +3522,9 @@
             // 
             this.cmdAgregarNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAgregarNuevo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAgregarNuevo.Image = global::LOSA.Properties.Resources.boton_mas24px;
+            this.cmdAgregarNuevo.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.cmdAgregarNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdAgregarNuevo.Location = new System.Drawing.Point(96, 0);
+            this.cmdAgregarNuevo.Location = new System.Drawing.Point(96, 4);
             this.cmdAgregarNuevo.Name = "cmdAgregarNuevo";
             this.cmdAgregarNuevo.Size = new System.Drawing.Size(86, 33);
             this.cmdAgregarNuevo.TabIndex = 11;
@@ -3580,7 +3560,7 @@
             this.tggActive.Properties.Appearance.Options.UseFont = true;
             this.tggActive.Properties.OffText = "No";
             this.tggActive.Properties.OnText = "Si";
-            this.tggActive.Size = new System.Drawing.Size(95, 20);
+            this.tggActive.Size = new System.Drawing.Size(95, 22);
             this.tggActive.TabIndex = 37;
             // 
             // btnCambiarImagen
@@ -3589,9 +3569,8 @@
             this.btnCambiarImagen.Enabled = false;
             this.btnCambiarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiarImagen.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambiarImagen.Image = global::LOSA.Properties.Resources.boligrafo24;
             this.btnCambiarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCambiarImagen.Location = new System.Drawing.Point(854, 95);
+            this.btnCambiarImagen.Location = new System.Drawing.Point(917, 95);
             this.btnCambiarImagen.Name = "btnCambiarImagen";
             this.btnCambiarImagen.Size = new System.Drawing.Size(86, 41);
             this.btnCambiarImagen.TabIndex = 38;
@@ -3608,7 +3587,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1120, 687);
+            this.ClientSize = new System.Drawing.Size(1200, 687);
             this.Controls.Add(this.pbPhoto);
             this.Controls.Add(this.btnCambiarImagen);
             this.Controls.Add(this.tggActive);

@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases;
-using LOSA.Clases.Planilla;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Planilla;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
 {
     public partial class frmPlanillaBancos : DevExpress.XtraEditors.XtraForm
     {
@@ -63,7 +63,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 switch (transaccion_tipo)
                 {

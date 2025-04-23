@@ -1,8 +1,8 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases;
-using LOSA.Clases.Colaborador;
-using LOSA.Clases.Contrato;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Colaborador;
+using JAGUAR_PRO.Clases.Contrato;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
 {
     public partial class frm_aumento_CRUD : DevExpress.XtraEditors.XtraForm
     {
@@ -65,7 +65,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 if (deFecha.EditValue == null)
                 {
@@ -184,7 +184,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsColaborador1.payment_history_type.Clear();
 
@@ -209,7 +209,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
                 DataOperations dp = new DataOperations();
                 decimal salario=0;
 
-                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH))
+                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                 {
                     cnx.Open();
                     string commandText = $"SELECT dbo.ft_get_salario_empleado_from_id({ employee_id}) AS salario";

@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     partial class frm_Hr_Employee_List
     {
@@ -35,7 +35,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsMaestroEmpleados1 = new LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
+            this.dsMaestroEmpleados1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,7 +61,7 @@
             this.cmdCerrar = new System.Windows.Forms.Button();
             this.tggVerInactivos = new DevExpress.XtraEditors.ToggleSwitch();
             this.label1 = new System.Windows.Forms.Label();
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.WaitFormEmployee), true, true);
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.WaitFormEmployee), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -288,7 +288,7 @@
             // 
             this.cmdAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAgregar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAgregar.Image = global::LOSA.Properties.Resources.Ionic_Ionicons_Add_circle_sharp_24;
+            this.cmdAgregar.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.cmdAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdAgregar.Location = new System.Drawing.Point(1, 30);
             this.cmdAgregar.Name = "cmdAgregar";
@@ -304,7 +304,7 @@
             this.cmdExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdExcel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdExcel.Image = global::LOSA.Properties.Resources.Dakirby309_Simply_Styled_Microsoft_Excel_2013_24;
+            this.cmdExcel.Image = global::JAGUAR_PRO.Properties.Resources.export_32x32;
             this.cmdExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdExcel.Location = new System.Drawing.Point(1232, 30);
             this.cmdExcel.Name = "cmdExcel";
@@ -320,7 +320,7 @@
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCerrar.Location = new System.Drawing.Point(1324, 30);
             this.cmdCerrar.Name = "cmdCerrar";

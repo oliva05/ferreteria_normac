@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     partial class frmNewDIreccionPrivada
     {
@@ -135,7 +135,7 @@
             // 
             this.cmdGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdGuardar.Image = global::LOSA.Properties.Resources.Custom_Save_24;
+            this.cmdGuardar.Image = global::JAGUAR_PRO.Properties.Resources.saveChanges_32x32;
             this.cmdGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdGuardar.Location = new System.Drawing.Point(153, 287);
             this.cmdGuardar.Name = "cmdGuardar";
@@ -151,7 +151,7 @@
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_32x32;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCerrar.Location = new System.Drawing.Point(257, 287);
             this.cmdCerrar.Name = "cmdCerrar";

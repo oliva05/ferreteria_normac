@@ -2360,7 +2360,6 @@
             this.navBarItem63.AppearancePressed.Options.UseFont = true;
             this.navBarItem63.Caption = "Profesión";
             this.navBarItem63.Name = "navBarItem63";
-            this.navBarItem63.Visible = false;
             this.navBarItem63.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem63_LinkClicked_1);
             // 
             // navBarItem64
@@ -2422,6 +2421,7 @@
             this.navBarItem66.AppearancePressed.Options.UseFont = true;
             this.navBarItem66.Caption = "Empleados";
             this.navBarItem66.Name = "navBarItem66";
+            this.navBarItem66.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem66_LinkClicked);
             // 
             // navBarItem197
             // 

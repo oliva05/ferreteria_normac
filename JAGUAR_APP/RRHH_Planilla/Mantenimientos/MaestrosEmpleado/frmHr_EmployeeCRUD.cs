@@ -3,12 +3,12 @@ using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DocumentFormat.OpenXml.Office.Word;
-using LOSA.Clases;
-using LOSA.Clases.Colaborador;
-using LOSA.Clases.Planilla;
-using LOSA.Mantenimientos.Modelos;
-using LOSA.Presupuesto;
-using LOSA.RecepcionMP;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Colaborador;
+using JAGUAR_PRO.Clases.Planilla;
+using JAGUAR_PRO.Mantenimientos.Modelos;
+//using LOSA.Presupuesto;
+//using LOSA.RecepcionMP;
 
 //using SAPbouiCOM;
 using System;
@@ -25,8 +25,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DevExpress.DataProcessing.InMemoryDataProcessor.AddSurrogateOperationAlgorithm;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using JAGUAR_PRO.Clases;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     public partial class frmHr_EmployeeCRUD : DevExpress.XtraEditors.XtraForm
     {
@@ -278,7 +279,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 //Tipo de Turno
@@ -303,12 +304,12 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 adat = new SqlDataAdapter(cmd);
                 adat.Fill(dsMaestroEmpleados1.BancoList);
 
-                //Vehiculo Asignado
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@tipo_dato_maestro", 4);
-                dsMaestroEmpleados1.VehiculosEmpresa.Clear();
-                adat = new SqlDataAdapter(cmd);
-                adat.Fill(dsMaestroEmpleados1.VehiculosEmpresa);
+                ////Vehiculo Asignado
+                //cmd.Parameters.Clear();
+                //cmd.Parameters.AddWithValue("@tipo_dato_maestro", 4);
+                //dsMaestroEmpleados1.VehiculosEmpresa.Clear();
+                //adat = new SqlDataAdapter(cmd);
+                //adat.Fill(dsMaestroEmpleados1.VehiculosEmpresa);
 
                 con.Close();
             }
@@ -323,7 +324,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 //Nivel Certificado
@@ -363,7 +364,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.get_direcciones_empleados_list", con);
@@ -385,7 +386,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_paises_from_configuration", con);
@@ -415,7 +416,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_lista_jefes_or_responsables", con);
@@ -437,7 +438,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_lista_bandas_salariales", con);
@@ -459,7 +460,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_lista_profesiones", con);
@@ -481,7 +482,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_lista_puestos_trabajo_job", con);
@@ -504,7 +505,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_lista_departamentos_rrhh", con);
@@ -526,7 +527,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_load_companies_rrhh", con);
@@ -548,7 +549,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_lista_direcciones_by_company", con);
@@ -571,7 +572,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_lista_telefonos_by_company_address", con);
@@ -684,7 +685,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.uspLoadTipoContratoV2", con);
@@ -707,7 +708,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsColaborador1.contract_historical.Clear();
 
@@ -732,7 +733,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             {
                 DataOperations dp = new DataOperations();
 
-                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH))
+                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                 {
                     cnx.Open();
 
@@ -761,7 +762,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             {
                 DataOperations dp = new DataOperations();
 
-                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH))
+                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                 {
                     cnx.Open();
 
@@ -907,7 +908,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             // Nombre del stored procedure
             string storedProcedureName = "[dbo].[UpdateEmployeeCRUD_V3]";
 
-                using (SqlConnection connection = new SqlConnection(dp.ConnectionStringRRHH))
+                using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                 {
                     using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
                     {
@@ -1234,7 +1235,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Transaction = transaccionEmployee;
 
-                            cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_RRHH_Empleados + file_name_employee;
+                            cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_Normac_Empleados + file_name_employee;
                             cmd.Parameters.Add("@file_name", SqlDbType.VarChar).Value = file_name_employee;
                             cmd.Parameters.Add("@id_employee", SqlDbType.Int).Value = EmpleadoActual.Id;
                             cmd.Parameters.Add("@code_employee", SqlDbType.VarChar).Value = EmpleadoActual.Barcode;
@@ -1279,7 +1280,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 string storedProcedureName = "InsertEmployeeNew_V3";
 
 
-                using (SqlConnection connection = new SqlConnection(dp.ConnectionStringRRHH))
+                using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                 {
                     using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
                     {
@@ -1606,7 +1607,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Transaction = transaccionEmployee;
 
-                            cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_RRHH_Empleados + file_name_employee;
+                            cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_Normac_Empleados + file_name_employee;
                             cmd.Parameters.Add("@file_name", SqlDbType.VarChar).Value = file_name_employee;
                             cmd.Parameters.Add("@id_employee", SqlDbType.Int).Value = EmpleadoActual.Id;
                             cmd.Parameters.Add("@code_employee", SqlDbType.VarChar).Value = string.IsNullOrEmpty(EmpleadoActual.Barcode) ? string.Empty : EmpleadoActual.Barcode;
@@ -1748,7 +1749,8 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 request.Method = WebRequestMethods.Ftp.DownloadFile;
 
                 // Especificar credenciales FTP
-                request.Credentials = new NetworkCredential(ftp1.UserFTP, ftp1.PassFTP);
+                //request.Credentials = new NetworkCredential(ftp1.UserFTP, ftp1.PassFTP);
+                request.Credentials = new NetworkCredential(dp.User_FTP_Server, dp.Password_UserFTPServer);
 
                 // Obtener la respuesta como un flujo (stream)
                 using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
@@ -1774,7 +1776,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             {
 
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 string path_ = "";
                 string sql = "dbo.uspGetUrlPictureProfile";
 
@@ -1855,7 +1857,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.uspLoadExpedientesById", con);
@@ -1882,7 +1884,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
                 if (row != null)
                 {
-                    ftp.OpenFile(row.path, row.file_name_);
+                    ftp.OpenFile(row.path, row.file_name_, UsuarioLogeado);
                 }
 
             }
@@ -1925,7 +1927,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 var row = (dsMaestroEmpleados.expediente_empleadoRow)gvExpediente.GetFocusedDataRow();
 
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 var respuesta = CajaDialogo.Pregunta("¿Desea eliminar el registro?");
 
@@ -1984,7 +1986,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.uspLoadAsignacion", con);
@@ -2027,7 +2029,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 var row = (dsMaestroEmpleados.hr_empleado_asignacionRow)gvAsignaciones.GetFocusedDataRow();
 
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 var respuesta = CajaDialogo.Pregunta("¿Desea deshabilitar este registro?");
 
@@ -2159,7 +2161,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     {
                         DataOperations dp = new DataOperations();
 
-                        using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH))
+                        using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                         {
                             cnx.Open();
                             SqlCommand cmd = new SqlCommand("uspCancelarContrato", cnx);

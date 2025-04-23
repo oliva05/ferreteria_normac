@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases.Planilla;
+using JAGUAR_PRO.Clases.Planilla;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     public partial class frmExpedienteCRUD : DevExpress.XtraEditors.XtraForm
     {
@@ -53,7 +53,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsMaestroEmpleados1.TipoExpediente.Clear();
 

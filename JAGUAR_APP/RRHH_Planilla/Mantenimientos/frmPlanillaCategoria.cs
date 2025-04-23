@@ -2,8 +2,6 @@
 using DevExpress.XtraEditors;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Clases.Planilla;
-using LOSA.Clases;
-using LOSA.Clases.Planilla;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
