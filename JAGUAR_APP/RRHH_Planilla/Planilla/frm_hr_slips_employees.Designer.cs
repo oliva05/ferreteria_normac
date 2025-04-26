@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 {
     partial class frm_hr_slips_employees
     {
@@ -46,7 +46,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsPlanillasTransaccion1 = new LOSA.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
+            this.dsPlanillasTransaccion1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colstruct_id = new DevExpress.XtraGrid.Columns.GridColumn();

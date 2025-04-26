@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Mantenimientos
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
 {
     partial class frmPlanillaCategoriaHome
     {
@@ -42,7 +42,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsMantenimientoPlanillaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientoPlanilla = new LOSA.RRHH_Planilla.Mantenimientos.dsMantenimientoPlanilla();
+            this.dsMantenimientoPlanilla = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.dsMantenimientoPlanilla();
             this.gvCaegoria = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnote = new DevExpress.XtraGrid.Columns.GridColumn();

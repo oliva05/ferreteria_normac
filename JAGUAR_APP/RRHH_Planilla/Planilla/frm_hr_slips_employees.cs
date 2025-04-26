@@ -9,11 +9,11 @@ using DevExpress.XtraReports.UI;
 using DevExpress.XtraWaitForm;
 using DocumentFormat.OpenXml.Office2010.CustomUI;
 using DocumentFormat.OpenXml.Office2010.Excel;
-using LOSA.Calidad.LoteConfConsumo;
-using LOSA.Clases;
-using LOSA.Clases.Colaborador;
-using LOSA.Clases.Planilla;
-using LOSA.RRHH_Planilla.Planilla.ReporteBanco;
+using JAGUAR_PRO.Calidad.LoteConfConsumo;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Colaborador;
+using JAGUAR_PRO.Clases.Planilla;
+using JAGUAR_PRO.RRHH_Planilla.Planilla.ReporteBanco;
 using LOSA.RRHH_Planilla.Planilla.Reportes;
 using System;
 using System.Collections;
@@ -27,9 +27,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static LOSA.RRHH_Planilla.Planilla.frmPayslipRunCRUD;
+using static JAGUAR_PRO.RRHH_Planilla.Planilla.frmPayslipRunCRUD;
 
-namespace LOSA.RRHH_Planilla.Planilla
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 {
     public partial class frm_hr_slips_employees : DevExpress.XtraEditors.XtraForm
     {
@@ -123,7 +123,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.GetPlanillasEmpleadosListResume", con);
@@ -268,7 +268,7 @@ namespace LOSA.RRHH_Planilla.Planilla
 
                             if (TipoPlanillaActual.RecuperaRegistro(PaySlipRunActual.PayrollTypeId))
                             {
-                                using (SqlConnection connection = new SqlConnection(dp.ConnectionStringRRHH))
+                                using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                                 {
                                     connection.Open();
 
@@ -350,7 +350,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("[dbo].[set_hr_paylisp_update_enable]", con);

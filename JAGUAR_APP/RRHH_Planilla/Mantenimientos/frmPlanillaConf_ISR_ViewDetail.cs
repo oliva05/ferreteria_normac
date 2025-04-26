@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
 {
     public partial class frmPlanillaConf_ISR_ViewDetail : DevExpress.XtraEditors.XtraForm
     {
@@ -28,7 +28,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsMantenimientoPlanilla.Conf_ISR_detalle.Clear();
 

@@ -7,10 +7,10 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using Huellas;
-using LOSA.Clases;
-using LOSA.Clases.Planilla;
-using LOSA.Mantenimientos;
-using LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Planilla;
+using JAGUAR_PRO.Mantenimientos;
+using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +23,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Planilla
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 {
     public partial class frmPayslipRunCRUD : DevExpress.XtraEditors.XtraForm
     {
@@ -184,7 +184,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.[get_hr_paylisps_generates]", con);
@@ -206,7 +206,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_tipos_payslip_run", con);
@@ -228,7 +228,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_get_estados_payslip_run", con);
@@ -250,7 +250,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand(@"select 1 as id,
@@ -368,7 +368,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             switch (TipoTransaccionActual)
             {
                 case TipoTransaccionSQL.Insert:
-                    using (SqlConnection connection = new SqlConnection(dp.ConnectionStringRRHH))
+                    using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                     {
                         connection.Open();
 
@@ -543,7 +543,7 @@ namespace LOSA.RRHH_Planilla.Planilla
                     }
                     break;
                 case TipoTransaccionSQL.Update:
-                    using (SqlConnection connection = new SqlConnection(dp.ConnectionStringRRHH))
+                    using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                     {
                         connection.Open();
 
@@ -749,7 +749,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.GetTasaCambioUSD_byDay", con);
@@ -770,7 +770,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.[get_employee_from_hr_payroll_type_rel_v2]", con);
@@ -839,7 +839,7 @@ namespace LOSA.RRHH_Planilla.Planilla
                     try
                     {
                         DataOperations dp = new DataOperations();
-                        SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                        SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         con.Open();
 
                         SqlCommand cmd = new SqlCommand("[dbo].[set_hr_paylisp_update_enable]", con);
