@@ -1815,7 +1815,7 @@ namespace Eatery.Ventas
                                 row1.bodega_descripcion = BodegaName_;
 
                                 AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_, 
-                                                                     Cantidad_, pt1.Id_presentacion, row1.precio, row1.descuento,
+                                                                     1, pt1.Id_presentacion, row1.precio, row1.descuento,
                                                                      pt1.Code, pt1.Descripcion, row1.isv1);
                             }
                             else
@@ -2092,7 +2092,7 @@ namespace Eatery.Ventas
             dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
             dsVentas1.AcceptChanges();
         }
-        private decimal AgregarDetalleInventarioSeleccionadoList(ArrayList pListaSelected)
+        private decimal AgregarDetalleInventarioSeleccionadoList(ArrayList pListaSelected, int pIdPT_row)
         {
             string LabelAlmacenesMix = "";
             int conta = 0;
@@ -2101,18 +2101,17 @@ namespace Eatery.Ventas
             //Desmarcamos toda la seleccion para limipiar y sobre escribir la nueva seleccion
             foreach (dsVentas.detalle_factura_transaccion_invRow rowi in dsVentas1.detalle_factura_transaccion_inv.Rows)
             {
-                rowi.chequeado = false;
+                if (pIdPT_row == rowi.id_pt)
+                {
+                    rowi.chequeado = false;
+                    rowi.cantidad = 0;
+                }
             }
 
+            
             foreach (ElejirInvAlmacen i in pListaSelected)//Iteramos la lista de selecciones
             {
                 bool encontrado = false;
-                //Limpiamos la seleccion previa del producto 
-                foreach (dsVentas.detalle_factura_transaccion_invRow rowi in dsVentas1.detalle_factura_transaccion_inv.Rows)//Iteramos a ver los items pendientes
-                {
-                    if (rowi.id_pt == i.id_pt)
-                        rowi.cantidad = 0;
-                }
 
                 foreach (dsVentas.detalle_factura_transaccion_invRow rowi in dsVentas1.detalle_factura_transaccion_inv.Rows)//Iteramos a ver los items pendientes
                 {
@@ -2171,9 +2170,10 @@ namespace Eatery.Ventas
             var row = (dsVentas.detalle_factura_transactionRow)gridView.GetFocusedDataRow();
             ArrayList ListaActual = new ArrayList();
 
-            if (row.cantidad > 1)
+            //Vamos a iterar la distribucion que contenga el item actual
+            foreach (dsVentas.detalle_factura_transaccion_invRow rowi in dsVentas1.detalle_factura_transaccion_inv.Rows)//Iteramos a ver los items pendientes
             {
-                foreach (dsVentas.detalle_factura_transaccion_invRow rowi in dsVentas1.detalle_factura_transaccion_inv.Rows)//Iteramos a ver los items pendientes
+                if (row.id_pt == rowi.id_pt)
                 {
                     ElejirInvAlmacen item = new ElejirInvAlmacen();
                     item.id_pt = rowi.id_pt;
@@ -2183,12 +2183,13 @@ namespace Eatery.Ventas
                     item.descuento = rowi.descuento;
                     item.Precio = rowi.precio;
                     item.id_presentacion = rowi.id_presentacion;
-                    item.ItemCode= rowi.item_code;
+                    item.ItemCode = rowi.item_code;
                     item.Descripcion = rowi.descripcion;
                     item.isv1 = rowi.isv1;
                     ListaActual.Add(item);
                 }
             }
+           
 
             frmElejirAlmacenPedidoOutStok frm = new frmElejirAlmacenPedidoOutStok(row.id_pt, row.itemcode + " - " + 
                                                                                   row.itemname, row.cantidad, ListaActual,
@@ -2196,7 +2197,7 @@ namespace Eatery.Ventas
                                                                                   row.itemcode, row.itemname, row.isv1);
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                row.inventario_seleccionado = row.cantidad = AgregarDetalleInventarioSeleccionadoList(frm.ListaSeleccionAlmacen);
+                row.inventario_seleccionado = row.cantidad = AgregarDetalleInventarioSeleccionadoList(frm.ListaSeleccionAlmacen, row.id_pt);
                 row.total_linea = (row.cantidad * row.precio)-row.descuento;
                 //CalcularTotal();
                 CalcularTotalFactura();

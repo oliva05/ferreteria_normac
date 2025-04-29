@@ -673,6 +673,7 @@
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\ClientesPuntoVentaLP.cs" />
     <Compile Include="Clases\Conf_TablesID.cs" />
+    <Compile Include="Clases\CotizacionH.cs" />
     <Compile Include="Clases\Cuentas.cs" />
     <Compile Include="Clases\DataOperations.cs" />
     <Compile Include="Clases\ElejirInvAlmacen.cs" />
@@ -936,6 +937,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPrefacturas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Despachos\Pedidos\frmCotizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmCotizaciones.Designer.cs">
+      <DependentUpon>frmCotizaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Despachos\Pedidos\frmElejirAlmacenPedidoOutStok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -959,6 +966,12 @@
     </Compile>
     <Compile Include="Despachos\Pedidos\frmPedidoCliente.Designer.cs">
       <DependentUpon>frmPedidoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\rptCotizacionPreFactura.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\rptCotizacionPreFactura.Designer.cs">
+      <DependentUpon>rptCotizacionPreFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Despachos\Reportes\dsReporte.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -3350,6 +3363,9 @@
     <EmbeddedResource Include="Despachos\fromdespacho.resx">
       <DependentUpon>fromdespacho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Despachos\Pedidos\frmCotizaciones.resx">
+      <DependentUpon>frmCotizaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Despachos\Pedidos\frmElejirAlmacenPedidoOutStok.resx">
       <DependentUpon>frmElejirAlmacenPedidoOutStok.cs</DependentUpon>
     </EmbeddedResource>
@@ -3361,6 +3377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\Pedidos\frmPedidoCliente.resx">
       <DependentUpon>frmPedidoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Despachos\Pedidos\rptCotizacionPreFactura.resx">
+      <DependentUpon>rptCotizacionPreFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\Reportes\frmReq_view.resx">
       <DependentUpon>frmReq_view.cs</DependentUpon>

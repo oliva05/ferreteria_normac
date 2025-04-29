@@ -52,9 +52,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         {
             foreach (dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
             {
-                foreach(ElejirInvAlmacen item in pListaActual)
+                //row.cantidad_seleccionada = 0;
+                foreach (ElejirInvAlmacen item in pListaActual)
                 {
-                    if (row.id_bodega == item.IdBodega && IdPT == item.id_pt)
+                    if (row.id_bodega == item.IdBodega)
                     {
                         row.cantidad_seleccionada = item.CantSeleccionada;
                         row.itemcode = itemcode;

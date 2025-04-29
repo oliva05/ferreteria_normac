@@ -6,6 +6,7 @@ using DevExpress.XtraReports.UI;
 using DevExpress.XtraSpreadsheet.Import.Xls;
 using Eatery.Ventas;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.Facturacion.Reportes;
 using JAGUAR_PRO.LogisticaJaguar;
 using System;
@@ -60,10 +61,12 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("sp_get_listado_pedidos_clientes_venta", con);
+                SqlCommand cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v3]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@desde", dtDesde.DateTime);
                 cmd.Parameters.AddWithValue("@hasta", dtHasta.DateTime);
+                cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoVentaActual.ID);
+                cmd.Parameters.AddWithValue("@incluir_docs_cerrados", tggIncluirDocCerrados.IsOn);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsPedidosClientesV1.lista_pedidos.Clear();
                 adat.Fill(dsPedidosClientesV1.lista_pedidos); 
@@ -182,6 +185,38 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             }
             
             
+        }
+
+        private void cmdCrearCotizacion_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridView = (GridView)gridControl1.FocusedView;
+            var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
+            frmCotizaciones frm = new frmCotizaciones(row.id, this.UsuarioLogeado, PuntoVentaActual);
+            frm.ShowDialog();
+
+            ////Generar una nueva cotizacion 
+            //DialogResult r = CajaDialogo.Pregunta("Esta seguro de generar una nueva cotización basado en esta pre factura?");
+            //if (r != DialogResult.Yes)
+            //    return;
+
+            ////Generar la cotizacion 
+            //try
+            //{
+            //    DataOperations dp = new DataOperations();
+            //    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+            //    con.Open();
+
+            //    SqlCommand cmd = new SqlCommand("[dbo].[sp_InsertCotizacion]", con);
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.Parameters.AddWithValue("@id_pedido", row.id);
+            //    cmd.ExecuteScalar();
+
+            //    con.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    CajaDialogo.Error(ex.Message);
+            //}
         }
     }
 }
