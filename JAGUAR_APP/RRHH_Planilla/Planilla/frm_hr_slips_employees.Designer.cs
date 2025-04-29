@@ -449,7 +449,7 @@
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCerrar.Location = new System.Drawing.Point(966, 59);
             this.cmdCerrar.Name = "cmdCerrar";
@@ -465,7 +465,7 @@
             this.cmdAgregarEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAgregarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAgregarEmpleado.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAgregarEmpleado.Image = global::LOSA.Properties.Resources.boton_mas24px2;
+            this.cmdAgregarEmpleado.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.cmdAgregarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdAgregarEmpleado.Location = new System.Drawing.Point(645, 59);
             this.cmdAgregarEmpleado.Name = "cmdAgregarEmpleado";
@@ -481,7 +481,7 @@
             this.cmdNavegarPlanilla.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdNavegarPlanilla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdNavegarPlanilla.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdNavegarPlanilla.Image = global::LOSA.Properties.Resources.iniciar_sesion24;
+            //this.cmdNavegarPlanilla.Image = global::JAGUAR_PRO.Properties.Resources.iniciar_sesion24;
             this.cmdNavegarPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdNavegarPlanilla.Location = new System.Drawing.Point(424, 59);
             this.cmdNavegarPlanilla.Name = "cmdNavegarPlanilla";
@@ -498,7 +498,7 @@
             this.cmdActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdActualizar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdActualizar.Image = global::LOSA.Properties.Resources.Pictogrammers_Material_Refresh_24;
+        //this.cmdActualizar.Image = global::JAGUAR_PRO.Properties.Resources.Pictogrammers_Material_Refresh_24;
             this.cmdActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdActualizar.Location = new System.Drawing.Point(859, 59);
             this.cmdActualizar.Name = "cmdActualizar";
@@ -514,7 +514,7 @@
             this.btnVoucher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnVoucher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoucher.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoucher.Image = global::LOSA.Properties.Resources.impresora_2_24;
+            this.btnVoucher.Image = global::JAGUAR_PRO.Properties.Resources.print_24x24;
             this.btnVoucher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoucher.Location = new System.Drawing.Point(752, 59);
             this.btnVoucher.Name = "btnVoucher";
@@ -572,7 +572,7 @@
             this.cmdArchivoBanco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdArchivoBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdArchivoBanco.Font = new System.Drawing.Font("Segoe UI", 7.25F);
-            this.cmdArchivoBanco.Image = global::LOSA.Properties.Resources.sobresalir241;
+            //this.cmdArchivoBanco.Image = global::LOSA.Properties.Resources.sobresalir241;
             this.cmdArchivoBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdArchivoBanco.Location = new System.Drawing.Point(531, 59);
             this.cmdArchivoBanco.Name = "cmdArchivoBanco";

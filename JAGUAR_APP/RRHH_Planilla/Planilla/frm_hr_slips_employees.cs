@@ -14,7 +14,7 @@ using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Clases.Colaborador;
 using JAGUAR_PRO.Clases.Planilla;
 using JAGUAR_PRO.RRHH_Planilla.Planilla.ReporteBanco;
-using LOSA.RRHH_Planilla.Planilla.Reportes;
+using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
 using System;
 using System.Collections;
 using System.Collections.Generic;

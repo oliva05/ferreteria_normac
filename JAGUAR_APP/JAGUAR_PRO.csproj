@@ -665,6 +665,12 @@
     <Compile Include="Calidad\LoteConfConsumo\frmSearchMP.Designer.cs">
       <DependentUpon>frmSearchMP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calidad\LoteConfConsumo\frmSearchMultItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calidad\LoteConfConsumo\frmSearchMultItems.Designer.cs">
+      <DependentUpon>frmSearchMultItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clases\AlimentacionTolvaMicrosPesaje.cs" />
     <Compile Include="Clases\APMS_OrderProduction.cs" />
     <Compile Include="Clases\BagsPT.cs" />
@@ -3422,6 +3428,12 @@
     <Compile Include="RRHH_Planilla\Planilla\frmPayslipRunCRUD.Designer.cs">
       <DependentUpon>frmPayslipRunCRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frm_hr_payslip_lines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frm_hr_payslip_lines.Designer.cs">
+      <DependentUpon>frm_hr_payslip_lines.cs</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\Planilla\frm_hr_slips_employees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3432,6 +3444,72 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReportesBancoPlanilla.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\ReporteBanco\frmArchivoBancoPlanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\ReporteBanco\frmArchivoBancoPlanilla.Designer.cs">
+      <DependentUpon>frmArchivoBancoPlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\dsReporte.Designer.cs" />
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\dsReporte1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\frmInformePlanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\frmInformePlanilla.Designer.cs">
+      <DependentUpon>frmInformePlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneral.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneral.Designer.cs">
+      <DependentUpon>rptInformePlanillaGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneralHE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneralHE.Designer.cs">
+      <DependentUpon>rptInformePlanillaGeneralHE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptNominaEmpleado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptNominaEmpleado.Designer.cs">
+      <DependentUpon>rptNominaEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptPlanillaGeneralDecimos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptPlanillaGeneralDecimos.Designer.cs">
+      <DependentUpon>rptPlanillaGeneralDecimos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucher.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucher.Designer.cs">
+      <DependentUpon>rptVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherDecimos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherDecimos.Designer.cs">
+      <DependentUpon>rptVoucherDecimos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherHE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherHE.Designer.cs">
+      <DependentUpon>rptVoucherHE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherV2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherV2.Designer.cs">
+      <DependentUpon>rptVoucherV2.cs</DependentUpon>
     </Compile>
     <Compile Include="RRHH_Planilla\Reportes\dsPlanillaReportes.cs">
       <DependentUpon>dsPlanillaReportes.xsd</DependentUpon>
@@ -4680,8 +4758,41 @@
     <EmbeddedResource Include="RRHH_Planilla\Planilla\frmPayslipRunCRUD.resx">
       <DependentUpon>frmPayslipRunCRUD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\frm_hr_payslip_lines.resx">
+      <DependentUpon>frm_hr_payslip_lines.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Planilla\frm_hr_slips_employees.resx">
       <DependentUpon>frm_hr_slips_employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\ReporteBanco\frmArchivoBancoPlanilla.resx">
+      <DependentUpon>frmArchivoBancoPlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\frmInformePlanilla.resx">
+      <DependentUpon>frmInformePlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneral.resx">
+      <DependentUpon>rptInformePlanillaGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneralHE.resx">
+      <DependentUpon>rptInformePlanillaGeneralHE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptNominaEmpleado.resx">
+      <DependentUpon>rptNominaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptPlanillaGeneralDecimos.resx">
+      <DependentUpon>rptPlanillaGeneralDecimos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptVoucher.resx">
+      <DependentUpon>rptVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptVoucherDecimos.resx">
+      <DependentUpon>rptVoucherDecimos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptVoucherHE.resx">
+      <DependentUpon>rptVoucherHE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptVoucherV2.resx">
+      <DependentUpon>rptVoucherV2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
@@ -4979,6 +5090,17 @@
     </None>
     <None Include="RRHH_Planilla\Planilla\ReporteBanco\dsReportesBancoPlanilla.xss">
       <DependentUpon>dsReportesBancoPlanilla.xsd</DependentUpon>
+    </None>
+    <None Include="RRHH_Planilla\Planilla\Reportes\dsReporte.xsc">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </None>
+    <None Include="RRHH_Planilla\Planilla\Reportes\dsReporte.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporte1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RRHH_Planilla\Planilla\Reportes\dsReporte.xss">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
     </None>
     <None Include="RRHH_Planilla\Reportes\dsPlanillaReportes.xsc">
       <DependentUpon>dsPlanillaReportes.xsd</DependentUpon>
