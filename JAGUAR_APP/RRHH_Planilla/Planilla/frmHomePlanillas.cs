@@ -6,6 +6,8 @@ using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Clases.Planilla;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
+using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
+
 //using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
 using System;
 using System.Collections.Generic;

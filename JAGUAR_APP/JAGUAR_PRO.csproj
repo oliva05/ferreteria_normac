@@ -3471,7 +3471,6 @@
     <Compile Include="RRHH_Planilla\Planilla\Reportes\dsReporte.cs">
       <DependentUpon>dsReporte.xsd</DependentUpon>
     </Compile>
-    <Compile Include="RRHH_Planilla\Planilla\Reportes\dsReporte.Designer.cs" />
     <Compile Include="RRHH_Planilla\Planilla\Reportes\dsReporte1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

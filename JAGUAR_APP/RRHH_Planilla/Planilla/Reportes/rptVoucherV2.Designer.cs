@@ -1,4 +1,6 @@
-﻿namespace JAGUAR_PRO.Planilla.Reportes
+﻿using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
+
+namespace JAGUAR_PRO.Planilla.Reportes
 {
     partial class rptVoucherV2
     {
