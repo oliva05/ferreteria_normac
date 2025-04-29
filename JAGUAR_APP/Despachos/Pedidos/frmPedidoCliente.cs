@@ -46,7 +46,7 @@ namespace Eatery.Ventas
         PDV PuntoDeVentaActual;
         Vendedor VendedorActual;
         FacturacionEquipo EquipoActual;
-        int ProIdCliente;
+        Int64 ProIdCliente;
         ClienteFacturacion ClienteFactura;
         int IdTerminoPago;
 
@@ -103,6 +103,68 @@ namespace Eatery.Ventas
             }
             LoadBancosAndTiposPago();
             
+            //if (HostName == "7L12TV3" || HostName == "F3DYSQ2" /*Danys Oliva*/ ||
+            //    HostName == "9SSCBV2" || HostName == "9PG91W2" /*Ruben Garcia */ ||
+            //    HostName == "F9Q11Q2" /*PC Soporte La 50*/||
+            //    HostName == "EUCEDA-PC" /*Euceda*/)
+            //{
+            //    cmdIngresarAdmin.Visible = SaltarLogin.Visible = simpleButton2.Visible = SaltarLoginPRD.Visible = true;
+            //}
+        }
+
+        public frmPedidoCliente(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, Int64 pIdPedido)
+        {
+            InitializeComponent();
+            ClienteFactura = new ClienteFacturacion();
+            IdTerminoPago = 1;
+            PuntoDeVentaActual = pPuntoDeVentaActual;
+            EquipoActual = pEquipoActual;
+
+            BusquedaSet = Busqueda.LoMasVendido;
+            SetBusqueda();
+            txtNombreCliente.Text = "Consumidor Final";
+            txtRTN.Text = string.Empty;
+            txtRTN.Properties.NullValuePrompt =
+            txtDireccion.Properties.NullValuePrompt = "No Aplica";
+
+            UsuarioLogeado = pUser;
+            DateTime FechaActual_ = dp.NowSetDateTime();
+            lblfecha.Text = Convert.ToString(FechaActual_);
+            dtFechaEntrega.DateTime = FechaActual_.AddDays(1);
+            string.Format("{0:MM/dd/yyyy}", lblfecha.Text);
+
+            string HostName = Dns.GetHostName();
+
+            FacturacionEquipo Equipo1 = new FacturacionEquipo();
+            if (Equipo1.RecuperarRegistro(HostName))
+            {
+                if (PuntoDeVentaActual.RecuperaRegistro(Equipo1.id_punto_venta))
+                {
+                    if (PuntoDeVentaActual.FacturaComidaBuffet)//Mostramos todas las opciones
+                    {
+                        //lblOpcionesBuffetRadioButtonGroup.Visible =
+                        //radioGroupVentaComidaBuffet.Visible = true;
+                        LoadDefaultOptionRadioButtos();
+                    }
+                    else
+                    {
+                        //lblOpcionesBuffetRadioButtonGroup.Visible = 
+                        //radioGroupVentaComidaBuffet.Visible = false;
+                        LoadDefaultOptionRadioButtos();
+                    }
+                }
+            }
+            LoadBancosAndTiposPago();
+
+            if (pIdPedido > 0)
+            {
+                PedidoCliente pedidoCliente = new PedidoCliente();  
+                if(pedidoCliente.RecuperarRegistro(pIdPedido))
+                {
+
+                }
+            }
+
             //if (HostName == "7L12TV3" || HostName == "F3DYSQ2" /*Danys Oliva*/ ||
             //    HostName == "9SSCBV2" || HostName == "9PG91W2" /*Ruben Garcia */ ||
             //    HostName == "F9Q11Q2" /*PC Soporte La 50*/||

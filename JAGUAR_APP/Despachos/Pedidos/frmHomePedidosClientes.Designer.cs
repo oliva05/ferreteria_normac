@@ -399,6 +399,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colEditar.Caption = "Editar";
             this.colEditar.ColumnEdit = this.cmdEditar;
             this.colEditar.Name = "colEditar";
+            this.colEditar.Visible = true;
+            this.colEditar.VisibleIndex = 10;
             // 
             // cmdEditar
             // 

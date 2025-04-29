@@ -179,12 +179,14 @@
             // 
             // colfecha
             // 
+            this.colfecha.DisplayFormat.FormatString = "g";
+            this.colfecha.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colfecha.FieldName = "fecha";
             this.colfecha.Name = "colfecha";
             this.colfecha.OptionsColumn.ReadOnly = true;
             this.colfecha.Visible = true;
             this.colfecha.VisibleIndex = 0;
-            this.colfecha.Width = 87;
+            this.colfecha.Width = 115;
             // 
             // colfecha_row
             // 
@@ -205,7 +207,7 @@
             this.colusuario_nombre.OptionsColumn.ReadOnly = true;
             this.colusuario_nombre.Visible = true;
             this.colusuario_nombre.VisibleIndex = 1;
-            this.colusuario_nombre.Width = 91;
+            this.colusuario_nombre.Width = 89;
             // 
             // colenable
             // 
@@ -220,7 +222,7 @@
             this.colcomentario.OptionsColumn.ReadOnly = true;
             this.colcomentario.Visible = true;
             this.colcomentario.VisibleIndex = 4;
-            this.colcomentario.Width = 171;
+            this.colcomentario.Width = 159;
             // 
             // colDocNum
             // 
@@ -241,7 +243,7 @@
             this.colestado_name.OptionsColumn.ReadOnly = true;
             this.colestado_name.Visible = true;
             this.colestado_name.VisibleIndex = 2;
-            this.colestado_name.Width = 74;
+            this.colestado_name.Width = 78;
             // 
             // colid_cliente
             // 
@@ -256,7 +258,7 @@
             this.colNombreCorto.OptionsColumn.ReadOnly = true;
             this.colNombreCorto.Visible = true;
             this.colNombreCorto.VisibleIndex = 3;
-            this.colNombreCorto.Width = 175;
+            this.colNombreCorto.Width = 163;
             // 
             // colfecha_entrega_estimada
             // 
@@ -281,7 +283,7 @@
             this.coltotal.OptionsColumn.ReadOnly = true;
             this.coltotal.Visible = true;
             this.coltotal.VisibleIndex = 5;
-            this.coltotal.Width = 110;
+            this.coltotal.Width = 102;
             // 
             // colEditar
             // 
@@ -295,7 +297,7 @@
             this.colImprimir.Name = "colImprimir";
             this.colImprimir.Visible = true;
             this.colImprimir.VisibleIndex = 6;
-            this.colImprimir.Width = 76;
+            this.colImprimir.Width = 78;
             // 
             // cmdPrintCotizacion
             // 

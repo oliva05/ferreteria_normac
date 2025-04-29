@@ -104,7 +104,11 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
                 return;
             }
-            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo);
+
+            var gridView = (GridView)gridControl1.FocusedView;
+            var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
+
+            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, row.id);
             frm.Show();
         }
 
