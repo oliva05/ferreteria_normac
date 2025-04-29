@@ -1,6 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using JAGUAR_PRO.Clases;
+using LOSA.RRHH_Planilla.Mantenimientos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

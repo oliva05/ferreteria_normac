@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases;
-using LOSA.Clases.Planilla;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Planilla;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,7 +69,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 switch (transaccion_tipo)
                 {
@@ -142,7 +142,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
         public bool ValidarBandaSalarial()
         {
             DataOperations dp = new DataOperations();
-            SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+            SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
             using (SqlCommand cmd = new SqlCommand("dbo.[uspValidarBandaSalarial]", cnx))
             {
