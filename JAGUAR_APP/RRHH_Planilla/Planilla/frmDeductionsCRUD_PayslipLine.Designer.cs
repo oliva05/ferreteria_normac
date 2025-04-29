@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.BenefitsDeductions
+﻿namespace JAGUAR_PRO.RRHH_Planilla.BenefitsDeductions
 {
     partial class frmDeductionsCRUD_PayslipLine
     {
@@ -32,7 +32,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.slueConcepto = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.conceptsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientoPlanilla1 = new LOSA.RRHH_Planilla.Mantenimientos.dsMantenimientoPlanilla();
+            this.dsMantenimientoPlanilla1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.dsMantenimientoPlanilla();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,7 +45,7 @@
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.benefitsdeductionstipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsColaborador1 = new LOSA.RRHH_Planilla.dsColaborador();
+            this.dsColaborador1 = new JAGUAR_PRO.RRHH_Planilla.dsColaborador();
             ((System.ComponentModel.ISupportInitialize)(this.slueConcepto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.conceptsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientoPlanilla1)).BeginInit();

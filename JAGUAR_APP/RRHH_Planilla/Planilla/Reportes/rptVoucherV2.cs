@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Drawing;
 
-namespace LOSA.RRHH_Planilla.Planilla.Reportes
+namespace JAGUAR_PRO.Planilla.Reportes
 {
     public partial class rptVoucherV2 : DevExpress.XtraReports.UI.XtraReport
     {
@@ -22,7 +22,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Reportes
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.[usp_rpt_planillas_empleados_lineas_detalle]", con);

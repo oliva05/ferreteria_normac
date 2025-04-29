@@ -1,5 +1,5 @@
 ﻿
-namespace LOSA.MigracionACS.RRHH.RelojFace
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.HorasExtra
 {
     partial class frmResumenHorasExtraTrabajadas
     {
@@ -42,7 +42,7 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.administracionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsFaceReloj = new LOSA.MigracionACS.RRHH.RelojFace.dsFaceReloj();
+            this.dsFaceReloj1 = new JAGUAR_PRO.RRHH_Planilla.dsFaceReloj();
             this.turnosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblFechas = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -75,7 +75,7 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
             this.cmdMoreDetails = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colweek = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.administracionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsFaceReloj)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsFaceReloj1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -95,17 +95,17 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
             // administracionBindingSource
             // 
             this.administracionBindingSource.DataMember = "Administracion";
-            this.administracionBindingSource.DataSource = this.dsFaceReloj;
+            this.administracionBindingSource.DataSource = this.dsFaceReloj1;
             // 
-            // dsFaceReloj
+            // dsFaceReloj1
             // 
-            this.dsFaceReloj.DataSetName = "dsFaceReloj";
-            this.dsFaceReloj.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dsFaceReloj1.DataSetName = "dsFaceReloj";
+            this.dsFaceReloj1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // turnosBindingSource
             // 
             this.turnosBindingSource.DataMember = "Turnos";
-            this.turnosBindingSource.DataSource = this.dsFaceReloj;
+            this.turnosBindingSource.DataSource = this.dsFaceReloj1;
             // 
             // lblFechas
             // 
@@ -141,7 +141,7 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
             // empleadosBindingSource
             // 
             this.empleadosBindingSource.DataMember = "Empleados";
-            this.empleadosBindingSource.DataSource = this.dsFaceReloj;
+            this.empleadosBindingSource.DataSource = this.dsFaceReloj1;
             // 
             // panelControl1
             // 
@@ -177,7 +177,7 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCerrar.Location = new System.Drawing.Point(1029, 55);
             this.cmdCerrar.Name = "cmdCerrar";
@@ -192,7 +192,7 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
             this.cmdAgregarMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAgregarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAgregarMarca.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAgregarMarca.Image = global::LOSA.Properties.Resources.boton_mas24px2;
+            this.cmdAgregarMarca.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.cmdAgregarMarca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdAgregarMarca.Location = new System.Drawing.Point(900, 55);
             this.cmdAgregarMarca.Name = "cmdAgregarMarca";
@@ -208,7 +208,7 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::LOSA.Properties.Resources.sobresalir24;
+            this.button1.Image = global::JAGUAR_PRO.Properties.Resources.export_32x32;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(771, 55);
             this.button1.Name = "button1";
@@ -224,7 +224,7 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
             this.cmdActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdActualizar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdActualizar.Image = global::LOSA.Properties.Resources.Pictogrammers_Material_Refresh1;
+            this.cmdActualizar.Image = global::JAGUAR_PRO.Properties.Resources.refresh_24x24;
             this.cmdActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdActualizar.Location = new System.Drawing.Point(651, 55);
             this.cmdActualizar.Name = "cmdActualizar";
@@ -483,7 +483,7 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
             this.Name = "frmResumenHorasExtraTrabajadas";
             this.Text = "Resumen de Horas de trabajo";
             ((System.ComponentModel.ISupportInitialize)(this.administracionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsFaceReloj)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsFaceReloj1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -507,7 +507,7 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
         private DevExpress.XtraEditors.LabelControl lblFechas;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl lblEmpleado;
-        private dsFaceReloj dsFaceReloj;
+        private dsFaceReloj dsFaceReloj1;
         private System.Windows.Forms.BindingSource empleadosBindingSource;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.DateEdit dt_final;

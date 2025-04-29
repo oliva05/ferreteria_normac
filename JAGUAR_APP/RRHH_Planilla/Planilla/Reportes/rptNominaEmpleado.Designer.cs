@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Reportes
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
 {
     partial class rptNominaEmpleado
     {
@@ -71,7 +71,7 @@
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.dsReporte1 = new LOSA.RRHH_Planilla.Planilla.Reportes.dsReporte();
+            this.dsReporte1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes.dsReporte();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrControlStyle1 = new DevExpress.XtraReports.UI.XRControlStyle();

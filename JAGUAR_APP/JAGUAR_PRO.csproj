@@ -3088,6 +3088,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsColaborador.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\dsFaceReloj.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFaceReloj.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\frmContratoColaborador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3416,6 +3421,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPlanillasTransaccion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmCambiarEstadoPlanillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmCambiarEstadoPlanillas.Designer.cs">
+      <DependentUpon>frmCambiarEstadoPlanillas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmDeductionsCRUD_PayslipLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmDeductionsCRUD_PayslipLine.Designer.cs">
+      <DependentUpon>frmDeductionsCRUD_PayslipLine.cs</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\Planilla\frmHomePlanillas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3450,6 +3467,9 @@
     </Compile>
     <Compile Include="RRHH_Planilla\Planilla\ReporteBanco\frmArchivoBancoPlanilla.Designer.cs">
       <DependentUpon>frmArchivoBancoPlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\dsReporte.cs">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
     </Compile>
     <Compile Include="RRHH_Planilla\Planilla\Reportes\dsReporte.Designer.cs" />
     <Compile Include="RRHH_Planilla\Planilla\Reportes\dsReporte1.Designer.cs">
@@ -4752,6 +4772,12 @@
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\WaitFormEmployee.resx">
       <DependentUpon>WaitFormEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\frmCambiarEstadoPlanillas.resx">
+      <DependentUpon>frmCambiarEstadoPlanillas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\frmDeductionsCRUD_PayslipLine.resx">
+      <DependentUpon>frmDeductionsCRUD_PayslipLine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Planilla\frmHomePlanillas.resx">
       <DependentUpon>frmHomePlanillas.cs</DependentUpon>
     </EmbeddedResource>
@@ -5013,6 +5039,17 @@
     </None>
     <None Include="RRHH_Planilla\dsColaborador.xss">
       <DependentUpon>dsColaborador.xsd</DependentUpon>
+    </None>
+    <None Include="RRHH_Planilla\dsFaceReloj.xsc">
+      <DependentUpon>dsFaceReloj.xsd</DependentUpon>
+    </None>
+    <None Include="RRHH_Planilla\dsFaceReloj.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFaceReloj.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RRHH_Planilla\dsFaceReloj.xss">
+      <DependentUpon>dsFaceReloj.xsd</DependentUpon>
     </None>
     <None Include="RRHH_Planilla\Mantenimientos\dsMantenimientoPlanilla.xsc">
       <DependentUpon>dsMantenimientoPlanilla.xsd</DependentUpon>
@@ -5433,6 +5470,7 @@
   <ItemGroup>
     <Folder Include="Facturacion\Numeracion Fiscal\Model\" />
     <Folder Include="Mantenimientos\Facturacion\" />
+    <Folder Include="RRHH_Planilla\Planilla\HorasExtra\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

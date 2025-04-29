@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Reportes
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
 {
     partial class frmInformePlanilla
     {
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gcPlanilla = new DevExpress.XtraGrid.GridControl();
-            this.dsReporte1 = new LOSA.RRHH_Planilla.Planilla.Reportes.dsReporte();
+            this.dsReporte1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes.dsReporte();
             this.gvPlanilla = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coldepartamento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colempleado = new DevExpress.XtraGrid.Columns.GridColumn();

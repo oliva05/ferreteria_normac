@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Reportes
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
 {
     partial class rptInformePlanillaGeneralHE
     {
@@ -53,7 +53,7 @@
             this.xrTableCell20 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell38 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tcQTHE = new DevExpress.XtraReports.UI.XRTableCell();
-            this.dsReporte1 = new LOSA.RRHH_Planilla.Planilla.Reportes.dsReporte();
+            this.dsReporte1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes.dsReporte();
             this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.groupFooterBand1 = new DevExpress.XtraReports.UI.GroupFooterBand();

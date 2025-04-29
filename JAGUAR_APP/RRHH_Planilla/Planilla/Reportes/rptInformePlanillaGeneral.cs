@@ -6,9 +6,9 @@ using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Data;
 using System.Drawing;
-using LOSA.Clases.Planilla;
+using JAGUAR_PRO.Clases.Planilla;
 
-namespace LOSA.RRHH_Planilla.Planilla.Reportes
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
 {
     public partial class rptInformePlanillaGeneral : DevExpress.XtraReports.UI.XtraReport
     {
@@ -96,7 +96,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Reportes
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.[usp_rpt_PlanillGeneral]", con);

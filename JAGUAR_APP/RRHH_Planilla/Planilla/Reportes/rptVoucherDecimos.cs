@@ -1,9 +1,9 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraReports.UI;
-using LOSA.Clases;
-using LOSA.Clases.Colaborador;
-using LOSA.Clases.Planilla;
-using LOSA.Logistica;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Colaborador;
+using JAGUAR_PRO.Clases.Planilla;
+//using LOSA.Logistica;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 
-namespace LOSA.RRHH_Planilla.Planilla.Reportes
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
 {
     public partial class rptVoucherDecimos : DevExpress.XtraReports.UI.XtraReport
     {
@@ -93,7 +93,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Reportes
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.[GetPlanillasEmpleadosLineas_Detalle_Ingresos_decimos]", con);
@@ -117,7 +117,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Reportes
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.[GetPlanillasEmpleadosLineas_Detalle_EgresosDecimos_RPT]", con);

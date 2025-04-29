@@ -11,11 +11,11 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using ACS.Classes;
 using DevExpress.XtraGrid.Views.Grid;
-using LOSA.Mantenimientos;
-using LOSA.Presupuesto;
-using LOSA.Clases.Colaborador;
+using JAGUAR_PRO.Mantenimientos;
+//using JAGUAR_PRO.Presupuesto;
+using JAGUAR_PRO.Clases.Colaborador;
 
-namespace LOSA.MigracionACS.RRHH.RelojFace
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.HorasExtra
 {
     public partial class frmResumenHorasExtraTrabajadas : DevExpress.XtraEditors.XtraForm
     {
@@ -55,15 +55,15 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
         public void LoadMarcas()
         {
             string query = @"sp_load_empleados_administracion";
-            SqlConnection cn = new SqlConnection(dp.ConnectionStringCostos);
+            SqlConnection cn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
             try
             {
                 cn.Open();
                 SqlCommand cmd = new SqlCommand(query,cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
-                dsFaceReloj.Empleados.Clear();
-                da.Fill(dsFaceReloj.Empleados);
+                dsFaceReloj1.Empleados.Clear();
+                da.Fill(dsFaceReloj1.Empleados);
                 cn.Close();
             }
             catch (Exception ex)
@@ -156,7 +156,7 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
             try
             {
                 string query = @"";
-                SqlConnection cn = new SqlConnection(dp.ConnectionStringCostos);
+                SqlConnection cn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 cn.Open();
                 SqlCommand cmd;
 
@@ -215,8 +215,8 @@ namespace LOSA.MigracionACS.RRHH.RelojFace
                 cmd.Parameters.AddWithValue("@dt_final", dt_final.EditValue);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-                dsFaceReloj.Administracion.Clear();
-                da.Fill(dsFaceReloj.Administracion);
+                dsFaceReloj1.Administracion.Clear();
+                da.Fill(dsFaceReloj1.Administracion);
                 //dsFaceReloj.Turnos.Clear();
                 //da.Fill(dsFaceReloj.Turnos);
 

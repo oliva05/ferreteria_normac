@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,27 @@ namespace JAGUAR_PRO.Clases
                 CajaDialogo.Error(ec.Message);
             }
             return val;
+        }
+
+        public string GetMonthName(DateTime date, string language)
+        {
+            string monthName;
+
+            // Configurar el idioma basado en el parámetro de entrada
+            switch (language.ToLower())
+            {
+                case "spanish":
+                    monthName = date.ToString("MMMM", new CultureInfo("es-ES"));
+                    break;
+                case "english":
+                    monthName = date.ToString("MMMM", new CultureInfo("en-US"));
+                    break;
+                default:
+                    throw new ArgumentException("Idioma no soportado. Utiliza 'spanish' o 'english'.");
+            }
+
+            // Retornar el nombre del mes con la primera letra en mayúscula
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(monthName);
         }
 
 

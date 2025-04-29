@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 {
     partial class frmCambiarEstadoPlanillas
     {
@@ -35,7 +35,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCambiarEstadoPlanillas));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsPlanillasCalculo1 = new LOSA.RRHH_Planilla.Planilla.dsPlanillasCalculo();
+            this.dsPlanillasCalculo1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.dsPlanillasCalculo();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -113,7 +113,7 @@
             // cmdSeleccionar
             // 
             this.cmdSeleccionar.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::LOSA.Properties.Resources._click_24X24;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources._click_24X24;
             this.cmdSeleccionar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdSeleccionar.Name = "cmdSeleccionar";
@@ -124,9 +124,9 @@
             this.cmdGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdGuardar.Image = global::LOSA.Properties.Resources.Custom_Save1;
+            this.cmdGuardar.Image = global::JAGUAR_PRO.Properties.Resources.saveChanges_24x24;
             this.cmdGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdGuardar.Location = new System.Drawing.Point(237, 0);
+            this.cmdGuardar.Location = new System.Drawing.Point(237, 3);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(86, 33);
             this.cmdGuardar.TabIndex = 136;
@@ -140,9 +140,9 @@
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdCerrar.Location = new System.Drawing.Point(329, 0);
+            this.cmdCerrar.Location = new System.Drawing.Point(329, 3);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(86, 33);
             this.cmdCerrar.TabIndex = 135;

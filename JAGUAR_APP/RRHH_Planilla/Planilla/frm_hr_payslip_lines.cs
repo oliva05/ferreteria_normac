@@ -623,8 +623,8 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
             HrEmployee EmpleadoClicked = new HrEmployee();
             if (EmpleadoClicked.RecuperarDatosPorId(IdEmpleadoLoaded))
             {
-                frmResumenHorasExtraTrabajadas frm = new frmResumenHorasExtraTrabajadas(EmpleadoClicked, desde, hasta);
-                frm.Show();
+                //frmResumenHorasExtraTrabajadas frm = new frmResumenHorasExtraTrabajadas(EmpleadoClicked, desde, hasta);
+                //frm.Show();
             }
             
         }

@@ -400,7 +400,7 @@
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCerrar.Location = new System.Drawing.Point(879, 46);
             this.cmdCerrar.Name = "cmdCerrar";
@@ -416,7 +416,7 @@
             this.cmdAgregarDeduccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAgregarDeduccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAgregarDeduccion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAgregarDeduccion.Image = global::LOSA.Properties.Resources.boton_mas24px2;
+            this.cmdAgregarDeduccion.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.cmdAgregarDeduccion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdAgregarDeduccion.Location = new System.Drawing.Point(879, 6);
             this.cmdAgregarDeduccion.Name = "cmdAgregarDeduccion";

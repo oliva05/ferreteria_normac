@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Reportes
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
 {
     partial class rptVoucher
     {
@@ -102,8 +102,8 @@
             this.rtDepartamento = new DevExpress.XtraReports.UI.XRRichText();
             this.rtCodigo = new DevExpress.XtraReports.UI.XRRichText();
             this.rtColaborador = new DevExpress.XtraReports.UI.XRRichText();
-            this.dsPlanillaReportes1 = new LOSA.RRHH_Planilla.Reportes.dsPlanillaReportes();
-            this.dsReporte1 = new LOSA.RRHH_Planilla.Planilla.Reportes.dsReporte();
+            this.dsPlanillaReportes1 = new JAGUAR_PRO.RRHH_Planilla.Reportes.dsPlanillaReportes();
+            this.dsReporte1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes.dsReporte();
             ((System.ComponentModel.ISupportInitialize)(this.xrTableEgresos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTableIngresos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
