@@ -1,9 +1,9 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using LOSA.Accesos.AccesosUsuarios;
-using LOSA.Clases;
-using LOSA.MigracionACS.Tickets.Clases;
+using JAGUAR_PRO.Accesos.AccesosUsuarios;
+using JAGUAR_PRO.Clases;
+//using LOSA.MigracionACS.Tickets.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Planilla
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 {
     public partial class frmCambiarEstadoPlanillas : DevExpress.XtraEditors.XtraForm
     {
@@ -43,7 +43,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 cnx.Open();
                 SqlCommand cmd = new SqlCommand("[dbo].[get_estados_disponibles_planillaH_list]", cnx);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -97,7 +97,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 cnx.Open();
                 SqlCommand cmd = new SqlCommand("[dbo].[UpdateStatePayslipRun]", cnx);
                 cmd.CommandType = CommandType.StoredProcedure;

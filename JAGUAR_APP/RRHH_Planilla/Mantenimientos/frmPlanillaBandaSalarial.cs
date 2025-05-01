@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
 {
     public partial class frmPlanillaBandaSalarial : DevExpress.XtraEditors.XtraForm
     {
@@ -34,7 +34,6 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             InitializeComponent();
             transaccion_tipo= transact;
             usuario=user_p;
-            
         }
 
         public frmPlanillaBandaSalarial(TipoTransaccionPlanilla transact, int id_bandaSalarial,string banda_salarial, UserLogin user_p)
@@ -45,8 +44,6 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             bandaSalarial = banda_salarial;
 
             usuario = user_p;
- 
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)

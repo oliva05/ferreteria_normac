@@ -1,8 +1,8 @@
 ﻿using ACS.Classes;
 using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
-using LOSA.Clases;
-using LOSA.Clases.Planilla;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Planilla;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Mantenimientos
+namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
 {
     public partial class frmPlanillaSalaryRules : DevExpress.XtraEditors.XtraForm
     {
@@ -36,6 +36,8 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             transaccion_tipo= transact;
             usuario=user_p;
             CargarDatosCategoria();
+            tsHabilitado.IsOn = true;
+            tsHabilitado.Enabled = false;
 
         }
 
@@ -105,7 +107,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 switch (transaccion_tipo)
                 {
@@ -150,6 +152,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
                             cmd.Parameters.Add("@note", SqlDbType.VarChar).Value = txtNote.Text;
                             cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = usuario.Id;
                             cmd.Parameters.Add("@id", SqlDbType.Int).Value = salaryRule_id;
+                            cmd.Parameters.AddWithValue("@active", tsHabilitado.IsOn);
 
                             cmd.ExecuteNonQuery();
 
@@ -191,6 +194,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
                     ceAppear.EditValue = salary_rule.ApareceEnNomina;
                     txtNote.Text= salary_rule.Note;
                     txtCode.Enabled = false;
+                    tsHabilitado.IsOn = salary_rule.Habilitado;
                 }
             }
             catch (Exception ex)
@@ -205,16 +209,16 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
-                dsMantenimientoPlanilla.Categoria.Clear();
+                dsMantenimientoPlanilla1.Categoria.Clear();
 
                 using (SqlDataAdapter da = new SqlDataAdapter("dbo.uspLoadSalaryRuleCategory", cnx))
                 {
                     cnx.Open();
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-                    da.Fill(dsMantenimientoPlanilla.Categoria);
+                    da.Fill(dsMantenimientoPlanilla1.Categoria);
                     cnx.Close();
                 }
             }
@@ -227,7 +231,7 @@ namespace LOSA.RRHH_Planilla.Mantenimientos
        public bool ValidarCodigo()
         {
             DataOperations dp = new DataOperations();
-            SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+            SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
             bool existe=false;
             using (SqlCommand cmd = new SqlCommand("dbo.[uspValidateSalaryRuleCode]", cnx))
             {

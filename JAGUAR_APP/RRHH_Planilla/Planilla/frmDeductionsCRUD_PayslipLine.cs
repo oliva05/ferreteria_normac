@@ -1,9 +1,9 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases;
-using LOSA.Clases.Colaborador;
-using LOSA.Clases.Planilla;
-using LOSA.RRHH_Planilla.Mantenimientos;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Colaborador;
+using JAGUAR_PRO.Clases.Planilla;
+using JAGUAR_PRO.RRHH_Planilla.Mantenimientos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.BenefitsDeductions
+namespace JAGUAR_PRO.RRHH_Planilla.BenefitsDeductions
 {
     public partial class frmDeductionsCRUD_PayslipLine : DevExpress.XtraEditors.XtraForm
     {
@@ -71,7 +71,7 @@ namespace LOSA.RRHH_Planilla.BenefitsDeductions
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsMantenimientoPlanilla1.Concepts.Clear();
 
@@ -96,7 +96,7 @@ namespace LOSA.RRHH_Planilla.BenefitsDeductions
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsMantenimientoPlanilla1.benefit_deduction_type.Clear();
 
@@ -122,7 +122,7 @@ namespace LOSA.RRHH_Planilla.BenefitsDeductions
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsColaborador1.benefits_deductions_tipo.Clear();
 
@@ -146,7 +146,7 @@ namespace LOSA.RRHH_Planilla.BenefitsDeductions
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 
                 if (slueConcepto.EditValue == null)

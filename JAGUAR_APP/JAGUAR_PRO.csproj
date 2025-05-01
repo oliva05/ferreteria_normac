@@ -665,6 +665,12 @@
     <Compile Include="Calidad\LoteConfConsumo\frmSearchMP.Designer.cs">
       <DependentUpon>frmSearchMP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calidad\LoteConfConsumo\frmSearchMultItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calidad\LoteConfConsumo\frmSearchMultItems.Designer.cs">
+      <DependentUpon>frmSearchMultItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clases\AlimentacionTolvaMicrosPesaje.cs" />
     <Compile Include="Clases\APMS_OrderProduction.cs" />
     <Compile Include="Clases\BagsPT.cs" />
@@ -3082,6 +3088,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsColaborador.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\dsFaceReloj.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFaceReloj.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\frmContratoColaborador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3104,6 +3115,18 @@
       <DependentUpon>dsMantenimientoPlanilla.xsd</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaAccount.Designer.cs">
+      <DependentUpon>frmPlanillaAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaAccountHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaAccountHome.Designer.cs">
+      <DependentUpon>frmPlanillaAccountHome.cs</DependentUpon>
     </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaBancos.cs">
       <SubType>Form</SubType>
@@ -3135,6 +3158,42 @@
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaCategoria.Designer.cs">
       <DependentUpon>frmPlanillaCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaCategoriaHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaCategoriaHome.Designer.cs">
+      <DependentUpon>frmPlanillaCategoriaHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaConcepts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaConcepts.Designer.cs">
+      <DependentUpon>frmPlanillaConcepts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaConceptsHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaConceptsHome.Designer.cs">
+      <DependentUpon>frmPlanillaConceptsHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaConf_ISR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaConf_ISR.Designer.cs">
+      <DependentUpon>frmPlanillaConf_ISR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaConf_ISR_Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaConf_ISR_Home.Designer.cs">
+      <DependentUpon>frmPlanillaConf_ISR_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaConf_ISR_ViewDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaConf_ISR_ViewDetail.Designer.cs">
+      <DependentUpon>frmPlanillaConf_ISR_ViewDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3152,6 +3211,18 @@
     </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaDepartmentHome.Designer.cs">
       <DependentUpon>frmPlanillaDepartmentHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaEstructuraSalarial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaEstructuraSalarial.Designer.cs">
+      <DependentUpon>frmPlanillaEstructuraSalarial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaEstructuraSalarialHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaEstructuraSalarialHome.Designer.cs">
+      <DependentUpon>frmPlanillaEstructuraSalarialHome.cs</DependentUpon>
     </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaProfession.cs">
       <SubType>Form</SubType>
@@ -3177,6 +3248,18 @@
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaPuestoTrabajoHome.Designer.cs">
       <DependentUpon>frmPlanillaPuestoTrabajoHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaSalaryRules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaSalaryRules.Designer.cs">
+      <DependentUpon>frmPlanillaSalaryRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaSalaryRulesHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaSalaryRulesHome.Designer.cs">
+      <DependentUpon>frmPlanillaSalaryRulesHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoAsignacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3189,6 +3272,18 @@
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoAsignacionHome.Designer.cs">
       <DependentUpon>frmPlanillaTipoAsignacionHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoCambio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoCambio.Designer.cs">
+      <DependentUpon>frmPlanillaTipoCambio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoCambioHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoCambioHome.Designer.cs">
+      <DependentUpon>frmPlanillaTipoCambioHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoExpediente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3200,6 +3295,18 @@
     </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoExpedienteHome.Designer.cs">
       <DependentUpon>frmPlanillaTipoExpedienteHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTiposPanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTiposPanilla.Designer.cs">
+      <DependentUpon>frmPlanillaTiposPanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTiposPlanillaHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\frmPlanillaTiposPlanillaHome.Designer.cs">
+      <DependentUpon>frmPlanillaTiposPlanillaHome.cs</DependentUpon>
     </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\frm_aumento_CRUD.cs">
       <SubType>Form</SubType>
@@ -3314,10 +3421,125 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPlanillasTransaccion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmCambiarEstadoPlanillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmCambiarEstadoPlanillas.Designer.cs">
+      <DependentUpon>frmCambiarEstadoPlanillas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmDeductionsCRUD_PayslipLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmDeductionsCRUD_PayslipLine.Designer.cs">
+      <DependentUpon>frmDeductionsCRUD_PayslipLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmHomePlanillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmHomePlanillas.Designer.cs">
+      <DependentUpon>frmHomePlanillas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmPayslipRunCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frmPayslipRunCRUD.Designer.cs">
+      <DependentUpon>frmPayslipRunCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frm_hr_payslip_lines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frm_hr_payslip_lines.Designer.cs">
+      <DependentUpon>frm_hr_payslip_lines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frm_hr_slips_employees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\frm_hr_slips_employees.Designer.cs">
+      <DependentUpon>frm_hr_slips_employees.cs</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\Planilla\ReporteBanco\dsReportesBancoPlanilla.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReportesBancoPlanilla.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\ReporteBanco\frmArchivoBancoPlanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\ReporteBanco\frmArchivoBancoPlanilla.Designer.cs">
+      <DependentUpon>frmArchivoBancoPlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\dsReporte.cs">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\dsReporte1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\frmInformePlanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\frmInformePlanilla.Designer.cs">
+      <DependentUpon>frmInformePlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneral.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneral.Designer.cs">
+      <DependentUpon>rptInformePlanillaGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneralHE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneralHE.Designer.cs">
+      <DependentUpon>rptInformePlanillaGeneralHE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptNominaEmpleado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptNominaEmpleado.Designer.cs">
+      <DependentUpon>rptNominaEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptPlanillaGeneralDecimos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptPlanillaGeneralDecimos.Designer.cs">
+      <DependentUpon>rptPlanillaGeneralDecimos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucher.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucher.Designer.cs">
+      <DependentUpon>rptVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherDecimos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherDecimos.Designer.cs">
+      <DependentUpon>rptVoucherDecimos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherHE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherHE.Designer.cs">
+      <DependentUpon>rptVoucherHE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherV2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Reportes\rptVoucherV2.Designer.cs">
+      <DependentUpon>rptVoucherV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Reportes\dsPlanillaReportes.cs">
+      <DependentUpon>dsPlanillaReportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Reportes\dsPlanillaReportes.Designer.cs">
+      <DependentUpon>dsPlanillaReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Reportes\dsPlanillaReportes1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPlanillaReportes.xsd</DependentUpon>
     </Compile>
     <Compile Include="SplashForm.cs">
       <SubType>Form</SubType>
@@ -4411,6 +4633,12 @@
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\ContratoRRHH\frmAddAjusteISR_Contrato.resx">
       <DependentUpon>frmAddAjusteISR_Contrato.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaAccount.resx">
+      <DependentUpon>frmPlanillaAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaAccountHome.resx">
+      <DependentUpon>frmPlanillaAccountHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaBancos.resx">
       <DependentUpon>frmPlanillaBancos.cs</DependentUpon>
     </EmbeddedResource>
@@ -4426,6 +4654,24 @@
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaCategoria.resx">
       <DependentUpon>frmPlanillaCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaCategoriaHome.resx">
+      <DependentUpon>frmPlanillaCategoriaHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaConcepts.resx">
+      <DependentUpon>frmPlanillaConcepts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaConceptsHome.resx">
+      <DependentUpon>frmPlanillaConceptsHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaConf_ISR.resx">
+      <DependentUpon>frmPlanillaConf_ISR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaConf_ISR_Home.resx">
+      <DependentUpon>frmPlanillaConf_ISR_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaConf_ISR_ViewDetail.resx">
+      <DependentUpon>frmPlanillaConf_ISR_ViewDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaDepartment.resx">
       <DependentUpon>frmPlanillaDepartment.cs</DependentUpon>
     </EmbeddedResource>
@@ -4434,6 +4680,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaDepartmentHome.resx">
       <DependentUpon>frmPlanillaDepartmentHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaEstructuraSalarial.resx">
+      <DependentUpon>frmPlanillaEstructuraSalarial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaEstructuraSalarialHome.resx">
+      <DependentUpon>frmPlanillaEstructuraSalarialHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaProfession.resx">
       <DependentUpon>frmPlanillaProfession.cs</DependentUpon>
@@ -4447,17 +4699,35 @@
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaPuestoTrabajoHome.resx">
       <DependentUpon>frmPlanillaPuestoTrabajoHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaSalaryRules.resx">
+      <DependentUpon>frmPlanillaSalaryRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaSalaryRulesHome.resx">
+      <DependentUpon>frmPlanillaSalaryRulesHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoAsignacion.resx">
       <DependentUpon>frmPlanillaTipoAsignacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoAsignacionHome.resx">
       <DependentUpon>frmPlanillaTipoAsignacionHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoCambio.resx">
+      <DependentUpon>frmPlanillaTipoCambio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoCambioHome.resx">
+      <DependentUpon>frmPlanillaTipoCambioHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoExpediente.resx">
       <DependentUpon>frmPlanillaTipoExpediente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTipoExpedienteHome.resx">
       <DependentUpon>frmPlanillaTipoExpedienteHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTiposPanilla.resx">
+      <DependentUpon>frmPlanillaTiposPanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frmPlanillaTiposPlanillaHome.resx">
+      <DependentUpon>frmPlanillaTiposPlanillaHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\frm_aumento_CRUD.resx">
       <DependentUpon>frm_aumento_CRUD.cs</DependentUpon>
@@ -4500,6 +4770,54 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\WaitFormEmployee.resx">
       <DependentUpon>WaitFormEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\frmCambiarEstadoPlanillas.resx">
+      <DependentUpon>frmCambiarEstadoPlanillas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\frmDeductionsCRUD_PayslipLine.resx">
+      <DependentUpon>frmDeductionsCRUD_PayslipLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\frmHomePlanillas.resx">
+      <DependentUpon>frmHomePlanillas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\frmPayslipRunCRUD.resx">
+      <DependentUpon>frmPayslipRunCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\frm_hr_payslip_lines.resx">
+      <DependentUpon>frm_hr_payslip_lines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\frm_hr_slips_employees.resx">
+      <DependentUpon>frm_hr_slips_employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\ReporteBanco\frmArchivoBancoPlanilla.resx">
+      <DependentUpon>frmArchivoBancoPlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\frmInformePlanilla.resx">
+      <DependentUpon>frmInformePlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneral.resx">
+      <DependentUpon>rptInformePlanillaGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptInformePlanillaGeneralHE.resx">
+      <DependentUpon>rptInformePlanillaGeneralHE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptNominaEmpleado.resx">
+      <DependentUpon>rptNominaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptPlanillaGeneralDecimos.resx">
+      <DependentUpon>rptPlanillaGeneralDecimos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptVoucher.resx">
+      <DependentUpon>rptVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptVoucherDecimos.resx">
+      <DependentUpon>rptVoucherDecimos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptVoucherHE.resx">
+      <DependentUpon>rptVoucherHE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptVoucherV2.resx">
+      <DependentUpon>rptVoucherV2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
@@ -4721,6 +5039,17 @@
     <None Include="RRHH_Planilla\dsColaborador.xss">
       <DependentUpon>dsColaborador.xsd</DependentUpon>
     </None>
+    <None Include="RRHH_Planilla\dsFaceReloj.xsc">
+      <DependentUpon>dsFaceReloj.xsd</DependentUpon>
+    </None>
+    <None Include="RRHH_Planilla\dsFaceReloj.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFaceReloj.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RRHH_Planilla\dsFaceReloj.xss">
+      <DependentUpon>dsFaceReloj.xsd</DependentUpon>
+    </None>
     <None Include="RRHH_Planilla\Mantenimientos\dsMantenimientoPlanilla.xsc">
       <DependentUpon>dsMantenimientoPlanilla.xsd</DependentUpon>
     </None>
@@ -4797,6 +5126,28 @@
     </None>
     <None Include="RRHH_Planilla\Planilla\ReporteBanco\dsReportesBancoPlanilla.xss">
       <DependentUpon>dsReportesBancoPlanilla.xsd</DependentUpon>
+    </None>
+    <None Include="RRHH_Planilla\Planilla\Reportes\dsReporte.xsc">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </None>
+    <None Include="RRHH_Planilla\Planilla\Reportes\dsReporte.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporte1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RRHH_Planilla\Planilla\Reportes\dsReporte.xss">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </None>
+    <None Include="RRHH_Planilla\Reportes\dsPlanillaReportes.xsc">
+      <DependentUpon>dsPlanillaReportes.xsd</DependentUpon>
+    </None>
+    <None Include="RRHH_Planilla\Reportes\dsPlanillaReportes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPlanillaReportes1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RRHH_Planilla\Reportes\dsPlanillaReportes.xss">
+      <DependentUpon>dsPlanillaReportes.xsd</DependentUpon>
     </None>
     <None Include="Tools\dsTools.xsc">
       <DependentUpon>dsTools.xsd</DependentUpon>
@@ -5118,6 +5469,7 @@
   <ItemGroup>
     <Folder Include="Facturacion\Numeracion Fiscal\Model\" />
     <Folder Include="Mantenimientos\Facturacion\" />
+    <Folder Include="RRHH_Planilla\Planilla\HorasExtra\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

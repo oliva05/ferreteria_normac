@@ -46,6 +46,7 @@ using JAGUAR_PRO.Reportes;
 using JAGUAR_PRO.Reproceso;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
+using JAGUAR_PRO.RRHH_Planilla.Planilla;
 using JAGUAR_PRO.Tools;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
@@ -5099,6 +5100,99 @@ namespace JAGUAR_PRO
             frmPlanillaTipoAsignacionHome frm = new frmPlanillaTipoAsignacionHome(UsuarioLogeado);
             frm.MdiParent= this.MdiParent;
             frm.Show();
+        }
+
+        private void navBarItem200_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaCategoriaHome frm = new frmPlanillaCategoriaHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem205_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaTipoCambioHome frm = new frmPlanillaTipoCambioHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem201_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaSalaryRulesHome frm = new frmPlanillaSalaryRulesHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem204_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaTiposPlanillaHome frm = new frmPlanillaTiposPlanillaHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem207_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaEstructuraSalarialHome frm = new frmPlanillaEstructuraSalarialHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem202_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaConceptsHome frm = new frmPlanillaConceptsHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem206_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaConf_ISR_Home frm = new frmPlanillaConf_ISR_Home(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem203_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmPlanillaAccountHome frm = new frmPlanillaAccountHome(UsuarioLogeado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void navBarItem111_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
+            switch (idNivel)
+            {
+                case 1://Basic View
+                case 2://Basic No Autorization
+                case 3://Medium Autorization
+                    break;
+                case 4://Depth With Delta
+                    accesoprevio = true;
+                    frmHomePlanillas frm5 = new frmHomePlanillas(UsuarioLogeado);
+                    frm5.MdiParent = this.MdiParent;
+                    frm5.Show();
+                    break;
+                case 5://Depth Without Delta
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                //if (UsuarioLogeado.ValidarNivelPermisos())
+                //{
+                    frmHomePlanillas frm1 = new frmHomePlanillas(UsuarioLogeado);
+                    frm1.MdiParent = this.MdiParent;
+                    frm1.Show();
+                //}
+                //else
+                //{
+                //    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #107");
+                //}
+            }
         }
     }
 }

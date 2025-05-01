@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.BenefitsDeductions
+﻿namespace JAGUAR_PRO.RRHH_Planilla.BenefitsDeductions
 {
     partial class frmDeductionsCRUD_PayslipLine
     {
@@ -32,7 +32,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.slueConcepto = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.conceptsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientoPlanilla1 = new LOSA.RRHH_Planilla.Mantenimientos.dsMantenimientoPlanilla();
+            this.dsMantenimientoPlanilla1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.dsMantenimientoPlanilla();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,7 +45,7 @@
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.benefitsdeductionstipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsColaborador1 = new LOSA.RRHH_Planilla.dsColaborador();
+            this.dsColaborador1 = new JAGUAR_PRO.RRHH_Planilla.dsColaborador();
             ((System.ComponentModel.ISupportInitialize)(this.slueConcepto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.conceptsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientoPlanilla1)).BeginInit();
@@ -194,7 +194,7 @@
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.Image = global::LOSA.Properties.Resources.cancel_24x24;
+            this.simpleButton2.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.simpleButton2.Location = new System.Drawing.Point(227, 191);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(96, 46);
@@ -208,7 +208,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseBackColor = true;
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.ImageOptions.Image = global::LOSA.Properties.Resources.save_24x24;
+            this.btnSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
             this.btnSave.Location = new System.Drawing.Point(110, 191);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 46);

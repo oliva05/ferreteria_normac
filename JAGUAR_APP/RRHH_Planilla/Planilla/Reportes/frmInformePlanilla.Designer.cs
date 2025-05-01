@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Reportes
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
 {
     partial class frmInformePlanilla
     {
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gcPlanilla = new DevExpress.XtraGrid.GridControl();
-            this.dsReporte1 = new LOSA.RRHH_Planilla.Planilla.Reportes.dsReporte();
+            this.dsReporte1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes.dsReporte();
             this.gvPlanilla = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coldepartamento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colempleado = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -658,7 +658,7 @@
             this.btnexport.Appearance.Options.UseFont = true;
             this.btnexport.Appearance.Options.UseTextOptions = true;
             this.btnexport.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btnexport.ImageOptions.Image = global::LOSA.Properties.Resources.sobresalir24;
+            this.btnexport.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.export_32x32;
             this.btnexport.Location = new System.Drawing.Point(1269, 36);
             this.btnexport.Name = "btnexport";
             this.btnexport.Size = new System.Drawing.Size(98, 42);
@@ -671,7 +671,7 @@
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnPrint.Appearance.Options.UseFont = true;
-            this.btnPrint.ImageOptions.Image = global::LOSA.Properties.Resources.impresora_24X24;
+            this.btnPrint.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.print_24x24;
             this.btnPrint.Location = new System.Drawing.Point(1165, 36);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(98, 42);
@@ -684,7 +684,7 @@
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.simpleButton1.Location = new System.Drawing.Point(1373, 36);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(98, 42);

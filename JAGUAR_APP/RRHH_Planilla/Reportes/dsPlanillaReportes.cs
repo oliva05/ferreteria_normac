@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Reportes
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Reportes
 {
 
 
@@ -6,7 +6,7 @@
     {
     }
 }
-namespace LOSA.RRHH_Planilla.Reportes {
+namespace JAGUAR_PRO.RRHH_Planilla.Reportes {
     
     
     public partial class dsPlanillaReportes {

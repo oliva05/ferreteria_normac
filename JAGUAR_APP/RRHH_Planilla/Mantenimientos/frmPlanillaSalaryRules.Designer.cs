@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Mantenimientos
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
 {
     partial class frmPlanillaSalaryRules
     {
@@ -34,7 +34,7 @@
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.dsMantenimientoPlanilla = new LOSA.RRHH_Planilla.Mantenimientos.dsMantenimientoPlanilla();
+            this.dsMantenimientoPlanilla1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.dsMantenimientoPlanilla();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtCode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -50,8 +50,10 @@
             this.ceAppear = new DevExpress.XtraEditors.CheckEdit();
             this.txtNote = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.tsHabilitado = new DevExpress.XtraEditors.ToggleSwitch();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientoPlanilla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientoPlanilla1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSecuencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad.Properties)).BeginInit();
@@ -60,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceAppear.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tsHabilitado.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -75,7 +78,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(26, 89);
+            this.labelControl1.Location = new System.Drawing.Point(26, 85);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(54, 17);
             this.labelControl1.TabIndex = 1;
@@ -87,8 +90,8 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseBackColor = true;
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.ImageOptions.Image = global::LOSA.Properties.Resources.save_24x24;
-            this.btnSave.Location = new System.Drawing.Point(126, 374);
+            this.btnSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
+            this.btnSave.Location = new System.Drawing.Point(121, 408);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 46);
             this.btnSave.TabIndex = 7;
@@ -101,8 +104,8 @@
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.Image = global::LOSA.Properties.Resources.cancel_24x24;
-            this.simpleButton2.Location = new System.Drawing.Point(243, 374);
+            this.simpleButton2.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
+            this.simpleButton2.Location = new System.Drawing.Point(238, 408);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(96, 46);
             this.simpleButton2.TabIndex = 8;
@@ -119,10 +122,10 @@
             this.labelControl3.TabIndex = 9;
             this.labelControl3.Text = "Regla Salarial";
             // 
-            // dsMantenimientoPlanilla
+            // dsMantenimientoPlanilla1
             // 
-            this.dsMantenimientoPlanilla.DataSetName = "dsMantenimientoPlanilla";
-            this.dsMantenimientoPlanilla.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dsMantenimientoPlanilla1.DataSetName = "dsMantenimientoPlanilla";
+            this.dsMantenimientoPlanilla1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelControl2
             // 
@@ -147,7 +150,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(16, 115);
+            this.labelControl4.Location = new System.Drawing.Point(17, 115);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(64, 17);
             this.labelControl4.TabIndex = 13;
@@ -219,7 +222,7 @@
             // categoriaBindingSource
             // 
             this.categoriaBindingSource.DataMember = "Categoria";
-            this.categoriaBindingSource.DataSource = this.dsMantenimientoPlanilla;
+            this.categoriaBindingSource.DataSource = this.dsMantenimientoPlanilla1;
             // 
             // searchLookUpEdit1View
             // 
@@ -277,11 +280,34 @@
             this.labelControl7.TabIndex = 20;
             this.labelControl7.Text = "Nota:";
             // 
+            // tsHabilitado
+            // 
+            this.tsHabilitado.Location = new System.Drawing.Point(223, 359);
+            this.tsHabilitado.Name = "tsHabilitado";
+            this.tsHabilitado.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.tsHabilitado.Properties.Appearance.Options.UseFont = true;
+            this.tsHabilitado.Properties.OffText = "No";
+            this.tsHabilitado.Properties.OnText = "Si";
+            this.tsHabilitado.Size = new System.Drawing.Size(95, 24);
+            this.tsHabilitado.TabIndex = 21;
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(137, 362);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(69, 17);
+            this.labelControl8.TabIndex = 22;
+            this.labelControl8.Text = "Habilitado:";
+            // 
             // frmPlanillaSalaryRules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 437);
+            this.ClientSize = new System.Drawing.Size(453, 476);
+            this.Controls.Add(this.labelControl8);
+            this.Controls.Add(this.tsHabilitado);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.ceAppear);
             this.Controls.Add(this.labelControl6);
@@ -306,7 +332,7 @@
             this.Text = "Regla Salarial";
             this.Load += new System.EventHandler(this.frmPlanillaCategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientoPlanilla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientoPlanilla1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSecuencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad.Properties)).EndInit();
@@ -315,6 +341,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceAppear.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tsHabilitado.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,7 +354,7 @@
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private dsMantenimientoPlanilla dsMantenimientoPlanilla;
+        private dsMantenimientoPlanilla dsMantenimientoPlanilla1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtCode;
         private DevExpress.XtraEditors.LabelControl labelControl4;
@@ -343,5 +370,7 @@
         private System.Windows.Forms.BindingSource categoriaBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.ToggleSwitch tsHabilitado;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
     }
 }

@@ -5,12 +5,12 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraRichEdit.Fields;
-using LOSA.Clases;
-using LOSA.Clases.Colaborador;
-using LOSA.Clases.Planilla;
-using LOSA.MigracionACS.RRHH.RelojFace;
-using LOSA.RRHH_Planilla.BenefitsDeductions;
-using LOSA.RRHH_Planilla.Planilla.Reportes;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Colaborador;
+using JAGUAR_PRO.Clases.Planilla;
+//using JAGUAR_PRO.MigracionACS.RRHH.RelojFace;
+using JAGUAR_PRO.RRHH_Planilla.BenefitsDeductions;
+using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Planilla
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 {
     public partial class frm_hr_payslip_lines : DevExpress.XtraEditors.XtraForm
     {
@@ -210,7 +210,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.[GetPlanillasEmpleadosLineas_Detalle_Decimo]", con);
@@ -233,7 +233,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.GetPlanillasEmpleadosLineas_Detalle", con);
@@ -257,7 +257,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.[GetPlanillasEmpleadosLineas_Detalle_HE]", con);
@@ -330,7 +330,7 @@ namespace LOSA.RRHH_Planilla.Planilla
                     try
                     {
                         DataOperations dp = new DataOperations();
-                        SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                        SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         con.Open();
 
                         SqlCommand cmd = new SqlCommand("[dbo].[Update_payslip_line_id_disable]", con);
@@ -385,7 +385,7 @@ namespace LOSA.RRHH_Planilla.Planilla
                                 try
                                 {
                                     DataOperations dp = new DataOperations();
-                                    SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                                     con.Open();
 
                                     SqlCommand cmd = new SqlCommand("[dbo].[SetNotaLineaPlanilla_empleado]", con);
@@ -507,7 +507,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.spSetUpdate_Payslip_line_by_id", con);
@@ -623,8 +623,8 @@ namespace LOSA.RRHH_Planilla.Planilla
             HrEmployee EmpleadoClicked = new HrEmployee();
             if (EmpleadoClicked.RecuperarDatosPorId(IdEmpleadoLoaded))
             {
-                frmResumenHorasExtraTrabajadas frm = new frmResumenHorasExtraTrabajadas(EmpleadoClicked, desde, hasta);
-                frm.Show();
+                //frmResumenHorasExtraTrabajadas frm = new frmResumenHorasExtraTrabajadas(EmpleadoClicked, desde, hasta);
+                //frm.Show();
             }
             
         }

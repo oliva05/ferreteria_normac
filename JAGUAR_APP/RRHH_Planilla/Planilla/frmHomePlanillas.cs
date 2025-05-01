@@ -3,10 +3,12 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
-using LOSA.Clases;
-using LOSA.Clases.Planilla;
-using LOSA.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
-using LOSA.RRHH_Planilla.Planilla.Reportes;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Planilla;
+using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
+using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
+
+//using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +21,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Planilla
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 {
     public partial class frmHomePlanillas : DevExpress.XtraEditors.XtraForm
     {
@@ -53,7 +55,7 @@ namespace LOSA.RRHH_Planilla.Planilla
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("dbo.[get_paylisp_run_list_v2]", con);

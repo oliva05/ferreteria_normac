@@ -1,4 +1,6 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Reportes
+﻿using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
+
+namespace JAGUAR_PRO.Planilla.Reportes
 {
     partial class rptVoucherV2
     {
@@ -32,8 +34,8 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.dsPlanillaReportes1 = new LOSA.RRHH_Planilla.Reportes.dsPlanillaReportes();
-            this.dsReporte1 = new LOSA.RRHH_Planilla.Planilla.Reportes.dsReporte();
+            this.dsPlanillaReportes1 = new JAGUAR_PRO.RRHH_Planilla.Reportes.dsPlanillaReportes();
+            this.dsReporte1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes.dsReporte();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();

@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 {
     partial class frmPayslipRunCRUD
     {
@@ -41,7 +41,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gleEstado = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bsEstados = new System.Windows.Forms.BindingSource(this.components);
-            this.dsPlanillasTransaccion1 = new LOSA.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
+            this.dsPlanillasTransaccion1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -484,7 +484,7 @@
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCerrar.Location = new System.Drawing.Point(1021, 0);
             this.cmdCerrar.Name = "cmdCerrar";
@@ -500,7 +500,7 @@
             this.cmdGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdGuardar.Image = global::LOSA.Properties.Resources.Custom_Save_24;
+            this.cmdGuardar.Image = global::JAGUAR_PRO.Properties.Resources.saveChanges_24x24;
             this.cmdGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdGuardar.Location = new System.Drawing.Point(929, 0);
             this.cmdGuardar.Name = "cmdGuardar";

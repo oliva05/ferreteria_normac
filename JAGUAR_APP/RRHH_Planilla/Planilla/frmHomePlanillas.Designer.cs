@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 {
     partial class frmHomePlanillas
     {
@@ -55,7 +55,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsPlanillasTransaccion1 = new LOSA.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
+            this.dsPlanillasTransaccion1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -112,8 +112,8 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "payslip_run";
             this.gridControl1.DataSource = this.dsPlanillasTransaccion1;
@@ -350,7 +350,7 @@
             // cmdOpcioensPlanilla
             // 
             this.cmdOpcioensPlanilla.AutoHeight = false;
-            editorButtonImageOptions2.Image = global::LOSA.Properties.Resources.ver_mas16px;
+            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.view2_32x32;
             this.cmdOpcioensPlanilla.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdOpcioensPlanilla.Name = "cmdOpcioensPlanilla";
@@ -450,7 +450,7 @@
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_32x32;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCerrar.Location = new System.Drawing.Point(1014, 42);
             this.cmdCerrar.Name = "cmdCerrar";
@@ -487,7 +487,7 @@
             this.cmdAddPlanilla.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAddPlanilla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAddPlanilla.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAddPlanilla.Image = global::LOSA.Properties.Resources.boton_mas24px3;
+            this.cmdAddPlanilla.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.cmdAddPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdAddPlanilla.Location = new System.Drawing.Point(894, 42);
             this.cmdAddPlanilla.Name = "cmdAddPlanilla";
@@ -503,7 +503,7 @@
             this.cmdActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdActualizar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdActualizar.Image = global::LOSA.Properties.Resources.Pictogrammers_Material_Refresh1;
+            this.cmdActualizar.Image = global::JAGUAR_PRO.Properties.Resources.refresh_24x24;
             this.cmdActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdActualizar.Location = new System.Drawing.Point(774, 42);
             this.cmdActualizar.Name = "cmdActualizar";
@@ -525,7 +525,7 @@
             // btnExcel
             // 
             this.btnExcel.AutoHeight = false;
-            editorButtonImageOptions5.Image = global::LOSA.Properties.Resources.export_excel_16x16;
+            editorButtonImageOptions5.Image = global::JAGUAR_PRO.Properties.Resources.export_32x32;
             this.btnExcel.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnExcel.Name = "btnExcel";

@@ -20,6 +20,7 @@ namespace JAGUAR_PRO.Clases.Planilla
         public int Cantidad { get; set; }
         public bool ApareceEnNomina { get; set; }
         public bool Recuperado { get; set; }
+        public bool Habilitado { get; set; }
 
         public bool RecuperaRegistro(int id)
         {
@@ -48,6 +49,7 @@ namespace JAGUAR_PRO.Clases.Planilla
                         Secuencia= dr.IsDBNull(dr.GetOrdinal("sequence")) ? 0 : Convert.ToInt32(dr["sequence"].ToString());
                         ApareceEnNomina= dr.IsDBNull(dr.GetOrdinal("appears_on_payslip")) ? false :  Convert.ToBoolean(dr["appears_on_payslip"].ToString());
                         Categoria = dr.IsDBNull(dr.GetOrdinal("categoria")) ? "" : dr["categoria"].ToString();
+                        Habilitado = dr.IsDBNull(dr.GetOrdinal("active")) ? false : Convert.ToBoolean(dr["active"].ToString());
                         Recuperado = true;
                     }
                     cnx.Close();

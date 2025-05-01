@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.ReporteBanco
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.ReporteBanco
 {
     partial class frmArchivoBancoPlanilla
     {
@@ -31,7 +31,7 @@
             this.cmdExportar = new System.Windows.Forms.Button();
             this.cmdCerrar = new System.Windows.Forms.Button();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsReportesBancoPlanilla1 = new LOSA.RRHH_Planilla.Planilla.ReporteBanco.dsReportesBancoPlanilla();
+            this.dsReportesBancoPlanilla1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.ReporteBanco.dsReportesBancoPlanilla();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colfila = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,7 +40,7 @@
             this.colemployee_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dsPlanillasTransaccion1 = new LOSA.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
+            this.dsPlanillasTransaccion1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesBancoPlanilla1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -52,7 +52,7 @@
             this.cmdExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdExportar.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.cmdExportar.Image = global::LOSA.Properties.Resources.sobresalir241;
+            //this.cmdExportar.Image = global::JAGUAR_PRO.Properties.Resources.sobresalir241;
             this.cmdExportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdExportar.Location = new System.Drawing.Point(583, 2);
             this.cmdExportar.Name = "cmdExportar";
@@ -68,7 +68,7 @@
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_32x32;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCerrar.Location = new System.Drawing.Point(697, 2);
             this.cmdCerrar.Name = "cmdCerrar";

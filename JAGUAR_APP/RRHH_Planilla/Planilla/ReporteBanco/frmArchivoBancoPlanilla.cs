@@ -4,8 +4,8 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
 using DocumentFormat.OpenXml.Office2010.Excel;
-using LOSA.Clases;
-using LOSA.Clases.Planilla;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Planilla;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Planilla.ReporteBanco
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.ReporteBanco
 {
     public partial class frmArchivoBancoPlanilla : DevExpress.XtraEditors.XtraForm
     {
@@ -75,7 +75,7 @@ namespace LOSA.RRHH_Planilla.Planilla.ReporteBanco
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("[dbo].[GetPlanillasEmpleadosListResume_ArchivoBanco]", con);

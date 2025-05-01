@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 {
     partial class frm_hr_payslip_lines
     {
@@ -35,7 +35,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsPlanillasTransaccion1 = new LOSA.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
+            this.dsPlanillasTransaccion1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colslip_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -400,7 +400,7 @@
             this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Image = global::LOSA.Properties.Resources.Danieledesantis_Playstation_Flat_Playstation_cross_black_and_white_24;
+            this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCerrar.Location = new System.Drawing.Point(879, 46);
             this.cmdCerrar.Name = "cmdCerrar";
@@ -416,7 +416,7 @@
             this.cmdAgregarDeduccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAgregarDeduccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAgregarDeduccion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAgregarDeduccion.Image = global::LOSA.Properties.Resources.boton_mas24px2;
+            this.cmdAgregarDeduccion.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.cmdAgregarDeduccion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdAgregarDeduccion.Location = new System.Drawing.Point(879, 6);
             this.cmdAgregarDeduccion.Name = "cmdAgregarDeduccion";
@@ -432,7 +432,7 @@
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Image = global::LOSA.Properties.Resources.impresora_24X24;
+            this.btnPrint.Image = global::JAGUAR_PRO.Properties.Resources.print_24x24;
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrint.Location = new System.Drawing.Point(775, 46);
             this.btnPrint.Name = "btnPrint";
@@ -448,7 +448,7 @@
             this.cmdSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSiguiente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSiguiente.Image = global::LOSA.Properties.Resources.flecha_derecha24;
+            //this.cmdSiguiente.Image = global::JAGUAR_PRO.Properties.Resources.flecha_derecha24;
             this.cmdSiguiente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdSiguiente.Location = new System.Drawing.Point(677, 46);
             this.cmdSiguiente.Name = "cmdSiguiente";
@@ -464,7 +464,7 @@
             this.cmdAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAnterior.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAnterior.Image = global::LOSA.Properties.Resources.flecha_izquierda24;
+            //this.cmdAnterior.Image = global::LOSA.Properties.Resources.flecha_izquierda24;
             this.cmdAnterior.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdAnterior.Location = new System.Drawing.Point(579, 46);
             this.cmdAnterior.Name = "cmdAnterior";
@@ -480,7 +480,7 @@
             this.cmdVerMarcas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdVerMarcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdVerMarcas.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdVerMarcas.Image = global::LOSA.Properties.Resources.calendario24;
+            //this.cmdVerMarcas.Image = global::JAGUAR_PRO.Properties.Resources.calendario24;
             this.cmdVerMarcas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdVerMarcas.Location = new System.Drawing.Point(775, 7);
             this.cmdVerMarcas.Name = "cmdVerMarcas";
