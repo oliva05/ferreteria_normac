@@ -28,6 +28,9 @@ namespace JAGUAR_PRO.Clases
         public string EstadoNombre { get; set; }
         public decimal TotalPedido { get; set; }
         public string OrdenCompra { get; set; }
+        public int Id_Vendedor { get; set; }
+        public string CodigoVendedor { get; set; }
+        
         public bool Recuperado { get; set; }
 
         DataOperations dp;
@@ -85,6 +88,13 @@ namespace JAGUAR_PRO.Clases
                         if (!reader.IsDBNull(reader.GetOrdinal("id_punto_venta")))
                             IdPuntoVenta = (int)reader["id_punto_venta"];
                         //RecuperaDatosPDVFromPedidoCliente(IdPuntoVenta);
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("id_vendedor")))
+                            Id_Vendedor = (int)reader["id_vendedor"];
+
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("codigo_vendedor")))
+                            CodigoVendedor = reader["codigo_vendedor"].ToString();
                         Recuperado = true;
                     }
 

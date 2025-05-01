@@ -57,7 +57,7 @@ namespace Eatery.Ventas
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.label11 = new System.Windows.Forms.Label();
             this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtAsesorVendedor = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.gleBanco = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bsBancos = new System.Windows.Forms.BindingSource(this.components);
@@ -114,7 +114,7 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
             this.navigationPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAsesorVendedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleBanco.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBancos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPedidosClientesV1)).BeginInit();
@@ -273,7 +273,7 @@ namespace Eatery.Ventas
             this.navigationPage1.Caption = "navigationPage1";
             this.navigationPage1.Controls.Add(this.label11);
             this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
-            this.navigationPage1.Controls.Add(this.textEdit1);
+            this.navigationPage1.Controls.Add(this.txtAsesorVendedor);
             this.navigationPage1.Controls.Add(this.label10);
             this.navigationPage1.Controls.Add(this.gleBanco);
             this.navigationPage1.Controls.Add(this.gleTipoPago);
@@ -331,15 +331,15 @@ namespace Eatery.Ventas
             this.cmdChangeVendedor.TabIndex = 53;
             this.cmdChangeVendedor.Click += new System.EventHandler(this.cmdChangeVendedor_Click);
             // 
-            // textEdit1
+            // txtAsesorVendedor
             // 
-            this.textEdit1.Location = new System.Drawing.Point(897, 131);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(209, 24);
-            this.textEdit1.TabIndex = 52;
-            this.textEdit1.DoubleClick += new System.EventHandler(this.textEdit1_DoubleClick);
+            this.txtAsesorVendedor.Location = new System.Drawing.Point(897, 131);
+            this.txtAsesorVendedor.Name = "txtAsesorVendedor";
+            this.txtAsesorVendedor.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAsesorVendedor.Properties.Appearance.Options.UseFont = true;
+            this.txtAsesorVendedor.Size = new System.Drawing.Size(209, 24);
+            this.txtAsesorVendedor.TabIndex = 52;
+            this.txtAsesorVendedor.DoubleClick += new System.EventHandler(this.textEdit1_DoubleClick);
             // 
             // label10
             // 
@@ -746,7 +746,7 @@ namespace Eatery.Ventas
             this.colcantidad.Name = "colcantidad";
             this.colcantidad.OptionsColumn.ReadOnly = true;
             this.colcantidad.Visible = true;
-            this.colcantidad.VisibleIndex = 6;
+            this.colcantidad.VisibleIndex = 5;
             this.colcantidad.Width = 49;
             // 
             // colprecio
@@ -756,7 +756,7 @@ namespace Eatery.Ventas
             this.colprecio.FieldName = "precio";
             this.colprecio.Name = "colprecio";
             this.colprecio.Visible = true;
-            this.colprecio.VisibleIndex = 7;
+            this.colprecio.VisibleIndex = 6;
             this.colprecio.Width = 54;
             // 
             // coldescuento
@@ -766,7 +766,7 @@ namespace Eatery.Ventas
             this.coldescuento.FieldName = "descuento";
             this.coldescuento.Name = "coldescuento";
             this.coldescuento.Visible = true;
-            this.coldescuento.VisibleIndex = 8;
+            this.coldescuento.VisibleIndex = 7;
             this.coldescuento.Width = 43;
             // 
             // colisv1
@@ -778,7 +778,7 @@ namespace Eatery.Ventas
             this.colisv1.Name = "colisv1";
             this.colisv1.OptionsColumn.ReadOnly = true;
             this.colisv1.Visible = true;
-            this.colisv1.VisibleIndex = 9;
+            this.colisv1.VisibleIndex = 8;
             this.colisv1.Width = 42;
             // 
             // colisv2
@@ -799,7 +799,7 @@ namespace Eatery.Ventas
             this.coltotal_linea.Name = "coltotal_linea";
             this.coltotal_linea.OptionsColumn.ReadOnly = true;
             this.coltotal_linea.Visible = true;
-            this.coltotal_linea.VisibleIndex = 10;
+            this.coltotal_linea.VisibleIndex = 9;
             this.coltotal_linea.Width = 95;
             // 
             // colDelete
@@ -808,7 +808,7 @@ namespace Eatery.Ventas
             this.colDelete.ColumnEdit = this.cmdDeleteRowFactura;
             this.colDelete.Name = "colDelete";
             this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 11;
+            this.colDelete.VisibleIndex = 10;
             this.colDelete.Width = 61;
             // 
             // cmdDeleteRowFactura
@@ -838,7 +838,7 @@ namespace Eatery.Ventas
             this.colbodega_descripcion.FieldName = "bodega_descripcion";
             this.colbodega_descripcion.Name = "colbodega_descripcion";
             this.colbodega_descripcion.Visible = true;
-            this.colbodega_descripcion.VisibleIndex = 4;
+            this.colbodega_descripcion.VisibleIndex = 3;
             this.colbodega_descripcion.Width = 74;
             // 
             // colGestionAlmacen
@@ -847,7 +847,7 @@ namespace Eatery.Ventas
             this.colGestionAlmacen.ColumnEdit = this.cmdElejirAlmacen;
             this.colGestionAlmacen.Name = "colGestionAlmacen";
             this.colGestionAlmacen.Visible = true;
-            this.colGestionAlmacen.VisibleIndex = 5;
+            this.colGestionAlmacen.VisibleIndex = 4;
             this.colGestionAlmacen.Width = 50;
             // 
             // cmdElejirAlmacen
@@ -867,8 +867,6 @@ namespace Eatery.Ventas
             this.colinventario_seleccionado.FieldName = "inventario_seleccionado";
             this.colinventario_seleccionado.Name = "colinventario_seleccionado";
             this.colinventario_seleccionado.OptionsColumn.ReadOnly = true;
-            this.colinventario_seleccionado.Visible = true;
-            this.colinventario_seleccionado.VisibleIndex = 3;
             this.colinventario_seleccionado.Width = 58;
             // 
             // frmPedidoCliente
@@ -889,7 +887,7 @@ namespace Eatery.Ventas
             this.navigationFrame1.ResumeLayout(false);
             this.navigationPage1.ResumeLayout(false);
             this.navigationPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAsesorVendedor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleBanco.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBancos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPedidosClientesV1)).EndInit();
@@ -975,7 +973,7 @@ namespace Eatery.Ventas
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion2;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtAsesorVendedor;
         private System.Windows.Forms.Label label10;
         private DevExpress.XtraEditors.SimpleButton cmdChangeVendedor;
         private System.Windows.Forms.Label label11;
