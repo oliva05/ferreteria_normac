@@ -19,6 +19,7 @@ namespace JAGUAR_PRO.Clases
         public int IdUser { get; set; }
         public DateTime FechaDocumento { get; set; }
         public int IdCliente { get; set; }
+        public int IdEmpresa { get; set; }
         public string RTN { get; set; }
         public int IdPuntoVenta { get; set; }
         public string ClienteNombre { get; set; }

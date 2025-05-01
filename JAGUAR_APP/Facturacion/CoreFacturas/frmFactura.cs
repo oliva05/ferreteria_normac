@@ -2189,7 +2189,6 @@ namespace Eatery.Ventas
 
         private void cmdCopiarFromPedido_Click(object sender, EventArgs e)
         {
-            //frmSearchCotizaciones frm = new frmSearchCotizaciones(UsuarioLogeado, PuntoDeVentaActual);
             frmSearchPedidos frm = new frmSearchPedidos(UsuarioLogeado, PuntoDeVentaActual);
             if (frm.ShowDialog() == DialogResult.OK)
             {
@@ -2207,6 +2206,7 @@ namespace Eatery.Ventas
                     {
                         txtVendedor.Text = UsuarioLogeado.Codigo + " - " + UsuarioLogeado.NombreUser;
                     }
+
                     PedidoRecuperado = Pedido1;
 
                     if (ClienteFactura.RecuperarRegistro(Pedido1.IdCliente))

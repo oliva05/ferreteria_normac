@@ -91,19 +91,19 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             equipo = new FacturacionEquipo();
             PDV puntoVenta1 = new PDV();
 
-            if (equipo.RecuperarRegistro(HostName))
-            {
-                if (!puntoVenta1.RecuperaRegistro(equipo.id_punto_venta))
-                {
-                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
-                    return;
-                }
-            }
-            else
-            {
-                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
-                return;
-            }
+            //if (equipo.RecuperarRegistro(HostName))
+            //{
+            //    if (!puntoVenta1.RecuperaRegistro(equipo.id_punto_venta))
+            //    {
+            //        CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+            //        return;
+            //    }
+            //}
+            //else
+            //{
+            //    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+            //    return;
+            //}
 
             var gridView = (GridView)gridControl1.FocusedView;
             var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
