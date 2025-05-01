@@ -36,6 +36,8 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
             transaccion_tipo= transact;
             usuario=user_p;
             CargarDatosCategoria();
+            tsHabilitado.IsOn = true;
+            tsHabilitado.Enabled = false;
 
         }
 
@@ -150,6 +152,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                             cmd.Parameters.Add("@note", SqlDbType.VarChar).Value = txtNote.Text;
                             cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = usuario.Id;
                             cmd.Parameters.Add("@id", SqlDbType.Int).Value = salaryRule_id;
+                            cmd.Parameters.AddWithValue("@active", tsHabilitado.IsOn);
 
                             cmd.ExecuteNonQuery();
 
@@ -191,6 +194,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                     ceAppear.EditValue = salary_rule.ApareceEnNomina;
                     txtNote.Text= salary_rule.Note;
                     txtCode.Enabled = false;
+                    tsHabilitado.IsOn = salary_rule.Habilitado;
                 }
             }
             catch (Exception ex)
@@ -207,14 +211,14 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
 
                 SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
-                dsMantenimientoPlanilla.Categoria.Clear();
+                dsMantenimientoPlanilla1.Categoria.Clear();
 
                 using (SqlDataAdapter da = new SqlDataAdapter("dbo.uspLoadSalaryRuleCategory", cnx))
                 {
                     cnx.Open();
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-                    da.Fill(dsMantenimientoPlanilla.Categoria);
+                    da.Fill(dsMantenimientoPlanilla1.Categoria);
                     cnx.Close();
                 }
             }

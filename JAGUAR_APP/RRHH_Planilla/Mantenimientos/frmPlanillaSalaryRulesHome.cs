@@ -150,11 +150,11 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
             {
                 var row =(dsMantenimientoPlanilla.salary_ruleRow)gvSalaryRule.GetFocusedDataRow() ;
 
-                if (row.active == false)
-                {
-                    CajaDialogo.Error("No se puede editar debido a que ya está deshabilitada");
-                    return;
-                }
+                //if (row.active == false)
+                //{
+                //    CajaDialogo.Error("No se puede editar debido a que ya está deshabilitada");
+                //    return;
+                //}
 
                 frmPlanillaSalaryRules frm = new frmPlanillaSalaryRules(frmPlanillaSalaryRules.TipoTransaccionPlanilla.Editar,row.id,usuarioLog);
 
