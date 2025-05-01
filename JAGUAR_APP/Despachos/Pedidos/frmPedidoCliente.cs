@@ -49,6 +49,10 @@ namespace Eatery.Ventas
         Int64 ProIdCliente;
         ClienteFacturacion ClienteFactura;
         int IdTerminoPago;
+        public enum TipoOperacionSQL
+        {
+            Insert = 1, Update = 2
+        }
 
         UserLogin UsuarioLogeado;
         public enum Busqueda
@@ -144,13 +148,13 @@ namespace Eatery.Ventas
                     {
                         //lblOpcionesBuffetRadioButtonGroup.Visible =
                         //radioGroupVentaComidaBuffet.Visible = true;
-                        LoadDefaultOptionRadioButtos();
+                        //LoadDefaultOptionRadioButtos();
                     }
                     else
                     {
                         //lblOpcionesBuffetRadioButtonGroup.Visible = 
                         //radioGroupVentaComidaBuffet.Visible = false;
-                        LoadDefaultOptionRadioButtos();
+                        //LoadDefaultOptionRadioButtos();
                     }
                 }
             }
