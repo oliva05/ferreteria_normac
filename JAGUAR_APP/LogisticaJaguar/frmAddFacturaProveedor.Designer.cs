@@ -75,7 +75,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.coldescripcion_mp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_ud_medida_jaguar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.R_GridLookUpEdit_Ud_medida_Jaguar = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.bindingS_UnidadMedidaJaguar = new System.Windows.Forms.BindingSource(this.components);
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -99,6 +98,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.coltype_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bindingS_UnidadMedidaJaguar = new System.Windows.Forms.BindingSource(this.components);
             this.cmdAddFactura = new DevExpress.XtraEditors.SimpleButton();
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
@@ -151,7 +151,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.R_GridLookUpEdit_Ud_medida_Jaguar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingS_UnidadMedidaJaguar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridLookUpE_Bodega)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingS_Bodegas)).BeginInit();
@@ -160,6 +159,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.bindSourceMP_y_ME_mix)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingS_UnidadMedidaJaguar)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtHoraEntregado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHoraEntregado.Properties.CalendarTimeProperties)).BeginInit();
@@ -433,7 +433,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colcantidad.Name = "colcantidad";
             this.colcantidad.Visible = true;
             this.colcantidad.VisibleIndex = 1;
-            this.colcantidad.Width = 98;
+            this.colcantidad.Width = 107;
             // 
             // colid_ud_medida_prv
             // 
@@ -442,7 +442,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colid_ud_medida_prv.Name = "colid_ud_medida_prv";
             this.colid_ud_medida_prv.Visible = true;
             this.colid_ud_medida_prv.VisibleIndex = 2;
-            this.colid_ud_medida_prv.Width = 88;
+            this.colid_ud_medida_prv.Width = 96;
             // 
             // RGridLookUpE_UdMedidaFactura
             // 
@@ -489,7 +489,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // colid_mp
             // 
-            this.colid_mp.Caption = "Materia Prima/Material Empaque";
+            this.colid_mp.Caption = "Producto";
             this.colid_mp.ColumnEdit = this.RGridLookUpE_MateriaPrimaList;
             this.colid_mp.FieldName = "id_mp";
             this.colid_mp.Name = "colid_mp";
@@ -550,23 +550,18 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colid_ud_medida_jaguar.Name = "colid_ud_medida_jaguar";
             this.colid_ud_medida_jaguar.Visible = true;
             this.colid_ud_medida_jaguar.VisibleIndex = 4;
-            this.colid_ud_medida_jaguar.Width = 105;
+            this.colid_ud_medida_jaguar.Width = 112;
             // 
             // R_GridLookUpEdit_Ud_medida_Jaguar
             // 
             this.R_GridLookUpEdit_Ud_medida_Jaguar.AutoHeight = false;
             this.R_GridLookUpEdit_Ud_medida_Jaguar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.R_GridLookUpEdit_Ud_medida_Jaguar.DataSource = this.bindingS_UnidadMedidaJaguar;
+            this.R_GridLookUpEdit_Ud_medida_Jaguar.DataSource = this.bindingSourceUnidadMedidaFact;
             this.R_GridLookUpEdit_Ud_medida_Jaguar.DisplayMember = "descripcion";
             this.R_GridLookUpEdit_Ud_medida_Jaguar.Name = "R_GridLookUpEdit_Ud_medida_Jaguar";
             this.R_GridLookUpEdit_Ud_medida_Jaguar.PopupView = this.gridView4;
             this.R_GridLookUpEdit_Ud_medida_Jaguar.ValueMember = "id";
-            // 
-            // bindingS_UnidadMedidaJaguar
-            // 
-            this.bindingS_UnidadMedidaJaguar.DataMember = "unidad_medida_jaguar";
-            this.bindingS_UnidadMedidaJaguar.DataSource = this.dsLogisticaJaguar1;
             // 
             // gridView4
             // 
@@ -603,7 +598,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colcantidad_ingreso.Name = "colcantidad_ingreso";
             this.colcantidad_ingreso.Visible = true;
             this.colcantidad_ingreso.VisibleIndex = 5;
-            this.colcantidad_ingreso.Width = 93;
+            this.colcantidad_ingreso.Width = 100;
             // 
             // coltotal_fila
             // 
@@ -615,7 +610,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total_fila", "SUMA={0:n2}")});
             this.coltotal_fila.Visible = true;
             this.coltotal_fila.VisibleIndex = 7;
-            this.coltotal_fila.Width = 93;
+            this.coltotal_fila.Width = 100;
             // 
             // colnum_linea
             // 
@@ -625,7 +620,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colnum_linea.OptionsColumn.ReadOnly = true;
             this.colnum_linea.Visible = true;
             this.colnum_linea.VisibleIndex = 0;
-            this.colnum_linea.Width = 49;
+            this.colnum_linea.Width = 53;
             // 
             // colid_bodega
             // 
@@ -635,7 +630,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colid_bodega.Name = "colid_bodega";
             this.colid_bodega.Visible = true;
             this.colid_bodega.VisibleIndex = 6;
-            this.colid_bodega.Width = 87;
+            this.colid_bodega.Width = 92;
             // 
             // GridLookUpE_Bodega
             // 
@@ -681,27 +676,25 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // colItemCode
             // 
-            this.colItemCode.Caption = "Materia Prima/Material Empaque";
+            this.colItemCode.Caption = "Producto";
             this.colItemCode.ColumnEdit = this.gle_MP_y_ME;
             this.colItemCode.FieldName = "ItemCode";
             this.colItemCode.Name = "colItemCode";
             this.colItemCode.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.True;
             this.colItemCode.Visible = true;
             this.colItemCode.VisibleIndex = 3;
-            this.colItemCode.Width = 137;
+            this.colItemCode.Width = 158;
             // 
             // gle_MP_y_ME
             // 
             this.gle_MP_y_ME.AutoHeight = false;
             this.gle_MP_y_ME.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gle_MP_y_ME.DataSource = this.bindSourceMP_y_ME_mix;
-            this.gle_MP_y_ME.DisplayMember = "descripcion";
+            this.gle_MP_y_ME.DataSource = this.bindingSourceUnidadMedidaFact;
             this.gle_MP_y_ME.Name = "gle_MP_y_ME";
             this.gle_MP_y_ME.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.gle_MP_y_ME.PopupView = this.gridView6;
             this.gle_MP_y_ME.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.gle_MP_y_ME.ValueMember = "code";
             // 
             // bindSourceMP_y_ME_mix
             // 
@@ -763,6 +756,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 8;
+            this.gridColumn3.Width = 90;
             // 
             // cmdEliminar
             // 
@@ -778,6 +772,11 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             this.coltype_id.FieldName = "type_id";
             this.coltype_id.Name = "coltype_id";
+            // 
+            // bindingS_UnidadMedidaJaguar
+            // 
+            this.bindingS_UnidadMedidaJaguar.DataMember = "unidad_medida_jaguar";
+            this.bindingS_UnidadMedidaJaguar.DataSource = this.dsLogisticaJaguar1;
             // 
             // cmdAddFactura
             // 
@@ -1206,7 +1205,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.R_GridLookUpEdit_Ud_medida_Jaguar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingS_UnidadMedidaJaguar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridLookUpE_Bodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingS_Bodegas)).EndInit();
@@ -1215,6 +1213,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.bindSourceMP_y_ME_mix)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingS_UnidadMedidaJaguar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtHoraEntregado.Properties.CalendarTimeProperties)).EndInit();

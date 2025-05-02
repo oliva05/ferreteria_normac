@@ -212,7 +212,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_materias_primas_list_v3]", con);
+                SqlCommand cmd = new SqlCommand("[sp_get_producto_terminado_recepcion]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 dsLogisticaJaguar1.MP_List.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
@@ -280,7 +280,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_presentacion_for_materia_prima_factura_prv]", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_presentacion_for_producto_factura_prv]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@id_proveedor", pIdProveedor);
                 dsLogisticaJaguar1.unidad_medida_factura.Clear();
@@ -304,7 +304,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_presentacion_for_materia_prima_jaguar_mp]", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_presentacion_for_producto_jaguar_recepcion]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@id_proveedor", pIdProveedor);
                 dsLogisticaJaguar1.unidad_medida_jaguar.Clear();
@@ -364,8 +364,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             dsLogisticaJaguar.detalle_recepcion_factRow row1 = dsLogisticaJaguar1.detalle_recepcion_fact.Newdetalle_recepcion_factRow();
             //row1.cantidad = 0;
             //row1.cantidad_ingreso = 0;
-            row1.id_ud_medida_prv = 0;
-            row1.id_ud_medida_jaguar = 0;
+            row1.id_ud_medida_prv = 1;
+            row1.id_ud_medida_jaguar = 1;
             row1.id_mp = 0;
             //row1.ItemCode = "";
             //row1.total_fila = 0;
