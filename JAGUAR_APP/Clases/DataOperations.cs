@@ -104,8 +104,8 @@ namespace ACS.Classes
         //internal string FTP_Tickets_LOSA = @"ftp://10.50.11.32/ALOSY/";
         //internal string FTP_Tickets_ACS = @"ftp://10.50.11.32/Tickets/";
         internal string FTP_Normac_PT = @"ftp://192.168.21.50/Productos/";
-        internal string FTP_Normac_Empleados = @"ftp://192.168.21.50/Empleados/"; //SE DEBE CREAR EN SERVER
-        internal string FTP_Normac_RRHH_Expedientes = @"ftp://192.168.21.50/Expedientes/"; //SE DEBE CREAR EN SERVER
+        internal string FTP_Normac_Empleados = @"ftp://192.168.21.50/Empleados/"; 
+        internal string FTP_Normac_RRHH_Expedientes = @"ftp://192.168.21.50/Expedientes/";
         internal string User_FTP_Server = "ftp_normac";
         internal string Password_UserFTPServer = "OPjSn10Z1U";
 
