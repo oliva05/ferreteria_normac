@@ -1,6 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraRichEdit.Layout;
 using DevExpress.XtraSpreadsheet.Model;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
@@ -60,6 +61,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             LoadBodegaList();
 
             txtNombreRecibido.Text = pUsuarioLogeado.Nombre;
+            tsWithCAI.IsOn = true;
         }
 
         public frmAddFacturaProveedor(UserLogin pUsuarioLogeado, TipoAccionVentana pTipoAccionVentana, Int64 pIdFacturaH)
@@ -167,19 +169,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                                 //CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #7 (Revisión de Facturas Entrada Mercancias)");
                             }
                         }
-
-
-
-
-
-
-
                     }
                     break;
             }
-
-
-            
         }
 
         private void LoadDetalleFactura(long pIdFacturaH)
@@ -513,11 +505,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 return;
             }
 
-            if (!dp.ValidateNumberStringText(gridLookUpEdit_CAI_Proveedor.Text))
-            {
-                CajaDialogo.Error("Es necesario seleccionar el CAI del proveedor!");
-                return;
-            }
+            
 
             if (!dp.ValidateNumberStringText(txtNumeroFactura.Text))
             {
@@ -537,10 +525,28 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 return;
             }
 
+            if (tsWithCAI.IsOn)
+            {
+                if (!dp.ValidateNumberStringText(gridLookUpEdit_CAI_Proveedor.Text))
+                {
+                    CajaDialogo.Error("Es necesario seleccionar el CAI del Proveedor!");
+                    return;
+                }
+            }
+            else //tsWithCAI.IsOn = false
+            {
+                if (!dp.ValidateNumberStringText(txtCAI.Text))
+                {
+                    CajaDialogo.Error("Es necesario escribir el CAI del Proveedor!");
+                    return;
+                }
+            }
+
             bool Problemas = false;
             int fila = 0;
             foreach (dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
             {
+                
                 //if (row.type_id == 1)
                 //{
                     if (row.cantidad == 0 || row.id_ud_medida_prv == 0 ||
@@ -607,8 +613,20 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         
                         cmd.Parameters.AddWithValue("@id_proveedor", gridLookUpEditProveedor.EditValue);
                         cmd.Parameters.AddWithValue("@id_usuario_recibido", UsuarioLogeado.Id);
-                        cmd.Parameters.AddWithValue("@cai", gridLookUpEdit_CAI_Proveedor.Text);
-                        cmd.Parameters.AddWithValue("@id_cai", gridLookUpEdit_CAI_Proveedor.EditValue);
+                        
+
+                        if (tsWithCAI.IsOn)
+                        {
+                            cmd.Parameters.AddWithValue("@id_cai", gridLookUpEdit_CAI_Proveedor.EditValue);
+                            cmd.Parameters.AddWithValue("@cai", gridLookUpEdit_CAI_Proveedor.Text);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@id_cai", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@cai", txtCAI.Text);
+                        }
+                        
+
                         cmd.Parameters.AddWithValue("@factura", txtNumeroFactura.Text);
                         cmd.Parameters.AddWithValue("@fecha_factura", dtFechaFactura.EditValue);
                         cmd.Parameters.AddWithValue("@entregado_por_nombre", txtNombreEntrega.Text);
@@ -813,6 +831,41 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private void btnCopiarDe_Click(object sender, EventArgs e)
         {
             popupMenu1.ShowPopup(Cursor.Position);
+        }
+
+        private void tsWithCAI_Toggled(object sender, EventArgs e)
+        {
+            if (tsWithCAI.IsOn)
+            {
+                gridLookUpEdit_CAI_Proveedor.Visible = true;
+                txtCAI.Visible = false;
+            }
+            else
+            {
+                gridLookUpEdit_CAI_Proveedor.Visible = false;
+                txtCAI.Visible = true;
+            }
+        }
+
+        private void gle_MP_y_ME_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            var gridview = (GridView)gridControl1.FocusedView;
+            var row = (dsLogisticaJaguar.detalle_recepcion_factRow)gridview.GetFocusedDataRow();
+
+            //GridLookUpEdit editor = gridView6.ActiveEditor as GridLookUpEdit;
+            //if (editor != null)
+            //{
+            //    var editValue = editor.EditValue; // ← Aquí está el valor (ValueMember)
+            //    row.id_mp = Convert.ToInt32(editValue);
+            //}
+
+
+
+        }
+
+        private void gle_MP_y_ME_EditValueChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

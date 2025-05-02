@@ -71,7 +71,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[codesahn].[sp_get_factor_conversion_ud_jaguar_recepcion_facturas]", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_factor_conversion_ud_jaguar_recepcion_facturas]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_presentacion_origen", pIdPresentacionOrigen);
                 cmd.Parameters.AddWithValue("@id_presentacion_destino", pIdPresentacionDestino);

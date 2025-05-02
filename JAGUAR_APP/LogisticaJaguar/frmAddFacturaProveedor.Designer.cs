@@ -30,12 +30,12 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddFacturaProveedor));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridLookUpEditProveedor = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourceProveedor = new System.Windows.Forms.BindingSource(this.components);
             this.dsLogisticaJaguar1 = new JAGUAR_PRO.LogisticaJaguar.dsLogisticaJaguar();
@@ -68,13 +68,14 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_mp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RGridLookUpE_MateriaPrimaList = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.bindingSourceMP = new System.Windows.Forms.BindingSource(this.components);
+            this.mPListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion_mp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_ud_medida_jaguar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.R_GridLookUpEdit_Ud_medida_Jaguar = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.bindingS_UnidadMedidaJaguar = new System.Windows.Forms.BindingSource(this.components);
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -89,7 +90,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.coldescripcion4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colItemCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gle_MP_y_ME = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.bindSourceMP_y_ME_mix = new System.Windows.Forms.BindingSource(this.components);
             this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colcode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -98,7 +98,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.coltype_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bindingS_UnidadMedidaJaguar = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceMP = new System.Windows.Forms.BindingSource(this.components);
+            this.bindSourceMP_y_ME_mix = new System.Windows.Forms.BindingSource(this.components);
             this.cmdAddFactura = new DevExpress.XtraEditors.SimpleButton();
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
@@ -132,6 +133,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.txtCAI = new DevExpress.XtraEditors.TextEdit();
+            this.tsWithCAI = new DevExpress.XtraEditors.ToggleSwitch();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditProveedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsLogisticaJaguar1)).BeginInit();
@@ -148,18 +151,19 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnidadMedidaFact)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RGridLookUpE_MateriaPrimaList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mPListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.R_GridLookUpEdit_Ud_medida_Jaguar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingS_UnidadMedidaJaguar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridLookUpE_Bodega)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingS_Bodegas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gle_MP_y_ME)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindSourceMP_y_ME_mix)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingS_UnidadMedidaJaguar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSourceMP_y_ME_mix)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtHoraEntregado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHoraEntregado.Properties.CalendarTimeProperties)).BeginInit();
@@ -173,6 +177,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.dsCompras1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCAI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tsWithCAI.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridLookUpEditProveedor
@@ -500,16 +506,16 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.RGridLookUpE_MateriaPrimaList.AutoHeight = false;
             this.RGridLookUpE_MateriaPrimaList.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.RGridLookUpE_MateriaPrimaList.DataSource = this.bindingSourceMP;
+            this.RGridLookUpE_MateriaPrimaList.DataSource = this.mPListBindingSource;
             this.RGridLookUpE_MateriaPrimaList.DisplayMember = "descripcion";
             this.RGridLookUpE_MateriaPrimaList.Name = "RGridLookUpE_MateriaPrimaList";
             this.RGridLookUpE_MateriaPrimaList.PopupView = this.gridView3;
             this.RGridLookUpE_MateriaPrimaList.ValueMember = "id";
             // 
-            // bindingSourceMP
+            // mPListBindingSource
             // 
-            this.bindingSourceMP.DataMember = "MP_List";
-            this.bindingSourceMP.DataSource = this.dsLogisticaJaguar1;
+            this.mPListBindingSource.DataMember = "MP_List";
+            this.mPListBindingSource.DataSource = this.dsLogisticaJaguar1;
             // 
             // gridView3
             // 
@@ -557,11 +563,16 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.R_GridLookUpEdit_Ud_medida_Jaguar.AutoHeight = false;
             this.R_GridLookUpEdit_Ud_medida_Jaguar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.R_GridLookUpEdit_Ud_medida_Jaguar.DataSource = this.bindingSourceUnidadMedidaFact;
+            this.R_GridLookUpEdit_Ud_medida_Jaguar.DataSource = this.bindingS_UnidadMedidaJaguar;
             this.R_GridLookUpEdit_Ud_medida_Jaguar.DisplayMember = "descripcion";
             this.R_GridLookUpEdit_Ud_medida_Jaguar.Name = "R_GridLookUpEdit_Ud_medida_Jaguar";
             this.R_GridLookUpEdit_Ud_medida_Jaguar.PopupView = this.gridView4;
             this.R_GridLookUpEdit_Ud_medida_Jaguar.ValueMember = "id";
+            // 
+            // bindingS_UnidadMedidaJaguar
+            // 
+            this.bindingS_UnidadMedidaJaguar.DataMember = "unidad_medida_jaguar";
+            this.bindingS_UnidadMedidaJaguar.DataSource = this.dsLogisticaJaguar1;
             // 
             // gridView4
             // 
@@ -690,16 +701,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.gle_MP_y_ME.AutoHeight = false;
             this.gle_MP_y_ME.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gle_MP_y_ME.DataSource = this.bindingSourceUnidadMedidaFact;
+            this.gle_MP_y_ME.DataSource = this.mPListBindingSource;
+            this.gle_MP_y_ME.DisplayMember = "descripcion";
             this.gle_MP_y_ME.Name = "gle_MP_y_ME";
             this.gle_MP_y_ME.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.gle_MP_y_ME.PopupView = this.gridView6;
             this.gle_MP_y_ME.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            // 
-            // bindSourceMP_y_ME_mix
-            // 
-            this.bindSourceMP_y_ME_mix.DataMember = "MP_List";
-            this.bindSourceMP_y_ME_mix.DataSource = this.dsLogisticaJaguar1;
+            this.gle_MP_y_ME.ValueMember = "id";
+            this.gle_MP_y_ME.EditValueChanged += new System.EventHandler(this.gle_MP_y_ME_EditValueChanged);
+            this.gle_MP_y_ME.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.gle_MP_y_ME_EditValueChanging);
             // 
             // gridView6
             // 
@@ -761,9 +771,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // cmdEliminar
             // 
             this.cmdEliminar.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.cmdEliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdEliminar.Name = "cmdEliminar";
             this.cmdEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEliminar_ButtonClick);
@@ -773,10 +783,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.coltype_id.FieldName = "type_id";
             this.coltype_id.Name = "coltype_id";
             // 
-            // bindingS_UnidadMedidaJaguar
+            // bindingSourceMP
             // 
-            this.bindingS_UnidadMedidaJaguar.DataMember = "unidad_medida_jaguar";
-            this.bindingS_UnidadMedidaJaguar.DataSource = this.dsLogisticaJaguar1;
+            this.bindingSourceMP.DataMember = "MP_List";
+            this.bindingSourceMP.DataSource = this.dsLogisticaJaguar1;
+            // 
+            // bindSourceMP_y_ME_mix
+            // 
+            this.bindSourceMP_y_ME_mix.DataMember = "MP_List";
+            this.bindSourceMP_y_ME_mix.DataSource = this.dsLogisticaJaguar1;
             // 
             // cmdAddFactura
             // 
@@ -1154,6 +1169,30 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 545);
             // 
+            // txtCAI
+            // 
+            this.txtCAI.Location = new System.Drawing.Point(271, 40);
+            this.txtCAI.Name = "txtCAI";
+            this.txtCAI.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtCAI.Properties.Appearance.Options.UseFont = true;
+            this.txtCAI.Size = new System.Drawing.Size(327, 26);
+            this.txtCAI.TabIndex = 92;
+            this.txtCAI.Visible = false;
+            // 
+            // tsWithCAI
+            // 
+            this.tsWithCAI.EditValue = true;
+            this.tsWithCAI.Location = new System.Drawing.Point(604, 40);
+            this.tsWithCAI.MenuManager = this.barManager1;
+            this.tsWithCAI.Name = "tsWithCAI";
+            this.tsWithCAI.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsWithCAI.Properties.Appearance.Options.UseFont = true;
+            this.tsWithCAI.Properties.OffText = "Digitar";
+            this.tsWithCAI.Properties.OnText = "Seleccionar";
+            this.tsWithCAI.Size = new System.Drawing.Size(171, 24);
+            this.tsWithCAI.TabIndex = 93;
+            this.tsWithCAI.Toggled += new System.EventHandler(this.tsWithCAI_Toggled);
+            // 
             // frmAddFacturaProveedor
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -1161,6 +1200,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(954, 545);
+            this.Controls.Add(this.tsWithCAI);
             this.Controls.Add(this.btnCopiarDe);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.txtObservaciones);
@@ -1179,6 +1219,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.gridLookUpEditProveedor);
             this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.txtCAI);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -1202,18 +1243,19 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnidadMedidaFact)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RGridLookUpE_MateriaPrimaList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mPListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.R_GridLookUpEdit_Ud_medida_Jaguar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingS_UnidadMedidaJaguar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridLookUpE_Bodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingS_Bodegas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gle_MP_y_ME)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindSourceMP_y_ME_mix)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingS_UnidadMedidaJaguar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSourceMP_y_ME_mix)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtHoraEntregado.Properties.CalendarTimeProperties)).EndInit();
@@ -1230,6 +1272,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.dsCompras1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCAI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tsWithCAI.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1333,5 +1377,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private System.Windows.Forms.BindingSource mPListBindingSource;
+        private DevExpress.XtraEditors.TextEdit txtCAI;
+        private DevExpress.XtraEditors.ToggleSwitch tsWithCAI;
     }
 }
