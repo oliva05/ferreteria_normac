@@ -1,6 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraPrinting;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.LogisticaJaguar;
 using System;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -81,6 +83,38 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 {
                     loaddate();
                 }
+            }
+        }
+
+        private void cmdExportToExcel_Click(object sender, EventArgs e)
+        {
+            //Nueva version
+            try
+            {
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.Filter = "Excel File (.xlsx)|*.xlsx";
+                dialog.FilterIndex = 0;
+                string path = "Inventario PT Ovejita";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    path = dialog.FileName;
+                    //Customize export options
+                    (gridDetalleProductosCRUD.MainView as GridView).OptionsPrint.PrintHeader = true;
+                    XlsxExportOptionsEx advOptions = new XlsxExportOptionsEx();
+                    advOptions.AllowGrouping = DevExpress.Utils.DefaultBoolean.False;
+                    advOptions.ShowTotalSummaries = DevExpress.Utils.DefaultBoolean.False;
+                    advOptions.SheetName = "Exported from Ovejita";
+
+                    gridDetalleProductosCRUD.ExportToXlsx(path, advOptions);
+                    // Open the created XLSX file with the default application.
+                    Process.Start(path);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
     }
