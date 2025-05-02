@@ -401,6 +401,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
                 row.fecha = frmAdd.equipo.Fecha;
                 row.descripcion = frmAdd.equipo.Descripcion;
                 row.Usuario_Asignado = frmAdd.equipo.Usuario_Asignado;
+
                 
                 //dsCRUDS_Facturacion1.Equipos_por_Punto_venta.AddEquipos_por_Punto_ventaRow(row);
                 dsCRUDS_Facturacion1.AcceptChanges();

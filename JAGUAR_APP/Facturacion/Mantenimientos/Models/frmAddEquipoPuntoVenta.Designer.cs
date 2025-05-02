@@ -43,28 +43,41 @@
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bindingSourceUsuarios = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.tggEnable = new DevExpress.XtraEditors.ToggleSwitch();
             this.txtDescripcionEquipo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.gleUsuarioAsignado = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.bindingSourceUsuarios = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluser_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluser = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.grdBodega = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.bodegasentregaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsCRUDS_Facturacion = new JAGUAR_PRO.Facturacion.Mantenimientos.dsCRUDS_Facturacion();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion_corta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colwhs_equivalente = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreEquipo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.glePuntoVenta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePuntosVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsCRUDS_Facturacion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggEnable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcionEquipo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleUsuarioAsignado.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdBodega.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegasentregaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCRUDS_Facturacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -104,7 +117,7 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(224, 226);
+            this.simpleButton1.Location = new System.Drawing.Point(221, 258);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(119, 47);
             this.simpleButton1.TabIndex = 6;
@@ -119,7 +132,7 @@
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
-            this.cmdNew.Location = new System.Drawing.Point(86, 226);
+            this.cmdNew.Location = new System.Drawing.Point(83, 258);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(119, 47);
             this.cmdNew.TabIndex = 5;
@@ -191,11 +204,6 @@
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 0;
             // 
-            // bindingSourceUsuarios
-            // 
-            this.bindingSourceUsuarios.DataMember = "usuarios_asignados";
-            this.bindingSourceUsuarios.DataSource = this.dsCRUDS_Facturacion1;
-            // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -215,7 +223,7 @@
             this.tggEnable.Properties.Appearance.Options.UseFont = true;
             this.tggEnable.Properties.OffText = "No";
             this.tggEnable.Properties.OnText = "Si";
-            this.tggEnable.Size = new System.Drawing.Size(95, 20);
+            this.tggEnable.Size = new System.Drawing.Size(95, 22);
             this.tggEnable.TabIndex = 3;
             // 
             // txtDescripcionEquipo
@@ -252,6 +260,11 @@
             this.gleUsuarioAsignado.Properties.ValueMember = "id";
             this.gleUsuarioAsignado.Size = new System.Drawing.Size(225, 22);
             this.gleUsuarioAsignado.TabIndex = 4;
+            // 
+            // bindingSourceUsuarios
+            // 
+            this.bindingSourceUsuarios.DataMember = "usuarios_asignados";
+            this.bindingSourceUsuarios.DataSource = this.dsCRUDS_Facturacion1;
             // 
             // gridView1
             // 
@@ -298,11 +311,86 @@
             this.labelControl6.TabIndex = 27;
             this.labelControl6.Text = "Usuario Asignado_______";
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(12, 223);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(118, 15);
+            this.labelControl2.TabIndex = 28;
+            this.labelControl2.Text = "Bodega Entrega_______";
+            // 
+            // grdBodega
+            // 
+            this.grdBodega.Location = new System.Drawing.Point(127, 216);
+            this.grdBodega.Name = "grdBodega";
+            this.grdBodega.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.grdBodega.Properties.Appearance.Options.UseFont = true;
+            this.grdBodega.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.grdBodega.Properties.DataSource = this.bodegasentregaBindingSource;
+            this.grdBodega.Properties.DisplayMember = "descripcion";
+            this.grdBodega.Properties.NullText = "";
+            this.grdBodega.Properties.PopupView = this.gridView2;
+            this.grdBodega.Properties.ValueMember = "id";
+            this.grdBodega.Size = new System.Drawing.Size(225, 22);
+            this.grdBodega.TabIndex = 29;
+            // 
+            // bodegasentregaBindingSource
+            // 
+            this.bodegasentregaBindingSource.DataMember = "bodegas_entrega";
+            this.bodegasentregaBindingSource.DataSource = this.dsCRUDS_Facturacion;
+            // 
+            // dsCRUDS_Facturacion
+            // 
+            this.dsCRUDS_Facturacion.DataSetName = "dsCRUDS_Facturacion";
+            this.dsCRUDS_Facturacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid2,
+            this.coldescripcion1,
+            this.coldescripcion_corta,
+            this.colwhs_equivalente});
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ShowAutoFilterRow = true;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid2
+            // 
+            this.colid2.FieldName = "id";
+            this.colid2.Name = "colid2";
+            // 
+            // coldescripcion1
+            // 
+            this.coldescripcion1.Caption = "Descripcion";
+            this.coldescripcion1.FieldName = "descripcion";
+            this.coldescripcion1.Name = "coldescripcion1";
+            this.coldescripcion1.Visible = true;
+            this.coldescripcion1.VisibleIndex = 0;
+            // 
+            // coldescripcion_corta
+            // 
+            this.coldescripcion_corta.FieldName = "descripcion_corta";
+            this.coldescripcion_corta.Name = "coldescripcion_corta";
+            // 
+            // colwhs_equivalente
+            // 
+            this.colwhs_equivalente.Caption = "Codigo";
+            this.colwhs_equivalente.FieldName = "whs_equivalente";
+            this.colwhs_equivalente.Name = "colwhs_equivalente";
+            // 
             // frmAddEquipoPuntoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 291);
+            this.ClientSize = new System.Drawing.Size(425, 317);
+            this.Controls.Add(this.grdBodega);
+            this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.gleUsuarioAsignado);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.txtDescripcionEquipo);
@@ -327,11 +415,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePuntosVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsCRUDS_Facturacion1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggEnable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcionEquipo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleUsuarioAsignado.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdBodega.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegasentregaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCRUDS_Facturacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,5 +455,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn colid1;
         private DevExpress.XtraGrid.Columns.GridColumn coluser_name;
         private DevExpress.XtraGrid.Columns.GridColumn coluser;
+        private DevExpress.XtraEditors.GridLookUpEdit grdBodega;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private System.Windows.Forms.BindingSource bodegasentregaBindingSource;
+        private dsCRUDS_Facturacion dsCRUDS_Facturacion;
+        private DevExpress.XtraGrid.Columns.GridColumn colid2;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion1;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion_corta;
+        private DevExpress.XtraGrid.Columns.GridColumn colwhs_equivalente;
     }
 }

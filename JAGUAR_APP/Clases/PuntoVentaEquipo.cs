@@ -23,6 +23,7 @@ namespace JAGUAR_PRO.Clases
         public string Usuario_Asigno { get; set; }
         public string Usuario_Asignado { get; set; }
         public string RepuestaValidacion { get; set; }
+        public int IdBodegaEntrega { get; set; }
 
         public bool Recuperado { get; set; }
         DataOperations dp;
@@ -95,6 +96,8 @@ namespace JAGUAR_PRO.Clases
                     
                     if (!reader.IsDBNull(reader.GetOrdinal("ip_address")))
                         IpAddress = reader["ip_address"].ToString();
+                    if (!reader.IsDBNull(reader.GetOrdinal("IdBodegaEntrega")))
+                        IdBodegaEntrega = (int)reader["IdBodegaEntrega"];
                     Recuperado = true;
                 }
                 reader.Close();
@@ -113,9 +116,9 @@ namespace JAGUAR_PRO.Clases
                 string query = @"INSERT INTO [dbo].[Facturacion_PuntoVenta_Equipos] 
                                             ([pc_name], [id_punto_venta], [enable], 
                                             [id_usuario], [fecha], [descripcion], 
-                                            [id_user_asigned], [ip_address]) 
+                                            [id_user_asigned], [ip_address],[id_bodega_entrega]) 
                                 VALUES (@PcName, @IdPuntoVenta, @Enable, @IdUsuario, 
-                                        @Fecha, @Descripcion, @IdUserAsigned, @IpAddress); SELECT SCOPE_IDENTITY();";
+                                        @Fecha, @Descripcion, @IdUserAsigned, @IpAddress,@IdBodegaEntrega); SELECT SCOPE_IDENTITY();";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@PcName", PcName);
                 command.Parameters.AddWithValue("@IdPuntoVenta", IdPuntoVenta);
@@ -135,6 +138,10 @@ namespace JAGUAR_PRO.Clases
                     command.Parameters.AddWithValue("@IpAddress", DBNull.Value);
                 else 
                     command.Parameters.AddWithValue("@IpAddress", IpAddress);
+                if (IdBodegaEntrega == 0)
+                    command.Parameters.AddWithValue("@IdBodegaEntrega", DBNull.Value);
+                else
+                    command.Parameters.AddWithValue("@IdBodegaEntrega", IdBodegaEntrega);
 
                 this.Id = IdInserted = Convert.ToInt32(command.ExecuteScalar());
             }
@@ -154,7 +161,8 @@ namespace JAGUAR_PRO.Clases
                                "           [id_punto_venta] = @IdPuntoVenta, [enable] = @Enable, " +
                                "           [id_usuario] = @IdUsuario, [fecha] = @Fecha, " +
                                "           [descripcion] = @Descripcion, [id_user_asigned] = @IdUserAsigned, " +
-                               "           [ip_address] = @IpAddress WHERE [id] = @Id";
+                               "           [ip_address] = @IpAddress, " +
+                               "           [id_bodega_entrega] = @IdBodegaEntrega WHERE [id] = @Id";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Id", Id);
                 command.Parameters.AddWithValue("@PcName", PcName);
@@ -177,6 +185,11 @@ namespace JAGUAR_PRO.Clases
                     command.Parameters.AddWithValue("@IpAddress", DBNull.Value);
                 else
                     command.Parameters.AddWithValue("@IpAddress", IpAddress);
+
+                if (IdBodegaEntrega == 0)
+                    command.Parameters.AddWithValue("@IdBodegaEntrega", DBNull.Value);
+                else
+                    command.Parameters.AddWithValue("@IdBodegaEntrega", IdBodegaEntrega);
 
                 command.ExecuteNonQuery();
                 updated = true;

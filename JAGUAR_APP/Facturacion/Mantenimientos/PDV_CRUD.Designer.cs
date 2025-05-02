@@ -31,11 +31,11 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PDV_CRUD));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
@@ -101,6 +101,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.colEditar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridCmd_Editar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colRowNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblTituloGrid = new DevExpress.XtraEditors.LabelControl();
             this.cmdAgregarEquipo = new DevExpress.XtraEditors.SimpleButton();
             this.gleFormatoImpresion = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -162,9 +163,9 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.labelControl6.Appearance.Options.UseTextOptions = true;
             this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl6.Location = new System.Drawing.Point(10, -8);
+            this.labelControl6.Location = new System.Drawing.Point(10, -4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(943, 25);
+            this.labelControl6.Size = new System.Drawing.Size(973, 25);
             this.labelControl6.TabIndex = 27;
             this.labelControl6.Text = "Punto de Venta";
             // 
@@ -462,7 +463,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.tsStock.Name = "tsStock";
             this.tsStock.Properties.OffText = "No";
             this.tsStock.Properties.OnText = "Si";
-            this.tsStock.Size = new System.Drawing.Size(81, 18);
+            this.tsStock.Size = new System.Drawing.Size(81, 20);
             this.tsStock.TabIndex = 11;
             // 
             // labelControl9
@@ -492,7 +493,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.tsAnulacion.Name = "tsAnulacion";
             this.tsAnulacion.Properties.OffText = "No";
             this.tsAnulacion.Properties.OnText = "Si";
-            this.tsAnulacion.Size = new System.Drawing.Size(81, 18);
+            this.tsAnulacion.Size = new System.Drawing.Size(81, 20);
             this.tsAnulacion.TabIndex = 12;
             // 
             // labelControl11
@@ -512,7 +513,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.tsPrint.Name = "tsPrint";
             this.tsPrint.Properties.OffText = "No";
             this.tsPrint.Properties.OnText = "Si";
-            this.tsPrint.Size = new System.Drawing.Size(81, 18);
+            this.tsPrint.Size = new System.Drawing.Size(81, 20);
             this.tsPrint.TabIndex = 13;
             // 
             // labelControl12
@@ -535,7 +536,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.tsReimpresion.Name = "tsReimpresion";
             this.tsReimpresion.Properties.OffText = "No";
             this.tsReimpresion.Properties.OnText = "Si";
-            this.tsReimpresion.Size = new System.Drawing.Size(81, 18);
+            this.tsReimpresion.Size = new System.Drawing.Size(81, 20);
             this.tsReimpresion.TabIndex = 14;
             // 
             // labelControl13
@@ -558,7 +559,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.tsEmision.Name = "tsEmision";
             this.tsEmision.Properties.OffText = "No";
             this.tsEmision.Properties.OnText = "Si";
-            this.tsEmision.Size = new System.Drawing.Size(81, 18);
+            this.tsEmision.Size = new System.Drawing.Size(81, 20);
             this.tsEmision.TabIndex = 15;
             // 
             // labelControl14
@@ -581,7 +582,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.ts_facturaBuffet.Name = "ts_facturaBuffet";
             this.ts_facturaBuffet.Properties.OffText = "No";
             this.ts_facturaBuffet.Properties.OnText = "Si";
-            this.ts_facturaBuffet.Size = new System.Drawing.Size(81, 18);
+            this.ts_facturaBuffet.Size = new System.Drawing.Size(81, 20);
             this.ts_facturaBuffet.TabIndex = 16;
             // 
             // txtCorreo
@@ -676,7 +677,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.gridCmd_Editar});
-            this.gridControl1.Size = new System.Drawing.Size(463, 214);
+            this.gridControl1.Size = new System.Drawing.Size(513, 214);
             this.gridControl1.TabIndex = 60;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -701,7 +702,8 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.colUsuarioAsignado,
             this.colip_address,
             this.colEditar,
-            this.colRowNumber});
+            this.colRowNumber,
+            this.gridColumn4});
             this.gridView3.GridControl = this.gridControl1;
             this.gridView3.Name = "gridView3";
             this.gridView3.OptionsView.ShowAutoFilterRow = true;
@@ -719,7 +721,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.colpc_name.OptionsColumn.ReadOnly = true;
             this.colpc_name.Visible = true;
             this.colpc_name.VisibleIndex = 1;
-            this.colpc_name.Width = 148;
+            this.colpc_name.Width = 90;
             // 
             // colid_punto_venta
             // 
@@ -754,7 +756,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.coldescripcion.OptionsColumn.ReadOnly = true;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 2;
-            this.coldescripcion.Width = 140;
+            this.coldescripcion.Width = 101;
             // 
             // colid_user_asigned
             // 
@@ -767,8 +769,8 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.colUsuarioAsignado.Name = "colUsuarioAsignado";
             this.colUsuarioAsignado.OptionsColumn.ReadOnly = true;
             this.colUsuarioAsignado.Visible = true;
-            this.colUsuarioAsignado.VisibleIndex = 3;
-            this.colUsuarioAsignado.Width = 76;
+            this.colUsuarioAsignado.VisibleIndex = 4;
+            this.colUsuarioAsignado.Width = 97;
             // 
             // colip_address
             // 
@@ -781,15 +783,15 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.colEditar.ColumnEdit = this.gridCmd_Editar;
             this.colEditar.Name = "colEditar";
             this.colEditar.Visible = true;
-            this.colEditar.VisibleIndex = 4;
-            this.colEditar.Width = 46;
+            this.colEditar.VisibleIndex = 5;
+            this.colEditar.Width = 53;
             // 
             // gridCmd_Editar
             // 
             this.gridCmd_Editar.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.gridCmd_Editar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.gridCmd_Editar.Name = "gridCmd_Editar";
             this.gridCmd_Editar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.gridCmd_Editar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.gridCmd_Editar_ButtonClick);
@@ -801,7 +803,17 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.colRowNumber.OptionsColumn.ReadOnly = true;
             this.colRowNumber.Visible = true;
             this.colRowNumber.VisibleIndex = 0;
-            this.colRowNumber.Width = 28;
+            this.colRowNumber.Width = 37;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Bod. Entrega";
+            this.gridColumn4.FieldName = "BodegaEntrega";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 108;
             // 
             // lblTituloGrid
             // 
@@ -819,7 +831,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             // cmdAgregarEquipo
             // 
             this.cmdAgregarEquipo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdAgregarEquipo.ImageOptions.Image")));
-            this.cmdAgregarEquipo.Location = new System.Drawing.Point(878, 252);
+            this.cmdAgregarEquipo.Location = new System.Drawing.Point(879, 252);
             this.cmdAgregarEquipo.Name = "cmdAgregarEquipo";
             this.cmdAgregarEquipo.Size = new System.Drawing.Size(75, 23);
             this.cmdAgregarEquipo.TabIndex = 62;
@@ -892,7 +904,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.ts_EmiteFacturaFiscal.Name = "ts_EmiteFacturaFiscal";
             this.ts_EmiteFacturaFiscal.Properties.OffText = "No";
             this.ts_EmiteFacturaFiscal.Properties.OnText = "Si";
-            this.ts_EmiteFacturaFiscal.Size = new System.Drawing.Size(81, 18);
+            this.ts_EmiteFacturaFiscal.Size = new System.Drawing.Size(81, 20);
             this.ts_EmiteFacturaFiscal.TabIndex = 65;
             // 
             // labelControl20
@@ -915,7 +927,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.tsFacturaAlmacenPRD.Name = "tsFacturaAlmacenPRD";
             this.tsFacturaAlmacenPRD.Properties.OffText = "No";
             this.tsFacturaAlmacenPRD.Properties.OnText = "Si";
-            this.tsFacturaAlmacenPRD.Size = new System.Drawing.Size(81, 18);
+            this.tsFacturaAlmacenPRD.Size = new System.Drawing.Size(81, 20);
             this.tsFacturaAlmacenPRD.TabIndex = 67;
             // 
             // labelControl21
@@ -959,7 +971,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 557);
+            this.ClientSize = new System.Drawing.Size(1005, 557);
             this.Controls.Add(this.txtCantCopias);
             this.Controls.Add(this.labelControl22);
             this.Controls.Add(this.tsFacturaAlmacenPRD);
@@ -1137,5 +1149,6 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
         private DevExpress.XtraEditors.LabelControl labelControl21;
         private DevExpress.XtraEditors.TextEdit txtCantCopias;
         private DevExpress.XtraEditors.LabelControl labelControl22;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

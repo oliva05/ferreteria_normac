@@ -36,6 +36,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos.Models
             UsuarioLogeado = pUserLogin;
             LoadUsuarios();
             LoadPuntosVenta();
+            LoadBodegas();
 
             if(PuntoVentaActual.RecuperaRegistro(pIdPuntoVenta))
             {
@@ -56,8 +57,30 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos.Models
                         txtDescripcionEquipo.Text = equipo.Descripcion;
                         gleUsuarioAsignado.EditValue = equipo.IdUserAsigned;
                         txtNombreEquipo.Enabled = false;
+                        grdBodega.EditValue = equipo.IdBodegaEntrega;
+
                     }
                     break;
+            }
+        }
+
+        private void LoadBodegas()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("[spObtenerBodegasActivas]", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsCRUDS_Facturacion.bodegas_entrega.Clear();
+                adat.Fill(dsCRUDS_Facturacion.bodegas_entrega);
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
 
@@ -139,6 +162,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos.Models
             equipo.Enable = tggEnable.IsOn;
             equipo.IdUsuario = this.UsuarioLogeado.Id;
             equipo.Fecha = dp.NowSetDateTime();
+            equipo.IdBodegaEntrega = Convert.ToInt32(grdBodega.EditValue);
 
             if(!string.IsNullOrEmpty(txtDescripcionEquipo.Text))
                 equipo.Descripcion = txtDescripcionEquipo.Text;
