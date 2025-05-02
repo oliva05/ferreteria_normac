@@ -1421,7 +1421,7 @@
             this.xrLabel3.SizeF = new System.Drawing.SizeF(1380F, 18.40278F);
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "Aquafeed S. A. de C. V.";
+            this.xrLabel3.Text = "Ferreteria NORMAC";
             this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // rptInformePlanillaGeneral

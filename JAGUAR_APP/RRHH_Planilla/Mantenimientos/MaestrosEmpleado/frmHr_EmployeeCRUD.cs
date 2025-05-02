@@ -36,7 +36,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
         HrEmployee EmpleadoActual;
         string file_name_employee = "";
         string path_employee_file = "";
-        
+        FTP_Class ftp = new FTP_Class();
         //Subir foto de perfil
         bool transaccion_foto_perfil = false;
 
@@ -78,6 +78,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     cmdAgregarNuevo.Enabled = 
                     cmdAgregarNuevo.Visible = 
                     cmdEditar.Enabled =
+                    tggActive.IsOn =
                     gleCompany.Enabled =
                     gleDireccionesCompany.Enabled =
                     gleTelefonosCompany.Enabled =
@@ -93,7 +94,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     txtEmployeeNameNombre.Visible = true;
                     btnAddExpediente.Enabled= false;
                     btnCambiarImagen.Enabled= true;
-                    ShowImageFromFtp(GetUrlPhoto(0));//imagen defualt cuando hay un insert;
+                    //ShowImageFromFtp(GetUrlPhoto(0));//imagen defualt cuando hay un insert;
                     break;
                 case TipoTransaccion.Update:
                     EmpleadoActual.Barcode = pCodigoEmpleado;
@@ -1602,20 +1603,25 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
                         if (transaccion_foto_perfil)
                         {
-                            file_name_employee = DateTime.Now.ToString("ddMMyyyyHHmmss") + Path.GetExtension(file_name_employee);
-                            SqlCommand cmd = new SqlCommand("dbo.uspSaveFileRRHH_employee", connection);
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Transaction = transaccionEmployee;
+                            
+                            if (ftp.ValidateConnectionV2())
+                            {
+                                file_name_employee = DateTime.Now.ToString("ddMMyyyyHHmmss") + Path.GetExtension(file_name_employee);
+                                SqlCommand cmd = new SqlCommand("dbo.uspSaveFileRRHH_employee", connection);
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Transaction = transaccionEmployee;
 
-                            cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_Normac_Empleados + file_name_employee;
-                            cmd.Parameters.Add("@file_name", SqlDbType.VarChar).Value = file_name_employee;
-                            cmd.Parameters.Add("@id_employee", SqlDbType.Int).Value = EmpleadoActual.Id;
-                            cmd.Parameters.Add("@code_employee", SqlDbType.VarChar).Value = string.IsNullOrEmpty(EmpleadoActual.Barcode) ? string.Empty : EmpleadoActual.Barcode;
-                            cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = UsuarioLogeado.Id;
+                                cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_Normac_Empleados + file_name_employee;
+                                cmd.Parameters.Add("@file_name", SqlDbType.VarChar).Value = file_name_employee;
+                                cmd.Parameters.Add("@id_employee", SqlDbType.Int).Value = EmpleadoActual.Id;
+                                cmd.Parameters.Add("@code_employee", SqlDbType.VarChar).Value = string.IsNullOrEmpty(EmpleadoActual.Barcode) ? string.Empty : EmpleadoActual.Barcode;
+                                cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = UsuarioLogeado.Id;
 
-                            cmd.ExecuteNonQuery();
+                                cmd.ExecuteNonQuery();
 
-                            Upload(path_employee_file, file_name_employee);
+                                Upload(path_employee_file, file_name_employee);
+                            }
+                            
                         }
 
                         //Guardar informacion de los hijos
@@ -1961,20 +1967,28 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
         private void btnCambiarImagen_Click(object sender, EventArgs e)
         {
-            openFileDialog1.InitialDirectory = "C:/";
-
-            // Establecer el filtro para solo permitir imágenes
-            openFileDialog1.Filter = "Archivos de imágenes|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (ftp.ValidateConnectionV2())
             {
-                path_employee_file = openFileDialog1.FileName;
-                file_name_employee = openFileDialog1.SafeFileName;
+                openFileDialog1.InitialDirectory = "C:/";
 
-                Image image = Image.FromFile(path_employee_file);
-                pbPhoto.Image = image;
-                transaccion_foto_perfil = true;
+                // Establecer el filtro para solo permitir imágenes
+                openFileDialog1.Filter = "Archivos de imágenes|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    path_employee_file = openFileDialog1.FileName;
+                    file_name_employee = openFileDialog1.SafeFileName;
+
+                    Image image = Image.FromFile(path_employee_file);
+                    pbPhoto.Image = image;
+                    transaccion_foto_perfil = true;
+                }
             }
+            else
+            {
+                CajaDialogo.Error("No existe conexion con el Servidor de Imagenes!");
+            }
+            
         }
 
         private void btnAsignacion_Click(object sender, EventArgs e)

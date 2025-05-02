@@ -1256,12 +1256,12 @@ namespace JAGUAR_PRO.RRHH_Planilla
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            rptContrato rpt = new rptContrato(contratoActual.ID);
-            // Crear el objeto ReportPrintTool con el reporte
-            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            //rptContrato rpt = new rptContrato(contratoActual.ID);
+            //// Crear el objeto ReportPrintTool con el reporte
+            //ReportPrintTool printTool = new ReportPrintTool(rpt);
 
-            // Mostrar la ventana de vista previa
-            printTool.ShowPreviewDialog();
+            //// Mostrar la ventana de vista previa
+            //printTool.ShowPreviewDialog();
         }
 
         private void txtDescripcionPermiso_EditValueChanged(object sender, EventArgs e)
@@ -1271,12 +1271,12 @@ namespace JAGUAR_PRO.RRHH_Planilla
 
         private void btn_print_otorsi_Click(object sender, EventArgs e)
         {
-            rptContratoOTORSI rpt = new rptContratoOTORSI(contratoActual.ID);
-            // Crear el objeto ReportPrintTool con el reporte
-            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            //rptContratoOTORSI rpt = new rptContratoOTORSI(contratoActual.ID);
+            //// Crear el objeto ReportPrintTool con el reporte
+            //ReportPrintTool printTool = new ReportPrintTool(rpt);
 
-            // Mostrar la ventana de vista previa
-            printTool.ShowPreviewDialog();
+            //// Mostrar la ventana de vista previa
+            //printTool.ShowPreviewDialog();
         }
     }
 }

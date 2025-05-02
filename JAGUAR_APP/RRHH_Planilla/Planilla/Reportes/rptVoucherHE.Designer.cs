@@ -161,7 +161,7 @@
             // xrPictureBox1
             // 
             this.xrPictureBox1.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::JAGUAR_PRO.Properties.Resources.logoNormac, true);
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(2.000282F, 14.99996F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(94.77F, 78.00001F);
@@ -221,7 +221,7 @@
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(231.25F, 23F);
             this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.Text = "Aquafeed S.A. de C.V.";
+            this.xrLabel1.Text = "Ferreteria NORMAC";
             // 
             // xrTable1
             // 

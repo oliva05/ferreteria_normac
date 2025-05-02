@@ -213,6 +213,7 @@
             this.colpiso.Name = "colpiso";
             this.colpiso.Visible = true;
             this.colpiso.VisibleIndex = 0;
+            this.colpiso.Width = 77;
             // 
             // coltecho
             // 
@@ -223,6 +224,7 @@
             this.coltecho.Name = "coltecho";
             this.coltecho.Visible = true;
             this.coltecho.VisibleIndex = 1;
+            this.coltecho.Width = 77;
             // 
             // colporcentaje
             // 
@@ -233,6 +235,7 @@
             this.colporcentaje.Name = "colporcentaje";
             this.colporcentaje.Visible = true;
             this.colporcentaje.VisibleIndex = 2;
+            this.colporcentaje.Width = 77;
             // 
             // colporcentaje_lps
             // 
@@ -244,6 +247,7 @@
             this.colporcentaje_lps.OptionsColumn.ReadOnly = true;
             this.colporcentaje_lps.Visible = true;
             this.colporcentaje_lps.VisibleIndex = 3;
+            this.colporcentaje_lps.Width = 77;
             // 
             // colbonificacion_extra
             // 
@@ -254,6 +258,7 @@
             this.colbonificacion_extra.Name = "colbonificacion_extra";
             this.colbonificacion_extra.Visible = true;
             this.colbonificacion_extra.VisibleIndex = 4;
+            this.colbonificacion_extra.Width = 77;
             // 
             // coltotal_pago
             // 
@@ -265,7 +270,7 @@
             this.coltotal_pago.OptionsColumn.ReadOnly = true;
             this.coltotal_pago.Visible = true;
             this.coltotal_pago.VisibleIndex = 5;
-            this.coltotal_pago.Width = 105;
+            this.coltotal_pago.Width = 108;
             // 
             // gridColumn1
             // 
@@ -273,8 +278,8 @@
             this.gridColumn1.ColumnEdit = this.btnDelete;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 6;
-            this.gridColumn1.Width = 86;
+            this.gridColumn1.VisibleIndex = 7;
+            this.gridColumn1.Width = 72;
             // 
             // btnDelete
             // 
@@ -291,7 +296,8 @@
             this.gridColumn2.FieldName = "limite_techo";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 7;
+            this.gridColumn2.VisibleIndex = 6;
+            this.gridColumn2.Width = 96;
             // 
             // dtHasta
             // 

@@ -568,7 +568,7 @@
             // xrPictureBox1
             // 
             this.xrPictureBox1.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::JAGUAR_PRO.Properties.Resources.logoNormac, true);
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(1.999901F, 351.2499F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(94.77F, 78.00001F);
@@ -628,7 +628,7 @@
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel9.SizeF = new System.Drawing.SizeF(231.25F, 23F);
             this.xrLabel9.StylePriority.UseFont = false;
-            this.xrLabel9.Text = "Aquafeed S.A. de C.V.";
+            this.xrLabel9.Text = "Ferreteria NORMAC";
             // 
             // xrLabel3
             // 
@@ -639,7 +639,7 @@
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(231.25F, 23F);
             this.xrLabel3.StylePriority.UseFont = false;
-            this.xrLabel3.Text = "Aquafeed S.A. de C.V.";
+            this.xrLabel3.Text = "Ferreteria NORMAC";
             // 
             // lblPayRoll1
             // 
@@ -688,7 +688,7 @@
             // xrPictureBox2
             // 
             this.xrPictureBox2.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrPictureBox2.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox2.ImageSource"));
+            this.xrPictureBox2.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::JAGUAR_PRO.Properties.Resources.logoNormac, true);
             this.xrPictureBox2.LocationFloat = new DevExpress.Utils.PointFloat(1.999878F, 7.99996F);
             this.xrPictureBox2.Name = "xrPictureBox2";
             this.xrPictureBox2.SizeF = new System.Drawing.SizeF(94.77F, 78.00001F);

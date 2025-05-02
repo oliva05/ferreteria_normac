@@ -365,7 +365,7 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones {
             
             private global::System.Data.DataColumn columntipo_plan;
             
-            private global::System.Data.DataColumn columnplan;
+            private global::System.Data.DataColumn columnplan_;
             
             private global::System.Data.DataColumn columnusuario;
             
@@ -468,9 +468,9 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn planColumn {
+            public global::System.Data.DataColumn plan_Column {
                 get {
-                    return this.columnplan;
+                    return this.columnplan_;
                 }
             }
             
@@ -519,7 +519,7 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public lista_planes_comisionesRow Addlista_planes_comisionesRow(int id, int anio, System.DateTime fecha_inicio, System.DateTime fecha_fin, string descripcion, bool activa, int user_id, int tipo_plan, string plan, string usuario) {
+            public lista_planes_comisionesRow Addlista_planes_comisionesRow(int id, int anio, System.DateTime fecha_inicio, System.DateTime fecha_fin, string descripcion, bool activa, int user_id, int tipo_plan, string plan_, string usuario) {
                 lista_planes_comisionesRow rowlista_planes_comisionesRow = ((lista_planes_comisionesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -530,7 +530,7 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones {
                         activa,
                         user_id,
                         tipo_plan,
-                        plan,
+                        plan_,
                         usuario};
                 rowlista_planes_comisionesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlista_planes_comisionesRow);
@@ -562,7 +562,7 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones {
                 this.columnactiva = base.Columns["activa"];
                 this.columnuser_id = base.Columns["user_id"];
                 this.columntipo_plan = base.Columns["tipo_plan"];
-                this.columnplan = base.Columns["plan"];
+                this.columnplan_ = base.Columns["plan_"];
                 this.columnusuario = base.Columns["usuario"];
             }
             
@@ -585,8 +585,8 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones {
                 base.Columns.Add(this.columnuser_id);
                 this.columntipo_plan = new global::System.Data.DataColumn("tipo_plan", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntipo_plan);
-                this.columnplan = new global::System.Data.DataColumn("plan", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnplan);
+                this.columnplan_ = new global::System.Data.DataColumn("plan_", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnplan_);
                 this.columnusuario = new global::System.Data.DataColumn("usuario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusuario);
             }
@@ -1507,17 +1507,17 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string plan {
+            public string plan_ {
                 get {
                     try {
-                        return ((string)(this[this.tablelista_planes_comisiones.planColumn]));
+                        return ((string)(this[this.tablelista_planes_comisiones.plan_Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'plan\' de la tabla \'lista_planes_comisiones\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'plan_\' de la tabla \'lista_planes_comisiones\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelista_planes_comisiones.planColumn] = value;
+                    this[this.tablelista_planes_comisiones.plan_Column] = value;
                 }
             }
             
@@ -1636,14 +1636,14 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsplanNull() {
-                return this.IsNull(this.tablelista_planes_comisiones.planColumn);
+            public bool Isplan_Null() {
+                return this.IsNull(this.tablelista_planes_comisiones.plan_Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetplanNull() {
-                this[this.tablelista_planes_comisiones.planColumn] = global::System.Convert.DBNull;
+            public void Setplan_Null() {
+                this[this.tablelista_planes_comisiones.plan_Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

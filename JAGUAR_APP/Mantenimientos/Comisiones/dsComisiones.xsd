@@ -23,7 +23,7 @@
               <xs:element name="activa" msprop:Generator_ColumnPropNameInTable="activaColumn" msprop:Generator_ColumnPropNameInRow="activa" msprop:Generator_UserColumnName="activa" msprop:Generator_ColumnVarNameInTable="columnactiva" type="xs:boolean" minOccurs="0" />
               <xs:element name="user_id" msprop:Generator_ColumnPropNameInTable="user_idColumn" msprop:Generator_ColumnPropNameInRow="user_id" msprop:Generator_UserColumnName="user_id" msprop:Generator_ColumnVarNameInTable="columnuser_id" type="xs:int" minOccurs="0" />
               <xs:element name="tipo_plan" msprop:Generator_ColumnPropNameInTable="tipo_planColumn" msprop:Generator_ColumnPropNameInRow="tipo_plan" msprop:Generator_UserColumnName="tipo_plan" msprop:Generator_ColumnVarNameInTable="columntipo_plan" type="xs:int" minOccurs="0" />
-              <xs:element name="plan" msprop:Generator_ColumnPropNameInTable="planColumn" msprop:Generator_ColumnPropNameInRow="plan" msprop:Generator_UserColumnName="plan" msprop:Generator_ColumnVarNameInTable="columnplan" type="xs:string" minOccurs="0" />
+              <xs:element name="plan_" msprop:Generator_ColumnPropNameInTable="plan_Column" msprop:Generator_ColumnPropNameInRow="plan_" msprop:Generator_UserColumnName="plan_" msprop:Generator_ColumnVarNameInTable="columnplan_" type="xs:string" minOccurs="0" />
               <xs:element name="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_UserColumnName="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
@@ -39,7 +39,7 @@
               <xs:element name="porcentaje_lps" msprop:Generator_ColumnPropNameInTable="porcentaje_lpsColumn" msprop:Generator_ColumnPropNameInRow="porcentaje_lps" msprop:Generator_UserColumnName="porcentaje_lps" msprop:Generator_ColumnVarNameInTable="columnporcentaje_lps" type="xs:decimal" default="0" minOccurs="0" />
               <xs:element name="bonificacion_extra" msprop:Generator_ColumnPropNameInTable="bonificacion_extraColumn" msprop:Generator_ColumnPropNameInRow="bonificacion_extra" msprop:Generator_UserColumnName="bonificacion_extra" msprop:Generator_ColumnVarNameInTable="columnbonificacion_extra" type="xs:decimal" default="0" minOccurs="0" />
               <xs:element name="total_pago" msprop:Generator_ColumnPropNameInTable="total_pagoColumn" msprop:Generator_ColumnPropNameInRow="total_pago" msprop:Generator_UserColumnName="total_pago" msprop:Generator_ColumnVarNameInTable="columntotal_pago" type="xs:decimal" default="0" minOccurs="0" />
-              <xs:element name="limite_techo" msprop:Generator_ColumnPropNameInRow="limite_techo" msprop:Generator_ColumnPropNameInTable="limite_techoColumn" msprop:Generator_ColumnVarNameInTable="columnlimite_techo" msprop:Generator_UserColumnName="limite_techo" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="limite_techo" msprop:Generator_UserColumnName="limite_techo" msprop:Generator_ColumnPropNameInTable="limite_techoColumn" msprop:Generator_ColumnPropNameInRow="limite_techo" msprop:Generator_ColumnVarNameInTable="columnlimite_techo" type="xs:boolean" default="false" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

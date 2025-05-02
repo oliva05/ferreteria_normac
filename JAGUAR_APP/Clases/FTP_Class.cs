@@ -11,6 +11,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.WebRequestMethods;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace JAGUAR_PRO.Clases
 {
@@ -316,6 +317,38 @@ namespace JAGUAR_PRO.Clases
             }
 
             return image;
+        }
+
+        public bool ValidateConnectionV2()
+        {
+            DataOperations dp = new DataOperations();
+            string pass = "OPjSn10Z1U";
+            string user_op = "ftp_normac";
+            string ftpUrl = "ftp://192.168.21.50";
+
+            bool conectado = false;
+
+            try
+            {
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
+                request.Method = WebRequestMethods.Ftp.ListDirectory; // método liviano para probar conexión
+                request.Credentials = new NetworkCredential(user_op, pass);
+                request.EnableSsl = false; // cambia esto si tu servidor usa SSL
+
+                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                {
+                    conectado = true;
+                }
+            }
+            catch (WebException ex)
+            {
+                conectado = false;
+                // Puedes también ver el error si quieres más detalles:
+                // Console.WriteLine($"Error: {ex.Message}");
+            }
+
+           return conectado;
+
         }
 
         public bool ValidateConnection()

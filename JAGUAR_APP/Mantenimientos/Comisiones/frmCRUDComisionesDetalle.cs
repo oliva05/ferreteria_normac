@@ -42,9 +42,40 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
 
                     break;
                 case TipoOperacion.Editar:
+                    Clases.Comisiones comisiones = new Clases.Comisiones();
+                    comisiones.RecuperarRegistrosComisionesById(IdComision);
+                    txtAnio.Text = comisiones.Anio.ToString();
+                    dtDesde.DateTime = comisiones.FechaInicio.Date;
+                    dtHasta.DateTime = comisiones.FechaFin.Date;
+                    gridLookUpEdit1.EditValue = comisiones.TipoPlanId;
+                    txtDescripcion.Text = comisiones.Descripcion;
+                    txtInicioComision.EditValue = comisiones.Porcentaje;
+
+                    CargarDetalle();
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void CargarDetalle()
+        {
+            try
+            {
+                string query = @"sp_comisiones_detalle_config";
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdComision",IdComision);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsComisiones1.detalle_comisiones.Clear();
+                adat.Fill(dsComisiones1.detalle_comisiones);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
 
@@ -90,14 +121,12 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                 return;
             }
             bool Guardar = false;
+            SqlTransaction transaction = null;
+
+            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
             switch (tipoOperacion)
             {
                 case TipoOperacion.Nuevo:
-
-                    SqlTransaction transaction = null;
-
-                    SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                    
 
                     try
                     {
@@ -115,6 +144,7 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                         cmd.Parameters.AddWithValue("@descripcion",txtDescripcion.Text);
                         cmd.Parameters.AddWithValue("@user_id",UsuarioLogeado.Id);
                         cmd.Parameters.AddWithValue("@tipo_plan",gridLookUpEdit1.EditValue);
+                        cmd.Parameters.AddWithValue("@inicio_comision",txtInicioComision.EditValue);
                         //cmd.Parameters.AddWithValue("", Istraslado ? Convert.ToDecimal(row.id_traslado) : 0);
 
                         int id_header= Convert.ToInt32(cmd.ExecuteScalar());
@@ -152,6 +182,59 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
 
                     break;
                 case TipoOperacion.Editar:
+
+                    try
+                    {
+                        conn.Open();
+                        transaction = conn.BeginTransaction("Transaction Order");
+
+                        SqlCommand cmd = conn.CreateCommand();
+                        cmd.CommandText = "[sp_comisiones_update_h]";
+                        cmd.Connection = conn;
+                        cmd.Transaction = transaction;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@idComision", IdComision);
+                        cmd.Parameters.AddWithValue("@anio", dp.ValidateNumberInt32(txtAnio.Text));
+                        cmd.Parameters.AddWithValue("@fecha_inicio", dtDesde.DateTime);
+                        cmd.Parameters.AddWithValue("@fecha_fin", dtHasta.DateTime);
+                        cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
+                        cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
+                        cmd.Parameters.AddWithValue("@tipo_plan", gridLookUpEdit1.EditValue);
+                        cmd.Parameters.AddWithValue("@inicio_comision", txtInicioComision.EditValue);
+                        //cmd.Parameters.AddWithValue("", Istraslado ? Convert.ToDecimal(row.id_traslado) : 0);
+
+                        cmd.ExecuteNonQuery();
+
+                        foreach (dsComisiones.detalle_comisionesRow row in dsComisiones1.detalle_comisiones.Rows)
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.CommandText = "[sp_comisiones_update_d]";
+                            cmd.Connection = conn;
+                            cmd.Transaction = transaction;
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id_header", IdComision);
+                            cmd.Parameters.AddWithValue("@piso", row.piso);
+                            cmd.Parameters.AddWithValue("@techo", row.techo);
+                            cmd.Parameters.AddWithValue("@porcentaje", row.porcentaje);
+                            cmd.Parameters.AddWithValue("@porcentaje_lps", row.porcentaje_lps);
+                            cmd.Parameters.AddWithValue("@bonificacion_extra", row.bonificacion_extra);
+                            cmd.Parameters.AddWithValue("@tiene_limite_techo", row.limite_techo);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        Guardar = true;
+
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+
+                    }
+                    catch (Exception ec)
+                    {
+                        transaction.Rollback();
+                        CajaDialogo.Error(ec.Message);
+                        Guardar = false;
+                    }
                     break;
                 default:
                     break;

@@ -45,9 +45,8 @@
             this.cmdCargarDatos = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
             this.dsComisiones1 = new JAGUAR_PRO.Mantenimientos.Comisiones.dsComisiones();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colanio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha_inicio = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,18 +57,19 @@
             this.coltipo_plan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colplan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colusuario = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.reposEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.reposDesactivar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reposEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reposDesactivar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsComisiones1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposEditar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposDesactivar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl2
@@ -162,6 +162,11 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // dsComisiones1
+            // 
+            this.dsComisiones1.DataSetName = "dsComisiones";
+            this.dsComisiones1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -179,27 +184,6 @@
             this.gridColumn2});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            // 
-            // cmdCerrar
-            // 
-            this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdCerrar.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.cmdCerrar.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCerrar.Appearance.Options.UseBackColor = true;
-            this.cmdCerrar.Appearance.Options.UseFont = true;
-            this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdCerrar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCerrar.ImageOptions.Image")));
-            this.cmdCerrar.Location = new System.Drawing.Point(1179, 33);
-            this.cmdCerrar.Name = "cmdCerrar";
-            this.cmdCerrar.Size = new System.Drawing.Size(110, 36);
-            this.cmdCerrar.TabIndex = 35;
-            this.cmdCerrar.Text = "Cerrar";
-            this.cmdCerrar.Click += new System.EventHandler(this.cmdCerrar_Click);
-            // 
-            // dsComisiones1
-            // 
-            this.dsComisiones1.DataSetName = "dsComisiones";
-            this.dsComisiones1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // colid
             // 
@@ -264,7 +248,7 @@
             // colplan
             // 
             this.colplan.Caption = "Plan";
-            this.colplan.FieldName = "plan";
+            this.colplan.FieldName = "plan_";
             this.colplan.Name = "colplan";
             this.colplan.OptionsColumn.AllowEdit = false;
             this.colplan.Visible = true;
@@ -279,6 +263,14 @@
             this.colusuario.Visible = true;
             this.colusuario.VisibleIndex = 5;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Editar";
+            this.gridColumn1.ColumnEdit = this.reposEditar;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 6;
+            // 
             // reposEditar
             // 
             this.reposEditar.AutoHeight = false;
@@ -287,13 +279,15 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposEditar.Name = "reposEditar";
             this.reposEditar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.reposEditar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposEditar_ButtonClick);
             // 
-            // repositoryItemButtonEdit2
+            // gridColumn2
             // 
-            this.repositoryItemButtonEdit2.AutoHeight = false;
-            this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
+            this.gridColumn2.Caption = "Desactivar";
+            this.gridColumn2.ColumnEdit = this.reposDesactivar;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 7;
             // 
             // reposDesactivar
             // 
@@ -304,20 +298,28 @@
             this.reposDesactivar.Name = "reposDesactivar";
             this.reposDesactivar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
-            // gridColumn1
+            // repositoryItemButtonEdit2
             // 
-            this.gridColumn1.Caption = "Editar";
-            this.gridColumn1.ColumnEdit = this.reposEditar;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 6;
+            this.repositoryItemButtonEdit2.AutoHeight = false;
+            this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             // 
-            // gridColumn2
+            // cmdCerrar
             // 
-            this.gridColumn2.Caption = "Desactivar";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 7;
+            this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdCerrar.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.cmdCerrar.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdCerrar.Appearance.Options.UseBackColor = true;
+            this.cmdCerrar.Appearance.Options.UseFont = true;
+            this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdCerrar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCerrar.ImageOptions.Image")));
+            this.cmdCerrar.Location = new System.Drawing.Point(1179, 33);
+            this.cmdCerrar.Name = "cmdCerrar";
+            this.cmdCerrar.Size = new System.Drawing.Size(110, 36);
+            this.cmdCerrar.TabIndex = 35;
+            this.cmdCerrar.Text = "Cerrar";
+            this.cmdCerrar.Click += new System.EventHandler(this.cmdCerrar_Click);
             // 
             // frmMainComisiones
             // 
@@ -335,11 +337,11 @@
             this.Text = "frmMainComisiones";
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsComisiones1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposEditar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposDesactivar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

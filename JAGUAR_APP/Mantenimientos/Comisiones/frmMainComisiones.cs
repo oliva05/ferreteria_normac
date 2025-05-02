@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACS.Classes;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraRichEdit.Layout;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.LogisticaJaguar;
 
 namespace JAGUAR_PRO.Mantenimientos.Comisiones
 {
@@ -69,6 +71,18 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             frmCRUDComisionesDetalle frm = new frmCRUDComisionesDetalle(frmCRUDComisionesDetalle.TipoOperacion.Nuevo,UsuarioLogeado, 0);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                CargarDatos();
+            }
+        }
+
+        private void reposEditar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)gridControl1.FocusedView;
+            var row = (dsComisiones.lista_planes_comisionesRow)gridview.GetFocusedDataRow();
+
+            frmCRUDComisionesDetalle frm = new frmCRUDComisionesDetalle(frmCRUDComisionesDetalle.TipoOperacion.Editar, UsuarioLogeado, row.id);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 CargarDatos();
