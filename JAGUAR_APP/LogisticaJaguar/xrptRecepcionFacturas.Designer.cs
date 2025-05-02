@@ -34,6 +34,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -58,6 +59,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
@@ -103,8 +105,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.dsLogisticaJaguar1 = new JAGUAR_PRO.LogisticaJaguar.dsLogisticaJaguar();
-            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrTableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -129,11 +129,30 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.Detail.HeightF = 22F;
             this.Detail.Name = "Detail";
             // 
+            // xrLabel6
+            // 
+            this.xrLabel6.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrLabel6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total_linea]")});
+            this.xrLabel6.Font = new DevExpress.Drawing.DXFont("Segoe UI", 8.75F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(584.1113F, 0F);
+            this.xrLabel6.Multiline = true;
+            this.xrLabel6.Name = "xrLabel6";
+            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(106.5137F, 21.99999F);
+            this.xrLabel6.StylePriority.UseBorders = false;
+            this.xrLabel6.StylePriority.UseFont = false;
+            this.xrLabel6.StylePriority.UseTextAlignment = false;
+            this.xrLabel6.Text = "xrLabel6";
+            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrLabel6.TextFormatString = "{0:n2}";
+            // 
             // xrTable2
             // 
             this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable2.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrTable2.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
             this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -285,7 +304,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // xrlProveedor
             // 
-            this.xrlProveedor.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrlProveedor.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
             this.xrlProveedor.LocationFloat = new DevExpress.Utils.PointFloat(82.32334F, 103.7083F);
             this.xrlProveedor.Multiline = true;
             this.xrlProveedor.Name = "xrlProveedor";
@@ -302,7 +322,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable1.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrTable1.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
             this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 142.375F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -441,6 +462,19 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell3.Weight = 2.0261909263514566D;
             // 
+            // xrTableCell18
+            // 
+            this.xrTableCell18.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell18.Font = new DevExpress.Drawing.DXFont("Segoe UI", 8F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrTableCell18.Multiline = true;
+            this.xrTableCell18.Name = "xrTableCell18";
+            this.xrTableCell18.StylePriority.UseBorders = false;
+            this.xrTableCell18.StylePriority.UseFont = false;
+            this.xrTableCell18.StylePriority.UseTextAlignment = false;
+            this.xrTableCell18.Text = "TOTAL FILA L.";
+            this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrTableCell18.Weight = 2.5390219433802765D;
+            // 
             // xrLabel5
             // 
             this.xrLabel5.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9.75F, DevExpress.Drawing.DXFontStyle.Bold);
@@ -456,7 +490,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // xrLabel4
             // 
-            this.xrLabel4.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9.75F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrLabel4.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9.75F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(0F, 57.125F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
@@ -469,7 +504,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // xrLabel3
             // 
-            this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9.75F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9.75F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(157.8215F, 23F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
@@ -482,7 +518,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // xrLabel1
             // 
-            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Segoe UI", 11.25F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Segoe UI", 11.25F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
@@ -490,7 +527,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrLabel1.SizeF = new System.Drawing.SizeF(690.625F, 23F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "PANIFICADORA JERUSALEM, S. DE R.L. DE C.V.";
+            this.xrLabel1.Text = "NORMAC FERRETERIA";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrTable4
@@ -683,7 +720,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell30.Name = "xrTableCell30";
             this.xrTableCell30.StylePriority.UseBorders = false;
             this.xrTableCell30.Text = "xrTableCell30";
-            this.xrTableCell30.Weight = 1.1150505668318052D;
+            this.xrTableCell30.Weight = 1.1150505668318051D;
             // 
             // xrTableCell31
             // 
@@ -897,37 +934,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.dsLogisticaJaguar1.DataSetName = "dsLogisticaJaguar";
             this.dsLogisticaJaguar1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // xrLabel6
-            // 
-            this.xrLabel6.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total_linea]")});
-            this.xrLabel6.Font = new DevExpress.Drawing.DXFont("Segoe UI", 8.75F);
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(584.1113F, 0F);
-            this.xrLabel6.Multiline = true;
-            this.xrLabel6.Name = "xrLabel6";
-            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(106.5137F, 21.99999F);
-            this.xrLabel6.StylePriority.UseBorders = false;
-            this.xrLabel6.StylePriority.UseFont = false;
-            this.xrLabel6.StylePriority.UseTextAlignment = false;
-            this.xrLabel6.Text = "xrLabel6";
-            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrLabel6.TextFormatString = "{0:n2}";
-            // 
-            // xrTableCell18
-            // 
-            this.xrTableCell18.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTableCell18.Font = new DevExpress.Drawing.DXFont("Segoe UI", 8F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrTableCell18.Multiline = true;
-            this.xrTableCell18.Name = "xrTableCell18";
-            this.xrTableCell18.StylePriority.UseBorders = false;
-            this.xrTableCell18.StylePriority.UseFont = false;
-            this.xrTableCell18.StylePriority.UseTextAlignment = false;
-            this.xrTableCell18.Text = "TOTAL FILA L.";
-            this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell18.Weight = 2.5390219433802765D;
-            // 
             // xrptRecepcionFacturas
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -941,8 +947,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.DataMember = "Detalle_Recepcion_Facturas_rpt";
             this.DataSource = this.dsLogisticaJaguar1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
-            this.Margins = new DevExpress.Drawing.DXMargins(90, 30, 29, 100);
-            this.Version = "18.2";
+            this.Margins = new DevExpress.Drawing.DXMargins(90F, 30F, 29F, 100F);
+            this.Version = "23.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();

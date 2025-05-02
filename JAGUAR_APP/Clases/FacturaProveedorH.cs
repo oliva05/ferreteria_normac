@@ -46,7 +46,7 @@ namespace JAGUAR_PRO.Clases
                 con.Open();
 
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_class_header_recepcion_factura_proveedor_h", con);
+                SqlCommand cmd = new SqlCommand("dbo.sp_get_class_header_recepcion_factura_proveedor_h", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", pIdFacturaH);
                 SqlDataReader dr = cmd.ExecuteReader();

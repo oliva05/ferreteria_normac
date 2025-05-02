@@ -447,7 +447,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colid_ud_medida_prv.FieldName = "id_ud_medida_prv";
             this.colid_ud_medida_prv.Name = "colid_ud_medida_prv";
             this.colid_ud_medida_prv.Visible = true;
-            this.colid_ud_medida_prv.VisibleIndex = 2;
+            this.colid_ud_medida_prv.VisibleIndex = 3;
             this.colid_ud_medida_prv.Width = 96;
             // 
             // RGridLookUpE_UdMedidaFactura
@@ -496,9 +496,11 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // colid_mp
             // 
             this.colid_mp.Caption = "Producto";
-            this.colid_mp.ColumnEdit = this.RGridLookUpE_MateriaPrimaList;
+            this.colid_mp.ColumnEdit = this.gle_MP_y_ME;
             this.colid_mp.FieldName = "id_mp";
             this.colid_mp.Name = "colid_mp";
+            this.colid_mp.Visible = true;
+            this.colid_mp.VisibleIndex = 2;
             this.colid_mp.Width = 177;
             // 
             // RGridLookUpE_MateriaPrimaList
@@ -692,8 +694,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colItemCode.FieldName = "ItemCode";
             this.colItemCode.Name = "colItemCode";
             this.colItemCode.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.True;
-            this.colItemCode.Visible = true;
-            this.colItemCode.VisibleIndex = 3;
             this.colItemCode.Width = 158;
             // 
             // gle_MP_y_ME

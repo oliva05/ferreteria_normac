@@ -128,7 +128,19 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         ProveedorActual = new Proveedor();
                         ProveedorActual.RecuperarRegistro(FacturaProveedorH_Actual.id_proveedor);
                         //gridLookUpEdit_CAI_Proveedor.Text = FacturaProveedorH_Actual.cai;
-                        gridLookUpEdit_CAI_Proveedor.EditValue = FacturaProveedorH_Actual.IdCai;
+                        if (FacturaProveedorH_Actual.IdCai == 0)
+                        {
+                            txtCAI.Text = FacturaProveedorH_Actual.cai;
+                            txtCAI.Visible = true;
+                            gridLookUpEdit_CAI_Proveedor.Visible = false;
+                        }
+                        else
+                        {
+                            gridLookUpEdit_CAI_Proveedor.EditValue = FacturaProveedorH_Actual.IdCai;
+                            txtCAI.Visible = false;
+                            gridLookUpEdit_CAI_Proveedor.Visible = true;
+                        }
+                        
                         txtNombreEntrega.Text = FacturaProveedorH_Actual.entregado_por_nombre;
                         txtIdentidadEntrega.Text = FacturaProveedorH_Actual.entregado_por_identidad;
                         txtTelefonoEntrega.Text = FacturaProveedorH_Actual.entregado_por_telefono;
@@ -409,14 +421,14 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     var gridView1 = (GridView)gridControl1.FocusedView;
                     var row1 = (dsLogisticaJaguar.detalle_recepcion_factRow)gridView1.GetFocusedDataRow();
 
-                    MateriaPrima mp1 = new MateriaPrima();
-                    if (mp1.RecuperarRegistroFromID_RM(row1.id_mp))
+                    ProductoTerminado pt = new ProductoTerminado();
+                    if (pt.Recuperar_producto(row1.id_mp))
                     {
-                        row1.id_ud_medida_jaguar = mp1.IdPresentacionDefault;
+                        row1.id_ud_medida_jaguar = pt.Id_presentacion;
                         idOrigen = dp.ValidateNumberInt32(row1.id_ud_medida_prv);
                         idDestino = dp.ValidateNumberInt32(row1.id_ud_medida_jaguar);
-                        row1.ItemCode = mp1.Codigo;
-                        row1.descripcion_mp = mp1.NameComercial;
+                        row1.ItemCode = pt.Code;
+                        row1.descripcion_mp = pt.Descripcion;
 
                         if (idOrigen > 0 && idDestino > 0)
                         {
@@ -708,7 +720,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             cmd.Parameters.AddWithValue("@item_code", row.ItemCode);
                             cmd.Parameters.AddWithValue("@id_bodega", 1);//row.id_bodega);
                             cmd.Parameters.AddWithValue("@codigo_proveedor", ProveedorActual.Jaguar_codigo);
-                            cmd.Parameters.AddWithValue("@tipo_item", row.type_id);
+                            cmd.Parameters.AddWithValue("@tipo_item", DBNull.Value);
                             cmd.ExecuteNonQuery();
                         }
                         transaction.Commit();
