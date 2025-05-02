@@ -3537,6 +3537,7 @@
             this.cmdAgregarNuevo.Text = "Nuevo";
             this.cmdAgregarNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdAgregarNuevo.UseVisualStyleBackColor = true;
+            this.cmdAgregarNuevo.Click += new System.EventHandler(this.cmdAgregarNuevo_Click_1);
             // 
             // labelControl31
             // 

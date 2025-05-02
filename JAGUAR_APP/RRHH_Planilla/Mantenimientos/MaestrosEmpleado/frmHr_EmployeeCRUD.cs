@@ -117,7 +117,11 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     LoadCapacitacionesProgramadas((int)EstadoCapacitaciones.Programada);
 
                     SetControlesEnable_orDisable(false);//Deshabiltamos
-                    ShowImageFromFtp(GetUrlPhoto(EmpleadoActual.Id));
+                    if (string.IsNullOrEmpty(GetUrlPhoto(EmpleadoActual.Id)))
+                    {
+                        ShowImageFromFtp(GetUrlPhoto(EmpleadoActual.Id));
+                    }
+                    
                     break;
                 case TipoTransaccion.View:
                     EmpleadoActual.Barcode = pCodigoEmpleado;
@@ -1749,18 +1753,16 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
                 FTP_Class ftp1 = new FTP_Class();
                 DataOperations dp = new DataOperations();
-
-                // Crear la solicitud FTP
-                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(url_ftp);
-                request.Method = WebRequestMethods.Ftp.DownloadFile;
-
-                // Especificar credenciales FTP
-                //request.Credentials = new NetworkCredential(ftp1.UserFTP, ftp1.PassFTP);
-                request.Credentials = new NetworkCredential(dp.User_FTP_Server, dp.Password_UserFTPServer);
-
-
                 if (ftp1.ValidateConnection())
                 {
+                    // Crear la solicitud FTP
+                    FtpWebRequest request = (FtpWebRequest)WebRequest.Create(url_ftp);
+                    request.Method = WebRequestMethods.Ftp.DownloadFile;
+
+                    // Especificar credenciales FTP
+                    //request.Credentials = new NetworkCredential(ftp1.UserFTP, ftp1.PassFTP);
+                    request.Credentials = new NetworkCredential(dp.User_FTP_Server, dp.Password_UserFTPServer);
+
                     // Obtener la respuesta como un flujo (stream)
                     using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
                     using (Stream responseStream = response.GetResponseStream())
@@ -2219,6 +2221,11 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Barcode, UsuarioLogeado, EmpleadoActual.Id);
             frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
             frm.ShowDialog();
+        }
+
+        private void cmdAgregarNuevo_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
