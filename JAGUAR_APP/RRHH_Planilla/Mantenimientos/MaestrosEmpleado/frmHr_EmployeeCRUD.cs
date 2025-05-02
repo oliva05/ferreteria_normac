@@ -117,7 +117,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     LoadCapacitacionesProgramadas((int)EstadoCapacitaciones.Programada);
 
                     SetControlesEnable_orDisable(false);//Deshabiltamos
-                    if (string.IsNullOrEmpty(GetUrlPhoto(EmpleadoActual.Id)))
+                    if (!string.IsNullOrEmpty(GetUrlPhoto(EmpleadoActual.Id)))
                     {
                         ShowImageFromFtp(GetUrlPhoto(EmpleadoActual.Id));
                     }

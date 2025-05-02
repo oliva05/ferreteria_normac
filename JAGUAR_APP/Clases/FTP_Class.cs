@@ -161,14 +161,7 @@ namespace JAGUAR_PRO.Clases
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(dp.FTP_Normac_Empleados + pFileName);
                 string pass = dp.Password_UserFTPServer;//"Tempo1234";
                 string user_op = dp.User_FTP_Server;//= "operador";
-                if (pUsuarioLogeado != null)
-                {
-                    if (!string.IsNullOrEmpty(pUsuarioLogeado.Pass))
-                    {
-                        user_op = pUsuarioLogeado.ADuser1;
-                        pass = pUsuarioLogeado.Pass;
-                    }
-                }
+                
 
                 request.Credentials = new NetworkCredential(user_op, pass, "AQUAFEEDHN.COM");
                 request.Method = WebRequestMethods.Ftp.UploadFile;
