@@ -119,13 +119,14 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.Close();
         }
 
-        private void reposReport_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+
+        private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             var gridview = (GridView)gridControl1.FocusedView;
             var row = (dsPT.traslados_hRow)gridview.GetFocusedDataRow();
 
 
-            if (row != null) 
+            if (row != null)
             {
                 xrptTraslado report = new xrptTraslado(row.id_traslado);
                 report.ShowPrintMarginsWarning = false;
