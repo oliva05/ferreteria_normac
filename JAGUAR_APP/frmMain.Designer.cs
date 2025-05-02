@@ -322,7 +322,6 @@ namespace JAGUAR_PRO
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 585);
             this.ControlBox = false;
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdIngresarAdmin);
             this.Controls.Add(this.cmdAbrirTeclado);
@@ -332,7 +331,6 @@ namespace JAGUAR_PRO
             this.Controls.Add(this.SaltarLogin);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.lblVersion);
-            this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.cmdButtonSaltarLogin);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelControl2);
@@ -340,6 +338,8 @@ namespace JAGUAR_PRO
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.cmdLogin);
             this.Controls.Add(this.cmdCerrar);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.labelControl3);
             this.Name = "frmMain";
             this.Text = "LOGIN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
