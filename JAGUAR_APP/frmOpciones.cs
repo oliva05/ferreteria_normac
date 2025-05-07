@@ -5003,7 +5003,7 @@ namespace JAGUAR_PRO
                     }
                     else
                     {
-                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #58");
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #10");
                     }
                 }
                 catch (Exception ex)

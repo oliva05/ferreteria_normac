@@ -194,11 +194,11 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                 return;
             }
 
-            if (string.IsNullOrEmpty(slueCuenta.Text))
-            {
-                CajaDialogo.Error("Debe de seleccionar una cuenta");
-                return;
-            }
+            //if (string.IsNullOrEmpty(slueCuenta.Text))
+            //{
+            //    CajaDialogo.Error("Debe de seleccionar una cuenta");
+            //    return;
+            //}
 
             try
             {
@@ -224,51 +224,68 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                             cmd.Connection = conn;
                             cmd.Transaction = transaction;
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = txtNombre.Text;
-                            cmd.Parameters.Add("@complete_name", SqlDbType.VarChar).Value = txtNombreLargo.Text;
-                            cmd.Parameters.Add("@company_id", SqlDbType.Int).Value = 1;//slueCompania.EditValue;
-                            cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = usuario.Id;
-                            cmd.Parameters.Add("@payment_account_id", SqlDbType.Int).Value = slueCuenta.EditValue;
-                            cmd.Parameters.AddWithValue("@parentId", slueDepart.EditValue);
-                            cmd.Parameters.AddWithValue("@analytic_department_account_id", slueAnalyticAccount.EditValue);
-                            cmd.Parameters.AddWithValue("@manager_id", slueResponsable.EditValue);
+                            cmd.Parameters.AddWithValue("@name", txtNombre.Text); 
+                            cmd.Parameters.AddWithValue("@complete_name", txtNombreLargo.Text);
+                            cmd.Parameters.AddWithValue("@company_id", 1);//slueCompania.EditValue;
+                            cmd.Parameters.AddWithValue("@user_id", SqlDbType.Int).Value = usuario.Id;
+                            if (slueCuenta.Text == "Seleccione una cuenta")
+                                cmd.Parameters.AddWithValue("@payment_account_id", DBNull.Value);
+                            else
+                                cmd.Parameters.AddWithValue("@payment_account_id", slueCuenta.EditValue);
+                            if (slueDepart.Text == "Seleccione un Departamento")
+                                cmd.Parameters.AddWithValue("@parentId", DBNull.Value);
+                            else
+                                cmd.Parameters.AddWithValue("@parentId", slueDepart.EditValue);
+                            if (slueAnalyticAccount.Text == "Seleccione una cuenta")
+                                cmd.Parameters.AddWithValue("@analytic_department_account_id", DBNull.Value);
+                            else
+                                cmd.Parameters.AddWithValue("@analytic_department_account_id", slueAnalyticAccount.EditValue);
+                            if (slueResponsable.Text == "Seleccione un Responsable")
+                                cmd.Parameters.AddWithValue("@manager_id", DBNull.Value);
+                            else
+                                cmd.Parameters.AddWithValue("@manager_id", slueResponsable.EditValue);
 
                             int id_department = Convert.ToInt32(cmd.ExecuteScalar());
 
-                            foreach (dsMantenimientoPlanilla.hr_department_accountingRow row in dsMantenimientoPlanilla1.hr_department_accounting.Rows)
+                            if (xtraTabControl1.Visible)
                             {
-                                cmd.Parameters.Clear();
-                                cmd.CommandText = "sp_hr_insert_accounting";
-                                cmd.Connection = conn;
-                                cmd.Transaction = transaction;
-                                cmd.CommandType = CommandType.StoredProcedure;
-                                cmd.Parameters.AddWithValue("@provision", row.provision);
-                                cmd.Parameters.AddWithValue("@patronal", row.patronal);
-                                if (row.concept_id == 0)
-                                    cmd.Parameters.AddWithValue("@concept_id", DBNull.Value);
-                                else
-                                    cmd.Parameters.AddWithValue("@concept_id", row.concept_id);
-                                if (row.salary_rule_id == 0)
-                                    cmd.Parameters.AddWithValue("@salary_rule_id", DBNull.Value);
-                                else
-                                    cmd.Parameters.AddWithValue("@salary_rule_id", row.salary_rule_id);
-                                if (row.account_id == 0)
-                                    cmd.Parameters.AddWithValue("@account_id", DBNull.Value);
-                                else
-                                    cmd.Parameters.AddWithValue("@account_id", row.account_id);
-                                if (row.counterpart_id == 0)
-                                    cmd.Parameters.AddWithValue("@counterpart_id", DBNull.Value);
-                                else
-                                    cmd.Parameters.AddWithValue("@counterpart_id", row.counterpart_id);
+                                foreach (dsMantenimientoPlanilla.hr_department_accountingRow row in dsMantenimientoPlanilla1.hr_department_accounting.Rows)
+                                {
+                                    cmd.Parameters.Clear();
+                                    cmd.CommandText = "sp_hr_insert_accounting";
+                                    cmd.Connection = conn;
+                                    cmd.Transaction = transaction;
+                                    cmd.CommandType = CommandType.StoredProcedure;
+                                    cmd.Parameters.AddWithValue("@provision", row.provision);
+                                    cmd.Parameters.AddWithValue("@patronal", row.patronal);
+                                    if (row.concept_id == 0)
+                                        cmd.Parameters.AddWithValue("@concept_id", DBNull.Value);
+                                    else
+                                        cmd.Parameters.AddWithValue("@concept_id", row.concept_id);
+                                    if (row.salary_rule_id == 0)
+                                        cmd.Parameters.AddWithValue("@salary_rule_id", DBNull.Value);
+                                    else
+                                        cmd.Parameters.AddWithValue("@salary_rule_id", row.salary_rule_id);
+                                    if (row.account_id == 0)
+                                        cmd.Parameters.AddWithValue("@account_id", DBNull.Value);
+                                    else
+                                        cmd.Parameters.AddWithValue("@account_id", row.account_id);
+                                    if (row.counterpart_id == 0)
+                                        cmd.Parameters.AddWithValue("@counterpart_id", DBNull.Value);
+                                    else
+                                        cmd.Parameters.AddWithValue("@counterpart_id", row.counterpart_id);
 
-                                cmd.Parameters.AddWithValue("@move", row.move);
-                                cmd.Parameters.AddWithValue("@department_id", id_department);
-                                cmd.Parameters.AddWithValue("@analytic_type", row.analytic_type);
-                                //cmd.Parameters.AddWithValue("@supplier_id",);
-                                cmd.Parameters.AddWithValue("@create_uid", usuario.UserId);
-                                cmd.Parameters.AddWithValue("@create_date", dp.Now());
-                                cmd.ExecuteNonQuery();
+                                    cmd.Parameters.AddWithValue("@move", row.move);
+                                    cmd.Parameters.AddWithValue("@department_id", id_department);
+                                    cmd.Parameters.AddWithValue("@analytic_type", row.analytic_type);
+                                    //cmd.Parameters.AddWithValue("@supplier_id",);
+                                    cmd.Parameters.AddWithValue("@create_uid", usuario.UserId);
+                                    cmd.Parameters.AddWithValue("@create_date", dp.Now());
+                                    cmd.ExecuteNonQuery();
+                                }
                             }
+
+                            
 
                             transaction.Commit();
                             Guardar = true;
@@ -301,10 +318,22 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                             cmd.Parameters.Add("@complete_name", SqlDbType.VarChar).Value = txtNombreLargo.Text; 
                             cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = usuario.Id;
                             cmd.Parameters.Add("@company_id", SqlDbType.Int).Value = 1;//slueCompania.EditValue;
-                            cmd.Parameters.Add("@payment_account_id", SqlDbType.Int).Value = slueCuenta.EditValue;
-                            cmd.Parameters.AddWithValue("@parentId", slueDepart.EditValue);
-                            cmd.Parameters.AddWithValue("@analytic_department_account_id", slueAnalyticAccount.EditValue);
-                            cmd.Parameters.AddWithValue("@manager_id", slueResponsable.EditValue);
+                            if (slueCuenta.Text == "Seleccione una cuenta")
+                                cmd.Parameters.AddWithValue("@payment_account_id", DBNull.Value);
+                            else
+                                cmd.Parameters.AddWithValue("@payment_account_id", slueCuenta.EditValue);
+                            if (slueDepart.Text == "Seleccione un Departamento")
+                                cmd.Parameters.AddWithValue("@parentId", DBNull.Value);
+                            else
+                                cmd.Parameters.AddWithValue("@parentId", slueDepart.EditValue);
+                            if (slueAnalyticAccount.Text == "Seleccione una cuenta")
+                                cmd.Parameters.AddWithValue("@analytic_department_account_id", DBNull.Value);
+                            else
+                                cmd.Parameters.AddWithValue("@analytic_department_account_id", slueAnalyticAccount.EditValue);
+                            if (slueResponsable.Text == "Seleccione un Responsable")
+                                cmd.Parameters.AddWithValue("@manager_id", DBNull.Value);
+                            else
+                                cmd.Parameters.AddWithValue("@manager_id", slueResponsable.EditValue);
 
                             cmd.ExecuteNonQuery();
 
