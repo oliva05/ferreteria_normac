@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_hr_payslip_lines));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsPlanillasTransaccion1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.dsPlanillasTransaccion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -71,9 +71,9 @@
             this.cmdCerrar = new System.Windows.Forms.Button();
             this.cmdAgregarDeduccion = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.cmdSiguiente = new System.Windows.Forms.Button();
-            this.cmdAnterior = new System.Windows.Forms.Button();
             this.cmdVerMarcas = new System.Windows.Forms.Button();
+            this.cmdAnterior = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdSiguiente = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPlanillasTransaccion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -258,9 +258,9 @@
             // cmdDelete
             // 
             this.cmdDelete.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.cmdDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdDelete_ButtonClick);
@@ -443,44 +443,11 @@
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // cmdSiguiente
-            // 
-            this.cmdSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdSiguiente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.cmdSiguiente.Image = global::JAGUAR_PRO.Properties.Resources.flecha_derecha24;
-            this.cmdSiguiente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdSiguiente.Location = new System.Drawing.Point(677, 46);
-            this.cmdSiguiente.Name = "cmdSiguiente";
-            this.cmdSiguiente.Size = new System.Drawing.Size(92, 33);
-            this.cmdSiguiente.TabIndex = 137;
-            this.cmdSiguiente.Text = "Siguiente";
-            this.cmdSiguiente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdSiguiente.UseVisualStyleBackColor = true;
-            this.cmdSiguiente.Click += new System.EventHandler(this.cmdSiguiente_Click);
-            // 
-            // cmdAnterior
-            // 
-            this.cmdAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdAnterior.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.cmdAnterior.Image = global::LOSA.Properties.Resources.flecha_izquierda24;
-            this.cmdAnterior.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdAnterior.Location = new System.Drawing.Point(579, 46);
-            this.cmdAnterior.Name = "cmdAnterior";
-            this.cmdAnterior.Size = new System.Drawing.Size(92, 33);
-            this.cmdAnterior.TabIndex = 138;
-            this.cmdAnterior.Text = "Anterior";
-            this.cmdAnterior.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdAnterior.UseVisualStyleBackColor = true;
-            this.cmdAnterior.Click += new System.EventHandler(this.cmdAnterior_Click);
-            // 
             // cmdVerMarcas
             // 
             this.cmdVerMarcas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdVerMarcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdVerMarcas.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.cmdVerMarcas.Image = global::JAGUAR_PRO.Properties.Resources.calendario24;
             this.cmdVerMarcas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdVerMarcas.Location = new System.Drawing.Point(775, 7);
             this.cmdVerMarcas.Name = "cmdVerMarcas";
@@ -492,14 +459,34 @@
             this.cmdVerMarcas.Visible = false;
             this.cmdVerMarcas.Click += new System.EventHandler(this.cmdVerMarcas_Click);
             // 
+            // cmdAnterior
+            // 
+            this.cmdAnterior.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.cmdAnterior.Location = new System.Drawing.Point(579, 46);
+            this.cmdAnterior.Name = "cmdAnterior";
+            this.cmdAnterior.Size = new System.Drawing.Size(92, 33);
+            this.cmdAnterior.TabIndex = 140;
+            this.cmdAnterior.Text = "Anterior";
+            this.cmdAnterior.Click += new System.EventHandler(this.cmdAnterior_Click);
+            // 
+            // cmdSiguiente
+            // 
+            this.cmdSiguiente.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.cmdSiguiente.Location = new System.Drawing.Point(677, 46);
+            this.cmdSiguiente.Name = "cmdSiguiente";
+            this.cmdSiguiente.Size = new System.Drawing.Size(92, 33);
+            this.cmdSiguiente.TabIndex = 141;
+            this.cmdSiguiente.Text = "Siguiente";
+            this.cmdSiguiente.Click += new System.EventHandler(this.cmdSiguiente_Click_1);
+            // 
             // frm_hr_payslip_lines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 598);
-            this.Controls.Add(this.cmdVerMarcas);
-            this.Controls.Add(this.cmdAnterior);
             this.Controls.Add(this.cmdSiguiente);
+            this.Controls.Add(this.cmdAnterior);
+            this.Controls.Add(this.cmdVerMarcas);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.cmdAgregarDeduccion);
             this.Controls.Add(this.cmdCerrar);
@@ -566,9 +553,9 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdDelete;
         private System.Windows.Forms.Button cmdAgregarDeduccion;
         private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Button cmdSiguiente;
-        private System.Windows.Forms.Button cmdAnterior;
         private DevExpress.XtraGrid.Columns.GridColumn colsalario_hora;
         private System.Windows.Forms.Button cmdVerMarcas;
+        private DevExpress.XtraEditors.SimpleButton cmdAnterior;
+        private DevExpress.XtraEditors.SimpleButton cmdSiguiente;
     }
 }

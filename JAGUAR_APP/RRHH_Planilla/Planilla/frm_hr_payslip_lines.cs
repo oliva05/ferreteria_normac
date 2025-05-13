@@ -582,6 +582,24 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
             
         }
 
+       
+
+        private void cmdVerMarcas_Click(object sender, EventArgs e)
+        {
+            HrEmployee EmpleadoClicked = new HrEmployee();
+            if (EmpleadoClicked.RecuperarDatosPorId(IdEmpleadoLoaded))
+            {
+                //frmResumenHorasExtraTrabajadas frm = new frmResumenHorasExtraTrabajadas(EmpleadoClicked, desde, hasta);
+                //frm.Show();
+            }
+            
+        }
+
+        private void frm_hr_payslip_lines_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.FormPlanillasList.LoadDetalleNominas();
+        }
+
         private void cmdAnterior_Click(object sender, EventArgs e)
         {
             if (FilaActual > 1)
@@ -604,7 +622,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
             {
                 //Nos iremos a la Ultima
                 FilaActual = UltimaFila;
-                
+
                 foreach (PaySlip slip in this.ArraySlips)
                 {
                     if (slip != null)
@@ -618,20 +636,41 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
             }
         }
 
-        private void cmdVerMarcas_Click(object sender, EventArgs e)
+        private void cmdSiguiente_Click_1(object sender, EventArgs e)
         {
-            HrEmployee EmpleadoClicked = new HrEmployee();
-            if (EmpleadoClicked.RecuperarDatosPorId(IdEmpleadoLoaded))
+            if (FilaActual < this.ArraySlips.Count)
             {
-                //frmResumenHorasExtraTrabajadas frm = new frmResumenHorasExtraTrabajadas(EmpleadoClicked, desde, hasta);
-                //frm.Show();
-            }
-            
-        }
+                //Siguiente Planilla
 
-        private void frm_hr_payslip_lines_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.FormPlanillasList.LoadDetalleNominas();
+                foreach (PaySlip slip in this.ArraySlips)
+                {
+                    if (slip != null)
+                    {
+                        if (slip.LineaNum_Orden == (FilaActual + 1))
+                        {
+                            FilaActual += 1;
+                            LoadDetalleNominasHE(slip.PaySlip_id);
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                //Nos iremos a la 1
+                FilaActual = 1;
+                UltimaFila = this.ArraySlips.Count;
+                foreach (PaySlip slip in this.ArraySlips)
+                {
+                    if (slip != null)
+                    {
+                        if (slip.LineaNum_Orden == 1)
+                        {
+                            LoadDetalleNominasHE(slip.PaySlip_id);
+                        }
+                    }
+                }
+            }
         }
     }
 }

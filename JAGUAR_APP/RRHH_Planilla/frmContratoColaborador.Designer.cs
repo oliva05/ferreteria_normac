@@ -1730,7 +1730,7 @@
             this.labelControl11.Location = new System.Drawing.Point(864, 12);
             this.labelControl11.Name = "labelControl11";
             this.tablePanel1.SetRow(this.labelControl11, 0);
-            this.labelControl11.Size = new System.Drawing.Size(383, 17);
+            this.labelControl11.Size = new System.Drawing.Size(383, 16);
             this.labelControl11.TabIndex = 9;
             this.labelControl11.Text = "Ajustes";
             // 
@@ -1743,13 +1743,13 @@
             gridLevelNode1.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.gridControl1.Location = new System.Drawing.Point(864, 33);
+            this.gridControl1.Location = new System.Drawing.Point(864, 32);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdEditar});
             this.tablePanel1.SetRow(this.gridControl1, 1);
-            this.gridControl1.Size = new System.Drawing.Size(383, 275);
+            this.gridControl1.Size = new System.Drawing.Size(383, 276);
             this.gridControl1.TabIndex = 5;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1861,11 +1861,11 @@
             this.gridControl4.DataMember = "proyeccion_isr";
             this.gridControl4.DataSource = this.dsContrato1;
             this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl4.Location = new System.Drawing.Point(439, 33);
+            this.gridControl4.Location = new System.Drawing.Point(439, 32);
             this.gridControl4.MainView = this.gridView3;
             this.gridControl4.Name = "gridControl4";
             this.tablePanel1.SetRow(this.gridControl4, 1);
-            this.gridControl4.Size = new System.Drawing.Size(422, 275);
+            this.gridControl4.Size = new System.Drawing.Size(422, 276);
             this.gridControl4.TabIndex = 8;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1920,11 +1920,11 @@
             this.gridControl3.DataMember = "isr_deducido";
             this.gridControl3.DataSource = this.dsContrato1;
             this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl3.Location = new System.Drawing.Point(13, 33);
+            this.gridControl3.Location = new System.Drawing.Point(13, 32);
             this.gridControl3.MainView = this.gridView2;
             this.gridControl3.Name = "gridControl3";
             this.tablePanel1.SetRow(this.gridControl3, 1);
-            this.gridControl3.Size = new System.Drawing.Size(422, 275);
+            this.gridControl3.Size = new System.Drawing.Size(422, 276);
             this.gridControl3.TabIndex = 7;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1977,7 +1977,7 @@
             this.labelControl21.Location = new System.Drawing.Point(439, 12);
             this.labelControl21.Name = "labelControl21";
             this.tablePanel1.SetRow(this.labelControl21, 0);
-            this.labelControl21.Size = new System.Drawing.Size(422, 17);
+            this.labelControl21.Size = new System.Drawing.Size(422, 16);
             this.labelControl21.TabIndex = 6;
             this.labelControl21.Text = "Proyección";
             // 
@@ -1993,7 +1993,7 @@
             this.labelControl19.Location = new System.Drawing.Point(13, 12);
             this.labelControl19.Name = "labelControl19";
             this.tablePanel1.SetRow(this.labelControl19, 0);
-            this.labelControl19.Size = new System.Drawing.Size(422, 17);
+            this.labelControl19.Size = new System.Drawing.Size(422, 16);
             this.labelControl19.TabIndex = 5;
             this.labelControl19.Text = "Cobrado";
             // 
@@ -2174,6 +2174,7 @@
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.cmdCerrar);
             this.Controls.Add(this.xtraTabControl1);
+            this.IconOptions.ShowIcon = false;
             this.Name = "frmContratoColaborador";
             this.Load += new System.EventHandler(this.frmContratoColaborador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1)).EndInit();

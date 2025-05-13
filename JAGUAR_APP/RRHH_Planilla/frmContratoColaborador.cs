@@ -477,7 +477,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                 CajaDialogo.Error(ex.Message);
             }
         }
-
+           
         public void CargarBeneficiosDeducciones()
         {
             try
