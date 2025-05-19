@@ -481,7 +481,6 @@
             this.cmdNavegarPlanilla.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdNavegarPlanilla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdNavegarPlanilla.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.cmdNavegarPlanilla.Image = global::JAGUAR_PRO.Properties.Resources.iniciar_sesion24;
             this.cmdNavegarPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdNavegarPlanilla.Location = new System.Drawing.Point(424, 59);
             this.cmdNavegarPlanilla.Name = "cmdNavegarPlanilla";
@@ -498,7 +497,7 @@
             this.cmdActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdActualizar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        //this.cmdActualizar.Image = global::JAGUAR_PRO.Properties.Resources.Pictogrammers_Material_Refresh_24;
+            this.cmdActualizar.Image = global::JAGUAR_PRO.Properties.Resources.refresh_24x24;
             this.cmdActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdActualizar.Location = new System.Drawing.Point(859, 59);
             this.cmdActualizar.Name = "cmdActualizar";
@@ -532,7 +531,7 @@
             this.tsSeleccion.Name = "tsSeleccion";
             this.tsSeleccion.Properties.OffText = "No";
             this.tsSeleccion.Properties.OnText = "Si";
-            this.tsSeleccion.Size = new System.Drawing.Size(74, 18);
+            this.tsSeleccion.Size = new System.Drawing.Size(74, 20);
             this.tsSeleccion.TabIndex = 141;
             this.tsSeleccion.Toggled += new System.EventHandler(this.tsSeleccion_Toggled);
             // 
@@ -543,7 +542,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(248, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 15);
+            this.label3.Size = new System.Drawing.Size(97, 15);
             this.label3.TabIndex = 142;
             this.label3.Text = "Seleccionar Todo";
             // 
@@ -572,7 +571,6 @@
             this.cmdArchivoBanco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdArchivoBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdArchivoBanco.Font = new System.Drawing.Font("Segoe UI", 7.25F);
-            //this.cmdArchivoBanco.Image = global::LOSA.Properties.Resources.sobresalir241;
             this.cmdArchivoBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdArchivoBanco.Location = new System.Drawing.Point(531, 59);
             this.cmdArchivoBanco.Name = "cmdArchivoBanco";
