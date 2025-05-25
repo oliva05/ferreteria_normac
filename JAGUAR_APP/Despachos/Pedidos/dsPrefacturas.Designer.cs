@@ -930,6 +930,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             private global::System.Data.DataColumn columncomprometido;
             
+            private global::System.Data.DataColumn columndescuento_porcentaje;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public stock_por_almacenDataTable() {
@@ -1061,6 +1063,14 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn descuento_porcentajeColumn {
+                get {
+                    return this.columndescuento_porcentaje;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1096,7 +1106,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public stock_por_almacenRow Addstock_por_almacenRow(int id_bodega, string bodega_name, decimal cantidad, decimal cantidad_seleccionada, decimal precio, decimal descuento, string itemcode, string itemname, int id_presentacion, decimal isv1, string whs_code, decimal comprometido) {
+            public stock_por_almacenRow Addstock_por_almacenRow(int id_bodega, string bodega_name, decimal cantidad, decimal cantidad_seleccionada, decimal precio, decimal descuento, string itemcode, string itemname, int id_presentacion, decimal isv1, string whs_code, decimal comprometido, decimal descuento_porcentaje) {
                 stock_por_almacenRow rowstock_por_almacenRow = ((stock_por_almacenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_bodega,
@@ -1110,7 +1120,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                         id_presentacion,
                         isv1,
                         whs_code,
-                        comprometido};
+                        comprometido,
+                        descuento_porcentaje};
                 rowstock_por_almacenRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowstock_por_almacenRow);
                 return rowstock_por_almacenRow;
@@ -1145,6 +1156,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 this.columnisv1 = base.Columns["isv1"];
                 this.columnwhs_code = base.Columns["whs_code"];
                 this.columncomprometido = base.Columns["comprometido"];
+                this.columndescuento_porcentaje = base.Columns["descuento_porcentaje"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1174,6 +1186,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 base.Columns.Add(this.columnwhs_code);
                 this.columncomprometido = new global::System.Data.DataColumn("comprometido", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncomprometido);
+                this.columndescuento_porcentaje = new global::System.Data.DataColumn("descuento_porcentaje", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescuento_porcentaje);
                 this.columnbodega_name.Caption = "Almacen";
                 this.columncantidad.Caption = "Cantidad";
                 this.columncantidad_seleccionada.Caption = "Cantidad Seleccionada";
@@ -3190,6 +3204,23 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal descuento_porcentaje {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablestock_por_almacen.descuento_porcentajeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'descuento_porcentaje\' de la tabla \'stock_por_almacen\' es " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestock_por_almacen.descuento_porcentajeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_bodegaNull() {
                 return this.IsNull(this.tablestock_por_almacen.id_bodegaColumn);
             }
@@ -3330,6 +3361,18 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetcomprometidoNull() {
                 this[this.tablestock_por_almacen.comprometidoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isdescuento_porcentajeNull() {
+                return this.IsNull(this.tablestock_por_almacen.descuento_porcentajeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setdescuento_porcentajeNull() {
+                this[this.tablestock_por_almacen.descuento_porcentajeColumn] = global::System.Convert.DBNull;
             }
         }
         

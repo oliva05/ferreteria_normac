@@ -755,6 +755,7 @@ namespace Eatery.Ventas
             this.colprecio.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colprecio.FieldName = "precio";
             this.colprecio.Name = "colprecio";
+            this.colprecio.OptionsColumn.ReadOnly = true;
             this.colprecio.Visible = true;
             this.colprecio.VisibleIndex = 6;
             this.colprecio.Width = 54;

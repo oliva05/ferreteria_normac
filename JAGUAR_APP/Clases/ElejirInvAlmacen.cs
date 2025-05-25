@@ -16,6 +16,7 @@ namespace JAGUAR_PRO.Clases
         public decimal CantSeleccionada;
         public decimal Precio;
         public decimal descuento;
+        public decimal descuento_porcentaje;
         public int id_presentacion;
         public string ItemCode;
         public string Descripcion;

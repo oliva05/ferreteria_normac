@@ -24,13 +24,16 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         decimal CantidadReq;
         public ArrayList ListaSeleccionAlmacen;
         decimal descuento;
+        decimal descuento_porcentaje;
         decimal precio;
         decimal isv1;
         int id_presentacion;
         string itemcode;
         string itemname;
+
         public frmElejirAlmacenPedidoOutStok(int pIdPt, string ProductoName, decimal pCantidarReq, ArrayList pListaActual,
-                                      decimal pdescuento, decimal pprecio, int id_presentacion, string itemcode, string itemname, decimal itemIsv1)
+                                            decimal pdescuento, decimal pprecio, int id_presentacion, string itemcode, 
+                                            string itemname, decimal itemIsv1, decimal pDescuentoPorcentaje)
         {
             InitializeComponent();
             ListaSeleccionAlmacen = new ArrayList();
@@ -40,6 +43,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             lblCantidadReq.Text =  string.Format("{0:###,##0.00}", pCantidarReq);
             descuento = pdescuento;
             precio = pprecio;
+            descuento_porcentaje = pDescuentoPorcentaje;
             this.id_presentacion = id_presentacion;
             this.itemcode = itemcode;
             this.itemname = itemname;
@@ -62,6 +66,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                         row.itemname = itemname;
                         row.id_presentacion = id_presentacion;
                         row.descuento = descuento;
+                        row.descuento_porcentaje = descuento_porcentaje;
                         row.precio = precio;
                         row.isv1 = isv1;
                         //row. = isv1;
@@ -92,6 +97,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     row.itemname = itemname;
                     row.id_presentacion = id_presentacion;
                     row.descuento = descuento;
+                    row.descuento_porcentaje = descuento_porcentaje;
                     row.precio = precio;
                     row.isv1 = isv1;
                 }
@@ -135,6 +141,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     Eleccion.BodegaName = row.bodega_name;
                     Eleccion.CantSeleccionada = row.cantidad_seleccionada;
                     Eleccion.descuento = row.descuento;
+                    Eleccion.descuento_porcentaje = row.descuento_porcentaje;
                     Eleccion.Precio = row.precio;
                     Eleccion.ItemCode = row.itemcode;
                     Eleccion.Descripcion = row.itemname;

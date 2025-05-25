@@ -30,39 +30,39 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            try
-            {
-                FTP_Class ftp = new FTP_Class();
-                DataOperations dp = new DataOperations();
-                saveFileDialog1.FileName = "NF-01-ImportarProductoTerminado.xlsx";
+            //try
+            //{
+            //    FTP_Class ftp = new FTP_Class();
+            //    DataOperations dp = new DataOperations();
+            //    saveFileDialog1.FileName = "NF-01-ImportarProductoTerminado.xlsx";
 
-                // Establece el filtro para mostrar todos los tipos de archivos
-                saveFileDialog1.Filter = "Excel Files (*.xlsx)|*.xlsx";
+            //    // Establece el filtro para mostrar todos los tipos de archivos
+            //    saveFileDialog1.Filter = "Excel Files (*.xlsx)|*.xlsx";
 
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    using (var workbook = new XLWorkbook())
-                    {
-                        var ws = workbook.Worksheets.Add("Productos");
+            //    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            //    {
+            //        using (var workbook = new XLWorkbook())
+            //        {
+            //            var ws = workbook.Worksheets.Add("Productos");
 
-                        for (int col = 0; col < miDataTable.Columns.Count; col++)
-                        {
-                            ws.Cell(1, col + 1).Value = miDataTable.Columns[col].ColumnName;
-                        }
+            //            for (int col = 0; col < miDataTable.Columns.Count; col++)
+            //            {
+            //                ws.Cell(1, col + 1).Value = miDataTable.Columns[col].ColumnName;
+            //            }
 
-                        workbook.SaveAs(saveFileDialog1.FileName);
-                        MessageBox.Show("Plantilla descargada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }    
+            //            workbook.SaveAs(saveFileDialog1.FileName);
+            //            MessageBox.Show("Plantilla descargada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        }    
 
-                }
+            //    }
 
 
-            }
-            catch (Exception ex)
-            {
-                CajaDialogo.Error(ex.Message);
-                throw;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    CajaDialogo.Error(ex.Message);
+            //    throw;
+            //}
         }
 
         private void btnLoadTemplate_Click(object sender, EventArgs e)
