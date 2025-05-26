@@ -58,7 +58,7 @@ namespace JAGUAR_PRO.Clases
         private int id_Categoria;
         private string codig_Referencia;
 
-        public decimal MaximoDescuentoPorcentaje { get; set; }
+        public decimal MaximoDescuentoPorcentajeAllClientes { get; set; }
         public int Id { get => id; set => id = value; }
         public bool Enable { get => enable; set => enable = value; }
         public int Id_user_created { get => id_user_created; set => id_user_created = value; }
@@ -291,6 +291,7 @@ namespace JAGUAR_PRO.Clases
                     Id_Familia = dl.GetInt32(27);
                     Id_Categoria = dl.GetInt32(28);
                     Codig_Referencia = dl.IsDBNull(29)? "" : dl.GetString(29);
+                    MaximoDescuentoPorcentajeAllClientes = dl.GetDecimal(30);
 
                     Recuperado = true;
                     //Recuperar_Latas_and_bolsas(IdProd);

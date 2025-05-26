@@ -126,6 +126,8 @@
             this.navBarControl4 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup14 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem111 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem106 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem107 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem112 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem113 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem114 = new DevExpress.XtraNavBar.NavBarItem();
@@ -229,6 +231,9 @@
             this.navBarControl5 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup15 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem156 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem108 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem109 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem110 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem157 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem158 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem159 = new DevExpress.XtraNavBar.NavBarItem();
@@ -344,11 +349,6 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem106 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem107 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem108 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem109 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem110 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -1756,6 +1756,32 @@
             this.navBarItem111.Caption = "Lista de Planillas";
             this.navBarItem111.Name = "navBarItem111";
             this.navBarItem111.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem111_LinkClicked);
+            // 
+            // navBarItem106
+            // 
+            this.navBarItem106.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem106.Appearance.Options.UseFont = true;
+            this.navBarItem106.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem106.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem106.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem106.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem106.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem106.AppearancePressed.Options.UseFont = true;
+            this.navBarItem106.Caption = "Deducciones por Plantillas";
+            this.navBarItem106.Name = "navBarItem106";
+            // 
+            // navBarItem107
+            // 
+            this.navBarItem107.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem107.Appearance.Options.UseFont = true;
+            this.navBarItem107.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem107.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem107.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem107.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem107.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem107.AppearancePressed.Options.UseFont = true;
+            this.navBarItem107.Caption = "Empleados";
+            this.navBarItem107.Name = "navBarItem107";
             // 
             // navBarItem112
             // 
@@ -3204,6 +3230,45 @@
             this.navBarItem156.Caption = "Salarios Devengados";
             this.navBarItem156.Name = "navBarItem156";
             // 
+            // navBarItem108
+            // 
+            this.navBarItem108.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem108.Appearance.Options.UseFont = true;
+            this.navBarItem108.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem108.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem108.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem108.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem108.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem108.AppearancePressed.Options.UseFont = true;
+            this.navBarItem108.Caption = "Cuadro de Vacaciones";
+            this.navBarItem108.Name = "navBarItem108";
+            // 
+            // navBarItem109
+            // 
+            this.navBarItem109.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem109.Appearance.Options.UseFont = true;
+            this.navBarItem109.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem109.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem109.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem109.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem109.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem109.AppearancePressed.Options.UseFont = true;
+            this.navBarItem109.Caption = "Planilla General";
+            this.navBarItem109.Name = "navBarItem109";
+            // 
+            // navBarItem110
+            // 
+            this.navBarItem110.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem110.Appearance.Options.UseFont = true;
+            this.navBarItem110.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem110.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem110.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem110.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem110.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem110.AppearancePressed.Options.UseFont = true;
+            this.navBarItem110.Caption = "Beneficios y Deducciónes";
+            this.navBarItem110.Name = "navBarItem110";
+            // 
             // navBarItem157
             // 
             this.navBarItem157.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F);
@@ -3814,6 +3879,7 @@
             this.navBarFacturaMain.Caption = "Facturación";
             this.navBarFacturaMain.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarFacturaMain.ImageOptions.SmallImage")));
             this.navBarFacturaMain.Name = "navBarFacturaMain";
+            this.navBarFacturaMain.Visible = false;
             this.navBarFacturaMain.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarFacturaMain_LinkClicked);
             // 
             // navBarItemFacturasEmitidas
@@ -4737,71 +4803,6 @@
             this.navBarItem196.AppearancePressed.Options.UseFont = true;
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
-            // 
-            // navBarItem106
-            // 
-            this.navBarItem106.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem106.Appearance.Options.UseFont = true;
-            this.navBarItem106.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem106.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem106.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem106.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem106.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem106.AppearancePressed.Options.UseFont = true;
-            this.navBarItem106.Caption = "Deducciones por Plantillas";
-            this.navBarItem106.Name = "navBarItem106";
-            // 
-            // navBarItem107
-            // 
-            this.navBarItem107.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem107.Appearance.Options.UseFont = true;
-            this.navBarItem107.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem107.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem107.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem107.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem107.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem107.AppearancePressed.Options.UseFont = true;
-            this.navBarItem107.Caption = "Empleados";
-            this.navBarItem107.Name = "navBarItem107";
-            // 
-            // navBarItem108
-            // 
-            this.navBarItem108.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem108.Appearance.Options.UseFont = true;
-            this.navBarItem108.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem108.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem108.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem108.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem108.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem108.AppearancePressed.Options.UseFont = true;
-            this.navBarItem108.Caption = "Cuadro de Vacaciones";
-            this.navBarItem108.Name = "navBarItem108";
-            // 
-            // navBarItem109
-            // 
-            this.navBarItem109.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem109.Appearance.Options.UseFont = true;
-            this.navBarItem109.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem109.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem109.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem109.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem109.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem109.AppearancePressed.Options.UseFont = true;
-            this.navBarItem109.Caption = "Planilla General";
-            this.navBarItem109.Name = "navBarItem109";
-            // 
-            // navBarItem110
-            // 
-            this.navBarItem110.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem110.Appearance.Options.UseFont = true;
-            this.navBarItem110.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem110.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem110.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem110.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem110.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem110.AppearancePressed.Options.UseFont = true;
-            this.navBarItem110.Caption = "Beneficios y Deducciónes";
-            this.navBarItem110.Name = "navBarItem110";
             // 
             // frmOpciones
             // 
