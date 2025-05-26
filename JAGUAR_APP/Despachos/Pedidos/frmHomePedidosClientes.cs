@@ -109,6 +109,9 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
 
             frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, row.id);
+            if(this.MdiParent != null)
+                frm.MdiParent = this.MdiParent;
+
             frm.Show();
         }
 

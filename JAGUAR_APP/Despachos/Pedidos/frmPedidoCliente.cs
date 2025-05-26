@@ -1984,7 +1984,8 @@ namespace Eatery.Ventas
                     {
                         tasaISV = impuesto.Valor / 100;
                         row1.isv1 = ((row1.precio - row1.descuento) / 100) * impuesto.Valor;
-                        row1.precio = (row1.precio - row1.descuento) - row1.isv1;
+                        //row1.precio = (row1.precio - row1.descuento) - row1.isv1;
+                        row1.precio = row1.precio - row1.isv1;
 
                         row1.tasa_isv = tasaISV;
                         row1.id_isv_aplicable = impuesto.Id;
@@ -1993,7 +1994,7 @@ namespace Eatery.Ventas
                     {
                         row1.tasa_isv = 0;
                         row1.id_isv_aplicable = 0;
-                        row1.precio = (row1.precio - row1.descuento);
+                        //row1.precio = (row1.precio - row1.descuento);
                         row1.isv1 = 0;
                     }
 
