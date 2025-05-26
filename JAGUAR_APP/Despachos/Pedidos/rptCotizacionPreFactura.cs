@@ -63,6 +63,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                                                                             //lblRangoAutorizado.Text = Factura1.RangoAutorizado;
                                                                             //lblFechaLimite.Text = string.Format("{0:dd/MM/yyyy}", Factura1.FechaLimite);
                 lblSubTotal.Text = string.Format("{0: ###,##0.00}", CotizacionActual.SubTotal);
+
                 //lblISV.Text = string.Format("{0: ###,##0.00}", 0);
                 //lblISV2.Text = string.Format("{0: ###,##0.00}", 0);
                 lblTotalPagar.Text = string.Format("{0: ###,##0.00}", CotizacionActual.Total);

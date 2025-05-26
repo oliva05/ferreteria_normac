@@ -177,6 +177,7 @@ namespace Eatery.Ventas
                     txtNombreCliente.Text = pedidoCliente.ClienteNombre;
                     txtRTN.Text = pedidoCliente.RTN;
                     txtDireccion.Text = pedidoCliente.direccion_cliente;
+                    ClienteFactura.Id = pedidoCliente.IdCliente;
 
                     lblfecha.Text = string.Format("{0:dd/MM/yyyy}", pedidoCliente.FechaDocumento);
                     dtFechaEntrega.DateTime = pedidoCliente.FechaEntrega;
@@ -2652,10 +2653,13 @@ namespace Eatery.Ventas
                                 decimal descuentoLinea = 0;
                                 decimal descuentoPorcentaje = 0;
 
-                                if(row.IsdescuentoNull()) descuentoLinea = 0;
-                                if(row.Isdescuento_porcentajeNull()) descuentoPorcentaje = 0;
+                                if (row.IsdescuentoNull()) descuentoLinea = 0;
+                                else descuentoLinea = row.descuento;
 
-                                Int64 idPedidoDetalle = 0;
+                                if (row.Isdescuento_porcentajeNull()) descuentoPorcentaje = 0;
+                                else descuentoPorcentaje = row.descuento_porcentaje;
+
+                                    Int64 idPedidoDetalle = 0;
                                 if (row.cantidad > 0)
                                 {
                                     command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";

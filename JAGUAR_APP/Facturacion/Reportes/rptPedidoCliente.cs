@@ -58,7 +58,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             //lblValorLetras.Text = Factura1.ValorLetras;
             //lblRangoAutorizado.Text = Factura1.RangoAutorizado;
             //lblFechaLimite.Text = string.Format("{0:dd/MM/yyyy}", Factura1.FechaLimite);
-            lblSubTotal.Text = string.Format("{0: ###,##0.00}", PedidoCliente1.TotalPedido);
+            lblSubTotal.Text = string.Format("{0: ###,##0.00}", PedidoCliente1.SubTotal );
+            lblDescuento.Text = string.Format("{0: ###,##0.00}", PedidoCliente1.Descuento);
+            lbl_impuesto.Text = string.Format("{0: ###,##0.00}", PedidoCliente1.ISV);
             //lblISV.Text = string.Format("{0: ###,##0.00}", 0);
             //lblISV2.Text = string.Format("{0: ###,##0.00}", 0);
             lblTotalPagar.Text = string.Format("{0: ###,##0.00}", PedidoCliente1.TotalPedido);

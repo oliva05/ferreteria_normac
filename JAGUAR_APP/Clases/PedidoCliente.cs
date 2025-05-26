@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using DevExpress.Pdf.Native;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,6 +29,9 @@ namespace JAGUAR_PRO.Clases
         public string Comentario { get; set; }
         public string EstadoNombre { get; set; }
         public decimal TotalPedido { get; set; }
+        public decimal SubTotal {  get; set; }
+        public decimal Descuento { get; set; }
+        public decimal ISV { get; set; }
         public string OrdenCompra { get; set; }
         public int Id_Vendedor { get; set; }
         public string CodigoVendedor { get; set; }
@@ -96,6 +100,17 @@ namespace JAGUAR_PRO.Clases
 
                         if (!reader.IsDBNull(reader.GetOrdinal("codigo_vendedor")))
                             CodigoVendedor = reader["codigo_vendedor"].ToString();
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("sub_total")))
+                            SubTotal = Convert.ToDecimal(reader["sub_total"]);
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("descuento")))
+                            Descuento = Convert.ToDecimal(reader["descuento"]);
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("isv")))
+                            ISV = Convert.ToDecimal(reader["isv"]);
+
+
                         Recuperado = true;
                     }
 
