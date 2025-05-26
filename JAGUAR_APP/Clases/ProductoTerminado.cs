@@ -57,6 +57,8 @@ namespace JAGUAR_PRO.Clases
         private int id_Familia;
         private int id_Categoria;
         private string codig_Referencia;
+
+        public decimal MaximoDescuentoPorcentaje { get; set; }
         public int Id { get => id; set => id = value; }
         public bool Enable { get => enable; set => enable = value; }
         public int Id_user_created { get => id_user_created; set => id_user_created = value; }
