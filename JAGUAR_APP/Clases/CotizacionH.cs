@@ -1,5 +1,6 @@
 ﻿//namespace JAGUAR_PRO.Clases
 using ACS.Classes;
+using DevExpress.XtraSpreadsheet.Mouse;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -26,6 +27,8 @@ public class CotizacionH
     public int? IdPedido { get; set; }
     public bool Recuperado { get; set; }
     public decimal SubTotal { get; set; }
+    public decimal Descuento {  get; set; } 
+    public decimal ISV { get; set; }
     public decimal Total { get; set; }  
     DataOperations dp;
 
@@ -38,37 +41,10 @@ public class CotizacionH
     {
         using (SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
         {
-            string query = @"SELECT TOP 1 [id]
-                                          ,[fecha]
-                                          ,[fecha_row]
-                                          ,[id_user]
-                                          ,[enable]
-                                          ,[comentario]
-                                          ,[DocNum]
-                                          ,[id_estado]
-                                          ,[id_cliente]
-                                          ,[NumDoc]
-                                          ,[fecha_entrega_estimada]
-                                          ,[direccion]
-                                          ,[cliente_nombre]
-                                          ,[RTN]
-                                          ,[orden_compra]
-                                          ,[id_punto_venta]
-                                          ,[id_pedido]
-	                                      ,isnull((
-				                                    SELECT sum([cantidad] * [precio])
-				                                    FROM [dbo].[JAGUAR_PRD_Cotizacion_D] B
-				                                    where B.enable = 1
-					                                    and B.id_h = A.id),0) as sub_total
-	                                      ,isnull((
-				                                    SELECT sum(([cantidad] * [precio])+isv)
-				                                    FROM [dbo].[JAGUAR_PRD_Cotizacion_D] B
-				                                    where B.enable = 1
-					                                    and B.id_h = A.id),0) as total
-                                      FROM [normac].[dbo].[JAGUAR_PRD_Cotizacion_H]A
-                                    WHERE id = @id";
+            string query = @"jaguar_sp_get_cotizacion_h";
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", id);
                 conn.Open();
 
@@ -97,6 +73,8 @@ public class CotizacionH
                         IdPedido = reader["id_pedido"] as int?;
                         SubTotal = Convert.ToDecimal(reader["sub_total"]);
                         Total = Convert.ToDecimal(reader["total"]);
+                        Descuento = Convert.ToDecimal(reader["descuento"]);
+                        ISV = Convert.ToDecimal(reader["isv"]);
                         Recuperado = true;
                         return true;
                     }
