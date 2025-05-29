@@ -31,12 +31,12 @@ namespace Eatery.Ventas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFactura));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.cmdDeleteRowFactura = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.txtNombreCliente = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@ namespace Eatery.Ventas
             this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
             this.txtVendedor = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblCodigoProducto = new System.Windows.Forms.Label();
             this.cmdCopiarFromPedido = new DevExpress.XtraEditors.SimpleButton();
             this.rdCredito = new System.Windows.Forms.RadioButton();
             this.rdContado = new System.Windows.Forms.RadioButton();
@@ -100,9 +100,9 @@ namespace Eatery.Ventas
             // cmdDeleteRowFactura
             // 
             this.cmdDeleteRowFactura.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.cmdDeleteRowFactura.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdDeleteRowFactura.Name = "cmdDeleteRowFactura";
             this.cmdDeleteRowFactura.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -267,11 +267,10 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
-            this.navigationPage1.Caption = "navigationPage1";
             this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
             this.navigationPage1.Controls.Add(this.txtVendedor);
             this.navigationPage1.Controls.Add(this.label10);
-            this.navigationPage1.Controls.Add(this.label5);
+            this.navigationPage1.Controls.Add(this.lblCodigoProducto);
             this.navigationPage1.Controls.Add(this.cmdCopiarFromPedido);
             this.navigationPage1.Controls.Add(this.rdCredito);
             this.navigationPage1.Controls.Add(this.rdContado);
@@ -330,15 +329,15 @@ namespace Eatery.Ventas
             this.label10.TabIndex = 54;
             this.label10.Text = "Asesor";
             // 
-            // label5
+            // lblCodigoProducto
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label5.Location = new System.Drawing.Point(12, 135);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 20);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "Código";
+            this.lblCodigoProducto.AutoSize = true;
+            this.lblCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lblCodigoProducto.Location = new System.Drawing.Point(12, 130);
+            this.lblCodigoProducto.Name = "lblCodigoProducto";
+            this.lblCodigoProducto.Size = new System.Drawing.Size(61, 20);
+            this.lblCodigoProducto.TabIndex = 41;
+            this.lblCodigoProducto.Text = "Código";
             // 
             // cmdCopiarFromPedido
             // 
@@ -346,7 +345,7 @@ namespace Eatery.Ventas
             this.cmdCopiarFromPedido.Appearance.Options.UseFont = true;
             this.cmdCopiarFromPedido.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCopiarFromPedido.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCopiarFromPedido.ImageOptions.SvgImage")));
-            this.cmdCopiarFromPedido.Location = new System.Drawing.Point(763, 121);
+            this.cmdCopiarFromPedido.Location = new System.Drawing.Point(763, 116);
             this.cmdCopiarFromPedido.Name = "cmdCopiarFromPedido";
             this.cmdCopiarFromPedido.Size = new System.Drawing.Size(172, 38);
             this.cmdCopiarFromPedido.TabIndex = 40;
@@ -448,7 +447,7 @@ namespace Eatery.Ventas
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(597, 121);
+            this.simpleButton1.Location = new System.Drawing.Point(597, 116);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(161, 38);
             this.simpleButton1.TabIndex = 31;
@@ -457,7 +456,7 @@ namespace Eatery.Ventas
             // 
             // txtScanProducto
             // 
-            this.txtScanProducto.Location = new System.Drawing.Point(99, 129);
+            this.txtScanProducto.Location = new System.Drawing.Point(99, 124);
             this.txtScanProducto.Name = "txtScanProducto";
             this.txtScanProducto.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.txtScanProducto.Properties.Appearance.Options.UseFont = true;
@@ -474,11 +473,11 @@ namespace Eatery.Ventas
             this.gridControl1.DataMember = "detalle_factura_transaction";
             this.gridControl1.DataSource = this.dsVentas1;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gridControl1.Location = new System.Drawing.Point(11, 164);
+            this.gridControl1.Location = new System.Drawing.Point(11, 156);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1107, 393);
+            this.gridControl1.Size = new System.Drawing.Size(1107, 401);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -601,8 +600,6 @@ namespace Eatery.Ventas
             this.colDelete.Caption = "Elminar";
             this.colDelete.ColumnEdit = this.cmdDeleteRowFactura;
             this.colDelete.Name = "colDelete";
-            this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 8;
             this.colDelete.Width = 53;
             // 
             // colinventario
@@ -613,8 +610,6 @@ namespace Eatery.Ventas
             this.colinventario.FieldName = "inventario";
             this.colinventario.Name = "colinventario";
             this.colinventario.OptionsColumn.ReadOnly = true;
-            this.colinventario.Visible = true;
-            this.colinventario.VisibleIndex = 2;
             this.colinventario.Width = 48;
             // 
             // frmFactura
@@ -688,7 +683,7 @@ namespace Eatery.Ventas
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.SimpleButton cmdCopiarFromPedido;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdDeleteRowFactura;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblCodigoProducto;
         private DevExpress.XtraEditors.SimpleButton cmdChangeVendedor;
         private DevExpress.XtraEditors.TextEdit txtVendedor;
         private System.Windows.Forms.Label label10;

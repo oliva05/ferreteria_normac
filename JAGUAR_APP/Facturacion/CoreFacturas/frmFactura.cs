@@ -2,6 +2,8 @@
 using DevExpress.CodeParser;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
+using DevExpress.XtraExport.Helpers;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
@@ -104,6 +106,81 @@ namespace Eatery.Ventas
             //{
             //    cmdIngresarAdmin.Visible = SaltarLogin.Visible = simpleButton2.Visible = SaltarLoginPRD.Visible = true;
             //}
+        }
+
+
+
+        public frmFactura(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, int pIdPedido)
+        {
+            InitializeComponent();
+            ClienteFactura = new ClienteFacturacion();
+            IdTerminoPago = 1;
+            PuntoDeVentaActual = pPuntoDeVentaActual;
+            EquipoActual = pEquipoActual;
+
+            BusquedaSet = Busqueda.LoMasVendido;
+            //SetBusqueda();
+            txtNombreCliente.Text = "Consumidor Final";
+            txtRTN.Text = string.Empty;
+            txtRTN.Properties.NullValuePrompt =
+            txtDireccion.Properties.NullValuePrompt = "No Aplica";
+            lblCodigoProducto.Visible = txtScanProducto.Visible = simpleButton1.Visible = cmdCopiarFromPedido.Visible = false;
+            cmdChangeVendedor.Visible = false ;
+            txtVendedor.ReadOnly = true;
+
+            UsuarioLogeado = pUser;
+            lblfecha.Text = Convert.ToString(dp.NowSetDateTime());
+            string.Format("{0:MM/dd/yyyy}", lblfecha.Text);
+
+            string HostName = Dns.GetHostName();
+
+            PedidoCliente Pedido1 = new PedidoCliente();
+            if (Pedido1.RecuperarRegistro(pIdPedido))
+            {
+                IdPedido = pIdPedido;
+                ProIdCliente = Pedido1.IdCliente;
+                if (ClienteFactura == null)
+                    ClienteFactura = new ClienteFacturacion();
+
+                this.UsuarioLogeado = new UserLogin();
+                if (UsuarioLogeado.RecuperarRegistro(Pedido1.IdUser))
+                {
+                    txtVendedor.Text = UsuarioLogeado.Codigo + " - " + UsuarioLogeado.NombreUser;
+                }
+
+                PedidoRecuperado = Pedido1;
+
+                if (ClienteFactura.RecuperarRegistro(Pedido1.IdCliente))
+                {
+                    ClienteEmpresa clienteEmpresa1 = new ClienteEmpresa();
+                    if (clienteEmpresa1.RecuperarEmpresaRTNCliente(ClienteFactura.Id, Pedido1.RTN))
+                    {
+                        txtNombreCliente.Text = clienteEmpresa1.NombreLargo;
+                        txtRTN.Text = clienteEmpresa1.RTN;
+                        txtDireccion.Text = clienteEmpresa1.Direccion;
+
+                    }
+                    else
+                    {
+                        txtNombreCliente.Text = ClienteFactura.NombreCliente;
+                        txtDireccion.Text = ClienteFactura.Direccion;
+                        txtRTN.Text = "";
+                    }
+
+                    CargarDetalleCotizacion(pIdPedido);
+
+                    //Poner todas las columnas como ReadOnly = true
+                    foreach (GridColumn column in gridView1.Columns)
+                    {
+                        column.OptionsColumn.ReadOnly = true;
+                    }
+                    gridView1.OptionsMenu.EnableColumnMenu = false;
+                    //Habilita o deshabilita que el user pueda manipular
+                    //el menu haciendo clic derecho sobre el header de una columna,
+                    //para elegir columnas, ordenar, etc
+
+                }
+            }
         }
 
         private void LoadDefaultOptionRadioButtos()
@@ -453,17 +530,17 @@ namespace Eatery.Ventas
             }
 
             //Validar disponibilidad de Inventario si el punto de venta lo tiene configurado
-            if (PuntoDeVentaActual.BloqueoPorFaltaStock)
-            {
-                foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
-                {
-                    if(row.inventario < row.cantidad)
-                    {
-                        SetErrorBarra("Esta intentando facturar producto con menor existencia en Inventario!");
-                        return;
-                    }
-                }
-            }
+            //if (PuntoDeVentaActual.BloqueoPorFaltaStock)
+            //{
+            //    foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
+            //    {
+            //        if(row.inventario < row.cantidad)
+            //        {
+            //            SetErrorBarra("Esta intentando facturar producto con menor existencia en Inventario!");
+            //            return;
+            //        }
+            //    }
+            //}
 
             if (dsVentas1.detalle_factura_transaction.Count <= 0)
             {
@@ -725,6 +802,7 @@ namespace Eatery.Ventas
                             dsVentas1.detalle_factura_transaction.Clear();
                             ClienteFactura = new ClienteFacturacion();
                             cmdConsumidorFinal_Click(sender, e);
+                            txtVendedor.Text = txtTotal.Text = "";
                         }
                         catch (Exception ex)
                         {
@@ -780,6 +858,25 @@ namespace Eatery.Ventas
                         factura.Enable = true;
                         factura.NumOrdenCompra = "";
                         factura.idFormatoFactura = this.PuntoDeVentaActual.IdFormatoFactura;
+
+                        factura.IdTerminoPago = IdTerminoPago;
+
+                        int correlativoSiguiente = 0;
+                        //int id_numeracion = 0;
+
+                        factura.descuentoTotalFactura = factura.subtotalFactura =
+                        factura.ISV1 = factura.ISV2 = 0;
+
+                        foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
+                        {
+                            factura.subtotalFactura += dp.ValidateNumberDecimal((row.cantidad * row.precio));
+                            factura.descuentoTotalFactura += dp.ValidateNumberDecimal(row.descuento);
+                            factura.ISV1 += dp.ValidateNumberDecimal(row.isv1);
+                            factura.ISV2 += dp.ValidateNumberDecimal(row.isv2);
+                        }
+
+
+
 
                         //int correlativoSiguiente = 0;
                         //int id_numeracion = 0;
@@ -855,9 +952,6 @@ namespace Eatery.Ventas
                             try
                             {
                                 //Guardamos el Header de la factura 
-                                //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v2]";
-                                //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v6]";
-                                //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v8]";
                                 command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v11]";
                                 command.CommandType = CommandType.StoredProcedure;
                                 //command.Parameters.AddWithValue("@numero_documento", factura.NumeroDocumento);
@@ -883,8 +977,10 @@ namespace Eatery.Ventas
                                 //    command.Parameters.AddWithValue("@id_numeracion_fiscal", id_numeracion);
 
                                 command.Parameters.AddWithValue("@cliente_nombre", factura.ClienteNombre);
-                                command.Parameters.AddWithValue("@id_tipo_pago", (int)frm.TipoPagoSeleccionadoActual);
+                                int id_tipo_pago = (int)frm.TipoPagoSeleccionadoActual;
+                                command.Parameters.AddWithValue("@id_tipo_pago", id_tipo_pago);
                                 command.Parameters.AddWithValue("@emiteFacturaFiscal", PuntoDeVentaActual.EmiteFacturaFiscal);
+
 
                                 //command.Parameters.AddWithValue("@CAI", NumDocumentoFiscal.CAI);
                                 //if (factura.IdNumeracionFiscal == 0)
@@ -955,6 +1051,9 @@ namespace Eatery.Ventas
                                 }
 
 
+
+
+
                                 //Vamos a postear transaccion en estado de cuenta de cliente
                                 //if (factura.IdCliente > 0)
                                 //{
@@ -979,42 +1078,7 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
 
                                 command.Parameters.AddWithValue("@referencia", DBNull.Value);
-                                
-                                
-
                                 command.ExecuteNonQuery();
-
-
-
-
-                                ////El pago de la misma ***********************************************
-                                //command.CommandText = "dbo.[sp_set_insert_estado_cuenta_cliente_v2]";
-                                //command.CommandType = CommandType.StoredProcedure;
-                                //command.Parameters.Clear();
-                                //command.Parameters.AddWithValue("@num_doc", factura.NumeroDocumento);
-                                //command.Parameters.AddWithValue("@enable", 1);
-                                //command.Parameters.AddWithValue("@credito", TotalFactura);//Abonos
-                                //command.Parameters.AddWithValue("@debito", 0);//cargos
-                                //command.Parameters.AddWithValue("@concepto", string.Concat("Pago de Factura #", factura.NumeroDocumento));
-                                //command.Parameters.AddWithValue("@doc_date", factura.FechaDocumento);
-                                //command.Parameters.AddWithValue("@date_created", factura.FechaDocumento);
-                                //command.Parameters.AddWithValue("@id_user_created", this.UsuarioLogeado.Id);
-
-                                ////Cliente
-                                //if (factura.IdCliente == 0)
-                                //    command.Parameters.AddWithValue("@id_cliente", DBNull.Value);
-                                //else
-                                //    command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
-
-                                ////Referencia
-                                //if (string.IsNullOrEmpty(frm.ReferenciaReciboPago))
-                                //    command.Parameters.AddWithValue("@referencia", DBNull.Value);
-                                //else
-                                //    command.Parameters.AddWithValue("@referencia", frm.ReferenciaReciboPago);
-
-                                //command.ExecuteNonQuery();
-
-
 
                                 //Postear el recibo para homologar toda la recepcion de valores
                                 command.CommandText = "dbo.sp_set_insert_new_recibo_pago_h";
@@ -1081,6 +1145,22 @@ namespace Eatery.Ventas
                                     command.ExecuteNonQuery();
                                 }
 
+                                if (PedidoRecuperado != null)
+                                {
+                                    if (PedidoRecuperado.Recuperado)
+                                    {
+                                        //Actualizamos el estado del pedido a facturado!
+                                        command.CommandText = "dbo.[sp_set_update_prefactura_pedido]";
+                                        command.CommandType = CommandType.StoredProcedure;
+                                        command.Parameters.Clear();
+                                        //command.Parameters.AddWithValue("@num_doc", factura.NumeroDocumento);
+                                        command.Parameters.AddWithValue("@id_pedido", PedidoRecuperado.Id);
+                                        command.Parameters.AddWithValue("@id_estado", 2);//Facturado
+                                        command.Parameters.AddWithValue("@id_factura", IdFacturaH);
+                                        command.ExecuteNonQuery();
+                                    }
+                                }
+
 
 
                                 // Attempt to commit the transaction.
@@ -1095,6 +1175,7 @@ namespace Eatery.Ventas
                                 dsVentas1.detalle_factura_transaction.Clear();
                                 ClienteFactura = new ClienteFacturacion();
                                 cmdConsumidorFinal_Click(sender, e);
+                                txtVendedor.Text = txtTotal.Text = "";
                             }
                             catch (Exception ex)
                             {
@@ -2048,10 +2129,7 @@ namespace Eatery.Ventas
             foreach(dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
             {
                 row.total_linea = (row.cantidad * row.precio) - row.descuento;
-                //row.total_linea = row.total_linea + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
-
                 row.total_linea = ((row.cantidad * row.precio) - row.descuento ) + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
-
                 total += row.total_linea;    
             }
 
@@ -2173,13 +2251,15 @@ namespace Eatery.Ventas
             {
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("[sp_get_pedido_detalle_for_factura]", conn);
+                SqlCommand cmd = new SqlCommand("[sp_get_pedido_detalle_for_factura_final]", conn);
                 cmd.CommandType = CommandType.StoredProcedure; ;
                 cmd.Parameters.AddWithValue("@id_h", pIdCotizacion);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsVentas1.detalle_factura_transaction.Clear();
                 adat.Fill(dsVentas1.detalle_factura_transaction);
                 conn.Close();
+                //CalcularTotal();
+                CalcularTotalFactura();
             }
             catch (Exception ex)
             {
@@ -2275,7 +2355,6 @@ namespace Eatery.Ventas
 
                     }
                 }
-                
             }
         }//End cmd copiar from pedido
 
