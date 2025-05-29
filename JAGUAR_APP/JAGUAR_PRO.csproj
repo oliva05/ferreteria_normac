@@ -1394,6 +1394,12 @@
     <Compile Include="Facturacion\Cotizaciones\xrSubRptCotizacion.Designer.cs">
       <DependentUpon>xrSubRptCotizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Entrega\frmEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\frmEntrega.Designer.cs">
+      <DependentUpon>frmEntrega.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Mantenimientos\dsCRUDS_Facturacion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4090,6 +4096,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Cotizaciones\xrSubRptCotizacion.resx">
       <DependentUpon>xrSubRptCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Entrega\frmEntrega.resx">
+      <DependentUpon>frmEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Mantenimientos\Models\frmAddEquipoPuntoVenta.resx">
       <DependentUpon>frmAddEquipoPuntoVenta.cs</DependentUpon>
