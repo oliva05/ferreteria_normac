@@ -20,6 +20,7 @@ namespace JAGUAR_PRO.Clases
         public int id_usuario { get; set; }
         public DateTime fecha { get; set; }
         public string descripcion { get; set; }
+        public int id_bodega_entrega { get; set; }
         public bool Recuperado { get; set; }
 
 
@@ -45,6 +46,7 @@ namespace JAGUAR_PRO.Clases
                     id_usuario = dr.GetInt32(4);
                     fecha = dr.GetDateTime(5);
                     descripcion = dr.GetString(6);
+                    id_bodega_entrega = dr.GetInt32(7);
                     Recuperado = true;
                 }
                 dr.Close();
