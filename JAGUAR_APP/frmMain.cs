@@ -424,7 +424,7 @@ namespace JAGUAR_PRO
         private void simpleButton3_Click_1(object sender, EventArgs e)
         {
             txtUsuario.Text = "danys.oliva";
-            txtClave.Text = "Tempo1234";
+            txtClave.Text = "Gto1804?";
             ValidateUserInfo();
         }
     }
