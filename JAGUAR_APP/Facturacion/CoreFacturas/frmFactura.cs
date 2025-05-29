@@ -802,6 +802,7 @@ namespace Eatery.Ventas
                             dsVentas1.detalle_factura_transaction.Clear();
                             ClienteFactura = new ClienteFacturacion();
                             cmdConsumidorFinal_Click(sender, e);
+                            txtVendedor.Text = txtTotal.Text = "";
                         }
                         catch (Exception ex)
                         {
@@ -857,6 +858,25 @@ namespace Eatery.Ventas
                         factura.Enable = true;
                         factura.NumOrdenCompra = "";
                         factura.idFormatoFactura = this.PuntoDeVentaActual.IdFormatoFactura;
+
+                        factura.IdTerminoPago = IdTerminoPago;
+
+                        int correlativoSiguiente = 0;
+                        //int id_numeracion = 0;
+
+                        factura.descuentoTotalFactura = factura.subtotalFactura =
+                        factura.ISV1 = factura.ISV2 = 0;
+
+                        foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
+                        {
+                            factura.subtotalFactura += dp.ValidateNumberDecimal((row.cantidad * row.precio));
+                            factura.descuentoTotalFactura += dp.ValidateNumberDecimal(row.descuento);
+                            factura.ISV1 += dp.ValidateNumberDecimal(row.isv1);
+                            factura.ISV2 += dp.ValidateNumberDecimal(row.isv2);
+                        }
+
+
+
 
                         //int correlativoSiguiente = 0;
                         //int id_numeracion = 0;
@@ -932,9 +952,6 @@ namespace Eatery.Ventas
                             try
                             {
                                 //Guardamos el Header de la factura 
-                                //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v2]";
-                                //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v6]";
-                                //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v8]";
                                 command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v11]";
                                 command.CommandType = CommandType.StoredProcedure;
                                 //command.Parameters.AddWithValue("@numero_documento", factura.NumeroDocumento);
@@ -960,8 +977,10 @@ namespace Eatery.Ventas
                                 //    command.Parameters.AddWithValue("@id_numeracion_fiscal", id_numeracion);
 
                                 command.Parameters.AddWithValue("@cliente_nombre", factura.ClienteNombre);
-                                command.Parameters.AddWithValue("@id_tipo_pago", (int)frm.TipoPagoSeleccionadoActual);
+                                int id_tipo_pago = (int)frm.TipoPagoSeleccionadoActual;
+                                command.Parameters.AddWithValue("@id_tipo_pago", id_tipo_pago);
                                 command.Parameters.AddWithValue("@emiteFacturaFiscal", PuntoDeVentaActual.EmiteFacturaFiscal);
+
 
                                 //command.Parameters.AddWithValue("@CAI", NumDocumentoFiscal.CAI);
                                 //if (factura.IdNumeracionFiscal == 0)
@@ -1032,6 +1051,9 @@ namespace Eatery.Ventas
                                 }
 
 
+
+
+
                                 //Vamos a postear transaccion en estado de cuenta de cliente
                                 //if (factura.IdCliente > 0)
                                 //{
@@ -1056,42 +1078,7 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
 
                                 command.Parameters.AddWithValue("@referencia", DBNull.Value);
-                                
-                                
-
                                 command.ExecuteNonQuery();
-
-
-
-
-                                ////El pago de la misma ***********************************************
-                                //command.CommandText = "dbo.[sp_set_insert_estado_cuenta_cliente_v2]";
-                                //command.CommandType = CommandType.StoredProcedure;
-                                //command.Parameters.Clear();
-                                //command.Parameters.AddWithValue("@num_doc", factura.NumeroDocumento);
-                                //command.Parameters.AddWithValue("@enable", 1);
-                                //command.Parameters.AddWithValue("@credito", TotalFactura);//Abonos
-                                //command.Parameters.AddWithValue("@debito", 0);//cargos
-                                //command.Parameters.AddWithValue("@concepto", string.Concat("Pago de Factura #", factura.NumeroDocumento));
-                                //command.Parameters.AddWithValue("@doc_date", factura.FechaDocumento);
-                                //command.Parameters.AddWithValue("@date_created", factura.FechaDocumento);
-                                //command.Parameters.AddWithValue("@id_user_created", this.UsuarioLogeado.Id);
-
-                                ////Cliente
-                                //if (factura.IdCliente == 0)
-                                //    command.Parameters.AddWithValue("@id_cliente", DBNull.Value);
-                                //else
-                                //    command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
-
-                                ////Referencia
-                                //if (string.IsNullOrEmpty(frm.ReferenciaReciboPago))
-                                //    command.Parameters.AddWithValue("@referencia", DBNull.Value);
-                                //else
-                                //    command.Parameters.AddWithValue("@referencia", frm.ReferenciaReciboPago);
-
-                                //command.ExecuteNonQuery();
-
-
 
                                 //Postear el recibo para homologar toda la recepcion de valores
                                 command.CommandText = "dbo.sp_set_insert_new_recibo_pago_h";
@@ -1158,6 +1145,22 @@ namespace Eatery.Ventas
                                     command.ExecuteNonQuery();
                                 }
 
+                                if (PedidoRecuperado != null)
+                                {
+                                    if (PedidoRecuperado.Recuperado)
+                                    {
+                                        //Actualizamos el estado del pedido a facturado!
+                                        command.CommandText = "dbo.[sp_set_update_prefactura_pedido]";
+                                        command.CommandType = CommandType.StoredProcedure;
+                                        command.Parameters.Clear();
+                                        //command.Parameters.AddWithValue("@num_doc", factura.NumeroDocumento);
+                                        command.Parameters.AddWithValue("@id_pedido", PedidoRecuperado.Id);
+                                        command.Parameters.AddWithValue("@id_estado", 2);//Facturado
+                                        command.Parameters.AddWithValue("@id_factura", IdFacturaH);
+                                        command.ExecuteNonQuery();
+                                    }
+                                }
+
 
 
                                 // Attempt to commit the transaction.
@@ -1172,6 +1175,7 @@ namespace Eatery.Ventas
                                 dsVentas1.detalle_factura_transaction.Clear();
                                 ClienteFactura = new ClienteFacturacion();
                                 cmdConsumidorFinal_Click(sender, e);
+                                txtVendedor.Text = txtTotal.Text = "";
                             }
                             catch (Exception ex)
                             {
