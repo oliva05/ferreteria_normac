@@ -24,9 +24,9 @@
               <xs:element name="total_linea" msprop:Generator_ColumnPropNameInTable="total_lineaColumn" msprop:Generator_ColumnPropNameInRow="total_linea" msprop:Generator_UserColumnName="total_linea" msprop:Generator_ColumnVarNameInTable="columntotal_linea" type="xs:decimal" minOccurs="0" />
               <xs:element name="impuesto2" msprop:Generator_ColumnPropNameInTable="impuesto2Column" msprop:Generator_ColumnPropNameInRow="impuesto2" msprop:Generator_UserColumnName="impuesto2" msprop:Generator_ColumnVarNameInTable="columnimpuesto2" type="xs:decimal" minOccurs="0" />
               <xs:element name="impuesto3" msprop:Generator_ColumnPropNameInTable="impuesto3Column" msprop:Generator_ColumnPropNameInRow="impuesto3" msprop:Generator_UserColumnName="impuesto3" msprop:Generator_ColumnVarNameInTable="columnimpuesto3" type="xs:decimal" minOccurs="0" />
-              <xs:element name="bodega_id" msprop:Generator_ColumnPropNameInRow="bodega_id" msprop:Generator_ColumnPropNameInTable="bodega_idColumn" msprop:Generator_ColumnVarNameInTable="columnbodega_id" msprop:Generator_UserColumnName="bodega_id" type="xs:int" minOccurs="0" />
-              <xs:element name="bodega_codigo" msdata:Caption="Bodega Codigo" msprop:Generator_ColumnPropNameInRow="bodega_codigo" msprop:Generator_ColumnPropNameInTable="bodega_codigoColumn" msprop:Generator_ColumnVarNameInTable="columnbodega_codigo" msprop:Generator_UserColumnName="bodega_codigo" type="xs:string" minOccurs="0" />
-              <xs:element name="bodega_name" msprop:Generator_ColumnPropNameInRow="bodega_name" msprop:Generator_ColumnPropNameInTable="bodega_nameColumn" msprop:Generator_ColumnVarNameInTable="columnbodega_name" msprop:Generator_UserColumnName="bodega_name" type="xs:string" minOccurs="0" />
+              <xs:element name="bodega_id" msprop:Generator_UserColumnName="bodega_id" msprop:Generator_ColumnPropNameInTable="bodega_idColumn" msprop:Generator_ColumnPropNameInRow="bodega_id" msprop:Generator_ColumnVarNameInTable="columnbodega_id" type="xs:int" minOccurs="0" />
+              <xs:element name="bodega_codigo" msdata:Caption="Bodega Codigo" msprop:Generator_UserColumnName="bodega_codigo" msprop:Generator_ColumnPropNameInTable="bodega_codigoColumn" msprop:Generator_ColumnPropNameInRow="bodega_codigo" msprop:Generator_ColumnVarNameInTable="columnbodega_codigo" type="xs:string" minOccurs="0" />
+              <xs:element name="bodega_name" msprop:Generator_UserColumnName="bodega_name" msprop:Generator_ColumnPropNameInTable="bodega_nameColumn" msprop:Generator_ColumnPropNameInRow="bodega_name" msprop:Generator_ColumnVarNameInTable="columnbodega_name" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -125,8 +125,8 @@
               <xs:element name="tipo_formato_impresion" msdata:Caption="Tipo Formato Impresion" msprop:Generator_ColumnPropNameInTable="tipo_formato_impresionColumn" msprop:Generator_ColumnPropNameInRow="tipo_formato_impresion" msprop:Generator_UserColumnName="tipo_formato_impresion" msprop:Generator_ColumnVarNameInTable="columntipo_formato_impresion" type="xs:string" minOccurs="0" />
               <xs:element name="punto_venta_code" msdata:Caption="Codigo Punto Venta" msprop:Generator_ColumnPropNameInTable="punto_venta_codeColumn" msprop:Generator_ColumnPropNameInRow="punto_venta_code" msprop:Generator_UserColumnName="punto_venta_code" msprop:Generator_ColumnVarNameInTable="columnpunto_venta_code" type="xs:string" minOccurs="0" />
               <xs:element name="punto_venta_nombre" msdata:Caption="Punto Venta Nombre" msprop:Generator_ColumnPropNameInTable="punto_venta_nombreColumn" msprop:Generator_ColumnPropNameInRow="punto_venta_nombre" msprop:Generator_UserColumnName="punto_venta_nombre" msprop:Generator_ColumnVarNameInTable="columnpunto_venta_nombre" type="xs:string" minOccurs="0" />
-              <xs:element name="id_estado" msprop:Generator_UserColumnName="id_estado" msprop:Generator_ColumnPropNameInTable="id_estadoColumn" msprop:Generator_ColumnPropNameInRow="id_estado" msprop:Generator_ColumnVarNameInTable="columnid_estado" type="xs:int" minOccurs="0" />
-              <xs:element name="EstadoNombre" msdata:Caption="Estado Nombre" msprop:Generator_UserColumnName="EstadoNombre" msprop:Generator_ColumnPropNameInTable="EstadoNombreColumn" msprop:Generator_ColumnPropNameInRow="EstadoNombre" msprop:Generator_ColumnVarNameInTable="columnEstadoNombre" type="xs:string" minOccurs="0" />
+              <xs:element name="id_estado" msprop:Generator_ColumnPropNameInTable="id_estadoColumn" msprop:Generator_ColumnPropNameInRow="id_estado" msprop:Generator_UserColumnName="id_estado" msprop:Generator_ColumnVarNameInTable="columnid_estado" type="xs:int" minOccurs="0" />
+              <xs:element name="EstadoNombre" msdata:Caption="Estado Nombre" msprop:Generator_ColumnPropNameInTable="EstadoNombreColumn" msprop:Generator_ColumnPropNameInRow="EstadoNombre" msprop:Generator_UserColumnName="EstadoNombre" msprop:Generator_ColumnVarNameInTable="columnEstadoNombre" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -266,6 +266,10 @@
               <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
               <xs:element name="descripcion" msdata:Caption="Descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
             </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_UserTableName="DataTable1">
+          <xs:complexType>
           </xs:complexType>
         </xs:element>
       </xs:choice>

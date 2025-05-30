@@ -690,6 +690,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsConfigLoteConsumo.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Calidad\LoteConfConsumo\frmSearchItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calidad\LoteConfConsumo\frmSearchItems.Designer.cs">
+      <DependentUpon>frmSearchItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calidad\LoteConfConsumo\frmSearchMP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3865,6 +3871,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BancosYTitulares\frmTitularOP.resx">
       <DependentUpon>frmTitularOP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchItems.resx">
+      <DependentUpon>frmSearchItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMP.resx">
       <DependentUpon>frmSearchMP.cs</DependentUpon>

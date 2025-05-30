@@ -4,6 +4,8 @@ using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
+using JAGUAR_PRO.Calidad.LoteConfConsumo;
+
 //using Infragistics.Win.Misc;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Despachos.Pedidos;
@@ -1879,13 +1881,16 @@ namespace Eatery.Ventas
 
         private void simpleButton1_Click_2(object sender, EventArgs e)
         {
-            frmSearchDefault frm = new frmSearchDefault(frmSearchDefault.TipoBusqueda.ProductoTerminado, this.PuntoDeVentaActual);
+            //frmSearchDefault frm = new frmSearchDefault(frmSearchDefault.TipoBusqueda.ProductoTerminado, this.PuntoDeVentaActual);
+            frmSearchItems frm = new frmSearchItems();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                
-                AgregarProductoA_Prefactura(frm.ItemSeleccionado.id, frm.ItemSeleccionado.ItemCode,frm.ItemSeleccionado.ItemName,1, true,0, new ProductoTerminado());
+                AgregarProductoA_Prefactura(frm.ItemSeleccionado.id, frm.ItemSeleccionado.ItemCode, frm.ItemSeleccionado.ItemName, 1, true, 0, new ProductoTerminado());
                 txtScanProducto.Focus();
             }
+
+            
+
         }
 
 
