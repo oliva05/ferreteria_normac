@@ -53,7 +53,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             lblISV2.Text = string.Format("{0: ###,##0.00}", Factura1.ISV2);
             lblTotalPagar.Text = string.Format("{0: ###,##0.00}",Factura1.TotalFactura);
             lblTermino.Text = Factura1.TerminoPagoName;
-            //txtVendedor.Text  = Factura1.ven
+            txtVendedor.Text = Factura1.Vendedor;
 
             //((Factura1.sub - Factura1.descuento) + Factura1.Recargo));
             //if (Factura1.Recargo > 0)

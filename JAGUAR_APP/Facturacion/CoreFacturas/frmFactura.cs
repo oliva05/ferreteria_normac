@@ -530,17 +530,17 @@ namespace Eatery.Ventas
             }
 
             //Validar disponibilidad de Inventario si el punto de venta lo tiene configurado
-            //if (PuntoDeVentaActual.BloqueoPorFaltaStock)
-            //{
-            //    foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
-            //    {
-            //        if(row.inventario < row.cantidad)
-            //        {
-            //            SetErrorBarra("Esta intentando facturar producto con menor existencia en Inventario!");
-            //            return;
-            //        }
-            //    }
-            //}
+            if (PuntoDeVentaActual.BloqueoPorFaltaStock)
+            {
+                foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
+                {
+                    if (row.inventario < row.cantidad)
+                    {
+                        SetErrorBarra("Esta intentando facturar producto con menor existencia en Inventario!");
+                        return;
+                    }
+                }
+            }
 
             if (dsVentas1.detalle_factura_transaction.Count <= 0)
             {
@@ -721,6 +721,10 @@ namespace Eatery.Ventas
                             else
                                 command.Parameters.AddWithValue("@id_pedido", IdPedido);
 
+                            if (factura.IdVendedor == 0)
+                                command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
+                            else
+                                command.Parameters.AddWithValue("@id_vendedor", IdPedido);
 
                             Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
@@ -1017,6 +1021,12 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@id_pedido", DBNull.Value);
                                 else
                                     command.Parameters.AddWithValue("@id_pedido", IdPedido);
+
+                                if (factura.IdVendedor == 0)
+                                    command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
+                                else
+                                    command.Parameters.AddWithValue("@id_vendedor", IdPedido);
+                                
 
                                 Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                                 decimal TotalFactura = 0;

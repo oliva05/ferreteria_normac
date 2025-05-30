@@ -77,6 +77,9 @@ namespace Eatery.Ventas
             PuntoDeVentaActual = pPuntoDeVentaActual;
             EquipoActual = pEquipoActual;
 
+            LoadEstadosPedidos();
+            gleEstados.EditValue = 6;
+
             BusquedaSet = Busqueda.LoMasVendido;
             SetBusqueda();
             txtNombreCliente.Text = "Consumidor Final";
@@ -112,7 +115,6 @@ namespace Eatery.Ventas
                 }
             }
             LoadBancosAndTiposPago();
-            
             //if (HostName == "7L12TV3" || HostName == "F3DYSQ2" /*Danys Oliva*/ ||
             //    HostName == "9SSCBV2" || HostName == "9PG91W2" /*Ruben Garcia */ ||
             //    HostName == "F9Q11Q2" /*PC Soporte La 50*/||
@@ -122,10 +124,13 @@ namespace Eatery.Ventas
             //}
         }
 
+       
+
         public frmPedidoCliente(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, Int64 pIdPedido)
         {
             InitializeComponent();
             TipoOperacionActual = TipoOperacionSQL.Update;
+            LoadEstadosPedidos();
             PedidoActual = new PedidoCliente();
             ClienteFactura = new ClienteFacturacion();
             IdTerminoPago = 1;
@@ -166,13 +171,21 @@ namespace Eatery.Ventas
                     }
                 }
             }
-            //LoadBancosAndTiposPago();
 
             if (pIdPedido > 0)
             {
                 PedidoCliente pedidoCliente = new PedidoCliente();  
                 if(pedidoCliente.RecuperarRegistro(pIdPedido))
                 {
+                    if(pedidoCliente.IdEstado == 6)// || pedidoCliente.IdEstado == 1)
+                    {
+                        cmdConfirmarFactura.Visible = true;
+                    }
+                    else
+                    {
+                        cmdConfirmarFactura.Visible = false;
+                    }
+
                     PedidoActual = pedidoCliente;
                     ClienteFactura = new ClienteFacturacion();
                     
@@ -192,8 +205,9 @@ namespace Eatery.Ventas
                             txtAsesorVendedor.Text = VendedorActual.Nombre;
                         }
                     }
-
                     LoadDetallePedidoForEdit(pIdPedido);
+                    gleEstados.EditValue = pedidoCliente.IdEstado;
+                    ckGenerarCotizacion.Visible = ckConfirmarPedido.Visible = false;
                 }
             }
 
@@ -205,6 +219,34 @@ namespace Eatery.Ventas
             //    cmdIngresarAdmin.Visible = SaltarLogin.Visible = simpleButton2.Visible = SaltarLoginPRD.Visible = true;
             //}
         }
+
+
+        private void LoadEstadosPedidos()
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_detalle_estados_pedidos_h]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
+                //cmd.Parameters.AddWithValue("@desde", dtDesde.EditValue);
+                //cmd.Parameters.AddWithValue("@hasta", dtHasta.EditValue);
+
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsPedidosVentas1.estados_pedidos.Clear();
+                adat.Fill(dsPedidosVentas1.estados_pedidos);
+
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+
 
         private void LoadDetallePedidoForEdit(Int64 pIdPrefacturaH)
         {
@@ -320,10 +362,10 @@ namespace Eatery.Ventas
 
                 if (dsPedidosClientesV1.tipo_pagos.Count() > 0)
                 {
-                    gleTipoPago.EditValueChanged -= new EventHandler(gleTipoPago_EditValueChanged);
-                    gleTipoPago.EditValue = 1;
-                    gleBanco.Enabled = false;
-                    gleTipoPago.EditValueChanged += new EventHandler(gleTipoPago_EditValueChanged);
+                    //gleTipoPago.EditValueChanged -= new EventHandler(gleTipoPago_EditValueChanged);
+                    //gleTipoPago.EditValue = 1;
+                    //gleBanco.Enabled = false;
+                    //gleTipoPago.EditValueChanged += new EventHandler(gleTipoPago_EditValueChanged);
                 }
 
                 con.Close();
@@ -1938,8 +1980,8 @@ namespace Eatery.Ventas
                     dsVentas.detalle_factura_transactionRow row1 = dsVentas1.detalle_factura_transaction.Newdetalle_factura_transactionRow();
                     row1.id_pt = pIdPT;
                     row1.cantidad = pCantidad;
-                    row1.descuento = 0;
-
+                    row1.descuento = 
+                    row1.descuento_porcentaje = 0;
 
                     row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                     row1.id_presentacion = pt1.Id_presentacion;
@@ -2031,7 +2073,7 @@ namespace Eatery.Ventas
                             {
                                 AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
                                                                      1, pt1.Id_presentacion, row1.precio, row1.descuento,
-                                                                     pt1.Code, pt1.Descripcion, row1.isv1);
+                                                                     pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje);
 
                                 //Buscamos el detalle en la seleccion de stock
                                 foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
@@ -2329,35 +2371,35 @@ namespace Eatery.Ventas
 
         private void rdContado_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdContado.Checked)
-            {
-                rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged); 
-                rdCredito.Checked = false;
-                IdTerminoPago = 1;
-                gleTipoPago.Enabled =
-                gleBanco.Enabled =
-                txtReferenciaPago.Enabled = true;
-                rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
-            }
+            //if (rdContado.Checked)
+            //{
+            //    rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged); 
+            //    rdCredito.Checked = false;
+            //    IdTerminoPago = 1;
+            //    gleTipoPago.Enabled =
+            //    gleBanco.Enabled =
+            //    txtReferenciaPago.Enabled = true;
+            //    rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
+            //}
         }
 
         private void rdCredito_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdCredito.Checked)
-            {
-                rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
-                rdContado.Checked = false;
-                IdTerminoPago = 2;
-                gleTipoPago.Enabled =
-                gleBanco.Enabled =
-                txtReferenciaPago.Enabled = false;
-                rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
-            }
+            //if (rdCredito.Checked)
+            //{
+            //    rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
+            //    rdContado.Checked = false;
+            //    IdTerminoPago = 2;
+            //    gleTipoPago.Enabled =
+            //    gleBanco.Enabled =
+            //    txtReferenciaPago.Enabled = false;
+            //    rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
+            //}
         }
 
         private void AgregarDetalleInventarioSeleccionado(int id_pt, int idBodega_, string bodegaName_, decimal cantidad_, 
                                                           int pIdPresentacion, decimal pPrecio, decimal pDescuento,
-                                                          string pItemCode, string pItemName, decimal isv1)
+                                                          string pItemCode, string pItemName, decimal isv1, decimal pDescuentoPorcentaje)
         {
             dsVentas.detalle_factura_transaccion_invRow row = dsVentas1.detalle_factura_transaccion_inv.Newdetalle_factura_transaccion_invRow();
             row.id_pt = id_pt;
@@ -2371,6 +2413,7 @@ namespace Eatery.Ventas
             row.item_code = pItemCode;
             row.descripcion = pItemName;
             row.isv1 = isv1;
+            row.descuento_porcentaje = pDescuentoPorcentaje;
             dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
             dsVentas1.AcceptChanges();
         }
@@ -2420,6 +2463,7 @@ namespace Eatery.Ventas
                         row.item_code = i.ItemCode;
                         row.descripcion = i.Descripcion;
                         row.isv1 = i.isv1;
+                        row.descuento_porcentaje = i.descuento_porcentaje;
                         dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
                         dsVentas1.AcceptChanges();
                     }
@@ -2664,7 +2708,8 @@ namespace Eatery.Ventas
                                 if (row.Isdescuento_porcentajeNull()) descuentoPorcentaje = 0;
                                 else descuentoPorcentaje = row.descuento_porcentaje;
 
-                                    Int64 idPedidoDetalle = 0;
+                                Int64 idPedidoDetalle = 0;
+
                                 if (row.cantidad > 0)
                                 {
                                     command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
@@ -2686,6 +2731,11 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@descuento_porcentaje", descuentoPorcentaje);
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
+                                }
+
+                                if (ckGenerarCotizacion.Checked)
+                                {
+
                                 }
 
                                 //if (idPedidoDetalle > 0)
@@ -2979,19 +3029,18 @@ namespace Eatery.Ventas
 
         private void gleTipoPago_EditValueChanged(object sender, EventArgs e)
         {
-            int pIdTipoPago = dp.ValidateNumberInt32(gleTipoPago.EditValue);
-            if (pIdTipoPago == 1)
-            {
-                gleBanco.Enabled = false;
-                gleBanco.EditValue = DBNull.Value;
-                gleBanco.Text = "";
-            }
-            else
-            {
-                gleBanco.Enabled = true;
-                gleBanco.EditValue = 2;
-            }
-
+            //int pIdTipoPago = dp.ValidateNumberInt32(gleTipoPago.EditValue);
+            //if (pIdTipoPago == 1)
+            //{
+            //    gleBanco.Enabled = false;
+            //    gleBanco.EditValue = DBNull.Value;
+            //    gleBanco.Text = "";
+            //}
+            //else
+            //{
+            //    gleBanco.Enabled = true;
+            //    gleBanco.EditValue = 2;
+            //}
         }
 
         private void textEdit1_DoubleClick(object sender, EventArgs e)
@@ -3027,6 +3076,39 @@ namespace Eatery.Ventas
         private void gridControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmdConfirmarFactura_Click(object sender, EventArgs e)
+        {
+            DialogResult r = CajaDialogo.Pregunta("Confirma si desea enviar esta factura para cobro en caja?");
+            if (r != DialogResult.Yes)
+            {
+                return;
+            }
+
+            if(PedidoActual.IdEstado != 6)
+            {
+                CajaDialogo.Error("Esta pre factura ya fue confirmada!");
+                return;
+            }
+
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_set_cambio_estado_pedido_h]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_estado", 1);//Confirmado
+                cmd.Parameters.AddWithValue("@id_pedido", this.PedidoActual.Id);
+                cmd.ExecuteScalar();
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
         }
 
         //frmLoginVendedores

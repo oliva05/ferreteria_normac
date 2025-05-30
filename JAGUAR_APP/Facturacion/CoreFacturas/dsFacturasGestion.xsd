@@ -24,9 +24,11 @@
               <xs:element name="total_linea" msprop:Generator_ColumnPropNameInTable="total_lineaColumn" msprop:Generator_ColumnPropNameInRow="total_linea" msprop:Generator_UserColumnName="total_linea" msprop:Generator_ColumnVarNameInTable="columntotal_linea" type="xs:decimal" minOccurs="0" />
               <xs:element name="impuesto2" msprop:Generator_ColumnPropNameInTable="impuesto2Column" msprop:Generator_ColumnPropNameInRow="impuesto2" msprop:Generator_UserColumnName="impuesto2" msprop:Generator_ColumnVarNameInTable="columnimpuesto2" type="xs:decimal" minOccurs="0" />
               <xs:element name="impuesto3" msprop:Generator_ColumnPropNameInTable="impuesto3Column" msprop:Generator_ColumnPropNameInRow="impuesto3" msprop:Generator_UserColumnName="impuesto3" msprop:Generator_ColumnVarNameInTable="columnimpuesto3" type="xs:decimal" minOccurs="0" />
-              <xs:element name="bodega_id" msprop:Generator_UserColumnName="bodega_id" msprop:Generator_ColumnPropNameInTable="bodega_idColumn" msprop:Generator_ColumnPropNameInRow="bodega_id" msprop:Generator_ColumnVarNameInTable="columnbodega_id" type="xs:int" minOccurs="0" />
-              <xs:element name="bodega_codigo" msdata:Caption="Bodega Codigo" msprop:Generator_UserColumnName="bodega_codigo" msprop:Generator_ColumnPropNameInTable="bodega_codigoColumn" msprop:Generator_ColumnPropNameInRow="bodega_codigo" msprop:Generator_ColumnVarNameInTable="columnbodega_codigo" type="xs:string" minOccurs="0" />
-              <xs:element name="bodega_name" msprop:Generator_UserColumnName="bodega_name" msprop:Generator_ColumnPropNameInTable="bodega_nameColumn" msprop:Generator_ColumnPropNameInRow="bodega_name" msprop:Generator_ColumnVarNameInTable="columnbodega_name" type="xs:string" minOccurs="0" />
+              <xs:element name="bodega_id" msprop:Generator_ColumnPropNameInTable="bodega_idColumn" msprop:Generator_ColumnPropNameInRow="bodega_id" msprop:Generator_UserColumnName="bodega_id" msprop:Generator_ColumnVarNameInTable="columnbodega_id" type="xs:int" minOccurs="0" />
+              <xs:element name="bodega_codigo" msdata:Caption="Bodega Codigo" msprop:Generator_ColumnPropNameInTable="bodega_codigoColumn" msprop:Generator_ColumnPropNameInRow="bodega_codigo" msprop:Generator_UserColumnName="bodega_codigo" msprop:Generator_ColumnVarNameInTable="columnbodega_codigo" type="xs:string" minOccurs="0" />
+              <xs:element name="bodega_name" msprop:Generator_ColumnPropNameInTable="bodega_nameColumn" msprop:Generator_ColumnPropNameInRow="bodega_name" msprop:Generator_UserColumnName="bodega_name" msprop:Generator_ColumnVarNameInTable="columnbodega_name" type="xs:string" minOccurs="0" />
+              <xs:element name="marca" msprop:Generator_UserColumnName="marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_ColumnVarNameInTable="columnmarca" type="xs:string" minOccurs="0" />
+              <xs:element name="codigo" msprop:Generator_UserColumnName="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_ColumnVarNameInTable="columncodigo" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -268,7 +270,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_UserTableName="DataTable1">
+        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1">
           <xs:complexType>
           </xs:complexType>
         </xs:element>

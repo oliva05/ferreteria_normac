@@ -1011,6 +1011,11 @@
     <Compile Include="Despachos\Pedidos\dsPedidosClientesV.Designer.cs">
       <DependentUpon>dsPedidosClientesV.cs</DependentUpon>
     </Compile>
+    <Compile Include="Despachos\Pedidos\dsPedidosVentas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPedidosVentas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Despachos\Pedidos\dsPrefacturas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2469,6 +2474,17 @@
     <None Include="Despachos\Pedidos\dsPedidosClientesV.xsd" />
     <None Include="Despachos\Pedidos\dsPedidosClientesV.xss">
       <DependentUpon>dsPedidosClientesV.xsd</DependentUpon>
+    </None>
+    <None Include="Despachos\Pedidos\dsPedidosVentas.xsc">
+      <DependentUpon>dsPedidosVentas.xsd</DependentUpon>
+    </None>
+    <None Include="Despachos\Pedidos\dsPedidosVentas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPedidosVentas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Despachos\Pedidos\dsPedidosVentas.xss">
+      <DependentUpon>dsPedidosVentas.xsd</DependentUpon>
     </None>
     <None Include="Despachos\Pedidos\dsPrefacturas.xsc">
       <DependentUpon>dsPrefacturas.xsd</DependentUpon>
