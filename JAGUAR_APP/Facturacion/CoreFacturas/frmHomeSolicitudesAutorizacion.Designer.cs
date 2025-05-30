@@ -36,7 +36,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHomeSolicitudesAutorizacion));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dsFacturasGestion = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.dsFacturasGestion1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.grd_data = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfactura_id_H = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,34 +61,43 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.cmdRefresh = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsFacturasGestion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsFacturasGestion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGestionar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsFiltro.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "SolicitudAutorizacion";
-            this.gridControl1.DataSource = this.dsFacturasGestion;
-            this.gridControl1.Location = new System.Drawing.Point(-2, 84);
+            this.gridControl1.DataSource = this.dsFacturasGestion1;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.grd_data;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnGestionar});
-            this.gridControl1.Size = new System.Drawing.Size(1130, 428);
+            this.gridControl1.Size = new System.Drawing.Size(1109, 409);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grd_data});
             // 
-            // dsFacturasGestion
+            // dsFacturasGestion1
             // 
-            this.dsFacturasGestion.DataSetName = "dsFacturasGestion";
-            this.dsFacturasGestion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dsFacturasGestion1.DataSetName = "dsFacturasGestion";
+            this.dsFacturasGestion1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // grd_data
             // 
@@ -282,7 +291,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.tsFiltro.Properties.Appearance.Options.UseFont = true;
             this.tsFiltro.Properties.OffText = "No";
             this.tsFiltro.Properties.OnText = "Si";
-            this.tsFiltro.Size = new System.Drawing.Size(107, 22);
+            this.tsFiltro.Size = new System.Drawing.Size(107, 24);
             this.tsFiltro.TabIndex = 1;
             this.tsFiltro.Toggled += new System.EventHandler(this.tsFiltro_Toggled);
             // 
@@ -307,7 +316,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl2.Location = new System.Drawing.Point(-2, 12);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(1130, 21);
+            this.labelControl2.Size = new System.Drawing.Size(1146, 21);
             this.labelControl2.TabIndex = 3;
             this.labelControl2.Text = "Solicitudes de Autorizaciones";
             // 
@@ -319,7 +328,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAtras.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.ImageOptions.Image")));
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAtras.Location = new System.Drawing.Point(969, 17);
+            this.btnAtras.Location = new System.Drawing.Point(985, 17);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(145, 44);
             this.btnAtras.TabIndex = 51;
@@ -334,31 +343,78 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.cmdRefresh.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdRefresh.ImageOptions.Image")));
             this.cmdRefresh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdRefresh.Location = new System.Drawing.Point(806, 17);
+            this.cmdRefresh.Location = new System.Drawing.Point(822, 17);
             this.cmdRefresh.Name = "cmdRefresh";
             this.cmdRefresh.Size = new System.Drawing.Size(145, 44);
             this.cmdRefresh.TabIndex = 52;
             this.cmdRefresh.Text = "Refresh";
             this.cmdRefresh.Click += new System.EventHandler(this.cmdRefresh_Click);
             // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Location = new System.Drawing.Point(12, 69);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(1125, 438);
+            this.xtraTabControl1.TabIndex = 53;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.gridControl2);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(1123, 409);
+            this.xtraTabPage1.Text = "Ordenes de Compra";
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.gridControl1);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(1109, 409);
+            this.xtraTabPage2.Text = "Facutras";
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.MainView = this.gridView1;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.Size = new System.Drawing.Size(1123, 409);
+            this.gridControl2.TabIndex = 0;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl2;
+            this.gridView1.Name = "gridView1";
+            // 
             // frmHomeSolicitudesAutorizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 510);
+            this.ClientSize = new System.Drawing.Size(1142, 510);
+            this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.cmdRefresh);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.tsFiltro);
-            this.Controls.Add(this.gridControl1);
             this.Name = "frmHomeSolicitudesAutorizacion";
             this.Text = "Solicitudes de Aurizaciones";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsFacturasGestion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsFacturasGestion1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGestionar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsFiltro.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,7 +425,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView grd_data;
         private DevExpress.XtraEditors.ToggleSwitch tsFiltro;
-        private dsFacturasGestion dsFacturasGestion;
+        private dsFacturasGestion dsFacturasGestion1;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colfactura_id_H;
         private DevExpress.XtraGrid.Columns.GridColumn colnumero_documento;
@@ -392,5 +448,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnGestionar;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.SimpleButton cmdRefresh;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
     }
 }

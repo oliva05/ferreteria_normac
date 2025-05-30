@@ -1798,6 +1798,7 @@
             this.navBarItem107.AppearancePressed.Options.UseFont = true;
             this.navBarItem107.Caption = "Empleados";
             this.navBarItem107.Name = "navBarItem107";
+            this.navBarItem107.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem107_LinkClicked);
             // 
             // navBarItem112
             // 

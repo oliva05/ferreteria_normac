@@ -830,7 +830,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void barButtonOC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.Todas, PuntoVentaActual, UsuarioLogeado);
+            frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.Abiertas, PuntoVentaActual, UsuarioLogeado);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 if (frm.IdOrdenesSeleccionado != 0)

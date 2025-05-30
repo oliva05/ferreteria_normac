@@ -29,7 +29,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>22</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -689,6 +689,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsConfigLoteConsumo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Calidad\LoteConfConsumo\frmSearchItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calidad\LoteConfConsumo\frmSearchItems.Designer.cs">
+      <DependentUpon>frmSearchItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Calidad\LoteConfConsumo\frmSearchMP.cs">
       <SubType>Form</SubType>
@@ -3866,6 +3872,9 @@
     <EmbeddedResource Include="BancosYTitulares\frmTitularOP.resx">
       <DependentUpon>frmTitularOP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchItems.resx">
+      <DependentUpon>frmSearchItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMP.resx">
       <DependentUpon>frmSearchMP.cs</DependentUpon>
     </EmbeddedResource>
@@ -4516,7 +4525,6 @@
     <EmbeddedResource Include="Micro\frmOpcionesMicro.resx">
       <DependentUpon>frmOpcionesMicro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

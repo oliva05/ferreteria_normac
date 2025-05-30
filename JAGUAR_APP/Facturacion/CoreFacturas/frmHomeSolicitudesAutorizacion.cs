@@ -38,10 +38,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.Add("@filtro", SqlDbType.Bit).Value = filtro;
 
-                    dsFacturasGestion.SolicitudAutorizacion.Clear();
+                    dsFacturasGestion1.SolicitudAutorizacion.Clear();
 
                     //da.SelectCommand.Parameters.Add("@id_cliente", SqlDbType.Int).Value = id_cliente;
-                    da.Fill(dsFacturasGestion.SolicitudAutorizacion);
+                    da.Fill(dsFacturasGestion1.SolicitudAutorizacion);
 
                     cnx.Close();
                 }

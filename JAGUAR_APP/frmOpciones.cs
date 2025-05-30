@@ -5200,5 +5200,50 @@ namespace JAGUAR_PRO
             frmPTCargarMasivo frm = new frmPTCargarMasivo();
             frm.Show();
         }
+
+        private void navBarItem107_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    break;
+                case 3://Medium Autorization
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frm_Hr_Employee_List frm = new frm_Hr_Employee_List(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                try
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(11))
+                    {
+                        frm_Hr_Employee_List frm = new frm_Hr_Employee_List(UsuarioLogeado);
+                        frm.MdiParent = this.MdiParent;
+                        frm.Show();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #11");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    CajaDialogo.Error(ex.Message);
+                }
+            }
+        }
     }
 }
