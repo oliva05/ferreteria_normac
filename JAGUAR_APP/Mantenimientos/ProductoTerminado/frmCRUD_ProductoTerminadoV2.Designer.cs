@@ -325,9 +325,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(16, 323);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(230, 15);
+            this.labelControl5.Size = new System.Drawing.Size(180, 15);
             this.labelControl5.TabIndex = 23;
-            this.labelControl5.Text = "Código de Combinacion____________________";
+            this.labelControl5.Text = "Código Interno____________________";
             // 
             // bindingSourceTipoPT
             // 
@@ -644,7 +644,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.Location = new System.Drawing.Point(16, 478);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(212, 15);
+            this.labelControl10.Size = new System.Drawing.Size(211, 15);
             this.labelControl10.TabIndex = 52;
             this.labelControl10.Text = "Tipo de Item_____________________________";
             // 

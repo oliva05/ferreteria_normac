@@ -59,29 +59,14 @@ namespace Eatery.Ventas
             this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
             this.txtAsesorVendedor = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
-            this.gleBanco = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bsBancos = new System.Windows.Forms.BindingSource(this.components);
             this.dsPedidosClientesV1 = new JAGUAR_PRO.Despachos.Pedidos.dsPedidosClientesV();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescripcion2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gleTipoPago = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bsTipoPago = new System.Windows.Forms.BindingSource(this.components);
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescripcion1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtReferenciaPago = new DevExpress.XtraEditors.TextEdit();
-            this.label7 = new System.Windows.Forms.Label();
             this.dtFechaEntrega = new DevExpress.XtraEditors.DateEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.txtComentario = new DevExpress.XtraEditors.MemoEdit();
             this.label5 = new System.Windows.Forms.Label();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.rdCredito = new System.Windows.Forms.RadioButton();
-            this.rdContado = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtDireccion = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.cmdConsumidorFinal = new DevExpress.XtraEditors.SimpleButton();
@@ -108,6 +93,16 @@ namespace Eatery.Ventas
             this.colGestionAlmacen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdElejirAlmacen = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colinventario_seleccionado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label12 = new System.Windows.Forms.Label();
+            this.gleEstados = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dsPedidosVentas1 = new JAGUAR_PRO.Despachos.Pedidos.dsPedidosVentas();
+            this.bsEstadosFacturas = new System.Windows.Forms.BindingSource(this.components);
+            this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdConfirmarFactura = new DevExpress.XtraEditors.SimpleButton();
+            this.ckGenerarCotizacion = new DevExpress.XtraEditors.CheckEdit();
+            this.ckConfirmarPedido = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCliente.Properties)).BeginInit();
             this.panelNotificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsVentas1)).BeginInit();
@@ -115,14 +110,9 @@ namespace Eatery.Ventas
             this.navigationFrame1.SuspendLayout();
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAsesorVendedor.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gleBanco.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBancos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPedidosClientesV1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gleTipoPago.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTipoPago)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtReferenciaPago.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaEntrega.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaEntrega.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).BeginInit();
@@ -133,6 +123,12 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdDeleteRowFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdElejirAlmacen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gleEstados.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPedidosVentas1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEstadosFacturas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckGenerarCotizacion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckConfirmarPedido.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombreCliente
@@ -175,7 +171,7 @@ namespace Eatery.Ventas
             this.cmdSalir.Appearance.Options.UseFont = true;
             this.cmdSalir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSalir.ImageOptions.Image")));
-            this.cmdSalir.Location = new System.Drawing.Point(255, 597);
+            this.cmdSalir.Location = new System.Drawing.Point(3, 597);
             this.cmdSalir.Name = "cmdSalir";
             this.cmdSalir.Size = new System.Drawing.Size(246, 38);
             this.cmdSalir.TabIndex = 6;
@@ -186,10 +182,10 @@ namespace Eatery.Ventas
             // 
             this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(1033, 562);
+            this.txtTotal.Location = new System.Drawing.Point(1029, 512);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(119, 29);
+            this.txtTotal.Size = new System.Drawing.Size(122, 29);
             this.txtTotal.TabIndex = 11;
             this.txtTotal.Text = "0.00";
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -201,7 +197,7 @@ namespace Eatery.Ventas
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdNew.ImageOptions.Image")));
-            this.cmdNew.Location = new System.Drawing.Point(3, 597);
+            this.cmdNew.Location = new System.Drawing.Point(3, 549);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(246, 38);
             this.cmdNew.TabIndex = 14;
@@ -270,25 +266,21 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
-            this.navigationPage1.Caption = "navigationPage1";
+            this.navigationPage1.Controls.Add(this.txtTotal);
+            this.navigationPage1.Controls.Add(this.ckConfirmarPedido);
+            this.navigationPage1.Controls.Add(this.ckGenerarCotizacion);
+            this.navigationPage1.Controls.Add(this.cmdConfirmarFactura);
+            this.navigationPage1.Controls.Add(this.gleEstados);
+            this.navigationPage1.Controls.Add(this.label12);
             this.navigationPage1.Controls.Add(this.label11);
             this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
             this.navigationPage1.Controls.Add(this.txtAsesorVendedor);
             this.navigationPage1.Controls.Add(this.label10);
-            this.navigationPage1.Controls.Add(this.gleBanco);
-            this.navigationPage1.Controls.Add(this.gleTipoPago);
-            this.navigationPage1.Controls.Add(this.label9);
-            this.navigationPage1.Controls.Add(this.label8);
-            this.navigationPage1.Controls.Add(this.txtReferenciaPago);
-            this.navigationPage1.Controls.Add(this.label7);
             this.navigationPage1.Controls.Add(this.dtFechaEntrega);
             this.navigationPage1.Controls.Add(this.label6);
             this.navigationPage1.Controls.Add(this.txtComentario);
             this.navigationPage1.Controls.Add(this.label5);
             this.navigationPage1.Controls.Add(this.simpleButton2);
-            this.navigationPage1.Controls.Add(this.rdCredito);
-            this.navigationPage1.Controls.Add(this.rdContado);
-            this.navigationPage1.Controls.Add(this.label4);
             this.navigationPage1.Controls.Add(this.txtDireccion);
             this.navigationPage1.Controls.Add(this.label3);
             this.navigationPage1.Controls.Add(this.panelNotificacion);
@@ -300,7 +292,6 @@ namespace Eatery.Ventas
             this.navigationPage1.Controls.Add(this.cmdNew);
             this.navigationPage1.Controls.Add(this.txtScanProducto);
             this.navigationPage1.Controls.Add(this.gridControl1);
-            this.navigationPage1.Controls.Add(this.txtTotal);
             this.navigationPage1.Controls.Add(this.lblfecha);
             this.navigationPage1.Controls.Add(this.cmdAbrirBusqueda);
             this.navigationPage1.Controls.Add(this.label1);
@@ -319,6 +310,7 @@ namespace Eatery.Ventas
             this.label11.Size = new System.Drawing.Size(61, 20);
             this.label11.TabIndex = 54;
             this.label11.Text = "Código";
+            this.label11.Visible = false;
             // 
             // cmdChangeVendedor
             // 
@@ -351,23 +343,6 @@ namespace Eatery.Ventas
             this.label10.TabIndex = 51;
             this.label10.Text = "Asesor";
             // 
-            // gleBanco
-            // 
-            this.gleBanco.Location = new System.Drawing.Point(897, 60);
-            this.gleBanco.Name = "gleBanco";
-            this.gleBanco.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F);
-            this.gleBanco.Properties.Appearance.Options.UseFont = true;
-            this.gleBanco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gleBanco.Properties.DataSource = this.bsBancos;
-            this.gleBanco.Properties.DisplayMember = "descripcion";
-            this.gleBanco.Properties.NullText = "";
-            this.gleBanco.Properties.PopupView = this.gridView3;
-            this.gleBanco.Properties.ValueMember = "id";
-            this.gleBanco.Size = new System.Drawing.Size(255, 24);
-            this.gleBanco.TabIndex = 50;
-            this.gleBanco.Visible = false;
-            // 
             // bsBancos
             // 
             this.bsBancos.DataMember = "lista_cuentas";
@@ -378,117 +353,10 @@ namespace Eatery.Ventas
             this.dsPedidosClientesV1.DataSetName = "dsPedidosClientesV";
             this.dsPedidosClientesV1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // gridView3
-            // 
-            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid1,
-            this.coldescripcion2});
-            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView3.Name = "gridView3";
-            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView3.OptionsView.ShowGroupPanel = false;
-            // 
-            // colid1
-            // 
-            this.colid1.FieldName = "id";
-            this.colid1.Name = "colid1";
-            // 
-            // coldescripcion2
-            // 
-            this.coldescripcion2.FieldName = "descripcion";
-            this.coldescripcion2.Name = "coldescripcion2";
-            this.coldescripcion2.OptionsColumn.ReadOnly = true;
-            this.coldescripcion2.Visible = true;
-            this.coldescripcion2.VisibleIndex = 0;
-            // 
-            // gleTipoPago
-            // 
-            this.gleTipoPago.Location = new System.Drawing.Point(897, 31);
-            this.gleTipoPago.Name = "gleTipoPago";
-            this.gleTipoPago.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F);
-            this.gleTipoPago.Properties.Appearance.Options.UseFont = true;
-            this.gleTipoPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gleTipoPago.Properties.DataSource = this.bsTipoPago;
-            this.gleTipoPago.Properties.DisplayMember = "descripcion";
-            this.gleTipoPago.Properties.NullText = "";
-            this.gleTipoPago.Properties.PopupView = this.gridLookUpEdit1View;
-            this.gleTipoPago.Properties.ValueMember = "id";
-            this.gleTipoPago.Size = new System.Drawing.Size(255, 24);
-            this.gleTipoPago.TabIndex = 49;
-            this.gleTipoPago.Visible = false;
-            this.gleTipoPago.EditValueChanged += new System.EventHandler(this.gleTipoPago_EditValueChanged);
-            // 
             // bsTipoPago
             // 
             this.bsTipoPago.DataMember = "tipo_pagos";
             this.bsTipoPago.DataSource = this.dsPedidosClientesV1;
-            // 
-            // gridLookUpEdit1View
-            // 
-            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid,
-            this.coldescripcion1});
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // colid
-            // 
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            // 
-            // coldescripcion1
-            // 
-            this.coldescripcion1.FieldName = "descripcion";
-            this.coldescripcion1.Name = "coldescripcion1";
-            this.coldescripcion1.OptionsColumn.ReadOnly = true;
-            this.coldescripcion1.Visible = true;
-            this.coldescripcion1.VisibleIndex = 0;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label9.Location = new System.Drawing.Point(801, 92);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 20);
-            this.label9.TabIndex = 48;
-            this.label9.Text = "Referencia";
-            this.label9.Visible = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label8.Location = new System.Drawing.Point(801, 62);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 20);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "Banco";
-            this.label8.Visible = false;
-            // 
-            // txtReferenciaPago
-            // 
-            this.txtReferenciaPago.Location = new System.Drawing.Point(897, 89);
-            this.txtReferenciaPago.Name = "txtReferenciaPago";
-            this.txtReferenciaPago.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReferenciaPago.Properties.Appearance.Options.UseFont = true;
-            this.txtReferenciaPago.Size = new System.Drawing.Size(254, 24);
-            this.txtReferenciaPago.TabIndex = 46;
-            this.txtReferenciaPago.Visible = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label7.Location = new System.Drawing.Point(801, 33);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 20);
-            this.label7.TabIndex = 45;
-            this.label7.Text = "Tipo Pago";
-            this.label7.Visible = false;
             // 
             // dtFechaEntrega
             // 
@@ -518,11 +386,11 @@ namespace Eatery.Ventas
             // txtComentario
             // 
             this.txtComentario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtComentario.Location = new System.Drawing.Point(507, 578);
+            this.txtComentario.Location = new System.Drawing.Point(271, 549);
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
             this.txtComentario.Properties.Appearance.Options.UseFont = true;
-            this.txtComentario.Size = new System.Drawing.Size(376, 57);
+            this.txtComentario.Size = new System.Drawing.Size(569, 86);
             this.txtComentario.TabIndex = 41;
             // 
             // label5
@@ -530,7 +398,7 @@ namespace Eatery.Ventas
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label5.Location = new System.Drawing.Point(507, 559);
+            this.label5.Location = new System.Drawing.Point(267, 526);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 20);
             this.label5.TabIndex = 42;
@@ -543,51 +411,12 @@ namespace Eatery.Ventas
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(906, 597);
+            this.simpleButton2.Location = new System.Drawing.Point(846, 597);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(246, 38);
+            this.simpleButton2.Size = new System.Drawing.Size(305, 38);
             this.simpleButton2.TabIndex = 40;
             this.simpleButton2.Text = "&Generar Pedido";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click_1);
-            // 
-            // rdCredito
-            // 
-            this.rdCredito.AutoSize = true;
-            this.rdCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdCredito.Location = new System.Drawing.Point(1016, 3);
-            this.rdCredito.Name = "rdCredito";
-            this.rdCredito.Size = new System.Drawing.Size(74, 22);
-            this.rdCredito.TabIndex = 39;
-            this.rdCredito.Text = "Crédito";
-            this.rdCredito.UseVisualStyleBackColor = true;
-            this.rdCredito.Visible = false;
-            this.rdCredito.CheckedChanged += new System.EventHandler(this.rdCredito_CheckedChanged);
-            // 
-            // rdContado
-            // 
-            this.rdContado.AutoSize = true;
-            this.rdContado.Checked = true;
-            this.rdContado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdContado.Location = new System.Drawing.Point(922, 3);
-            this.rdContado.Name = "rdContado";
-            this.rdContado.Size = new System.Drawing.Size(83, 22);
-            this.rdContado.TabIndex = 38;
-            this.rdContado.TabStop = true;
-            this.rdContado.Text = "Contado";
-            this.rdContado.UseVisualStyleBackColor = true;
-            this.rdContado.Visible = false;
-            this.rdContado.CheckedChanged += new System.EventHandler(this.rdContado_CheckedChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label4.Location = new System.Drawing.Point(842, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 20);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Término";
-            this.label4.Visible = false;
             // 
             // txtDireccion
             // 
@@ -647,12 +476,12 @@ namespace Eatery.Ventas
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.Location = new System.Drawing.Point(356, 119);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(172, 38);
             this.simpleButton1.TabIndex = 31;
-            this.simpleButton1.Text = "&Buscar Producto";
+            this.simpleButton1.Text = "Agregar Producto";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_2);
             // 
             // txtScanProducto
@@ -664,6 +493,7 @@ namespace Eatery.Ventas
             this.txtScanProducto.Properties.NullValuePrompt = "Leer código de Producto";
             this.txtScanProducto.Size = new System.Drawing.Size(215, 30);
             this.txtScanProducto.TabIndex = 30;
+            this.txtScanProducto.Visible = false;
             this.txtScanProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtScanProducto_KeyDown);
             // 
             // gridControl1
@@ -681,7 +511,7 @@ namespace Eatery.Ventas
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdDeleteRowFactura,
             this.cmdElejirAlmacen});
-            this.gridControl1.Size = new System.Drawing.Size(1149, 395);
+            this.gridControl1.Size = new System.Drawing.Size(1149, 345);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -871,6 +701,101 @@ namespace Eatery.Ventas
             this.colinventario_seleccionado.OptionsColumn.ReadOnly = true;
             this.colinventario_seleccionado.Width = 58;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label12.Location = new System.Drawing.Point(801, 12);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(61, 20);
+            this.label12.TabIndex = 55;
+            this.label12.Text = "Estado";
+            // 
+            // gleEstados
+            // 
+            this.gleEstados.Location = new System.Drawing.Point(897, 10);
+            this.gleEstados.Name = "gleEstados";
+            this.gleEstados.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.gleEstados.Properties.Appearance.Options.UseFont = true;
+            this.gleEstados.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gleEstados.Properties.DataSource = this.bsEstadosFacturas;
+            this.gleEstados.Properties.DisplayMember = "descripcion";
+            this.gleEstados.Properties.NullText = "";
+            this.gleEstados.Properties.PopupView = this.gridView2;
+            this.gleEstados.Properties.ReadOnly = true;
+            this.gleEstados.Properties.ValueMember = "id";
+            this.gleEstados.Size = new System.Drawing.Size(209, 24);
+            this.gleEstados.TabIndex = 56;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid2,
+            this.coldescripcion});
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // dsPedidosVentas1
+            // 
+            this.dsPedidosVentas1.DataSetName = "dsPedidosVentas";
+            this.dsPedidosVentas1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsEstadosFacturas
+            // 
+            this.bsEstadosFacturas.DataMember = "estados_pedidos";
+            this.bsEstadosFacturas.DataSource = this.dsPedidosVentas1;
+            // 
+            // colid2
+            // 
+            this.colid2.FieldName = "id";
+            this.colid2.Name = "colid2";
+            // 
+            // coldescripcion
+            // 
+            this.coldescripcion.FieldName = "descripcion";
+            this.coldescripcion.Name = "coldescripcion";
+            this.coldescripcion.Visible = true;
+            this.coldescripcion.VisibleIndex = 0;
+            // 
+            // cmdConfirmarFactura
+            // 
+            this.cmdConfirmarFactura.Appearance.BackColor = System.Drawing.Color.SkyBlue;
+            this.cmdConfirmarFactura.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
+            this.cmdConfirmarFactura.Appearance.Options.UseBackColor = true;
+            this.cmdConfirmarFactura.Appearance.Options.UseFont = true;
+            this.cmdConfirmarFactura.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdConfirmarFactura.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.cmdConfirmarFactura.Location = new System.Drawing.Point(897, 40);
+            this.cmdConfirmarFactura.Name = "cmdConfirmarFactura";
+            this.cmdConfirmarFactura.Size = new System.Drawing.Size(209, 38);
+            this.cmdConfirmarFactura.TabIndex = 57;
+            this.cmdConfirmarFactura.Text = "Confirmar Pre Factura";
+            this.cmdConfirmarFactura.Visible = false;
+            this.cmdConfirmarFactura.Click += new System.EventHandler(this.cmdConfirmarFactura_Click);
+            // 
+            // ckGenerarCotizacion
+            // 
+            this.ckGenerarCotizacion.Location = new System.Drawing.Point(846, 567);
+            this.ckGenerarCotizacion.Name = "ckGenerarCotizacion";
+            this.ckGenerarCotizacion.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.ckGenerarCotizacion.Properties.Appearance.Options.UseFont = true;
+            this.ckGenerarCotizacion.Properties.Caption = "Generar Cotización";
+            this.ckGenerarCotizacion.Size = new System.Drawing.Size(158, 24);
+            this.ckGenerarCotizacion.TabIndex = 58;
+            // 
+            // ckConfirmarPedido
+            // 
+            this.ckConfirmarPedido.Location = new System.Drawing.Point(846, 544);
+            this.ckConfirmarPedido.Name = "ckConfirmarPedido";
+            this.ckConfirmarPedido.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.ckConfirmarPedido.Properties.Appearance.Options.UseFont = true;
+            this.ckConfirmarPedido.Properties.Caption = "Confirmar Pre Factura";
+            this.ckConfirmarPedido.Size = new System.Drawing.Size(188, 24);
+            this.ckConfirmarPedido.TabIndex = 59;
+            // 
             // frmPedidoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -890,14 +815,9 @@ namespace Eatery.Ventas
             this.navigationPage1.ResumeLayout(false);
             this.navigationPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAsesorVendedor.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gleBanco.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBancos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPedidosClientesV1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gleTipoPago.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTipoPago)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtReferenciaPago.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaEntrega.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaEntrega.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).EndInit();
@@ -908,6 +828,12 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdDeleteRowFactura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdElejirAlmacen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gleEstados.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPedidosVentas1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEstadosFacturas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckGenerarCotizacion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckConfirmarPedido.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -948,9 +874,6 @@ namespace Eatery.Ventas
         private DevExpress.XtraGrid.Columns.GridColumn colinventario;
         private DevExpress.XtraEditors.TextEdit txtDireccion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton rdCredito;
-        private System.Windows.Forms.RadioButton rdContado;
-        private System.Windows.Forms.Label label4;
         private DevExpress.XtraGrid.Columns.GridColumn colbodega_descripcion;
         private DevExpress.XtraGrid.Columns.GridColumn colGestionAlmacen;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdElejirAlmacen;
@@ -961,23 +884,21 @@ namespace Eatery.Ventas
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.DateEdit dtFechaEntrega;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private DevExpress.XtraEditors.TextEdit txtReferenciaPago;
-        private System.Windows.Forms.Label label7;
-        private DevExpress.XtraEditors.GridLookUpEdit gleBanco;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraEditors.GridLookUpEdit gleTipoPago;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private System.Windows.Forms.BindingSource bsTipoPago;
         private System.Windows.Forms.BindingSource bsBancos;
-        private DevExpress.XtraGrid.Columns.GridColumn colid1;
-        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion2;
-        private DevExpress.XtraGrid.Columns.GridColumn colid;
-        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion1;
         private DevExpress.XtraEditors.TextEdit txtAsesorVendedor;
         private System.Windows.Forms.Label label10;
         private DevExpress.XtraEditors.SimpleButton cmdChangeVendedor;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private DevExpress.XtraEditors.GridLookUpEdit gleEstados;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private JAGUAR_PRO.Despachos.Pedidos.dsPedidosVentas dsPedidosVentas1;
+        private System.Windows.Forms.BindingSource bsEstadosFacturas;
+        private DevExpress.XtraGrid.Columns.GridColumn colid2;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
+        private DevExpress.XtraEditors.SimpleButton cmdConfirmarFactura;
+        private DevExpress.XtraEditors.CheckEdit ckConfirmarPedido;
+        private DevExpress.XtraEditors.CheckEdit ckGenerarCotizacion;
     }
 }

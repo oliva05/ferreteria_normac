@@ -530,17 +530,17 @@ namespace Eatery.Ventas
             }
 
             //Validar disponibilidad de Inventario si el punto de venta lo tiene configurado
-            //if (PuntoDeVentaActual.BloqueoPorFaltaStock)
-            //{
-            //    foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
-            //    {
-            //        if(row.inventario < row.cantidad)
-            //        {
-            //            SetErrorBarra("Esta intentando facturar producto con menor existencia en Inventario!");
-            //            return;
-            //        }
-            //    }
-            //}
+            if (PuntoDeVentaActual.BloqueoPorFaltaStock)
+            {
+                foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
+                {
+                    if (row.inventario < row.cantidad)
+                    {
+                        SetErrorBarra("Esta intentando facturar producto con menor existencia en Inventario!");
+                        return;
+                    }
+                }
+            }
 
             if (dsVentas1.detalle_factura_transaction.Count <= 0)
             {
@@ -568,6 +568,8 @@ namespace Eatery.Ventas
                             factura.IdCliente = ClienteFactura.Id;
 
                     factura.FechaDocumento = dp.NowSetDateTime();
+                    
+
                     //1   Emitida
                     //2   Pagada
                     //3   Anulada
@@ -719,6 +721,10 @@ namespace Eatery.Ventas
                             else
                                 command.Parameters.AddWithValue("@id_pedido", IdPedido);
 
+                            if (factura.IdVendedor == 0)
+                                command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
+                            else
+                                command.Parameters.AddWithValue("@id_vendedor", IdPedido);
 
                             Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
@@ -1016,6 +1022,12 @@ namespace Eatery.Ventas
                                 else
                                     command.Parameters.AddWithValue("@id_pedido", IdPedido);
 
+                                if (factura.IdVendedor == 0)
+                                    command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
+                                else
+                                    command.Parameters.AddWithValue("@id_vendedor", IdPedido);
+                                
+
                                 Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                                 decimal TotalFactura = 0;
                                 factura.Id = IdFacturaH;
@@ -1109,7 +1121,7 @@ namespace Eatery.Ventas
                                 //postearemos varias lineas por si el pago se combina entre si
                                 foreach (RegistroPago registroPago in frm.ListaDetallePago)
                                 {
-                                    command.CommandText = "dbo.[sp_set_insert_recibo_pago_detalle_v3]";
+                                    command.CommandText = "dbo.[sp_set_insert_recibo_pago_detalle_v4]";
                                     command.CommandType = CommandType.StoredProcedure;
                                     command.Parameters.Clear();
                                     command.Parameters.AddWithValue("@id_facturaH", IdFacturaH);
@@ -1137,10 +1149,30 @@ namespace Eatery.Ventas
                                         command.Parameters.AddWithValue("@referencia", DBNull.Value);
                                     }
 
+
                                     if (registroPago.IdTipo == 0)
                                         command.Parameters.AddWithValue("@id_tipo_pago", DBNull.Value);
                                     else
                                         command.Parameters.AddWithValue("@id_tipo_pago", registroPago.IdTipo);
+
+
+                                    if(registroPago.id_banco == 0)
+                                        command.Parameters.AddWithValue("@id_banco", DBNull.Value);
+                                    else
+                                        command.Parameters.AddWithValue("@id_banco", registroPago.id_banco);
+
+
+                                    if (string.IsNullOrEmpty(registroPago.NumeroCheque))
+                                        command.Parameters.AddWithValue("@numero_cheque", DBNull.Value);
+                                    else
+                                        command.Parameters.AddWithValue("@numero_cheque", registroPago.id_banco);
+
+
+                                    if (string.IsNullOrEmpty(registroPago.EmisorCheque))
+                                        command.Parameters.AddWithValue("@emisor_cheque", DBNull.Value);
+                                    else
+                                        command.Parameters.AddWithValue("@emisor_cheque", registroPago.id_banco);
+                                    
 
                                     command.ExecuteNonQuery();
                                 }

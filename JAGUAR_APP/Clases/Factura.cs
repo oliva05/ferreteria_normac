@@ -48,6 +48,8 @@ namespace JAGUAR_PRO.Clases
         public decimal Cantidad { get; set; }
         public decimal Precio { get; set; }
         public decimal SaldoFactura { get; set; }
+        public string Vendedor {  get; set; }
+        public int IdVendedor {  get; set; }
 
         #region DatosPDV
         public int PDV_ID { get; set; }
@@ -137,6 +139,11 @@ namespace JAGUAR_PRO.Clases
                         TerminoPagoName = reader["termino_pago_name"].ToString();
 
                         SaldoFactura = Convert.ToDecimal(reader["SaldoFactura"]);
+                        Vendedor = reader["vendedor"].ToString();
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("id_vendedor")))
+                            IdVendedor = Convert.ToInt32(reader["id_vendedor"]);
+
                         ValorLetras = valorEnLetras.Convertir((subtotalFactura - descuentoTotalFactura + ISV1 + ISV2).ToString(),true);
                         RecuperaDatosPDVFromFactura(IdPuntoVenta);
                         Recuperado = true;
@@ -298,7 +305,9 @@ namespace JAGUAR_PRO.Clases
                         
                         IdTerminoPago = Convert.ToInt32(reader["id_termino_pago"]);
                         TerminoPagoName = reader["termino_pago_name"].ToString();
-
+                        Vendedor = reader["vendedor"].ToString();
+                        if (!reader.IsDBNull(reader.GetOrdinal("id_vendedor")))
+                            IdVendedor = Convert.ToInt32(reader["id_vendedor"]);
 
                         Recuperado = true;
                     }

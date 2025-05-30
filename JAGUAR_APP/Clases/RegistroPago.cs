@@ -14,7 +14,9 @@ namespace JAGUAR_PRO.Clases
         public int IdTipo { get; set; }
         public string TipoName { get; set; }
         public string Referencia { get; set; }
-
+        public string NumeroCheque { get; set; }
+        public string EmisorCheque { get; set; }
+        public int id_banco { get; set; }
         public RegistroPago() { }
 
 

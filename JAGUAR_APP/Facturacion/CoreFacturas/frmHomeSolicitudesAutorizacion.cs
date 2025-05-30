@@ -1,6 +1,11 @@
 ﻿using ACS.Classes;
+using DevExpress.DashboardWin.Commands;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraRichEdit.Commands.Internal;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Compras;
+using JAGUAR_PRO.LogisticaJaguar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,10 +43,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.Add("@filtro", SqlDbType.Bit).Value = filtro;
 
-                    dsFacturasGestion.SolicitudAutorizacion.Clear();
+                    dsFacturasGestion1.SolicitudAutorizacion.Clear();
 
                     //da.SelectCommand.Parameters.Add("@id_cliente", SqlDbType.Int).Value = id_cliente;
-                    da.Fill(dsFacturasGestion.SolicitudAutorizacion);
+                    da.Fill(dsFacturasGestion1.SolicitudAutorizacion);
 
                     cnx.Close();
                 }
@@ -59,7 +64,15 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void tsFiltro_Toggled(object sender, EventArgs e)
         {
-            LoadData(Convert.ToBoolean( tsFiltro.EditValue));
+            if (xtraTabControl1.SelectedTabPage.Name == "TabFacturas")
+            {
+                LoadData(Convert.ToBoolean(tsFiltro.EditValue));
+            }
+
+            if (xtraTabControl1.SelectedTabPage.Name == "TabCompras")
+            {
+                LoadDataOrdensCompra(tsFiltro.IsOn);
+            }
         }
 
         private void btnGestionar_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -139,13 +152,139 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void cmdRefresh_Click(object sender, EventArgs e)
         {
-            LoadData(Convert.ToBoolean(tsFiltro.EditValue));
+            if (xtraTabControl1.SelectedTabPage.Name == "TabFacturas")
+            {
+                LoadData(Convert.ToBoolean(tsFiltro.EditValue));
+            }
+
+            if (xtraTabControl1.SelectedTabPage.Name == "TabCompras")
+            {
+                LoadDataOrdensCompra(tsFiltro.IsOn);
+            }
+           
 
         }
 
         private void btnGestionar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
+        }
+
+        private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            if (e.Page == TabFacturas)
+            {
+                LoadData(false);
+            }
+
+            if (e.Page == TabCompras)
+            {
+                LoadDataOrdensCompra(false);
+            }
+        }
+
+        private void LoadDataOrdensCompra(bool Filtro)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+
+                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                {
+                    cnx.Open();
+                    SqlDataAdapter da = new SqlDataAdapter("dbo.sp_get_ordenes_compra_autorizacion", cnx);
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.Add("@filtro", SqlDbType.Bit).Value = Filtro;
+                    dsFacturasGestion1.ordenesCompraAuto.Clear();
+                    //da.SelectCommand.Parameters.Add("@id_cliente", SqlDbType.Int).Value = id_cliente;
+                    da.Fill(dsFacturasGestion1.ordenesCompraAuto);
+
+                    cnx.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //if (!ValidarPermisoDeGestion(usuarioLogeado))
+            //{
+            //    CajaDialogo.Error("No tiene Permiso para realizar Gestiones de Ordenes de Compra!");
+            //    return;
+            //}
+
+            try
+            {
+                var gridview = (GridView)grdOrdenesCompras.FocusedView;
+                var row = (dsFacturasGestion.ordenesCompraAutoRow)gridview.GetFocusedDataRow();
+                bool Permitir = false;
+                switch (row.id_estado)
+                {
+                    case 1://Creado
+                        CajaDialogo.Error("No se puede Gestionar esta en Estado:"+row.estado);
+                        break;
+
+                    case 2://Autorizada
+                        CajaDialogo.Error("Orden de Compra ya se encuentra Autorizada.");
+                        break;
+
+                    case 3://Cerrada
+                        CajaDialogo.Error("Orden de Compra ya fue procesada.");
+                        break;
+
+                    case 4://Cancelada
+                        CajaDialogo.Error("Orden de Compra Cancelada por el Usuario Solicitante.");
+                        break;
+
+                    case 5://Pendiente Aprobacion
+                        Permitir = true;
+                        break;
+
+                    case 6://Rechazada
+                        CajaDialogo.Error("Orden de Compra ya fue Rechazada.");
+                        break;
+                    default:
+                        break;
+                }
+
+                if (Permitir)
+                {
+                    frmOCompraAutorizacion frm = new frmOCompraAutorizacion();
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            DataOperations dp = new DataOperations();
+                            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                            conn.Open();
+                            SqlCommand cmd = new SqlCommand("sp_orden_compras_aprobar_rechazar", conn);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@idOrdenCompra",row.id);
+                            cmd.Parameters.AddWithValue("@Respuesta", frm.Respuesta);
+                            cmd.Parameters.AddWithValue("@puntoVenta", row.id_punto_venta);
+                            cmd.ExecuteNonQuery();
+
+                            LoadDataOrdensCompra(tsFiltro.IsOn);
+                        }
+                        catch (Exception ex)
+                        {
+                            CajaDialogo.Error(ex.Message);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private bool ValidarPermisoDeGestion(UserLogin usuarioLogeado)
+        {
+            throw new NotImplementedException();
         }
     }
 }

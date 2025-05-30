@@ -19,7 +19,8 @@ namespace JAGUAR_PRO
             RRHH = 3,
             Contabilidad = 4,
             Facturacion_Admin = 5,
-            Facturacion_EndUser = 6
+            Facturacion_EndUser = 6,
+            Caja = 7
         }
 
         public GrupoUsuario GrupoUsuarioActivo;
