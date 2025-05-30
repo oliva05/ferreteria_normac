@@ -61,7 +61,32 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v3]", con);
+                SqlCommand cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v3]", con);//Facturacion User por default
+                switch (this.UsuarioLogeado.IdGrupo)
+                {
+                    
+                    case 1://Logistica
+
+                    break;
+                    case 2://Admin
+                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v5]", con);
+                        break;
+                    case 3://RRHH
+                    break;
+                    case 4://Contabilidad
+                    break;
+                    case 5://Facturacion Admin
+                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v5]", con);
+                        break;
+                    case 6://Facturacion User
+                        break;
+                    case 7://Caja
+                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v4]", con);
+                        break;
+                    default:
+                        break;
+                }
+                
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@desde", dtDesde.DateTime);
                 cmd.Parameters.AddWithValue("@hasta", dtHasta.DateTime);

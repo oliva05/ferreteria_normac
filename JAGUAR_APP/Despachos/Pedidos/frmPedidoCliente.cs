@@ -3104,6 +3104,8 @@ namespace Eatery.Ventas
                 cmd.Parameters.AddWithValue("@id_pedido", this.PedidoActual.Id);
                 cmd.ExecuteScalar();
                 con.Close();
+                gleEstados.EditValue = 1;
+                cmdConfirmarFactura.Visible = false;
             }
             catch (Exception ec)
             {
