@@ -1118,6 +1118,8 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
             
             private global::System.Data.DataColumn columnSeleccionado;
             
+            private global::System.Data.DataColumn columnmarca;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public search_ptDataTable() {
@@ -1201,6 +1203,14 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn marcaColumn {
+                get {
+                    return this.columnmarca;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1236,7 +1246,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public search_ptRow Addsearch_ptRow(int id, string descripcion, string code, string code_interno, string code_referencia, bool Seleccionado) {
+            public search_ptRow Addsearch_ptRow(int id, string descripcion, string code, string code_interno, string code_referencia, bool Seleccionado, string marca) {
                 search_ptRow rowsearch_ptRow = ((search_ptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -1244,7 +1254,8 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
                         code,
                         code_interno,
                         code_referencia,
-                        Seleccionado};
+                        Seleccionado,
+                        marca};
                 rowsearch_ptRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsearch_ptRow);
                 return rowsearch_ptRow;
@@ -1273,6 +1284,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
                 this.columncode_interno = base.Columns["code_interno"];
                 this.columncode_referencia = base.Columns["code_referencia"];
                 this.columnSeleccionado = base.Columns["Seleccionado"];
+                this.columnmarca = base.Columns["marca"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1290,6 +1302,8 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
                 base.Columns.Add(this.columncode_referencia);
                 this.columnSeleccionado = new global::System.Data.DataColumn("Seleccionado", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSeleccionado);
+                this.columnmarca = new global::System.Data.DataColumn("marca", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmarca);
                 this.columnSeleccionado.DefaultValue = ((bool)(false));
             }
             
@@ -2119,6 +2133,22 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string marca {
+                get {
+                    try {
+                        return ((string)(this[this.tablesearch_pt.marcaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'marca\' de la tabla \'search_pt\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesearch_pt.marcaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tablesearch_pt.idColumn);
             }
@@ -2187,6 +2217,18 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSeleccionadoNull() {
                 this[this.tablesearch_pt.SeleccionadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsmarcaNull() {
+                return this.IsNull(this.tablesearch_pt.marcaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetmarcaNull() {
+                this[this.tablesearch_pt.marcaColumn] = global::System.Convert.DBNull;
             }
         }
         

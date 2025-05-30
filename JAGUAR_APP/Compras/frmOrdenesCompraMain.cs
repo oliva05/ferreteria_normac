@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
+using DocumentFormat.OpenXml.Wordprocessing;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using LOSA.Calidad.LoteConfConsumo;
@@ -673,7 +674,7 @@ namespace JAGUAR_PRO.Compras
                         transaction = conn.BeginTransaction("Transaction Order");
 
                         SqlCommand cmd = conn.CreateCommand();
-                        cmd.CommandText = "sp_compras_ordenes_insert";
+                        cmd.CommandText = "[sp_compras_ordenes_insertV2]";
                         cmd.Connection = conn;
                         cmd.Transaction = transaction;
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -907,7 +908,7 @@ namespace JAGUAR_PRO.Compras
 
             switch (oc.Id_Estado)
             {
-                case 1: //Nueva 
+                case 1: //Creada 
                     Proceder = true;
                     break;
 
@@ -915,8 +916,9 @@ namespace JAGUAR_PRO.Compras
                     Proceder = true;
                     break;
 
-                case 2: //Abierta
-                    Proceder = true;
+                case 2: //Autorizada
+                    Proceder = false;
+                    mensaje = "La Orden de Compra esta Autorizada, no se puede Cancelar";
                     break;
 
                 case 3: //Cerrada
@@ -929,6 +931,10 @@ namespace JAGUAR_PRO.Compras
                     mensaje = "La Orden de Conpra se encuentra Cancelada!";
                     break;
 
+                case 6://Rechazada
+                    Proceder = false;
+                    mensaje = "La Orden de Conpra se encuentra Rechazada por los Autorizadores, no se puede Cancelar!";
+                    break;
                 default:
                     Proceder = false;
                     break;
