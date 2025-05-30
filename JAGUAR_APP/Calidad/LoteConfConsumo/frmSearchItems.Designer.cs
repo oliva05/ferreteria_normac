@@ -29,197 +29,332 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchItems));
-            this.gridControlDetalleMP = new DevExpress.XtraGrid.GridControl();
             this.dsConfigLoteConsumo1 = new JAGUAR_PRO.Calidad.LoteConfConsumo.dsConfigLoteConsumo();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colItemCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcode_referencia = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSeleccionado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcode_interno = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colconcat_ = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmdAplicar = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.txtParametroBusqueda = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlDetalleMP)).BeginInit();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCodRefe = new DevExpress.XtraEditors.TextEdit();
+            this.txtCodComb = new DevExpress.XtraEditors.TextEdit();
+            this.txtCode = new DevExpress.XtraEditors.TextEdit();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtDesc = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtParametroBusqueda.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodRefe.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodComb.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDesc.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gridControlDetalleMP
-            // 
-            this.gridControlDetalleMP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlDetalleMP.DataMember = "search_pt";
-            this.gridControlDetalleMP.DataSource = this.dsConfigLoteConsumo1;
-            this.gridControlDetalleMP.Location = new System.Drawing.Point(3, 93);
-            this.gridControlDetalleMP.MainView = this.gridView1;
-            this.gridControlDetalleMP.Name = "gridControlDetalleMP";
-            this.gridControlDetalleMP.Size = new System.Drawing.Size(702, 400);
-            this.gridControlDetalleMP.TabIndex = 16;
-            this.gridControlDetalleMP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
             // 
             // dsConfigLoteConsumo1
             // 
             this.dsConfigLoteConsumo1.DataSetName = "dsConfigLoteConsumo";
             this.dsConfigLoteConsumo1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // gridView1
+            // xtraTabControl1
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colItemCode,
-            this.colName,
-            this.colcode_referencia,
-            this.colSeleccionado,
-            this.colcode_interno,
-            this.colconcat_});
-            this.gridView1.GridControl = this.gridControlDetalleMP;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
-            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            this.xtraTabControl1.Location = new System.Drawing.Point(3, 3);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(763, 490);
+            this.xtraTabControl1.TabIndex = 21;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
             // 
-            // colItemCode
+            // xtraTabPage1
             // 
-            this.colItemCode.Caption = "Codigo PT";
-            this.colItemCode.FieldName = "code";
-            this.colItemCode.Name = "colItemCode";
-            this.colItemCode.OptionsColumn.AllowEdit = false;
-            this.colItemCode.Visible = true;
-            this.colItemCode.VisibleIndex = 0;
-            this.colItemCode.Width = 68;
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.PageVisible = false;
+            this.xtraTabPage1.Size = new System.Drawing.Size(761, 461);
+            this.xtraTabPage1.Text = "xtraTabPage1";
             // 
-            // colName
+            // xtraTabPage2
             // 
-            this.colName.Caption = "Descripcion";
-            this.colName.FieldName = "descripcion";
-            this.colName.Name = "colName";
-            this.colName.OptionsColumn.AllowEdit = false;
-            this.colName.Visible = true;
-            this.colName.VisibleIndex = 1;
-            this.colName.Width = 277;
+            this.xtraTabPage2.Controls.Add(this.labelControl5);
+            this.xtraTabPage2.Controls.Add(this.labelControl4);
+            this.xtraTabPage2.Controls.Add(this.labelControl3);
+            this.xtraTabPage2.Controls.Add(this.labelControl2);
+            this.xtraTabPage2.Controls.Add(this.txtCodRefe);
+            this.xtraTabPage2.Controls.Add(this.txtCodComb);
+            this.xtraTabPage2.Controls.Add(this.txtCode);
+            this.xtraTabPage2.Controls.Add(this.gridControl1);
+            this.xtraTabPage2.Controls.Add(this.txtDesc);
+            this.xtraTabPage2.Controls.Add(this.simpleButton1);
+            this.xtraTabPage2.Controls.Add(this.simpleButton2);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(761, 461);
+            this.xtraTabPage2.Text = "Filtro de Busqueda";
             // 
-            // colcode_referencia
+            // labelControl5
             // 
-            this.colcode_referencia.Caption = "Cod. Referencia";
-            this.colcode_referencia.FieldName = "code_referencia";
-            this.colcode_referencia.Name = "colcode_referencia";
-            this.colcode_referencia.OptionsColumn.AllowEdit = false;
-            this.colcode_referencia.Visible = true;
-            this.colcode_referencia.VisibleIndex = 2;
-            this.colcode_referencia.Width = 99;
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Location = new System.Drawing.Point(262, 44);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(99, 17);
+            this.labelControl5.TabIndex = 29;
+            this.labelControl5.Text = "Cod. Combinado";
             // 
-            // colSeleccionado
+            // labelControl4
             // 
-            this.colSeleccionado.FieldName = "Seleccionado";
-            this.colSeleccionado.Name = "colSeleccionado";
-            this.colSeleccionado.Visible = true;
-            this.colSeleccionado.VisibleIndex = 4;
-            this.colSeleccionado.Width = 127;
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(262, 14);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(92, 17);
+            this.labelControl4.TabIndex = 28;
+            this.labelControl4.Text = "Cod. Referencia";
             // 
-            // colcode_interno
+            // labelControl3
             // 
-            this.colcode_interno.Caption = "Cod. Combinacion";
-            this.colcode_interno.FieldName = "code_interno";
-            this.colcode_interno.Name = "colcode_interno";
-            this.colcode_interno.OptionsColumn.AllowEdit = false;
-            this.colcode_interno.Visible = true;
-            this.colcode_interno.VisibleIndex = 3;
-            this.colcode_interno.Width = 104;
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(3, 44);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(68, 17);
+            this.labelControl3.TabIndex = 27;
+            this.labelControl3.Text = "Descripcion";
             // 
-            // colconcat_
+            // labelControl2
             // 
-            this.colconcat_.FieldName = "concat_";
-            this.colconcat_.Name = "colconcat_";
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(3, 14);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(61, 17);
+            this.labelControl2.TabIndex = 26;
+            this.labelControl2.Text = "Codigo PT";
             // 
-            // cmdAplicar
+            // txtCodRefe
             // 
-            this.cmdAplicar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAplicar.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAplicar.Appearance.Options.UseFont = true;
-            this.cmdAplicar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdAplicar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdAplicar.ImageOptions.Image")));
-            this.cmdAplicar.Location = new System.Drawing.Point(496, 12);
-            this.cmdAplicar.Name = "cmdAplicar";
-            this.cmdAplicar.Size = new System.Drawing.Size(104, 47);
-            this.cmdAplicar.TabIndex = 18;
-            this.cmdAplicar.Text = "Aplicar";
-            this.cmdAplicar.Click += new System.EventHandler(this.cmdAplicar_Click);
+            this.txtCodRefe.Location = new System.Drawing.Point(367, 11);
+            this.txtCodRefe.Name = "txtCodRefe";
+            this.txtCodRefe.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodRefe.Properties.Appearance.Options.UseFont = true;
+            this.txtCodRefe.Size = new System.Drawing.Size(138, 24);
+            this.txtCodRefe.TabIndex = 25;
+            this.txtCodRefe.TextChanged += new System.EventHandler(this.txtCodRefe_TextChanged);
+            this.txtCodRefe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodRefe_KeyDown);
             // 
-            // btnClose
+            // txtCodComb
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Appearance.Options.UseFont = true;
-            this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.Image")));
-            this.btnClose.Location = new System.Drawing.Point(606, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(99, 47);
-            this.btnClose.TabIndex = 17;
-            this.btnClose.Text = "Cerrar";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.txtCodComb.Location = new System.Drawing.Point(367, 41);
+            this.txtCodComb.Name = "txtCodComb";
+            this.txtCodComb.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodComb.Properties.Appearance.Options.UseFont = true;
+            this.txtCodComb.Size = new System.Drawing.Size(138, 24);
+            this.txtCodComb.TabIndex = 24;
+            this.txtCodComb.TextChanged += new System.EventHandler(this.txtCodComb_TextChanged);
+            this.txtCodComb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodComb_KeyDown);
             // 
-            // txtParametroBusqueda
+            // txtCode
             // 
-            this.txtParametroBusqueda.Location = new System.Drawing.Point(12, 63);
-            this.txtParametroBusqueda.Name = "txtParametroBusqueda";
-            this.txtParametroBusqueda.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtParametroBusqueda.Properties.Appearance.Options.UseFont = true;
-            this.txtParametroBusqueda.Size = new System.Drawing.Size(427, 24);
-            this.txtParametroBusqueda.TabIndex = 19;
-            this.txtParametroBusqueda.TextChanged += new System.EventHandler(this.txtParametroBusqueda_TextChanged);
+            this.txtCode.Location = new System.Drawing.Point(77, 11);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCode.Properties.Appearance.Options.UseFont = true;
+            this.txtCode.Size = new System.Drawing.Size(160, 24);
+            this.txtCode.TabIndex = 23;
+            this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
+            this.txtCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCode_KeyDown);
             // 
-            // labelControl1
+            // gridControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(21, 42);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(198, 17);
-            this.labelControl1.TabIndex = 20;
-            this.labelControl1.Text = "Ingrese la referencia del Producto";
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.DataMember = "search_pt";
+            this.gridControl1.DataSource = this.dsConfigLoteConsumo1;
+            this.gridControl1.Location = new System.Drawing.Point(3, 71);
+            this.gridControl1.MainView = this.gridView2;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(755, 387);
+            this.gridControl1.TabIndex = 21;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6,
+            this.colid});
+            this.gridView2.CustomizationFormBounds = new System.Drawing.Rectangle(553, 343, 259, 287);
+            this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.OptionsView.ShowViewCaption = true;
+            this.gridView2.ViewCaption = "Doble Click para Seleccionar";
+            this.gridView2.DoubleClick += new System.EventHandler(this.gridView2_DoubleClick);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Codigo PT";
+            this.gridColumn1.FieldName = "code";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.Width = 68;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Descripcion";
+            this.gridColumn2.FieldName = "descripcion";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 2;
+            this.gridColumn2.Width = 277;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Cod. Referencia";
+            this.gridColumn3.FieldName = "code_referencia";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.Width = 99;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.FieldName = "Seleccionado";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Width = 127;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Cod. Combinacion";
+            this.gridColumn5.FieldName = "code_interno";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 104;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.FieldName = "concat_";
+            this.gridColumn6.Name = "gridColumn6";
+            // 
+            // colid
+            // 
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            this.colid.Visible = true;
+            this.colid.VisibleIndex = 0;
+            // 
+            // txtDesc
+            // 
+            this.txtDesc.Location = new System.Drawing.Point(77, 41);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesc.Properties.Appearance.Options.UseFont = true;
+            this.txtDesc.Size = new System.Drawing.Size(160, 24);
+            this.txtDesc.TabIndex = 22;
+            this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
+            this.txtDesc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDesc_KeyDown);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(659, 14);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(99, 47);
+            this.simpleButton1.TabIndex = 19;
+            this.simpleButton1.Text = "Cerrar";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(549, 14);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(104, 47);
+            this.simpleButton2.TabIndex = 20;
+            this.simpleButton2.Text = "Buscar";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // frmSearchItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 494);
+            this.ClientSize = new System.Drawing.Size(766, 503);
             this.ControlBox = false;
-            this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.txtParametroBusqueda);
-            this.Controls.Add(this.cmdAplicar);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.gridControlDetalleMP);
+            this.Controls.Add(this.xtraTabControl1);
             this.Name = "frmSearchItems";
-            this.Text = "Busqueda de Items";
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlDetalleMP)).EndInit();
+            this.Text = "Items de Producto Terminado";
+            this.Shown += new System.EventHandler(this.frmSearchItems_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtParametroBusqueda.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
+            this.xtraTabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodRefe.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodComb.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDesc.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraGrid.GridControl gridControlDetalleMP;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colItemCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colName;
-        private DevExpress.XtraGrid.Columns.GridColumn colSeleccionado;
-        private DevExpress.XtraGrid.Columns.GridColumn colconcat_;
-        private DevExpress.XtraEditors.SimpleButton cmdAplicar;
-        private DevExpress.XtraEditors.SimpleButton btnClose;
-        private DevExpress.XtraEditors.TextEdit txtParametroBusqueda;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
         private dsConfigLoteConsumo dsConfigLoteConsumo1;
-        private DevExpress.XtraGrid.Columns.GridColumn colcode_referencia;
-        private DevExpress.XtraGrid.Columns.GridColumn colcode_interno;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.TextEdit txtCodRefe;
+        private DevExpress.XtraEditors.TextEdit txtCodComb;
+        private DevExpress.XtraEditors.TextEdit txtCode;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.TextEdit txtDesc;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
     }
 }

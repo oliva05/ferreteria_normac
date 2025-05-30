@@ -1290,6 +1290,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
                 base.Columns.Add(this.columncode_referencia);
                 this.columnSeleccionado = new global::System.Data.DataColumn("Seleccionado", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSeleccionado);
+                this.columnSeleccionado.DefaultValue = ((bool)(false));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
