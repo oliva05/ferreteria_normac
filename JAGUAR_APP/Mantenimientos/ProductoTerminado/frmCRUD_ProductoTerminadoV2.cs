@@ -31,6 +31,7 @@ using DevExpress.Internal;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraGauges.Core.Primitive;
 using JAGUAR_PRO.Reportes;
+using DevExpress.XtraSpreadsheet.Forms;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
@@ -595,36 +596,36 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
-            if ((string)grdTipoFamilia.Text == "")
-            {
-                CajaDialogo.Error("Debe Seleccionar una Familia!");
-                return;
-            }
-            else
-            {
-                if ((string)grdTipoCategoria.Text == "")
-                {
-                    CajaDialogo.Error("Debe Seleccionar una Categoria!");
-                    return;
-                }
-                else
-                {
-                    if ((string)grdTipoClase.Text == "")
-                    {
-                        CajaDialogo.Error("Debe Seleccionar una Clase!");
-                        return;
-                    }
-                    else
-                    {
-                        if ((string)grdSubClase.Text == "")
-                        {
-                            CajaDialogo.Error("Debe Seleccionar una SubClase!");
-                            return;
-                        }
-                    }
-                }
+            //if ((string)grdTipoFamilia.Text == "")
+            //{
+            //    CajaDialogo.Error("Debe Seleccionar una Familia!");
+            //    return;
+            //}
+            //else
+            //{
+            //    if ((string)grdTipoCategoria.Text == "")
+            //    {
+            //        CajaDialogo.Error("Debe Seleccionar una Categoria!");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        if ((string)grdTipoClase.Text == "")
+            //        {
+            //            CajaDialogo.Error("Debe Seleccionar una Clase!");
+            //            return;
+            //        }
+            //        else
+            //        {
+            //            if ((string)grdSubClase.Text == "")
+            //            {
+            //                CajaDialogo.Error("Debe Seleccionar una SubClase!");
+            //                return;
+            //            }
+            //        }
+            //    }
 
-            }
+            //}
 
             if (string.IsNullOrEmpty(txtDescripcionProducto.Text))
             {
@@ -717,7 +718,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd", DBNull.Value /*gridLookUpEditTipoFacturacionDestino.EditValue*/);
 
                 //if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
-                cmd.Parameters.AddWithValue("@id_clase", dp.ValidateNumberInt32(grdTipoClase.EditValue));
+                if (string.IsNullOrEmpty(grdSubClase.Text) || (int)grdSubClase.EditValue == 0)
+                    cmd.Parameters.AddWithValue("@id_clase", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@id_clase", dp.ValidateNumberInt32(grdTipoClase.EditValue));
                 //else
                 //    cmd.Parameters.AddWithValue("@id_clase", gle_ClaseProducto.EditValue);
 
@@ -728,13 +732,23 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
 
                 cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
-                cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
+                if (string.IsNullOrEmpty(grdSubClase.Text) || (int)grdSubClase.EditValue == 0)
+                    cmd.Parameters.AddWithValue("@id_subClase", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
                 cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
                 cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
                 cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
                 cmd.Parameters.AddWithValue("@id_marca", grdMarca.EditValue);
-                cmd.Parameters.AddWithValue("@id_familia", dp.ValidateNumberInt32(grdTipoFamilia.EditValue));
-                cmd.Parameters.AddWithValue("@id_categoria", dp.ValidateNumberInt32(grdTipoCategoria.EditValue));
+                if (string.IsNullOrEmpty(grdTipoFamilia.Text) || (int)grdTipoFamilia.EditValue == 0)
+                    cmd.Parameters.AddWithValue("@id_familia", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@id_familia", dp.ValidateNumberInt32(grdTipoFamilia.EditValue));
+                if (string.IsNullOrEmpty(grdTipoCategoria.Text) || (int)grdTipoCategoria.EditValue == 0)
+                    cmd.Parameters.AddWithValue("@id_categoria", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@id_categoria", dp.ValidateNumberInt32(grdTipoCategoria.EditValue));
+
                 cmd.Parameters.AddWithValue("@code_referencia", txtCodigoReferencia.Text);
                 if (TipoOperacionActual == TipoOperacion.Insert)
                 {

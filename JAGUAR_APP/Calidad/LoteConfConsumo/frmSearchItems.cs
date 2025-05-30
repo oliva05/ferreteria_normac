@@ -25,7 +25,8 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
             PorCodigoPT = 1,
             PorDescripcion = 2,
             PorCodReferencia = 3,
-            PorCodCombinado = 4
+            PorCodCombinado = 4,
+            PorMarca = 5
         }
 
         TipoBusqueda tipoBusquedaActual;
@@ -59,6 +60,9 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
                 case TipoBusqueda.PorCodCombinado:
                     BusquedaProductos(txtCodComb.Text.Trim());
                     break;
+                case TipoBusqueda.PorMarca:
+                    BusquedaProductos(txtMarca.Text.Trim());
+                    break;
                 default:
                     break;
             }
@@ -82,8 +86,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
             }
             catch (Exception ex)
             {
-
-                throw;
+                CajaDialogo.Error(ex.Message);
             }
         }
 
@@ -96,25 +99,25 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         private void txtCode_TextChanged(object sender, EventArgs e)
         {
             tipoBusquedaActual = TipoBusqueda.PorCodigoPT;
-            txtDesc.Text = txtCodRefe.Text = txtCodComb.Text = string.Empty;
+            txtDesc.Text = txtCodRefe.Text = txtCodComb.Text = txtMarca.Text = string.Empty;
         }
 
         private void txtDesc_TextChanged(object sender, EventArgs e)
         {
             tipoBusquedaActual = TipoBusqueda.PorDescripcion;
-            txtCode.Text = txtCodComb.Text = txtCodRefe.Text = string.Empty;
+            txtCode.Text = txtCodComb.Text = txtCodRefe.Text = txtMarca.Text = string.Empty;
         }
 
         private void txtCodRefe_TextChanged(object sender, EventArgs e)
         {
             tipoBusquedaActual = TipoBusqueda.PorCodReferencia;
-            txtCode.Text = txtDesc.Text = txtCodComb.Text = string.Empty;
+            txtCode.Text = txtDesc.Text = txtCodComb.Text = txtMarca.Text = string.Empty;
         }
 
         private void txtCodComb_TextChanged(object sender, EventArgs e)
         {
             tipoBusquedaActual = TipoBusqueda.PorCodCombinado;
-            txtCode.Text = txtDesc.Text = txtCodRefe.Text = string.Empty;
+            txtCode.Text = txtDesc.Text = txtCodRefe.Text = txtMarca.Text=string.Empty;
         }
 
         private void gridView2_DoubleClick(object sender, EventArgs e)
@@ -173,6 +176,20 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         private void frmSearchItems_Shown(object sender, EventArgs e)
         {
             txtDesc.Focus();
+        }
+
+        private void txtMarca_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                simpleButton2_Click(new object(), new EventArgs());
+            }
+        }
+
+        private void txtMarca_TextChanged(object sender, EventArgs e)
+        {
+            tipoBusquedaActual = TipoBusqueda.PorMarca;
+            txtCode.Text = txtDesc.Text = txtCodRefe.Text = txtCodComb.Text = string.Empty;
         }
     }
 }

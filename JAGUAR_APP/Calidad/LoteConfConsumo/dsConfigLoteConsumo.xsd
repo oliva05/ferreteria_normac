@@ -52,7 +52,8 @@
               <xs:element name="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnVarNameInTable="columncode" type="xs:string" minOccurs="0" />
               <xs:element name="code_interno" msprop:Generator_ColumnPropNameInTable="code_internoColumn" msprop:Generator_ColumnPropNameInRow="code_interno" msprop:Generator_UserColumnName="code_interno" msprop:Generator_ColumnVarNameInTable="columncode_interno" type="xs:string" minOccurs="0" />
               <xs:element name="code_referencia" msprop:Generator_ColumnPropNameInTable="code_referenciaColumn" msprop:Generator_ColumnPropNameInRow="code_referencia" msprop:Generator_UserColumnName="code_referencia" msprop:Generator_ColumnVarNameInTable="columncode_referencia" type="xs:string" minOccurs="0" />
-              <xs:element name="Seleccionado" msprop:Generator_UserColumnName="Seleccionado" msprop:Generator_ColumnPropNameInTable="SeleccionadoColumn" msprop:Generator_ColumnPropNameInRow="Seleccionado" msprop:Generator_ColumnVarNameInTable="columnSeleccionado" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="Seleccionado" msprop:Generator_ColumnPropNameInTable="SeleccionadoColumn" msprop:Generator_ColumnPropNameInRow="Seleccionado" msprop:Generator_UserColumnName="Seleccionado" msprop:Generator_ColumnVarNameInTable="columnSeleccionado" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="marca" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_ColumnVarNameInTable="columnmarca" msprop:Generator_UserColumnName="marca" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

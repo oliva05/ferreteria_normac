@@ -854,6 +854,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCompras.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Compras\frmOCompraAutorizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmOCompraAutorizacion.Designer.cs">
+      <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\frmOrdenesCompraMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3893,6 +3899,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMP.resx">
       <DependentUpon>frmSearchMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmOCompraAutorizacion.resx">
+      <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmOrdenesCompraMain.resx">
       <DependentUpon>frmOrdenesCompraMain.cs</DependentUpon>
