@@ -38,10 +38,13 @@
             this.txtNote = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.slueCompania = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.companiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsMantenimientoPlanilla1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.dsMantenimientoPlanilla();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.slueDepartment = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.hrdeparmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,27 +52,24 @@
             this.txtNumeroEmpleados = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.slueBandaSalarial = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dsMaestroEmpleados1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
             this.bandasalarialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsMaestroEmpleados1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.hrdeparmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsMantenimientoPlanilla1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.dsMantenimientoPlanilla();
-            this.companiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slueCompania.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companiaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientoPlanilla1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slueDepartment.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hrdeparmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroEmpleados.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slueBandaSalarial.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandasalarialBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hrdeparmentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientoPlanilla1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.companiaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -95,7 +95,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(99, 205);
+            this.labelControl2.Location = new System.Drawing.Point(99, 176);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(34, 17);
             this.labelControl2.TabIndex = 3;
@@ -108,7 +108,7 @@
             this.btnSave.Appearance.Options.UseBackColor = true;
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
-            this.btnSave.Location = new System.Drawing.Point(120, 275);
+            this.btnSave.Location = new System.Drawing.Point(120, 246);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 46);
             this.btnSave.TabIndex = 5;
@@ -122,7 +122,7 @@
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
-            this.simpleButton2.Location = new System.Drawing.Point(237, 275);
+            this.simpleButton2.Location = new System.Drawing.Point(237, 246);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(96, 46);
             this.simpleButton2.TabIndex = 6;
@@ -141,7 +141,7 @@
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(139, 200);
+            this.txtNote.Location = new System.Drawing.Point(139, 171);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNote.Properties.Appearance.Options.UseFont = true;
@@ -173,6 +173,16 @@
             this.slueCompania.Properties.ValueMember = "id";
             this.slueCompania.Size = new System.Drawing.Size(213, 24);
             this.slueCompania.TabIndex = 1;
+            // 
+            // companiaBindingSource
+            // 
+            this.companiaBindingSource.DataMember = "Compania";
+            this.companiaBindingSource.DataSource = this.dsMantenimientoPlanilla1;
+            // 
+            // dsMantenimientoPlanilla1
+            // 
+            this.dsMantenimientoPlanilla1.DataSetName = "dsMantenimientoPlanilla";
+            this.dsMantenimientoPlanilla1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // searchLookUpEdit1View
             // 
@@ -217,6 +227,11 @@
             this.slueDepartment.Size = new System.Drawing.Size(213, 24);
             this.slueDepartment.TabIndex = 2;
             // 
+            // hrdeparmentBindingSource
+            // 
+            this.hrdeparmentBindingSource.DataMember = "hr_deparment";
+            this.hrdeparmentBindingSource.DataSource = this.dsMantenimientoPlanilla1;
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -247,7 +262,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(36, 176);
+            this.labelControl6.Location = new System.Drawing.Point(36, 147);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(97, 17);
             this.labelControl6.TabIndex = 15;
@@ -255,7 +270,7 @@
             // 
             // txtNumeroEmpleados
             // 
-            this.txtNumeroEmpleados.Location = new System.Drawing.Point(139, 170);
+            this.txtNumeroEmpleados.Location = new System.Drawing.Point(139, 141);
             this.txtNumeroEmpleados.Name = "txtNumeroEmpleados";
             this.txtNumeroEmpleados.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroEmpleados.Properties.Appearance.Options.UseFont = true;
@@ -272,15 +287,16 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(42, 143);
+            this.labelControl7.Location = new System.Drawing.Point(71, 301);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(91, 17);
             this.labelControl7.TabIndex = 17;
             this.labelControl7.Text = "Banda Salarial:";
+            this.labelControl7.Visible = false;
             // 
             // slueBandaSalarial
             // 
-            this.slueBandaSalarial.Location = new System.Drawing.Point(139, 140);
+            this.slueBandaSalarial.Location = new System.Drawing.Point(168, 298);
             this.slueBandaSalarial.Name = "slueBandaSalarial";
             this.slueBandaSalarial.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.slueBandaSalarial.Properties.Appearance.Options.UseFont = true;
@@ -293,6 +309,17 @@
             this.slueBandaSalarial.Properties.ValueMember = "id";
             this.slueBandaSalarial.Size = new System.Drawing.Size(213, 24);
             this.slueBandaSalarial.TabIndex = 3;
+            this.slueBandaSalarial.Visible = false;
+            // 
+            // bandasalarialBindingSource
+            // 
+            this.bandasalarialBindingSource.DataMember = "banda_salarial";
+            this.bandasalarialBindingSource.DataSource = this.dsMaestroEmpleados1;
+            // 
+            // dsMaestroEmpleados1
+            // 
+            this.dsMaestroEmpleados1.DataSetName = "dsMaestroEmpleados";
+            this.dsMaestroEmpleados1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView2
             // 
@@ -303,16 +330,6 @@
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
-            // dsMaestroEmpleados1
-            // 
-            this.dsMaestroEmpleados1.DataSetName = "dsMaestroEmpleados";
-            this.dsMaestroEmpleados1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bandasalarialBindingSource
-            // 
-            this.bandasalarialBindingSource.DataMember = "banda_salarial";
-            this.bandasalarialBindingSource.DataSource = this.dsMaestroEmpleados1;
-            // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Banda Salarial";
@@ -321,26 +338,11 @@
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 0;
             // 
-            // hrdeparmentBindingSource
-            // 
-            this.hrdeparmentBindingSource.DataMember = "hr_deparment";
-            this.hrdeparmentBindingSource.DataSource = this.dsMantenimientoPlanilla1;
-            // 
-            // dsMantenimientoPlanilla1
-            // 
-            this.dsMantenimientoPlanilla1.DataSetName = "dsMantenimientoPlanilla";
-            this.dsMantenimientoPlanilla1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // companiaBindingSource
-            // 
-            this.companiaBindingSource.DataMember = "Compania";
-            this.companiaBindingSource.DataSource = this.dsMantenimientoPlanilla1;
-            // 
             // frmPlanillaPuestoTrabajo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 338);
+            this.ClientSize = new System.Drawing.Size(453, 313);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.slueBandaSalarial);
             this.Controls.Add(this.labelControl6);
@@ -366,17 +368,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.slueCompania.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companiaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientoPlanilla1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.slueDepartment.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hrdeparmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroEmpleados.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.slueBandaSalarial.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandasalarialBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hrdeparmentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimientoPlanilla1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.companiaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

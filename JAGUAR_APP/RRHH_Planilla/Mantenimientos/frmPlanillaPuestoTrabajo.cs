@@ -35,10 +35,11 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
             InitializeComponent();
             transaccion_tipo= transact;
             usuario=user_p;
- 
+            
             CargarCompania();
             CargarDepartments();
             LoadBandasSalariales();
+            slueCompania.EditValue = 1;
         }
 
         public frmPlanillaPuestoTrabajo(TipoTransaccionPlanilla transact, int id_departamento, UserLogin user_p)
@@ -70,17 +71,17 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                 return;
             }
 
-            if ( slueCompania.EditValue == null)
+            if (slueCompania.EditValue == null)
             {
                 CajaDialogo.Error("Debe de seleccionar una compañìa");
                 return;
             }
 
-            if (slueBandaSalarial.EditValue == null)
-            {
-                CajaDialogo.Error("Debe de seleccionar una banda salarial");
-                return;
-            }
+            //if (slueBandaSalarial.EditValue == null)
+            //{
+            //    CajaDialogo.Error("Debe de seleccionar una banda salarial");
+            //    return;
+            //}
 
             try
             {
@@ -101,9 +102,12 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                             cmd.Parameters.Add("@company_id", SqlDbType.Int).Value = slueCompania.EditValue;
                             cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = usuario.Id;
                             cmd.Parameters.Add("@department_id", SqlDbType.Int).Value = slueDepartment.EditValue;
-                            cmd.Parameters.Add("@id_banda_salarial", SqlDbType.Int).Value = slueBandaSalarial.EditValue;
-                            cmd.Parameters.Add("@num_empleados", SqlDbType.Int).Value = txtNumeroEmpleados.Text;
+                            if (slueBandaSalarial.Text == "[Seleccione una banda salarial]")
+                                cmd.Parameters.Add("@id_banda_salarial", SqlDbType.Int).Value = DBNull.Value;
+                            else
+                                cmd.Parameters.Add("@id_banda_salarial", SqlDbType.Int).Value = slueBandaSalarial.EditValue;
 
+                            cmd.Parameters.Add("@num_empleados", SqlDbType.Int).Value = txtNumeroEmpleados.Text;
                             cmd.ExecuteNonQuery();
 
                             cnx.Close();
@@ -127,9 +131,10 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                             cmd.Parameters.Add("@department_id", SqlDbType.Int).Value = slueDepartment.EditValue;
                             cmd.Parameters.Add("@num_empleados", SqlDbType.Int).Value = txtNumeroEmpleados.Text;
                             cmd.Parameters.Add("@id", SqlDbType.Int).Value = job.ID;
-                            cmd.Parameters.Add("@id_banda_salarial", SqlDbType.Int).Value = slueBandaSalarial.EditValue;
-
-
+                            if (slueBandaSalarial.Text == "[Seleccione una banda salarial]")
+                                cmd.Parameters.Add("@id_banda_salarial", SqlDbType.Int).Value = DBNull.Value;
+                            else
+                                cmd.Parameters.Add("@id_banda_salarial", SqlDbType.Int).Value = slueBandaSalarial.EditValue;
                             cmd.ExecuteNonQuery();
 
                             cnx.Close();

@@ -698,9 +698,9 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                                 case 2://Planilla Confidencial $
                                     lblDescripcionDecimo.Text = "Fecha de Corte Cafeteria";
                                     lbl_dt_desde_decimo.Text = "Hasta:";
-                                    lblDescripcionDecimo.Visible = true;
+                                    lblDescripcionDecimo.Visible = false;
                                     lbl_dt_hasta_decimo.Visible = true;
-                                    dtFechaCorteCafe.Visible = true;
+                                    dtFechaCorteCafe.Visible = false;
                                     dtFechaCorteCafe.DateTime = dp.Now();
                                     lbl_dt_desde_decimo.Visible = true;
                                     lbl_dt_hasta_decimo.Visible = false; 

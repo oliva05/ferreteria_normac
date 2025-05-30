@@ -2,6 +2,7 @@
 using DevExpress.CodeParser;
 using DevExpress.Utils.CommonDialogs;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
@@ -476,7 +477,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                 CajaDialogo.Error(ex.Message);
             }
         }
-
+           
         public void CargarBeneficiosDeducciones()
         {
             try
@@ -634,14 +635,20 @@ namespace JAGUAR_PRO.RRHH_Planilla
         {
             DetalleContrato contrato = new DetalleContrato();
 
-            //contrato.RecuperarRegistroPorCodigo(empleado.Barcode);
-            contrato.RecuperarRegistroPorEmpleadoId(IdEmpleado, contratoId);
-            frmBenefitsDeductionsCRUD frm = new frmBenefitsDeductionsCRUD(frmBenefitsDeductionsCRUD.TipoTransaccionPlanilla.Nuevo,UsuarioLogeado,contrato.ID);
-
-            if (frm.ShowDialog() == DialogResult.OK)
+            if (contratoId != 0)
             {
-                CargarBeneficiosDeducciones();
+                //contrato.RecuperarRegistroPorCodigo(empleado.Barcode);
+                contrato.RecuperarRegistroPorEmpleadoId(IdEmpleado, contratoId);
+                frmBenefitsDeductionsCRUD frm = new frmBenefitsDeductionsCRUD(frmBenefitsDeductionsCRUD.TipoTransaccionPlanilla.Nuevo, UsuarioLogeado, contrato.ID);
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    CargarBeneficiosDeducciones();
+                }
             }
+           
+
+            
         }
 
         private void btnEditar_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -833,7 +840,10 @@ namespace JAGUAR_PRO.RRHH_Planilla
                         cmd.Parameters.AddWithValue("@name", empleado.Barcode);
                         cmd.Parameters.AddWithValue("@employee_id", empleado.Id);
                         cmd.Parameters.AddWithValue("@department_id", empleado.DepartmentId);
-                        cmd.Parameters.AddWithValue("@categoria_contrato_id", slueCategoriaContrato.EditValue);
+                        if (slueCategoriaContrato.EditValue == null)
+                            cmd.Parameters.AddWithValue("@categoria_contrato_id", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@categoria_contrato_id", slueCategoriaContrato.EditValue);
                         cmd.Parameters.AddWithValue("@job_id", empleado.JobId);
                         cmd.Parameters.AddWithValue("@date_start", deFechaInicio.EditValue);
                         cmd.Parameters.AddWithValue("@date_end", deFin.EditValue == null ? DBNull.Value : deFin.EditValue);
@@ -852,9 +862,9 @@ namespace JAGUAR_PRO.RRHH_Planilla
                         cmd.Parameters.AddWithValue("@state_id", 1);
                         cmd.Parameters.AddWithValue("@tipo_contrato", slueTipoContrato2.EditValue==null ? DBNull.Value : slueTipoContrato2.EditValue);
 
-                        cmd.ExecuteNonQuery();
+                        contratoId = Convert.ToInt32(cmd.ExecuteNonQuery());
 
-                        cnx.Close();
+                        cnx.Close(); 
                         termina_proceso = true;
 
                     }

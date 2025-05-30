@@ -84,6 +84,8 @@
             this.cmdEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnPrint = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnExcel = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtHasta = new DevExpress.XtraEditors.DateEdit();
@@ -93,8 +95,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmdAddPlanilla = new System.Windows.Forms.Button();
             this.cmdActualizar = new System.Windows.Forms.Button();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnExcel = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPlanillasTransaccion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -102,18 +102,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmdOpcioensPlanilla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggMostrarCanceladas.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExcel)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "payslip_run";
             this.gridControl1.DataSource = this.dsPlanillasTransaccion1;
@@ -350,7 +350,7 @@
             // cmdOpcioensPlanilla
             // 
             this.cmdOpcioensPlanilla.AutoHeight = false;
-            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.view2_32x32;
+            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.shield_24X24;
             this.cmdOpcioensPlanilla.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdOpcioensPlanilla.Name = "cmdOpcioensPlanilla";
@@ -393,6 +393,24 @@
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnPrint.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnPrint_ButtonClick);
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Exportar a Excel";
+            this.gridColumn2.ColumnEdit = this.btnExcel;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 14;
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.AutoHeight = false;
+            editorButtonImageOptions5.Image = global::JAGUAR_PRO.Properties.Resources.excel_24x24;
+            this.btnExcel.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnExcel.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnExcel_ButtonPressed);
             // 
             // label3
             // 
@@ -468,7 +486,7 @@
             this.tggMostrarCanceladas.Properties.Appearance.Options.UseFont = true;
             this.tggMostrarCanceladas.Properties.OffText = "No";
             this.tggMostrarCanceladas.Properties.OnText = "Si";
-            this.tggMostrarCanceladas.Size = new System.Drawing.Size(89, 20);
+            this.tggMostrarCanceladas.Size = new System.Drawing.Size(89, 22);
             this.tggMostrarCanceladas.TabIndex = 135;
             // 
             // label1
@@ -514,24 +532,6 @@
             this.cmdActualizar.UseVisualStyleBackColor = true;
             this.cmdActualizar.Click += new System.EventHandler(this.cmdActualizar_Click);
             // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Exportar a Excel";
-            this.gridColumn2.ColumnEdit = this.btnExcel;
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 14;
-            // 
-            // btnExcel
-            // 
-            this.btnExcel.AutoHeight = false;
-            editorButtonImageOptions5.Image = global::JAGUAR_PRO.Properties.Resources.export_32x32;
-            this.btnExcel.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnExcel.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnExcel_ButtonPressed);
-            // 
             // frmHomePlanillas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,12 +556,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmdOpcioensPlanilla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggMostrarCanceladas.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExcel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

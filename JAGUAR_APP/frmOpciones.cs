@@ -959,7 +959,7 @@ namespace JAGUAR_PRO
             PrincipalGrupoLosa frm = new PrincipalGrupoLosa();
             if (this.MdiParent != null)
                 frm.MdiParent = this.MdiParent;
-
+            frm.WindowState = FormWindowState.Normal;
             frm.Show();
         }
 
@@ -5003,7 +5003,7 @@ namespace JAGUAR_PRO
                     }
                     else
                     {
-                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #58");
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #10");
                     }
                 }
                 catch (Exception ex)
@@ -5193,6 +5193,12 @@ namespace JAGUAR_PRO
                 //    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #107");
                 //}
             }
+        }
+
+        private void simpleButton9_Click_1(object sender, EventArgs e)
+        {
+            frmPTCargarMasivo frm = new frmPTCargarMasivo();
+            frm.Show();
         }
     }
 }

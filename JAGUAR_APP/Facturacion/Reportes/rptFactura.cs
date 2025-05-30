@@ -36,7 +36,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             {
                 lblCai.Text = "CAI: " + NumFiscal1.CAI;
                 lblRangoAutorizado.Text = "desde: " + NumFiscal1.Numeracion_Inicial + " hasta: " + NumFiscal1.Numeracion_Final;
-                lblFechaLimite.Text = string.Format("{0:MM/dd/yyyy}", NumFiscal1.FechaVence);
+                lblFechaLimite.Text = string.Format("{0:dd/MM/yyyy}", NumFiscal1.FechaVence);
             }
 
             lblNombreLega.Text = Factura1.NombreLegal_PDV;
@@ -44,7 +44,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             lblCorreo.Text = Factura1.Correo_PDV;
             lblDireccion.Text = Factura1.DireccionPDV;
             lblTelefono.Text = "Teléfonos: " + Factura1.Telefono_PDV;
-            lblFechaEmision.Text = string.Format("{0:MM/dd/yyyy}", Factura1.FechaDocumento);
+            lblFechaEmision.Text = string.Format("{0:dd/MM/yyyy}", Factura1.FechaDocumento);
             lblNumeroFactura.Text = Factura1.NumeroDocumento;
             lblNombreComercial.Text = Factura1.NombreComercial_PDV;
             lblCliente.Text = Factura1.ClienteNombre;

@@ -109,6 +109,9 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
 
             frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, row.id);
+            if(this.MdiParent != null)
+                frm.MdiParent = this.MdiParent;
+
             frm.Show();
         }
 
@@ -221,6 +224,68 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             //{
             //    CajaDialogo.Error(ex.Message);
             //}
+        }
+
+        private void cmdFacturar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Generar factura
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    var gridView = (GridView)gridControl1.FocusedView;
+                    var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
+                    frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, row.id);
+
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(11))
+                {
+                    frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #11 (Facturacion punto de venta)");
+                }
+            }
         }
     }
 }

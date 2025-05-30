@@ -177,6 +177,7 @@ namespace Eatery.Ventas
                     txtNombreCliente.Text = pedidoCliente.ClienteNombre;
                     txtRTN.Text = pedidoCliente.RTN;
                     txtDireccion.Text = pedidoCliente.direccion_cliente;
+                    ClienteFactura.Id = pedidoCliente.IdCliente;
 
                     lblfecha.Text = string.Format("{0:dd/MM/yyyy}", pedidoCliente.FechaDocumento);
                     dtFechaEntrega.DateTime = pedidoCliente.FechaEntrega;
@@ -235,6 +236,8 @@ namespace Eatery.Ventas
                     ProductoTerminado pt = new ProductoTerminado();
                     decimal Cantidad = 0;
                     string Descripcion = string.Empty;
+                    decimal descuentoLinea = 0;
+                    decimal descuentoPorcentaje = 0;
 
                     if (!dr.IsDBNull(dr.GetOrdinal("id_pt")))
                         pt.Id = dr.GetInt32(0);
@@ -245,8 +248,14 @@ namespace Eatery.Ventas
                     if (!dr.IsDBNull(dr.GetOrdinal("descripcion")))
                         Descripcion = dr.GetString(7);
 
+                    if (!dr.IsDBNull(dr.GetOrdinal("descuento")))
+                        descuentoLinea = dr.GetDecimal(9);
+
+                    if (!dr.IsDBNull(dr.GetOrdinal("descuento_porcentaje")))
+                        descuentoPorcentaje = dr.GetDecimal(10);
+
                     if (pt.Recuperar_producto(pt.Id))
-                        AgregarProductoA_Prefactura(pt.Id, pt.Code, Descripcion, Cantidad, false);
+                        AgregarProductoA_Prefactura(pt.Id, pt.Code, Descripcion, Cantidad, false, descuentoPorcentaje, pt);
                     
                 }
                 dr.Close();
@@ -1874,17 +1883,29 @@ namespace Eatery.Ventas
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 
-                AgregarProductoA_Prefactura(frm.ItemSeleccionado.id, frm.ItemSeleccionado.ItemCode,frm.ItemSeleccionado.ItemName,1, true);
+                AgregarProductoA_Prefactura(frm.ItemSeleccionado.id, frm.ItemSeleccionado.ItemCode,frm.ItemSeleccionado.ItemName,1, true,0, new ProductoTerminado());
                 txtScanProducto.Focus();
             }
         }
 
 
 
-        private void AgregarProductoA_Prefactura(int pIdPT, string pItemCode, string pItemName, decimal pCantidad, bool AddDistribucionAlmacen)
+        private void AgregarProductoA_Prefactura(int pIdPT, string pItemCode, string pItemName, decimal pCantidad, bool AddDistribucionAlmacen, decimal pDescuentoPorcentaje, ProductoTerminado pProductoTerminado)
         {
-            ProductoTerminado pt1 = new ProductoTerminado();
-            if (pt1.Recuperar_producto(pIdPT))
+            ProductoTerminado pt1;
+            if (pProductoTerminado == null) 
+            {
+                pt1 = new ProductoTerminado();
+            }
+            else
+            {
+                pt1 = pProductoTerminado;
+            }
+
+            if (!pt1.Recuperado)
+                pt1.Recuperar_producto(pIdPT);
+
+            if (pt1.Id>0)
             {
 
                 decimal valor_total = 0;
@@ -1899,7 +1920,7 @@ namespace Eatery.Ventas
                         rowF.cantidad = rowF.cantidad + 1;
                         rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
                         rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
-                        rowF.total_linea = (rowF.cantidad * rowF.precio) - rowF.descuento + rowF.isv1 + rowF.isv2 + rowF.isv3;
+                        rowF.total_linea = ((rowF.cantidad * rowF.precio) - rowF.descuento) + rowF.isv1 + rowF.isv2 + rowF.isv3;
                         AgregarNuevo = false;
                     }
                     //valor_total += (rowF.total_linea + rowF.isv1);
@@ -1930,6 +1951,30 @@ namespace Eatery.Ventas
                     row1.itemname = pItemName;
                     decimal invTotal = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
 
+                    //Recalculamos el Descuento si hay alguno
+                    if (pDescuentoPorcentaje > 0 && pDescuentoPorcentaje < 100)
+                    {
+                        decimal vDescuento = pDescuentoPorcentaje;
+
+                        decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(pt1.Id, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+
+                        if (vDescuento > vPorcentajeDescuento)
+                        {
+                            row1.descuento = row1.descuento_porcentaje = 0;
+                            //CajaDialogo.Error("No se permite un descuento mayor al permitido!");
+                            return;
+                        }
+
+                        row1.descuento_porcentaje = vDescuento;
+                        decimal vDescuentoLinea = ((row1.cantidad * row1.precio) * (vDescuento / 100));
+                        row1.descuento = vDescuentoLinea;
+
+                        
+                    }
+                    else
+                    {
+                        row1.descuento_porcentaje = 0;
+                    }
 
                     //Calculo del impuesto
                     row1.isv1 = row1.isv2 = row1.isv3 = 0;
@@ -1940,7 +1985,8 @@ namespace Eatery.Ventas
                     {
                         tasaISV = impuesto.Valor / 100;
                         row1.isv1 = ((row1.precio - row1.descuento) / 100) * impuesto.Valor;
-                        row1.precio = (row1.precio - row1.descuento) - row1.isv1;
+                        //row1.precio = (row1.precio - row1.descuento) - row1.isv1;
+                        row1.precio = row1.precio - row1.isv1;
 
                         row1.tasa_isv = tasaISV;
                         row1.id_isv_aplicable = impuesto.Id;
@@ -1949,11 +1995,14 @@ namespace Eatery.Ventas
                     {
                         row1.tasa_isv = 0;
                         row1.id_isv_aplicable = 0;
-                        row1.precio = (row1.precio - row1.descuento);
+                        //row1.precio = (row1.precio - row1.descuento);
                         row1.isv1 = 0;
                     }
 
-                    row1.total_linea = (row1.cantidad * row1.precio) + (row1.cantidad * row1.isv1) + (row1.cantidad * row1.isv2) + (row1.cantidad * row1.isv3);
+                    row1.total_linea = ((row1.cantidad * row1.precio) - row1.descuento) + 
+                                        (row1.cantidad * row1.isv1) + 
+                                        (row1.cantidad * row1.isv2) + 
+                                        (row1.cantidad * row1.isv3);
                     try
                     {
                         DataOperations dp = new DataOperations();
@@ -1978,6 +2027,16 @@ namespace Eatery.Ventas
                                 AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
                                                                      1, pt1.Id_presentacion, row1.precio, row1.descuento,
                                                                      pt1.Code, pt1.Descripcion, row1.isv1);
+
+                                //Buscamos el detalle en la seleccion de stock
+                                foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
+                                {
+                                    if (RowInv.id_pt == row1.id_pt)
+                                    {
+                                        RowInv.descuento = row1.descuento;
+                                        RowInv.descuento_porcentaje = row1.descuento_porcentaje;
+                                    }
+                                }
                             }
                         }
                         else
@@ -1992,14 +2051,19 @@ namespace Eatery.Ventas
                         CajaDialogo.Error(ec.Message);
                     }
 
+
+
                     dsVentas1.detalle_factura_transaction.Adddetalle_factura_transactionRow(row1);
                     valor_total += (row1.total_linea);// + row1.isv1);
                     txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
+
+                    dsVentas1.AcceptChanges();
 
                     if (dsVentas1.detalle_factura_transaction.Count > 0)
                         gridView1.FocusedRowHandle = dsVentas1.detalle_factura_transaction.Count - 1;
                     else
                         gridView1.FocusedRowHandle = 0;
+
 
                     gridView1.FocusedColumn = colcantidad;
                     gridView1.ShowEditor();
@@ -2095,13 +2159,55 @@ namespace Eatery.Ventas
                             row.ClearErrors();
                         }
                     }
+                    txtScanProducto.Focus();
                     break;
-                case "row.descuento":
+                case "descuento":
+                    decimal vDescuento = dp.ValidateNumberDecimal(e.Value);
+
+                    if (vDescuento <= 0)
+                    {
+                        row.descuento = row.descuento_porcentaje = 0;
+                        CajaDialogo.Error("No se permite valores menores a cero (0)!");
+                        return;
+                    }
+
+                    if (vDescuento > 99)
+                    {
+                        row.descuento = row.descuento_porcentaje = 0;
+                        CajaDialogo.Error("No se permite valores mayores a noventa y nueve (99)!");
+                        return;
+                    }
+
+
+                    decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(row.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+
+                    if (vDescuento > vPorcentajeDescuento)
+                    {
+                        row.descuento = row.descuento_porcentaje = 0;
+                        CajaDialogo.Error("No se permite un descuento mayor al permitido!");
+                        return;
+                    }
+
+                    row.descuento_porcentaje = vDescuento;
+                    decimal vDescuentoLinea = ((row.cantidad * row.precio) * (vDescuento / 100));
+                    row.descuento = vDescuentoLinea;
+
+                    foreach(dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
+                    {
+                        if(RowInv.id_pt == row.id_pt)
+                        {
+                            RowInv.descuento = row.descuento;
+                            RowInv.descuento_porcentaje = row.descuento_porcentaje;
+                        }
+                    }
+                    //recalculamos 
                     CalcularTotalFactura();
+                    txtScanProducto.Focus();
                     break;
                 case "precio":
                     row.total_linea = (row.cantidad * (row.precio - row.descuento)); 
                     CalcularTotalFactura();
+                    txtScanProducto.Focus();
                     break;
 
             }
@@ -2115,8 +2221,13 @@ namespace Eatery.Ventas
             {
                 row.total_linea = (row.cantidad * row.precio) - row.descuento;
                 //row.total_linea = row.total_linea + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
+                
+                //Recalculamos impuestos
 
-                row.total_linea = (row.cantidad * row.precio) + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
+                row.total_linea = ((row.cantidad * row.precio) - row.descuento) + 
+                                   (row.cantidad * row.isv1) + 
+                                   (row.cantidad * row.isv2) + 
+                                   (row.cantidad * row.isv3);
 
                 total += row.total_linea;    
             }
@@ -2347,6 +2458,7 @@ namespace Eatery.Ventas
                     item.BodegaName = rowi.bodega_descripcion;
                     item.CantSeleccionada = rowi.cantidad;
                     item.descuento = rowi.descuento;
+                    item.descuento_porcentaje = rowi.descuento_porcentaje;
                     item.Precio = rowi.precio;
                     item.id_presentacion = rowi.id_presentacion;
                     item.ItemCode = rowi.item_code;
@@ -2360,7 +2472,7 @@ namespace Eatery.Ventas
             frmElejirAlmacenPedidoOutStok frm = new frmElejirAlmacenPedidoOutStok(row.id_pt, row.itemcode + " - " + 
                                                                                   row.itemname, row.cantidad, ListaActual,
                                                                                   row.descuento, row.precio, row.id_presentacion, 
-                                                                                  row.itemcode, row.itemname, row.isv1);
+                                                                                  row.itemcode, row.itemname, row.isv1, row.descuento_porcentaje);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 row.inventario_seleccionado = row.cantidad = AgregarDetalleInventarioSeleccionadoList(frm.ListaSeleccionAlmacen, row.id_pt);
@@ -2538,7 +2650,16 @@ namespace Eatery.Ventas
                             //Posteamos lineas de la pre factura 
                             foreach (dsVentas.detalle_factura_transaccion_invRow row in dsVentas1.detalle_factura_transaccion_inv)
                             {
-                                Int64 idPedidoDetalle = 0;
+                                decimal descuentoLinea = 0;
+                                decimal descuentoPorcentaje = 0;
+
+                                if (row.IsdescuentoNull()) descuentoLinea = 0;
+                                else descuentoLinea = row.descuento;
+
+                                if (row.Isdescuento_porcentajeNull()) descuentoPorcentaje = 0;
+                                else descuentoPorcentaje = row.descuento_porcentaje;
+
+                                    Int64 idPedidoDetalle = 0;
                                 if (row.cantidad > 0)
                                 {
                                     command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
@@ -2550,13 +2671,14 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@descripcion", row.descripcion);
                                     command.Parameters.AddWithValue("@cantidad", row.cantidad);
                                     command.Parameters.AddWithValue("@precio", row.precio);
-                                    command.Parameters.AddWithValue("@descuento", row.descuento);
+                                    command.Parameters.AddWithValue("@descuento", descuentoLinea);
                                     command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
                                     command.Parameters.AddWithValue("@fecha_hora_row", Pedido_.FechaDocumento);
                                     command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
                                     command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
                                     command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
                                     command.Parameters.AddWithValue("@isv", row.isv1);
+                                    command.Parameters.AddWithValue("@descuento_porcentaje", descuentoPorcentaje);
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }
@@ -2762,6 +2884,11 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
                                     command.Parameters.AddWithValue("@isv", row.isv1);
 
+                                    if(row.Isdescuento_porcentajeNull())
+                                        command.Parameters.AddWithValue("@descuento_porcentaje", 0);
+                                    else
+                                        command.Parameters.AddWithValue("@descuento_porcentaje", dp.ValidateNumberDecimal(row.descuento_porcentaje));
+
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }
 
@@ -2890,6 +3017,11 @@ namespace Eatery.Ventas
 
                 }
             }
+        }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
         }
 
         //frmLoginVendedores

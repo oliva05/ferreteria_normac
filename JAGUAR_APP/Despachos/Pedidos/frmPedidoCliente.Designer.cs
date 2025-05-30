@@ -685,6 +685,7 @@ namespace Eatery.Ventas
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
             // 
             // gridView1
             // 
@@ -755,6 +756,7 @@ namespace Eatery.Ventas
             this.colprecio.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colprecio.FieldName = "precio";
             this.colprecio.Name = "colprecio";
+            this.colprecio.OptionsColumn.ReadOnly = true;
             this.colprecio.Visible = true;
             this.colprecio.VisibleIndex = 6;
             this.colprecio.Width = 54;

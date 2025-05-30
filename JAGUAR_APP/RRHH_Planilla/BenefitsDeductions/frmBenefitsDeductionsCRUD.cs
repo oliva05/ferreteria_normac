@@ -183,8 +183,6 @@ namespace JAGUAR_PRO.RRHH_Planilla.BenefitsDeductions
                     return;
                 }
 
-
-
                 switch (transaccion_tipo)
                 {
                     case TipoTransaccionPlanilla.Nuevo:

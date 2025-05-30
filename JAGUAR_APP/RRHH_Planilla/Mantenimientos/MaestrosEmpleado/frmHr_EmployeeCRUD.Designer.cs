@@ -55,6 +55,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
             this.lblNombreEmpleado = new DevExpress.XtraEditors.LabelControl();
             this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.lblCodigo = new DevExpress.XtraEditors.LabelControl();
@@ -571,7 +576,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Enabled = false;
-            this.txtCorreo.Location = new System.Drawing.Point(143, 360);
+            this.txtCorreo.Location = new System.Drawing.Point(143, 325);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.txtCorreo.Properties.Appearance.Options.UseFont = true;
@@ -582,7 +587,7 @@
             // 
             this.labelControl64.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl64.Appearance.Options.UseFont = true;
-            this.labelControl64.Location = new System.Drawing.Point(10, 363);
+            this.labelControl64.Location = new System.Drawing.Point(10, 328);
             this.labelControl64.Name = "labelControl64";
             this.labelControl64.Size = new System.Drawing.Size(119, 15);
             this.labelControl64.TabIndex = 78;
@@ -590,7 +595,7 @@
             // 
             // tggIsManager
             // 
-            this.tggIsManager.Location = new System.Drawing.Point(143, 334);
+            this.tggIsManager.Location = new System.Drawing.Point(143, 299);
             this.tggIsManager.Name = "tggIsManager";
             this.tggIsManager.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.tggIsManager.Properties.Appearance.Options.UseFont = true;
@@ -603,7 +608,7 @@
             // 
             this.labelControl30.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl30.Appearance.Options.UseFont = true;
-            this.labelControl30.Location = new System.Drawing.Point(10, 336);
+            this.labelControl30.Location = new System.Drawing.Point(10, 301);
             this.labelControl30.Name = "labelControl30";
             this.labelControl30.Size = new System.Drawing.Size(100, 15);
             this.labelControl30.TabIndex = 29;
@@ -612,7 +617,7 @@
             // gleResponsable
             // 
             this.gleResponsable.Enabled = false;
-            this.gleResponsable.Location = new System.Drawing.Point(143, 300);
+            this.gleResponsable.Location = new System.Drawing.Point(143, 265);
             this.gleResponsable.Name = "gleResponsable";
             this.gleResponsable.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.gleResponsable.Properties.Appearance.Options.UseFont = true;
@@ -662,7 +667,7 @@
             // gleBandaSalarial
             // 
             this.gleBandaSalarial.Enabled = false;
-            this.gleBandaSalarial.Location = new System.Drawing.Point(143, 269);
+            this.gleBandaSalarial.Location = new System.Drawing.Point(142, 404);
             this.gleBandaSalarial.Name = "gleBandaSalarial";
             this.gleBandaSalarial.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.gleBandaSalarial.Properties.Appearance.Options.UseFont = true;
@@ -676,6 +681,7 @@
             this.gleBandaSalarial.Properties.ValueMember = "id";
             this.gleBandaSalarial.Size = new System.Drawing.Size(246, 22);
             this.gleBandaSalarial.TabIndex = 27;
+            this.gleBandaSalarial.Visible = false;
             // 
             // bsBandaSalarial
             // 
@@ -979,7 +985,7 @@
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(10, 303);
+            this.labelControl10.Location = new System.Drawing.Point(10, 268);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(66, 15);
             this.labelControl10.TabIndex = 12;
@@ -989,11 +995,12 @@
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(10, 272);
+            this.labelControl11.Location = new System.Drawing.Point(9, 407);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(74, 15);
             this.labelControl11.TabIndex = 11;
             this.labelControl11.Text = "Banda Salarial";
+            this.labelControl11.Visible = false;
             // 
             // labelControl6
             // 
@@ -3219,8 +3226,9 @@
             // btnViewContract
             // 
             this.btnViewContract.AutoHeight = false;
+            editorButtonImageOptions6.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions6.Image")));
             this.btnViewContract.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnViewContract.Name = "btnViewContract";
             this.btnViewContract.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnViewContract.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnViewContract_ButtonPressed);

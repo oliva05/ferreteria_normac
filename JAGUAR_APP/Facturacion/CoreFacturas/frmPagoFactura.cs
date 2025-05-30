@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraRichEdit.Import.Html;
 using DevExpress.XtraSpreadsheet.Import.Xls;
+using DocumentFormat.OpenXml.Office.CoverPageProps;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.Reportes;
 using System;
@@ -29,7 +30,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         {
             Efectivo = 1,
             Tarjeta = 2,
-            DepositoBancario = 3
+            DepositoBancario = 3,
+            Cheque = 4
         }
 
         public TipoPago TipoPagoSeleccionadoActual;
@@ -45,6 +47,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         public int IdFormato;
         public string PrinterName;
         public string ReferenciaReciboPago;
+        public string NumeroCheque;
+        public int BancoId;
+        public string BancoName;
+        public string NombreEmisorCheque;
 
         PDV PuntoVentaActual;
 
@@ -57,7 +63,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.UsuarioLogeado = pUsuarioLogeado;
             ValorA_Pagar = pValorA_Pagar;
             lblTotalPagoRequerido.Text = string.Format("{0: L #,###,##0.00}", pValorA_Pagar);
-            txtValorEfectivo.Text = txtValorTC.Text = txtValorPagarTransferencia.Text = string.Format("{0:###,##0.00}", pValorA_Pagar);
+            //spinEdit2.EditValue = pValorA_Pagar;
+            txtValorPagarChque.Text = txtValorEfectivo.Text = txtValorTC.Text = txtValorPagarTransferencia.Text = string.Format("{0:###,##0.00}", pValorA_Pagar);
 
             TipoPagoSeleccionadoActual = TipoPago.Efectivo;
             SetButtonPago();
@@ -102,55 +109,72 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             //if (PuntoVentaActual.Recuperado)
             //{
 
-                ListboxPrintersEfectivo.Items.Clear();
-                foreach (string printname in PrinterSettings.InstalledPrinters)
-                {
-                    //Console.WriteLine(printname);
+            ListboxPrintersEfectivo.Items.Clear();
+            foreach (string printname in PrinterSettings.InstalledPrinters)
+            {
+                //Console.WriteLine(printname);
 
-                    //if (conf.Key == printname)
-                    //{
-                    //    ListboxPrinters.Items.Add(printname, true);
-                    //}
-                    //else
-                    //{
-                    //    ListboxPrinters.Items.Add(printname, false);
-                    //}
-                    ListboxPrintersEfectivo.Items.Add(printname, false);
-                }
+                //if (conf.Key == printname)
+                //{
+                //    ListboxPrinters.Items.Add(printname, true);
+                //}
+                //else
+                //{
+                //    ListboxPrinters.Items.Add(printname, false);
+                //}
+                ListboxPrintersEfectivo.Items.Add(printname, false);
+            }
 
-                ListboxPrintersTransferencia.Items.Clear();
-                foreach (string printname in PrinterSettings.InstalledPrinters)
-                {
-                    //Console.WriteLine(printname);
+            ListboxPrintersTransferencia.Items.Clear();
+            foreach (string printname in PrinterSettings.InstalledPrinters)
+            {
+                //Console.WriteLine(printname);
 
-                    //if (conf.Key == printname)
-                    //{
-                    //    ListboxPrinters.Items.Add(printname, true);
-                    //}
-                    //else
-                    //{
-                    //    ListboxPrinters.Items.Add(printname, false);
-                    //}
-                    ListboxPrintersTransferencia.Items.Add(printname, false);
-                }
+                //if (conf.Key == printname)
+                //{
+                //    ListboxPrinters.Items.Add(printname, true);
+                //}
+                //else
+                //{
+                //    ListboxPrinters.Items.Add(printname, false);
+                //}
+                ListboxPrintersTransferencia.Items.Add(printname, false);
+            }
 
-                ListboxPrintersTarjeta.Items.Clear();
-                foreach (string printname in PrinterSettings.InstalledPrinters)
-                {
-                    //Console.WriteLine(printname);
+            ListboxPrintersTarjeta.Items.Clear();
+            foreach (string printname in PrinterSettings.InstalledPrinters)
+            {
+                //Console.WriteLine(printname);
 
-                    //if (conf.Key == printname)
-                    //{
-                    //    ListboxPrinters.Items.Add(printname, true);
-                    //}
-                    //else
-                    //{
-                    //    ListboxPrinters.Items.Add(printname, false);
-                    //}
-                    ListboxPrintersTarjeta.Items.Add(printname, false);
-                }
+                //if (conf.Key == printname)
+                //{
+                //    ListboxPrinters.Items.Add(printname, true);
+                //}
+                //else
+                //{
+                //    ListboxPrinters.Items.Add(printname, false);
+                //}
+                ListboxPrintersTarjeta.Items.Add(printname, false);
+            }
 
-            
+
+            ListBoxCheque.Items.Clear();
+            foreach (string printname in PrinterSettings.InstalledPrinters)
+            {
+                //Console.WriteLine(printname);
+
+                //if (conf.Key == printname)
+                //{
+                //    ListboxPrinters.Items.Add(printname, true);
+                //}
+                //else
+                //{
+                //    ListboxPrinters.Items.Add(printname, false);
+                //}
+                ListBoxCheque.Items.Add(printname, false);
+            }
+
+
         }
 
         private void SetButtonPago()
@@ -159,27 +183,42 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             {
                 case TipoPago.Efectivo: //1
                     cmdEfectivo.Appearance.BackColor = Color.LightSkyBlue;
-                    cmdTarjeta.Appearance.BackColor = Color.White;
+                    cmdTarjeta.Appearance.BackColor =
+                    cmdCheque.Appearance.BackColor = Color.White;
                     cmdDepositoBancario.Appearance.BackColor = Color.White;
                     xtraTabPage1.PageVisible = true;
                     xtraTabPage2.PageVisible = 
-                    xtraTabPage3.PageVisible = false;
+                    xtraTabPage3.PageVisible =
+                    xtraTabPage4.PageVisible = false;
                     break;
                 case TipoPago.Tarjeta: //2
-                    cmdEfectivo.Appearance.BackColor = Color.White;
+                    cmdEfectivo.Appearance.BackColor =
+                    cmdCheque.Appearance.BackColor = Color.White;
                     cmdTarjeta.Appearance.BackColor = Color.LightSkyBlue;
                     cmdDepositoBancario.Appearance.BackColor = Color.White;
                     xtraTabPage1.PageVisible = false;
                     xtraTabPage2.PageVisible = true;
-                    xtraTabPage3.PageVisible = false;
+                    xtraTabPage3.PageVisible =
+                    xtraTabPage4.PageVisible = false;
                     break;
                 case TipoPago.DepositoBancario: //3
-                    cmdEfectivo.Appearance.BackColor = Color.White;
+                    cmdEfectivo.Appearance.BackColor =
+                    cmdCheque.Appearance.BackColor = Color.White;
                     cmdTarjeta.Appearance.BackColor = Color.White;
                     cmdDepositoBancario.Appearance.BackColor = Color.LightSkyBlue;
                     xtraTabPage1.PageVisible = 
-                    xtraTabPage2.PageVisible = false;
+                    xtraTabPage2.PageVisible =
+                    xtraTabPage4.PageVisible = false;
                     xtraTabPage3.PageVisible = true;
+                    break;
+                case TipoPago.Cheque: //4
+                    cmdEfectivo.Appearance.BackColor = Color.White;
+                    cmdTarjeta.Appearance.BackColor = cmdDepositoBancario.Appearance.BackColor = Color.White;
+                    cmdCheque.Appearance.BackColor = Color.LightSkyBlue;
+                    xtraTabPage1.PageVisible =
+                    xtraTabPage2.PageVisible = 
+                    xtraTabPage3.PageVisible = false;
+                    xtraTabPage4.PageVisible = true;
                     break;
             }
         }
@@ -575,6 +614,61 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void cmdCheque_Click(object sender, EventArgs e)
+        {
+            tabPagos.SelectedTabPage = xtraTabPage4;
+            TipoPagoSeleccionadoActual = TipoPago.Cheque;
+            SetButtonPago();
+            cmdValorCheque.Focus();
+        }
+
+        private void cmdAgregarPagoCheque_Click(object sender, EventArgs e)
+        {
+            varPago = dp.ValidateNumberDecimal(cmdValorCheque.Value);
+            //if (ValorA_Pagar > varPago)
+            //{
+            //    CajaDialogo.Error("No se puede realizar la transaccion, el valor transferido debe ser mayor o igual al de la factura.");
+            //    return;
+            //}
+            if (string.IsNullOrEmpty(PrinterName))
+            {
+                foreach (DevExpress.XtraEditors.Controls.CheckedListBoxItem item in ListBoxCheque.Items)
+                {
+                    if (item.CheckState == CheckState.Checked)
+                        PrinterName = item.Value.ToString();
+                }
+            }
+
+            if (!string.IsNullOrEmpty(txtNumeroCheque.Text))
+            { NumeroCheque = txtNumeroCheque.Text; }
+            else
+            {
+                NumeroCheque = "N/D";
+                CajaDialogo.Error("Ingrese el numero del cheque!");
+            }
+
+            if (!string.IsNullOrEmpty(txtNombreEmisorCheque.Text))
+                NombreEmisorCheque = txtNombreEmisorCheque.Text;
+            else
+                NombreEmisorCheque = "N/D";
+
+            if (!string.IsNullOrEmpty(gleBancosList.Text))
+                BancoId = dp.ValidateNumberInt32( gleBancosList.EditValue);
+            else
+                BancoId = 0;
+            
+
+
+
+            if (IdFormato == 0)
+            {
+                IdFormato = Convert.ToInt32(radioGroup1.EditValue);
+            }
+            AgregarPago(3, "Deposito Bancario", varPago, ReferenciaReciboPago);
+            //this.DialogResult = DialogResult.OK;
+            //this.Close();
         }
     }
 }
