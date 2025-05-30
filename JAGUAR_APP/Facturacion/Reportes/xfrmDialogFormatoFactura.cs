@@ -217,7 +217,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             else
             {
                 //rptFacturaLetterSize report = new rptFacturaLetterSize(factura, rptFacturaLetterSize.TipoCopia.Blanco);
-                rptFactura report = new rptFactura(factura, rptFactura.TipoCopia.Blanco);
+                //rptFactura report = new rptFactura(factura, rptFactura.TipoCopia.Blanco);
+                rptFacturaLetterSize report = new rptFacturaLetterSize(factura, rptFacturaLetterSize.TipoCopia.Blanco);
                 using (ReportPrintTool printTool = new ReportPrintTool(report))
                 {
                     // Send the report to the default printer.

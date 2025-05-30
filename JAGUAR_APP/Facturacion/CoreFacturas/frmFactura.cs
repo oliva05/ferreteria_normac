@@ -568,6 +568,8 @@ namespace Eatery.Ventas
                             factura.IdCliente = ClienteFactura.Id;
 
                     factura.FechaDocumento = dp.NowSetDateTime();
+                    
+
                     //1   Emitida
                     //2   Pagada
                     //3   Anulada
