@@ -182,6 +182,7 @@ namespace JAGUAR_PRO.Clases
                     nombreUser = dr.GetString(1);
                     if (!dr.IsDBNull(dr.GetOrdinal("id_grupo_losa")))
                         idGrupo = dr.GetInt32(2);
+
                     if (!dr.IsDBNull(dr.GetOrdinal("tipo")))
                         Tipo = dr.GetString(3);
 
@@ -316,7 +317,12 @@ namespace JAGUAR_PRO.Clases
                     IsSuperUser = dr.GetBoolean(3);
                     Pass = dr.GetString(4);
                     Habilitado = dr.GetBoolean(5);
-                    GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)dr.GetInt32(6);
+
+                    if (!dr.IsDBNull(dr.GetOrdinal("id_grupo_losa")))
+                        IdGrupo = dr.GetInt32(6);
+
+                    if (IdGrupo > 0)
+                        GrupoUsuario.GrupoUsuarioActivo = (GrupoUser.GrupoUsuario)IdGrupo;
                 }
                 x = true;
                 dr.Close();
