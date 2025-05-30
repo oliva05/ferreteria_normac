@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraRichEdit.Layout;
 using DevExpress.XtraSpreadsheet.Model;
+using JAGUAR_PRO.Calidad.LoteConfConsumo;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.Mantenimientos.MaterialEmpaque.Model;
@@ -363,32 +364,43 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void cmdAddFactura_Click(object sender, EventArgs e)
         {
-            int count_lines = dsLogisticaJaguar1.detalle_recepcion_fact.Rows.Count;
-
-            dsLogisticaJaguar.detalle_recepcion_factRow row1 = dsLogisticaJaguar1.detalle_recepcion_fact.Newdetalle_recepcion_factRow();
-            //row1.cantidad = 0;
-            //row1.cantidad_ingreso = 0;
-            row1.id_ud_medida_prv = 1;
-            row1.id_ud_medida_jaguar = 1;
-            row1.id_mp = 0;
-            //row1.ItemCode = "";
-            //row1.total_fila = 0;
-
-            row1.num_linea = count_lines + 1;
-            row1.id_bodega = 1;
-            dsLogisticaJaguar1.detalle_recepcion_fact.Adddetalle_recepcion_factRow(row1);
-            dsLogisticaJaguar1.AcceptChanges();
-
-
-            if (dsLogisticaJaguar1.detalle_recepcion_fact.Count > 1)
+            frmSearchItemsMulti frm = new frmSearchItemsMulti();
+            if (frm.ShowDialog() == DialogResult.OK)
             {
-                int filai = 1;
-                foreach(dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
-                {
-                    row.num_linea = filai;
-                    filai++;
-                }
+                DataTable tablaPT = new DataTable();
+                tablaPT = frm.ListProductosSeleccionados;
             }
+
+
+            
+
+
+            //int count_lines = dsLogisticaJaguar1.detalle_recepcion_fact.Rows.Count;
+
+            //dsLogisticaJaguar.detalle_recepcion_factRow row1 = dsLogisticaJaguar1.detalle_recepcion_fact.Newdetalle_recepcion_factRow();
+            ////row1.cantidad = 0;
+            ////row1.cantidad_ingreso = 0;
+            //row1.id_ud_medida_prv = 1;
+            //row1.id_ud_medida_jaguar = 1;
+            //row1.id_mp = 0;
+            ////row1.ItemCode = "";
+            ////row1.total_fila = 0;
+
+            //row1.num_linea = count_lines + 1;
+            //row1.id_bodega = 1;
+            //dsLogisticaJaguar1.detalle_recepcion_fact.Adddetalle_recepcion_factRow(row1);
+            //dsLogisticaJaguar1.AcceptChanges();
+
+
+            //if (dsLogisticaJaguar1.detalle_recepcion_fact.Count > 1)
+            //{
+            //    int filai = 1;
+            //    foreach(dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
+            //    {
+            //        row.num_linea = filai;
+            //        filai++;
+            //    }
+            //}
         }
 
         private void gridView2_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
