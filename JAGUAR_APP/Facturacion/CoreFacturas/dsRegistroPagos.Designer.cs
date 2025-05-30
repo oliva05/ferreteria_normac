@@ -30,6 +30,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         
         private bancos_listDataTable tablebancos_list;
         
+        private bancos_listDepositoDataTable tablebancos_listDeposito;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -66,6 +68,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 }
                 if ((ds.Tables["bancos_list"] != null)) {
                     base.Tables.Add(new bancos_listDataTable(ds.Tables["bancos_list"]));
+                }
+                if ((ds.Tables["bancos_listDeposito"] != null)) {
+                    base.Tables.Add(new bancos_listDepositoDataTable(ds.Tables["bancos_listDeposito"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -112,6 +117,16 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         public bancos_listDataTable bancos_list {
             get {
                 return this.tablebancos_list;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public bancos_listDepositoDataTable bancos_listDeposito {
+            get {
+                return this.tablebancos_listDeposito;
             }
         }
         
@@ -191,6 +206,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 if ((ds.Tables["bancos_list"] != null)) {
                     base.Tables.Add(new bancos_listDataTable(ds.Tables["bancos_list"]));
                 }
+                if ((ds.Tables["bancos_listDeposito"] != null)) {
+                    base.Tables.Add(new bancos_listDepositoDataTable(ds.Tables["bancos_listDeposito"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -242,6 +260,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                     this.tablebancos_list.InitVars();
                 }
             }
+            this.tablebancos_listDeposito = ((bancos_listDepositoDataTable)(base.Tables["bancos_listDeposito"]));
+            if ((initTable == true)) {
+                if ((this.tablebancos_listDeposito != null)) {
+                    this.tablebancos_listDeposito.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +282,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             base.Tables.Add(this.tablecuentas);
             this.tablebancos_list = new bancos_listDataTable();
             base.Tables.Add(this.tablebancos_list);
+            this.tablebancos_listDeposito = new bancos_listDepositoDataTable();
+            base.Tables.Add(this.tablebancos_listDeposito);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -275,6 +301,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializebancos_list() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializebancos_listDeposito() {
             return false;
         }
         
@@ -342,6 +374,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void bancos_listRowChangeEventHandler(object sender, bancos_listRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void bancos_listDepositoRowChangeEventHandler(object sender, bancos_listDepositoRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -360,6 +395,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             private global::System.Data.DataColumn columntipo_descripcion;
             
             private global::System.Data.DataColumn columnreferencia;
+            
+            private global::System.Data.DataColumn columnid_banco;
+            
+            private global::System.Data.DataColumn columnnumero_cheque;
+            
+            private global::System.Data.DataColumn columnemisor_cheque;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -444,6 +485,30 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_bancoColumn {
+                get {
+                    return this.columnid_banco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn numero_chequeColumn {
+                get {
+                    return this.columnnumero_cheque;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn emisor_chequeColumn {
+                get {
+                    return this.columnemisor_cheque;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -479,7 +544,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public resumen_pagoRow Addresumen_pagoRow(int id, string descripcion, decimal valor, int tipo_id, string tipo_descripcion, string referencia) {
+            public resumen_pagoRow Addresumen_pagoRow(int id, string descripcion, decimal valor, int tipo_id, string tipo_descripcion, string referencia, int id_banco, string numero_cheque, string emisor_cheque) {
                 resumen_pagoRow rowresumen_pagoRow = ((resumen_pagoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -487,7 +552,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         valor,
                         tipo_id,
                         tipo_descripcion,
-                        referencia};
+                        referencia,
+                        id_banco,
+                        numero_cheque,
+                        emisor_cheque};
                 rowresumen_pagoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowresumen_pagoRow);
                 return rowresumen_pagoRow;
@@ -516,6 +584,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columntipo_id = base.Columns["tipo_id"];
                 this.columntipo_descripcion = base.Columns["tipo_descripcion"];
                 this.columnreferencia = base.Columns["referencia"];
+                this.columnid_banco = base.Columns["id_banco"];
+                this.columnnumero_cheque = base.Columns["numero_cheque"];
+                this.columnemisor_cheque = base.Columns["emisor_cheque"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -533,6 +604,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columntipo_descripcion);
                 this.columnreferencia = new global::System.Data.DataColumn("referencia", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreferencia);
+                this.columnid_banco = new global::System.Data.DataColumn("id_banco", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_banco);
+                this.columnnumero_cheque = new global::System.Data.DataColumn("numero_cheque", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumero_cheque);
+                this.columnemisor_cheque = new global::System.Data.DataColumn("emisor_cheque", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemisor_cheque);
                 this.columndescripcion.Caption = "Descripción";
                 this.columnvalor.Caption = "Valor";
                 this.columntipo_descripcion.Caption = "Tipo de Pago";
@@ -1242,6 +1319,267 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class bancos_listDepositoDataTable : global::System.Data.TypedTableBase<bancos_listDepositoRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columndescripcion;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bancos_listDepositoDataTable() {
+                this.TableName = "bancos_listDeposito";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal bancos_listDepositoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected bancos_listDepositoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn descripcionColumn {
+                get {
+                    return this.columndescripcion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bancos_listDepositoRow this[int index] {
+                get {
+                    return ((bancos_listDepositoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event bancos_listDepositoRowChangeEventHandler bancos_listDepositoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event bancos_listDepositoRowChangeEventHandler bancos_listDepositoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event bancos_listDepositoRowChangeEventHandler bancos_listDepositoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event bancos_listDepositoRowChangeEventHandler bancos_listDepositoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addbancos_listDepositoRow(bancos_listDepositoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bancos_listDepositoRow Addbancos_listDepositoRow(int id, string descripcion) {
+                bancos_listDepositoRow rowbancos_listDepositoRow = ((bancos_listDepositoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id,
+                        descripcion};
+                rowbancos_listDepositoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowbancos_listDepositoRow);
+                return rowbancos_listDepositoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                bancos_listDepositoDataTable cln = ((bancos_listDepositoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new bancos_listDepositoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columndescripcion = base.Columns["descripcion"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescripcion);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bancos_listDepositoRow Newbancos_listDepositoRow() {
+                return ((bancos_listDepositoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new bancos_listDepositoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(bancos_listDepositoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.bancos_listDepositoRowChanged != null)) {
+                    this.bancos_listDepositoRowChanged(this, new bancos_listDepositoRowChangeEvent(((bancos_listDepositoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.bancos_listDepositoRowChanging != null)) {
+                    this.bancos_listDepositoRowChanging(this, new bancos_listDepositoRowChangeEvent(((bancos_listDepositoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.bancos_listDepositoRowDeleted != null)) {
+                    this.bancos_listDepositoRowDeleted(this, new bancos_listDepositoRowChangeEvent(((bancos_listDepositoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.bancos_listDepositoRowDeleting != null)) {
+                    this.bancos_listDepositoRowDeleting(this, new bancos_listDepositoRowChangeEvent(((bancos_listDepositoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removebancos_listDepositoRow(bancos_listDepositoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsRegistroPagos ds = new dsRegistroPagos();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "bancos_listDepositoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class resumen_pagoRow : global::System.Data.DataRow {
@@ -1353,6 +1691,54 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_banco {
+                get {
+                    try {
+                        return ((int)(this[this.tableresumen_pago.id_bancoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_banco\' de la tabla \'resumen_pago\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableresumen_pago.id_bancoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string numero_cheque {
+                get {
+                    try {
+                        return ((string)(this[this.tableresumen_pago.numero_chequeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'numero_cheque\' de la tabla \'resumen_pago\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableresumen_pago.numero_chequeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string emisor_cheque {
+                get {
+                    try {
+                        return ((string)(this[this.tableresumen_pago.emisor_chequeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'emisor_cheque\' de la tabla \'resumen_pago\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableresumen_pago.emisor_chequeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tableresumen_pago.idColumn);
             }
@@ -1421,6 +1807,42 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetreferenciaNull() {
                 this[this.tableresumen_pago.referenciaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_bancoNull() {
+                return this.IsNull(this.tableresumen_pago.id_bancoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_bancoNull() {
+                this[this.tableresumen_pago.id_bancoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isnumero_chequeNull() {
+                return this.IsNull(this.tableresumen_pago.numero_chequeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setnumero_chequeNull() {
+                this[this.tableresumen_pago.numero_chequeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isemisor_chequeNull() {
+                return this.IsNull(this.tableresumen_pago.emisor_chequeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setemisor_chequeNull() {
+                this[this.tableresumen_pago.emisor_chequeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1679,6 +2101,78 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class bancos_listDepositoRow : global::System.Data.DataRow {
+            
+            private bancos_listDepositoDataTable tablebancos_listDeposito;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal bancos_listDepositoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablebancos_listDeposito = ((bancos_listDepositoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id {
+                get {
+                    try {
+                        return ((int)(this[this.tablebancos_listDeposito.idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id\' de la tabla \'bancos_listDeposito\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablebancos_listDeposito.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string descripcion {
+                get {
+                    try {
+                        return ((string)(this[this.tablebancos_listDeposito.descripcionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'descripcion\' de la tabla \'bancos_listDeposito\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablebancos_listDeposito.descripcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsidNull() {
+                return this.IsNull(this.tablebancos_listDeposito.idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetidNull() {
+                this[this.tablebancos_listDeposito.idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdescripcionNull() {
+                return this.IsNull(this.tablebancos_listDeposito.descripcionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdescripcionNull() {
+                this[this.tablebancos_listDeposito.descripcionColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1766,6 +2260,40 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bancos_listRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class bancos_listDepositoRowChangeEvent : global::System.EventArgs {
+            
+            private bancos_listDepositoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bancos_listDepositoRowChangeEvent(bancos_listDepositoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bancos_listDepositoRow Row {
                 get {
                     return this.eventRow;
                 }

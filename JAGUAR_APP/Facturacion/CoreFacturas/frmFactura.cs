@@ -1109,7 +1109,7 @@ namespace Eatery.Ventas
                                 //postearemos varias lineas por si el pago se combina entre si
                                 foreach (RegistroPago registroPago in frm.ListaDetallePago)
                                 {
-                                    command.CommandText = "dbo.[sp_set_insert_recibo_pago_detalle_v3]";
+                                    command.CommandText = "dbo.[sp_set_insert_recibo_pago_detalle_v4]";
                                     command.CommandType = CommandType.StoredProcedure;
                                     command.Parameters.Clear();
                                     command.Parameters.AddWithValue("@id_facturaH", IdFacturaH);
@@ -1137,10 +1137,30 @@ namespace Eatery.Ventas
                                         command.Parameters.AddWithValue("@referencia", DBNull.Value);
                                     }
 
+
                                     if (registroPago.IdTipo == 0)
                                         command.Parameters.AddWithValue("@id_tipo_pago", DBNull.Value);
                                     else
                                         command.Parameters.AddWithValue("@id_tipo_pago", registroPago.IdTipo);
+
+
+                                    if(registroPago.id_banco == 0)
+                                        command.Parameters.AddWithValue("@id_banco", DBNull.Value);
+                                    else
+                                        command.Parameters.AddWithValue("@id_banco", registroPago.id_banco);
+
+
+                                    if (string.IsNullOrEmpty(registroPago.NumeroCheque))
+                                        command.Parameters.AddWithValue("@numero_cheque", DBNull.Value);
+                                    else
+                                        command.Parameters.AddWithValue("@numero_cheque", registroPago.id_banco);
+
+
+                                    if (string.IsNullOrEmpty(registroPago.EmisorCheque))
+                                        command.Parameters.AddWithValue("@emisor_cheque", DBNull.Value);
+                                    else
+                                        command.Parameters.AddWithValue("@emisor_cheque", registroPago.id_banco);
+                                    
 
                                     command.ExecuteNonQuery();
                                 }
