@@ -30,9 +30,9 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
             if (EquipoActual.RecuperarRegistro(HostName))
             {
-                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                if (EquipoActual.id_bodega_entrega == 0)
                 {
-                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    CajaDialogo.Error("Este Equipo de nombre: " + HostName + " no tiene una Bodega de Entrega configurada!");
                     return;
                 }
             }
@@ -42,11 +42,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 return;
             }
 
-            if (EquipoActual.id_bodega_entrega == 0)
-            {
-                CajaDialogo.Error("Este Equipo de nombre: " + HostName + " no tiene una Bodega de Entrega configurada!");
-                return;
-            }
+            
 
         }
     }

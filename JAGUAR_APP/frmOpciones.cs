@@ -5194,5 +5194,11 @@ namespace JAGUAR_PRO
                 //}
             }
         }
+
+        private void simpleButton9_Click_1(object sender, EventArgs e)
+        {
+            frmPTCargarMasivo frm = new frmPTCargarMasivo();
+            frm.Show();
+        }
     }
 }

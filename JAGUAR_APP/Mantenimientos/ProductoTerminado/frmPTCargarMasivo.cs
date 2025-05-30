@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -98,10 +99,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         }
 
                         // Asignar al DataTable del GridControl
-                        dsProductoTerminado1.carga_productos.Clear();
+                        dsProductoTerminado1.lista_pt_temporal.Clear();
                         foreach (DataRow row in dt.Rows)
                         {
-                            dsProductoTerminado1.carga_productos.ImportRow(row);
+                            dsProductoTerminado1.lista_pt_temporal.ImportRow(row);
                         }
 
                         gridControl1.RefreshDataSource(); // Forzar refresco si es necesario
@@ -109,6 +110,50 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
                 }
             }
+        }
+
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            if (gridView1.RowCount == 0)
+            {
+                CajaDialogo.Error("No se a cargado Data!");
+                return;
+            }
+
+            string UltimoCOidgoBarraIngresado = string.Empty;
+            try
+            {
+                DataOperations dp = new DataOperations();
+                using (SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                {
+                    conn.Open();
+
+                    foreach (dsProductoTerminado.lista_pt_temporalRow row in dsProductoTerminado1.lista_pt_temporal.Rows) // reemplaza "tuDataTable" con el nombre real de tu DataTable
+                    {
+                        using (SqlCommand cmd = new SqlCommand("sp_pt_cargar_masiva", conn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.AddWithValue("@codigo_barra", row.CODIGO);
+                            cmd.Parameters.AddWithValue("@descripcion", row.DESCRIPCION);
+                            cmd.Parameters.AddWithValue("@grupo", row.GRUPO);
+                            cmd.Parameters.AddWithValue("@precio_unit", row.PRECIO_UND);
+                            cmd.Parameters.AddWithValue("@existencia", row.INVENTARIO);
+                            UltimoCOidgoBarraIngresado = Convert.ToString(cmd.ExecuteScalar());
+
+                        }
+                    }
+
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(UltimoCOidgoBarraIngresado + ex.Message);
+            }
+
+            CajaDialogo.Information("Items Agregados");
+
         }
     }
 }

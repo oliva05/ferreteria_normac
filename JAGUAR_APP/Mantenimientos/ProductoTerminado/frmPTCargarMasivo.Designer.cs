@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPTCargarMasivo));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
@@ -38,10 +39,14 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
+            this.colCODIGO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDESCRIPCION = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colINVENTARIO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPRECIOUND = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGRUPO = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -49,6 +54,8 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.DataMember = "lista_pt_temporal";
+            this.gridControl1.DataSource = this.dsProductoTerminado1;
             this.gridControl1.Location = new System.Drawing.Point(2, 85);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -57,10 +64,22 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // dsProductoTerminado1
+            // 
+            this.dsProductoTerminado1.DataSetName = "dsProductoTerminado";
+            this.dsProductoTerminado1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCODIGO,
+            this.colDESCRIPCION,
+            this.colINVENTARIO,
+            this.colPRECIOUND,
+            this.colGRUPO});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowFooter = true;
             // 
             // btnDownload
             // 
@@ -88,12 +107,12 @@
             // 
             // btnProcesar
             // 
-            this.btnProcesar.Enabled = false;
             this.btnProcesar.Location = new System.Drawing.Point(134, 41);
             this.btnProcesar.Name = "btnProcesar";
             this.btnProcesar.Size = new System.Drawing.Size(105, 38);
             this.btnProcesar.TabIndex = 16;
             this.btnProcesar.Text = "Procesar";
+            this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
             // 
             // btnLoadTemplate
             // 
@@ -123,10 +142,40 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // dsProductoTerminado1
+            // colCODIGO
             // 
-            this.dsProductoTerminado1.DataSetName = "dsProductoTerminado";
-            this.dsProductoTerminado1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.colCODIGO.FieldName = "CODIGO";
+            this.colCODIGO.Name = "colCODIGO";
+            this.colCODIGO.Visible = true;
+            this.colCODIGO.VisibleIndex = 0;
+            // 
+            // colDESCRIPCION
+            // 
+            this.colDESCRIPCION.FieldName = "DESCRIPCION";
+            this.colDESCRIPCION.Name = "colDESCRIPCION";
+            this.colDESCRIPCION.Visible = true;
+            this.colDESCRIPCION.VisibleIndex = 1;
+            // 
+            // colINVENTARIO
+            // 
+            this.colINVENTARIO.FieldName = "INVENTARIO";
+            this.colINVENTARIO.Name = "colINVENTARIO";
+            this.colINVENTARIO.Visible = true;
+            this.colINVENTARIO.VisibleIndex = 2;
+            // 
+            // colPRECIOUND
+            // 
+            this.colPRECIOUND.FieldName = "PRECIO UND";
+            this.colPRECIOUND.Name = "colPRECIOUND";
+            this.colPRECIOUND.Visible = true;
+            this.colPRECIOUND.VisibleIndex = 3;
+            // 
+            // colGRUPO
+            // 
+            this.colGRUPO.FieldName = "GRUPO";
+            this.colGRUPO.Name = "colGRUPO";
+            this.colGRUPO.Visible = true;
+            this.colGRUPO.VisibleIndex = 4;
             // 
             // frmPTCargarMasivo
             // 
@@ -141,8 +190,8 @@
             this.Controls.Add(this.labelControl1);
             this.Name = "frmPTCargarMasivo";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -159,5 +208,10 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private dsProductoTerminado dsProductoTerminado1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCODIGO;
+        private DevExpress.XtraGrid.Columns.GridColumn colDESCRIPCION;
+        private DevExpress.XtraGrid.Columns.GridColumn colINVENTARIO;
+        private DevExpress.XtraGrid.Columns.GridColumn colPRECIOUND;
+        private DevExpress.XtraGrid.Columns.GridColumn colGRUPO;
     }
 }

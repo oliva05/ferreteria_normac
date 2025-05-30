@@ -86,6 +86,7 @@
             this.TabAdmin = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageCRUDS = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.btnConfigComisiones = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
@@ -1148,6 +1149,7 @@
             // 
             this.xtraTabPageCRUDS.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xtraTabPageCRUDS.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPageCRUDS.Controls.Add(this.simpleButton9);
             this.xtraTabPageCRUDS.Controls.Add(this.btnConfigComisiones);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton8);
             this.xtraTabPageCRUDS.Controls.Add(this.simpleButton7);
@@ -1169,6 +1171,20 @@
             this.xtraTabPageCRUDS.Name = "xtraTabPageCRUDS";
             this.xtraTabPageCRUDS.Size = new System.Drawing.Size(944, 495);
             this.xtraTabPageCRUDS.Text = "Mantenimientos";
+            // 
+            // simpleButton9
+            // 
+            this.simpleButton9.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton9.Appearance.Options.UseFont = true;
+            this.simpleButton9.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton9.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.Setting;
+            this.simpleButton9.Location = new System.Drawing.Point(701, 188);
+            this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.Size = new System.Drawing.Size(227, 58);
+            this.simpleButton9.TabIndex = 43;
+            this.simpleButton9.Text = "Carga Masiva";
+            this.simpleButton9.Visible = false;
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click_1);
             // 
             // btnConfigComisiones
             // 
@@ -5167,5 +5183,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem108;
         private DevExpress.XtraNavBar.NavBarItem navBarItem109;
         private DevExpress.XtraNavBar.NavBarItem navBarItem110;
+        private DevExpress.XtraEditors.SimpleButton simpleButton9;
     }
 }
