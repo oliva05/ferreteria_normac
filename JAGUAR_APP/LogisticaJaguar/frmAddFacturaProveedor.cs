@@ -364,16 +364,43 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void cmdAddFactura_Click(object sender, EventArgs e)
         {
+            DataTable tablaPT = new DataTable();
             frmSearchItemsMulti frm = new frmSearchItemsMulti();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                DataTable tablaPT = new DataTable();
+                
                 tablaPT = frm.ListProductosSeleccionados;
             }
 
 
-            
+            int count_lines = dsLogisticaJaguar1.detalle_recepcion_fact.Rows.Count;
 
+            foreach (DataRow item in tablaPT.Rows)
+            {
+                dsLogisticaJaguar.detalle_recepcion_factRow row1 = dsLogisticaJaguar1.detalle_recepcion_fact.Newdetalle_recepcion_factRow();
+                row1.cantidad = 0;
+                row1.cantidad_ingreso = 0;
+                row1.id_ud_medida_prv = 1;
+                row1.id_ud_medida_jaguar = 1;
+                row1.id_mp = Convert.ToInt32(item["id"]);
+                //row1.ItemCode = item["code"].ToString();
+                row1.total_fila = 0;
+
+                row1.num_linea = count_lines + 1;
+                row1.id_bodega = 1;
+                dsLogisticaJaguar1.detalle_recepcion_fact.Adddetalle_recepcion_factRow(row1);
+                dsLogisticaJaguar1.AcceptChanges();
+            }
+
+            if (dsLogisticaJaguar1.detalle_recepcion_fact.Count > 1)
+            {
+                int filai = 1;
+                foreach (dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
+                {
+                    row.num_linea = filai;
+                    filai++;
+                }
+            }
 
             //int count_lines = dsLogisticaJaguar1.detalle_recepcion_fact.Rows.Count;
 
