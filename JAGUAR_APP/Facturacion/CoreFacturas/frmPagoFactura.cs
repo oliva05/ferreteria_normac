@@ -12,6 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
@@ -71,6 +72,35 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             
             SetRadioButtonFormatt();
             GetPrintersNames();
+            GetBancos();
+        }
+
+        private void GetBancos()
+        {
+            //sp_get_lista_bancos_finanzas
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_lista_bancos_finanzas]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
+                //cmd.Parameters.AddWithValue("@desde", dtDesde.EditValue);
+                //cmd.Parameters.AddWithValue("@hasta", dtHasta.EditValue);
+
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsRegistroPagos1.bancos_list.Clear();
+                dsRegistroPagos1.bancos_listDeposito.Clear();
+                adat.Fill(dsRegistroPagos1.bancos_list);
+                adat.Fill(dsRegistroPagos1.bancos_listDeposito);
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
         }
 
         private void SetRadioButtonFormatt()
@@ -307,13 +337,13 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 IdFormato = Convert.ToInt32(radioGroup1.EditValue);
             }
 
-            AgregarPago(1, "Efectivo", varPago,"N/D");
+            AgregarPago(1, "Efectivo", varPago,"N/D",0,"N/D", "N/D");
 
             //this.DialogResult = DialogResult.OK;
             //this.Close();
         }
 
-        private void AgregarPago(int IdPago, string NombrePago, decimal vValor, string pReferencia)
+        private void AgregarPago(int IdPago, string NombrePago, decimal vValor, string pReferencia, int pIdBanco, string pNumeroCheque, string pEmisorCheque)
         {
             Saldo = 0;
             int ExistePreviamente = 0;
@@ -336,6 +366,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 row1.valor = vValor;
                 row1.tipo_id = IdPago;
                 row1.referencia = pReferencia;
+                row1.id_banco = pIdBanco;
+                row1.numero_cheque = NumeroCheque;
+                row1.emisor_cheque = pEmisorCheque;
 
                 dsRegistroPagos1.resumen_pago.Addresumen_pagoRow(row1);
                 dsRegistroPagos1.AcceptChanges();
@@ -350,7 +383,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
                     //if (row.id == 3)//Deposito Bancario
                     row.referencia = pReferencia;
-
+                    row.id_banco = pIdBanco;
+                    row.numero_cheque = NumeroCheque;
+                    row.emisor_cheque = pEmisorCheque;
                     //SumaTotal += vValor;
                 }
 
@@ -455,7 +490,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 IdFormato = Convert.ToInt32(radioGroup1.EditValue);
             }
 
-            AgregarPago(2, "Tarjeta", varPago, "N/D");
+            AgregarPago(2, "Tarjeta", varPago, "N/D", 0, "N/D", "N/D");
             //this.DialogResult = DialogResult.OK;
             //this.Close();
         }
@@ -509,7 +544,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             {
                 IdFormato = Convert.ToInt32(radioGroup1.EditValue);
             }
-            AgregarPago(3, "Deposito Bancario", varPago, ReferenciaReciboPago);
+            AgregarPago(3, "Deposito Bancario", varPago, ReferenciaReciboPago, dp.ValidateNumberInt32(gleBancoDeposito.EditValue), "N/D", "N/D");
             //this.DialogResult = DialogResult.OK;
             //this.Close();
         }
@@ -600,15 +635,35 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 RegistroPago PagoParcial = new RegistroPago();
                 PagoParcial.Id = row.id;
 
-                if (row.id == 3)
+                if (row.id == 3)//Deposito bancario
+                {
                     PagoParcial.Referencia = row.referencia;
+                    PagoParcial.id_banco = row.id_banco;
+                }
                 else
+                {
                     PagoParcial.Referencia = "N/D";
+                }
+
+                if (row.id == 4)//Cheque
+                {
+                    //PagoParcial.Referencia = row.referencia;
+                    PagoParcial.id_banco = row.id_banco;
+                    PagoParcial.EmisorCheque = row.emisor_cheque;
+                    PagoParcial.NumeroCheque = row.numero_cheque;
+                }
+                else
+                {
+                    PagoParcial.Referencia = "N/D";
+                    PagoParcial.EmisorCheque = "N/D";
+                    PagoParcial.NumeroCheque = "N/D";
+                }
 
                 PagoParcial.IdTipo = row.tipo_id;
 
                 PagoParcial.Description = row.descripcion;
                 PagoParcial.Valor = row.valor;
+
                 ListaDetallePago.Add(PagoParcial);
             }
 
@@ -642,23 +697,36 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             }
 
             if (!string.IsNullOrEmpty(txtNumeroCheque.Text))
-            { NumeroCheque = txtNumeroCheque.Text; }
+            {
+                NumeroCheque = txtNumeroCheque.Text;
+            }
             else
             {
-                NumeroCheque = "N/D";
+                //NumeroCheque = "N/D";
                 CajaDialogo.Error("Ingrese el numero del cheque!");
+                return;
             }
 
             if (!string.IsNullOrEmpty(txtNombreEmisorCheque.Text))
+            {
                 NombreEmisorCheque = txtNombreEmisorCheque.Text;
+            }
             else
-                NombreEmisorCheque = "N/D";
+            {
+                //NombreEmisorCheque = "N/D";
+                CajaDialogo.Error("Ingrese el nombre del emisor del cheque!");
+                return;
+            }
 
             if (!string.IsNullOrEmpty(gleBancosList.Text))
-                BancoId = dp.ValidateNumberInt32( gleBancosList.EditValue);
+            {
+                BancoId = dp.ValidateNumberInt32(gleBancosList.EditValue);
+            }
             else
-                BancoId = 0;
-            
+            {
+                CajaDialogo.Error("Ingrese el nombre del banco emisor del cheque!");
+                return;
+            }
 
 
 
@@ -666,9 +734,15 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             {
                 IdFormato = Convert.ToInt32(radioGroup1.EditValue);
             }
-            AgregarPago(3, "Deposito Bancario", varPago, ReferenciaReciboPago);
+            AgregarPago(4, "Cheque", varPago, ReferenciaReciboPago,dp.ValidateNumberInt32(gleBancosList.EditValue),NumeroCheque, NombreEmisorCheque);
             //this.DialogResult = DialogResult.OK;
             //this.Close();
+        }
+
+        private void cmdCerrar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }
