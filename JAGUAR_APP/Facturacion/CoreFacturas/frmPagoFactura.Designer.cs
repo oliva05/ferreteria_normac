@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPagoFactura));
             this.tabPagos = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -67,6 +68,24 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.gleBancosList = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.label29 = new System.Windows.Forms.Label();
+            this.txtNombreEmisorCheque = new DevExpress.XtraEditors.MemoEdit();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtNumeroCheque = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cmdAgregarPagoCheque = new DevExpress.XtraEditors.SimpleButton();
+            this.ListBoxCheque = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txtValorPagarChque = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.radioGroup4 = new DevExpress.XtraEditors.RadioGroup();
+            this.cmdValorCheque = new DevExpress.XtraEditors.SpinEdit();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.cmdEfectivo = new DevExpress.XtraEditors.SimpleButton();
             this.cmdTarjeta = new DevExpress.XtraEditors.SimpleButton();
             this.cmdDepositoBancario = new DevExpress.XtraEditors.SimpleButton();
@@ -87,6 +106,10 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.lblSaldo = new System.Windows.Forms.Label();
+            this.cmdCheque = new DevExpress.XtraEditors.SimpleButton();
+            this.bsBancosList = new System.Windows.Forms.BindingSource(this.components);
+            this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabPagos)).BeginInit();
             this.tabPagos.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -99,9 +122,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.ListboxPrintersTransferencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
+            this.xtraTabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gleBancosList.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNombreEmisorCheque.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListBoxCheque)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdValorCheque.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsBancosList)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPagos
@@ -111,12 +142,13 @@
             this.tabPagos.Location = new System.Drawing.Point(209, 23);
             this.tabPagos.Name = "tabPagos";
             this.tabPagos.SelectedTabPage = this.xtraTabPage1;
-            this.tabPagos.Size = new System.Drawing.Size(355, 378);
+            this.tabPagos.Size = new System.Drawing.Size(355, 476);
             this.tabPagos.TabIndex = 0;
             this.tabPagos.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
             this.xtraTabPage2,
-            this.xtraTabPage3});
+            this.xtraTabPage3,
+            this.xtraTabPage4});
             // 
             // xtraTabPage1
             // 
@@ -135,7 +167,7 @@
             this.xtraTabPage1.Controls.Add(this.label2);
             this.xtraTabPage1.Controls.Add(this.label1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(353, 353);
+            this.xtraTabPage1.Size = new System.Drawing.Size(353, 447);
             this.xtraTabPage1.Text = "Detalles del Pago";
             // 
             // ListboxPrintersEfectivo
@@ -143,7 +175,7 @@
             this.ListboxPrintersEfectivo.CheckMode = DevExpress.XtraEditors.CheckMode.Single;
             this.ListboxPrintersEfectivo.Location = new System.Drawing.Point(115, 203);
             this.ListboxPrintersEfectivo.Name = "ListboxPrintersEfectivo";
-            this.ListboxPrintersEfectivo.Size = new System.Drawing.Size(236, 96);
+            this.ListboxPrintersEfectivo.Size = new System.Drawing.Size(227, 145);
             this.ListboxPrintersEfectivo.TabIndex = 33;
             this.ListboxPrintersEfectivo.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.ListboxPrinters_ItemCheck);
             // 
@@ -163,7 +195,7 @@
             this.cmdPagar.Appearance.Options.UseFont = true;
             this.cmdPagar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdPagar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdPagar.ImageOptions.Image")));
-            this.cmdPagar.Location = new System.Drawing.Point(85, 305);
+            this.cmdPagar.Location = new System.Drawing.Point(81, 359);
             this.cmdPagar.Name = "cmdPagar";
             this.cmdPagar.Size = new System.Drawing.Size(212, 45);
             this.cmdPagar.TabIndex = 31;
@@ -281,7 +313,7 @@
             this.xtraTabPage2.Controls.Add(this.label10);
             this.xtraTabPage2.Controls.Add(this.label11);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(353, 353);
+            this.xtraTabPage2.Size = new System.Drawing.Size(353, 447);
             this.xtraTabPage2.Text = "Detalles del Pago";
             // 
             // simpleButton1
@@ -290,7 +322,7 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(85, 300);
+            this.simpleButton1.Location = new System.Drawing.Point(74, 359);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(212, 45);
             this.simpleButton1.TabIndex = 25;
@@ -302,7 +334,7 @@
             this.ListboxPrintersTarjeta.CheckMode = DevExpress.XtraEditors.CheckMode.Single;
             this.ListboxPrintersTarjeta.Location = new System.Drawing.Point(96, 172);
             this.ListboxPrintersTarjeta.Name = "ListboxPrintersTarjeta";
-            this.ListboxPrintersTarjeta.Size = new System.Drawing.Size(236, 122);
+            this.ListboxPrintersTarjeta.Size = new System.Drawing.Size(236, 176);
             this.ListboxPrintersTarjeta.TabIndex = 24;
             this.ListboxPrintersTarjeta.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.checkedListBoxControl1_ItemCheck);
             // 
@@ -408,7 +440,7 @@
             this.xtraTabPage3.Controls.Add(this.label14);
             this.xtraTabPage3.Controls.Add(this.label15);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(353, 353);
+            this.xtraTabPage3.Size = new System.Drawing.Size(353, 447);
             this.xtraTabPage3.Text = "Detalles del Pago";
             // 
             // txtReferencia
@@ -441,7 +473,7 @@
             this.simpleButton2.Appearance.Options.UseBorderColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton2.Location = new System.Drawing.Point(91, 305);
+            this.simpleButton2.Location = new System.Drawing.Point(98, 358);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(145, 46);
             this.simpleButton2.TabIndex = 38;
@@ -453,7 +485,7 @@
             this.ListboxPrintersTransferencia.CheckMode = DevExpress.XtraEditors.CheckMode.Single;
             this.ListboxPrintersTransferencia.Location = new System.Drawing.Point(113, 212);
             this.ListboxPrintersTransferencia.Name = "ListboxPrintersTransferencia";
-            this.ListboxPrintersTransferencia.Size = new System.Drawing.Size(231, 87);
+            this.ListboxPrintersTransferencia.Size = new System.Drawing.Size(231, 140);
             this.ListboxPrintersTransferencia.TabIndex = 37;
             this.ListboxPrintersTransferencia.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.checkedListBoxControl2_ItemCheck);
             // 
@@ -548,6 +580,215 @@
             this.label15.TabIndex = 29;
             this.label15.Text = "Pago con Transferencia";
             // 
+            // xtraTabPage4
+            // 
+            this.xtraTabPage4.Controls.Add(this.gleBancosList);
+            this.xtraTabPage4.Controls.Add(this.label29);
+            this.xtraTabPage4.Controls.Add(this.txtNombreEmisorCheque);
+            this.xtraTabPage4.Controls.Add(this.label28);
+            this.xtraTabPage4.Controls.Add(this.txtNumeroCheque);
+            this.xtraTabPage4.Controls.Add(this.label22);
+            this.xtraTabPage4.Controls.Add(this.cmdAgregarPagoCheque);
+            this.xtraTabPage4.Controls.Add(this.ListBoxCheque);
+            this.xtraTabPage4.Controls.Add(this.label23);
+            this.xtraTabPage4.Controls.Add(this.txtValorPagarChque);
+            this.xtraTabPage4.Controls.Add(this.label24);
+            this.xtraTabPage4.Controls.Add(this.radioGroup4);
+            this.xtraTabPage4.Controls.Add(this.cmdValorCheque);
+            this.xtraTabPage4.Controls.Add(this.label25);
+            this.xtraTabPage4.Controls.Add(this.label26);
+            this.xtraTabPage4.Controls.Add(this.label27);
+            this.xtraTabPage4.Name = "xtraTabPage4";
+            this.xtraTabPage4.Size = new System.Drawing.Size(353, 447);
+            this.xtraTabPage4.Text = "Detalles del Pago";
+            // 
+            // gleBancosList
+            // 
+            this.gleBancosList.Location = new System.Drawing.Point(169, 100);
+            this.gleBancosList.Name = "gleBancosList";
+            this.gleBancosList.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.gleBancosList.Properties.Appearance.Options.UseFont = true;
+            this.gleBancosList.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gleBancosList.Properties.DataSource = this.bsBancosList;
+            this.gleBancosList.Properties.DisplayMember = "descripcion";
+            this.gleBancosList.Properties.NullText = "";
+            this.gleBancosList.Properties.PopupView = this.gridLookUpEdit1View;
+            this.gleBancosList.Properties.ValueMember = "id";
+            this.gleBancosList.Size = new System.Drawing.Size(178, 28);
+            this.gleBancosList.TabIndex = 56;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid1,
+            this.coldescripcion1});
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(6, 103);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(57, 21);
+            this.label29.TabIndex = 55;
+            this.label29.Text = "Banco";
+            // 
+            // txtNombreEmisorCheque
+            // 
+            this.txtNombreEmisorCheque.Location = new System.Drawing.Point(169, 167);
+            this.txtNombreEmisorCheque.Name = "txtNombreEmisorCheque";
+            this.txtNombreEmisorCheque.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txtNombreEmisorCheque.Properties.Appearance.Options.UseFont = true;
+            this.txtNombreEmisorCheque.Size = new System.Drawing.Size(178, 66);
+            this.txtNombreEmisorCheque.TabIndex = 54;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label28.Location = new System.Drawing.Point(6, 244);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(74, 21);
+            this.label28.TabIndex = 53;
+            this.label28.Text = "Formato";
+            // 
+            // txtNumeroCheque
+            // 
+            this.txtNumeroCheque.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroCheque.Location = new System.Drawing.Point(169, 133);
+            this.txtNumeroCheque.Name = "txtNumeroCheque";
+            this.txtNumeroCheque.Size = new System.Drawing.Size(178, 29);
+            this.txtNumeroCheque.TabIndex = 52;
+            this.txtNumeroCheque.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(6, 138);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(127, 21);
+            this.label22.TabIndex = 51;
+            this.label22.Text = "No. del Cheque";
+            // 
+            // cmdAgregarPagoCheque
+            // 
+            this.cmdAgregarPagoCheque.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdAgregarPagoCheque.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdAgregarPagoCheque.Appearance.BorderColor = System.Drawing.Color.LightGray;
+            this.cmdAgregarPagoCheque.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cmdAgregarPagoCheque.Appearance.Options.UseBackColor = true;
+            this.cmdAgregarPagoCheque.Appearance.Options.UseBorderColor = true;
+            this.cmdAgregarPagoCheque.Appearance.Options.UseFont = true;
+            this.cmdAgregarPagoCheque.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdAgregarPagoCheque.Location = new System.Drawing.Point(101, 390);
+            this.cmdAgregarPagoCheque.Name = "cmdAgregarPagoCheque";
+            this.cmdAgregarPagoCheque.Size = new System.Drawing.Size(145, 46);
+            this.cmdAgregarPagoCheque.TabIndex = 50;
+            this.cmdAgregarPagoCheque.Text = "Agregar";
+            this.cmdAgregarPagoCheque.Click += new System.EventHandler(this.cmdAgregarPagoCheque_Click);
+            // 
+            // ListBoxCheque
+            // 
+            this.ListBoxCheque.CheckMode = DevExpress.XtraEditors.CheckMode.Single;
+            this.ListBoxCheque.Location = new System.Drawing.Point(119, 306);
+            this.ListBoxCheque.Name = "ListBoxCheque";
+            this.ListBoxCheque.Size = new System.Drawing.Size(231, 78);
+            this.ListBoxCheque.TabIndex = 49;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label23.Location = new System.Drawing.Point(6, 306);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(87, 21);
+            this.label23.TabIndex = 48;
+            this.label23.Text = "Impresora";
+            // 
+            // txtValorPagarChque
+            // 
+            this.txtValorPagarChque.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorPagarChque.Location = new System.Drawing.Point(169, 33);
+            this.txtValorPagarChque.Name = "txtValorPagarChque";
+            this.txtValorPagarChque.ReadOnly = true;
+            this.txtValorPagarChque.Size = new System.Drawing.Size(178, 29);
+            this.txtValorPagarChque.TabIndex = 47;
+            this.txtValorPagarChque.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label24.Location = new System.Drawing.Point(6, 168);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(157, 21);
+            this.label24.TabIndex = 46;
+            this.label24.Text = "Nombre del Emisor";
+            // 
+            // radioGroup4
+            // 
+            this.radioGroup4.Location = new System.Drawing.Point(119, 239);
+            this.radioGroup4.Name = "radioGroup4";
+            this.radioGroup4.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioGroup4.Properties.Appearance.Options.UseFont = true;
+            this.radioGroup4.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "3.5 pulg. cinta"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "8x11.5 pulg. Carta")});
+            this.radioGroup4.Size = new System.Drawing.Size(228, 61);
+            this.radioGroup4.TabIndex = 45;
+            // 
+            // cmdValorCheque
+            // 
+            this.cmdValorCheque.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cmdValorCheque.Location = new System.Drawing.Point(169, 65);
+            this.cmdValorCheque.Name = "cmdValorCheque";
+            this.cmdValorCheque.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.cmdValorCheque.Properties.Appearance.Options.UseFont = true;
+            this.cmdValorCheque.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmdValorCheque.Size = new System.Drawing.Size(178, 32);
+            this.cmdValorCheque.TabIndex = 44;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(6, 71);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(140, 21);
+            this.label25.TabIndex = 43;
+            this.label25.Text = "Valor del Cheque";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(6, 38);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(111, 21);
+            this.label26.TabIndex = 42;
+            this.label26.Text = "Valor a Pagar";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label27.Location = new System.Drawing.Point(96, 6);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(168, 25);
+            this.label27.TabIndex = 41;
+            this.label27.Text = "Pago con Cheque";
+            // 
             // cmdEfectivo
             // 
             this.cmdEfectivo.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -565,7 +806,7 @@
             this.cmdTarjeta.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdTarjeta.Appearance.Options.UseFont = true;
             this.cmdTarjeta.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdTarjeta.ImageOptions.Image")));
-            this.cmdTarjeta.Location = new System.Drawing.Point(3, 168);
+            this.cmdTarjeta.Location = new System.Drawing.Point(4, 154);
             this.cmdTarjeta.Name = "cmdTarjeta";
             this.cmdTarjeta.Size = new System.Drawing.Size(200, 92);
             this.cmdTarjeta.TabIndex = 2;
@@ -577,7 +818,7 @@
             this.cmdDepositoBancario.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdDepositoBancario.Appearance.Options.UseFont = true;
             this.cmdDepositoBancario.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdDepositoBancario.ImageOptions.Image")));
-            this.cmdDepositoBancario.Location = new System.Drawing.Point(3, 309);
+            this.cmdDepositoBancario.Location = new System.Drawing.Point(3, 276);
             this.cmdDepositoBancario.Name = "cmdDepositoBancario";
             this.cmdDepositoBancario.Size = new System.Drawing.Size(200, 92);
             this.cmdDepositoBancario.TabIndex = 3;
@@ -741,13 +982,44 @@
             this.lblSaldo.Text = "L 0.00";
             this.lblSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // cmdCheque
+            // 
+            this.cmdCheque.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdCheque.Appearance.Options.UseFont = true;
+            this.cmdCheque.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCheque.ImageOptions.Image")));
+            this.cmdCheque.Location = new System.Drawing.Point(3, 397);
+            this.cmdCheque.Name = "cmdCheque";
+            this.cmdCheque.Size = new System.Drawing.Size(200, 92);
+            this.cmdCheque.TabIndex = 45;
+            this.cmdCheque.Text = "Cheque";
+            this.cmdCheque.Click += new System.EventHandler(this.cmdCheque_Click);
+            // 
+            // bsBancosList
+            // 
+            this.bsBancosList.DataMember = "bancos_list";
+            this.bsBancosList.DataSource = this.dsRegistroPagos1;
+            // 
+            // colid1
+            // 
+            this.colid1.FieldName = "id";
+            this.colid1.Name = "colid1";
+            // 
+            // coldescripcion1
+            // 
+            this.coldescripcion1.Caption = "Elija el Banco";
+            this.coldescripcion1.FieldName = "descripcion";
+            this.coldescripcion1.Name = "coldescripcion1";
+            this.coldescripcion1.Visible = true;
+            this.coldescripcion1.VisibleIndex = 0;
+            // 
             // frmPagoFactura
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 405);
+            this.ClientSize = new System.Drawing.Size(897, 501);
+            this.Controls.Add(this.cmdCheque);
             this.Controls.Add(this.lblSaldo);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
@@ -779,9 +1051,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.ListboxPrintersTransferencia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
+            this.xtraTabPage4.ResumeLayout(false);
+            this.xtraTabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gleBancosList.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNombreEmisorCheque.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListBoxCheque)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdValorCheque.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsBancosList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -847,5 +1128,27 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label lblSaldo;
         private DevExpress.XtraGrid.Columns.GridColumn colreferencia;
+        private DevExpress.XtraEditors.SimpleButton cmdCheque;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtNumeroCheque;
+        private System.Windows.Forms.Label label22;
+        private DevExpress.XtraEditors.SimpleButton cmdAgregarPagoCheque;
+        private DevExpress.XtraEditors.CheckedListBoxControl ListBoxCheque;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox txtValorPagarChque;
+        private System.Windows.Forms.Label label24;
+        private DevExpress.XtraEditors.RadioGroup radioGroup4;
+        private DevExpress.XtraEditors.SpinEdit cmdValorCheque;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private DevExpress.XtraEditors.MemoEdit txtNombreEmisorCheque;
+        private System.Windows.Forms.Label label29;
+        private DevExpress.XtraEditors.GridLookUpEdit gleBancosList;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private System.Windows.Forms.BindingSource bsBancosList;
+        private DevExpress.XtraGrid.Columns.GridColumn colid1;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion1;
     }
 }
