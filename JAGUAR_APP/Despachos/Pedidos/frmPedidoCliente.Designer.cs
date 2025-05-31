@@ -30,6 +30,7 @@ namespace Eatery.Ventas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPedidoCliente));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -49,16 +50,17 @@ namespace Eatery.Ventas
             this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
             this.panelNotificacion = new System.Windows.Forms.Panel();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.timerLimpiarMensaje = new System.Windows.Forms.Timer();
+            this.timerLimpiarMensaje = new System.Windows.Forms.Timer(this.components);
             this.lblfecha = new System.Windows.Forms.Label();
             this.dsVentas1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsVentas();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.cmdCopiarDesde = new DevExpress.XtraEditors.SimpleButton();
             this.ckConfirmarPedido = new DevExpress.XtraEditors.CheckEdit();
             this.ckGenerarCotizacion = new DevExpress.XtraEditors.CheckEdit();
             this.cmdConfirmarFactura = new DevExpress.XtraEditors.SimpleButton();
             this.gleEstados = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.bsEstadosFacturas = new System.Windows.Forms.BindingSource();
+            this.bsEstadosFacturas = new System.Windows.Forms.BindingSource(this.components);
             this.dsPedidosVentas1 = new JAGUAR_PRO.Despachos.Pedidos.dsPedidosVentas();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -99,10 +101,10 @@ namespace Eatery.Ventas
             this.colGestionAlmacen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdElejirAlmacen = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colinventario_seleccionado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bsBancos = new System.Windows.Forms.BindingSource();
+            this.bsBancos = new System.Windows.Forms.BindingSource(this.components);
             this.dsPedidosClientesV1 = new JAGUAR_PRO.Despachos.Pedidos.dsPedidosClientesV();
-            this.bsTipoPago = new System.Windows.Forms.BindingSource();
-            this.cmdCopiarDesde = new DevExpress.XtraEditors.SimpleButton();
+            this.bsTipoPago = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvLecturaCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCliente.Properties)).BeginInit();
             this.panelNotificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsVentas1)).BeginInit();
@@ -129,6 +131,7 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.bsBancos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPedidosClientesV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTipoPago)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvLecturaCodigo)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombreCliente
@@ -266,7 +269,6 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
-            this.navigationPage1.Caption = "navigationPage1";
             this.navigationPage1.Controls.Add(this.cmdCopiarDesde);
             this.navigationPage1.Controls.Add(this.txtTotal);
             this.navigationPage1.Controls.Add(this.ckConfirmarPedido);
@@ -302,6 +304,19 @@ namespace Eatery.Ventas
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(1155, 675);
             this.navigationPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.navigationPage1_Paint);
+            // 
+            // cmdCopiarDesde
+            // 
+            this.cmdCopiarDesde.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdCopiarDesde.Appearance.Options.UseFont = true;
+            this.cmdCopiarDesde.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdCopiarDesde.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCopiarDesde.ImageOptions.SvgImage")));
+            this.cmdCopiarDesde.Location = new System.Drawing.Point(600, 119);
+            this.cmdCopiarDesde.Name = "cmdCopiarDesde";
+            this.cmdCopiarDesde.Size = new System.Drawing.Size(172, 38);
+            this.cmdCopiarDesde.TabIndex = 60;
+            this.cmdCopiarDesde.Text = "Copiar desde";
+            this.cmdCopiarDesde.Click += new System.EventHandler(this.cmdCopiarDesde_Click);
             // 
             // ckConfirmarPedido
             // 
@@ -407,7 +422,6 @@ namespace Eatery.Ventas
             this.label11.Size = new System.Drawing.Size(61, 20);
             this.label11.TabIndex = 54;
             this.label11.Text = "Código";
-            this.label11.Visible = false;
             // 
             // cmdChangeVendedor
             // 
@@ -575,7 +589,6 @@ namespace Eatery.Ventas
             this.txtScanProducto.Properties.NullValuePrompt = "Leer código de Producto";
             this.txtScanProducto.Size = new System.Drawing.Size(215, 30);
             this.txtScanProducto.TabIndex = 30;
-            this.txtScanProducto.Visible = false;
             this.txtScanProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtScanProducto_KeyDown);
             // 
             // gridControl1
@@ -798,18 +811,9 @@ namespace Eatery.Ventas
             this.bsTipoPago.DataMember = "tipo_pagos";
             this.bsTipoPago.DataSource = this.dsPedidosClientesV1;
             // 
-            // cmdCopiarDesde
+            // errorProvLecturaCodigo
             // 
-            this.cmdCopiarDesde.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cmdCopiarDesde.Appearance.Options.UseFont = true;
-            this.cmdCopiarDesde.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdCopiarDesde.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCopiarFromPedido.ImageOptions.SvgImage")));
-            this.cmdCopiarDesde.Location = new System.Drawing.Point(600, 119);
-            this.cmdCopiarDesde.Name = "cmdCopiarDesde";
-            this.cmdCopiarDesde.Size = new System.Drawing.Size(172, 38);
-            this.cmdCopiarDesde.TabIndex = 60;
-            this.cmdCopiarDesde.Text = "Copiar desde";
-            this.cmdCopiarDesde.Click += new System.EventHandler(this.cmdCopiarDesde_Click);
+            this.errorProvLecturaCodigo.ContainerControl = this;
             // 
             // frmPedidoCliente
             // 
@@ -849,6 +853,7 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.bsBancos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPedidosClientesV1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTipoPago)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvLecturaCodigo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -916,5 +921,6 @@ namespace Eatery.Ventas
         private DevExpress.XtraEditors.CheckEdit ckConfirmarPedido;
         private DevExpress.XtraEditors.CheckEdit ckGenerarCotizacion;
         private DevExpress.XtraEditors.SimpleButton cmdCopiarDesde;
+        private System.Windows.Forms.ErrorProvider errorProvLecturaCodigo;
     }
 }
