@@ -142,10 +142,16 @@ namespace Eatery.Ventas
                 if (ClienteFactura == null)
                     ClienteFactura = new ClienteFacturacion();
 
-                this.UsuarioLogeado = new UserLogin();
-                if (UsuarioLogeado.RecuperarRegistro(Pedido1.IdUser))
+                //this.UsuarioLogeado = new UserLogin();
+                //if (UsuarioLogeado.RecuperarRegistro(Pedido1.IdUser))
+                //{
+                //    txtVendedor.Text = UsuarioLogeado.Codigo + " - " + UsuarioLogeado.NombreUser;
+                //}
+                VendedorActual = new Vendedor();
+                if (VendedorActual.RecuperarRegistro(Pedido1.Id_Vendedor))
                 {
-                    txtVendedor.Text = UsuarioLogeado.Codigo + " - " + UsuarioLogeado.NombreUser;
+                    txtVendedor.Text = VendedorActual.CodigoVendedor + " - " + VendedorActual.Nombre;
+                    
                 }
 
                 PedidoRecuperado = Pedido1;
@@ -568,7 +574,9 @@ namespace Eatery.Ventas
                             factura.IdCliente = ClienteFactura.Id;
 
                     factura.FechaDocumento = dp.NowSetDateTime();
-                    
+
+                    if (this.VendedorActual != null)
+                        factura.IdVendedor = this.VendedorActual.Id;
 
                     //1   Emitida
                     //2   Pagada
@@ -852,7 +860,10 @@ namespace Eatery.Ventas
                                 factura.IdCliente = ClienteFactura.Id;
 
                         factura.FechaDocumento = dp.NowSetDateTime();
-                        
+
+                        if (this.VendedorActual != null)
+                            factura.IdVendedor = this.VendedorActual.Id;
+
                         //1   Emitida
                         //2   Pagada
                         //3   Anulada
@@ -1025,7 +1036,7 @@ namespace Eatery.Ventas
                                 if (factura.IdVendedor == 0)
                                     command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
                                 else
-                                    command.Parameters.AddWithValue("@id_vendedor", IdPedido);
+                                    command.Parameters.AddWithValue("@id_vendedor", factura.IdVendedor);
                                 
 
                                 Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
@@ -2283,7 +2294,7 @@ namespace Eatery.Ventas
             {
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("[sp_get_pedido_detalle_for_factura_final]", conn);
+                SqlCommand cmd = new SqlCommand("[sp_get_pedido_detalle_for_factura_final_with_inv]", conn);
                 cmd.CommandType = CommandType.StoredProcedure; ;
                 cmd.Parameters.AddWithValue("@id_h", pIdCotizacion);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);

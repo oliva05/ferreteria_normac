@@ -50,5 +50,35 @@ namespace JAGUAR_PRO.Clases
             }
             return Recuperado;
         }
+        public bool RecuperarRegistro(int pIdVendedor)
+        {
+            Recuperado = false;
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("dbo.[sp_get_vendedor_id_name_and_pin_by_id]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", pIdVendedor);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    Id = Convert.ToInt32(dr["id"]);
+                    Nombre = dr["nombre"].ToString();
+                    PIN = dr["pin"].ToString();
+                    CodigoVendedor = dr["codigo"].ToString();
+                    Recuperado = true;
+                }
+                dr.Close();
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+            return Recuperado;
+        }
     }
 }

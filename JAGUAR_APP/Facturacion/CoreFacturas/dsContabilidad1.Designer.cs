@@ -3219,6 +3219,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             private global::System.Data.DataColumn columnlinea_num;
             
+            private global::System.Data.DataColumn columncheque;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public cierre_caja_detalleDataTable() {
@@ -3334,6 +3336,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn chequeColumn {
+                get {
+                    return this.columncheque;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3369,7 +3379,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public cierre_caja_detalleRow Addcierre_caja_detalleRow(int id_documento, string num_doc, string num_ref, int id_cliente, string NombreCliente, decimal valor, decimal efectivo, decimal tarjeta, decimal banco, int linea_num) {
+            public cierre_caja_detalleRow Addcierre_caja_detalleRow(int id_documento, string num_doc, string num_ref, int id_cliente, string NombreCliente, decimal valor, decimal efectivo, decimal tarjeta, decimal banco, int linea_num, decimal cheque) {
                 cierre_caja_detalleRow rowcierre_caja_detalleRow = ((cierre_caja_detalleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_documento,
@@ -3381,7 +3391,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         efectivo,
                         tarjeta,
                         banco,
-                        linea_num};
+                        linea_num,
+                        cheque};
                 rowcierre_caja_detalleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcierre_caja_detalleRow);
                 return rowcierre_caja_detalleRow;
@@ -3414,6 +3425,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columntarjeta = base.Columns["tarjeta"];
                 this.columnbanco = base.Columns["banco"];
                 this.columnlinea_num = base.Columns["linea_num"];
+                this.columncheque = base.Columns["cheque"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3439,6 +3451,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columnbanco);
                 this.columnlinea_num = new global::System.Data.DataColumn("linea_num", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlinea_num);
+                this.columncheque = new global::System.Data.DataColumn("cheque", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncheque);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6256,6 +6270,22 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cheque {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablecierre_caja_detalle.chequeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cheque\' de la tabla \'cierre_caja_detalle\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecierre_caja_detalle.chequeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_documentoNull() {
                 return this.IsNull(this.tablecierre_caja_detalle.id_documentoColumn);
             }
@@ -6372,6 +6402,18 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setlinea_numNull() {
                 this[this.tablecierre_caja_detalle.linea_numColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IschequeNull() {
+                return this.IsNull(this.tablecierre_caja_detalle.chequeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetchequeNull() {
+                this[this.tablecierre_caja_detalle.chequeColumn] = global::System.Convert.DBNull;
             }
         }
         
