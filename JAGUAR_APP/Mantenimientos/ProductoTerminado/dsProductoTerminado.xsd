@@ -291,9 +291,9 @@
             <xs:sequence>
               <xs:element name="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_UserColumnName="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" type="xs:string" minOccurs="0" />
               <xs:element name="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_UserColumnName="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" type="xs:string" minOccurs="0" />
-              <xs:element name="Disponible" msprop:Generator_ColumnPropNameInTable="DisponibleColumn" msprop:Generator_ColumnPropNameInRow="Disponible" msprop:Generator_UserColumnName="Disponible" msprop:Generator_ColumnVarNameInTable="columnDisponible" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Grupo" msprop:Generator_ColumnPropNameInTable="GrupoColumn" msprop:Generator_ColumnPropNameInRow="Grupo" msprop:Generator_UserColumnName="Grupo" msprop:Generator_ColumnVarNameInTable="columnGrupo" type="xs:string" minOccurs="0" />
-              <xs:element name="Costo" msprop:Generator_ColumnPropNameInRow="Costo" msprop:Generator_ColumnPropNameInTable="CostoColumn" msprop:Generator_ColumnVarNameInTable="columnCosto" msprop:Generator_UserColumnName="Costo" type="xs:string" minOccurs="0" />
+              <xs:element name="Costo" msprop:Generator_UserColumnName="Costo" msprop:Generator_ColumnPropNameInTable="CostoColumn" msprop:Generator_ColumnPropNameInRow="Costo" msprop:Generator_ColumnVarNameInTable="columnCosto" type="xs:string" minOccurs="0" />
+              <xs:element name="codigoEscaneo" msprop:Generator_ColumnPropNameInRow="codigoEscaneo" msprop:Generator_ColumnPropNameInTable="codigoEscaneoColumn" msprop:Generator_ColumnVarNameInTable="columncodigoEscaneo" msprop:Generator_UserColumnName="codigoEscaneo" type="xs:string" minOccurs="0" />
+              <xs:element name="codigoOEM" msprop:Generator_ColumnPropNameInRow="codigoOEM" msprop:Generator_ColumnPropNameInTable="codigoOEMColumn" msprop:Generator_ColumnVarNameInTable="columncodigoOEM" msprop:Generator_UserColumnName="codigoOEM" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

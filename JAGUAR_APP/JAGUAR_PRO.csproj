@@ -29,7 +29,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationRevision>25</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -865,6 +865,12 @@
     </Compile>
     <Compile Include="Compras\frmOCompraAutorizacion.Designer.cs">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmOrdenCompraList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmOrdenCompraList.Designer.cs">
+      <DependentUpon>frmOrdenCompraList.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\frmOrdenesCompraMain.cs">
       <SubType>Form</SubType>
@@ -3917,6 +3923,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmOCompraAutorizacion.resx">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmOrdenCompraList.resx">
+      <DependentUpon>frmOrdenCompraList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmOrdenesCompraMain.resx">
       <DependentUpon>frmOrdenesCompraMain.cs</DependentUpon>
