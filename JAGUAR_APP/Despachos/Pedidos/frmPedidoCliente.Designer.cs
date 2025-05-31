@@ -86,6 +86,7 @@ namespace Eatery.Ventas
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_pt1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colitemcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcodigo_referencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colitemname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -320,6 +321,7 @@ namespace Eatery.Ventas
             // 
             // ckConfirmarPedido
             // 
+            this.ckConfirmarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ckConfirmarPedido.Location = new System.Drawing.Point(846, 544);
             this.ckConfirmarPedido.Name = "ckConfirmarPedido";
             this.ckConfirmarPedido.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
@@ -330,6 +332,7 @@ namespace Eatery.Ventas
             // 
             // ckGenerarCotizacion
             // 
+            this.ckGenerarCotizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ckGenerarCotizacion.Location = new System.Drawing.Point(846, 567);
             this.ckGenerarCotizacion.Name = "ckGenerarCotizacion";
             this.ckGenerarCotizacion.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
@@ -621,6 +624,7 @@ namespace Eatery.Ventas
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid_pt1,
             this.colitemcode,
+            this.colcodigo_referencia,
             this.colitemname,
             this.colcantidad,
             this.colprecio,
@@ -655,7 +659,15 @@ namespace Eatery.Ventas
             this.colitemcode.OptionsColumn.ReadOnly = true;
             this.colitemcode.Visible = true;
             this.colitemcode.VisibleIndex = 0;
-            this.colitemcode.Width = 44;
+            this.colitemcode.Width = 62;
+            // 
+            // colcodigo_referencia
+            // 
+            this.colcodigo_referencia.FieldName = "codigo_referencia";
+            this.colcodigo_referencia.Name = "colcodigo_referencia";
+            this.colcodigo_referencia.Visible = true;
+            this.colcodigo_referencia.VisibleIndex = 1;
+            this.colcodigo_referencia.Width = 99;
             // 
             // colitemname
             // 
@@ -663,8 +675,8 @@ namespace Eatery.Ventas
             this.colitemname.Name = "colitemname";
             this.colitemname.OptionsColumn.ReadOnly = true;
             this.colitemname.Visible = true;
-            this.colitemname.VisibleIndex = 1;
-            this.colitemname.Width = 149;
+            this.colitemname.VisibleIndex = 2;
+            this.colitemname.Width = 211;
             // 
             // colcantidad
             // 
@@ -672,8 +684,8 @@ namespace Eatery.Ventas
             this.colcantidad.Name = "colcantidad";
             this.colcantidad.OptionsColumn.ReadOnly = true;
             this.colcantidad.Visible = true;
-            this.colcantidad.VisibleIndex = 5;
-            this.colcantidad.Width = 49;
+            this.colcantidad.VisibleIndex = 6;
+            this.colcantidad.Width = 79;
             // 
             // colprecio
             // 
@@ -683,8 +695,8 @@ namespace Eatery.Ventas
             this.colprecio.Name = "colprecio";
             this.colprecio.OptionsColumn.ReadOnly = true;
             this.colprecio.Visible = true;
-            this.colprecio.VisibleIndex = 6;
-            this.colprecio.Width = 54;
+            this.colprecio.VisibleIndex = 7;
+            this.colprecio.Width = 94;
             // 
             // coldescuento
             // 
@@ -693,8 +705,8 @@ namespace Eatery.Ventas
             this.coldescuento.FieldName = "descuento";
             this.coldescuento.Name = "coldescuento";
             this.coldescuento.Visible = true;
-            this.coldescuento.VisibleIndex = 7;
-            this.coldescuento.Width = 43;
+            this.coldescuento.VisibleIndex = 8;
+            this.coldescuento.Width = 68;
             // 
             // colisv1
             // 
@@ -705,8 +717,8 @@ namespace Eatery.Ventas
             this.colisv1.Name = "colisv1";
             this.colisv1.OptionsColumn.ReadOnly = true;
             this.colisv1.Visible = true;
-            this.colisv1.VisibleIndex = 8;
-            this.colisv1.Width = 42;
+            this.colisv1.VisibleIndex = 9;
+            this.colisv1.Width = 81;
             // 
             // colisv2
             // 
@@ -726,8 +738,8 @@ namespace Eatery.Ventas
             this.coltotal_linea.Name = "coltotal_linea";
             this.coltotal_linea.OptionsColumn.ReadOnly = true;
             this.coltotal_linea.Visible = true;
-            this.coltotal_linea.VisibleIndex = 9;
-            this.coltotal_linea.Width = 95;
+            this.coltotal_linea.VisibleIndex = 10;
+            this.coltotal_linea.Width = 113;
             // 
             // colDelete
             // 
@@ -735,8 +747,8 @@ namespace Eatery.Ventas
             this.colDelete.ColumnEdit = this.cmdDeleteRowFactura;
             this.colDelete.Name = "colDelete";
             this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 10;
-            this.colDelete.Width = 61;
+            this.colDelete.VisibleIndex = 11;
+            this.colDelete.Width = 76;
             // 
             // cmdDeleteRowFactura
             // 
@@ -757,16 +769,16 @@ namespace Eatery.Ventas
             this.colinventario.Name = "colinventario";
             this.colinventario.OptionsColumn.ReadOnly = true;
             this.colinventario.Visible = true;
-            this.colinventario.VisibleIndex = 2;
-            this.colinventario.Width = 58;
+            this.colinventario.VisibleIndex = 3;
+            this.colinventario.Width = 69;
             // 
             // colbodega_descripcion
             // 
             this.colbodega_descripcion.FieldName = "bodega_descripcion";
             this.colbodega_descripcion.Name = "colbodega_descripcion";
             this.colbodega_descripcion.Visible = true;
-            this.colbodega_descripcion.VisibleIndex = 3;
-            this.colbodega_descripcion.Width = 74;
+            this.colbodega_descripcion.VisibleIndex = 4;
+            this.colbodega_descripcion.Width = 104;
             // 
             // colGestionAlmacen
             // 
@@ -774,8 +786,8 @@ namespace Eatery.Ventas
             this.colGestionAlmacen.ColumnEdit = this.cmdElejirAlmacen;
             this.colGestionAlmacen.Name = "colGestionAlmacen";
             this.colGestionAlmacen.Visible = true;
-            this.colGestionAlmacen.VisibleIndex = 4;
-            this.colGestionAlmacen.Width = 50;
+            this.colGestionAlmacen.VisibleIndex = 5;
+            this.colGestionAlmacen.Width = 65;
             // 
             // cmdElejirAlmacen
             // 
@@ -922,5 +934,6 @@ namespace Eatery.Ventas
         private DevExpress.XtraEditors.CheckEdit ckGenerarCotizacion;
         private DevExpress.XtraEditors.SimpleButton cmdCopiarDesde;
         private System.Windows.Forms.ErrorProvider errorProvLecturaCodigo;
+        private DevExpress.XtraGrid.Columns.GridColumn colcodigo_referencia;
     }
 }

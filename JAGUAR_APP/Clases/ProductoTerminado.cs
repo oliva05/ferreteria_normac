@@ -205,11 +205,12 @@ namespace JAGUAR_PRO.Clases
                         else
                             Code_interno = "N/D";
 
+
                         //if (!dl.IsDBNull(dl.GetOrdinal("id_almacen_estandar")))
                         //    Id_Almacen_standard = dl.GetInt32(23);
                         //else
                         //    Id_Almacen_standard = 0;
-
+                        Codig_Referencia = dl.IsDBNull(29) ? "" : dl.GetString(29);
                         Recuperado = true;
                         //Recuperar_Latas_and_bolsas(Id);
 
