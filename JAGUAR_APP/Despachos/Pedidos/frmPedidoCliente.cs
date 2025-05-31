@@ -1,6 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.CodeParser;
 using DevExpress.XtraBars.Navigation;
+using DevExpress.XtraCharts.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
@@ -72,6 +73,7 @@ namespace Eatery.Ventas
         {
             InitializeComponent();
             TipoOperacionActual = TipoOperacionSQL.Insert;
+            ckConfirmarPedido.Visible = ckGenerarCotizacion.Visible = true;
             ClienteFactura = new ClienteFacturacion();
             IdTerminoPago = 1;
             PuntoDeVentaActual = pPuntoDeVentaActual;
@@ -130,6 +132,8 @@ namespace Eatery.Ventas
         {
             InitializeComponent();
             TipoOperacionActual = TipoOperacionSQL.Update;
+            ckConfirmarPedido.Visible = ckGenerarCotizacion.Visible = false;
+
             LoadEstadosPedidos();
             PedidoActual = new PedidoCliente();
             ClienteFactura = new ClienteFacturacion();
@@ -711,6 +715,9 @@ namespace Eatery.Ventas
             panelNotificacion.BackColor = Color.LightGreen;
             timerLimpiarMensaje.Enabled = true;
             timerLimpiarMensaje.Start();
+            txtComentario.Text = string.Empty;
+            ckConfirmarPedido.Checked = ckGenerarCotizacion.Checked = false;
+            txtTotal.Text = "0.00";
         }
 
         private void cmdFacturar_Click(object sender, EventArgs e)
@@ -2504,7 +2511,11 @@ namespace Eatery.Ventas
                     ElejirInvAlmacen item = new ElejirInvAlmacen();
                     item.id_pt = rowi.id_pt;
                     item.IdBodega = rowi.id_bodega;
-                    item.BodegaName = rowi.bodega_descripcion;
+                    if (rowi.Isbodega_descripcionNull())
+                        item.BodegaName = string.Empty;
+                    else
+                        item.BodegaName = rowi.bodega_descripcion;
+
                     item.CantSeleccionada = rowi.cantidad;
                     item.descuento = rowi.descuento;
                     item.descuento_porcentaje = rowi.descuento_porcentaje;
@@ -2692,6 +2703,12 @@ namespace Eatery.Ventas
                                 command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
                             }
 
+                            int _id_estado = 6;//Nuevo
+                            if (ckConfirmarPedido.Checked)
+                                _id_estado = 1;//Confirmado 
+
+                            command.Parameters.AddWithValue("@id_estado", _id_estado);
+
                             Int64 IdPedidoH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
                             Pedido_.Id = IdPedidoH;
@@ -2726,18 +2743,19 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@fecha_hora_row", Pedido_.FechaDocumento);
                                     command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
                                     command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
-                                    command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+
+                                    if (row.id_bodega == 0)
+                                        command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                                    else
+                                        command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+
                                     command.Parameters.AddWithValue("@isv", row.isv1);
                                     command.Parameters.AddWithValue("@descuento_porcentaje", descuentoPorcentaje);
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }
 
-                                if (ckGenerarCotizacion.Checked)
-                                {
-
-                                }
-
+                                
                                 //if (idPedidoDetalle > 0)
                                 //{
                                 //    //Guardamos la distribucion por almacen de cada detalle de la prefactura 
@@ -2754,6 +2772,18 @@ namespace Eatery.Ventas
                                 //}
 
                                 TotalFactura += (row.cantidad * row.precio) - row.descuento;
+                            }
+
+
+                            if (ckGenerarCotizacion.Checked)
+                            {
+                                //SqlCommand cmd = new SqlCommand("[dbo].[sp_InsertCotizacion]", con);
+                                command.Parameters.Clear();
+                                command.CommandText = "[dbo].[sp_InsertCotizacion]";
+                                command.CommandType = CommandType.StoredProcedure;
+                                command.Parameters.AddWithValue("@id_pedido", IdPedidoH);
+                                command.Parameters.AddWithValue("@id_user", VendedorActual.Id);
+                                command.ExecuteScalar();
                             }
 
 
@@ -2936,7 +2966,21 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@fecha_hora_row", Pedido_.FechaDocumento);
                                     command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
                                     command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
-                                    command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+
+                                    //command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                                    if (row.Isid_bodegaNull())
+                                    {
+                                        command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                                    }
+                                    else
+                                    {
+                                        if (row.id_bodega == 0)
+                                            command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                                        else
+                                            command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                                    }
+                                    
+
                                     command.Parameters.AddWithValue("@isv", row.isv1);
 
                                     if(row.Isdescuento_porcentajeNull())
@@ -3111,6 +3155,11 @@ namespace Eatery.Ventas
             {
                 CajaDialogo.Error(ec.Message);
             }
+        }
+
+        private void cmdCopiarDesde_Click(object sender, EventArgs e)
+        {
+
         }
 
         //frmLoginVendedores

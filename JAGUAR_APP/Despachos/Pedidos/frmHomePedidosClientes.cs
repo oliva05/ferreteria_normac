@@ -302,7 +302,9 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             {
                 if (UsuarioLogeado.ValidarNivelPermisos(11))
                 {
-                    frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual);
+                    var gridView = (GridView)gridControl1.FocusedView;
+                    var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
+                    frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual,row.id );
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                 }

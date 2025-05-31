@@ -62,9 +62,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                     if (!dr.IsDBNull(dr.GetOrdinal("id_tipo_pago")))
                         tipopago = dr.GetInt32(1);
 
-                    
 
-                    switch(tipopago)
+
+                    switch (tipopago)
                     {
                         case 1:
                             decimal valor1 = dr.GetDecimal(3);
@@ -82,7 +82,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                             TotalC += valorC2;
                             lblTotalTarjetas.Text = string.Format("{0:L ###,##0.00}", valor2);
                             lblTotalTarjetaVerificado.Text = string.Format("{0:L ###,##0.00}", valorC2);
-                            break; 
+                            break;
                         case 3:
                             decimal valor3 = dr.GetDecimal(3);
                             decimal valorC3 = dr.GetDecimal(4);
@@ -91,7 +91,15 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                             lblTotalDeposito.Text = string.Format("{0:L ###,##0.00}", valor3);
                             lblTotalBancosVerificado.Text = string.Format("{0:L ###,##0.00}", valorC3);
                             break;
-                            case 4:
+                        case 4:
+                            decimal valor4 = dr.GetDecimal(3);
+                            decimal valorC4 = dr.GetDecimal(4);
+                            Total += valor4;
+                            TotalC += valorC4;
+                            lblTotalCheque.Text = string.Format("{0:L ###,##0.00}", valor4);
+                            lblTotalChequeVerificado.Text = string.Format("{0:L ###,##0.00}", valorC4);
+                            break;
+                        case 5:
                             break;
                         default:
                             break;

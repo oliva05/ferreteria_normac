@@ -147,7 +147,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 {
                     try
                     {
-                        if (rowi.id_tipo_pago < 4)//SI no es la linea del total
+                        if (rowi.id_tipo_pago < 5)//SI no es la linea del total
                         {
                             valor += rowi.valor_contado;
                             rowi.diferencia = rowi.valor_contado - rowi.total;
@@ -320,7 +320,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                             //Guardamos los valores resumen
                             foreach (dsContabilidad.resumen_cobrosRow row in dsContabilidad1.resumen_cobros)
                             {
-                                if (row.id_tipo_pago != 4)
+                                if (row.id_tipo_pago != 5)
                                 {
                                     command.CommandText = "[dbo].[sp_set_cierre_dia_punto_venta_resumen]";
                                     command.CommandType = CommandType.StoredProcedure;
@@ -467,7 +467,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             {
                 try
                 {
-                    if (rowi.id_tipo_pago < 4)//SI no es la linea del total
+                    if (rowi.id_tipo_pago < 5)//SI no es la linea del total
                     {
                         valor += rowi.valor_contado;
                         rowi.diferencia = rowi.valor_contado - rowi.total;

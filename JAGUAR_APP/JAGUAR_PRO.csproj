@@ -866,6 +866,12 @@
     <Compile Include="Compras\frmOCompraAutorizacion.Designer.cs">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\frmOrdenCompraList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmOrdenCompraList.Designer.cs">
+      <DependentUpon>frmOrdenCompraList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\frmOrdenesCompraMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1032,6 +1038,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPrefacturas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmCopiarPedidoDesde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmCopiarPedidoDesde.Designer.cs">
+      <DependentUpon>frmCopiarPedidoDesde.cs</DependentUpon>
     </Compile>
     <Compile Include="Despachos\Pedidos\frmCotizaciones.cs">
       <SubType>Form</SubType>
@@ -3912,6 +3924,9 @@
     <EmbeddedResource Include="Compras\frmOCompraAutorizacion.resx">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmOrdenCompraList.resx">
+      <DependentUpon>frmOrdenCompraList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmOrdenesCompraMain.resx">
       <DependentUpon>frmOrdenesCompraMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -3980,6 +3995,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\fromdespacho.resx">
       <DependentUpon>fromdespacho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Despachos\Pedidos\frmCopiarPedidoDesde.resx">
+      <DependentUpon>frmCopiarPedidoDesde.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\Pedidos\frmCotizaciones.resx">
       <DependentUpon>frmCotizaciones.cs</DependentUpon>
