@@ -3157,6 +3157,11 @@ namespace Eatery.Ventas
             }
         }
 
+        private void cmdCopiarDesde_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //frmLoginVendedores
     }
 }
