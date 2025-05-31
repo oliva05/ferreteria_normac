@@ -5245,5 +5245,69 @@ namespace JAGUAR_PRO
                 }
             }
         }
+
+        private void navBarItem151_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este Equipo de Nombre: " + HostName + " no esta Configurado en ningun Punto de Venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este Equipo de Nombre: " + HostName + " no esta Configurado en ningun Punto de Venta!");
+                return;
+            }
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmOrdenCompraList mtx = new frmOrdenCompraList(puntoVenta1, UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+
+
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(24))
+                {
+                    frmOrdenCompraList mtx = new frmOrdenCompraList(puntoVenta1, UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-24 (Ordenes de Compra)");
+                }
+            }
+
+
+        }
     }
 }

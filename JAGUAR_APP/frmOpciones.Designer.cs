@@ -42,6 +42,7 @@
             this.navBarRecepBodegon = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup12 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem23 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem151 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup6 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem24 = new DevExpress.XtraNavBar.NavBarItem();
@@ -350,7 +351,6 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem151 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -607,6 +607,22 @@
             this.navBarItem23.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.withtextwrapping_topright_32x32;
             this.navBarItem23.Name = "navBarItem23";
             this.navBarItem23.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem23_LinkClicked_1);
+            // 
+            // navBarItem151
+            // 
+            this.navBarItem151.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem151.Appearance.Options.UseFont = true;
+            this.navBarItem151.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem151.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem151.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem151.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem151.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem151.AppearancePressed.Options.UseFont = true;
+            this.navBarItem151.Caption = "Lista de Ordenes de Compra";
+            this.navBarItem151.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem151.ImageOptions.LargeImage")));
+            this.navBarItem151.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.prices_list;
+            this.navBarItem151.Name = "navBarItem151";
+            this.navBarItem151.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem151_LinkClicked);
             // 
             // navBarGroup6
             // 
@@ -4821,21 +4837,6 @@
             this.navBarItem196.AppearancePressed.Options.UseFont = true;
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
-            // 
-            // navBarItem151
-            // 
-            this.navBarItem151.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem151.Appearance.Options.UseFont = true;
-            this.navBarItem151.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem151.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem151.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem151.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem151.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem151.AppearancePressed.Options.UseFont = true;
-            this.navBarItem151.Caption = "Lista de Ordenes de Compra";
-            this.navBarItem151.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem151.ImageOptions.LargeImage")));
-            this.navBarItem151.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.prices_list;
-            this.navBarItem151.Name = "navBarItem151";
             // 
             // frmOpciones
             // 
