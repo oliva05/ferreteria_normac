@@ -2453,7 +2453,13 @@ namespace Eatery.Ventas
                 {
                     ElejirInvAlmacen item = new ElejirInvAlmacen();
                     item.id_pt = rowi.id_pt;
-                    item.IdBodega = rowi.id_bodega;
+
+                    if (rowi.Isid_bodegaNull())
+                        item.IdBodega = 0;
+                    else
+                        item.IdBodega = rowi.id_bodega;
+
+
                     if (rowi.Isbodega_descripcionNull())
                         item.BodegaName = string.Empty;
                     else
