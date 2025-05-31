@@ -350,6 +350,7 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem151 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -464,7 +465,8 @@
             this.navBarItem23,
             this.navBarRecepBodegon,
             this.navBarItem60,
-            this.navBarIteSoliTraslado});
+            this.navBarIteSoliTraslado,
+            this.navBarItem151});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -586,7 +588,8 @@
             this.navBarGroup12.Caption = "Compras";
             this.navBarGroup12.Expanded = true;
             this.navBarGroup12.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem23)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem23),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem151)});
             this.navBarGroup12.Name = "navBarGroup12";
             // 
             // navBarItem23
@@ -4819,6 +4822,21 @@
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
             // 
+            // navBarItem151
+            // 
+            this.navBarItem151.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem151.Appearance.Options.UseFont = true;
+            this.navBarItem151.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem151.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem151.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem151.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem151.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem151.AppearancePressed.Options.UseFont = true;
+            this.navBarItem151.Caption = "Lista de Ordenes de Compra";
+            this.navBarItem151.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem151.ImageOptions.LargeImage")));
+            this.navBarItem151.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.prices_list;
+            this.navBarItem151.Name = "navBarItem151";
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5183,5 +5201,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem109;
         private DevExpress.XtraNavBar.NavBarItem navBarItem110;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem151;
     }
 }

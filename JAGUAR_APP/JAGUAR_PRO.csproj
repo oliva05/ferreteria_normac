@@ -866,6 +866,12 @@
     <Compile Include="Compras\frmOCompraAutorizacion.Designer.cs">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\frmOrdenCompraList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmOrdenCompraList.Designer.cs">
+      <DependentUpon>frmOrdenCompraList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\frmOrdenesCompraMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3911,6 +3917,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmOCompraAutorizacion.resx">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmOrdenCompraList.resx">
+      <DependentUpon>frmOrdenCompraList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmOrdenesCompraMain.resx">
       <DependentUpon>frmOrdenesCompraMain.cs</DependentUpon>
