@@ -4846,7 +4846,9 @@ namespace JAGUAR_PRO
                 {
                     if (UsuarioLogeado.ValidarNivelPermisos(5))
                     {
-                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
+                        //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
+                        frmHomePedidosClientes frm = new frmHomePedidosClientes(this.UsuarioLogeado, puntoVenta1);
+
                         frm.MdiParent = this.MdiParent;
                         frm.Show();
                     }
