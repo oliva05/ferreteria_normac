@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPedidosBusquedas" targetNamespace="http://tempuri.org/dsPedidosBusquedas.xsd" xmlns:mstns="http://tempuri.org/dsPedidosBusquedas.xsd" xmlns="http://tempuri.org/dsPedidosBusquedas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPedidosBusquedas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsPedidosBusquedas" msprop:Generator_DataSetName="dsPedidosBusquedas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="cotizaciones" msprop:Generator_RowEvHandlerName="cotizacionesRowChangeEventHandler" msprop:Generator_RowDeletedName="cotizacionesRowDeleted" msprop:Generator_RowDeletingName="cotizacionesRowDeleting" msprop:Generator_RowEvArgName="cotizacionesRowChangeEvent" msprop:Generator_TablePropName="cotizaciones" msprop:Generator_RowChangedName="cotizacionesRowChanged" msprop:Generator_RowChangingName="cotizacionesRowChanging" msprop:Generator_TableClassName="cotizacionesDataTable" msprop:Generator_RowClassName="cotizacionesRow" msprop:Generator_TableVarName="tablecotizaciones" msprop:Generator_UserTableName="cotizaciones">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha_row" msprop:Generator_ColumnPropNameInRow="fecha_row" msprop:Generator_ColumnPropNameInTable="fecha_rowColumn" msprop:Generator_ColumnVarNameInTable="columnfecha_row" msprop:Generator_UserColumnName="fecha_row" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="comentario" msprop:Generator_ColumnPropNameInRow="comentario" msprop:Generator_ColumnPropNameInTable="comentarioColumn" msprop:Generator_ColumnVarNameInTable="columncomentario" msprop:Generator_UserColumnName="comentario" type="xs:string" minOccurs="0" />
+              <xs:element name="DocNum" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_ColumnVarNameInTable="columnDocNum" msprop:Generator_UserColumnName="DocNum" type="xs:int" minOccurs="0" />
+              <xs:element name="id_estado" msprop:Generator_ColumnPropNameInRow="id_estado" msprop:Generator_ColumnPropNameInTable="id_estadoColumn" msprop:Generator_ColumnVarNameInTable="columnid_estado" msprop:Generator_UserColumnName="id_estado" type="xs:int" minOccurs="0" />
+              <xs:element name="estado_name" msprop:Generator_ColumnPropNameInRow="estado_name" msprop:Generator_ColumnPropNameInTable="estado_nameColumn" msprop:Generator_ColumnVarNameInTable="columnestado_name" msprop:Generator_UserColumnName="estado_name" type="xs:string" minOccurs="0" />
+              <xs:element name="NumDoc" msprop:Generator_ColumnPropNameInRow="NumDoc" msprop:Generator_ColumnPropNameInTable="NumDocColumn" msprop:Generator_ColumnVarNameInTable="columnNumDoc" msprop:Generator_UserColumnName="NumDoc" type="xs:string" minOccurs="0" />
+              <xs:element name="cliente_nombre" msprop:Generator_ColumnPropNameInRow="cliente_nombre" msprop:Generator_ColumnPropNameInTable="cliente_nombreColumn" msprop:Generator_ColumnVarNameInTable="columncliente_nombre" msprop:Generator_UserColumnName="cliente_nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="id_pedido" msprop:Generator_ColumnPropNameInRow="id_pedido" msprop:Generator_ColumnPropNameInTable="id_pedidoColumn" msprop:Generator_ColumnVarNameInTable="columnid_pedido" msprop:Generator_UserColumnName="id_pedido" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="pedidos" msprop:Generator_RowEvHandlerName="pedidosRowChangeEventHandler" msprop:Generator_RowDeletedName="pedidosRowDeleted" msprop:Generator_RowDeletingName="pedidosRowDeleting" msprop:Generator_RowEvArgName="pedidosRowChangeEvent" msprop:Generator_TablePropName="pedidos" msprop:Generator_RowChangedName="pedidosRowChanged" msprop:Generator_RowChangingName="pedidosRowChanging" msprop:Generator_TableClassName="pedidosDataTable" msprop:Generator_RowClassName="pedidosRow" msprop:Generator_TableVarName="tablepedidos" msprop:Generator_UserTableName="pedidos">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

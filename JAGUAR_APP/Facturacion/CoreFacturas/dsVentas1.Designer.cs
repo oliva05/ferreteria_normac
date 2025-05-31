@@ -2082,6 +2082,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             private global::System.Data.DataColumn columnid_presentacion;
             
+            private global::System.Data.DataColumn columncodigo_referencia;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_factura_transactionDataTable() {
@@ -2253,6 +2255,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn codigo_referenciaColumn {
+                get {
+                    return this.columncodigo_referencia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2305,7 +2315,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         decimal descuento_porcentaje, 
                         string bodega_descripcion, 
                         decimal inventario_seleccionado, 
-                        int id_presentacion) {
+                        int id_presentacion, 
+                        string codigo_referencia) {
                 detalle_factura_transactionRow rowdetalle_factura_transactionRow = ((detalle_factura_transactionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_pt,
@@ -2324,7 +2335,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         descuento_porcentaje,
                         bodega_descripcion,
                         inventario_seleccionado,
-                        id_presentacion};
+                        id_presentacion,
+                        codigo_referencia};
                 rowdetalle_factura_transactionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_factura_transactionRow);
                 return rowdetalle_factura_transactionRow;
@@ -2364,6 +2376,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columnbodega_descripcion = base.Columns["bodega_descripcion"];
                 this.columninventario_seleccionado = base.Columns["inventario_seleccionado"];
                 this.columnid_presentacion = base.Columns["id_presentacion"];
+                this.columncodigo_referencia = base.Columns["codigo_referencia"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2403,6 +2416,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columninventario_seleccionado);
                 this.columnid_presentacion = new global::System.Data.DataColumn("id_presentacion", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_presentacion);
+                this.columncodigo_referencia = new global::System.Data.DataColumn("codigo_referencia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodigo_referencia);
                 this.columnitemcode.Caption = "Código";
                 this.columnitemname.Caption = "Descripción";
                 this.columncantidad.Caption = "Cant.";
@@ -2415,6 +2430,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columninventario.Caption = "Inventario";
                 this.columnbodega_descripcion.Caption = "Almacen(es)";
                 this.columninventario_seleccionado.Caption = "Inv Seleccionado";
+                this.columncodigo_referencia.Caption = "Codigo Ref";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4110,6 +4126,23 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string codigo_referencia {
+                get {
+                    try {
+                        return ((string)(this[this.tabledetalle_factura_transaction.codigo_referenciaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codigo_referencia\' de la tabla \'detalle_factura_transacti" +
+                                "on\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_factura_transaction.codigo_referenciaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_ptNull() {
                 return this.IsNull(this.tabledetalle_factura_transaction.id_ptColumn);
             }
@@ -4310,6 +4343,18 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setid_presentacionNull() {
                 this[this.tabledetalle_factura_transaction.id_presentacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscodigo_referenciaNull() {
+                return this.IsNull(this.tabledetalle_factura_transaction.codigo_referenciaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcodigo_referenciaNull() {
+                this[this.tabledetalle_factura_transaction.codigo_referenciaColumn] = global::System.Convert.DBNull;
             }
         }
         

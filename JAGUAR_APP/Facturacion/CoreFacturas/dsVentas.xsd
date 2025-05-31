@@ -90,6 +90,7 @@
               <xs:element name="bodega_descripcion" msdata:Caption="Almacen(es)" msprop:Generator_ColumnPropNameInTable="bodega_descripcionColumn" msprop:Generator_ColumnPropNameInRow="bodega_descripcion" msprop:Generator_UserColumnName="bodega_descripcion" msprop:Generator_ColumnVarNameInTable="columnbodega_descripcion" type="xs:string" minOccurs="0" />
               <xs:element name="inventario_seleccionado" msdata:Caption="Inv Seleccionado" msprop:Generator_ColumnPropNameInTable="inventario_seleccionadoColumn" msprop:Generator_ColumnPropNameInRow="inventario_seleccionado" msprop:Generator_UserColumnName="inventario_seleccionado" msprop:Generator_ColumnVarNameInTable="columninventario_seleccionado" type="xs:decimal" minOccurs="0" />
               <xs:element name="id_presentacion" msprop:Generator_ColumnPropNameInTable="id_presentacionColumn" msprop:Generator_ColumnPropNameInRow="id_presentacion" msprop:Generator_UserColumnName="id_presentacion" msprop:Generator_ColumnVarNameInTable="columnid_presentacion" type="xs:int" minOccurs="0" />
+              <xs:element name="codigo_referencia" msdata:Caption="Codigo Ref" msprop:Generator_ColumnPropNameInRow="codigo_referencia" msprop:Generator_ColumnPropNameInTable="codigo_referenciaColumn" msprop:Generator_ColumnVarNameInTable="columncodigo_referencia" msprop:Generator_UserColumnName="codigo_referencia" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -107,7 +108,7 @@
               <xs:element name="item_code" msprop:Generator_ColumnPropNameInTable="item_codeColumn" msprop:Generator_ColumnPropNameInRow="item_code" msprop:Generator_UserColumnName="item_code" msprop:Generator_ColumnVarNameInTable="columnitem_code" type="xs:string" minOccurs="0" />
               <xs:element name="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
               <xs:element name="isv1" msprop:Generator_ColumnPropNameInTable="isv1Column" msprop:Generator_ColumnPropNameInRow="isv1" msprop:Generator_UserColumnName="isv1" msprop:Generator_ColumnVarNameInTable="columnisv1" type="xs:decimal" minOccurs="0" />
-              <xs:element name="descuento_porcentaje" msprop:Generator_UserColumnName="descuento_porcentaje" msprop:Generator_ColumnPropNameInTable="descuento_porcentajeColumn" msprop:Generator_ColumnPropNameInRow="descuento_porcentaje" msprop:Generator_ColumnVarNameInTable="columndescuento_porcentaje" type="xs:decimal" minOccurs="0" />
+              <xs:element name="descuento_porcentaje" msprop:Generator_ColumnPropNameInTable="descuento_porcentajeColumn" msprop:Generator_ColumnPropNameInRow="descuento_porcentaje" msprop:Generator_UserColumnName="descuento_porcentaje" msprop:Generator_ColumnVarNameInTable="columndescuento_porcentaje" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

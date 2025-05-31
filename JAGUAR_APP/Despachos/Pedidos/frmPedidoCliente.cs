@@ -1977,6 +1977,7 @@ namespace Eatery.Ventas
                         //Sumar cantidad nada mas
                         rowF.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
                         rowF.cantidad = rowF.cantidad + 1;
+                        rowF.codigo_referencia = pt1.Codig_Referencia;
                         rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
                         rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
                         rowF.total_linea = ((rowF.cantidad * rowF.precio) - rowF.descuento) + rowF.isv1 + rowF.isv2 + rowF.isv3;
@@ -1994,7 +1995,7 @@ namespace Eatery.Ventas
                     row1.cantidad = pCantidad;
                     row1.descuento = 
                     row1.descuento_porcentaje = 0;
-
+                    row1.codigo_referencia = pt1.Codig_Referencia;
                     row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                     row1.id_presentacion = pt1.Id_presentacion;
 
@@ -3102,8 +3103,100 @@ namespace Eatery.Ventas
         private void cmdCopiarDesde_Click(object sender, EventArgs e)
         {
             frmCopiarPedidoDesde frm = new frmCopiarPedidoDesde();
-            frm.MdiParent = this.MdiParent;
-            frm.Show();
+            //frm.MdiParent = this.MdiParent;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                int pIdPedido = frm.IdPedido;
+                TipoOperacionActual = TipoOperacionSQL.Update;
+                ckConfirmarPedido.Visible = ckGenerarCotizacion.Visible = true;
+
+                LoadEstadosPedidos();
+                PedidoActual = new PedidoCliente();
+                ClienteFactura = new ClienteFacturacion();
+                IdTerminoPago = 1;
+
+                BusquedaSet = Busqueda.LoMasVendido;
+                SetBusqueda();
+                txtNombreCliente.Text = "Consumidor Final";
+                txtRTN.Text = string.Empty;
+                txtRTN.Properties.NullValuePrompt =
+                txtDireccion.Properties.NullValuePrompt = "No Aplica";
+
+                DateTime FechaActual_ = dp.NowSetDateTime();
+                lblfecha.Text = Convert.ToString(FechaActual_);
+                dtFechaEntrega.DateTime = FechaActual_.AddDays(1);
+                string.Format("{0:dd/MM/yyyy}", lblfecha.Text);
+
+                string HostName = Dns.GetHostName();
+
+                FacturacionEquipo Equipo1 = new FacturacionEquipo();
+                if (Equipo1.RecuperarRegistro(HostName))
+                {
+                    if (PuntoDeVentaActual.RecuperaRegistro(Equipo1.id_punto_venta))
+                    {
+                        if (PuntoDeVentaActual.FacturaComidaBuffet)//Mostramos todas las opciones
+                        {
+                            //lblOpcionesBuffetRadioButtonGroup.Visible =
+                            //radioGroupVentaComidaBuffet.Visible = true;
+                            //LoadDefaultOptionRadioButtos();
+                        }
+                        else
+                        {
+                            //lblOpcionesBuffetRadioButtonGroup.Visible = 
+                            //radioGroupVentaComidaBuffet.Visible = false;
+                            //LoadDefaultOptionRadioButtos();
+                        }
+                    }
+                }
+
+                if (pIdPedido > 0)
+                {
+                    PedidoCliente pedidoCliente = new PedidoCliente();
+                    if (pedidoCliente.RecuperarRegistro(pIdPedido))
+                    {
+                        if (pedidoCliente.IdEstado == 6)// || pedidoCliente.IdEstado == 1)
+                        {
+                            cmdConfirmarFactura.Visible = true;
+                        }
+                        else
+                        {
+                            cmdConfirmarFactura.Visible = false;
+                        }
+
+                        PedidoActual = pedidoCliente;
+                        ClienteFactura = new ClienteFacturacion();
+
+                        txtNombreCliente.Text = pedidoCliente.ClienteNombre;
+                        txtRTN.Text = pedidoCliente.RTN;
+                        txtDireccion.Text = pedidoCliente.direccion_cliente;
+                        ClienteFactura.Id = pedidoCliente.IdCliente;
+
+                        lblfecha.Text = string.Format("{0:dd/MM/yyyy}", pedidoCliente.FechaDocumento);
+                        dtFechaEntrega.DateTime = pedidoCliente.FechaEntrega;
+                        txtComentario.Text = pedidoCliente.Comentario;
+                        VendedorActual = new Vendedor();
+                        if (!string.IsNullOrEmpty(pedidoCliente.CodigoVendedor))
+                        {
+                            if (VendedorActual.RecuperarRegistro(pedidoCliente.CodigoVendedor))
+                            {
+                                txtAsesorVendedor.Text = VendedorActual.Nombre;
+                            }
+                        }
+                        LoadDetallePedidoForEdit(pIdPedido);
+                        gleEstados.EditValue = pedidoCliente.IdEstado;
+                        ckGenerarCotizacion.Visible = ckConfirmarPedido.Visible = false;
+                        txtScanProducto.Focus();
+                    }
+                }
+
+                //if (HostName == "7L12TV3" || HostName == "F3DYSQ2" /*Danys Oliva*/ ||
+                //    HostName == "9SSCBV2" || HostName == "9PG91W2" /*Ruben Garcia */ ||
+                //    HostName == "F9Q11Q2" /*PC Soporte La 50*/||
+                //    HostName == "EUCEDA-PC" /*Euceda*/)
+                //{
+                //    cmdIngresarAdmin.Visible = SaltarLogin.Visible = simpleButton2.Visible = SaltarLoginPRD.Visible = true;
+                //}
+            }
         }
 
         //frmLoginVendedores
