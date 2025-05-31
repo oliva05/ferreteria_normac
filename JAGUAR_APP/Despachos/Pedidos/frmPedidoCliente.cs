@@ -212,6 +212,7 @@ namespace Eatery.Ventas
                     LoadDetallePedidoForEdit(pIdPedido);
                     gleEstados.EditValue = pedidoCliente.IdEstado;
                     ckGenerarCotizacion.Visible = ckConfirmarPedido.Visible = false;
+                    txtScanProducto.Focus();
                 }
             }
 
@@ -244,6 +245,7 @@ namespace Eatery.Ventas
                 adat.Fill(dsPedidosVentas1.estados_pedidos);
 
                 con.Close();
+                txtScanProducto.Focus();
             }
             catch (Exception ec)
             {
@@ -333,6 +335,7 @@ namespace Eatery.Ventas
                 adat.Fill(dsVentas1.detalle_factura_transaccion_inv);
 
                 con.Close();
+                txtScanProducto.Focus();
             }
             catch (Exception ec)
             {
@@ -373,6 +376,7 @@ namespace Eatery.Ventas
                 }
 
                 con.Close();
+                txtScanProducto.Focus();
             }
             catch (Exception ec)
             {
@@ -508,6 +512,7 @@ namespace Eatery.Ventas
                     }
                 }
             }
+            txtScanProducto.Focus();
         }
 
         private void cmdPlusAQ_Click(object sender, EventArgs e)
@@ -2137,6 +2142,7 @@ namespace Eatery.Ventas
             ClienteFactura = new ClienteFacturacion();
             ClienteFactura.Recuperado = false;
             ClienteFactura.ClearClass();
+            txtScanProducto.Focus();
         }
 
         private void cmdDeleteRowFactura_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -2293,86 +2299,22 @@ namespace Eatery.Ventas
         private void txtScanProducto_KeyDown(object sender, KeyEventArgs e)
         {
             if(string.IsNullOrEmpty(txtScanProducto.Text)) return;
+            //errorProvLecturaCodigo.Clear();
 
             ProductoTerminado pt1 = new ProductoTerminado();
             if (pt1.Recuperar_productoByBarCode(txtScanProducto.Text))
             {
-                decimal valor_total = 0;
-
-                bool AgregarNuevo = true;
-                foreach (dsVentas.detalle_factura_transactionRow rowF in dsVentas1.detalle_factura_transaction)
-                {
-                    if (rowF.id_pt == pt1.Id)
-                    {
-                        //Sumar cantidad nada mas
-                        rowF.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
-                        rowF.cantidad = rowF.cantidad + 1;
-                        rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
-                        rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
-                        rowF.total_linea = (rowF.cantidad * rowF.precio) - rowF.descuento + rowF.isv1 + rowF.isv2 + rowF.isv3;
-                        AgregarNuevo = false;
-                    }
-                    valor_total += (rowF.total_linea);// + rowF.isv1);
-                    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
-                }
-
-                if (AgregarNuevo)
-                {
-                    dsVentas.detalle_factura_transactionRow row1 = dsVentas1.detalle_factura_transaction.Newdetalle_factura_transactionRow();
-                    //dsCompras.oc_d_normalRow row1 = dsCompras1.oc_d_normal.Newoc_d_normalRow();
-                    row1.id_pt = pt1.Id;
-                    row1.cantidad = 1;
-
-
-                    row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
-
-                    if (row1.precio == 0)
-                    {
-                        SetErrorBarra("Este producto no tiene definido un precio. Por favor valide Lista de Precios!");
-                    }
-
-                    row1.descuento = 0;
-                    row1.itemcode = pt1.Code;
-                    row1.itemname = pt1.Descripcion;
-                    row1.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
-
-                    row1.isv1 = row1.isv2 = row1.isv3 = 0;
-                    Impuesto impuesto = new Impuesto();
-                    decimal tasaISV = 0;
-
-                    if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
-                    {
-                        tasaISV = impuesto.Valor / 100;
-                        row1.isv1 = ((row1.precio - row1.descuento) / 100) * impuesto.Valor;
-                        row1.precio = (row1.precio - row1.descuento) - row1.isv1;
-
-                        row1.tasa_isv = tasaISV;
-                        row1.id_isv_aplicable = impuesto.Id;
-                    }
-                    else
-                    {
-                        row1.tasa_isv = 0;
-                        row1.id_isv_aplicable = 0;
-                        row1.precio = (row1.precio - row1.descuento);
-                    }
-
-                    row1.total_linea = (row1.cantidad * row1.precio) + (row1.cantidad * row1.isv1) + (row1.cantidad * row1.isv2) + (row1.cantidad * row1.isv3);
-
-
-                    //dsCompras.oc_d_normal.Addoc_d_normalRow(row1);
-                    dsVentas1.detalle_factura_transaction.Adddetalle_factura_transactionRow(row1);
-                    valor_total += (row1.total_linea + row1.isv1);
-                    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
-
-                    if (dsVentas1.detalle_factura_transaction.Count > 0)
-                        gridView1.FocusedRowHandle = dsVentas1.detalle_factura_transaction.Count - 1;
-                    else
-                        gridView1.FocusedRowHandle = 0;
-
-                    txtScanProducto.Text = "";
-                    gridView1.FocusedColumn = colcantidad;
-                    gridView1.ShowEditor();
-                }
+                AgregarProductoA_Prefactura(pt1.Id, pt1.Code, pt1.Descripcion, 1, true, 0, pt1);
+                txtScanProducto.Text = "";
+                txtScanProducto.Focus();
+            }
+            else
+            {
+                //Set error
+                //errorProvLecturaCodigo.SetError(txtScanProducto, "No se encontró el código escaneado!");
+                SetErrorBarra("No se encontró el código escaneado!");
+                txtScanProducto.Text = "";
+                txtScanProducto.Focus();
             }
         }
 
@@ -3112,7 +3054,7 @@ namespace Eatery.Ventas
                 this.UsuarioLogeado = new UserLogin();
                 if(UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
                 {
-
+                    txtScanProducto.Focus();
                 }
             }
         }
@@ -3159,7 +3101,9 @@ namespace Eatery.Ventas
 
         private void cmdCopiarDesde_Click(object sender, EventArgs e)
         {
-
+            frmCopiarPedidoDesde frm = new frmCopiarPedidoDesde();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
         }
 
         //frmLoginVendedores
