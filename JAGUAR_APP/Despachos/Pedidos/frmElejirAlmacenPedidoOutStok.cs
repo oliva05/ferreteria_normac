@@ -3,6 +3,7 @@ using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.LogisticaJaguar;
 using System;
 using System.Collections;
@@ -102,6 +103,25 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     row.isv1 = isv1;
                 }
 
+                if(dsPrefacturas1.stock_por_almacen.Rows.Count==0)
+                {
+                    dsPrefacturas.stock_por_almacenRow row1 = dsPrefacturas1.stock_por_almacen.Newstock_por_almacenRow();
+                    row1.itemcode = itemcode;
+                    row1.itemname = itemname;
+                    row1.id_presentacion = id_presentacion;
+                    row1.descuento= descuento;
+                    row1.descuento_porcentaje = descuento_porcentaje;
+                    row1.precio = precio;
+                    row1.isv1 = isv1;
+                    row1.cantidad = 0;
+                    row1.cantidad_seleccionada = 0;
+                    row1.whs_code = null;
+                    row1.id_bodega = 0;
+                    row1.bodega_name = null;
+                    row1.comprometido = 0;
+                    dsPrefacturas1.stock_por_almacen.Addstock_por_almacenRow(row1);
+                    dsPrefacturas1.AcceptChanges();
+                }
                 con.Close();
             }
             catch (Exception ec)
@@ -138,7 +158,11 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     ElejirInvAlmacen Eleccion = new ElejirInvAlmacen();
                     Eleccion.id_pt = IdPT;
                     Eleccion.IdBodega = row.id_bodega;
-                    Eleccion.BodegaName = row.bodega_name;
+                    if (row.Isbodega_nameNull())
+                        Eleccion.BodegaName = string.Empty;
+                    else
+                        Eleccion.BodegaName = row.bodega_name;
+
                     Eleccion.CantSeleccionada = row.cantidad_seleccionada;
                     Eleccion.descuento = row.descuento;
                     Eleccion.descuento_porcentaje = row.descuento_porcentaje;

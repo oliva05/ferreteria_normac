@@ -1039,6 +1039,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPrefacturas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Despachos\Pedidos\frmCopiarPedidoDesde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Despachos\Pedidos\frmCopiarPedidoDesde.Designer.cs">
+      <DependentUpon>frmCopiarPedidoDesde.cs</DependentUpon>
+    </Compile>
     <Compile Include="Despachos\Pedidos\frmCotizaciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3989,6 +3995,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\fromdespacho.resx">
       <DependentUpon>fromdespacho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Despachos\Pedidos\frmCopiarPedidoDesde.resx">
+      <DependentUpon>frmCopiarPedidoDesde.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\Pedidos\frmCotizaciones.resx">
       <DependentUpon>frmCotizaciones.cs</DependentUpon>

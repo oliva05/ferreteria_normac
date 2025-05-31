@@ -54,6 +54,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             if(!string.IsNullOrEmpty(Factura1.direccion_cliente))
                 lblDireccionCliente.Text = Factura1.direccion_cliente;
 
+            txtVendedor.Text = Factura1.Vendedor;
             lblValorLetras.Text = Factura1.ValorLetras;
 
             lblSubTotal.Text = string.Format("{0: ###,##0.00}", Factura1.subtotalFactura);

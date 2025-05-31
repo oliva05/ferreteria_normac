@@ -22,6 +22,13 @@ namespace JAGUAR_PRO.Facturacion.Reportes
         PDV PuntoVentaActual;
         UserLogin UsuarioLogeado;
 
+        public enum TipoInforme
+        {
+            TipoCinta3_pulg =1,
+            TipoCarta = 2
+        }
+        TipoInforme TipoInformeActual;
+
         enum EstadosFactura
         {
             Emitida = 1
@@ -59,6 +66,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             //    }
             //}
             //this.Close();
+            TipoInformeActual = TipoInforme.TipoCinta3_pulg;
             if (factura.RecuperarRegistro(factura_id))
             {
                 if (PuntoVentaActual.PermiteReimpresionFacturaConAutorizacion)
@@ -131,6 +139,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            TipoInformeActual = TipoInforme.TipoCarta;
             if (factura.RecuperarRegistro(factura_id))
             {
                 if (PuntoVentaActual.PermiteReimpresionFacturaConAutorizacion)
@@ -203,7 +212,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
 
         private void Reimpresion()
         {
-            if (factura.IdNumeracionFiscal == 0)
+            //if (factura.IdNumeracionFiscal == 0)
+            if(TipoInformeActual  == TipoInforme.TipoCinta3_pulg)
             {
                 //rptFact_ReciboVentaLetterSize report = new rptFact_ReciboVentaLetterSize(factura, rptFact_ReciboVentaLetterSize.TipoCopia.Blanco);
                 rptFactura report = new rptFactura(factura, rptFactura.TipoCopia.Blanco);

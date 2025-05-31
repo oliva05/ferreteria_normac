@@ -367,7 +367,7 @@ namespace JAGUAR_PRO.Clases
             try
             {//Recupera las caracteristicas 
                 //string sql = @"[dbo].[jaguar_sp_get_cantidad_inv_kardex_pt_for_facturacion_v2]";
-                string sql = @"[dbo].[sp_get_inventario_kardex_pt_for_production_all_bodegas]";
+                string sql = @"[dbo].[jaguar_sp_get_cantidad_inv_kardex_pt]";
                 
                 DataOperations dp = new DataOperations();
 

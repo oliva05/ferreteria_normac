@@ -95,7 +95,7 @@
             this.xrLabel37 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel40 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel34 = new DevExpress.XtraReports.UI.XRLabel();
-            this.txtVendedor = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtImporteG_15isv = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel28 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel29 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel26 = new DevExpress.XtraReports.UI.XRLabel();
@@ -104,7 +104,7 @@
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtVendedor = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTermino = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
@@ -863,7 +863,7 @@
             this.xrLabel37,
             this.xrLabel40,
             this.xrLabel34,
-            this.txtVendedor,
+            this.txtImporteG_15isv,
             this.xrLabel28,
             this.xrLabel29,
             this.xrLabel26,
@@ -1157,23 +1157,23 @@
             this.xrLabel34.Text = "Importe Gravado 15% L.";
             this.xrLabel34.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
-            // txtVendedor
+            // txtImporteG_15isv
             // 
-            this.txtVendedor.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.txtVendedor.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            this.txtImporteG_15isv.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.txtImporteG_15isv.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "TextAlignment", "Iif(, \'MiddleRight\', ?)"),
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Visible", "Iif(, True, ?)")});
-            this.txtVendedor.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            this.txtImporteG_15isv.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
             new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.txtVendedor.LocationFloat = new DevExpress.Utils.PointFloat(662.6684F, 68.14382F);
-            this.txtVendedor.Name = "txtVendedor";
-            this.txtVendedor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.txtVendedor.SizeF = new System.Drawing.SizeF(104.375F, 16F);
-            this.txtVendedor.StylePriority.UseBorders = false;
-            this.txtVendedor.StylePriority.UseFont = false;
-            this.txtVendedor.StylePriority.UseTextAlignment = false;
-            this.txtVendedor.Text = " 0.00";
-            this.txtVendedor.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.txtImporteG_15isv.LocationFloat = new DevExpress.Utils.PointFloat(662.6684F, 68.14382F);
+            this.txtImporteG_15isv.Name = "txtImporteG_15isv";
+            this.txtImporteG_15isv.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.txtImporteG_15isv.SizeF = new System.Drawing.SizeF(104.375F, 16F);
+            this.txtImporteG_15isv.StylePriority.UseBorders = false;
+            this.txtImporteG_15isv.StylePriority.UseFont = false;
+            this.txtImporteG_15isv.StylePriority.UseTextAlignment = false;
+            this.txtImporteG_15isv.Text = " 0.00";
+            this.txtImporteG_15isv.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel28
             // 
@@ -1253,7 +1253,7 @@
             this.xrLabel9,
             this.xrLabel7,
             this.xrLabel5,
-            this.xrLabel4,
+            this.txtVendedor,
             this.lblTermino,
             this.xrLabel1,
             this.xrPictureBox1,
@@ -1335,19 +1335,19 @@
             this.xrLabel5.Text = "Vendedor:";
             this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
-            // xrLabel4
+            // txtVendedor
             // 
-            this.xrLabel4.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel4.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            this.txtVendedor.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.txtVendedor.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
             new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(83.11111F, 191.7576F);
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(322.7114F, 16F);
-            this.xrLabel4.StylePriority.UseBorders = false;
-            this.xrLabel4.StylePriority.UseFont = false;
-            this.xrLabel4.StylePriority.UseTextAlignment = false;
-            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.txtVendedor.LocationFloat = new DevExpress.Utils.PointFloat(83.11111F, 191.7576F);
+            this.txtVendedor.Name = "txtVendedor";
+            this.txtVendedor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.txtVendedor.SizeF = new System.Drawing.SizeF(322.7114F, 16F);
+            this.txtVendedor.StylePriority.UseBorders = false;
+            this.txtVendedor.StylePriority.UseFont = false;
+            this.txtVendedor.StylePriority.UseTextAlignment = false;
+            this.txtVendedor.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // lblTermino
             // 
@@ -1514,7 +1514,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel37;
         private DevExpress.XtraReports.UI.XRLabel xrLabel40;
         private DevExpress.XtraReports.UI.XRLabel xrLabel34;
-        private DevExpress.XtraReports.UI.XRLabel txtVendedor;
+        private DevExpress.XtraReports.UI.XRLabel txtImporteG_15isv;
         private DevExpress.XtraReports.UI.XRLabel xrLabel28;
         private DevExpress.XtraReports.UI.XRLabel xrLabel29;
         private DevExpress.XtraReports.UI.XRLabel xrLabel26;
@@ -1541,7 +1541,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
+        private DevExpress.XtraReports.UI.XRLabel txtVendedor;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;

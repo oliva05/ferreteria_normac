@@ -31,12 +31,12 @@ namespace Eatery.Ventas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFactura));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.cmdDeleteRowFactura = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.txtNombreCliente = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
@@ -100,9 +100,9 @@ namespace Eatery.Ventas
             // cmdDeleteRowFactura
             // 
             this.cmdDeleteRowFactura.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.cmdDeleteRowFactura.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdDeleteRowFactura.Name = "cmdDeleteRowFactura";
             this.cmdDeleteRowFactura.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -267,6 +267,7 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
+            this.navigationPage1.Caption = "navigationPage1";
             this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
             this.navigationPage1.Controls.Add(this.txtVendedor);
             this.navigationPage1.Controls.Add(this.label10);
@@ -522,7 +523,7 @@ namespace Eatery.Ventas
             this.colitemcode.OptionsColumn.ReadOnly = true;
             this.colitemcode.Visible = true;
             this.colitemcode.VisibleIndex = 0;
-            this.colitemcode.Width = 47;
+            this.colitemcode.Width = 105;
             // 
             // colitemname
             // 
@@ -531,7 +532,7 @@ namespace Eatery.Ventas
             this.colitemname.OptionsColumn.ReadOnly = true;
             this.colitemname.Visible = true;
             this.colitemname.VisibleIndex = 1;
-            this.colitemname.Width = 109;
+            this.colitemname.Width = 244;
             // 
             // colcantidad
             // 
@@ -539,7 +540,7 @@ namespace Eatery.Ventas
             this.colcantidad.Name = "colcantidad";
             this.colcantidad.Visible = true;
             this.colcantidad.VisibleIndex = 3;
-            this.colcantidad.Width = 45;
+            this.colcantidad.Width = 106;
             // 
             // colprecio
             // 
@@ -550,7 +551,7 @@ namespace Eatery.Ventas
             this.colprecio.OptionsColumn.ReadOnly = true;
             this.colprecio.Visible = true;
             this.colprecio.VisibleIndex = 4;
-            this.colprecio.Width = 63;
+            this.colprecio.Width = 147;
             // 
             // coldescuento
             // 
@@ -560,7 +561,7 @@ namespace Eatery.Ventas
             this.coldescuento.Name = "coldescuento";
             this.coldescuento.Visible = true;
             this.coldescuento.VisibleIndex = 5;
-            this.coldescuento.Width = 47;
+            this.coldescuento.Width = 109;
             // 
             // colisv1
             // 
@@ -572,7 +573,7 @@ namespace Eatery.Ventas
             this.colisv1.OptionsColumn.ReadOnly = true;
             this.colisv1.Visible = true;
             this.colisv1.VisibleIndex = 6;
-            this.colisv1.Width = 46;
+            this.colisv1.Width = 108;
             // 
             // colisv2
             // 
@@ -593,7 +594,7 @@ namespace Eatery.Ventas
             this.coltotal_linea.OptionsColumn.ReadOnly = true;
             this.coltotal_linea.Visible = true;
             this.coltotal_linea.VisibleIndex = 7;
-            this.coltotal_linea.Width = 76;
+            this.coltotal_linea.Width = 187;
             // 
             // colDelete
             // 
@@ -610,7 +611,9 @@ namespace Eatery.Ventas
             this.colinventario.FieldName = "inventario";
             this.colinventario.Name = "colinventario";
             this.colinventario.OptionsColumn.ReadOnly = true;
-            this.colinventario.Width = 48;
+            this.colinventario.Visible = true;
+            this.colinventario.VisibleIndex = 2;
+            this.colinventario.Width = 74;
             // 
             // frmFactura
             // 
