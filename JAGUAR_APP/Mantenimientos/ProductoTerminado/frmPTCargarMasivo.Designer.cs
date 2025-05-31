@@ -39,11 +39,11 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.colCODIGO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDESCRIPCION = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colINVENTARIO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPRECIOUND = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colGRUPO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCodigo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDisponible = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGrupo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCosto = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -72,11 +72,11 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colCODIGO,
-            this.colDESCRIPCION,
-            this.colINVENTARIO,
-            this.colPRECIOUND,
-            this.colGRUPO});
+            this.colCodigo,
+            this.colDescripcion,
+            this.colDisponible,
+            this.colGrupo,
+            this.colCosto});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
@@ -142,40 +142,40 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // colCODIGO
+            // colCodigo
             // 
-            this.colCODIGO.FieldName = "CODIGO";
-            this.colCODIGO.Name = "colCODIGO";
-            this.colCODIGO.Visible = true;
-            this.colCODIGO.VisibleIndex = 0;
+            this.colCodigo.FieldName = "Codigo";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.Visible = true;
+            this.colCodigo.VisibleIndex = 0;
             // 
-            // colDESCRIPCION
+            // colDescripcion
             // 
-            this.colDESCRIPCION.FieldName = "DESCRIPCION";
-            this.colDESCRIPCION.Name = "colDESCRIPCION";
-            this.colDESCRIPCION.Visible = true;
-            this.colDESCRIPCION.VisibleIndex = 1;
+            this.colDescripcion.FieldName = "Descripcion";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.Visible = true;
+            this.colDescripcion.VisibleIndex = 1;
             // 
-            // colINVENTARIO
+            // colDisponible
             // 
-            this.colINVENTARIO.FieldName = "INVENTARIO";
-            this.colINVENTARIO.Name = "colINVENTARIO";
-            this.colINVENTARIO.Visible = true;
-            this.colINVENTARIO.VisibleIndex = 2;
+            this.colDisponible.FieldName = "Disponible";
+            this.colDisponible.Name = "colDisponible";
+            this.colDisponible.Visible = true;
+            this.colDisponible.VisibleIndex = 2;
             // 
-            // colPRECIOUND
+            // colGrupo
             // 
-            this.colPRECIOUND.FieldName = "PRECIO UND";
-            this.colPRECIOUND.Name = "colPRECIOUND";
-            this.colPRECIOUND.Visible = true;
-            this.colPRECIOUND.VisibleIndex = 3;
+            this.colGrupo.FieldName = "Grupo";
+            this.colGrupo.Name = "colGrupo";
+            this.colGrupo.Visible = true;
+            this.colGrupo.VisibleIndex = 3;
             // 
-            // colGRUPO
+            // colCosto
             // 
-            this.colGRUPO.FieldName = "GRUPO";
-            this.colGRUPO.Name = "colGRUPO";
-            this.colGRUPO.Visible = true;
-            this.colGRUPO.VisibleIndex = 4;
+            this.colCosto.FieldName = "Costo";
+            this.colCosto.Name = "colCosto";
+            this.colCosto.Visible = true;
+            this.colCosto.VisibleIndex = 4;
             // 
             // frmPTCargarMasivo
             // 
@@ -208,10 +208,10 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private dsProductoTerminado dsProductoTerminado1;
-        private DevExpress.XtraGrid.Columns.GridColumn colCODIGO;
-        private DevExpress.XtraGrid.Columns.GridColumn colDESCRIPCION;
-        private DevExpress.XtraGrid.Columns.GridColumn colINVENTARIO;
-        private DevExpress.XtraGrid.Columns.GridColumn colPRECIOUND;
-        private DevExpress.XtraGrid.Columns.GridColumn colGRUPO;
+        private DevExpress.XtraGrid.Columns.GridColumn colCodigo;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
+        private DevExpress.XtraGrid.Columns.GridColumn colDisponible;
+        private DevExpress.XtraGrid.Columns.GridColumn colGrupo;
+        private DevExpress.XtraGrid.Columns.GridColumn colCosto;
     }
 }

@@ -134,11 +134,12 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
 
-                            cmd.Parameters.AddWithValue("@codigo_barra", row.CODIGO);
-                            cmd.Parameters.AddWithValue("@descripcion", row.DESCRIPCION);
-                            cmd.Parameters.AddWithValue("@grupo", row.GRUPO);
-                            cmd.Parameters.AddWithValue("@precio_unit", row.PRECIO_UND);
-                            cmd.Parameters.AddWithValue("@existencia", row.INVENTARIO);
+                            cmd.Parameters.AddWithValue("@codigo_barra", row.Codigo);
+                            cmd.Parameters.AddWithValue("@descripcion", row.Descripcion);
+                            cmd.Parameters.AddWithValue("@grupo", row.Grupo);
+                            //cmd.Parameters.AddWithValue("@precio_unit", row.GetParentRow);
+                            cmd.Parameters.AddWithValue("@existencia", row.Disponible);
+                            cmd.Parameters.AddWithValue("@costo", row.Costo);
                             UltimoCOidgoBarraIngresado = Convert.ToString(cmd.ExecuteScalar());
 
                         }

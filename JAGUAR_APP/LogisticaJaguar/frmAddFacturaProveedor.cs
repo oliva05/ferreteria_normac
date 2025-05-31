@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraRichEdit.Layout;
 using DevExpress.XtraSpreadsheet.Model;
+using JAGUAR_PRO.Calidad.LoteConfConsumo;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.Mantenimientos.MaterialEmpaque.Model;
@@ -54,7 +55,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 dtHoraRevisado.Enabled = false;
             }
 
-            LoadMateriasPrimas();
+            //LoadMateriasPrimas();
             LoadProveedoresList();
             LoadPresentacionFacturaList(); 
             LoadPresentacionJaguarList();
@@ -363,40 +364,114 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void cmdAddFactura_Click(object sender, EventArgs e)
         {
+            DataTable tablaPT = new DataTable();
+            frmSearchItemsMulti frm = new frmSearchItemsMulti();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                tablaPT = frm.ListProductosSeleccionados;
+            }
+
+
             int count_lines = dsLogisticaJaguar1.detalle_recepcion_fact.Rows.Count;
 
-            dsLogisticaJaguar.detalle_recepcion_factRow row1 = dsLogisticaJaguar1.detalle_recepcion_fact.Newdetalle_recepcion_factRow();
-            //row1.cantidad = 0;
-            //row1.cantidad_ingreso = 0;
-            row1.id_ud_medida_prv = 1;
-            row1.id_ud_medida_jaguar = 1;
-            row1.id_mp = 0;
-            //row1.ItemCode = "";
-            //row1.total_fila = 0;
+            foreach (DataRow item in tablaPT.Rows)
+            {
+                bool yaExiste = dsLogisticaJaguar1.detalle_recepcion_fact.AsEnumerable()
+                                .Any(p => p.id_mp == (int)item["id"]);
 
-            row1.num_linea = count_lines + 1;
-            row1.id_bodega = 1;
-            dsLogisticaJaguar1.detalle_recepcion_fact.Adddetalle_recepcion_factRow(row1);
-            dsLogisticaJaguar1.AcceptChanges();
+                if (!yaExiste)
+                {
+                    dsLogisticaJaguar.detalle_recepcion_factRow row1 = dsLogisticaJaguar1.detalle_recepcion_fact.Newdetalle_recepcion_factRow();
+                    row1.cantidad = 0;
+                    row1.cantidad_ingreso = 0;
+                    row1.id_ud_medida_prv = 1;
+                    row1.id_ud_medida_jaguar = 1;
+                    row1.id_mp = Convert.ToInt32(item["id"]);
+                    row1.descripcion_mp = Convert.ToString(item["descripcion"]);
+                    row1.costo_unitario = 0;
+                    row1.isv = 0;
+                    row1.ItemCode = item["code"].ToString();
+                    row1.total_fila = 0;
 
+                    row1.num_linea = count_lines + 1;
+                    row1.id_bodega = 1;
+                    dsLogisticaJaguar1.detalle_recepcion_fact.Adddetalle_recepcion_factRow(row1);
+                    dsLogisticaJaguar1.AcceptChanges();
+                }
+
+                
+            }
 
             if (dsLogisticaJaguar1.detalle_recepcion_fact.Count > 1)
             {
                 int filai = 1;
-                foreach(dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
+                foreach (dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
                 {
                     row.num_linea = filai;
                     filai++;
                 }
             }
+
+            //int count_lines = dsLogisticaJaguar1.detalle_recepcion_fact.Rows.Count;
+
+            //dsLogisticaJaguar.detalle_recepcion_factRow row1 = dsLogisticaJaguar1.detalle_recepcion_fact.Newdetalle_recepcion_factRow();
+            ////row1.cantidad = 0;
+            ////row1.cantidad_ingreso = 0;
+            //row1.id_ud_medida_prv = 1;
+            //row1.id_ud_medida_jaguar = 1;
+            //row1.id_mp = 0;
+            ////row1.ItemCode = "";
+            ////row1.total_fila = 0;
+
+            //row1.num_linea = count_lines + 1;
+            //row1.id_bodega = 1;
+            //dsLogisticaJaguar1.detalle_recepcion_fact.Adddetalle_recepcion_factRow(row1);
+            //dsLogisticaJaguar1.AcceptChanges();
+
+
+            //if (dsLogisticaJaguar1.detalle_recepcion_fact.Count > 1)
+            //{
+            //    int filai = 1;
+            //    foreach(dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
+            //    {
+            //        row.num_linea = filai;
+            //        filai++;
+            //    }
+            //}
         }
 
         private void gridView2_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             DataOperations dp = new DataOperations();
+            var gridView0 = (GridView)gridControl1.FocusedView;
+            var row0 = (dsLogisticaJaguar.detalle_recepcion_factRow)gridView0.GetFocusedDataRow();
+            Impuesto impuesto = new Impuesto();
             switch (e.Column.FieldName)
             {
                 case "cantidad":
+                    
+                    row0.total_fila = row0.cantidad * row0.costo_unitario;
+                    impuesto.RecuperarRegistro(1);
+                    row0.isv = (row0.total_fila * impuesto.Valor) / 100;
+
+                    row0.total_fila = row0.cantidad * row0.costo_unitario + row0.isv;
+
+                    break;
+                case "costo_unitario":
+                    
+                    row0.total_fila = row0.cantidad * row0.costo_unitario;
+                    impuesto.RecuperarRegistro(1);
+                    row0.isv = (row0.total_fila * impuesto.Valor) / 100;
+
+                    row0.total_fila = row0.cantidad * row0.costo_unitario + row0.isv;
+                    break;
+
+                case "isv":
+
+                    row0.total_fila = row0.cantidad * row0.costo_unitario + row0.isv;
+
+                    break;
+
                 case "id_ud_medida_prv":
                 case "id_ud_medida_jaguar":
                     var gridView = (GridView)gridControl1.FocusedView;
@@ -677,7 +752,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             if (TipoAccionActualVentana == TipoAccionVentana.Insert)
                             {
                                 //Insert Detalle
-                                cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v3_compra_pt]";
+                                cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v4_compra_pt]"; 
                                 cmd.CommandType = CommandType.StoredProcedure;
                                 cmd.Parameters.AddWithValue("@id_factura_h", id_H);//Header id recien insertado en la transaccion
                             }
@@ -692,13 +767,13 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                                 if(id_linea_new == 0)
                                 {
-                                    cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v3_compra_pt]";
+                                    cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v4_compra_pt]";
                                     cmd.CommandType = CommandType.StoredProcedure;
                                     cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
                                 }
                                 else
                                 {
-                                    cmd.CommandText = "[dbo].[sp_set_update_detalle_factura_proveedor_d_v3_compra_pt]";
+                                    cmd.CommandText = "[dbo].[sp_set_update_detalle_factura_proveedor_d_v4_compra_pt]";
                                     cmd.CommandType = CommandType.StoredProcedure;
                                     cmd.Parameters.AddWithValue("@id_linea_detalle", row.id);
                                     cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
@@ -721,6 +796,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             cmd.Parameters.AddWithValue("@id_bodega", 1);//row.id_bodega);
                             cmd.Parameters.AddWithValue("@codigo_proveedor", ProveedorActual.Jaguar_codigo);
                             cmd.Parameters.AddWithValue("@tipo_item", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@isv", row.isv);
+                            cmd.Parameters.AddWithValue("@costo_unitario", row.costo_unitario);
                             cmd.ExecuteNonQuery();
                         }
                         transaction.Commit();

@@ -696,6 +696,12 @@
     <Compile Include="Calidad\LoteConfConsumo\frmSearchItems.Designer.cs">
       <DependentUpon>frmSearchItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calidad\LoteConfConsumo\frmSearchItemsMulti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calidad\LoteConfConsumo\frmSearchItemsMulti.Designer.cs">
+      <DependentUpon>frmSearchItemsMulti.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calidad\LoteConfConsumo\frmSearchMP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3896,6 +3902,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchItems.resx">
       <DependentUpon>frmSearchItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchItemsMulti.resx">
+      <DependentUpon>frmSearchItemsMulti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMP.resx">
       <DependentUpon>frmSearchMP.cs</DependentUpon>
