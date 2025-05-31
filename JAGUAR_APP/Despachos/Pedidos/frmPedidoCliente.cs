@@ -3184,7 +3184,7 @@ namespace Eatery.Ventas
                         }
                         LoadDetallePedidoForEdit(pIdPedido);
                         gleEstados.EditValue = pedidoCliente.IdEstado;
-                        ckGenerarCotizacion.Visible = ckConfirmarPedido.Visible = false;
+                        //ckGenerarCotizacion.Visible = ckConfirmarPedido.Visible = false;
                         txtScanProducto.Focus();
                     }
                 }
