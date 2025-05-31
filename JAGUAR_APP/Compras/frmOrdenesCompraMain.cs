@@ -364,7 +364,7 @@ namespace JAGUAR_PRO.Compras
             }
             else
                 valor_impuesto = Convert.ToDecimal(isv15);
-            txtImpuesto.EditValue = decimal.Round(SubTotal * valor_impuesto, 2,MidpointRounding.AwayFromZero);
+            txtImpuesto.EditValue = decimal.Round(SubTotal * valor_impuesto/100, 2,MidpointRounding.AwayFromZero);
             txtTotal.EditValue = decimal.Round(SubTotal + Convert.ToDecimal(txtImpuesto.EditValue),2,MidpointRounding.AwayFromZero);
             
         }
@@ -698,6 +698,16 @@ namespace JAGUAR_PRO.Compras
                         cmd.Parameters.AddWithValue("@id_user_cre", UsuarioLogueado.Id);
                         cmd.Parameters.AddWithValue("@id_punto_venta", PuntoVentaID);
                         int id_header = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = "sp_compras_insert_log_autorizacion";
+                        cmd.Connection = conn;
+                        cmd.Transaction = transaction;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id_orden_compra", id_header);
+                        cmd.Parameters.AddWithValue("@user_id", UsuarioLogueado.Id);
+                        cmd.Parameters.AddWithValue("@fecha", dp.Now());
+                        cmd.ExecuteNonQuery();
 
                         foreach (dsCompras.oc_detalleRow row in dsCompras1.oc_detalle.Rows)
                         {

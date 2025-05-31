@@ -1183,7 +1183,6 @@
             this.simpleButton9.Size = new System.Drawing.Size(227, 58);
             this.simpleButton9.TabIndex = 43;
             this.simpleButton9.Text = "Carga Masiva";
-            this.simpleButton9.Visible = false;
             this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click_1);
             // 
             // btnConfigComisiones
@@ -3838,7 +3837,6 @@
             this.navBarGroup10.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navBarGroup10.Appearance.Options.UseFont = true;
             this.navBarGroup10.Caption = "Ventas";
-            this.navBarGroup10.Expanded = true;
             this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbPrefactura),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem59),

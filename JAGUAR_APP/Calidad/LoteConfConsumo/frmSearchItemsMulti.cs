@@ -1,5 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
@@ -222,6 +223,23 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
 
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void reposDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+            var gridView1 = (GridView)gridControl1.FocusedView;
+            var row = (dsConfigLoteConsumo.items_confirmadosRow)gridView1.GetFocusedDataRow();
+
+            try
+            {
+                gridView1.DeleteRow(gridView1.FocusedRowHandle);
+                dsConfigLoteConsumo1.AcceptChanges();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
         }
     }
 }
