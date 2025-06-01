@@ -537,12 +537,12 @@ namespace JAGUAR_PRO.Utileria
                 if (string.IsNullOrEmpty(txtPass1.Text) ||
                     string.IsNullOrEmpty(txtPass2.Text) ||
                     string.IsNullOrEmpty(txtPass3.Text) ||
-                    string.IsNullOrEmpty(txtPass4.Text) ||
-                    string.IsNullOrEmpty(txtPass5.Text) ||
-                    string.IsNullOrEmpty(txtPass6.Text))
+                    string.IsNullOrEmpty(txtPass4.Text)) //||
+                    //string.IsNullOrEmpty(txtPass5.Text) ||
+                    //string.IsNullOrEmpty(txtPass6.Text))
                     return;
 
-                string pin = txtPass1.Text + txtPass2.Text + txtPass3.Text + txtPass4.Text + txtPass5.Text + txtPass6.Text;
+                string pin = txtPass1.Text + txtPass2.Text + txtPass3.Text + txtPass4.Text;// + txtPass5.Text + txtPass6.Text;
 
                 if(pin == vVendedorLogeado.PIN)
                 {

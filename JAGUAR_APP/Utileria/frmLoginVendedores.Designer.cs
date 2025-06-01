@@ -131,7 +131,7 @@
             // 
             this.txtPass4.EditValue = "0";
             this.txtPass4.Enabled = false;
-            this.txtPass4.Location = new System.Drawing.Point(268, 208);
+            this.txtPass4.Location = new System.Drawing.Point(322, 208);
             this.txtPass4.Name = "txtPass4";
             this.txtPass4.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 30.75F, System.Drawing.FontStyle.Bold);
             this.txtPass4.Properties.Appearance.Options.UseFont = true;
@@ -148,7 +148,7 @@
             // 
             this.txtPass3.EditValue = "0";
             this.txtPass3.Enabled = false;
-            this.txtPass3.Location = new System.Drawing.Point(214, 208);
+            this.txtPass3.Location = new System.Drawing.Point(268, 208);
             this.txtPass3.Name = "txtPass3";
             this.txtPass3.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 30.75F, System.Drawing.FontStyle.Bold);
             this.txtPass3.Properties.Appearance.Options.UseFont = true;
@@ -165,7 +165,7 @@
             // 
             this.txtPass2.EditValue = "0";
             this.txtPass2.Enabled = false;
-            this.txtPass2.Location = new System.Drawing.Point(160, 208);
+            this.txtPass2.Location = new System.Drawing.Point(214, 208);
             this.txtPass2.Name = "txtPass2";
             this.txtPass2.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 30.75F, System.Drawing.FontStyle.Bold);
             this.txtPass2.Properties.Appearance.Options.UseFont = true;
@@ -182,7 +182,7 @@
             // 
             this.txtPass1.EditValue = "0";
             this.txtPass1.Enabled = false;
-            this.txtPass1.Location = new System.Drawing.Point(106, 208);
+            this.txtPass1.Location = new System.Drawing.Point(160, 208);
             this.txtPass1.Name = "txtPass1";
             this.txtPass1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 30.75F, System.Drawing.FontStyle.Bold);
             this.txtPass1.Properties.Appearance.Options.UseFont = true;
@@ -199,7 +199,7 @@
             // 
             this.txtPass6.EditValue = "0";
             this.txtPass6.Enabled = false;
-            this.txtPass6.Location = new System.Drawing.Point(376, 208);
+            this.txtPass6.Location = new System.Drawing.Point(474, 22);
             this.txtPass6.Name = "txtPass6";
             this.txtPass6.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 30.75F, System.Drawing.FontStyle.Bold);
             this.txtPass6.Properties.Appearance.Options.UseFont = true;
@@ -208,6 +208,7 @@
             this.txtPass6.Properties.PasswordChar = '●';
             this.txtPass6.Size = new System.Drawing.Size(48, 62);
             this.txtPass6.TabIndex = 10;
+            this.txtPass6.Visible = false;
             this.txtPass6.EditValueChanged += new System.EventHandler(this.txtPass6_EditValueChanged);
             this.txtPass6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass6_KeyDown);
             this.txtPass6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass6_KeyPress);
@@ -216,7 +217,7 @@
             // 
             this.txtPass5.EditValue = "0";
             this.txtPass5.Enabled = false;
-            this.txtPass5.Location = new System.Drawing.Point(322, 208);
+            this.txtPass5.Location = new System.Drawing.Point(420, 22);
             this.txtPass5.Name = "txtPass5";
             this.txtPass5.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 30.75F, System.Drawing.FontStyle.Bold);
             this.txtPass5.Properties.Appearance.Options.UseFont = true;
@@ -225,6 +226,7 @@
             this.txtPass5.Properties.PasswordChar = '●';
             this.txtPass5.Size = new System.Drawing.Size(48, 62);
             this.txtPass5.TabIndex = 9;
+            this.txtPass5.Visible = false;
             this.txtPass5.EditValueChanged += new System.EventHandler(this.txtPass5_EditValueChanged);
             this.txtPass5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass5_KeyDown);
             this.txtPass5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass5_KeyPress);

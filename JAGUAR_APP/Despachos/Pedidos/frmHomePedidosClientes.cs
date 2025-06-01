@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using DevExpress.Pdf.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
@@ -21,6 +22,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JAGUAR_PRO.Utileria;
 
 namespace JAGUAR_PRO.Despachos.Pedidos
 {
@@ -30,6 +32,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         DataOperations dp;
         FacturacionEquipo equipo;
         PDV PuntoVentaActual;
+        Vendedor VendedorActual;
         public frmHomePedidosClientes(UserLogin pUsuarioLogeado, PDV pPuntoVenta)
         {
             InitializeComponent();
@@ -45,7 +48,27 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
             dtDesde.EditValue = FechaInicial;
             dtHasta.EditValue = FechaFinal;
-            LoadDatos();
+            switch (UsuarioLogeado.GrupoUsuario.GrupoUsuarioActivo)
+            {
+                case GrupoUser.GrupoUsuario.Logistica:
+                    break;
+                case GrupoUser.GrupoUsuario.Administradores:
+                    LoadDatos();
+                    break;
+                case GrupoUser.GrupoUsuario.RRHH:
+                    break;
+                case GrupoUser.GrupoUsuario.Contabilidad:
+                    break;
+                case GrupoUser.GrupoUsuario.Facturacion_Admin:
+                    break;
+                case GrupoUser.GrupoUsuario.Facturacion_EndUser:
+                    break;
+                case GrupoUser.GrupoUsuario.Caja:
+                    break;
+                default:
+                    break;
+            }
+            
         }
 
         private void cmdCargar_Click(object sender, EventArgs e)
@@ -313,6 +336,38 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #11 (Facturacion punto de venta)");
                 }
             }
+        }
+
+        private void txtAsesorVendedor_DoubleClick(object sender, EventArgs e)
+        {
+            frmLoginVendedores frmLoginVendedores = new frmLoginVendedores();
+            if (frmLoginVendedores.ShowDialog() == DialogResult.OK)
+            {
+                txtAsesorVendedor.Text = frmLoginVendedores.CodigoVendedor + " - " + frmLoginVendedores.NombreVendedor;
+                VendedorActual = frmLoginVendedores.Vendedor_;
+                this.UsuarioLogeado = new UserLogin();
+                if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
+                    cmdCargar_Click(sender, e);
+                }
+            }
+            
+        }
+
+        private void cmdChangeVendedor_Click(object sender, EventArgs e)
+        {
+            frmLoginVendedores frmLoginVendedores = new frmLoginVendedores();
+            if (frmLoginVendedores.ShowDialog() == DialogResult.OK)
+            {
+                txtAsesorVendedor.Text = frmLoginVendedores.CodigoVendedor + " - " + frmLoginVendedores.NombreVendedor;
+                VendedorActual = frmLoginVendedores.Vendedor_;
+                this.UsuarioLogeado = new UserLogin();
+                if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
+                    cmdCargar_Click(sender, e);
+                }
+            }
+            cmdCargar_Click(sender, e);
         }
     }
 }

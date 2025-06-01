@@ -57,6 +57,7 @@ namespace PRININ.Gestion_de_Usuarios
                     txtPass.Text = "";
                     txtConfirmar.Text = "";
                     tsIsVendedor.IsOn = false;
+                    UserEdicion = new UserLogin();
                     GetCodeSig();
                     break;
                 case TipoEdicion.Editar:
@@ -238,10 +239,12 @@ namespace PRININ.Gestion_de_Usuarios
                         UserEdicion.Pass = txtPass.Text;
                         UserEdicion.IdGrupo =Convert.ToInt32( lueGrupo.EditValue);
                         UserEdicion.TurnoId = Convert.ToInt32(lueTurno.EditValue);
-                        UserEdicion.Codigo = txtCodigo.Text;
+                        UserEdicion.Codigo = txtCodigo.Text.Trim();
                         UserEdicion.PIN = txtPIN.Text;
                         UserEdicion.IsVendedor = tsIsVendedor.IsOn;
-                        if (UserEdicion.GuardarNuevoUsuario())
+                        UserEdicion.CodigoEmpleado = txtCodigoEmpleado.Text;
+                        UserEdicion.Id = UserEdicion.GuardarNuevoUsuario();
+                        if (UserEdicion.Id > 0)    
                         {
                             if (IdNivel > 0)
                             {

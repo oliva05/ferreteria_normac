@@ -419,7 +419,7 @@ namespace JAGUAR_PRO.Clases
             return r;
         }
 
-        public bool GuardarNuevoUsuario()
+        public int GuardarNuevoUsuario()
         {
             //string sql = @"INSERT INTO [dbo].[conf_usuarios]
             //                               ([usuario]
@@ -460,14 +460,16 @@ namespace JAGUAR_PRO.Clases
                 cmd.Parameters.AddWithValue("codigo_vendedor", this.Codigo);
                 cmd.Parameters.AddWithValue("PIN", this.PIN);
                 cmd.Parameters.AddWithValue("isVendedor", this.IsVendedor);
-                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("codigo_empleado", this.CodigoEmpleado);
+                
+                this.Id = Convert.ToInt32(cmd.ExecuteScalar());
                 conn.Close();
-                return true;
+                return this.Id;
             }
             catch (Exception ex)
             {
                 CajaDialogo.Error(ex.Message);
-                return false;
+                return 0;
             }
         }
 

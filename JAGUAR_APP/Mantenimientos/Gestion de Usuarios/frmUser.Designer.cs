@@ -291,7 +291,7 @@
             // 
             this.txtPIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPIN.Location = new System.Drawing.Point(94, 76);
-            this.txtPIN.MaxLength = 6;
+            this.txtPIN.MaxLength = 4;
             this.txtPIN.Name = "txtPIN";
             this.txtPIN.PasswordChar = '●';
             this.txtPIN.Size = new System.Drawing.Size(201, 22);

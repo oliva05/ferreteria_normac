@@ -3046,7 +3046,7 @@ namespace Eatery.Ventas
                 this.UsuarioLogeado = new UserLogin();
                 if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
                 {
-
+                    txtScanProducto.Focus();
                 }
             }
         }

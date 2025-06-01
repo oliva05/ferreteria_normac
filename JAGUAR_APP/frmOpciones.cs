@@ -366,13 +366,13 @@ namespace JAGUAR_PRO
 
                             break;
                         case 3://Medium Autorization
-                            xtraTabControl2.TabPages[4].PageVisible = true;
+                            tabOpciones.TabPages[4].PageVisible = true;
                             NBI_Despachos.Visible = NBI_ListaPrecios.Visible = 
                             NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible = 
                             NBI_Cliente.Visible = true;
                             break;
                         case 4://Depth With Delta
-                            xtraTabControl2.TabPages[4].PageVisible = true;
+                            tabOpciones.TabPages[4].PageVisible = true;
                             NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
                             NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
                             NBI_Cliente.Visible = true;
