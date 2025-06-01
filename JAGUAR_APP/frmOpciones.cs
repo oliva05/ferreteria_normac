@@ -50,6 +50,7 @@ using JAGUAR_PRO.RRHH_Planilla.Planilla;
 using JAGUAR_PRO.Tools;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
+using JAGUAR_PRO.Utileria;
 using LOSA.TransaccionesMP;
 using System;
 using System.Data;
@@ -5310,6 +5311,12 @@ namespace JAGUAR_PRO
             }
 
 
+        }
+
+        private void btnChanguePin_Click(object sender, EventArgs e)
+        {
+            frmChanguePinVendedores frm = new frmChanguePinVendedores();
+            frm.ShowDialog();
         }
     }
 }

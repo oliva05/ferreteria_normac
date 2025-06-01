@@ -3766,6 +3766,12 @@
     <Compile Include="TransaccionesPT\xrptTraslado.Designer.cs">
       <DependentUpon>xrptTraslado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utileria\frmChanguePinVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utileria\frmChanguePinVendedores.Designer.cs">
+      <DependentUpon>frmChanguePinVendedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utileria\frmLoginVendedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4993,6 +4999,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\xrptTraslado.resx">
       <DependentUpon>xrptTraslado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utileria\frmChanguePinVendedores.resx">
+      <DependentUpon>frmChanguePinVendedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utileria\frmLoginVendedores.resx">
       <DependentUpon>frmLoginVendedores.cs</DependentUpon>

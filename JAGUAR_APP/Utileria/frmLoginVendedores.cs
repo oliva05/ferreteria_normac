@@ -507,10 +507,12 @@ namespace JAGUAR_PRO.Utileria
 
         private void txtPass4_EditValueChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtPass4.Text))
-            {
-                txtPass5.Focus();
-            }
+            //validate user
+            LoginVendedor_();
+            //if (!string.IsNullOrEmpty(txtPass4.Text))
+            //{
+            //    txtPass5.Focus();
+            //}
         }
 
         private void txtPass5_EditValueChanged(object sender, EventArgs e)
