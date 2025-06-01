@@ -109,6 +109,8 @@ namespace ACS.Classes
         internal string User_FTP_Server = "ftp_normac";
         internal string Password_UserFTPServer = "OPjSn10Z1U";
 
+        internal string FTP_PlantillaProductos = @"ftp://192.168.21.50/Expedientes/Plantillas/ProductoTerminado";
+
         //internal string FTP_BannerTv_PRD = @"ftp://10.50.11.32/BannerTV_PRD/";
 
         //       internal string ConnectionStringPRININ = @"Server=" + Globals.prinin_ServerAddress + @";

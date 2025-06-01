@@ -30,8 +30,8 @@ namespace JAGUAR_PRO.Clases
                 DataOperations dp = new DataOperations();
                 string localFilePath = Path.Combine(pathDestination, file_name);
 
-                string pass = "Tempo1234";
-                string user_op = "operador";
+                string pass = "OPjSn10Z1U";
+                string user_op = "ftp_normac";
                 if (pUsuarioLogeado != null)
                 {
                     if (!string.IsNullOrEmpty(pUsuarioLogeado.Pass))
