@@ -48,32 +48,37 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
             dtDesde.EditValue = FechaInicial;
             dtHasta.EditValue = FechaFinal;
+           
+            
+        }
+
+        private void cmdCargar_Click(object sender, EventArgs e)
+        {
             switch (UsuarioLogeado.GrupoUsuario.GrupoUsuarioActivo)
             {
                 case GrupoUser.GrupoUsuario.Logistica:
                     break;
                 case GrupoUser.GrupoUsuario.Administradores:
                     LoadDatos();
+            
                     break;
                 case GrupoUser.GrupoUsuario.RRHH:
                     break;
                 case GrupoUser.GrupoUsuario.Contabilidad:
                     break;
                 case GrupoUser.GrupoUsuario.Facturacion_Admin:
+                    LoadDatos();
                     break;
                 case GrupoUser.GrupoUsuario.Facturacion_EndUser:
+                    cmdChangeVendedor_Click(sender, e);
+
                     break;
                 case GrupoUser.GrupoUsuario.Caja:
                     break;
                 default:
                     break;
             }
-            
-        }
-
-        private void cmdCargar_Click(object sender, EventArgs e)
-        {
-            LoadDatos();
+           
         }
 
         private void LoadDatos()
@@ -84,7 +89,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v3]", con);//Facturacion User por default
+                SqlCommand cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_facturacion_user]", con);//Facturacion User por default
                 switch (this.UsuarioLogeado.IdGrupo)
                 {
                     
@@ -92,19 +97,19 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
                     break;
                     case 2://Admin
-                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v5]", con);
+                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v6]", con);
                         break;
                     case 3://RRHH
                     break;
                     case 4://Contabilidad
                     break;
                     case 5://Facturacion Admin
-                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v5]", con);
+                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v6]", con);
                         break;
                     case 6://Facturacion User
                         break;
                     case 7://Caja
-                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v4]", con);
+                        cmd = new SqlCommand("sp_get_listado_pedidos_clientes_venta_v6", con);
                         break;
                     default:
                         break;
@@ -115,6 +120,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 cmd.Parameters.AddWithValue("@hasta", dtHasta.DateTime);
                 cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoVentaActual.ID);
                 cmd.Parameters.AddWithValue("@incluir_docs_cerrados", tggIncluirDocCerrados.IsOn);
+                if (VendedorActual == null)
+                    cmd.Parameters.AddWithValue("@id_vendedor", 0);
+                else
+                    cmd.Parameters.AddWithValue("@id_vendedor", VendedorActual.Id);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsPedidosClientesV1.lista_pedidos.Clear();
                 adat.Fill(dsPedidosClientesV1.lista_pedidos); 
