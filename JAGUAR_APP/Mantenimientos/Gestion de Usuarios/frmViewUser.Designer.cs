@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewUser));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtId = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -59,12 +59,12 @@
             this.button_funciones = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.Eliminar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.button_eliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ButtonEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ButtonFunciones = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdAdd = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtaqfcode = new DevExpress.XtraEditors.TextEdit();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuarioAD.Properties)).BeginInit();
@@ -232,7 +232,7 @@
             this.colnombre.OptionsColumn.AllowEdit = false;
             this.colnombre.Visible = true;
             this.colnombre.VisibleIndex = 0;
-            this.colnombre.Width = 212;
+            this.colnombre.Width = 209;
             // 
             // colcodigo
             // 
@@ -243,7 +243,7 @@
             this.colcodigo.OptionsColumn.AllowEdit = false;
             this.colcodigo.Visible = true;
             this.colcodigo.VisibleIndex = 1;
-            this.colcodigo.Width = 63;
+            this.colcodigo.Width = 62;
             // 
             // coldescripcion
             // 
@@ -254,7 +254,7 @@
             this.coldescripcion.OptionsColumn.AllowEdit = false;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 3;
-            this.coldescripcion.Width = 278;
+            this.coldescripcion.Width = 263;
             // 
             // colhabilitada
             // 
@@ -264,8 +264,8 @@
             this.colhabilitada.Name = "colhabilitada";
             this.colhabilitada.OptionsColumn.AllowEdit = false;
             this.colhabilitada.Visible = true;
-            this.colhabilitada.VisibleIndex = 5;
-            this.colhabilitada.Width = 78;
+            this.colhabilitada.VisibleIndex = 4;
+            this.colhabilitada.Width = 80;
             // 
             // colfecha_vinculo
             // 
@@ -276,7 +276,7 @@
             this.colfecha_vinculo.OptionsColumn.AllowEdit = false;
             this.colfecha_vinculo.Visible = true;
             this.colfecha_vinculo.VisibleIndex = 5;
-            this.colfecha_vinculo.Width = 79;
+            this.colfecha_vinculo.Width = 81;
             // 
             // colselect_
             // 
@@ -339,17 +339,27 @@
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Visible = true;
             this.Eliminar.VisibleIndex = 6;
-            this.Eliminar.Width = 84;
+            this.Eliminar.Width = 90;
             // 
             // button_eliminar
             // 
             this.button_eliminar.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.button_eliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.button_eliminar.Name = "button_eliminar";
             this.button_eliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.button_eliminar.Click += new System.EventHandler(this.button_eliminar_Click);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Tipo Acceso";
+            this.gridColumn1.FieldName = "type_access";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 2;
+            this.gridColumn1.Width = 166;
             // 
             // ButtonEditar
             // 
@@ -402,16 +412,6 @@
             this.txtaqfcode.Size = new System.Drawing.Size(67, 24);
             this.txtaqfcode.TabIndex = 14;
             this.txtaqfcode.Visible = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Tipo Acceso";
-            this.gridColumn1.FieldName = "type_access";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.AllowEdit = false;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 2;
-            this.gridColumn1.Width = 168;
             // 
             // frmViewUser
             // 
