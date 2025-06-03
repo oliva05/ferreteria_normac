@@ -351,7 +351,6 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
-            this.btnChanguePin = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -3805,7 +3804,6 @@
             // 
             // tabPageFacturacion
             // 
-            this.tabPageFacturacion.Controls.Add(this.btnChanguePin);
             this.tabPageFacturacion.Controls.Add(this.navBarControl3);
             this.tabPageFacturacion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabPageFacturacion.ImageOptions.Image")));
             this.tabPageFacturacion.Margin = new System.Windows.Forms.Padding(2);
@@ -4842,21 +4840,6 @@
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
             // 
-            // btnChanguePin
-            // 
-            this.btnChanguePin.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChanguePin.Appearance.Options.UseFont = true;
-            this.btnChanguePin.Appearance.Options.UseTextOptions = true;
-            this.btnChanguePin.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btnChanguePin.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnChanguePin.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.settings;
-            this.btnChanguePin.Location = new System.Drawing.Point(360, 43);
-            this.btnChanguePin.Name = "btnChanguePin";
-            this.btnChanguePin.Size = new System.Drawing.Size(139, 53);
-            this.btnChanguePin.TabIndex = 44;
-            this.btnChanguePin.Text = "Vendedores Cambio de Pin";
-            this.btnChanguePin.Click += new System.EventHandler(this.btnChanguePin_Click);
-            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5222,6 +5205,5 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem110;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
         private DevExpress.XtraNavBar.NavBarItem navBarItem151;
-        private DevExpress.XtraEditors.SimpleButton btnChanguePin;
     }
 }
