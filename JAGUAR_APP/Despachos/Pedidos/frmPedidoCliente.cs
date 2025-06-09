@@ -2337,6 +2337,8 @@ namespace Eatery.Ventas
                 SetErrorBarra("No se encontró el código escaneado!");
                 txtScanProducto.Text = "";
                 txtScanProducto.Focus();
+                timerLimpiarMensaje.Enabled = true;
+                timerLimpiarMensaje.Start();
             }
         }
 

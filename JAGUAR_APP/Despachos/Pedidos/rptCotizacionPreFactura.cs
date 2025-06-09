@@ -71,6 +71,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 lblTermino.Text = "Contado";
                 txtFechaentrega.Text = "";// string.Format("{0:dd/MM/yyyy}", CotizacionActual.FechaEntregaEstimada);
                 txtComentario.Text = CotizacionActual.Comentario;
+                txtVendedor.Text= CotizacionActual.Vendedor;
                 //((Factura1.sub - Factura1.descuento) + Factura1.Recargo));
                 //if (Factura1.Recargo > 0)
                 //{
