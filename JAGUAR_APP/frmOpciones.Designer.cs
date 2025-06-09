@@ -674,6 +674,7 @@
             this.navBarItem152.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem152.AppearancePressed.Options.UseFont = true;
             this.navBarItem152.Caption = "Entrega / Picking";
+            this.navBarItem152.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.boxPT32px;
             this.navBarItem152.Name = "navBarItem152";
             this.navBarItem152.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem152_LinkClicked);
             // 
