@@ -34,7 +34,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_recuperar_registro_bodegas_all", con);
+                SqlCommand cmd = new SqlCommand("sp_get_recuperar_registro_bodegas_all", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@codigo_bodega", pCodigoBodega);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
@@ -75,7 +75,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_recuperar_registro_bodega", con);
+                SqlCommand cmd = new SqlCommand("sp_get_recuperar_registro_bodega", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo_bodega", pCodigoBodega);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -107,7 +107,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("codesahn.sp_get_recuperar_registro_bodega_from_id", con);
+                SqlCommand cmd = new SqlCommand("sp_get_recuperar_registro_bodega_from_id", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", pIdBodega);
                 SqlDataReader dr = cmd.ExecuteReader();

@@ -35,7 +35,7 @@ namespace JAGUAR_PRO.Clases
         public string OrdenCompra { get; set; }
         public int Id_Vendedor { get; set; }
         public string CodigoVendedor { get; set; }
-        
+        public int IdFactura{ get; set; }
         public bool Recuperado { get; set; }
 
         DataOperations dp;
@@ -110,7 +110,7 @@ namespace JAGUAR_PRO.Clases
                         if (!reader.IsDBNull(reader.GetOrdinal("isv")))
                             ISV = Convert.ToDecimal(reader["isv"]);
 
-
+                           IdFactura = Convert.ToInt32(reader["id_factura"]);
                         Recuperado = true;
                     }
 

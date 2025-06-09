@@ -644,7 +644,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.Location = new System.Drawing.Point(16, 478);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(211, 15);
+            this.labelControl10.Size = new System.Drawing.Size(212, 15);
             this.labelControl10.TabIndex = 52;
             this.labelControl10.Text = "Tipo de Item_____________________________";
             // 
