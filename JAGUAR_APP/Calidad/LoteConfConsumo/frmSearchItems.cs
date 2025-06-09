@@ -18,8 +18,8 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
 {
     public partial class frmSearchItems : DevExpress.XtraEditors.XtraForm
     {
-  
-         enum TipoBusqueda
+
+        enum TipoBusqueda
         {
             Ninguna = 0,
             PorCodigoPT = 1,
@@ -72,6 +72,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             try
             {
+                errorProvider1.Clear();
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
@@ -83,6 +84,35 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
                 dsConfigLoteConsumo1.search_pt.Clear(); 
                 adat.Fill(dsConfigLoteConsumo1.search_pt);
                 conn.Close();
+
+                if(dsConfigLoteConsumo1.search_pt.Count == 0)
+                {
+                    
+                    switch (tipoBusquedaActual)
+                    {
+                        case TipoBusqueda.Ninguna:
+                            errorProvider1.SetError(simpleButton2, "No se encontraron resultados!");
+                            break;
+                        case TipoBusqueda.PorCodigoPT:
+                            errorProvider1.SetError(txtCode, "No se encontraron resultados!");
+                            break;
+                        case TipoBusqueda.PorDescripcion:
+                            errorProvider1.SetError(txtDesc, "No se encontraron resultados!");
+                            break;
+                        case TipoBusqueda.PorCodReferencia:
+                            errorProvider1.SetError(txtCodRefe, "No se encontraron resultados!");
+                            break;
+                        case TipoBusqueda.PorCodCombinado:
+                            errorProvider1.SetError(txtCodComb, "No se encontraron resultados!");
+                            break;
+                        case TipoBusqueda.PorMarca:
+                            errorProvider1.SetError(txtMarca, "No se encontraron resultados!");
+                            break;
+                        default:
+                            errorProvider1.SetError(simpleButton2, "No se encontraron resultados!");
+                            break;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -128,6 +158,19 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
             ItemSeleccionado.id = Convert.ToInt32(row.id);
             ItemSeleccionado.ItemCode = row.code;
             ItemSeleccionado.ItemName = row.descripcion;
+
+            if (!row.IsmarcaNull())
+            {
+                if (!string.IsNullOrEmpty(row.marca))
+                    ItemSeleccionado.Marca = row.marca;
+                else
+                    ItemSeleccionado.Marca = "---";
+            }
+            else
+            {
+                ItemSeleccionado.Marca = "---";
+            }
+
             row.Seleccionado = true;
 
             this.DialogResult = DialogResult.OK;

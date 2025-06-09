@@ -37,6 +37,8 @@
             this.colcantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidad_seleccionada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colwhs_code = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcomprometido = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colmarca = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dsPedidosClientesV1 = new JAGUAR_PRO.Despachos.Pedidos.dsPedidosClientesV();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblProductoName = new DevExpress.XtraEditors.LabelControl();
@@ -44,7 +46,8 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.colcomprometido = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lblMarca = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPrefacturas1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -58,10 +61,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "stock_por_almacen";
             this.gridControl1.DataSource = this.dsPrefacturas1;
-            this.gridControl1.Location = new System.Drawing.Point(1, 54);
+            this.gridControl1.Location = new System.Drawing.Point(1, 70);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(620, 226);
+            this.gridControl1.Size = new System.Drawing.Size(674, 246);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -79,7 +82,8 @@
             this.colcantidad,
             this.colcantidad_seleccionada,
             this.colwhs_code,
-            this.colcomprometido});
+            this.colcomprometido,
+            this.colmarca});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
@@ -98,7 +102,7 @@
             this.colbodega_name.OptionsColumn.ReadOnly = true;
             this.colbodega_name.Visible = true;
             this.colbodega_name.VisibleIndex = 1;
-            this.colbodega_name.Width = 191;
+            this.colbodega_name.Width = 164;
             // 
             // colcantidad
             // 
@@ -110,7 +114,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cantidad", "SUM={0:0.##}")});
             this.colcantidad.Visible = true;
             this.colcantidad.VisibleIndex = 2;
-            this.colcantidad.Width = 109;
+            this.colcantidad.Width = 113;
             // 
             // colcantidad_seleccionada
             // 
@@ -120,7 +124,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cantidad_seleccionada", "SUM={0:0.##}")});
             this.colcantidad_seleccionada.Visible = true;
             this.colcantidad_seleccionada.VisibleIndex = 4;
-            this.colcantidad_seleccionada.Width = 141;
+            this.colcantidad_seleccionada.Width = 127;
             // 
             // colwhs_code
             // 
@@ -129,7 +133,25 @@
             this.colwhs_code.OptionsColumn.ReadOnly = true;
             this.colwhs_code.Visible = true;
             this.colwhs_code.VisibleIndex = 0;
-            this.colwhs_code.Width = 50;
+            this.colwhs_code.Width = 48;
+            // 
+            // colcomprometido
+            // 
+            this.colcomprometido.DisplayFormat.FormatString = "n2";
+            this.colcomprometido.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colcomprometido.FieldName = "comprometido";
+            this.colcomprometido.Name = "colcomprometido";
+            this.colcomprometido.OptionsColumn.ReadOnly = true;
+            this.colcomprometido.Visible = true;
+            this.colcomprometido.VisibleIndex = 3;
+            this.colcomprometido.Width = 87;
+            // 
+            // colmarca
+            // 
+            this.colmarca.FieldName = "marca";
+            this.colmarca.Name = "colmarca";
+            this.colmarca.OptionsColumn.ReadOnly = true;
+            this.colmarca.Width = 108;
             // 
             // dsPedidosClientesV1
             // 
@@ -162,7 +184,7 @@
             this.lblCantidadReq.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidadReq.Appearance.Options.UseFont = true;
             this.lblCantidadReq.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblCantidadReq.Location = new System.Drawing.Point(106, 33);
+            this.lblCantidadReq.Location = new System.Drawing.Point(106, 49);
             this.lblCantidadReq.Name = "lblCantidadReq";
             this.lblCantidadReq.Size = new System.Drawing.Size(465, 15);
             this.lblCantidadReq.TabIndex = 4;
@@ -172,7 +194,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(12, 33);
+            this.labelControl4.Location = new System.Drawing.Point(12, 49);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(88, 15);
             this.labelControl4.TabIndex = 3;
@@ -180,6 +202,7 @@
             // 
             // cmdGuardar
             // 
+            this.cmdGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmdGuardar.Appearance.BackColor = System.Drawing.Color.White;
             this.cmdGuardar.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdGuardar.Appearance.Options.UseBackColor = true;
@@ -187,7 +210,7 @@
             this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGuardar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.cmdGuardar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdGuardar.ImageOptions.SvgImage")));
-            this.cmdGuardar.Location = new System.Drawing.Point(181, 289);
+            this.cmdGuardar.Location = new System.Drawing.Point(230, 322);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(108, 41);
             this.cmdGuardar.TabIndex = 50;
@@ -197,6 +220,7 @@
             // 
             // simpleButton1
             // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.simpleButton1.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseBackColor = true;
@@ -204,7 +228,7 @@
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(295, 289);
+            this.simpleButton1.Location = new System.Drawing.Point(344, 322);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(108, 41);
             this.simpleButton1.TabIndex = 51;
@@ -212,22 +236,33 @@
             this.simpleButton1.ToolTipTitle = "Guardar Entrada de Factura";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // colcomprometido
+            // lblMarca
             // 
-            this.colcomprometido.DisplayFormat.FormatString = "n2";
-            this.colcomprometido.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colcomprometido.FieldName = "comprometido";
-            this.colcomprometido.Name = "colcomprometido";
-            this.colcomprometido.OptionsColumn.ReadOnly = true;
-            this.colcomprometido.Visible = true;
-            this.colcomprometido.VisibleIndex = 3;
-            this.colcomprometido.Width = 102;
+            this.lblMarca.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.Appearance.Options.UseFont = true;
+            this.lblMarca.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblMarca.Location = new System.Drawing.Point(106, 30);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(465, 15);
+            this.lblMarca.TabIndex = 53;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(12, 30);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(36, 15);
+            this.labelControl3.TabIndex = 52;
+            this.labelControl3.Text = "Marca:";
             // 
             // frmElejirAlmacenPedidoOutStok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 338);
+            this.ClientSize = new System.Drawing.Size(676, 364);
+            this.Controls.Add(this.lblMarca);
+            this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.cmdGuardar);
             this.Controls.Add(this.lblCantidadReq);
@@ -264,5 +299,8 @@
         private dsPrefacturas dsPrefacturas1;
         private DevExpress.XtraGrid.Columns.GridColumn colwhs_code;
         private DevExpress.XtraGrid.Columns.GridColumn colcomprometido;
+        private DevExpress.XtraGrid.Columns.GridColumn colmarca;
+        private DevExpress.XtraEditors.LabelControl lblMarca;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

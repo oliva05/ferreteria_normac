@@ -3,6 +3,7 @@ using ACS.Classes;
 //using ACS.Forecast;
 using ACS.IT_Managment;
 using DevExpress.XtraEditors;
+using DevExpress.XtraNavBar;
 using DevExpress.XtraReports.UI;
 using Eatery.Ventas;
 using JAGUAR_PRO.Accesos;
@@ -362,16 +363,33 @@ namespace JAGUAR_PRO
                     switch (idNivel_11)
                     {
                         case 1://Basic View
-                            UsuarioLogeado.Idnivel = idNivel_11;
-                            break;
                         case 2://Basic No Autorization
-
-                            break;
                         case 3://Medium Autorization
-                            tabOpciones.TabPages[4].PageVisible = true;
-                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible = 
-                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible = 
-                            NBI_Cliente.Visible = true;
+                            UsuarioLogeado.Idnivel = idNivel_11;
+                            tabOpciones.TabPages[4].PageVisible = false;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = false;
+                            navBarFacturaMain.Visible =
+                            navBarItemFacturasEmitidas.Visible =
+                            NBI_NumeracionFiscal.Visible =
+                            NBI_PuntoVenta.Visible =
+                            NBI_ListaPrecios.Visible =
+                            NBI_Despachos.Visible =
+                            navBarItem55.Visible =
+                            nbRequest.Visible =
+                            nB_PagoMultiple.Visible =
+                            navBarItem56.Visible =
+                            navBarItem57.Visible =
+                            navBarItem58.Visible =
+                            nbKardexFacturacion.Visible =
+                            nbReportesFacturacionMain.Visible =
+                            navBarItemCambioDePrecio.Visible =
+                            navBarItem20.Visible = false;
+
+                            navBarGroup11.Visible =
+                            navBarG_ReportesFacturacion.Visible =
+                            navBarGroup7.Visible = false;
                             break;
                         case 4://Depth With Delta
                             tabOpciones.TabPages[4].PageVisible = true;
@@ -4629,7 +4647,7 @@ namespace JAGUAR_PRO
                         //frmRecepcionFacturaProveedor frm = new frmRecepcionFacturaProveedor(this.UsuarioLogeado);
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
-                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual);
+                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
                         frm.Show();
                         break;
@@ -4643,7 +4661,7 @@ namespace JAGUAR_PRO
                     {
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
-                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual);
+                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
                         frm.Show();
                     }

@@ -2,6 +2,7 @@
 using DevExpress.Pdf.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraNavBar;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraSpreadsheet.Import.Xls;
@@ -10,6 +11,7 @@ using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.Facturacion.Reportes;
 using JAGUAR_PRO.LogisticaJaguar;
+using JAGUAR_PRO.Utileria;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +24,6 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JAGUAR_PRO.Utileria;
 
 namespace JAGUAR_PRO.Despachos.Pedidos
 {
@@ -48,8 +49,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
             dtDesde.EditValue = FechaInicial;
             dtHasta.EditValue = FechaFinal;
+
            
-            
         }
 
         private void cmdCargar_Click(object sender, EventArgs e)
@@ -192,7 +193,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 return;
             }
 
-            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo);
+
+            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, VendedorActual);
             if(frm.ShowDialog() == DialogResult.OK)
             {
                 LoadDatos();
@@ -353,11 +355,36 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             if (frmLoginVendedores.ShowDialog() == DialogResult.OK)
             {
                 txtAsesorVendedor.Text = frmLoginVendedores.CodigoVendedor + " - " + frmLoginVendedores.NombreVendedor;
-                VendedorActual = frmLoginVendedores.Vendedor_;
+                VendedorActual = frmLoginVendedores.Vendedor_;               
+
                 this.UsuarioLogeado = new UserLogin();
                 if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
                 {
                     cmdCargar_Click(sender, e);
+                    switch (UsuarioLogeado.GrupoUsuario.GrupoUsuarioActivo)
+                    {
+                        
+                        case GrupoUser.GrupoUsuario.Logistica: //id: 1
+                        case GrupoUser.GrupoUsuario.RRHH://id: 3
+                        case GrupoUser.GrupoUsuario.Contabilidad://id: 4
+                        case GrupoUser.GrupoUsuario.Caja://id: 7
+                        case GrupoUser.GrupoUsuario.Facturacion_EndUser://id: 6
+                            gridView1.OptionsMenu.EnableColumnMenu = false;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+
+
+                            gridView1.Columns["costo"].Visible = true; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
+
+
+                            break;
+                        case GrupoUser.GrupoUsuario.Administradores://id: 2
+
+                            break;
+                        case GrupoUser.GrupoUsuario.Facturacion_Admin://id: 5
+
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
             

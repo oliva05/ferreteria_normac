@@ -21,5 +21,6 @@ namespace JAGUAR_PRO.Clases
         public string ItemCode;
         public string Descripcion;
         public decimal isv1;
+        public string marca;
     }
 }
