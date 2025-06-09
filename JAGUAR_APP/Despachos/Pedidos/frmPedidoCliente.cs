@@ -193,7 +193,28 @@ namespace Eatery.Ventas
                     PedidoActual = pedidoCliente;
                     ClienteFactura = new ClienteFacturacion();
                     
-                    txtNombreCliente.Text = pedidoCliente.ClienteNombre;
+                    IdTerminoPago = pedidoCliente.IdTerminoPago;
+                    if(IdTerminoPago== 1)//Contado
+                    {
+                        rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged_1);
+                        rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_1);
+                        rdContado.Checked = true;
+                        rdCredito.Checked = false;
+                        rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_1);
+                        rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged_1);
+                    }
+
+                    if (IdTerminoPago == 2)//Credito
+                    {
+                        rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged_1);
+                        rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_1);
+                        rdContado.Checked = false;
+                        rdCredito.Checked = true;
+                        rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_1);
+                        rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged_1);
+                    }
+
+                        txtNombreCliente.Text = pedidoCliente.ClienteNombre;
                     txtRTN.Text = pedidoCliente.RTN;
                     txtDireccion.Text = pedidoCliente.direccion_cliente;
                     ClienteFactura.Id = pedidoCliente.IdCliente;
@@ -2657,6 +2678,8 @@ namespace Eatery.Ventas
                                 _id_estado = 1;//Confirmado 
 
                             command.Parameters.AddWithValue("@id_estado", _id_estado);
+                            command.Parameters.AddWithValue("@id_termino_pago", IdTerminoPago);
+                            
 
                             Int64 IdPedidoH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
@@ -2884,11 +2907,14 @@ namespace Eatery.Ventas
                             }
 
                             command.Parameters.AddWithValue("@id_h", PedidoActual.Id);
+                            command.Parameters.AddWithValue("@id_termino_pago", IdTerminoPago);
 
                             Int64 IdPedidoH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
                             Pedido_.Id = IdPedidoH;
 
+
+                            //Limpiamos las lineas de detalle
                             command.CommandText = "dbo.[sp_set_clean_pedido_cliente_lineas]";
                             command.Parameters.Clear();
                             command.CommandType = CommandType.StoredProcedure;
@@ -3202,6 +3228,28 @@ namespace Eatery.Ventas
                 //{
                 //    cmdIngresarAdmin.Visible = SaltarLogin.Visible = simpleButton2.Visible = SaltarLoginPRD.Visible = true;
                 //}
+            }
+        }
+
+        private void rdContado_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (rdContado.Checked)
+            {
+                rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
+                rdCredito.Checked = false;
+                IdTerminoPago = 1;
+                rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
+            }
+        }
+
+        private void rdCredito_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (rdCredito.Checked)
+            {
+                rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
+                rdContado.Checked = false;
+                IdTerminoPago = 2;
+                rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
             }
         }
 
