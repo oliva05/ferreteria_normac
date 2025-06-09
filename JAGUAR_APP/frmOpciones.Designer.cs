@@ -46,6 +46,7 @@
             this.navBarGroup6 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem24 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem152 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemKardexPT = new DevExpress.XtraNavBar.NavBarItem();
@@ -468,7 +469,8 @@
             this.navBarRecepBodegon,
             this.navBarItem60,
             this.navBarIteSoliTraslado,
-            this.navBarItem151});
+            this.navBarItem151,
+            this.navBarItem152});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.navBarControl2.Name = "navBarControl2";
@@ -632,9 +634,11 @@
             this.navBarGroup6.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup6.Appearance.Options.UseFont = true;
             this.navBarGroup6.Caption = "Despachos";
+            this.navBarGroup6.Expanded = true;
             this.navBarGroup6.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem13),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem24)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem24),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem152)});
             this.navBarGroup6.Name = "navBarGroup6";
             // 
             // navBarItem13
@@ -663,6 +667,19 @@
             this.navBarItem24.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem24.ImageOptions.SmallImage")));
             this.navBarItem24.Name = "navBarItem24";
             this.navBarItem24.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem24_LinkClicked);
+            // 
+            // navBarItem152
+            // 
+            this.navBarItem152.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem152.Appearance.Options.UseFont = true;
+            this.navBarItem152.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem152.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem152.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem152.AppearancePressed.Options.UseFont = true;
+            this.navBarItem152.Caption = "Entrega / Picking";
+            this.navBarItem152.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.boxPT32px;
+            this.navBarItem152.Name = "navBarItem152";
+            this.navBarItem152.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem152_LinkClicked);
             // 
             // navBarGroup8
             // 
@@ -5258,5 +5275,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem110;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
         private DevExpress.XtraNavBar.NavBarItem navBarItem151;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem152;
     }
 }

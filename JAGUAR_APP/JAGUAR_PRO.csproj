@@ -1434,11 +1434,28 @@
     <Compile Include="Facturacion\Cotizaciones\xrSubRptCotizacion.Designer.cs">
       <DependentUpon>xrSubRptCotizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Entrega\dsEntregaPedidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEntregaPedidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\fmrEntregaVerDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\fmrEntregaVerDetalle.Designer.cs">
+      <DependentUpon>fmrEntregaVerDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Entrega\frmEntrega.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturacion\Entrega\frmEntrega.Designer.cs">
       <DependentUpon>frmEntrega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\frmEntregaGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\frmEntregaGestion.Designer.cs">
+      <DependentUpon>frmEntregaGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\Mantenimientos\dsCRUDS_Facturacion.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2657,6 +2674,17 @@
     </None>
     <None Include="Facturacion\Cotizaciones\dsFactCotizacion.xss">
       <DependentUpon>dsFactCotizacion.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\Entrega\dsEntregaPedidos.xsc">
+      <DependentUpon>dsEntregaPedidos.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\Entrega\dsEntregaPedidos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEntregaPedidos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Facturacion\Entrega\dsEntregaPedidos.xss">
+      <DependentUpon>dsEntregaPedidos.xsd</DependentUpon>
     </None>
     <None Include="Facturacion\Mantenimientos\dsCRUDS_Facturacion.xsc">
       <DependentUpon>dsCRUDS_Facturacion.xsd</DependentUpon>
@@ -4180,8 +4208,14 @@
     <EmbeddedResource Include="Facturacion\Cotizaciones\xrSubRptCotizacion.resx">
       <DependentUpon>xrSubRptCotizacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Entrega\fmrEntregaVerDetalle.resx">
+      <DependentUpon>fmrEntregaVerDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Entrega\frmEntrega.resx">
       <DependentUpon>frmEntrega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Entrega\frmEntregaGestion.resx">
+      <DependentUpon>frmEntregaGestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Mantenimientos\Models\frmAddEquipoPuntoVenta.resx">
       <DependentUpon>frmAddEquipoPuntoVenta.cs</DependentUpon>
