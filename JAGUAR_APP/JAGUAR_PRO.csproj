@@ -1457,6 +1457,12 @@
     <Compile Include="Facturacion\Entrega\frmEntregaGestion.Designer.cs">
       <DependentUpon>frmEntregaGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Entrega\xrptEntrega.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\xrptEntrega.Designer.cs">
+      <DependentUpon>xrptEntrega.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Mantenimientos\dsCRUDS_Facturacion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4216,6 +4222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Entrega\frmEntregaGestion.resx">
       <DependentUpon>frmEntregaGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Entrega\xrptEntrega.resx">
+      <DependentUpon>xrptEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Mantenimientos\Models\frmAddEquipoPuntoVenta.resx">
       <DependentUpon>frmAddEquipoPuntoVenta.cs</DependentUpon>

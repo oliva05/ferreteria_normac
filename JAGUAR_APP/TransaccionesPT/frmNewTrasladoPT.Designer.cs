@@ -176,7 +176,7 @@
             this.grdAlmacenOrigen.Location = new System.Drawing.Point(4, 211);
             this.grdAlmacenOrigen.MainView = this.gridView1;
             this.grdAlmacenOrigen.Name = "grdAlmacenOrigen";
-            this.grdAlmacenOrigen.Size = new System.Drawing.Size(467, 280);
+            this.grdAlmacenOrigen.Size = new System.Drawing.Size(557, 422);
             this.grdAlmacenOrigen.TabIndex = 161;
             this.grdAlmacenOrigen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -220,7 +220,7 @@
             this.colitemcode.OptionsColumn.ReadOnly = true;
             this.colitemcode.Visible = true;
             this.colitemcode.VisibleIndex = 0;
-            this.colitemcode.Width = 61;
+            this.colitemcode.Width = 68;
             // 
             // colPT
             // 
@@ -230,7 +230,7 @@
             this.colPT.OptionsColumn.ReadOnly = true;
             this.colPT.Visible = true;
             this.colPT.VisibleIndex = 1;
-            this.colPT.Width = 117;
+            this.colPT.Width = 166;
             // 
             // colexistencia
             // 
@@ -240,7 +240,7 @@
             this.colexistencia.OptionsColumn.ReadOnly = true;
             this.colexistencia.Visible = true;
             this.colexistencia.VisibleIndex = 2;
-            this.colexistencia.Width = 65;
+            this.colexistencia.Width = 74;
             // 
             // colcantidad_trasladar
             // 
@@ -249,7 +249,7 @@
             this.colcantidad_trasladar.Name = "colcantidad_trasladar";
             this.colcantidad_trasladar.Visible = true;
             this.colcantidad_trasladar.VisibleIndex = 3;
-            this.colcantidad_trasladar.Width = 115;
+            this.colcantidad_trasladar.Width = 131;
             // 
             // colseleccion
             // 
@@ -258,6 +258,7 @@
             this.colseleccion.Name = "colseleccion";
             this.colseleccion.Visible = true;
             this.colseleccion.VisibleIndex = 4;
+            this.colseleccion.Width = 91;
             // 
             // collote
             // 
@@ -290,12 +291,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdAlmacenDestino.DataMember = "almacen_destino";
             this.grdAlmacenDestino.DataSource = this.dsPT1;
-            this.grdAlmacenDestino.Location = new System.Drawing.Point(558, 211);
+            this.grdAlmacenDestino.Location = new System.Drawing.Point(648, 211);
             this.grdAlmacenDestino.MainView = this.gridView2;
             this.grdAlmacenDestino.Name = "grdAlmacenDestino";
             this.grdAlmacenDestino.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.reposDelete});
-            this.grdAlmacenDestino.Size = new System.Drawing.Size(551, 280);
+            this.grdAlmacenDestino.Size = new System.Drawing.Size(725, 422);
             this.grdAlmacenDestino.TabIndex = 162;
             this.grdAlmacenDestino.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -381,7 +382,7 @@
             // 
             this.btnRight.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRight.ImageOptions.Image")));
             this.btnRight.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnRight.Location = new System.Drawing.Point(477, 259);
+            this.btnRight.Location = new System.Drawing.Point(567, 261);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(75, 36);
             this.btnRight.TabIndex = 163;
@@ -391,7 +392,7 @@
             // 
             this.btnLeft.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLeft.ImageOptions.Image")));
             this.btnLeft.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnLeft.Location = new System.Drawing.Point(477, 318);
+            this.btnLeft.Location = new System.Drawing.Point(567, 320);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(75, 36);
             this.btnLeft.TabIndex = 164;
@@ -505,7 +506,7 @@
             this.cmdRecargar.Appearance.Options.UseFont = true;
             this.cmdRecargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdRecargar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdRecargar.ImageOptions.SvgImage")));
-            this.cmdRecargar.Location = new System.Drawing.Point(860, 12);
+            this.cmdRecargar.Location = new System.Drawing.Point(1124, 12);
             this.cmdRecargar.Name = "cmdRecargar";
             this.cmdRecargar.Size = new System.Drawing.Size(104, 47);
             this.cmdRecargar.TabIndex = 175;
@@ -519,7 +520,7 @@
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.Location = new System.Drawing.Point(995, 12);
+            this.btnClose.Location = new System.Drawing.Point(1259, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(104, 47);
             this.btnClose.TabIndex = 176;
@@ -555,7 +556,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 493);
+            this.ClientSize = new System.Drawing.Size(1375, 635);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.memoDescr);
             this.Controls.Add(this.btnClose);

@@ -68,6 +68,7 @@
             this.cmdVerDetalle = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdConcluirEntrega = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdImprimir = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdFacturar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdCargar = new DevExpress.XtraEditors.SimpleButton();
@@ -180,7 +181,8 @@
             this.colfecha,
             this.colfecha_entrega_estimada,
             this.gridColumn1,
-            this.gridColumn2});
+            this.gridColumn2,
+            this.gridColumn3});
             this.gridView1.FooterPanelHeight = 0;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupRowHeight = 0;
@@ -295,14 +297,23 @@
             this.cmdConcluirEntrega.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdConcluirEntrega.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdConcluirEntrega_ButtonClick);
             // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Imprimir";
+            this.gridColumn3.ColumnEdit = this.cmdImprimir;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 9;
+            // 
             // cmdImprimir
             // 
             this.cmdImprimir.AutoHeight = false;
-            editorButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions3.SvgImage")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.cmdImprimir.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdImprimir.Name = "cmdImprimir";
             this.cmdImprimir.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdImprimir.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdImprimir_ButtonClick);
             // 
             // cmdFacturar
             // 
@@ -502,5 +513,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colfecha_entrega_estimada;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }
