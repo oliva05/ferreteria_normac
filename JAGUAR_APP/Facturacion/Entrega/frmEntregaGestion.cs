@@ -1,6 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.Mantenimientos.Modelos;
@@ -153,8 +154,13 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
                             conn.Close();
 
-                            CajaDialogo.Information("Guardado con Exito!");
+                            CajaDialogo.Information("Entregado con Exito!");
                             //LoadDataDetalle();
+
+                            xrptEntrega rpt = new xrptEntrega(IdH, IdBodega, UsuarioLogeado);
+                            ReportPrintTool printTool = new ReportPrintTool(rpt);
+                            printTool.ShowPreviewDialog();
+
                             this.DialogResult = DialogResult.OK;
                             this.Close();
                         }

@@ -2,7 +2,9 @@
 using DevExpress.XtraCharts;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 using DevExpress.XtraRichEdit.Commands.Internal;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.Mantenimientos.Modelos;
@@ -182,6 +184,26 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                     frm.ShowDialog();
                 }    
             }
+        }
+
+        private void cmdImprimir_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)gridControl1.FocusedView;
+            var row = (dsEntregaPedidos.list_entregasRow)gridview.GetFocusedDataRow();
+
+
+
+            xrptEntrega rpt = new xrptEntrega(row.id, IdBodega, UsuarioLogeado);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            if (rpt.Conteo > 0)
+            {
+                printTool.ShowPreviewDialog();
+            }
+            else {
+                CajaDialogo.Error("No se a entregado ningun item");
+                return;
+            }
+                
         }
     }
 }

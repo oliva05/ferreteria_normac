@@ -636,9 +636,9 @@
             this.navBarGroup6.Caption = "Despachos";
             this.navBarGroup6.Expanded = true;
             this.navBarGroup6.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem152),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem13),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem24),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem152)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem24)});
             this.navBarGroup6.Name = "navBarGroup6";
             // 
             // navBarItem13
@@ -676,7 +676,7 @@
             this.navBarItem152.AppearanceHotTracked.Options.UseFont = true;
             this.navBarItem152.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem152.AppearancePressed.Options.UseFont = true;
-            this.navBarItem152.Caption = "Entrega / Picking";
+            this.navBarItem152.Caption = "Lista de Entrega / Picking";
             this.navBarItem152.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.boxPT32px;
             this.navBarItem152.Name = "navBarItem152";
             this.navBarItem152.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem152_LinkClicked);
