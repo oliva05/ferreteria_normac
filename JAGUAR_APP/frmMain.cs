@@ -423,10 +423,10 @@ namespace JAGUAR_PRO
 
         private void simpleButton3_Click_1(object sender, EventArgs e)
         {
-            //txtUsuario.Text = "danys.oliva";
-            //txtClave.Text = "Gto1804?";
-            txtUsuario.Text = "wbaires";
-            txtClave.Text = "Tempo123";
+            txtUsuario.Text = "danys.oliva";
+            txtClave.Text = "Gto1804?";
+            //txtUsuario.Text = "wbaires";
+            //txtClave.Text = "Tempo123";
 
             ValidateUserInfo();
         }
