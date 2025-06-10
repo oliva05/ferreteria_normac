@@ -44,14 +44,15 @@
             this.navBarItem23 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem151 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup6 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem152 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem24 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem152 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemKardexPT = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem60 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarIteSoliTraslado = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem153 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem21 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem25 = new DevExpress.XtraNavBar.NavBarItem();
@@ -387,7 +388,7 @@
             this.tabOpciones.Location = new System.Drawing.Point(5, 57);
             this.tabOpciones.Name = "tabOpciones";
             this.tabOpciones.SelectedTabPage = this.TabLogistica;
-            this.tabOpciones.Size = new System.Drawing.Size(951, 503);
+            this.tabOpciones.Size = new System.Drawing.Size(955, 578);
             this.tabOpciones.TabIndex = 8;
             this.tabOpciones.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabLogistica,
@@ -468,7 +469,8 @@
             this.navBarItem60,
             this.navBarIteSoliTraslado,
             this.navBarItem151,
-            this.navBarItem152});
+            this.navBarItem152,
+            this.navBarItem153});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -638,6 +640,19 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem24)});
             this.navBarGroup6.Name = "navBarGroup6";
             // 
+            // navBarItem152
+            // 
+            this.navBarItem152.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem152.Appearance.Options.UseFont = true;
+            this.navBarItem152.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem152.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem152.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem152.AppearancePressed.Options.UseFont = true;
+            this.navBarItem152.Caption = "Lista de Entrega / Picking";
+            this.navBarItem152.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.boxPT32px;
+            this.navBarItem152.Name = "navBarItem152";
+            this.navBarItem152.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem152_LinkClicked);
+            // 
             // navBarItem13
             // 
             this.navBarItem13.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
@@ -665,19 +680,6 @@
             this.navBarItem24.Name = "navBarItem24";
             this.navBarItem24.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem24_LinkClicked);
             // 
-            // navBarItem152
-            // 
-            this.navBarItem152.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem152.Appearance.Options.UseFont = true;
-            this.navBarItem152.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem152.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem152.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem152.AppearancePressed.Options.UseFont = true;
-            this.navBarItem152.Caption = "Lista de Entrega / Picking";
-            this.navBarItem152.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.boxPT32px;
-            this.navBarItem152.Name = "navBarItem152";
-            this.navBarItem152.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem152_LinkClicked);
-            // 
             // navBarGroup8
             // 
             this.navBarGroup8.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
@@ -690,7 +692,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem60),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarIteSoliTraslado)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarIteSoliTraslado),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem153)});
             this.navBarGroup8.Name = "navBarGroup8";
             // 
             // navBarItem14
@@ -734,7 +737,7 @@
             this.navBarItem60.AppearanceHotTracked.Options.UseFont = true;
             this.navBarItem60.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem60.AppearancePressed.Options.UseFont = true;
-            this.navBarItem60.Caption = "Traslado Entre Almacenes";
+            this.navBarItem60.Caption = "Traslado Directo entre Almacenes";
             this.navBarItem60.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.traslado_de_paqueteria;
             this.navBarItem60.Name = "navBarItem60";
             this.navBarItem60.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem60_LinkClicked_1);
@@ -749,10 +752,26 @@
             this.navBarIteSoliTraslado.AppearanceHotTracked.Options.UseFont = true;
             this.navBarIteSoliTraslado.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarIteSoliTraslado.AppearancePressed.Options.UseFont = true;
-            this.navBarIteSoliTraslado.Caption = "Requisa de Traslado";
+            this.navBarIteSoliTraslado.Caption = "Requisas de Traslado";
             this.navBarIteSoliTraslado.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarIteSoliTraslado.Name = "navBarIteSoliTraslado";
             this.navBarIteSoliTraslado.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarIteSoliTraslado_LinkClicked);
+            // 
+            // navBarItem153
+            // 
+            this.navBarItem153.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem153.Appearance.Options.UseFont = true;
+            this.navBarItem153.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem153.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem153.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem153.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem153.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem153.AppearancePressed.Options.UseFont = true;
+            this.navBarItem153.Caption = "Lista de Traslados";
+            this.navBarItem153.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem153.ImageOptions.LargeImage")));
+            this.navBarItem153.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.checklist32px;
+            this.navBarItem153.Name = "navBarItem153";
+            this.navBarItem153.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem153_LinkClicked);
             // 
             // navBarGroup9
             // 
@@ -1609,7 +1628,7 @@
             this.xtraTabPageFacturacion.Controls.Add(this.btnMantoPDV);
             this.xtraTabPageFacturacion.Controls.Add(this.btnNumeracion);
             this.xtraTabPageFacturacion.Controls.Add(this.btnClienteFacturacion);
-            this.xtraTabPageFacturacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.xtraTabPageFacturacion.Margin = new System.Windows.Forms.Padding(2);
             this.xtraTabPageFacturacion.Name = "xtraTabPageFacturacion";
             this.xtraTabPageFacturacion.PageVisible = false;
             this.xtraTabPageFacturacion.Size = new System.Drawing.Size(944, 495);
@@ -3184,7 +3203,7 @@
             this.TabReportes.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.TabReportes.Appearance.Header.Options.UseFont = true;
             this.TabReportes.Controls.Add(this.navBarControl5);
-            this.TabReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TabReportes.Margin = new System.Windows.Forms.Padding(2);
             this.TabReportes.Name = "TabReportes";
             this.TabReportes.PageVisible = false;
             this.TabReportes.Size = new System.Drawing.Size(944, 491);
@@ -3823,9 +3842,9 @@
             // 
             this.tabPageFacturacion.Controls.Add(this.navBarControl3);
             this.tabPageFacturacion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabPageFacturacion.ImageOptions.Image")));
-            this.tabPageFacturacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageFacturacion.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageFacturacion.Name = "tabPageFacturacion";
-            this.tabPageFacturacion.Size = new System.Drawing.Size(949, 455);
+            this.tabPageFacturacion.Size = new System.Drawing.Size(953, 530);
             this.tabPageFacturacion.Text = "Facturación";
             this.tabPageFacturacion.Paint += new System.Windows.Forms.PaintEventHandler(this.tabPageFacturacion_Paint);
             // 
@@ -3859,12 +3878,12 @@
             this.navBarItem20,
             this.navBarItem59});
             this.navBarControl3.Location = new System.Drawing.Point(0, 0);
-            this.navBarControl3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
             this.navBarControl3.OptionsNavPane.AllowOptionsMenuItem = true;
             this.navBarControl3.OptionsNavPane.ExpandedWidth = 308;
             this.navBarControl3.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.ExplorerBar;
-            this.navBarControl3.Size = new System.Drawing.Size(308, 455);
+            this.navBarControl3.Size = new System.Drawing.Size(308, 530);
             this.navBarControl3.TabIndex = 0;
             this.navBarControl3.Text = "navBarControl3";
             this.navBarControl3.Click += new System.EventHandler(this.navBarControl3_Click);
@@ -4861,7 +4880,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 562);
+            this.ClientSize = new System.Drawing.Size(958, 639);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtEquipoLogeadoActual);
             this.Controls.Add(this.labelControl5);
@@ -5223,5 +5242,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
         private DevExpress.XtraNavBar.NavBarItem navBarItem151;
         private DevExpress.XtraNavBar.NavBarItem navBarItem152;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem153;
     }
 }
