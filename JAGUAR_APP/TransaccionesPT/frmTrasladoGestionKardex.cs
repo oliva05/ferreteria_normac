@@ -106,13 +106,38 @@ namespace JAGUAR_PRO.TransaccionesPT
             var gridview = (GridView)gridControl1.FocusedView;
             var row = (dsPT.traslados_hRow)gridview.GetFocusedDataRow();
 
+            bool Permitir = false;
             if(row != null)
             {
-                frmTrasladoGestionKardexOP frm = new frmTrasladoGestionKardexOP(UsuarioLogeado, row.id_traslado);
-                if (frm.ShowDialog() == DialogResult.OK)
+                switch (row.id_estado)
                 {
-                    LoadDatos();
+                    case 1:
+                        break;
+
+                    case 2:
+                        Permitir = true;
+                        break;
+                    case 5:
+                        break;
+
+                    default:
+                        break;
                 }
+
+                if (Permitir)
+                {
+                    frmTrasladoGestionKardexOP frm = new frmTrasladoGestionKardexOP(UsuarioLogeado, row.id_traslado);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadDatos();
+                    }
+                }
+                else
+                {
+                    CajaDialogo.Error("Traslado: "+row.num_traslado +" ya fue Completado!");
+                    return;
+                }
+                
             }
 
         }
