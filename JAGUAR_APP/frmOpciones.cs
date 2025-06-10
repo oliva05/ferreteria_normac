@@ -408,6 +408,57 @@ namespace JAGUAR_PRO
                     }
                     tabPageFacturacion.PageVisible = true;
                     break;
+                case GrupoUser.GrupoUsuario.Caja:
+                    int idNivel_12 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY 11=JAGUAR
+                    switch (idNivel_12)
+                    {
+                        case 1://Basic View
+                        case 2://Basic No Autorization
+                        case 3://Medium Autorization
+                            UsuarioLogeado.Idnivel = idNivel_12;
+                            tabOpciones.TabPages[4].PageVisible = false;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible =
+                            navBarFacturaMain.Visible =
+                            NBI_NumeracionFiscal.Visible =
+                            NBI_PuntoVenta.Visible =
+                            NBI_ListaPrecios.Visible =
+                            NBI_Despachos.Visible =
+                            navBarItem55.Visible =
+                            nbRequest.Visible =
+                            nB_PagoMultiple.Visible =
+                            navBarItem56.Visible =
+                            navBarItem57.Visible =
+                            navBarItem58.Visible =
+                            nbKardexFacturacion.Visible =
+                            nbReportesFacturacionMain.Visible =
+                            navBarItemCambioDePrecio.Visible =
+                            navBarItem20.Visible = 
+                            navBarGroup11.Visible =
+                            navBarG_ReportesFacturacion.Visible =
+                            navBarGroup7.Visible = false;
+
+                            navBarItemFacturasEmitidas.Visible =
+                            navBarItem57.Visible = true;
+                            break;
+                        case 4://Depth With Delta
+                            tabOpciones.TabPages[4].PageVisible = true;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = true;
+                            break;
+                        case 5://Depth Without Delta
+                            xtraTabControl2.TabPages[4].PageVisible = true;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    tabPageFacturacion.PageVisible = true;
+                    break;
                 default:
                     tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
                     tabOpciones.TabPages[i].PageVisible = true;
