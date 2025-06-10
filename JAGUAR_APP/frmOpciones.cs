@@ -5370,12 +5370,6 @@ namespace JAGUAR_PRO
 
         }
 
-        private void btnChanguePin_Click(object sender, EventArgs e)
-        {
-            frmChanguePinVendedores frm = new frmChanguePinVendedores();
-            frm.ShowDialog();
-        }
-
         private void navBarItem152_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             string HostName = Dns.GetHostName();
@@ -5479,6 +5473,10 @@ namespace JAGUAR_PRO
                     CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-15 (Traslado Directo Entre Bodegas)");
                 }
             }
+        }
+        private void btnChangePin_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -408,5 +408,11 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             }
             cmdCargar_Click(sender, e);
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            frmChanguePinVendedores frm = new frmChanguePinVendedores();
+            frm.ShowDialog();
+        }
     }
 }
