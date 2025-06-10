@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchItemsMulti));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtMarca = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -105,7 +105,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(198, 38);
+            this.labelControl5.Location = new System.Drawing.Point(236, 38);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(72, 17);
             this.labelControl5.TabIndex = 42;
@@ -115,7 +115,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(198, 8);
+            this.labelControl4.Location = new System.Drawing.Point(5, 8);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(92, 17);
             this.labelControl4.TabIndex = 41;
@@ -135,7 +135,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(5, 8);
+            this.labelControl2.Location = new System.Drawing.Point(247, 8);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(61, 17);
             this.labelControl2.TabIndex = 39;
@@ -143,29 +143,29 @@
             // 
             // txtCodRefe
             // 
-            this.txtCodRefe.Location = new System.Drawing.Point(296, 5);
+            this.txtCodRefe.Location = new System.Drawing.Point(101, 5);
             this.txtCodRefe.Name = "txtCodRefe";
             this.txtCodRefe.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodRefe.Properties.Appearance.Options.UseFont = true;
-            this.txtCodRefe.Size = new System.Drawing.Size(138, 24);
+            this.txtCodRefe.Size = new System.Drawing.Size(131, 24);
             this.txtCodRefe.TabIndex = 38;
             this.txtCodRefe.TextChanged += new System.EventHandler(this.txtCodRefe_TextChanged);
             this.txtCodRefe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodRefe_KeyDown);
             // 
             // txtCodComb
             // 
-            this.txtCodComb.Location = new System.Drawing.Point(296, 35);
+            this.txtCodComb.Location = new System.Drawing.Point(317, 35);
             this.txtCodComb.Name = "txtCodComb";
             this.txtCodComb.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodComb.Properties.Appearance.Options.UseFont = true;
-            this.txtCodComb.Size = new System.Drawing.Size(138, 24);
+            this.txtCodComb.Size = new System.Drawing.Size(117, 24);
             this.txtCodComb.TabIndex = 37;
             this.txtCodComb.TextChanged += new System.EventHandler(this.txtCodComb_TextChanged);
             this.txtCodComb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodComb_KeyDown);
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(75, 5);
+            this.txtCode.Location = new System.Drawing.Point(317, 5);
             this.txtCode.Name = "txtCode";
             this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCode.Properties.Appearance.Options.UseFont = true;
@@ -282,11 +282,11 @@
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(75, 35);
+            this.txtDesc.Location = new System.Drawing.Point(101, 35);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDesc.Properties.Appearance.Options.UseFont = true;
-            this.txtDesc.Size = new System.Drawing.Size(117, 24);
+            this.txtDesc.Size = new System.Drawing.Size(131, 24);
             this.txtDesc.TabIndex = 35;
             this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
             this.txtDesc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDesc_KeyDown);
@@ -410,9 +410,9 @@
             // reposDelete
             // 
             this.reposDelete.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.reposDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposDelete.Name = "reposDelete";
             this.reposDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposDelete_ButtonClick);

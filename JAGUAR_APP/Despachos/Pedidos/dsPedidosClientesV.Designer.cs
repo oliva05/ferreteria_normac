@@ -413,6 +413,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             private global::System.Data.DataColumn columndireccion;
             
             private global::System.Data.DataColumn columntotal;
+            private global::System.Data.DataColumn columnfacturar;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -566,7 +567,16 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                     return this.columntotal;
                 }
             }
-            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn facturarColumn
+            {
+                get
+                {
+                    return this.columnfacturar;
+                }
+            }
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
@@ -604,7 +614,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public lista_pedidosRow Addlista_pedidosRow(int id, System.DateTime fecha, System.DateTime fecha_row, int id_user, string usuario_nombre, string enable, string comentario, string DocNum, int id_estado, string estado_name, int id_cliente, string NombreCorto, System.DateTime fecha_entrega_estimada, string direccion, decimal total) {
+            public lista_pedidosRow Addlista_pedidosRow(int id, System.DateTime fecha, System.DateTime fecha_row, int id_user, string usuario_nombre, string enable, string comentario, string DocNum, int id_estado, string estado_name, int id_cliente, string NombreCorto, System.DateTime fecha_entrega_estimada, string direccion, decimal total, string facturar) {
                 lista_pedidosRow rowlista_pedidosRow = ((lista_pedidosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -621,7 +631,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                         NombreCorto,
                         fecha_entrega_estimada,
                         direccion,
-                        total};
+                        total,
+                        facturar};
                 rowlista_pedidosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlista_pedidosRow);
                 return rowlista_pedidosRow;
@@ -659,6 +670,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 this.columnfecha_entrega_estimada = base.Columns["fecha_entrega_estimada"];
                 this.columndireccion = base.Columns["direccion"];
                 this.columntotal = base.Columns["total"];
+                this.columnfacturar = base.Columns["facturar"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -694,6 +706,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 base.Columns.Add(this.columndireccion);
                 this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal);
+                this.columnfacturar = new global::System.Data.DataColumn("facturar", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfacturar);
                 this.columnfecha.Caption = "Fecha Pedido";
                 this.columnfecha_row.Caption = "Fecha Creado";
                 this.columnusuario_nombre.Caption = "Usuario Creacion";
@@ -703,6 +717,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 this.columnfecha_entrega_estimada.Caption = "Fecha Entrega Estimada";
                 this.columndireccion.Caption = "Direccion Entrega";
                 this.columntotal.Caption = "Total";
+                this.columnfacturar.Caption = "Facturar";
+                
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

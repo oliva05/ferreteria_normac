@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchItems));
             this.dsConfigLoteConsumo1 = new JAGUAR_PRO.Calidad.LoteConfConsumo.dsConfigLoteConsumo();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
@@ -54,6 +55,7 @@
             this.txtDesc = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -65,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dsConfigLoteConsumo1
@@ -127,7 +130,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(210, 44);
+            this.labelControl5.Location = new System.Drawing.Point(3, 14);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(72, 17);
             this.labelControl5.TabIndex = 29;
@@ -157,7 +160,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(3, 14);
+            this.labelControl2.Location = new System.Drawing.Point(210, 44);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(61, 17);
             this.labelControl2.TabIndex = 26;
@@ -176,22 +179,22 @@
             // 
             // txtCodComb
             // 
-            this.txtCodComb.Location = new System.Drawing.Point(315, 41);
+            this.txtCodComb.Location = new System.Drawing.Point(77, 11);
             this.txtCodComb.Name = "txtCodComb";
             this.txtCodComb.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodComb.Properties.Appearance.Options.UseFont = true;
-            this.txtCodComb.Size = new System.Drawing.Size(138, 24);
+            this.txtCodComb.Size = new System.Drawing.Size(127, 24);
             this.txtCodComb.TabIndex = 24;
             this.txtCodComb.TextChanged += new System.EventHandler(this.txtCodComb_TextChanged);
             this.txtCodComb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodComb_KeyDown);
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(77, 11);
+            this.txtCode.Location = new System.Drawing.Point(315, 41);
             this.txtCode.Name = "txtCode";
             this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCode.Properties.Appearance.Options.UseFont = true;
-            this.txtCode.Size = new System.Drawing.Size(127, 24);
+            this.txtCode.Size = new System.Drawing.Size(138, 24);
             this.txtCode.TabIndex = 23;
             this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
             this.txtCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCode_KeyDown);
@@ -335,6 +338,10 @@
             this.simpleButton2.Text = "Buscar";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmSearchItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,6 +364,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,5 +395,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colmarca;
         private DevExpress.XtraEditors.TextEdit txtMarca;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

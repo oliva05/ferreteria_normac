@@ -317,7 +317,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                     if (!PTConfiguradoAAlmacen(row.id_pt))
                     {
                         Error = true;
-                        mensaje = "Producto:"+row.itemcode+"-"+row.PT+" no esta Configurado para uso del Almacen:"+gleAlmacenDestino.Text;
+                        mensaje = "Producto:"+row.itemcode+"-"+row.PT+"\nNo esta Configurado para uso del Almacen:"+gleAlmacenDestino.Text;
                         break;
                     }
                 }
@@ -337,21 +337,39 @@ namespace JAGUAR_PRO.TransaccionesPT
                     {
                         if (row.seleccion)
                         {
-                            try
+                            //DataRow[] encontrados = dsPT1.almacen_destino.Select($"itemcode = '{row.itemcode}'");
+
+                            //if (encontrados.Length > 0)
+                            bool Duplicado = false;
+                            foreach (dsPT.almacen_destinoRow item in dsPT1.almacen_destino.Rows)
                             {
-                                DataRow dr = dsPT1.almacen_destino.NewRow();
-                                dr[0] = row.id_pt;
-                                dr[1] = row.itemcode;
-                                dr[2] = row.PT;
-                                dr[3] = 0;
-                                dr[4] = row.cantidad_trasladar;
-                                dsPT1.almacen_destino.Rows.Add(dr);
-                                dsPT1.almacen_destino.AcceptChanges();
+                                if (row.itemcode == item.itemcode)
+                                {
+                                    item.cantidad_trasladar = item.cantidad_trasladar + row.cantidad_trasladar;
+                                    Duplicado = true;
+                                }
                             }
-                            catch (Exception ex)
+
+                            if(Duplicado == false) 
                             {
-                                CajaDialogo.Error(ex.Message);
+                                try
+                                {
+                                    DataRow dr = dsPT1.almacen_destino.NewRow();
+                                    dr[0] = row.id_pt;
+                                    dr[1] = row.itemcode;
+                                    dr[2] = row.PT;
+                                    dr[3] = 0;
+                                    dr[4] = row.cantidad_trasladar;
+                                    dsPT1.almacen_destino.Rows.Add(dr);
+                                    dsPT1.almacen_destino.AcceptChanges();
+                                }
+                                catch (Exception ex)
+                                {
+                                    CajaDialogo.Error(ex.Message);
+                                }
                             }
+
+                               
                         }
                         
 
@@ -422,6 +440,9 @@ namespace JAGUAR_PRO.TransaccionesPT
                     CajaDialogo.Error("PT:"+item.itemcode+" debe ser Mayor a 0!");
                     return;
                 }
+
+                
+
             }
 
             bool Guardar = false;
@@ -450,8 +471,8 @@ namespace JAGUAR_PRO.TransaccionesPT
                         cmd.Parameters.AddWithValue("@bodega_origen", gleAlmacen.EditValue);
                         cmd.Parameters.AddWithValue("@bodega_destino", gleAlmacenDestino.EditValue);
                         int IdEstado = 1; //Pendiente Aprobacion
-                        if (UsuarioLogeado.GrupoUsuario.GrupoUsuarioActivo == GrupoUser.GrupoUsuario.Administradores)
-                            IdEstado = 2; //Aprobado
+                        //if (UsuarioLogeado.GrupoUsuario.GrupoUsuarioActivo == GrupoUser.GrupoUsuario.Administradores)
+                        //    IdEstado = 2; //Aprobado
                         cmd.Parameters.AddWithValue("@id_estado", IdEstado);
                         cmd.Parameters.AddWithValue("@num_requisa", lblNumTraslado.Text.Trim());
                         IdSoliciudTrasladoH = Convert.ToInt32(cmd.ExecuteScalar());

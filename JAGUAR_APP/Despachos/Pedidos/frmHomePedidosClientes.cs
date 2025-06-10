@@ -1,14 +1,18 @@
 ﻿using ACS.Classes;
+using DevExpress.Pdf.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraNavBar;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraSpreadsheet.Import.Xls;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using Eatery.Ventas;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.Facturacion.Reportes;
 using JAGUAR_PRO.LogisticaJaguar;
+using JAGUAR_PRO.Utileria;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +34,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         DataOperations dp;
         FacturacionEquipo equipo;
         PDV PuntoVentaActual;
+        Vendedor VendedorActual;
         public frmHomePedidosClientes(UserLogin pUsuarioLogeado, PDV pPuntoVenta)
         {
             InitializeComponent();
@@ -45,12 +50,42 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
             dtDesde.EditValue = FechaInicial;
             dtHasta.EditValue = FechaFinal;
-            LoadDatos();
+
+           
         }
 
         private void cmdCargar_Click(object sender, EventArgs e)
         {
-            LoadDatos();
+            switch (UsuarioLogeado.GrupoUsuarioActivo)
+            {
+                case GrupoUser.GrupoUsuario.Logistica:
+                    break;
+                case GrupoUser.GrupoUsuario.Administradores:
+                    LoadDatos();
+                    gridView1.OptionsMenu.EnableColumnMenu = true;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                    gridView1.Columns["facturar"].Visible = true; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
+                    break;
+                case GrupoUser.GrupoUsuario.RRHH:
+                    break;
+                case GrupoUser.GrupoUsuario.Contabilidad:
+                    break;
+                case GrupoUser.GrupoUsuario.Facturacion_Admin:
+                    LoadDatos();
+                    break;
+                case GrupoUser.GrupoUsuario.Facturacion_EndUser:
+                    //cmdChangeVendedor_Click(sender, e);
+                    LoadDatos();
+                    gridView1.OptionsMenu.EnableColumnMenu = false;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                    gridView1.Columns["facturar"].Visible = false; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
+                    break;
+                case GrupoUser.GrupoUsuario.Caja:
+                    LoadDatos();
+                    gridView1.OptionsMenu.EnableColumnMenu = false;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                    gridView1.Columns["facturar"].Visible = true; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void LoadDatos()
@@ -61,7 +96,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v3]", con);//Facturacion User por default
+                SqlCommand cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_facturacion_user]", con);//Facturacion User por default
                 switch (this.UsuarioLogeado.IdGrupo)
                 {
                     
@@ -69,19 +104,19 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
                     break;
                     case 2://Admin
-                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v5]", con);
+                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v6]", con);
                         break;
                     case 3://RRHH
                     break;
                     case 4://Contabilidad
                     break;
                     case 5://Facturacion Admin
-                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v5]", con);
+                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v6]", con);
                         break;
                     case 6://Facturacion User
                         break;
                     case 7://Caja
-                        cmd = new SqlCommand("[sp_get_listado_pedidos_clientes_venta_v4]", con);
+                        cmd = new SqlCommand("sp_get_listado_pedidos_clientes_venta_v6", con);
                         break;
                     default:
                         break;
@@ -92,6 +127,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 cmd.Parameters.AddWithValue("@hasta", dtHasta.DateTime);
                 cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoVentaActual.ID);
                 cmd.Parameters.AddWithValue("@incluir_docs_cerrados", tggIncluirDocCerrados.IsOn);
+                if (VendedorActual == null)
+                    cmd.Parameters.AddWithValue("@id_vendedor", 0);
+                else
+                    cmd.Parameters.AddWithValue("@id_vendedor", VendedorActual.Id);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsPedidosClientesV1.lista_pedidos.Clear();
                 adat.Fill(dsPedidosClientesV1.lista_pedidos); 
@@ -116,28 +155,48 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             equipo = new FacturacionEquipo();
             PDV puntoVenta1 = new PDV();
 
-            //if (equipo.RecuperarRegistro(HostName))
-            //{
-            //    if (!puntoVenta1.RecuperaRegistro(equipo.id_punto_venta))
-            //    {
-            //        CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
-            //        return;
-            //    }
-            //}
-            //else
-            //{
-            //    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
-            //    return;
-            //}
-
             var gridView = (GridView)gridControl1.FocusedView;
             var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
 
-            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, row.id);
-            if(this.MdiParent != null)
-                frm.MdiParent = this.MdiParent;
+            if (row != null)
+            {
+                if (!row.Isid_estadoNull())
+                {
+                    switch (row.id_estado)
+                    {
+                        case 1://Confirmado
+                            CajaDialogo.Error("El pedido ya fue confirmado para pago, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                        break;
+                        case 2://Facturado
+                            CajaDialogo.Error("El pedido ya fue facturado, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                            break;
+                        case 3://Entregado
+                            CajaDialogo.Error("El pedido ya fue entregado, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                            break; 
+                        case 4://Cancelado
+                            CajaDialogo.Error("El pedido ya fue cancelado, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                            break;
+                        case 5://Anulado
+                            CajaDialogo.Error("El pedido ya fue anulado, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                            break;
+                        case 6://Nuevo
+                            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, row.id);
+                            if (this.MdiParent != null)
+                                frm.MdiParent = this.MdiParent;
 
-            frm.Show();
+                            frm.Show();
+                            break;
+                        case 7://Parcialmente Entregado
+                            CajaDialogo.Error("El pedido ya esta en proceso de entrega, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                            break;
+                        default:
+                        break;
+                    }
+                    
+                }
+            }
+
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -160,7 +219,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 return;
             }
 
-            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo);
+
+            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, VendedorActual);
             if(frm.ShowDialog() == DialogResult.OK)
             {
                 LoadDatos();
@@ -313,6 +373,40 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #11 (Facturacion punto de venta)");
                 }
             }
+        }
+
+        private void txtAsesorVendedor_DoubleClick(object sender, EventArgs e)
+        {
+            frmLoginVendedores frmLoginVendedores = new frmLoginVendedores();
+            if (frmLoginVendedores.ShowDialog() == DialogResult.OK)
+            {
+                txtAsesorVendedor.Text = frmLoginVendedores.CodigoVendedor + " - " + frmLoginVendedores.NombreVendedor;
+                VendedorActual = frmLoginVendedores.Vendedor_;               
+
+                this.UsuarioLogeado = new UserLogin();
+                if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
+                    cmdCargar_Click(sender, e);
+                    
+                }
+            }
+            
+        }
+
+        private void cmdChangeVendedor_Click(object sender, EventArgs e)
+        {
+            frmLoginVendedores frmLoginVendedores = new frmLoginVendedores();
+            if (frmLoginVendedores.ShowDialog() == DialogResult.OK)
+            {
+                txtAsesorVendedor.Text = frmLoginVendedores.CodigoVendedor + " - " + frmLoginVendedores.NombreVendedor;
+                VendedorActual = frmLoginVendedores.Vendedor_;
+                this.UsuarioLogeado = new UserLogin();
+                if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
+                    cmdCargar_Click(sender, e);
+                }
+            }
+            cmdCargar_Click(sender, e);
         }
     }
 }

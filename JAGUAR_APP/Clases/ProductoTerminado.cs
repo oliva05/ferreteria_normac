@@ -1,5 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraSpreadsheet.Model;
+using DevExpress.XtraSpreadsheet.Mouse;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -112,6 +113,7 @@ namespace JAGUAR_PRO.Clases
         public int IdBodega { get => idBodega; set => idBodega = value; }
         public int IdPT { get => idPT; set => idPT = value; }
         public int IdMarca { get => idMarca; set => idMarca = value; }
+        public string MarcaName { get; set; }
         public int Id_Familia { get => id_Familia; set => id_Familia = value; }
         public int Id_Categoria { get => id_Categoria; set => id_Categoria = value; }
         public string Codig_Referencia { get => codig_Referencia; set => codig_Referencia = value; }
@@ -205,6 +207,10 @@ namespace JAGUAR_PRO.Clases
                         else
                             Code_interno = "N/D";
 
+                        if (!dl.IsDBNull(dl.GetOrdinal("marca")))
+                            MarcaName = dl.GetString(31);
+                        else
+                            MarcaName = " ";
 
                         //if (!dl.IsDBNull(dl.GetOrdinal("id_almacen_estandar")))
                         //    Id_Almacen_standard = dl.GetInt32(23);
@@ -313,7 +319,12 @@ namespace JAGUAR_PRO.Clases
                     Id_Familia = dl.GetInt32(27);
                     Id_Categoria = dl.GetInt32(28);
                     Codig_Referencia = dl.IsDBNull(29)? "" : dl.GetString(29);
+                    
                     MaximoDescuentoPorcentajeAllClientes = dl.GetDecimal(30);
+                    if (!dl.IsDBNull(dl.GetOrdinal("marca")))
+                        MarcaName = dl.GetString(31);
+                    else
+                        MarcaName = " ";
 
                     Recuperado = true;
                     //Recuperar_Latas_and_bolsas(IdProd);
@@ -331,30 +342,6 @@ namespace JAGUAR_PRO.Clases
             return Recuperado;
         }
 
-        public void Recuperar_Latas_and_bolsas(int IdProd)
-        {
-            try
-            {//Recupera las caracteristicas 
-                string sql = @"[dbo].[jaguar_sp_get_lista_formulas_id_pt]";
-                DataOperations dp = new DataOperations();
-
-                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                con.Open();
-                SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_pt", IdProd);
-                SqlDataReader dl = cmd.ExecuteReader();
-                if (dl.Read())
-                {
-                    CantLatasByArroba = dl.GetDecimal(0);
-                    CantBolsasByLata = dl.GetDecimal(1);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
         public decimal Recuperar_Cant_Inv_Actual_by_PT(int IdProd)
         {

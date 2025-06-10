@@ -29,7 +29,8 @@ public class CotizacionH
     public decimal SubTotal { get; set; }
     public decimal Descuento {  get; set; } 
     public decimal ISV { get; set; }
-    public decimal Total { get; set; }  
+    public decimal Total { get; set; }
+    public string Vendedor { get; set; }
     DataOperations dp;
 
     public CotizacionH()
@@ -75,6 +76,10 @@ public class CotizacionH
                         Total = Convert.ToDecimal(reader["total"]);
                         Descuento = Convert.ToDecimal(reader["descuento"]);
                         ISV = Convert.ToDecimal(reader["isv"]);
+                        
+                        if (!reader.IsDBNull(reader.GetOrdinal("vendedor")))
+                            Vendedor = Convert.ToString(reader["vendedor"]);
+
                         Recuperado = true;
                         return true;
                     }

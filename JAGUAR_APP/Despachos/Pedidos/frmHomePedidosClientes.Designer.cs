@@ -88,6 +88,9 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.cmdFacturar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.tggIncluirDocCerrados = new DevExpress.XtraEditors.ToggleSwitch();
+            this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
+            this.txtAsesorVendedor = new DevExpress.XtraEditors.TextEdit();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).BeginInit();
@@ -100,6 +103,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             ((System.ComponentModel.ISupportInitialize)(this.cmdCrearCotizacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdFacturar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggIncluirDocCerrados.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAsesorVendedor.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdCargar
@@ -110,7 +114,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.cmdCargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCargar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.cmdCargar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCargar.ImageOptions.SvgImage")));
-            this.cmdCargar.Location = new System.Drawing.Point(805, 16);
+            this.cmdCargar.Location = new System.Drawing.Point(918, 16);
             this.cmdCargar.Name = "cmdCargar";
             this.cmdCargar.Size = new System.Drawing.Size(94, 44);
             this.cmdCargar.TabIndex = 106;
@@ -121,7 +125,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.dtHasta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtHasta.EditValue = null;
-            this.dtHasta.Location = new System.Drawing.Point(672, 36);
+            this.dtHasta.Location = new System.Drawing.Point(785, 36);
             this.dtHasta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtHasta.Name = "dtHasta";
             this.dtHasta.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -141,7 +145,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(590, 41);
+            this.labelControl3.Location = new System.Drawing.Point(703, 41);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(73, 17);
@@ -152,7 +156,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.dtDesde.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtDesde.EditValue = null;
-            this.dtDesde.Location = new System.Drawing.Point(672, 6);
+            this.dtDesde.Location = new System.Drawing.Point(785, 6);
             this.dtDesde.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtDesde.Name = "dtDesde";
             this.dtDesde.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,7 +176,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(590, 11);
+            this.labelControl5.Location = new System.Drawing.Point(703, 11);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(77, 17);
@@ -187,7 +191,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.excel32px;
             this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(905, 16);
+            this.simpleButton1.Location = new System.Drawing.Point(1018, 16);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(94, 44);
             this.simpleButton1.TabIndex = 101;
@@ -202,7 +206,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(147, 29);
+            this.labelControl1.Location = new System.Drawing.Point(309, -2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(124, 34);
             this.labelControl1.TabIndex = 99;
@@ -215,9 +219,9 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.btnAgregar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAgregar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.plus;
             this.btnAgregar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAgregar.Location = new System.Drawing.Point(2, 16);
+            this.btnAgregar.Location = new System.Drawing.Point(7, 16);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(144, 44);
+            this.btnAgregar.Size = new System.Drawing.Size(94, 44);
             this.btnAgregar.TabIndex = 98;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -230,7 +234,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAtras.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.ImageOptions.Image")));
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAtras.Location = new System.Drawing.Point(1005, 16);
+            this.btnAtras.Location = new System.Drawing.Point(1118, 16);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(94, 44);
             this.btnAtras.TabIndex = 97;
@@ -257,7 +261,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.cmdImprimir,
             this.cmdCrearCotizacion,
             this.cmdFacturar});
-            this.gridControl1.Size = new System.Drawing.Size(1097, 447);
+            this.gridControl1.Size = new System.Drawing.Size(1210, 447);
             this.gridControl1.TabIndex = 107;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -314,7 +318,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colfecha.Name = "colfecha";
             this.colfecha.OptionsColumn.ReadOnly = true;
             this.colfecha.Visible = true;
-            this.colfecha.VisibleIndex = 0;
+            this.colfecha.VisibleIndex = 1;
             this.colfecha.Width = 140;
             // 
             // colfecha_row
@@ -337,7 +341,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colusuario_nombre.Name = "colusuario_nombre";
             this.colusuario_nombre.OptionsColumn.ReadOnly = true;
             this.colusuario_nombre.Visible = true;
-            this.colusuario_nombre.VisibleIndex = 1;
+            this.colusuario_nombre.VisibleIndex = 2;
             this.colusuario_nombre.Width = 92;
             // 
             // colenable
@@ -352,7 +356,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colcomentario.Name = "colcomentario";
             this.colcomentario.OptionsColumn.ReadOnly = true;
             this.colcomentario.Visible = true;
-            this.colcomentario.VisibleIndex = 5;
+            this.colcomentario.VisibleIndex = 6;
             this.colcomentario.Width = 145;
             // 
             // colDocNum
@@ -360,6 +364,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colDocNum.FieldName = "DocNum";
             this.colDocNum.Name = "colDocNum";
             this.colDocNum.OptionsColumn.ReadOnly = true;
+            this.colDocNum.Visible = true;
+            this.colDocNum.VisibleIndex = 0;
             // 
             // colid_estado
             // 
@@ -373,7 +379,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colestado_name.Name = "colestado_name";
             this.colestado_name.OptionsColumn.ReadOnly = true;
             this.colestado_name.Visible = true;
-            this.colestado_name.VisibleIndex = 2;
+            this.colestado_name.VisibleIndex = 3;
             this.colestado_name.Width = 83;
             // 
             // colid_cliente
@@ -388,7 +394,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colNombreCorto.Name = "colNombreCorto";
             this.colNombreCorto.OptionsColumn.ReadOnly = true;
             this.colNombreCorto.Visible = true;
-            this.colNombreCorto.VisibleIndex = 3;
+            this.colNombreCorto.VisibleIndex = 4;
             this.colNombreCorto.Width = 198;
             // 
             // colfecha_entrega_estimada
@@ -404,7 +410,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.coldireccion.Name = "coldireccion";
             this.coldireccion.OptionsColumn.ReadOnly = true;
             this.coldireccion.Visible = true;
-            this.coldireccion.VisibleIndex = 4;
+            this.coldireccion.VisibleIndex = 5;
             this.coldireccion.Width = 115;
             // 
             // coltotal
@@ -415,7 +421,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.coltotal.Name = "coltotal";
             this.coltotal.OptionsColumn.ReadOnly = true;
             this.coltotal.Visible = true;
-            this.coltotal.VisibleIndex = 6;
+            this.coltotal.VisibleIndex = 7;
             this.coltotal.Width = 130;
             // 
             // colEditar
@@ -424,7 +430,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colEditar.ColumnEdit = this.cmdEditar;
             this.colEditar.Name = "colEditar";
             this.colEditar.Visible = true;
-            this.colEditar.VisibleIndex = 9;
+            this.colEditar.VisibleIndex = 10;
             this.colEditar.Width = 60;
             // 
             // cmdEditar
@@ -443,7 +449,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.colImprimir.ColumnEdit = this.cmdImprimir;
             this.colImprimir.Name = "colImprimir";
             this.colImprimir.Visible = true;
-            this.colImprimir.VisibleIndex = 8;
+            this.colImprimir.VisibleIndex = 9;
             this.colImprimir.Width = 73;
             // 
             // cmdImprimir
@@ -462,7 +468,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.gridColumn1.ColumnEdit = this.cmdCrearCotizacion;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 7;
+            this.gridColumn1.VisibleIndex = 8;
             this.gridColumn1.Width = 74;
             // 
             // cmdCrearCotizacion
@@ -479,9 +485,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.colfacturar.Caption = "Facturar";
             this.colfacturar.ColumnEdit = this.cmdFacturar;
+            this.colfacturar.FieldName = "facturar";
             this.colfacturar.Name = "colfacturar";
             this.colfacturar.Visible = true;
-            this.colfacturar.VisibleIndex = 10;
+            this.colfacturar.VisibleIndex = 11;
             // 
             // cmdFacturar
             // 
@@ -498,7 +505,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(299, 39);
+            this.labelControl2.Location = new System.Drawing.Point(440, 39);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(147, 17);
@@ -508,7 +515,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // tggIncluirDocCerrados
             // 
             this.tggIncluirDocCerrados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tggIncluirDocCerrados.Location = new System.Drawing.Point(450, 36);
+            this.tggIncluirDocCerrados.Location = new System.Drawing.Point(591, 36);
             this.tggIncluirDocCerrados.Name = "tggIncluirDocCerrados";
             this.tggIncluirDocCerrados.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.tggIncluirDocCerrados.Properties.Appearance.Options.UseFont = true;
@@ -517,11 +524,45 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.tggIncluirDocCerrados.Size = new System.Drawing.Size(95, 24);
             this.tggIncluirDocCerrados.TabIndex = 109;
             // 
+            // cmdChangeVendedor
+            // 
+            this.cmdChangeVendedor.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.cmdChangeVendedor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdChangeVendedor.ImageOptions.Image")));
+            this.cmdChangeVendedor.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.cmdChangeVendedor.Location = new System.Drawing.Point(394, 35);
+            this.cmdChangeVendedor.Name = "cmdChangeVendedor";
+            this.cmdChangeVendedor.Size = new System.Drawing.Size(39, 24);
+            this.cmdChangeVendedor.TabIndex = 112;
+            this.cmdChangeVendedor.Click += new System.EventHandler(this.cmdChangeVendedor_Click);
+            // 
+            // txtAsesorVendedor
+            // 
+            this.txtAsesorVendedor.Location = new System.Drawing.Point(179, 35);
+            this.txtAsesorVendedor.Name = "txtAsesorVendedor";
+            this.txtAsesorVendedor.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAsesorVendedor.Properties.Appearance.Options.UseFont = true;
+            this.txtAsesorVendedor.Size = new System.Drawing.Size(209, 24);
+            this.txtAsesorVendedor.TabIndex = 111;
+            this.txtAsesorVendedor.DoubleClick += new System.EventHandler(this.txtAsesorVendedor_DoubleClick);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label10.Location = new System.Drawing.Point(117, 37);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 20);
+            this.label10.TabIndex = 110;
+            this.label10.Text = "Asesor";
+            // 
             // frmHomePedidosClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1103, 513);
+            this.ClientSize = new System.Drawing.Size(1216, 513);
+            this.Controls.Add(this.cmdChangeVendedor);
+            this.Controls.Add(this.txtAsesorVendedor);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.tggIncluirDocCerrados);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.gridControl1);
@@ -548,6 +589,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             ((System.ComponentModel.ISupportInitialize)(this.cmdCrearCotizacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdFacturar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggIncluirDocCerrados.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAsesorVendedor.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -592,5 +634,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdCrearCotizacion;
         private DevExpress.XtraGrid.Columns.GridColumn colfacturar;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdFacturar;
+        private DevExpress.XtraEditors.SimpleButton cmdChangeVendedor;
+        private DevExpress.XtraEditors.TextEdit txtAsesorVendedor;
+        private System.Windows.Forms.Label label10;
     }
 }

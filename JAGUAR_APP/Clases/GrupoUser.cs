@@ -30,7 +30,7 @@ namespace JAGUAR_PRO
         /// </summary>
         public GrupoUser()
         {
-            GrupoUsuarioActivo = GrupoUsuario.Administradores;
+            //GrupoUsuarioActivo = GrupoUsuario.Administradores;
         }
     }
 }

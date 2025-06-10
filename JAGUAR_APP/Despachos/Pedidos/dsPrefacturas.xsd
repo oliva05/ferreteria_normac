@@ -48,7 +48,8 @@
               <xs:element name="isv1" msprop:Generator_ColumnPropNameInTable="isv1Column" msprop:Generator_ColumnPropNameInRow="isv1" msprop:Generator_UserColumnName="isv1" msprop:Generator_ColumnVarNameInTable="columnisv1" type="xs:decimal" minOccurs="0" />
               <xs:element name="whs_code" msdata:Caption="Codigo" msprop:Generator_ColumnPropNameInTable="whs_codeColumn" msprop:Generator_ColumnPropNameInRow="whs_code" msprop:Generator_UserColumnName="whs_code" msprop:Generator_ColumnVarNameInTable="columnwhs_code" type="xs:string" minOccurs="0" />
               <xs:element name="comprometido" msdata:Caption="Comprometido" msprop:Generator_ColumnPropNameInTable="comprometidoColumn" msprop:Generator_ColumnPropNameInRow="comprometido" msprop:Generator_UserColumnName="comprometido" msprop:Generator_ColumnVarNameInTable="columncomprometido" type="xs:decimal" minOccurs="0" />
-              <xs:element name="descuento_porcentaje" msprop:Generator_ColumnPropNameInRow="descuento_porcentaje" msprop:Generator_ColumnPropNameInTable="descuento_porcentajeColumn" msprop:Generator_ColumnVarNameInTable="columndescuento_porcentaje" msprop:Generator_UserColumnName="descuento_porcentaje" type="xs:decimal" minOccurs="0" />
+              <xs:element name="descuento_porcentaje" msprop:Generator_UserColumnName="descuento_porcentaje" msprop:Generator_ColumnPropNameInTable="descuento_porcentajeColumn" msprop:Generator_ColumnPropNameInRow="descuento_porcentaje" msprop:Generator_ColumnVarNameInTable="columndescuento_porcentaje" type="xs:decimal" minOccurs="0" />
+              <xs:element name="marca" msdata:Caption="Marca" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_ColumnVarNameInTable="columnmarca" msprop:Generator_UserColumnName="marca" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

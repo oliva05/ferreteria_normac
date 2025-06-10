@@ -1434,11 +1434,34 @@
     <Compile Include="Facturacion\Cotizaciones\xrSubRptCotizacion.Designer.cs">
       <DependentUpon>xrSubRptCotizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Entrega\dsEntregaPedidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEntregaPedidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\fmrEntregaVerDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\fmrEntregaVerDetalle.Designer.cs">
+      <DependentUpon>fmrEntregaVerDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Entrega\frmEntrega.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturacion\Entrega\frmEntrega.Designer.cs">
       <DependentUpon>frmEntrega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\frmEntregaGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\frmEntregaGestion.Designer.cs">
+      <DependentUpon>frmEntregaGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\xrptEntrega.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\xrptEntrega.Designer.cs">
+      <DependentUpon>xrptEntrega.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\Mantenimientos\dsCRUDS_Facturacion.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2658,6 +2681,17 @@
     <None Include="Facturacion\Cotizaciones\dsFactCotizacion.xss">
       <DependentUpon>dsFactCotizacion.xsd</DependentUpon>
     </None>
+    <None Include="Facturacion\Entrega\dsEntregaPedidos.xsc">
+      <DependentUpon>dsEntregaPedidos.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\Entrega\dsEntregaPedidos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEntregaPedidos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Facturacion\Entrega\dsEntregaPedidos.xss">
+      <DependentUpon>dsEntregaPedidos.xsd</DependentUpon>
+    </None>
     <None Include="Facturacion\Mantenimientos\dsCRUDS_Facturacion.xsc">
       <DependentUpon>dsCRUDS_Facturacion.xsd</DependentUpon>
     </None>
@@ -3754,6 +3788,18 @@
     <Compile Include="TransaccionesPT\frmRequisaTraslado.Designer.cs">
       <DependentUpon>frmRequisaTraslado.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransaccionesPT\frmTrasladoGestionKardex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmTrasladoGestionKardex.Designer.cs">
+      <DependentUpon>frmTrasladoGestionKardex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmTrasladoGestionKardexOP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmTrasladoGestionKardexOP.Designer.cs">
+      <DependentUpon>frmTrasladoGestionKardexOP.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransaccionesPT\frmTrasladoKardexPT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3765,6 +3811,12 @@
     </Compile>
     <Compile Include="TransaccionesPT\xrptTraslado.Designer.cs">
       <DependentUpon>xrptTraslado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utileria\frmChanguePinVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utileria\frmChanguePinVendedores.Designer.cs">
+      <DependentUpon>frmChanguePinVendedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Utileria\frmLoginVendedores.cs">
       <SubType>Form</SubType>
@@ -4174,8 +4226,17 @@
     <EmbeddedResource Include="Facturacion\Cotizaciones\xrSubRptCotizacion.resx">
       <DependentUpon>xrSubRptCotizacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Entrega\fmrEntregaVerDetalle.resx">
+      <DependentUpon>fmrEntregaVerDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Entrega\frmEntrega.resx">
       <DependentUpon>frmEntrega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Entrega\frmEntregaGestion.resx">
+      <DependentUpon>frmEntregaGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Entrega\xrptEntrega.resx">
+      <DependentUpon>xrptEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Mantenimientos\Models\frmAddEquipoPuntoVenta.resx">
       <DependentUpon>frmAddEquipoPuntoVenta.cs</DependentUpon>
@@ -4987,11 +5048,20 @@
     <EmbeddedResource Include="TransaccionesPT\frmRequisaTraslado.resx">
       <DependentUpon>frmRequisaTraslado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\frmTrasladoGestionKardex.resx">
+      <DependentUpon>frmTrasladoGestionKardex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\frmTrasladoGestionKardexOP.resx">
+      <DependentUpon>frmTrasladoGestionKardexOP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmTrasladoKardexPT.resx">
       <DependentUpon>frmTrasladoKardexPT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\xrptTraslado.resx">
       <DependentUpon>xrptTraslado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utileria\frmChanguePinVendedores.resx">
+      <DependentUpon>frmChanguePinVendedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utileria\frmLoginVendedores.resx">
       <DependentUpon>frmLoginVendedores.cs</DependentUpon>

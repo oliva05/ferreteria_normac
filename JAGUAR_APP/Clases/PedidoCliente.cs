@@ -24,6 +24,7 @@ namespace JAGUAR_PRO.Clases
         public string RTN { get; set; }
         public int IdPuntoVenta { get; set; }
         public string ClienteNombre { get; set; }
+        
         public string direccion_cliente { get; set; }
         public DateTime FechaEntrega { get; set; }
         public string Comentario { get; set; }
@@ -32,10 +33,16 @@ namespace JAGUAR_PRO.Clases
         public decimal SubTotal {  get; set; }
         public decimal Descuento { get; set; }
         public decimal ISV { get; set; }
+        public Int64 IdFactura { get; set; }
         public string OrdenCompra { get; set; }
         public int Id_Vendedor { get; set; }
         public string CodigoVendedor { get; set; }
-        
+        public string VendedorNombre { get; set; }
+
+        /// <summary>
+        /// 1=Contado, 2=Crédito
+        /// </summary>
+        public int IdTerminoPago { get; set; }
         public bool Recuperado { get; set; }
 
         DataOperations dp;
@@ -110,6 +117,17 @@ namespace JAGUAR_PRO.Clases
                         if (!reader.IsDBNull(reader.GetOrdinal("isv")))
                             ISV = Convert.ToDecimal(reader["isv"]);
 
+                        //Id factura
+                        if (!reader.IsDBNull(reader.GetOrdinal("id_factura")))
+                            IdFactura = Convert.ToInt64(reader["id_factura"]);
+                        
+                        //id_termino_pago
+                        if (!reader.IsDBNull(reader.GetOrdinal("id_termino_pago")))
+                            IdTerminoPago = Convert.ToInt32(reader["id_termino_pago"]);
+
+                        //VendedorNombre
+                        if (!reader.IsDBNull(reader.GetOrdinal("vendedor")))
+                            VendedorNombre = Convert.ToString(reader["vendedor"]);
 
                         Recuperado = true;
                     }

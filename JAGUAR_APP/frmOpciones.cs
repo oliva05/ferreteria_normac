@@ -3,6 +3,7 @@ using ACS.Classes;
 //using ACS.Forecast;
 using ACS.IT_Managment;
 using DevExpress.XtraEditors;
+using DevExpress.XtraNavBar;
 using DevExpress.XtraReports.UI;
 using Eatery.Ventas;
 using JAGUAR_PRO.Accesos;
@@ -23,6 +24,7 @@ using JAGUAR_PRO.Despachos.Pedidos;
 using JAGUAR_PRO.Facturacion.Configuraciones;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.Facturacion.Cotizaciones;
+using JAGUAR_PRO.Facturacion.Entrega;
 using JAGUAR_PRO.Facturacion.Mantenimientos;
 using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
 using JAGUAR_PRO.Facturacion.Numeracion_Fiscal;
@@ -50,6 +52,7 @@ using JAGUAR_PRO.RRHH_Planilla.Planilla;
 using JAGUAR_PRO.Tools;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
+using JAGUAR_PRO.Utileria;
 using LOSA.TransaccionesMP;
 using System;
 using System.Data;
@@ -360,19 +363,36 @@ namespace JAGUAR_PRO
                     switch (idNivel_11)
                     {
                         case 1://Basic View
-                            UsuarioLogeado.Idnivel = idNivel_11;
-                            break;
                         case 2://Basic No Autorization
-
-                            break;
                         case 3://Medium Autorization
-                            xtraTabControl2.TabPages[4].PageVisible = true;
-                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible = 
-                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible = 
-                            NBI_Cliente.Visible = true;
+                            UsuarioLogeado.Idnivel = idNivel_11;
+                            tabOpciones.TabPages[4].PageVisible = false;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = false;
+                            navBarFacturaMain.Visible =
+                            navBarItemFacturasEmitidas.Visible =
+                            NBI_NumeracionFiscal.Visible =
+                            NBI_PuntoVenta.Visible =
+                            NBI_ListaPrecios.Visible =
+                            NBI_Despachos.Visible =
+                            navBarItem55.Visible =
+                            nbRequest.Visible =
+                            nB_PagoMultiple.Visible =
+                            navBarItem56.Visible =
+                            navBarItem57.Visible =
+                            navBarItem58.Visible =
+                            nbKardexFacturacion.Visible =
+                            nbReportesFacturacionMain.Visible =
+                            navBarItemCambioDePrecio.Visible =
+                            navBarItem20.Visible = false;
+
+                            navBarGroup11.Visible =
+                            navBarG_ReportesFacturacion.Visible =
+                            navBarGroup7.Visible = false;
                             break;
                         case 4://Depth With Delta
-                            xtraTabControl2.TabPages[4].PageVisible = true;
+                            tabOpciones.TabPages[4].PageVisible = true;
                             NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
                             NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
                             NBI_Cliente.Visible = true;
@@ -4627,7 +4647,7 @@ namespace JAGUAR_PRO
                         //frmRecepcionFacturaProveedor frm = new frmRecepcionFacturaProveedor(this.UsuarioLogeado);
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
-                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual);
+                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
                         frm.Show();
                         break;
@@ -4641,7 +4661,7 @@ namespace JAGUAR_PRO
                     {
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
-                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual);
+                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
                         frm.Show();
                     }
@@ -4916,9 +4936,47 @@ namespace JAGUAR_PRO
 
         private void navBarItem60_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            frmMainTrasladoPT frm = new frmMainTrasladoPT(UsuarioLogeado);
-            frm.MdiParent = this.MdiParent;
-            frm.Show();
+            
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmMainTrasladoPT frm = new frmMainTrasladoPT(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(14))
+                {
+                    frmMainTrasladoPT frm = new frmMainTrasladoPT(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-14 (Traslado Directo Entre Bodegas)");
+                }
+            }
         }
 
         private void simpleButton7_Click_1(object sender, EventArgs e)
@@ -5310,6 +5368,117 @@ namespace JAGUAR_PRO
             }
 
 
+        }
+
+        private void btnChanguePin_Click(object sender, EventArgs e)
+        {
+            frmChanguePinVendedores frm = new frmChanguePinVendedores();
+            frm.ShowDialog();
+        }
+
+        private void navBarItem152_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este Equipo de Nombre: " + HostName + " no esta Configurado en ningun Punto de Venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este Equipo de Nombre: " + HostName + " no esta Configurado en ningun Punto de Venta!");
+                return;
+            }
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmEntrega mtx = new frmEntrega(UsuarioLogeado, puntoVenta1);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+
+
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(13))
+                {
+                    frmEntrega mtx = new frmEntrega(UsuarioLogeado, puntoVenta1);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-13 (Ordenes de Compra)");
+                }
+            }
+        }
+
+        private void navBarItem153_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmTrasladoGestionKardex frm = new frmTrasladoGestionKardex(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(15))
+                {
+                    frmTrasladoGestionKardex frm = new frmTrasladoGestionKardex(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-15 (Traslado Directo Entre Bodegas)");
+                }
+            }
         }
     }
 }

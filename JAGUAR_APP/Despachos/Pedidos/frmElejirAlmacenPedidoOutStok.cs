@@ -48,6 +48,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.id_presentacion = id_presentacion;
             this.itemcode = itemcode;
             this.itemname = itemname;
+            
             this.isv1 = itemIsv1;
             LoadInventarios();
             RecuperarCantidadSeleccionada(pListaActual);
@@ -70,6 +71,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                         row.descuento_porcentaje = descuento_porcentaje;
                         row.precio = precio;
                         row.isv1 = isv1;
+                        lblMarca.Text = item.marca;
                         //row. = isv1;
                         //break;
                     }
@@ -171,6 +173,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     Eleccion.Descripcion = row.itemname;
                     Eleccion.id_presentacion = row.id_presentacion;
                     Eleccion.isv1 = row.isv1;
+
+                    if (!string.IsNullOrEmpty(lblMarca.Text))
+                        Eleccion.marca = lblMarca.Text;
+
                     ListaSeleccionAlmacen.Add(Eleccion);
                 }
             }

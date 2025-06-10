@@ -31,12 +31,12 @@ namespace Eatery.Ventas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFactura));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.cmdDeleteRowFactura = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.txtNombreCliente = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
@@ -100,9 +100,9 @@ namespace Eatery.Ventas
             // cmdDeleteRowFactura
             // 
             this.cmdDeleteRowFactura.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.cmdDeleteRowFactura.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdDeleteRowFactura.Name = "cmdDeleteRowFactura";
             this.cmdDeleteRowFactura.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -146,9 +146,9 @@ namespace Eatery.Ventas
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(8, 3);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(702, 23);
+            this.lblTitulo.Size = new System.Drawing.Size(667, 23);
             this.lblTitulo.TabIndex = 8;
-            this.lblTitulo.Text = "Ventas";
+            this.lblTitulo.Text = "Generar Factura";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmdFacturar
@@ -158,7 +158,7 @@ namespace Eatery.Ventas
             this.cmdFacturar.Appearance.Options.UseFont = true;
             this.cmdFacturar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdFacturar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdFacturar.ImageOptions.Image")));
-            this.cmdFacturar.Location = new System.Drawing.Point(872, 597);
+            this.cmdFacturar.Location = new System.Drawing.Point(837, 539);
             this.cmdFacturar.Name = "cmdFacturar";
             this.cmdFacturar.Size = new System.Drawing.Size(246, 38);
             this.cmdFacturar.TabIndex = 7;
@@ -172,7 +172,7 @@ namespace Eatery.Ventas
             this.cmdSalir.Appearance.Options.UseFont = true;
             this.cmdSalir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSalir.ImageOptions.Image")));
-            this.cmdSalir.Location = new System.Drawing.Point(255, 597);
+            this.cmdSalir.Location = new System.Drawing.Point(255, 539);
             this.cmdSalir.Name = "cmdSalir";
             this.cmdSalir.Size = new System.Drawing.Size(246, 38);
             this.cmdSalir.TabIndex = 6;
@@ -183,7 +183,7 @@ namespace Eatery.Ventas
             // 
             this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(999, 562);
+            this.txtTotal.Location = new System.Drawing.Point(964, 504);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(119, 29);
@@ -198,7 +198,7 @@ namespace Eatery.Ventas
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdNew.ImageOptions.Image")));
-            this.cmdNew.Location = new System.Drawing.Point(3, 597);
+            this.cmdNew.Location = new System.Drawing.Point(3, 539);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(246, 38);
             this.cmdNew.TabIndex = 14;
@@ -212,9 +212,9 @@ namespace Eatery.Ventas
             this.panelNotificacion.BackColor = System.Drawing.Color.White;
             this.panelNotificacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelNotificacion.Controls.Add(this.lblMensaje);
-            this.panelNotificacion.Location = new System.Drawing.Point(3, 641);
+            this.panelNotificacion.Location = new System.Drawing.Point(3, 583);
             this.panelNotificacion.Name = "panelNotificacion";
-            this.panelNotificacion.Size = new System.Drawing.Size(1115, 31);
+            this.panelNotificacion.Size = new System.Drawing.Size(1080, 31);
             this.panelNotificacion.TabIndex = 15;
             // 
             // lblMensaje
@@ -225,7 +225,7 @@ namespace Eatery.Ventas
             this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.Location = new System.Drawing.Point(6, 6);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(1094, 17);
+            this.lblMensaje.Size = new System.Drawing.Size(1059, 17);
             this.lblMensaje.TabIndex = 0;
             // 
             // timerLimpiarMensaje
@@ -238,7 +238,7 @@ namespace Eatery.Ventas
             this.lblfecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblfecha.AutoSize = true;
             this.lblfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfecha.Location = new System.Drawing.Point(1350, 22);
+            this.lblfecha.Location = new System.Drawing.Point(1315, 22);
             this.lblfecha.Name = "lblfecha";
             this.lblfecha.Size = new System.Drawing.Size(121, 24);
             this.lblfecha.TabIndex = 16;
@@ -261,13 +261,12 @@ namespace Eatery.Ventas
             this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPage1});
             this.navigationFrame1.SelectedPage = this.navigationPage1;
-            this.navigationFrame1.Size = new System.Drawing.Size(1121, 675);
+            this.navigationFrame1.Size = new System.Drawing.Size(1086, 617);
             this.navigationFrame1.TabIndex = 19;
             this.navigationFrame1.Text = "navigationFrame1";
             // 
             // navigationPage1
             // 
-            this.navigationPage1.Caption = "navigationPage1";
             this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
             this.navigationPage1.Controls.Add(this.txtVendedor);
             this.navigationPage1.Controls.Add(this.label10);
@@ -296,7 +295,7 @@ namespace Eatery.Ventas
             this.navigationPage1.Controls.Add(this.txtNombreCliente);
             this.navigationPage1.Margin = new System.Windows.Forms.Padding(2);
             this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(1121, 675);
+            this.navigationPage1.Size = new System.Drawing.Size(1086, 617);
             this.navigationPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.navigationPage1_Paint);
             // 
             // cmdChangeVendedor
@@ -304,7 +303,7 @@ namespace Eatery.Ventas
             this.cmdChangeVendedor.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.cmdChangeVendedor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdChangeVendedor.ImageOptions.Image")));
             this.cmdChangeVendedor.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdChangeVendedor.Location = new System.Drawing.Point(1079, 26);
+            this.cmdChangeVendedor.Location = new System.Drawing.Point(1040, 47);
             this.cmdChangeVendedor.Name = "cmdChangeVendedor";
             this.cmdChangeVendedor.Size = new System.Drawing.Size(39, 24);
             this.cmdChangeVendedor.TabIndex = 56;
@@ -312,7 +311,7 @@ namespace Eatery.Ventas
             // 
             // txtVendedor
             // 
-            this.txtVendedor.Location = new System.Drawing.Point(867, 26);
+            this.txtVendedor.Location = new System.Drawing.Point(830, 47);
             this.txtVendedor.Name = "txtVendedor";
             this.txtVendedor.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVendedor.Properties.Appearance.Options.UseFont = true;
@@ -324,7 +323,7 @@ namespace Eatery.Ventas
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label10.Location = new System.Drawing.Point(799, 28);
+            this.label10.Location = new System.Drawing.Point(762, 49);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 20);
             this.label10.TabIndex = 54;
@@ -474,11 +473,11 @@ namespace Eatery.Ventas
             this.gridControl1.DataMember = "detalle_factura_transaction";
             this.gridControl1.DataSource = this.dsVentas1;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gridControl1.Location = new System.Drawing.Point(11, 156);
+            this.gridControl1.Location = new System.Drawing.Point(9, 156);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1107, 401);
+            this.gridControl1.Size = new System.Drawing.Size(1072, 343);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -620,7 +619,7 @@ namespace Eatery.Ventas
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1121, 678);
+            this.ClientSize = new System.Drawing.Size(1086, 620);
             this.Controls.Add(this.navigationFrame1);
             this.Name = "frmFactura";
             this.Text = "Factura";

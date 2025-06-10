@@ -425,6 +425,9 @@ namespace JAGUAR_PRO
         {
             txtUsuario.Text = "danys.oliva";
             txtClave.Text = "Gto1804?";
+            //txtUsuario.Text = "wbaires";
+            //txtClave.Text = "Tempo123";
+
             ValidateUserInfo();
         }
     }

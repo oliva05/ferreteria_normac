@@ -15,6 +15,7 @@ namespace JAGUAR_PRO.Clases
         public string ItemName;
         public int PresenacionID;
         public string Presentacion;
+        public string Marca;
 
         public ItemBusqueda()
         {
@@ -23,6 +24,7 @@ namespace JAGUAR_PRO.Clases
             ItemCode = "";
             ItemName = "";
             tipo = 0;
+            Marca = "";
         }
 
     }

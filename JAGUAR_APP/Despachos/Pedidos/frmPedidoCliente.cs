@@ -69,10 +69,20 @@ namespace Eatery.Ventas
 
         Busqueda BusquedaSet;
 
-        public frmPedidoCliente(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual)
+        public frmPedidoCliente(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, Vendedor pVendedor)
         {
             InitializeComponent();
             TipoOperacionActual = TipoOperacionSQL.Insert;
+
+            this.VendedorActual = pVendedor;
+            if (VendedorActual != null)
+            {
+                if (VendedorActual.Recuperado)
+                {
+                    txtAsesorVendedor.Text = VendedorActual.CodigoVendedor + " - " + VendedorActual.Nombre;
+                }
+            }
+
             ckConfirmarPedido.Visible = ckGenerarCotizacion.Visible = true;
             ClienteFactura = new ClienteFacturacion();
             IdTerminoPago = 1;
@@ -193,7 +203,28 @@ namespace Eatery.Ventas
                     PedidoActual = pedidoCliente;
                     ClienteFactura = new ClienteFacturacion();
                     
-                    txtNombreCliente.Text = pedidoCliente.ClienteNombre;
+                    IdTerminoPago = pedidoCliente.IdTerminoPago;
+                    if(IdTerminoPago== 1)//Contado
+                    {
+                        rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged_1);
+                        rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_1);
+                        rdContado.Checked = true;
+                        rdCredito.Checked = false;
+                        rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_1);
+                        rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged_1);
+                    }
+
+                    if (IdTerminoPago == 2)//Credito
+                    {
+                        rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged_1);
+                        rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_1);
+                        rdContado.Checked = false;
+                        rdCredito.Checked = true;
+                        rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_1);
+                        rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged_1);
+                    }
+
+                        txtNombreCliente.Text = pedidoCliente.ClienteNombre;
                     txtRTN.Text = pedidoCliente.RTN;
                     txtDireccion.Text = pedidoCliente.direccion_cliente;
                     ClienteFactura.Id = pedidoCliente.IdCliente;
@@ -305,7 +336,7 @@ namespace Eatery.Ventas
                         descuentoPorcentaje = dr.GetDecimal(10);
 
                     if (pt.Recuperar_producto(pt.Id))
-                        AgregarProductoA_Prefactura(pt.Id, pt.Code, Descripcion, Cantidad, false, descuentoPorcentaje, pt);
+                        AgregarProductoA_Prefactura(pt.Id, pt.Code, Descripcion, Cantidad, false, descuentoPorcentaje, pt, pt.MarcaName);
                     
                 }
                 dr.Close();
@@ -1939,7 +1970,9 @@ namespace Eatery.Ventas
             frmSearchItems frm = new frmSearchItems();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                AgregarProductoA_Prefactura(frm.ItemSeleccionado.id, frm.ItemSeleccionado.ItemCode, frm.ItemSeleccionado.ItemName, 1, true, 0, new ProductoTerminado());
+                AgregarProductoA_Prefactura(frm.ItemSeleccionado.id, frm.ItemSeleccionado.ItemCode, 
+                                            frm.ItemSeleccionado.ItemName, 1, true, 0,
+                                            new ProductoTerminado(), frm.ItemSeleccionado.Marca);
                 txtScanProducto.Focus();
             }
 
@@ -1949,7 +1982,10 @@ namespace Eatery.Ventas
 
 
 
-        private void AgregarProductoA_Prefactura(int pIdPT, string pItemCode, string pItemName, decimal pCantidad, bool AddDistribucionAlmacen, decimal pDescuentoPorcentaje, ProductoTerminado pProductoTerminado)
+        private void AgregarProductoA_Prefactura(int pIdPT, string pItemCode, string pItemName, 
+                                                 decimal pCantidad, bool AddDistribucionAlmacen, 
+                                                 decimal pDescuentoPorcentaje, ProductoTerminado pProductoTerminado
+                                                 ,string pMarca)
         {
             ProductoTerminado pt1;
             if (pProductoTerminado == null) 
@@ -1996,6 +2032,7 @@ namespace Eatery.Ventas
                     row1.descuento = 
                     row1.descuento_porcentaje = 0;
                     row1.codigo_referencia = pt1.Codig_Referencia;
+                    row1.marca = pt1.MarcaName;
                     row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                     row1.id_presentacion = pt1.Id_presentacion;
 
@@ -2086,7 +2123,7 @@ namespace Eatery.Ventas
                             {
                                 AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
                                                                      1, pt1.Id_presentacion, row1.precio, row1.descuento,
-                                                                     pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje);
+                                                                     pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, row1.marca);
 
                                 //Buscamos el detalle en la seleccion de stock
                                 foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
@@ -2305,7 +2342,7 @@ namespace Eatery.Ventas
             ProductoTerminado pt1 = new ProductoTerminado();
             if (pt1.Recuperar_productoByBarCode(txtScanProducto.Text))
             {
-                AgregarProductoA_Prefactura(pt1.Id, pt1.Code, pt1.Descripcion, 1, true, 0, pt1);
+                AgregarProductoA_Prefactura(pt1.Id, pt1.Code, pt1.Descripcion, 1, true, 0, pt1, pt1.MarcaName);
                 txtScanProducto.Text = "";
                 txtScanProducto.Focus();
             }
@@ -2316,6 +2353,8 @@ namespace Eatery.Ventas
                 SetErrorBarra("No se encontró el código escaneado!");
                 txtScanProducto.Text = "";
                 txtScanProducto.Focus();
+                timerLimpiarMensaje.Enabled = true;
+                timerLimpiarMensaje.Start();
             }
         }
 
@@ -2349,7 +2388,8 @@ namespace Eatery.Ventas
 
         private void AgregarDetalleInventarioSeleccionado(int id_pt, int idBodega_, string bodegaName_, decimal cantidad_, 
                                                           int pIdPresentacion, decimal pPrecio, decimal pDescuento,
-                                                          string pItemCode, string pItemName, decimal isv1, decimal pDescuentoPorcentaje)
+                                                          string pItemCode, string pItemName, decimal isv1, 
+                                                          decimal pDescuentoPorcentaje, string pMarca)
         {
             dsVentas.detalle_factura_transaccion_invRow row = dsVentas1.detalle_factura_transaccion_inv.Newdetalle_factura_transaccion_invRow();
             row.id_pt = id_pt;
@@ -2363,6 +2403,7 @@ namespace Eatery.Ventas
             row.item_code = pItemCode;
             row.descripcion = pItemName;
             row.isv1 = isv1;
+            row.marca = pMarca;
             row.descuento_porcentaje = pDescuentoPorcentaje;
             dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
             dsVentas1.AcceptChanges();
@@ -2414,6 +2455,7 @@ namespace Eatery.Ventas
                         row.descripcion = i.Descripcion;
                         row.isv1 = i.isv1;
                         row.descuento_porcentaje = i.descuento_porcentaje;
+                        row.marca = i.marca;
                         dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
                         dsVentas1.AcceptChanges();
                     }
@@ -2472,6 +2514,7 @@ namespace Eatery.Ventas
                     item.id_presentacion = rowi.id_presentacion;
                     item.ItemCode = rowi.item_code;
                     item.Descripcion = rowi.descripcion;
+                    item.marca = rowi.marca;
                     item.isv1 = rowi.isv1;
                     ListaActual.Add(item);
                 }
@@ -2657,6 +2700,8 @@ namespace Eatery.Ventas
                                 _id_estado = 1;//Confirmado 
 
                             command.Parameters.AddWithValue("@id_estado", _id_estado);
+                            command.Parameters.AddWithValue("@id_termino_pago", IdTerminoPago);
+                            
 
                             Int64 IdPedidoH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
@@ -2700,6 +2745,23 @@ namespace Eatery.Ventas
 
                                     command.Parameters.AddWithValue("@isv", row.isv1);
                                     command.Parameters.AddWithValue("@descuento_porcentaje", descuentoPorcentaje);
+
+                                    if (!row.IsmarcaNull())
+                                    {
+                                        if (!string.IsNullOrEmpty(row.marca))
+                                        {
+                                            command.Parameters.AddWithValue("@marca", row.marca);
+                                        }
+                                        else
+                                        {
+                                            command.Parameters.AddWithValue("@marca", DBNull.Value);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        command.Parameters.AddWithValue("@marca", DBNull.Value);
+                                    }
+                                        
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }
@@ -2884,11 +2946,14 @@ namespace Eatery.Ventas
                             }
 
                             command.Parameters.AddWithValue("@id_h", PedidoActual.Id);
+                            command.Parameters.AddWithValue("@id_termino_pago", IdTerminoPago);
 
                             Int64 IdPedidoH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
                             Pedido_.Id = IdPedidoH;
 
+
+                            //Limpiamos las lineas de detalle
                             command.CommandText = "dbo.[sp_set_clean_pedido_cliente_lineas]";
                             command.Parameters.Clear();
                             command.CommandType = CommandType.StoredProcedure;
@@ -3046,7 +3111,7 @@ namespace Eatery.Ventas
                 this.UsuarioLogeado = new UserLogin();
                 if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
                 {
-
+                    txtScanProducto.Focus();
                 }
             }
         }
@@ -3202,6 +3267,28 @@ namespace Eatery.Ventas
                 //{
                 //    cmdIngresarAdmin.Visible = SaltarLogin.Visible = simpleButton2.Visible = SaltarLoginPRD.Visible = true;
                 //}
+            }
+        }
+
+        private void rdContado_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (rdContado.Checked)
+            {
+                rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
+                rdCredito.Checked = false;
+                IdTerminoPago = 1;
+                rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
+            }
+        }
+
+        private void rdCredito_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (rdCredito.Checked)
+            {
+                rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
+                rdContado.Checked = false;
+                IdTerminoPago = 2;
+                rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
             }
         }
 
