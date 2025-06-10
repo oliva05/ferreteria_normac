@@ -6,6 +6,7 @@ using DevExpress.XtraNavBar;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraSpreadsheet.Import.Xls;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using Eatery.Ventas;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
@@ -154,28 +155,48 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             equipo = new FacturacionEquipo();
             PDV puntoVenta1 = new PDV();
 
-            //if (equipo.RecuperarRegistro(HostName))
-            //{
-            //    if (!puntoVenta1.RecuperaRegistro(equipo.id_punto_venta))
-            //    {
-            //        CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
-            //        return;
-            //    }
-            //}
-            //else
-            //{
-            //    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
-            //    return;
-            //}
-
             var gridView = (GridView)gridControl1.FocusedView;
             var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
 
-            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, row.id);
-            if(this.MdiParent != null)
-                frm.MdiParent = this.MdiParent;
+            if (row != null)
+            {
+                if (!row.Isid_estadoNull())
+                {
+                    switch (row.id_estado)
+                    {
+                        case 1://Confirmado
+                            CajaDialogo.Error("El pedido ya fue confirmado para pago, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                        break;
+                        case 2://Facturado
+                            CajaDialogo.Error("El pedido ya fue facturado, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                            break;
+                        case 3://Entregado
+                            CajaDialogo.Error("El pedido ya fue entregado, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                            break; 
+                        case 4://Cancelado
+                            CajaDialogo.Error("El pedido ya fue cancelado, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                            break;
+                        case 5://Anulado
+                            CajaDialogo.Error("El pedido ya fue anulado, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                            break;
+                        case 6://Nuevo
+                            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, row.id);
+                            if (this.MdiParent != null)
+                                frm.MdiParent = this.MdiParent;
 
-            frm.Show();
+                            frm.Show();
+                            break;
+                        case 7://Parcialmente Entregado
+                            CajaDialogo.Error("El pedido ya esta en proceso de entrega, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
+                            break;
+                        default:
+                        break;
+                    }
+                    
+                }
+            }
+
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

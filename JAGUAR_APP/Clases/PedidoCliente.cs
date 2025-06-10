@@ -37,6 +37,7 @@ namespace JAGUAR_PRO.Clases
         public string OrdenCompra { get; set; }
         public int Id_Vendedor { get; set; }
         public string CodigoVendedor { get; set; }
+        public string VendedorNombre { get; set; }
 
         /// <summary>
         /// 1=Contado, 2=Crédito
@@ -123,6 +124,10 @@ namespace JAGUAR_PRO.Clases
                         //id_termino_pago
                         if (!reader.IsDBNull(reader.GetOrdinal("id_termino_pago")))
                             IdTerminoPago = Convert.ToInt32(reader["id_termino_pago"]);
+
+                        //VendedorNombre
+                        if (!reader.IsDBNull(reader.GetOrdinal("vendedor")))
+                            VendedorNombre = Convert.ToString(reader["vendedor"]);
 
                         Recuperado = true;
                     }
