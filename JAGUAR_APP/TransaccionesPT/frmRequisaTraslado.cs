@@ -109,49 +109,49 @@ namespace JAGUAR_PRO.TransaccionesPT
 
         private void reposTraslado_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var gridview = (GridView)gridControl1.FocusedView;
-            var row = (dsPT.solcitudes_hRow)gridview.GetFocusedDataRow();
+            //var gridview = (GridView)gridControl1.FocusedView;
+            //var row = (dsPT.solcitudes_hRow)gridview.GetFocusedDataRow();
 
-            bool Permitir = false;
-            if (row != null)
-            {
-                switch (row.id_estado)
-                {
-                    case 1: //Pendiente de Aprobación
-                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa no ha sido aprobada.");
-                        break;
+            //bool Permitir = false;
+            //if (row != null)
+            //{
+            //    switch (row.id_estado)
+            //    {
+            //        case 1: //Pendiente de Aprobación
+            //            CajaDialogo.Error("No se puede realizar el traslado, la Requisa no ha sido aprobada.");
+            //            break;
 
-                    case 2://Autorizado
-                        Permitir = true;
-                        break;
+            //        case 2://Autorizado
+            //            Permitir = true;
+            //            break;
 
-                    case 3://Cancelado
-                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido Cancelada.");
+            //        case 3://Cancelado
+            //            CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido Cancelada.");
                         
-                        break;
+            //            break;
 
-                    case 4://Rechazado
-                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido Rechazada.");
+            //        case 4://Rechazado
+            //            CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido Rechazada.");
 
-                        break;
+            //            break;
 
-                    case 5://Completado
-                        CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido completada.");
-                        break;
-                    default:
-                        break;
-                }
+            //        case 5://Completado
+            //            CajaDialogo.Error("No se puede realizar el traslado, la Requisa ya ha sido completada.");
+            //            break;
+            //        default:
+            //            break;
+            //    }
 
-                if (Permitir)
-                {
-                    frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.TrasladoFinal, row.id);
-                    if (frm.ShowDialog() == DialogResult.OK)
-                    {
-                        LoadDatos();
-                    }
-                }
+            //    if (Permitir)
+            //    {
+            //        frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.TrasladoFinal, row.id);
+            //        if (frm.ShowDialog() == DialogResult.OK)
+            //        {
+            //            LoadDatos();
+            //        }
+            //    }
                 
-            }
+            //}
 
         }
 

@@ -39,16 +39,16 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnTraslado = new DevExpress.XtraEditors.SimpleButton();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCargar = new DevExpress.XtraEditors.SimpleButton();
@@ -75,12 +75,12 @@
             this.reposVerDetalle = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reposTraslado = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reposAprobacion = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.reposReport = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tsExpandir = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.reposAprobacion = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).BeginInit();
@@ -90,9 +90,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposVerDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposTraslado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposAprobacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsExpandir.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposAprobacion)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTraslado
@@ -362,8 +362,6 @@
             this.gridColumn3.Caption = "Crear Traslado";
             this.gridColumn3.ColumnEdit = this.reposTraslado;
             this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 8;
             // 
             // reposTraslado
             // 
@@ -374,6 +372,24 @@
             this.reposTraslado.Name = "reposTraslado";
             this.reposTraslado.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposTraslado.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposTraslado_ButtonClick);
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Aprobar Requisa";
+            this.gridColumn4.ColumnEdit = this.reposAprobacion;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 6;
+            // 
+            // reposAprobacion
+            // 
+            this.reposAprobacion.AutoHeight = false;
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            this.reposAprobacion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.reposAprobacion.Name = "reposAprobacion";
+            this.reposAprobacion.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.reposAprobacion.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposAprobacion_ButtonClick);
             // 
             // reposReport
             // 
@@ -424,24 +440,6 @@
             this.labelControl2.TabIndex = 124;
             this.labelControl2.Text = "Expandir ";
             // 
-            // reposAprobacion
-            // 
-            this.reposAprobacion.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
-            this.reposAprobacion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.reposAprobacion.Name = "reposAprobacion";
-            this.reposAprobacion.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.reposAprobacion.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposAprobacion_ButtonClick);
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Aprobar Requisa";
-            this.gridColumn4.ColumnEdit = this.reposAprobacion;
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 6;
-            // 
             // frmRequisaTraslado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,9 +468,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposVerDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposTraslado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposAprobacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsExpandir.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposAprobacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

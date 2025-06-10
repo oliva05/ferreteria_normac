@@ -471,8 +471,8 @@ namespace JAGUAR_PRO.TransaccionesPT
                         cmd.Parameters.AddWithValue("@bodega_origen", gleAlmacen.EditValue);
                         cmd.Parameters.AddWithValue("@bodega_destino", gleAlmacenDestino.EditValue);
                         int IdEstado = 1; //Pendiente Aprobacion
-                        if (UsuarioLogeado.GrupoUsuario.GrupoUsuarioActivo == GrupoUser.GrupoUsuario.Administradores)
-                            IdEstado = 2; //Aprobado
+                        //if (UsuarioLogeado.GrupoUsuario.GrupoUsuarioActivo == GrupoUser.GrupoUsuario.Administradores)
+                        //    IdEstado = 2; //Aprobado
                         cmd.Parameters.AddWithValue("@id_estado", IdEstado);
                         cmd.Parameters.AddWithValue("@num_requisa", lblNumTraslado.Text.Trim());
                         IdSoliciudTrasladoH = Convert.ToInt32(cmd.ExecuteScalar());

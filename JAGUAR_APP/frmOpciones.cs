@@ -4936,9 +4936,47 @@ namespace JAGUAR_PRO
 
         private void navBarItem60_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            frmMainTrasladoPT frm = new frmMainTrasladoPT(UsuarioLogeado);
-            frm.MdiParent = this.MdiParent;
-            frm.Show();
+            
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmMainTrasladoPT frm = new frmMainTrasladoPT(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(14))
+                {
+                    frmMainTrasladoPT frm = new frmMainTrasladoPT(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-14 (Traslado Directo Entre Bodegas)");
+                }
+            }
         }
 
         private void simpleButton7_Click_1(object sender, EventArgs e)
@@ -5396,6 +5434,49 @@ namespace JAGUAR_PRO
                 else
                 {
                     CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-13 (Ordenes de Compra)");
+                }
+            }
+        }
+
+        private void navBarItem153_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmTrasladoGestionKardex frm = new frmTrasladoGestionKardex(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(15))
+                {
+                    frmTrasladoGestionKardex frm = new frmTrasladoGestionKardex(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-15 (Traslado Directo Entre Bodegas)");
                 }
             }
         }
