@@ -33,7 +33,16 @@
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.lblTitulo = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.dsPT1 = new JAGUAR_PRO.TransaccionesPT.dsPT();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colitemcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colexistencia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcantidad_trasladar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcantidad_fisica = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colseleccion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_detalle_factura = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,7 +52,7 @@
             this.colid_user = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colusuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checMarcarTodo = new System.Windows.Forms.CheckBox();
             this.txtNumTraslado = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtUsuario = new DevExpress.XtraEditors.TextEdit();
@@ -54,14 +63,8 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtDescr = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.dsPT1 = new JAGUAR_PRO.TransaccionesPT.dsPT();
-            this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colitemcode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colexistencia = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcantidad_trasladar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPT1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumTraslado.Properties)).BeginInit();
@@ -69,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBodOrigen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBodDestino.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescr.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsPT1)).BeginInit();
             this.SuspendLayout();
             // 
             // simpleButton1
@@ -81,11 +83,12 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(1227, 2);
+            this.simpleButton1.Location = new System.Drawing.Point(1230, 21);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(161, 45);
             this.simpleButton1.TabIndex = 76;
             this.simpleButton1.Text = "Home";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // cmdGuardar
             // 
@@ -97,11 +100,12 @@
             this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGuardar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.cmdGuardar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdGuardar.ImageOptions.SvgImage")));
-            this.cmdGuardar.Location = new System.Drawing.Point(1039, 2);
+            this.cmdGuardar.Location = new System.Drawing.Point(1039, 21);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(170, 45);
             this.cmdGuardar.TabIndex = 75;
             this.cmdGuardar.Text = "Guardar";
+            this.cmdGuardar.Click += new System.EventHandler(this.cmdGuardar_Click);
             // 
             // lblTitulo
             // 
@@ -134,6 +138,11 @@
             this.gridView2,
             this.gridView1});
             // 
+            // dsPT1
+            // 
+            this.dsPT1.DataSetName = "dsPT";
+            this.dsPT1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // gridView2
             // 
             this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -146,11 +155,80 @@
             this.coldescripcion,
             this.colexistencia,
             this.colcantidad_trasladar,
-            this.colid});
+            this.colid,
+            this.colcantidad_fisica,
+            this.colseleccion});
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowFooter = true;
             this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView2_CellValueChanging);
+            // 
+            // colid_pt
+            // 
+            this.colid_pt.FieldName = "id_pt";
+            this.colid_pt.Name = "colid_pt";
+            this.colid_pt.OptionsColumn.AllowEdit = false;
+            // 
+            // colitemcode
+            // 
+            this.colitemcode.Caption = "Codigo";
+            this.colitemcode.FieldName = "itemcode";
+            this.colitemcode.Name = "colitemcode";
+            this.colitemcode.OptionsColumn.AllowEdit = false;
+            this.colitemcode.Visible = true;
+            this.colitemcode.VisibleIndex = 0;
+            this.colitemcode.Width = 120;
+            // 
+            // coldescripcion
+            // 
+            this.coldescripcion.Caption = "Descripcion del Producto";
+            this.coldescripcion.FieldName = "descripcion";
+            this.coldescripcion.Name = "coldescripcion";
+            this.coldescripcion.OptionsColumn.AllowEdit = false;
+            this.coldescripcion.Visible = true;
+            this.coldescripcion.VisibleIndex = 1;
+            this.coldescripcion.Width = 443;
+            // 
+            // colexistencia
+            // 
+            this.colexistencia.FieldName = "existencia";
+            this.colexistencia.Name = "colexistencia";
+            this.colexistencia.OptionsColumn.AllowEdit = false;
+            // 
+            // colcantidad_trasladar
+            // 
+            this.colcantidad_trasladar.Caption = "Cantidad segun Requisa";
+            this.colcantidad_trasladar.FieldName = "cantidad_trasladar";
+            this.colcantidad_trasladar.Name = "colcantidad_trasladar";
+            this.colcantidad_trasladar.OptionsColumn.AllowEdit = false;
+            this.colcantidad_trasladar.Visible = true;
+            this.colcantidad_trasladar.VisibleIndex = 2;
+            this.colcantidad_trasladar.Width = 344;
+            // 
+            // colid
+            // 
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            this.colid.OptionsColumn.AllowEdit = false;
+            // 
+            // colcantidad_fisica
+            // 
+            this.colcantidad_fisica.Caption = "Cantidad Fisica por Entregar";
+            this.colcantidad_fisica.FieldName = "cantidad_fisica";
+            this.colcantidad_fisica.Name = "colcantidad_fisica";
+            this.colcantidad_fisica.Visible = true;
+            this.colcantidad_fisica.VisibleIndex = 3;
+            this.colcantidad_fisica.Width = 315;
+            // 
+            // colseleccion
+            // 
+            this.colseleccion.Caption = "Seleccionado";
+            this.colseleccion.FieldName = "seleccion";
+            this.colseleccion.Name = "colseleccion";
+            this.colseleccion.Visible = true;
+            this.colseleccion.VisibleIndex = 4;
+            this.colseleccion.Width = 140;
             // 
             // gridView1
             // 
@@ -232,16 +310,17 @@
             this.colfecha.Visible = true;
             this.colfecha.VisibleIndex = 4;
             // 
-            // checkBox1
+            // checMarcarTodo
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(1270, 146);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(121, 22);
-            this.checkBox1.TabIndex = 78;
-            this.checkBox1.Text = "Marca Todos";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checMarcarTodo.AutoSize = true;
+            this.checMarcarTodo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checMarcarTodo.Location = new System.Drawing.Point(1260, 147);
+            this.checMarcarTodo.Name = "checMarcarTodo";
+            this.checMarcarTodo.Size = new System.Drawing.Size(121, 22);
+            this.checMarcarTodo.TabIndex = 78;
+            this.checMarcarTodo.Text = "Marca Todos";
+            this.checMarcarTodo.UseVisualStyleBackColor = true;
+            this.checMarcarTodo.CheckedChanged += new System.EventHandler(this.checMarcarTodo_CheckedChanged);
             // 
             // txtNumTraslado
             // 
@@ -253,7 +332,6 @@
             this.txtNumTraslado.Properties.ReadOnly = true;
             this.txtNumTraslado.Size = new System.Drawing.Size(162, 24);
             this.txtNumTraslado.TabIndex = 80;
-            this.txtNumTraslado.Visible = false;
             // 
             // labelControl1
             // 
@@ -264,7 +342,6 @@
             this.labelControl1.Size = new System.Drawing.Size(140, 17);
             this.labelControl1.TabIndex = 79;
             this.labelControl1.Text = "Num. Traslado_________:";
-            this.labelControl1.Visible = false;
             // 
             // txtUsuario
             // 
@@ -276,7 +353,6 @@
             this.txtUsuario.Properties.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(162, 24);
             this.txtUsuario.TabIndex = 82;
-            this.txtUsuario.Visible = false;
             // 
             // labelControl2
             // 
@@ -287,7 +363,6 @@
             this.labelControl2.Size = new System.Drawing.Size(150, 17);
             this.labelControl2.TabIndex = 81;
             this.labelControl2.Text = "Usuario Conectado______:";
-            this.labelControl2.Visible = false;
             // 
             // txtBodOrigen
             // 
@@ -299,7 +374,6 @@
             this.txtBodOrigen.Properties.ReadOnly = true;
             this.txtBodOrigen.Size = new System.Drawing.Size(162, 24);
             this.txtBodOrigen.TabIndex = 84;
-            this.txtBodOrigen.Visible = false;
             // 
             // labelControl3
             // 
@@ -310,7 +384,6 @@
             this.labelControl3.Size = new System.Drawing.Size(118, 17);
             this.labelControl3.TabIndex = 83;
             this.labelControl3.Text = "Bod. Origen________:";
-            this.labelControl3.Visible = false;
             // 
             // txtBodDestino
             // 
@@ -322,7 +395,6 @@
             this.txtBodDestino.Properties.ReadOnly = true;
             this.txtBodDestino.Size = new System.Drawing.Size(162, 24);
             this.txtBodDestino.TabIndex = 86;
-            this.txtBodDestino.Visible = false;
             // 
             // labelControl4
             // 
@@ -333,13 +405,14 @@
             this.labelControl4.Size = new System.Drawing.Size(129, 17);
             this.labelControl4.TabIndex = 85;
             this.labelControl4.Text = "Bod. Destino_________:";
-            this.labelControl4.Visible = false;
             // 
             // txtDescr
             // 
             this.txtDescr.Enabled = false;
             this.txtDescr.Location = new System.Drawing.Point(117, 72);
             this.txtDescr.Name = "txtDescr";
+            this.txtDescr.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtDescr.Properties.Appearance.Options.UseFont = true;
             this.txtDescr.Size = new System.Drawing.Size(283, 66);
             this.txtDescr.TabIndex = 87;
             // 
@@ -352,55 +425,6 @@
             this.labelControl5.Size = new System.Drawing.Size(121, 17);
             this.labelControl5.TabIndex = 88;
             this.labelControl5.Text = "Comentario_________:";
-            this.labelControl5.Visible = false;
-            // 
-            // dsPT1
-            // 
-            this.dsPT1.DataSetName = "dsPT";
-            this.dsPT1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // colid_pt
-            // 
-            this.colid_pt.FieldName = "id_pt";
-            this.colid_pt.Name = "colid_pt";
-            this.colid_pt.OptionsColumn.AllowEdit = false;
-            // 
-            // colitemcode
-            // 
-            this.colitemcode.FieldName = "itemcode";
-            this.colitemcode.Name = "colitemcode";
-            this.colitemcode.OptionsColumn.AllowEdit = false;
-            this.colitemcode.Visible = true;
-            this.colitemcode.VisibleIndex = 0;
-            // 
-            // coldescripcion
-            // 
-            this.coldescripcion.FieldName = "descripcion";
-            this.coldescripcion.Name = "coldescripcion";
-            this.coldescripcion.OptionsColumn.AllowEdit = false;
-            this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 1;
-            // 
-            // colexistencia
-            // 
-            this.colexistencia.FieldName = "existencia";
-            this.colexistencia.Name = "colexistencia";
-            this.colexistencia.OptionsColumn.AllowEdit = false;
-            this.colexistencia.Visible = true;
-            this.colexistencia.VisibleIndex = 2;
-            // 
-            // colcantidad_trasladar
-            // 
-            this.colcantidad_trasladar.FieldName = "cantidad_trasladar";
-            this.colcantidad_trasladar.Name = "colcantidad_trasladar";
-            this.colcantidad_trasladar.Visible = true;
-            this.colcantidad_trasladar.VisibleIndex = 3;
-            // 
-            // colid
-            // 
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            this.colid.OptionsColumn.AllowEdit = false;
             // 
             // frmTrasladoGestionKardexOP
             // 
@@ -416,7 +440,7 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.txtNumTraslado);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checMarcarTodo);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.cmdGuardar);
@@ -425,6 +449,7 @@
             this.Name = "frmTrasladoGestionKardexOP";
             this.Text = "frmTrasladoGestionKardexOP";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPT1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumTraslado.Properties)).EndInit();
@@ -432,7 +457,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBodOrigen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBodDestino.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescr.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsPT1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,7 +478,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colid_user;
         private DevExpress.XtraGrid.Columns.GridColumn colusuario;
         private DevExpress.XtraGrid.Columns.GridColumn colfecha;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checMarcarTodo;
         private DevExpress.XtraEditors.TextEdit txtNumTraslado;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtUsuario;
@@ -472,5 +496,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colexistencia;
         private DevExpress.XtraGrid.Columns.GridColumn colcantidad_trasladar;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn colcantidad_fisica;
+        private DevExpress.XtraGrid.Columns.GridColumn colseleccion;
     }
 }

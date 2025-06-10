@@ -5440,7 +5440,45 @@ namespace JAGUAR_PRO
 
         private void navBarItem153_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            frmTrasladoGestionKardex
+            
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmTrasladoGestionKardex frm = new frmTrasladoGestionKardex(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(15))
+                {
+                    frmTrasladoGestionKardex frm = new frmTrasladoGestionKardex(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-15 (Traslado Directo Entre Bodegas)");
+                }
+            }
         }
     }
 }
