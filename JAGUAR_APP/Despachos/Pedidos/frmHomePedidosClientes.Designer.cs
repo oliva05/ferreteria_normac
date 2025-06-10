@@ -483,6 +483,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.colfacturar.Caption = "Facturar";
             this.colfacturar.ColumnEdit = this.cmdFacturar;
+            this.colfacturar.FieldName = "facturar";
             this.colfacturar.Name = "colfacturar";
             this.colfacturar.Visible = true;
             this.colfacturar.VisibleIndex = 10;

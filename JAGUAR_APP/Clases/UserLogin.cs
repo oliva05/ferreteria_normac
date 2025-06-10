@@ -12,6 +12,17 @@ namespace JAGUAR_PRO.Clases
     public class UserLogin
     {
         public GrupoUser GrupoUsuario;
+        public GrupoUser.GrupoUsuario GrupoUsuarioActivo
+        {
+            get
+            {
+                return (GrupoUser.GrupoUsuario)idGrupo;
+            }
+            set
+            {
+                GrupoUsuarioActivo = value;
+            }
+        }
         public SqlConnection conn;
         private bool recuperado;
         private int id;

@@ -55,13 +55,14 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
         private void cmdCargar_Click(object sender, EventArgs e)
         {
-            switch (UsuarioLogeado.GrupoUsuario.GrupoUsuarioActivo)
+            switch (UsuarioLogeado.GrupoUsuarioActivo)
             {
                 case GrupoUser.GrupoUsuario.Logistica:
                     break;
                 case GrupoUser.GrupoUsuario.Administradores:
                     LoadDatos();
-            
+                    gridView1.OptionsMenu.EnableColumnMenu = true;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                    gridView1.Columns["facturar"].Visible = true; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
                     break;
                 case GrupoUser.GrupoUsuario.RRHH:
                     break;
@@ -71,15 +72,19 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     LoadDatos();
                     break;
                 case GrupoUser.GrupoUsuario.Facturacion_EndUser:
-                    cmdChangeVendedor_Click(sender, e);
-
+                    //cmdChangeVendedor_Click(sender, e);
+                    LoadDatos();
+                    gridView1.OptionsMenu.EnableColumnMenu = false;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                    gridView1.Columns["facturar"].Visible = false; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
                     break;
                 case GrupoUser.GrupoUsuario.Caja:
+                    LoadDatos();
+                    gridView1.OptionsMenu.EnableColumnMenu = false;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                    gridView1.Columns["facturar"].Visible = true; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
                     break;
                 default:
                     break;
             }
-           
         }
 
         private void LoadDatos()
@@ -361,30 +366,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
                 {
                     cmdCargar_Click(sender, e);
-                    switch (UsuarioLogeado.GrupoUsuario.GrupoUsuarioActivo)
-                    {
-                        
-                        case GrupoUser.GrupoUsuario.Logistica: //id: 1
-                        case GrupoUser.GrupoUsuario.RRHH://id: 3
-                        case GrupoUser.GrupoUsuario.Contabilidad://id: 4
-                        case GrupoUser.GrupoUsuario.Caja://id: 7
-                        case GrupoUser.GrupoUsuario.Facturacion_EndUser://id: 6
-                            gridView1.OptionsMenu.EnableColumnMenu = false;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
-
-
-                            gridView1.Columns["costo"].Visible = true; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
-
-
-                            break;
-                        case GrupoUser.GrupoUsuario.Administradores://id: 2
-
-                            break;
-                        case GrupoUser.GrupoUsuario.Facturacion_Admin://id: 5
-
-                            break;
-                        default:
-                            break;
-                    }
+                    
                 }
             }
             
