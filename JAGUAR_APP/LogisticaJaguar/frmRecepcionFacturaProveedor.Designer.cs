@@ -446,6 +446,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.dtDesde.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
             this.dtDesde.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDesde.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtDesde.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDesde.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dtDesde.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDesde.Size = new System.Drawing.Size(128, 26);

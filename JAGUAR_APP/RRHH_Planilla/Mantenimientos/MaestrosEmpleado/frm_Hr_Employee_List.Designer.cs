@@ -290,7 +290,7 @@
             this.cmdAgregar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdAgregar.Image = global::JAGUAR_PRO.Properties.Resources.add_24x24;
             this.cmdAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdAgregar.Location = new System.Drawing.Point(1, 30);
+            this.cmdAgregar.Location = new System.Drawing.Point(12, 30);
             this.cmdAgregar.Name = "cmdAgregar";
             this.cmdAgregar.Size = new System.Drawing.Size(86, 33);
             this.cmdAgregar.TabIndex = 2;
@@ -306,7 +306,7 @@
             this.cmdExcel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdExcel.Image = global::JAGUAR_PRO.Properties.Resources.export_32x32;
             this.cmdExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdExcel.Location = new System.Drawing.Point(1232, 30);
+            this.cmdExcel.Location = new System.Drawing.Point(1226, 30);
             this.cmdExcel.Name = "cmdExcel";
             this.cmdExcel.Size = new System.Drawing.Size(86, 33);
             this.cmdExcel.TabIndex = 3;
@@ -322,7 +322,7 @@
             this.cmdCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdCerrar.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.cmdCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdCerrar.Location = new System.Drawing.Point(1324, 30);
+            this.cmdCerrar.Location = new System.Drawing.Point(1318, 30);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(86, 33);
             this.cmdCerrar.TabIndex = 4;
@@ -340,7 +340,7 @@
             this.tggVerInactivos.Properties.Appearance.Options.UseFont = true;
             this.tggVerInactivos.Properties.OffText = "No";
             this.tggVerInactivos.Properties.OnText = "Si";
-            this.tggVerInactivos.Size = new System.Drawing.Size(95, 19);
+            this.tggVerInactivos.Size = new System.Drawing.Size(95, 21);
             this.tggVerInactivos.TabIndex = 5;
             this.tggVerInactivos.Toggled += new System.EventHandler(this.tggVerInactivos_Toggled);
             // 
