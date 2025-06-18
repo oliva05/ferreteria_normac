@@ -734,6 +734,7 @@
     <Compile Include="Clases\Colaborador\Hr_BenefitDeduction.cs" />
     <Compile Include="Clases\Colaborador\Hr_Employee_Children.cs" />
     <Compile Include="Clases\Comisiones.cs" />
+    <Compile Include="Clases\Compras_Solicitudes.cs" />
     <Compile Include="Clases\Conf_TablesID.cs" />
     <Compile Include="Clases\Contrato\AccionDelPersonal.cs" />
     <Compile Include="Clases\Contrato\ContratoAumento.cs" />
@@ -865,6 +866,12 @@
     </Compile>
     <Compile Include="Compras\frmOCompraAutorizacion.Designer.cs">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmOC_SolicitudesMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmOC_SolicitudesMain.Designer.cs">
+      <DependentUpon>frmOC_SolicitudesMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\frmOrdenCompraList.cs">
       <SubType>Form</SubType>
@@ -3991,6 +3998,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmOCompraAutorizacion.resx">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmOC_SolicitudesMain.resx">
+      <DependentUpon>frmOC_SolicitudesMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmOrdenCompraList.resx">
       <DependentUpon>frmOrdenCompraList.cs</DependentUpon>

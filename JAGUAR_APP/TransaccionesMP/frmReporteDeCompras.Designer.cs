@@ -393,6 +393,8 @@
             this.dtHasta.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
             this.dtHasta.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtHasta.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtHasta.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtHasta.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dtHasta.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtHasta.Size = new System.Drawing.Size(128, 26);
@@ -422,6 +424,8 @@
             this.dtDesde.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
             this.dtDesde.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDesde.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtDesde.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDesde.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dtDesde.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDesde.Size = new System.Drawing.Size(128, 26);
