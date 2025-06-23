@@ -693,6 +693,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         }
                         else
                         {
+                            //Update Header
                             cmd.CommandText = "[dbo].[jaguar_sp_update_recepcion_factura_compra]";
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@id_header", FacturaProveedorH_Actual.idFacturaH);
