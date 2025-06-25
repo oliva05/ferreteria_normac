@@ -13,6 +13,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraSpreadsheet.Forms;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.Mantenimientos.Modelos;
 using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
@@ -1273,6 +1274,59 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         {
             decimal valor = InputBox.ShowNumeric("Ingrese un precio de venta:", "Ingrese el valor");
             //MessageBox.Show("Ingresaste: " + valor);
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@IdClase", idClase);
+                dsProductoTerminado1.subClaseSelect.Clear();
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                adat.Fill(dsProductoTerminado1.subClaseSelect);
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void cmdEditarCosto_Click(object sender, EventArgs e)
+        {
+            decimal valor = InputBox.ShowNumeric("Ingrese un costo de compra:", "Ingrese el valor");
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[sp_set_costo_producto]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                cmd.Parameters.AddWithValue("@costo", valor);
+                cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                cmd.ExecuteNonQuery();
+                txtCostoActual.Text = string.Format("{0:###,##0.00}", valor);
+
+                dsDatosProductos.historial_costoRow row = dsDatosProductos1.historial_costo.Newhistorial_costoRow();
+                row.id = 0;
+                row.id_pt = IdPT;
+                row.costo = valor;
+                row.cantidad = 0;
+                row.fecha_entrada = dp.NowSetDateTime();
+                row.usuario_name = this.UsuarioLogeado.Nombre;
+                row.id_usuario = this.UsuarioLogeado.Id;
+                dsDatosProductos1.historial_costo.Addhistorial_costoRow(row);
+                dsDatosProductos1.AcceptChanges();
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
         }
     }
 }
