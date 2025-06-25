@@ -2711,7 +2711,25 @@ namespace JAGUAR_PRO
 
         private void simpleButton74_Click(object sender, EventArgs e)
         {
-            frmMainProductoTerminado frm = new frmMainProductoTerminado(UsuarioLogeado);
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+            frmMainProductoTerminado frm = new frmMainProductoTerminado(UsuarioLogeado, puntoVenta1);
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
@@ -2927,6 +2945,24 @@ namespace JAGUAR_PRO
 
         private void navBarItem11_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
             bool accesoprevio = false;
             int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
             switch (idNivel)
@@ -2941,7 +2977,7 @@ namespace JAGUAR_PRO
                     break;
                 case 4://Depth With Delta
                     accesoprevio = true;
-                    frmMainProductoTerminado frm = new frmMainProductoTerminado(this.UsuarioLogeado);
+                    frmMainProductoTerminado frm = new frmMainProductoTerminado(this.UsuarioLogeado, puntoVenta1);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                     break;
@@ -2957,7 +2993,7 @@ namespace JAGUAR_PRO
             {
                 if (UsuarioLogeado.ValidarNivelPermisos(4))
                 {
-                    frmMainProductoTerminado frm = new frmMainProductoTerminado(this.UsuarioLogeado);
+                    frmMainProductoTerminado frm = new frmMainProductoTerminado(this.UsuarioLogeado, puntoVenta1);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                 }

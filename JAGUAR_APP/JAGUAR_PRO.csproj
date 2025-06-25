@@ -746,6 +746,7 @@
     <Compile Include="Clases\FacturasPagoMultiple.cs" />
     <Compile Include="Clases\Factura_SolicitudAutorizacion.cs" />
     <Compile Include="Clases\HrConfIsrAjusteSaldos.cs" />
+    <Compile Include="Clases\InputBox.cs" />
     <Compile Include="Clases\Marcas.cs" />
     <Compile Include="Clases\OrdenesCompra.cs" />
     <Compile Include="Clases\PedidoCliente.cs" />
@@ -2250,6 +2251,11 @@
     <Compile Include="Mantenimientos\Panaderos\xfrmJAGUAR_Panaderos_CRUD.Designer.cs">
       <DependentUpon>xfrmJAGUAR_Panaderos_CRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\dsDatosProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDatosProductos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\dsProductoTerminado.cs">
       <DependentUpon>dsProductoTerminado.xsd</DependentUpon>
     </Compile>
@@ -2854,6 +2860,17 @@
     </None>
     <None Include="Mantenimientos\Gestion de Usuarios\dsUsers.xss">
       <DependentUpon>dsUsers.xsd</DependentUpon>
+    </None>
+    <None Include="Mantenimientos\ProductoTerminado\dsDatosProductos.xsc">
+      <DependentUpon>dsDatosProductos.xsd</DependentUpon>
+    </None>
+    <None Include="Mantenimientos\ProductoTerminado\dsDatosProductos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDatosProductos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Mantenimientos\ProductoTerminado\dsDatosProductos.xss">
+      <DependentUpon>dsDatosProductos.xsd</DependentUpon>
     </None>
     <None Include="Mantenimientos\ProductoTerminado\dsProductoTerminado.xsc">
       <DependentUpon>dsProductoTerminado.xsd</DependentUpon>
