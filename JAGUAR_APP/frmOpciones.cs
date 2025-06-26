@@ -5565,5 +5565,30 @@ namespace JAGUAR_PRO
         {
             
         }
+
+        private void navBarItem154_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este Equipo de Nombre: " + HostName + " no esta Configurado en ningun Punto de Venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este Equipo de Nombre: " + HostName + " no esta Configurado en ningun Punto de Venta!");
+                return;
+            }
+
+            frmOC_SolicitudesMain frm = new frmOC_SolicitudesMain(UsuarioLogeado, puntoVenta1);
+            frm.Show();
+        }
     }
 }

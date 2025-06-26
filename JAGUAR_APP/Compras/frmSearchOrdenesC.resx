@@ -123,8 +123,26 @@
   <metadata name="sucursalesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>136, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="editorButtonImageOptions6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAedEVYdFRpdGxlAFNlbGVjdFRvb2w7Q3Vyc29yO01v
+        dXNlO7hg0MsAAAJtSURBVDhPddJJTFNhEAfwwQgRRQFjPGk0Xky8GA9cIB7UVEwQrAiUpWIRLFARC7RU
+        LCCtNiYsAhWBWnAHtBghUYlrAmoDRAWUQgBL2uIGreKW6PFvprQeDO/wz3uH7/1m3jdDAMgfIgpsaOky
+        ENEyIgpQ61pIpTOTqsJMqlOci1TEKTfx2YVv/gOCm67cQ25RdRW/M1JYbiJvypqpoKyZlKUmUpY2CQIr
+        jOZu3Omx4oiystqPTM94yJ/8kw2UX9IgCITUXOiEZ/4Xbt99jsxjBkaWLyBusrvclKcx0tFiozBwtq4d
+        7q8/4fj4BZbuPsgU+hrujBEGclW13ggBK/VVV/HZ8wNvJ97DPuPGtc4nkMrLz/mQJfKCauIIAau0hlZ8
+        mvuOoTEX+ofteGVz4vLNh0g5rOWyIYxk5lcKA5oKEz7MzuPF6yk8to5583LUgda2B0hKL67jLhkRAkLz
+        1LWwu9x4ZLWhd3AC/cPvMOWcw6RjFubrPYhPK6r3I4sBYTKFAZOOOQy+mcZT6yg6unpxMOc0pNl6SLN1
+        SJPrcUBazP8QuBgQzge5Wr3JghKdCSPjLmQozvxZt2HzNiJaw0V8+7FoB+GpWRWoa7qFyJ0Sc0K6Zrpv
+        wIaaRgv27M/R84onybSUeEgreIlhkowyRO5KbiSitaLYLF3V+Q48G7BBnKpyENFq3od46QlBIHhv0nGe
+        eSgRLV2/ccsmSUbp76FxJwq1RkTuSEwmoiBxiloQ4PEE+Z4BPPfofdmWS+09aLlxH6I4eRsXiZUUCgIU
+        l6Km7SKZN9zF1ojdUTEJym/RYsVIRFSciG8/JqHgH/AXcHLmK6A4L8oAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>75</value>
   </metadata>
   <assembly alias="DevExpress.Data.v23.2" name="DevExpress.Data.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="frmSearchOrdenesC.IconOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v23.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
