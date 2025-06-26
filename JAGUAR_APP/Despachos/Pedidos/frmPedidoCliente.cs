@@ -147,7 +147,7 @@ namespace Eatery.Ventas
             LoadEstadosPedidos();
             PedidoActual = new PedidoCliente();
             ClienteFactura = new ClienteFacturacion();
-            IdTerminoPago = 1;
+            //IdTerminoPago = 1;
             PuntoDeVentaActual = pPuntoDeVentaActual;
             EquipoActual = pEquipoActual;
 

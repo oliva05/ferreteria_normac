@@ -1752,6 +1752,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             private global::System.Data.DataColumn columnvalor_pagado;
             
+            private global::System.Data.DataColumn columnid_termino_pago;
+            
+            private global::System.Data.DataColumn columntermino_pago_name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public HomeFacturasDataTable() {
@@ -1979,6 +1983,22 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_termino_pagoColumn {
+                get {
+                    return this.columnid_termino_pago;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn termino_pago_nameColumn {
+                get {
+                    return this.columntermino_pago_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2038,7 +2058,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         string autorizacion, 
                         bool seleccionado, 
                         decimal saldo, 
-                        decimal valor_pagado) {
+                        decimal valor_pagado, 
+                        int id_termino_pago, 
+                        string termino_pago_name) {
                 HomeFacturasRow rowHomeFacturasRow = ((HomeFacturasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -2064,7 +2086,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         autorizacion,
                         seleccionado,
                         saldo,
-                        valor_pagado};
+                        valor_pagado,
+                        id_termino_pago,
+                        termino_pago_name};
                 rowHomeFacturasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHomeFacturasRow);
                 return rowHomeFacturasRow;
@@ -2111,6 +2135,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columnseleccionado = base.Columns["seleccionado"];
                 this.columnsaldo = base.Columns["saldo"];
                 this.columnvalor_pagado = base.Columns["valor_pagado"];
+                this.columnid_termino_pago = base.Columns["id_termino_pago"];
+                this.columntermino_pago_name = base.Columns["termino_pago_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2164,6 +2190,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columnsaldo);
                 this.columnvalor_pagado = new global::System.Data.DataColumn("valor_pagado", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvalor_pagado);
+                this.columnid_termino_pago = new global::System.Data.DataColumn("id_termino_pago", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_termino_pago);
+                this.columntermino_pago_name = new global::System.Data.DataColumn("termino_pago_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntermino_pago_name);
                 this.columnnumero_documento.Caption = "Numero Factura";
                 this.columnfecha_documento.Caption = "Fecha Factura";
                 this.columncliente_nombre.Caption = "Cliente Nombre";
@@ -2175,6 +2205,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columnseleccionado.Caption = "Seleccionar";
                 this.columnsaldo.Caption = "Saldo";
                 this.columnvalor_pagado.Caption = "Abono/Pago";
+                this.columntermino_pago_name.Caption = "Término de pago";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5457,6 +5488,38 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_termino_pago {
+                get {
+                    try {
+                        return ((int)(this[this.tableHomeFacturas.id_termino_pagoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_termino_pago\' de la tabla \'HomeFacturas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHomeFacturas.id_termino_pagoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string termino_pago_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableHomeFacturas.termino_pago_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'termino_pago_name\' de la tabla \'HomeFacturas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHomeFacturas.termino_pago_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tableHomeFacturas.idColumn);
             }
@@ -5741,6 +5804,30 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setvalor_pagadoNull() {
                 this[this.tableHomeFacturas.valor_pagadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_termino_pagoNull() {
+                return this.IsNull(this.tableHomeFacturas.id_termino_pagoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_termino_pagoNull() {
+                this[this.tableHomeFacturas.id_termino_pagoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istermino_pago_nameNull() {
+                return this.IsNull(this.tableHomeFacturas.termino_pago_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settermino_pago_nameNull() {
+                this[this.tableHomeFacturas.termino_pago_nameColumn] = global::System.Convert.DBNull;
             }
         }
         

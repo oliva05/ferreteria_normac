@@ -114,7 +114,7 @@ namespace Eatery.Ventas
         {
             InitializeComponent();
             ClienteFactura = new ClienteFacturacion();
-            IdTerminoPago = 1;
+            
             PuntoDeVentaActual = pPuntoDeVentaActual;
             EquipoActual = pEquipoActual;
 
@@ -142,6 +142,26 @@ namespace Eatery.Ventas
                 if (ClienteFactura == null)
                     ClienteFactura = new ClienteFacturacion();
 
+                IdTerminoPago = Pedido1.IdTerminoPago;
+                if (IdTerminoPago == 1)//Contado
+                {
+                    rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
+                    rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
+                    rdContado.Checked = true;
+                    rdCredito.Checked = false;
+                    rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
+                    rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
+                }
+
+                if (IdTerminoPago == 2)//Credito
+                {
+                    rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
+                    rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
+                    rdContado.Checked = false;
+                    rdCredito.Checked = true;
+                    rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
+                    rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
+                }
                 //this.UsuarioLogeado = new UserLogin();
                 //if (UsuarioLogeado.RecuperarRegistro(Pedido1.IdUser))
                 //{
@@ -1037,7 +1057,11 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
                                 else
                                     command.Parameters.AddWithValue("@id_vendedor", factura.IdVendedor);
-                                
+
+                                if (factura.IdTerminoPago == 0)
+                                    command.Parameters.AddWithValue("@id_termino_pago", DBNull.Value);
+                                else
+                                    command.Parameters.AddWithValue("@id_termino_pago", factura.IdTerminoPago);
 
                                 Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                                 decimal TotalFactura = 0;

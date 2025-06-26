@@ -267,8 +267,8 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
-            this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
             this.navigationPage1.Controls.Add(this.txtVendedor);
+            this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
             this.navigationPage1.Controls.Add(this.label10);
             this.navigationPage1.Controls.Add(this.lblCodigoProducto);
             this.navigationPage1.Controls.Add(this.cmdCopiarFromPedido);
@@ -311,11 +311,11 @@ namespace Eatery.Ventas
             // 
             // txtVendedor
             // 
-            this.txtVendedor.Location = new System.Drawing.Point(830, 47);
+            this.txtVendedor.Location = new System.Drawing.Point(869, 47);
             this.txtVendedor.Name = "txtVendedor";
-            this.txtVendedor.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVendedor.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
             this.txtVendedor.Properties.Appearance.Options.UseFont = true;
-            this.txtVendedor.Size = new System.Drawing.Size(209, 24);
+            this.txtVendedor.Size = new System.Drawing.Size(170, 24);
             this.txtVendedor.TabIndex = 55;
             this.txtVendedor.DoubleClick += new System.EventHandler(this.txtVendedor_DoubleClick);
             // 
@@ -323,7 +323,7 @@ namespace Eatery.Ventas
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label10.Location = new System.Drawing.Point(762, 49);
+            this.label10.Location = new System.Drawing.Point(807, 49);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 20);
             this.label10.TabIndex = 54;
@@ -358,9 +358,9 @@ namespace Eatery.Ventas
             this.rdCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.rdCredito.Location = new System.Drawing.Point(676, 48);
             this.rdCredito.Name = "rdCredito";
-            this.rdCredito.Size = new System.Drawing.Size(74, 22);
+            this.rdCredito.Size = new System.Drawing.Size(100, 22);
             this.rdCredito.TabIndex = 39;
-            this.rdCredito.Text = "Crédito";
+            this.rdCredito.Text = "Por Cobrar";
             this.rdCredito.UseVisualStyleBackColor = true;
             this.rdCredito.CheckedChanged += new System.EventHandler(this.rdCredito_CheckedChanged);
             // 

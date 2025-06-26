@@ -105,11 +105,11 @@ namespace Eatery.Ventas
             this.colGestionAlmacen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdElejirAlmacen = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colinventario_seleccionado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colmarca = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bsBancos = new System.Windows.Forms.BindingSource(this.components);
             this.dsPedidosClientesV1 = new JAGUAR_PRO.Despachos.Pedidos.dsPedidosClientesV();
             this.bsTipoPago = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvLecturaCodigo = new System.Windows.Forms.ErrorProvider(this.components);
-            this.colmarca = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCliente.Properties)).BeginInit();
             this.panelNotificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsVentas1)).BeginInit();
@@ -319,9 +319,9 @@ namespace Eatery.Ventas
             this.rdCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.rdCredito.Location = new System.Drawing.Point(814, 104);
             this.rdCredito.Name = "rdCredito";
-            this.rdCredito.Size = new System.Drawing.Size(74, 22);
+            this.rdCredito.Size = new System.Drawing.Size(100, 22);
             this.rdCredito.TabIndex = 63;
-            this.rdCredito.Text = "Crédito";
+            this.rdCredito.Text = "Por Cobrar";
             this.rdCredito.UseVisualStyleBackColor = true;
             this.rdCredito.CheckedChanged += new System.EventHandler(this.rdCredito_CheckedChanged_1);
             // 
@@ -852,6 +852,15 @@ namespace Eatery.Ventas
             this.colinventario_seleccionado.OptionsColumn.ReadOnly = true;
             this.colinventario_seleccionado.Width = 58;
             // 
+            // colmarca
+            // 
+            this.colmarca.FieldName = "marca";
+            this.colmarca.Name = "colmarca";
+            this.colmarca.OptionsColumn.ReadOnly = true;
+            this.colmarca.Visible = true;
+            this.colmarca.VisibleIndex = 3;
+            this.colmarca.Width = 83;
+            // 
             // bsBancos
             // 
             this.bsBancos.DataMember = "lista_cuentas";
@@ -870,15 +879,6 @@ namespace Eatery.Ventas
             // errorProvLecturaCodigo
             // 
             this.errorProvLecturaCodigo.ContainerControl = this;
-            // 
-            // colmarca
-            // 
-            this.colmarca.FieldName = "marca";
-            this.colmarca.Name = "colmarca";
-            this.colmarca.OptionsColumn.ReadOnly = true;
-            this.colmarca.Visible = true;
-            this.colmarca.VisibleIndex = 3;
-            this.colmarca.Width = 83;
             // 
             // frmPedidoCliente
             // 
