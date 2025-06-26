@@ -193,6 +193,8 @@
             this.navBarItem205 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem206 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem207 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup18 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem155 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem75 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem76 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem77 = new DevExpress.XtraNavBar.NavBarItem();
@@ -354,8 +356,6 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup18 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem155 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -2731,6 +2731,35 @@
             this.navBarItem207.Name = "navBarItem207";
             this.navBarItem207.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem207_LinkClicked);
             // 
+            // navBarGroup18
+            // 
+            this.navBarGroup18.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup18.Appearance.Options.UseFont = true;
+            this.navBarGroup18.AppearanceBackground.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup18.AppearanceBackground.Options.UseFont = true;
+            this.navBarGroup18.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup18.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarGroup18.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup18.AppearancePressed.Options.UseFont = true;
+            this.navBarGroup18.Caption = "Configuracion de Reloj Asistencia";
+            this.navBarGroup18.Expanded = true;
+            this.navBarGroup18.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem155)});
+            this.navBarGroup18.Name = "navBarGroup18";
+            // 
+            // navBarItem155
+            // 
+            this.navBarItem155.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem155.Appearance.Options.UseFont = true;
+            this.navBarItem155.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem155.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem155.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem155.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem155.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem155.AppearancePressed.Options.UseFont = true;
+            this.navBarItem155.Caption = "Huellas";
+            this.navBarItem155.Name = "navBarItem155";
+            // 
             // navBarItem75
             // 
             this.navBarItem75.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F);
@@ -4897,35 +4926,6 @@
             this.navBarItem196.AppearancePressed.Options.UseFont = true;
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
-            // 
-            // navBarGroup18
-            // 
-            this.navBarGroup18.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
-            this.navBarGroup18.Appearance.Options.UseFont = true;
-            this.navBarGroup18.AppearanceBackground.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
-            this.navBarGroup18.AppearanceBackground.Options.UseFont = true;
-            this.navBarGroup18.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
-            this.navBarGroup18.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarGroup18.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
-            this.navBarGroup18.AppearancePressed.Options.UseFont = true;
-            this.navBarGroup18.Caption = "Configuracion de Reloj Asistencia";
-            this.navBarGroup18.Expanded = true;
-            this.navBarGroup18.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem155)});
-            this.navBarGroup18.Name = "navBarGroup18";
-            // 
-            // navBarItem155
-            // 
-            this.navBarItem155.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem155.Appearance.Options.UseFont = true;
-            this.navBarItem155.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem155.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem155.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem155.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem155.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem155.AppearancePressed.Options.UseFont = true;
-            this.navBarItem155.Caption = "Huellas";
-            this.navBarItem155.Name = "navBarItem155";
             // 
             // frmOpciones
             // 
