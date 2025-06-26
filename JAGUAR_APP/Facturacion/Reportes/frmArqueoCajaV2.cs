@@ -182,8 +182,35 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             LoadDatosResumen(CierreDiaActual.id);
             LoadDetalleFacturas(); 
             LoadRecibos(fechaDesde, fechaHasta);
-
+            LoadFacturasCredito(fechaDesde, fechaHasta);
         }
+
+        private void LoadFacturasCredito(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoVentaActual.ID);
+                cmd.Parameters.AddWithValue("@desde", fechaDesde);
+                cmd.Parameters.AddWithValue("@hasta", fechaHasta);
+
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsFacturasGestion1.RecibosH.Clear();
+                adat.Fill(dsFacturasGestion1.RecibosH);
+
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+
         private void LoadRecibos(DateTime pDesde, DateTime pHasta)
         {
             try

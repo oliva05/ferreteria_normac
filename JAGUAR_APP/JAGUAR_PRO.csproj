@@ -1203,6 +1203,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsConfigLoteConsumo.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\CoreFacturas\dsContabilidad.cs">
+      <DependentUpon>dsContabilidad.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\CoreFacturas\dsContabilidad1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
