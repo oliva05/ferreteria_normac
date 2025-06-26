@@ -180,6 +180,14 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.txtDescripcionProducto = new DevExpress.XtraEditors.MemoEdit();
             this.cmdEditarPrecio = new DevExpress.XtraEditors.SimpleButton();
             this.cmdEditarCosto = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.cmdDescuentoMaximo = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdEditarMargenUtilidad = new DevExpress.XtraEditors.SimpleButton();
+            this.txtDescuentoMaximo = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPorcentajeUtilidad = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
+            this.cmdRecalculoPrecio = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit_Presentaciones.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePresentacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
@@ -237,6 +245,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.gridView10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoReferencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcionProducto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescuentoMaximo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorcentajeUtilidad.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridLookUpEdit_Presentaciones
@@ -995,6 +1005,14 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.TabConfigVentas.Appearance.PageClient.BackColor = System.Drawing.Color.White;
             this.TabConfigVentas.Appearance.PageClient.Options.UseBackColor = true;
+            this.TabConfigVentas.Controls.Add(this.cmdRecalculoPrecio);
+            this.TabConfigVentas.Controls.Add(this.cmdDescuentoMaximo);
+            this.TabConfigVentas.Controls.Add(this.cmdEditarMargenUtilidad);
+            this.TabConfigVentas.Controls.Add(this.txtDescuentoMaximo);
+            this.TabConfigVentas.Controls.Add(this.labelControl21);
+            this.TabConfigVentas.Controls.Add(this.txtPorcentajeUtilidad);
+            this.TabConfigVentas.Controls.Add(this.labelControl22);
+            this.TabConfigVentas.Controls.Add(this.labelControl20);
             this.TabConfigVentas.Controls.Add(this.cmdEditarCosto);
             this.TabConfigVentas.Controls.Add(this.cmdEditarPrecio);
             this.TabConfigVentas.Controls.Add(this.labelControl19);
@@ -1011,7 +1029,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl19.Appearance.Options.UseFont = true;
-            this.labelControl19.Location = new System.Drawing.Point(255, 30);
+            this.labelControl19.Location = new System.Drawing.Point(251, 11);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(159, 18);
             this.labelControl19.TabIndex = 54;
@@ -1025,10 +1043,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl3.DataMember = "historial_costo";
             this.gridControl3.DataSource = this.dsDatosProductos1;
-            this.gridControl3.Location = new System.Drawing.Point(13, 124);
+            this.gridControl3.Location = new System.Drawing.Point(13, 123);
             this.gridControl3.MainView = this.gridView11;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(637, 277);
+            this.gridControl3.Size = new System.Drawing.Size(637, 278);
             this.gridControl3.TabIndex = 27;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView11});
@@ -1146,19 +1164,19 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             // txtCostoActual
             // 
-            this.txtCostoActual.Location = new System.Drawing.Point(130, 92);
+            this.txtCostoActual.Location = new System.Drawing.Point(136, 69);
             this.txtCostoActual.Name = "txtCostoActual";
             this.txtCostoActual.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCostoActual.Properties.Appearance.Options.UseFont = true;
             this.txtCostoActual.Properties.ReadOnly = true;
-            this.txtCostoActual.Size = new System.Drawing.Size(156, 22);
+            this.txtCostoActual.Size = new System.Drawing.Size(99, 22);
             this.txtCostoActual.TabIndex = 26;
             // 
             // labelControl18
             // 
             this.labelControl18.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl18.Appearance.Options.UseFont = true;
-            this.labelControl18.Location = new System.Drawing.Point(13, 100);
+            this.labelControl18.Location = new System.Drawing.Point(13, 76);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(143, 15);
             this.labelControl18.TabIndex = 25;
@@ -1166,19 +1184,19 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             // txtPrecioVenta
             // 
-            this.txtPrecioVenta.Location = new System.Drawing.Point(130, 61);
+            this.txtPrecioVenta.Location = new System.Drawing.Point(136, 41);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPrecioVenta.Properties.Appearance.Options.UseFont = true;
             this.txtPrecioVenta.Properties.ReadOnly = true;
-            this.txtPrecioVenta.Size = new System.Drawing.Size(156, 22);
+            this.txtPrecioVenta.Size = new System.Drawing.Size(99, 22);
             this.txtPrecioVenta.TabIndex = 24;
             // 
             // labelControl17
             // 
             this.labelControl17.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl17.Appearance.Options.UseFont = true;
-            this.labelControl17.Location = new System.Drawing.Point(13, 69);
+            this.labelControl17.Location = new System.Drawing.Point(13, 48);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(157, 15);
             this.labelControl17.TabIndex = 22;
@@ -1191,9 +1209,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.Location = new System.Drawing.Point(523, 488);
+            this.btnClose.Location = new System.Drawing.Point(533, 491);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(99, 47);
+            this.btnClose.Size = new System.Drawing.Size(99, 36);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Cerrar";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -1204,9 +1222,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(418, 488);
+            this.simpleButton1.Location = new System.Drawing.Point(428, 491);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(99, 47);
+            this.simpleButton1.Size = new System.Drawing.Size(99, 36);
             this.simpleButton1.TabIndex = 9;
             this.simpleButton1.Text = "Guardar";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -1215,7 +1233,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.lblStatusFTP.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatusFTP.Appearance.Options.UseFont = true;
-            this.lblStatusFTP.Location = new System.Drawing.Point(699, 33);
+            this.lblStatusFTP.Location = new System.Drawing.Point(761, 13);
             this.lblStatusFTP.Name = "lblStatusFTP";
             this.lblStatusFTP.Size = new System.Drawing.Size(211, 18);
             this.lblStatusFTP.TabIndex = 53;
@@ -1482,23 +1500,102 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             // cmdEditarPrecio
             // 
-            this.cmdEditarPrecio.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.cmdEditarPrecio.Location = new System.Drawing.Point(291, 60);
+            this.cmdEditarPrecio.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image2")));
+            this.cmdEditarPrecio.Location = new System.Drawing.Point(237, 40);
             this.cmdEditarPrecio.Name = "cmdEditarPrecio";
-            this.cmdEditarPrecio.Size = new System.Drawing.Size(75, 23);
+            this.cmdEditarPrecio.Size = new System.Drawing.Size(63, 23);
             this.cmdEditarPrecio.TabIndex = 55;
             this.cmdEditarPrecio.Text = "Editar";
             this.cmdEditarPrecio.Click += new System.EventHandler(this.cmdEditarPrecio_Click);
             // 
             // cmdEditarCosto
             // 
-            this.cmdEditarCosto.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.cmdEditarCosto.Location = new System.Drawing.Point(291, 91);
+            this.cmdEditarCosto.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image1")));
+            this.cmdEditarCosto.Location = new System.Drawing.Point(237, 68);
             this.cmdEditarCosto.Name = "cmdEditarCosto";
-            this.cmdEditarCosto.Size = new System.Drawing.Size(75, 23);
+            this.cmdEditarCosto.Size = new System.Drawing.Size(63, 23);
             this.cmdEditarCosto.TabIndex = 56;
             this.cmdEditarCosto.Text = "Editar";
             this.cmdEditarCosto.Click += new System.EventHandler(this.cmdEditarCosto_Click);
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl20.Appearance.Options.UseFont = true;
+            this.labelControl20.Location = new System.Drawing.Point(13, 106);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(99, 15);
+            this.labelControl20.TabIndex = 57;
+            this.labelControl20.Text = "Historial de Costos";
+            // 
+            // cmdDescuentoMaximo
+            // 
+            this.cmdDescuentoMaximo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image1")));
+            this.cmdDescuentoMaximo.Location = new System.Drawing.Point(583, 68);
+            this.cmdDescuentoMaximo.Name = "cmdDescuentoMaximo";
+            this.cmdDescuentoMaximo.Size = new System.Drawing.Size(63, 23);
+            this.cmdDescuentoMaximo.TabIndex = 63;
+            this.cmdDescuentoMaximo.Text = "Editar";
+            this.cmdDescuentoMaximo.Click += new System.EventHandler(this.cmdDescuentoMaximo_Click);
+            // 
+            // cmdEditarMargenUtilidad
+            // 
+            this.cmdEditarMargenUtilidad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.cmdEditarMargenUtilidad.Location = new System.Drawing.Point(583, 40);
+            this.cmdEditarMargenUtilidad.Name = "cmdEditarMargenUtilidad";
+            this.cmdEditarMargenUtilidad.Size = new System.Drawing.Size(63, 23);
+            this.cmdEditarMargenUtilidad.TabIndex = 62;
+            this.cmdEditarMargenUtilidad.Text = "Editar";
+            this.cmdEditarMargenUtilidad.Click += new System.EventHandler(this.cmdEditarMargenUtilidad_Click);
+            // 
+            // txtDescuentoMaximo
+            // 
+            this.txtDescuentoMaximo.Location = new System.Drawing.Point(482, 69);
+            this.txtDescuentoMaximo.Name = "txtDescuentoMaximo";
+            this.txtDescuentoMaximo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtDescuentoMaximo.Properties.Appearance.Options.UseFont = true;
+            this.txtDescuentoMaximo.Properties.ReadOnly = true;
+            this.txtDescuentoMaximo.Size = new System.Drawing.Size(99, 22);
+            this.txtDescuentoMaximo.TabIndex = 61;
+            // 
+            // labelControl21
+            // 
+            this.labelControl21.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl21.Appearance.Options.UseFont = true;
+            this.labelControl21.Location = new System.Drawing.Point(359, 76);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(191, 15);
+            this.labelControl21.TabIndex = 60;
+            this.labelControl21.Text = "Descuento Máximo %_______________";
+            // 
+            // txtPorcentajeUtilidad
+            // 
+            this.txtPorcentajeUtilidad.Location = new System.Drawing.Point(482, 41);
+            this.txtPorcentajeUtilidad.Name = "txtPorcentajeUtilidad";
+            this.txtPorcentajeUtilidad.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPorcentajeUtilidad.Properties.Appearance.Options.UseFont = true;
+            this.txtPorcentajeUtilidad.Properties.ReadOnly = true;
+            this.txtPorcentajeUtilidad.Size = new System.Drawing.Size(99, 22);
+            this.txtPorcentajeUtilidad.TabIndex = 59;
+            // 
+            // labelControl22
+            // 
+            this.labelControl22.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl22.Appearance.Options.UseFont = true;
+            this.labelControl22.Location = new System.Drawing.Point(359, 48);
+            this.labelControl22.Name = "labelControl22";
+            this.labelControl22.Size = new System.Drawing.Size(188, 15);
+            this.labelControl22.TabIndex = 58;
+            this.labelControl22.Text = "Margen de utilidad %_______________";
+            // 
+            // cmdRecalculoPrecio
+            // 
+            this.cmdRecalculoPrecio.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.cmdRecalculoPrecio.Location = new System.Drawing.Point(482, 94);
+            this.cmdRecalculoPrecio.Name = "cmdRecalculoPrecio";
+            this.cmdRecalculoPrecio.Size = new System.Drawing.Size(164, 23);
+            this.cmdRecalculoPrecio.TabIndex = 64;
+            this.cmdRecalculoPrecio.Text = "Aplicar recalculo de precio";
             // 
             // frmCRUD_ProductoTerminadoV2
             // 
@@ -1507,7 +1604,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1060, 548);
+            this.ClientSize = new System.Drawing.Size(1060, 532);
             this.Controls.Add(this.txtDescripcionProducto);
             this.Controls.Add(this.txtCodigoReferencia);
             this.Controls.Add(this.labelControl16);
@@ -1606,6 +1703,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.gridView10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoReferencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcionProducto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescuentoMaximo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorcentajeUtilidad.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1746,5 +1845,13 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private DevExpress.XtraGrid.Columns.GridColumn colnum_linea;
         private DevExpress.XtraEditors.SimpleButton cmdEditarPrecio;
         private DevExpress.XtraEditors.SimpleButton cmdEditarCosto;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.SimpleButton cmdDescuentoMaximo;
+        private DevExpress.XtraEditors.SimpleButton cmdEditarMargenUtilidad;
+        private DevExpress.XtraEditors.TextEdit txtDescuentoMaximo;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private DevExpress.XtraEditors.TextEdit txtPorcentajeUtilidad;
+        private DevExpress.XtraEditors.LabelControl labelControl22;
+        private DevExpress.XtraEditors.SimpleButton cmdRecalculoPrecio;
     }
 }

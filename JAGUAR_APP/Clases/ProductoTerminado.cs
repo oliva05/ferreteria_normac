@@ -114,6 +114,8 @@ namespace JAGUAR_PRO.Clases
         public int IdPT { get => idPT; set => idPT = value; }
         public int IdMarca { get => idMarca; set => idMarca = value; }
         public string MarcaName { get; set; }
+        public decimal porcentaje_descuento { get; set; }
+        public decimal porcentaje_utilidad { get; set; }
         public int Id_Familia { get => id_Familia; set => id_Familia = value; }
         public int Id_Categoria { get => id_Categoria; set => id_Categoria = value; }
         public string Codig_Referencia { get => codig_Referencia; set => codig_Referencia = value; }
@@ -325,6 +327,14 @@ namespace JAGUAR_PRO.Clases
                         MarcaName = dl.GetString(31);
                     else
                         MarcaName = " ";
+
+                    //[porcentaje_utilidad]
+                    if (!dl.IsDBNull(dl.GetOrdinal("porcentaje_utilidad")))
+                        porcentaje_utilidad = dl.GetDecimal(32);
+
+                    //[porcentaje_descuento]
+                    if (!dl.IsDBNull(dl.GetOrdinal("porcentaje_descuento")))
+                        porcentaje_descuento = dl.GetDecimal(33);
 
                     Recuperado = true;
                     //Recuperar_Latas_and_bolsas(IdProd);

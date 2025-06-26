@@ -7,9 +7,11 @@ using System.Windows.Forms;
 
 namespace JAGUAR_PRO.Clases
 {
-    public static class InputBox
+    public  class InputBox
     {
-        public static decimal ShowNumeric(string prompt, string title = "")
+        public InputBox() { }
+        public  bool IsOk { get; set; }
+        public decimal ShowNumeric(string prompt, string title = "")
         {
             Form form = new Form();
             Label label = new Label();
@@ -58,6 +60,15 @@ namespace JAGUAR_PRO.Clases
             };
 
             DialogResult dialogResult = form.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                IsOk = true;
+            }
+            else
+            {
+                IsOk = true;
+            }
+
             return dialogResult == DialogResult.OK ? Convert.ToDecimal(textBox.Text) : 0;
         }
     }
