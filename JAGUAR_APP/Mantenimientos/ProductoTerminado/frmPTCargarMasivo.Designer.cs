@@ -32,8 +32,6 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colCodigo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnProcesar = new DevExpress.XtraEditors.SimpleButton();
@@ -41,7 +39,12 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.colCodigoEscaneo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCodigoBarras = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colReferencia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDisponible = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCosto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPVP = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -70,26 +73,15 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colCodigo,
-            this.colCodigoEscaneo,
-            this.colDescripcion});
+            this.colCodigoBarras,
+            this.colReferencia,
+            this.colDescripcion,
+            this.colDisponible,
+            this.colCosto,
+            this.colPVP});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
-            // 
-            // colCodigo
-            // 
-            this.colCodigo.FieldName = "Codigo_barra";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.Visible = true;
-            this.colCodigo.VisibleIndex = 0;
-            // 
-            // colDescripcion
-            // 
-            this.colDescripcion.FieldName = "Descripcion";
-            this.colDescripcion.Name = "colDescripcion";
-            this.colDescripcion.Visible = true;
-            this.colDescripcion.VisibleIndex = 2;
             // 
             // btnDownload
             // 
@@ -152,12 +144,47 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // colCodigoEscaneo
+            // colCodigoBarras
             // 
-            this.colCodigoEscaneo.FieldName = "CodigoEscaneo";
-            this.colCodigoEscaneo.Name = "colCodigoEscaneo";
-            this.colCodigoEscaneo.Visible = true;
-            this.colCodigoEscaneo.VisibleIndex = 1;
+            this.colCodigoBarras.FieldName = "CodigoBarras";
+            this.colCodigoBarras.Name = "colCodigoBarras";
+            this.colCodigoBarras.Visible = true;
+            this.colCodigoBarras.VisibleIndex = 0;
+            // 
+            // colReferencia
+            // 
+            this.colReferencia.FieldName = "Referencia";
+            this.colReferencia.Name = "colReferencia";
+            this.colReferencia.Visible = true;
+            this.colReferencia.VisibleIndex = 1;
+            // 
+            // colDescripcion
+            // 
+            this.colDescripcion.FieldName = "Descripcion";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.Visible = true;
+            this.colDescripcion.VisibleIndex = 2;
+            // 
+            // colDisponible
+            // 
+            this.colDisponible.FieldName = "Disponible";
+            this.colDisponible.Name = "colDisponible";
+            this.colDisponible.Visible = true;
+            this.colDisponible.VisibleIndex = 3;
+            // 
+            // colCosto
+            // 
+            this.colCosto.FieldName = "Costo";
+            this.colCosto.Name = "colCosto";
+            this.colCosto.Visible = true;
+            this.colCosto.VisibleIndex = 4;
+            // 
+            // colPVP
+            // 
+            this.colPVP.FieldName = "PVP";
+            this.colPVP.Name = "colPVP";
+            this.colPVP.Visible = true;
+            this.colPVP.VisibleIndex = 5;
             // 
             // frmPTCargarMasivo
             // 
@@ -190,8 +217,11 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private dsProductoTerminado dsProductoTerminado1;
-        private DevExpress.XtraGrid.Columns.GridColumn colCodigo;
+        private DevExpress.XtraGrid.Columns.GridColumn colCodigoBarras;
+        private DevExpress.XtraGrid.Columns.GridColumn colReferencia;
         private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
-        private DevExpress.XtraGrid.Columns.GridColumn colCodigoEscaneo;
+        private DevExpress.XtraGrid.Columns.GridColumn colDisponible;
+        private DevExpress.XtraGrid.Columns.GridColumn colCosto;
+        private DevExpress.XtraGrid.Columns.GridColumn colPVP;
     }
 }
