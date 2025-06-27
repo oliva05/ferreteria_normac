@@ -137,7 +137,11 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         }
                         else
                         {
+                            gridLookUpEdit_CAI_Proveedor.EditValueChanged -= new EventHandler(gridLookUpEdit_CAI_Proveedor_EditValueChanged);
                             gridLookUpEdit_CAI_Proveedor.EditValue = FacturaProveedorH_Actual.IdCai;
+                            gridLookUpEdit_CAI_Proveedor.EditValueChanged += new EventHandler(gridLookUpEdit_CAI_Proveedor_EditValueChanged);
+
+                            
                             txtCAI.Visible = false;
                             gridLookUpEdit_CAI_Proveedor.Visible = true;
                         }
@@ -977,8 +981,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private void gridLookUpEdit_CAI_Proveedor_EditValueChanged(object sender, EventArgs e)
         {
             DataRowView selectedRow = gridLookUpEdit_CAI_Proveedor.Properties.View.GetRow(gridLookUpEdit_CAI_Proveedor.Properties.View.FocusedRowHandle) as DataRowView;
-
-            txtNumeroFactura.Text = selectedRow["leyenda"].ToString();
+            //txtNumeroFactura.Text = selectedRow["leyenda"].ToString();
+            txtNumeroFactura.Text = dp.ValidateNumberString(selectedRow["leyenda"]);
         }
     }
 }

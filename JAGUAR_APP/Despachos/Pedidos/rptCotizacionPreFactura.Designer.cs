@@ -154,7 +154,9 @@
             this.xrTableCell1.StylePriority.UseBorders = false;
             this.xrTableCell1.StylePriority.UseBorderWidth = false;
             this.xrTableCell1.StylePriority.UseFont = false;
+            this.xrTableCell1.StylePriority.UseTextAlignment = false;
             this.xrTableCell1.Text = "xrTableCell1";
+            this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell1.TextFormatString = "{0:###.####}";
             this.xrTableCell1.Weight = 1.0459104488576638D;
             // 
@@ -308,7 +310,7 @@
             this.xrLabel13.StylePriority.UseForeColor = false;
             this.xrLabel13.StylePriority.UseTextAlignment = false;
             this.xrLabel13.Text = "Precio U";
-            this.xrLabel13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrLabel13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel10
             // 
@@ -330,7 +332,7 @@
             this.xrLabel10.StylePriority.UseForeColor = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
             this.xrLabel10.Text = "Descripción";
-            this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel8
             // 
@@ -352,7 +354,7 @@
             this.xrLabel8.StylePriority.UseForeColor = false;
             this.xrLabel8.StylePriority.UseTextAlignment = false;
             this.xrLabel8.Text = "Cantidad";
-            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel18
             // 
@@ -929,7 +931,7 @@
             this.xrLabel19.StylePriority.UseForeColor = false;
             this.xrLabel19.StylePriority.UseTextAlignment = false;
             this.xrLabel19.Text = "Marca";
-            this.xrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // txtVendedor
             // 
@@ -979,7 +981,7 @@
             this.xrLabel17.StylePriority.UseForeColor = false;
             this.xrLabel17.StylePriority.UseTextAlignment = false;
             this.xrLabel17.Text = "Descuento";
-            this.xrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel4
             // 
@@ -1098,7 +1100,7 @@
             this.xrLabel22.StylePriority.UseForeColor = false;
             this.xrLabel22.StylePriority.UseTextAlignment = false;
             this.xrLabel22.Text = "Total";
-            this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // dsFacturasGestion1
             // 
