@@ -147,7 +147,7 @@ namespace Eatery.Ventas
             LoadEstadosPedidos();
             PedidoActual = new PedidoCliente();
             ClienteFactura = new ClienteFacturacion();
-            IdTerminoPago = 1;
+            //IdTerminoPago = 1;
             PuntoDeVentaActual = pPuntoDeVentaActual;
             EquipoActual = pEquipoActual;
 
@@ -1989,16 +1989,14 @@ namespace Eatery.Ventas
         {
             ProductoTerminado pt1;
             if (pProductoTerminado == null) 
-            {
                 pt1 = new ProductoTerminado();
-            }
             else
-            {
                 pt1 = pProductoTerminado;
-            }
+            
 
             if (!pt1.Recuperado)
                 pt1.Recuperar_producto(pIdPT);
+
 
             if (pt1.Id>0)
             {

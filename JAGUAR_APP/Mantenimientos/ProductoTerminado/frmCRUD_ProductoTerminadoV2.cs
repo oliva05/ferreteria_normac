@@ -1,37 +1,38 @@
 ﻿using ACS.Classes;
+using DevExpress.CodeParser;
+using DevExpress.DashboardWin.Design;
+using DevExpress.Internal;
+using DevExpress.Office.Utils;
+using DevExpress.Utils.CommonDialogs;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraCharts.Native;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGauges.Core.Primitive;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraSpreadsheet.Forms;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Compras;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
+using JAGUAR_PRO.LogisticaJaguar;
+using JAGUAR_PRO.Mantenimientos.Modelos;
+using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
+using JAGUAR_PRO.Reportes;
+using JAGUAR_PRO.TransaccionesMP;
+using JAGUAR_PRO.TransaccionesPT;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
-using DevExpress.XtraEditors.Repository;
-using DevExpress.Utils.CommonDialogs;
-using JAGUAR_PRO.Compras;
-using System.IO;
-using DevExpress.Office.Utils;
-using DevExpress.XtraCharts.Native;
-using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_PRO.LogisticaJaguar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
-using JAGUAR_PRO.Clases;
-using JAGUAR_PRO.TransaccionesPT;
-using DevExpress.DashboardWin.Design;
 using Image = System.Drawing.Image;
-using JAGUAR_PRO.TransaccionesMP;
-using JAGUAR_PRO.Mantenimientos.Modelos;
-using DevExpress.Internal;
-using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraGauges.Core.Primitive;
-using JAGUAR_PRO.Reportes;
-using DevExpress.XtraSpreadsheet.Forms;
 
 namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 {
@@ -50,10 +51,17 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         decimal CostoPorArroba;
         int IdPT;
 
-        public frmCRUD_ProductoTerminadoV2(UserLogin pUser, TipoOperacion pTipoOperacion, int pId_PT)
+        public decimal PrecioVenta;
+        public decimal CostoActual;
+        public decimal PorcentajeDescuento;
+        public decimal PorcentajeUtilidad;
+
+        public PDV PuntoVentaActual;
+
+        public frmCRUD_ProductoTerminadoV2(UserLogin pUser, TipoOperacion pTipoOperacion, int pId_PT, PDV pPuntoVentaActual)
         {
             InitializeComponent();
-
+            PuntoVentaActual = pPuntoVentaActual ?? new PDV();
             MagiaEmbellezedora();
            
             UsuarioLogeado = pUser;
@@ -81,7 +89,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     toggleSwitchEnablePT.IsOn = true;
                     toggleSwitchEnablePT.Enabled = false;
                     gridLookUpEdit_Presentaciones.EditValue = 1;
-                   
+
+                    TabConfigVentas.PageVisible = false;
+
+
                     int contador = 0;
                     foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
                     {
@@ -98,10 +109,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                             rowI.hablitado_descrip = "Si";
                             rowI.hablitado_bit = true;
                         }
-
                     }
                     break;
                 case TipoOperacion.Update:
+                    TabConfigVentas.PageVisible = true;
                     IdPT = pId_PT;
                     if (PT_Class_instance.Recuperar_producto(IdPT))
                     {
@@ -112,10 +123,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         txtDescripcionProducto.Text = PT_Class_instance.Descripcion;
                         toggleSwitchEnablePT.IsOn = PT_Class_instance.Enable;
                         txtCodigoPT.Text = PT_Class_instance.Code;
-                        //tggCosteoPorArroba.IsOn = PT_Class_instance.CostoDeMO_porArrobaBit;
-                        //txtCostoPorArroba.Text = string.Format("{0:###,##0.00}", PT_Class_instance.CostoPorArroba);
-                        //glueTipoFacturacion.EditValue = PT_Class_instance.tipo_facturacion_id;
-                        //glueTipoBuffet.EditValue = PT_Class_instance.tipo_buffet_id;
                         
                         txtCodigoInterno.Text = PT_Class_instance.Code_interno;
 
@@ -127,17 +134,19 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         txtOEM.Text = PT_Class_instance.CodeOEM;
                         grdMarca.EditValue = PT_Class_instance.IdMarca;
 
-                        //gridLookUpEditTipoFacturacionDestino.EditValueChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_EditValueChanged);
-                        //gridLookUpEditTipoFacturacionDestino.EditValue = PT_Class_instance.id_tipo_facturacion_prd;
-                        //gridLookUpEditTipoFacturacionDestino.EditValueChanged += new EventHandler(gridLookUpEditTipoFacturacionDestino_EditValueChanged);
-
                         gle_ClaseProducto.EditValue = PT_Class_instance.Id_clase;
                         gleImpuestoAplicable.EditValue = PT_Class_instance.Id_isv_aplicable;
+
+                        txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PT_Class_instance.porcentaje_utilidad);
+                        txtDescuentoMaximo.Text = string.Format("{0:###,##0.00}", PT_Class_instance.porcentaje_descuento);
+                        PorcentajeUtilidad = PT_Class_instance.porcentaje_utilidad;
+                        PorcentajeDescuento = PT_Class_instance.porcentaje_descuento;
 
                         LoadFamilia();
                         CargarCategorias(0); 
                         CargarClases(0); 
                         CargarSubClases(0);
+                        CargarDatosDeCostos(IdPT, PuntoVentaActual.ID);
 
                         if (PT_Class_instance.Id_Familia > 0)
                         {
@@ -206,6 +215,80 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     break;
             }
             
+        }
+
+        private void CargarDatosDeCostos(int pIdPt, int pIdPuntoVenta)
+        {
+            try
+            {
+                //SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                //connection.Open();
+                //SqlCommand cmd = new SqlCommand("[]", connection);
+                //cmd.CommandType = CommandType.StoredProcedure;
+                //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //dsProductoTerminado1.familia_select.Clear();
+                //adapter.Fill(dsProductoTerminado1.familia_select);
+                //connection.Close();
+                DataOperations dp = new DataOperations();
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                using (SqlCommand cmd = new SqlCommand("[dbo].[sp_get_precio_pt_from_lista_y_punto_venta_v2]", cnx))
+                {
+                    cnx.Open();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@id_pt", System.Data.SqlDbType.Int).Value = pIdPt;
+                    cmd.Parameters.Add("@id_punto_venta", System.Data.SqlDbType.Int).Value = pIdPuntoVenta;
+                    cmd.Parameters.Add("@id_cliente", System.Data.SqlDbType.Int).Value = 0;
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        //CostoActual = dr.GetDecimal(0);
+                        PrecioVenta = dr.GetDecimal(0);
+                        txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
+                    }
+                    dr.Close();
+                    cnx.Close();
+                }
+
+                using (SqlCommand cmd = new SqlCommand("[dbo].[sp_get_historial_de_compra_costo_pt]", cnx))
+                {
+                    cnx.Open();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@id_pt", System.Data.SqlDbType.Int).Value = pIdPt;
+                    //cmd.Parameters.Add("@id_punto_venta", System.Data.SqlDbType.Int).Value = pIdPuntoVenta;
+                    //cmd.Parameters.Add("@id_cliente", System.Data.SqlDbType.Int).Value = 0;
+                    dsDatosProductos1.historial_costo.Clear();
+                    SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                    adat.Fill(dsDatosProductos1.historial_costo);
+                    cnx.Close();
+
+                    if (dsDatosProductos1.historial_costo.Rows.Count > 0)
+                    {
+                        foreach(dsDatosProductos.historial_costoRow row in dsDatosProductos1.historial_costo)
+                        {
+                            if (row.costo > 0)
+                            {
+                                CostoActual = row.costo;
+                                txtCostoActual.Text = string.Format("{0:###,##0.00}", CostoActual);
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        CostoActual = 0;
+                        txtCostoActual.Text = string.Format("{0:###,##0.00}", CostoActual);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
         }
 
         private void LoadFamilia()
@@ -1196,6 +1279,133 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             catch (Exception ec)
             {
                 CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void cmdEditarPrecio_Click(object sender, EventArgs e)
+        {
+            InputBox Input1 = new InputBox();
+            decimal valor = Input1.ShowNumeric("Ingrese un precio de venta:", "Ingrese el valor");
+
+            if (Input1.IsOk)
+            {
+                //MessageBox.Show("Ingresaste: " + valor);
+                try
+                {
+                    DataOperations dp = new DataOperations();
+                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand("[]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //cmd.Parameters.AddWithValue("", idClase);
+                    con.Close();
+                }
+                catch (Exception ec)
+                {
+                    CajaDialogo.Error(ec.Message);
+                }
+            }
+        }
+
+        private void cmdEditarCosto_Click(object sender, EventArgs e)
+        {
+            InputBox Input1 = new InputBox();
+            decimal valor = Input1.ShowNumeric("Ingrese un costo de compra:", "Ingrese el valor");
+
+            if (Input1.IsOk)
+            {
+                try
+                {
+                    DataOperations dp = new DataOperations();
+                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand("[sp_set_costo_producto]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                    cmd.Parameters.AddWithValue("@costo", valor);
+                    cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                    cmd.ExecuteNonQuery();
+                    txtCostoActual.Text = string.Format("{0:###,##0.00}", valor);
+
+                    dsDatosProductos.historial_costoRow row = dsDatosProductos1.historial_costo.Newhistorial_costoRow();
+                    int cantRows = dsDatosProductos1.historial_costo.Rows.Count;
+                    row.id = 0;
+                    row.id_pt = IdPT;
+                    row.costo = valor;
+                    row.cantidad = 0;
+                    row.fecha_entrada = dp.NowSetDateTime();
+                    row.usuario_name = this.UsuarioLogeado.Nombre;
+                    row.id_usuario = this.UsuarioLogeado.Id;
+                    row.num_linea = cantRows + 1;
+
+
+                    dsDatosProductos1.historial_costo.Addhistorial_costoRow(row);
+                    dsDatosProductos1.AcceptChanges();
+                    con.Close();
+                }
+                catch (Exception ec)
+                {
+                    CajaDialogo.Error(ec.Message);
+                }
+            }
+        }
+
+        private void cmdEditarMargenUtilidad_Click(object sender, EventArgs e)
+        {
+            InputBox Input1 = new InputBox();
+            decimal valor = Input1.ShowNumeric("Ingrese el valor para el margen de utilidad:", "Ingrese el valor");
+
+            if (Input1.IsOk)
+            {
+                //MessageBox.Show("Ingresaste: " + valor);
+                try
+                {
+                    DataOperations dp = new DataOperations();
+                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand("[sp_set_margen_utilidad_master_producto]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@porcentaje_utilidad", valor);
+                    cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                    cmd.ExecuteNonQuery();
+                    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", valor);
+                    con.Close();
+                }
+                catch (Exception ec)
+                {
+                    CajaDialogo.Error(ec.Message);
+                }
+            }
+        }
+
+        private void cmdDescuentoMaximo_Click(object sender, EventArgs e)
+        {
+            InputBox Input1 = new InputBox();
+            decimal valor = Input1.ShowNumeric("Ingrese el descuento maximo permitido por defecto:", "Ingrese el valor");
+            if (Input1.IsOk)
+            {
+                //MessageBox.Show("Ingresaste: " + valor);
+                try
+                {
+                    DataOperations dp = new DataOperations();
+                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand("[sp_set_porcentaje_descuento_master_producto]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@porcentaje_descuento", valor);
+                    cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                    cmd.ExecuteNonQuery();
+                    txtDescuentoMaximo.Text = string.Format("{0:###,##0.00}", valor);
+                    con.Close();
+                }
+                catch (Exception ec)
+                {
+                    CajaDialogo.Error(ec.Message);
+                }
             }
         }
     }

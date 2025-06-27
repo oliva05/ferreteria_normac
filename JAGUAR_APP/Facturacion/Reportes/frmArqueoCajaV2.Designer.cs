@@ -107,6 +107,8 @@
             this.btnAutorizar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colvalor_pagado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsaldo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltermino_pago_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_termino_pago = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtCodigoCierre = new DevExpress.XtraEditors.TextEdit();
             this.lblCodigoCierre = new DevExpress.XtraEditors.LabelControl();
             this.txtAutorizadoPor = new DevExpress.XtraEditors.TextEdit();
@@ -145,6 +147,26 @@
             this.cmdAnular = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colid_estado1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstadoNombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colnumero_documento1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colenable2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_estado2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_user1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha_row1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha_documento1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_cliente2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRTN1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colnum_orden_compra1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_punto_venta2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_numeracion_fiscal1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcliente_nombre1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotalFactura1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEstadoName1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsaldo1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalor_pagado1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).BeginInit();
@@ -172,6 +194,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewRecibos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdImprimirRecibo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdAnular)).BeginInit();
+            this.xtraTabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dtHasta
@@ -478,7 +503,9 @@
             this.colPagar,
             this.gridColumn3,
             this.colvalor_pagado,
-            this.colsaldo});
+            this.colsaldo,
+            this.coltermino_pago_name,
+            this.colid_termino_pago});
             this.gvFacturas.GridControl = this.gridControl2;
             this.gvFacturas.Name = "gvFacturas";
             this.gvFacturas.OptionsView.ShowAutoFilterRow = true;
@@ -496,7 +523,7 @@
             this.colnumero_documento.OptionsColumn.ReadOnly = true;
             this.colnumero_documento.Visible = true;
             this.colnumero_documento.VisibleIndex = 0;
-            this.colnumero_documento.Width = 152;
+            this.colnumero_documento.Width = 120;
             // 
             // colenable
             // 
@@ -529,8 +556,8 @@
             this.colfecha_documento.Name = "colfecha_documento";
             this.colfecha_documento.OptionsColumn.ReadOnly = true;
             this.colfecha_documento.Visible = true;
-            this.colfecha_documento.VisibleIndex = 1;
-            this.colfecha_documento.Width = 111;
+            this.colfecha_documento.VisibleIndex = 2;
+            this.colfecha_documento.Width = 81;
             // 
             // colid_cliente
             // 
@@ -565,8 +592,8 @@
             this.colcliente_nombre.Name = "colcliente_nombre";
             this.colcliente_nombre.OptionsColumn.ReadOnly = true;
             this.colcliente_nombre.Visible = true;
-            this.colcliente_nombre.VisibleIndex = 2;
-            this.colcliente_nombre.Width = 183;
+            this.colcliente_nombre.VisibleIndex = 3;
+            this.colcliente_nombre.Width = 135;
             // 
             // gridColumn1
             // 
@@ -583,8 +610,8 @@
             this.colTotalFactura.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalFactura", "SUM={0:n2}")});
             this.colTotalFactura.Visible = true;
-            this.colTotalFactura.VisibleIndex = 3;
-            this.colTotalFactura.Width = 134;
+            this.colTotalFactura.VisibleIndex = 4;
+            this.colTotalFactura.Width = 83;
             // 
             // colEstadoName
             // 
@@ -592,8 +619,8 @@
             this.colEstadoName.Name = "colEstadoName";
             this.colEstadoName.OptionsColumn.ReadOnly = true;
             this.colEstadoName.Visible = true;
-            this.colEstadoName.VisibleIndex = 4;
-            this.colEstadoName.Width = 134;
+            this.colEstadoName.VisibleIndex = 5;
+            this.colEstadoName.Width = 94;
             // 
             // colUsarioCreateName
             // 
@@ -601,8 +628,8 @@
             this.colUsarioCreateName.Name = "colUsarioCreateName";
             this.colUsarioCreateName.OptionsColumn.ReadOnly = true;
             this.colUsarioCreateName.Visible = true;
-            this.colUsarioCreateName.VisibleIndex = 5;
-            this.colUsarioCreateName.Width = 141;
+            this.colUsarioCreateName.VisibleIndex = 6;
+            this.colUsarioCreateName.Width = 83;
             // 
             // colPuntoVentaName
             // 
@@ -676,6 +703,9 @@
             this.colvalor_pagado.OptionsColumn.ReadOnly = true;
             this.colvalor_pagado.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "valor_pagado", "SUM={0:n2}")});
+            this.colvalor_pagado.Visible = true;
+            this.colvalor_pagado.VisibleIndex = 7;
+            this.colvalor_pagado.Width = 86;
             // 
             // colsaldo
             // 
@@ -684,6 +714,23 @@
             this.colsaldo.FieldName = "saldo";
             this.colsaldo.Name = "colsaldo";
             this.colsaldo.OptionsColumn.ReadOnly = true;
+            this.colsaldo.Visible = true;
+            this.colsaldo.VisibleIndex = 8;
+            this.colsaldo.Width = 81;
+            // 
+            // coltermino_pago_name
+            // 
+            this.coltermino_pago_name.FieldName = "termino_pago_name";
+            this.coltermino_pago_name.Name = "coltermino_pago_name";
+            this.coltermino_pago_name.OptionsColumn.ReadOnly = true;
+            this.coltermino_pago_name.Visible = true;
+            this.coltermino_pago_name.VisibleIndex = 1;
+            this.coltermino_pago_name.Width = 92;
+            // 
+            // colid_termino_pago
+            // 
+            this.colid_termino_pago.FieldName = "id_termino_pago";
+            this.colid_termino_pago.Name = "colid_termino_pago";
             // 
             // txtCodigoCierre
             // 
@@ -799,7 +846,8 @@
             this.xtraTabControl1.TabIndex = 93;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
-            this.xtraTabPage2});
+            this.xtraTabPage2,
+            this.xtraTabPage3});
             // 
             // xtraTabPage1
             // 
@@ -1045,6 +1093,160 @@
             this.colEstadoNombre.VisibleIndex = 7;
             this.colEstadoNombre.Width = 69;
             // 
+            // xtraTabPage3
+            // 
+            this.xtraTabPage3.Controls.Add(this.gridControl3);
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(882, 299);
+            this.xtraTabPage3.Text = "Facturas con Saldo";
+            // 
+            // gridControl3
+            // 
+            this.gridControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl3.DataMember = "facturas_credito";
+            this.gridControl3.DataSource = this.dsContabilidad1;
+            this.gridControl3.Location = new System.Drawing.Point(3, 3);
+            this.gridControl3.MainView = this.gridView2;
+            this.gridControl3.Name = "gridControl3";
+            this.gridControl3.Size = new System.Drawing.Size(876, 293);
+            this.gridControl3.TabIndex = 0;
+            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid2,
+            this.colnumero_documento1,
+            this.colenable2,
+            this.colid_estado2,
+            this.colid_user1,
+            this.colfecha_row1,
+            this.colfecha_documento1,
+            this.colid_cliente2,
+            this.colRTN1,
+            this.colnum_orden_compra1,
+            this.colid_punto_venta2,
+            this.colid_numeracion_fiscal1,
+            this.colcliente_nombre1,
+            this.colTotalFactura1,
+            this.colEstadoName1,
+            this.colsaldo1,
+            this.colvalor_pagado1});
+            this.gridView2.GridControl = this.gridControl3;
+            this.gridView2.Name = "gridView2";
+            // 
+            // colid2
+            // 
+            this.colid2.FieldName = "id";
+            this.colid2.Name = "colid2";
+            // 
+            // colnumero_documento1
+            // 
+            this.colnumero_documento1.FieldName = "numero_documento";
+            this.colnumero_documento1.Name = "colnumero_documento1";
+            this.colnumero_documento1.OptionsColumn.ReadOnly = true;
+            this.colnumero_documento1.Visible = true;
+            this.colnumero_documento1.VisibleIndex = 1;
+            this.colnumero_documento1.Width = 184;
+            // 
+            // colenable2
+            // 
+            this.colenable2.FieldName = "enable";
+            this.colenable2.Name = "colenable2";
+            // 
+            // colid_estado2
+            // 
+            this.colid_estado2.FieldName = "id_estado";
+            this.colid_estado2.Name = "colid_estado2";
+            // 
+            // colid_user1
+            // 
+            this.colid_user1.FieldName = "id_user";
+            this.colid_user1.Name = "colid_user1";
+            // 
+            // colfecha_row1
+            // 
+            this.colfecha_row1.FieldName = "fecha_row";
+            this.colfecha_row1.Name = "colfecha_row1";
+            // 
+            // colfecha_documento1
+            // 
+            this.colfecha_documento1.FieldName = "fecha_documento";
+            this.colfecha_documento1.Name = "colfecha_documento1";
+            this.colfecha_documento1.OptionsColumn.ReadOnly = true;
+            this.colfecha_documento1.Visible = true;
+            this.colfecha_documento1.VisibleIndex = 0;
+            this.colfecha_documento1.Width = 108;
+            // 
+            // colid_cliente2
+            // 
+            this.colid_cliente2.FieldName = "id_cliente";
+            this.colid_cliente2.Name = "colid_cliente2";
+            // 
+            // colRTN1
+            // 
+            this.colRTN1.FieldName = "RTN";
+            this.colRTN1.Name = "colRTN1";
+            this.colRTN1.OptionsColumn.ReadOnly = true;
+            // 
+            // colnum_orden_compra1
+            // 
+            this.colnum_orden_compra1.FieldName = "num_orden_compra";
+            this.colnum_orden_compra1.Name = "colnum_orden_compra1";
+            this.colnum_orden_compra1.OptionsColumn.ReadOnly = true;
+            // 
+            // colid_punto_venta2
+            // 
+            this.colid_punto_venta2.FieldName = "id_punto_venta";
+            this.colid_punto_venta2.Name = "colid_punto_venta2";
+            // 
+            // colid_numeracion_fiscal1
+            // 
+            this.colid_numeracion_fiscal1.FieldName = "id_numeracion_fiscal";
+            this.colid_numeracion_fiscal1.Name = "colid_numeracion_fiscal1";
+            // 
+            // colcliente_nombre1
+            // 
+            this.colcliente_nombre1.FieldName = "cliente_nombre";
+            this.colcliente_nombre1.Name = "colcliente_nombre1";
+            this.colcliente_nombre1.OptionsColumn.ReadOnly = true;
+            this.colcliente_nombre1.Visible = true;
+            this.colcliente_nombre1.VisibleIndex = 2;
+            this.colcliente_nombre1.Width = 274;
+            // 
+            // colTotalFactura1
+            // 
+            this.colTotalFactura1.FieldName = "TotalFactura";
+            this.colTotalFactura1.Name = "colTotalFactura1";
+            this.colTotalFactura1.OptionsColumn.ReadOnly = true;
+            this.colTotalFactura1.Visible = true;
+            this.colTotalFactura1.VisibleIndex = 3;
+            this.colTotalFactura1.Width = 139;
+            // 
+            // colEstadoName1
+            // 
+            this.colEstadoName1.FieldName = "EstadoName";
+            this.colEstadoName1.Name = "colEstadoName1";
+            this.colEstadoName1.OptionsColumn.ReadOnly = true;
+            // 
+            // colsaldo1
+            // 
+            this.colsaldo1.FieldName = "saldo";
+            this.colsaldo1.Name = "colsaldo1";
+            this.colsaldo1.OptionsColumn.ReadOnly = true;
+            this.colsaldo1.Visible = true;
+            this.colsaldo1.VisibleIndex = 4;
+            this.colsaldo1.Width = 144;
+            // 
+            // colvalor_pagado1
+            // 
+            this.colvalor_pagado1.FieldName = "valor_pagado";
+            this.colvalor_pagado1.Name = "colvalor_pagado1";
+            this.colvalor_pagado1.OptionsColumn.ReadOnly = true;
+            // 
             // frmArqueoCajaV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1102,6 +1304,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewRecibos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdImprimirRecibo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdAnular)).EndInit();
+            this.xtraTabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1200,5 +1405,27 @@
         private DevExpress.XtraGrid.Columns.GridColumn colid_estado1;
         private DevExpress.XtraGrid.Columns.GridColumn colEstadoNombre;
         private CoreFacturas.dsFacturasGestion dsFacturasGestion1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraGrid.GridControl gridControl3;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn colid2;
+        private DevExpress.XtraGrid.Columns.GridColumn colnumero_documento1;
+        private DevExpress.XtraGrid.Columns.GridColumn colenable2;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_estado2;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_user1;
+        private DevExpress.XtraGrid.Columns.GridColumn colfecha_row1;
+        private DevExpress.XtraGrid.Columns.GridColumn colfecha_documento1;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_cliente2;
+        private DevExpress.XtraGrid.Columns.GridColumn colRTN1;
+        private DevExpress.XtraGrid.Columns.GridColumn colnum_orden_compra1;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_punto_venta2;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_numeracion_fiscal1;
+        private DevExpress.XtraGrid.Columns.GridColumn colcliente_nombre1;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotalFactura1;
+        private DevExpress.XtraGrid.Columns.GridColumn colEstadoName1;
+        private DevExpress.XtraGrid.Columns.GridColumn colsaldo1;
+        private DevExpress.XtraGrid.Columns.GridColumn colvalor_pagado1;
+        private DevExpress.XtraGrid.Columns.GridColumn coltermino_pago_name;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_termino_pago;
     }
 }

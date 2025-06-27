@@ -145,17 +145,20 @@ namespace JAGUAR_PRO.Compras
             {
                 case TipoOperacion.New:
 
-                    //frmSearchSolicitud frm = new frmSearchSolicitud(frmSearchSolicitud.FiltroSolicitudes.Abiertas);
-                    //if (frm.ShowDialog() == DialogResult.OK)
-                    //{
-                    //    IdSolicitud = frm.IdSolicitudSeleccionado;
-                    //    Solicitud soli = new Solicitud();
-                    //    soli.RecuperarRegistros(IdSolicitud);
-                    //    txtComentarios.Text = soli.Comentario;
-                        
-                    //    CargarDetalleOrdenCompraFromSolicitud(frm.IdSolicitudSeleccionado);
+                    frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.Abiertas, PuntoDeVentaActual, UsuarioLogueado, frmSearchOrdenesC.TipoDoc.SolicitudCompra);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        IdSolicitud = frm.IdOrdenesSeleccionado;
+                        SolicitudOC soli = new SolicitudOC();
+                        soli.RecuperarRegistros(IdSolicitud);
+                        txtComentarios.Text = soli.Comentario;
 
-                    //}
+                        CargarDetalleOrdenCompraFromSolicitud(frm.IdOrdenesSeleccionado);
+
+                    }
+
+
+
 
                     cmdNuevo.Enabled = true;
 
@@ -405,7 +408,7 @@ namespace JAGUAR_PRO.Compras
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.Todas, PuntoDeVentaActual, UsuarioLogueado);
+            frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.Todas, PuntoDeVentaActual, UsuarioLogueado, frmSearchOrdenesC.TipoDoc.OrdenCompra);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 //CargarSolicitud(frm.IdSolicitudSeleccionado);

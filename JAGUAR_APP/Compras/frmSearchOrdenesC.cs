@@ -30,18 +30,40 @@ namespace JAGUAR_PRO.Compras
             Abiertas = 2
         }
 
-        FiltroOrdenesCompra Filtro;
+        public enum TipoDoc
+        {
+            OrdenCompra = 1,
+            SolicitudCompra = 2
+        }
 
-        public frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra pfiltro, PDV pPuntoVentaActual, UserLogin pUserLogin)
+        FiltroOrdenesCompra Filtro;
+        TipoDoc TipoDocumento;
+
+        public frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra pfiltro, PDV pPuntoVentaActual, UserLogin pUserLogin, frmSearchOrdenesC.TipoDoc pTipoDoc)
         {
             InitializeComponent();
+            TipoDocumento = pTipoDoc;
             Filtro = pfiltro;
             UsuarioLogueado = pUserLogin;
             this.PuntoVentaActual = pPuntoVentaActual;
-            LoadData();
+            
             PuntoVentaID = PuntoVentaActual.ID;
             LoadSucursales();
             grdSucursales.EditValue = PuntoVentaID;
+
+            switch (TipoDocumento)
+            {
+                case TipoDoc.OrdenCompra:
+                    navigationFrame1.SelectedPage = navPOrdenCompra;
+                    LoadData();
+                    break;
+                case TipoDoc.SolicitudCompra:
+                    navigationFrame1.SelectedPage = navPSolicitudes;
+                    LoadDataSolicitudes();
+                    break;
+                default:
+                    break;
+            }
 
             //int i = Convert.ToInt32(UsuarioLogueado.GrupoUsuario.GrupoUsuarioActivo);
 
@@ -119,9 +141,44 @@ namespace JAGUAR_PRO.Compras
             }
         }
 
+        private void LoadDataSolicitudes()
+        {
+
+            try
+            {
+                string query = @"sp_compras_search_solicitudes";
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                switch (Filtro)
+                {
+                    case FiltroOrdenesCompra.Todas:
+                        cmd.Parameters.AddWithValue("@filtro", 1);
+                        break;
+
+                    case FiltroOrdenesCompra.Abiertas:
+                        cmd.Parameters.AddWithValue("@filtro", 2);
+                        break;
+
+                    default:
+                        break;
+                }
+                cmd.Parameters.AddWithValue("@puntoVentaId", PuntoVentaID);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsCompras1.solicitudes_compra.Clear();
+                adat.Fill(dsCompras1.solicitudes_compra);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            var gridview = (GridView)grdSolicitudes.FocusedView;
+            var gridview = (GridView)grdOrdenCompra.FocusedView;
             var row = (dsCompras.orden_compraRow)gridview.GetFocusedDataRow();
 
             if (row.id > 0)
@@ -135,7 +192,7 @@ namespace JAGUAR_PRO.Compras
 
         private void reposSelected_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var gridview = (GridView)grdSolicitudes.FocusedView;
+            var gridview = (GridView)grdOrdenCompra.FocusedView;
             var row = (dsCompras.orden_compraRow)gridview.GetFocusedDataRow();
 
             if (row.id > 0)
@@ -153,6 +210,35 @@ namespace JAGUAR_PRO.Compras
             {
                 PuntoVentaID = Convert.ToInt32(grdSucursales.EditValue);
                 LoadData();
+            }
+        }
+
+        private void reposSelectedes_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdSolicitudes.FocusedView;
+            var row = (dsCompras.solicitudes_compraRow)gridview.GetFocusedDataRow();
+
+            if (row.id > 0)
+            {
+                IdOrdenesSeleccionado = row.id;
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+
+        private void grdvSolicitudes_DoubleClick(object sender, EventArgs e)
+        {
+            var gridview = (GridView)grdSolicitudes.FocusedView;
+            var row = (dsCompras.solicitudes_compraRow)gridview.GetFocusedDataRow();
+
+            if (row.id > 0)
+            {
+                IdOrdenesSeleccionado = row.id;
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
     }

@@ -43,9 +43,18 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.Add("@id_cliente", SqlDbType.Int).Value = id_cliente;
+                    //da.SelectCommand.Parameters.AddWithValue("@desde", pDesde);
+                    //da.SelectCommand.Parameters.AddWithValue("@hasta", pHasta);
                     da.Fill(dsContabilidad.EstadoCuenta);
-
-                    cnx.Close();
+                    if (dsContabilidad.EstadoCuenta.Rows.Count > 0)
+                    {
+                        simpleButton1.Visible = true;
+                    }
+                    else
+                    {
+                        simpleButton1.Visible = false;
+                    }
+                        cnx.Close();
                 }
             }
             catch (Exception ex)
@@ -72,7 +81,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     da.SelectCommand.Parameters.AddWithValue("@desde", pDesde);
                     da.SelectCommand.Parameters.AddWithValue("@hasta", pHasta);
                     da.Fill(dsContabilidad.EstadoCuenta);
-
+                    if (dsContabilidad.EstadoCuenta.Rows.Count > 0)
+                    {
+                        simpleButton1.Visible = true;
+                    }
+                    else
+                    {
+                        simpleButton1.Visible = false;
+                    }
                     cnx.Close();
                 }
             }
@@ -89,7 +105,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            rptEstadoCuenta  report = new rptEstadoCuenta(id_cliente_selected);
+
+            rptEstadoCuenta  report = new rptEstadoCuenta(id_cliente_selected, dtDesde.DateTime, dtHasta.DateTime, tggUsarRangoFechas.IsOn);
 
             using (ReportPrintTool printTool = new ReportPrintTool(report))
             {

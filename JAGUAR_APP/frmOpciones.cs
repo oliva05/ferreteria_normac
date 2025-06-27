@@ -408,6 +408,57 @@ namespace JAGUAR_PRO
                     }
                     tabPageFacturacion.PageVisible = true;
                     break;
+                case GrupoUser.GrupoUsuario.Caja:
+                    int idNivel_12 = pUser.idNivelAcceso(pUser.Id, 11);//7 = ALOSY 11=JAGUAR
+                    switch (idNivel_12)
+                    {
+                        case 1://Basic View
+                        case 2://Basic No Autorization
+                        case 3://Medium Autorization
+                            UsuarioLogeado.Idnivel = idNivel_12;
+                            tabOpciones.TabPages[4].PageVisible = false;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible =
+                            navBarFacturaMain.Visible =
+                            NBI_NumeracionFiscal.Visible =
+                            NBI_PuntoVenta.Visible =
+                            NBI_ListaPrecios.Visible =
+                            NBI_Despachos.Visible =
+                            navBarItem55.Visible =
+                            nbRequest.Visible =
+                            nB_PagoMultiple.Visible =
+                            navBarItem56.Visible =
+                            navBarItem57.Visible =
+                            navBarItem58.Visible =
+                            nbKardexFacturacion.Visible =
+                            nbReportesFacturacionMain.Visible =
+                            navBarItemCambioDePrecio.Visible =
+                            navBarItem20.Visible = 
+                            navBarGroup11.Visible =
+                            navBarG_ReportesFacturacion.Visible =
+                            navBarGroup7.Visible = false;
+
+                            navBarItemFacturasEmitidas.Visible =
+                            navBarItem57.Visible = true;
+                            break;
+                        case 4://Depth With Delta
+                            tabOpciones.TabPages[4].PageVisible = true;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = true;
+                            break;
+                        case 5://Depth Without Delta
+                            xtraTabControl2.TabPages[4].PageVisible = true;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    tabPageFacturacion.PageVisible = true;
+                    break;
                 default:
                     tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
                     tabOpciones.TabPages[i].PageVisible = true;
@@ -2660,7 +2711,25 @@ namespace JAGUAR_PRO
 
         private void simpleButton74_Click(object sender, EventArgs e)
         {
-            frmMainProductoTerminado frm = new frmMainProductoTerminado(UsuarioLogeado);
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+            frmMainProductoTerminado frm = new frmMainProductoTerminado(UsuarioLogeado, puntoVenta1);
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
@@ -2876,6 +2945,24 @@ namespace JAGUAR_PRO
 
         private void navBarItem11_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
             bool accesoprevio = false;
             int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
             switch (idNivel)
@@ -2890,7 +2977,7 @@ namespace JAGUAR_PRO
                     break;
                 case 4://Depth With Delta
                     accesoprevio = true;
-                    frmMainProductoTerminado frm = new frmMainProductoTerminado(this.UsuarioLogeado);
+                    frmMainProductoTerminado frm = new frmMainProductoTerminado(this.UsuarioLogeado, puntoVenta1);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                     break;
@@ -2906,7 +2993,7 @@ namespace JAGUAR_PRO
             {
                 if (UsuarioLogeado.ValidarNivelPermisos(4))
                 {
-                    frmMainProductoTerminado frm = new frmMainProductoTerminado(this.UsuarioLogeado);
+                    frmMainProductoTerminado frm = new frmMainProductoTerminado(this.UsuarioLogeado, puntoVenta1);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                 }
@@ -5477,6 +5564,31 @@ namespace JAGUAR_PRO
         private void btnChangePin_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void navBarItem154_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este Equipo de Nombre: " + HostName + " no esta Configurado en ningun Punto de Venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este Equipo de Nombre: " + HostName + " no esta Configurado en ningun Punto de Venta!");
+                return;
+            }
+
+            frmOC_SolicitudesMain frm = new frmOC_SolicitudesMain(UsuarioLogeado, puntoVenta1);
+            frm.Show();
         }
     }
 }

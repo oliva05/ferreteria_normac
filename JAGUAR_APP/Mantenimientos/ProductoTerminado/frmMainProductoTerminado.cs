@@ -12,6 +12,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,11 +23,12 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
     {
         UserLogin UsuarioLogeado;
         DataOperations dp;
-        
+        PDV PuntoVentaActual;
 
-        public frmMainProductoTerminado(UserLogin pUserLogin)
+        public frmMainProductoTerminado(UserLogin pUserLogin, PDV pPuntoVentaActual)
         {
             InitializeComponent();
+            PuntoVentaActual = pPuntoVentaActual;
             MagiaEmbellezedora();
             dp = new DataOperations();
             tggViewFilter.IsOn = false;
@@ -116,7 +118,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private void cmdNuevoPT_Click(object sender, EventArgs e)
         {
             //frmCRUD_ProductoTerminado frm = new frmCRUD_ProductoTerminado(this.UsuarioLogeado, frmCRUD_ProductoTerminado.TipoOperacion.Insert,0);
-            frmCRUD_ProductoTerminadoV2 frm = new frmCRUD_ProductoTerminadoV2(this.UsuarioLogeado, frmCRUD_ProductoTerminadoV2.TipoOperacion.Insert, 0);
+            frmCRUD_ProductoTerminadoV2 frm = new frmCRUD_ProductoTerminadoV2(this.UsuarioLogeado, frmCRUD_ProductoTerminadoV2.TipoOperacion.Insert, 0, this.PuntoVentaActual);
             if (frm.ShowDialog()== DialogResult.OK)
             {
                 LoadDataDetallePT();
@@ -141,6 +143,24 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
         private void cmdEditar2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
             //Boton editar el master de producto
             var gridView = (GridView)gridDetalleProductosCRUD.FocusedView;
             var row = (dsProductoTerminado.lista_main_CRUDRow)gridView.GetFocusedDataRow();
@@ -149,7 +169,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 if (row.id > 0)
                 {
                     //frmCRUD_ProductoTerminado frm = new frmCRUD_ProductoTerminado(this.UsuarioLogeado, frmCRUD_ProductoTerminado.TipoOperacion.Update, row.id);
-                    frmCRUD_ProductoTerminadoV2 frm = new frmCRUD_ProductoTerminadoV2(this.UsuarioLogeado, frmCRUD_ProductoTerminadoV2.TipoOperacion.Update, row.id);
+                    frmCRUD_ProductoTerminadoV2 frm = new frmCRUD_ProductoTerminadoV2(this.UsuarioLogeado, frmCRUD_ProductoTerminadoV2.TipoOperacion.Update, row.id, puntoVenta1);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         LoadDataDetallePT();

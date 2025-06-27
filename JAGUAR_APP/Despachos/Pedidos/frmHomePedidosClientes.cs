@@ -50,8 +50,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
             dtDesde.EditValue = FechaInicial;
             dtHasta.EditValue = FechaFinal;
+            LoadDatos();
 
-           
         }
 
         private void cmdCargar_Click(object sender, EventArgs e)

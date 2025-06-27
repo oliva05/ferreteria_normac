@@ -734,6 +734,7 @@
     <Compile Include="Clases\Colaborador\Hr_BenefitDeduction.cs" />
     <Compile Include="Clases\Colaborador\Hr_Employee_Children.cs" />
     <Compile Include="Clases\Comisiones.cs" />
+    <Compile Include="Clases\Compras_Solicitudes.cs" />
     <Compile Include="Clases\Conf_TablesID.cs" />
     <Compile Include="Clases\Contrato\AccionDelPersonal.cs" />
     <Compile Include="Clases\Contrato\ContratoAumento.cs" />
@@ -745,6 +746,7 @@
     <Compile Include="Clases\FacturasPagoMultiple.cs" />
     <Compile Include="Clases\Factura_SolicitudAutorizacion.cs" />
     <Compile Include="Clases\HrConfIsrAjusteSaldos.cs" />
+    <Compile Include="Clases\InputBox.cs" />
     <Compile Include="Clases\Marcas.cs" />
     <Compile Include="Clases\OrdenesCompra.cs" />
     <Compile Include="Clases\PedidoCliente.cs" />
@@ -865,6 +867,12 @@
     </Compile>
     <Compile Include="Compras\frmOCompraAutorizacion.Designer.cs">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmOC_SolicitudesMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmOC_SolicitudesMain.Designer.cs">
+      <DependentUpon>frmOC_SolicitudesMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\frmOrdenCompraList.cs">
       <SubType>Form</SubType>
@@ -1194,6 +1202,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsConfigLoteConsumo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\CoreFacturas\dsContabilidad.cs">
+      <DependentUpon>dsContabilidad.xsd</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\CoreFacturas\dsContabilidad1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2243,6 +2254,11 @@
     <Compile Include="Mantenimientos\Panaderos\xfrmJAGUAR_Panaderos_CRUD.Designer.cs">
       <DependentUpon>xfrmJAGUAR_Panaderos_CRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\ProductoTerminado\dsDatosProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDatosProductos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\ProductoTerminado\dsProductoTerminado.cs">
       <DependentUpon>dsProductoTerminado.xsd</DependentUpon>
     </Compile>
@@ -2847,6 +2863,17 @@
     </None>
     <None Include="Mantenimientos\Gestion de Usuarios\dsUsers.xss">
       <DependentUpon>dsUsers.xsd</DependentUpon>
+    </None>
+    <None Include="Mantenimientos\ProductoTerminado\dsDatosProductos.xsc">
+      <DependentUpon>dsDatosProductos.xsd</DependentUpon>
+    </None>
+    <None Include="Mantenimientos\ProductoTerminado\dsDatosProductos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDatosProductos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Mantenimientos\ProductoTerminado\dsDatosProductos.xss">
+      <DependentUpon>dsDatosProductos.xsd</DependentUpon>
     </None>
     <None Include="Mantenimientos\ProductoTerminado\dsProductoTerminado.xsc">
       <DependentUpon>dsProductoTerminado.xsd</DependentUpon>
@@ -3992,6 +4019,9 @@
     <EmbeddedResource Include="Compras\frmOCompraAutorizacion.resx">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmOC_SolicitudesMain.resx">
+      <DependentUpon>frmOC_SolicitudesMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmOrdenCompraList.resx">
       <DependentUpon>frmOrdenCompraList.cs</DependentUpon>
     </EmbeddedResource>
@@ -4654,6 +4684,7 @@
     <EmbeddedResource Include="Micro\frmOpcionesMicro.resx">
       <DependentUpon>frmOpcionesMicro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -5647,6 +5678,7 @@
     <Content Include="Resources\weighing_machine24px.png" />
     <None Include="Resources\WhatsApp Image 2025-03-01 at 11.15.59 AM.jpeg" />
     <None Include="Resources\WhatsApp Image 2025-03-01 at 11.16.12 AM.jpeg" />
+    <None Include="Resources\WhatsApp Image 2025-03-01 at 11.16.12 AM1.jpeg" />
     <Content Include="Resources\wheat.png" />
     <None Include="Resources\withtextwrapping_topright_32x32.png" />
     <Content Include="Resources\wrench.png" />

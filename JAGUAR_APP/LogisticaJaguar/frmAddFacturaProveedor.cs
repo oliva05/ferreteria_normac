@@ -693,6 +693,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         }
                         else
                         {
+                            //Update Header
                             cmd.CommandText = "[dbo].[jaguar_sp_update_recepcion_factura_compra]";
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@id_header", FacturaProveedorH_Actual.idFacturaH);
@@ -907,7 +908,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void barButtonOC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.Abiertas, PuntoVentaActual, UsuarioLogeado);
+            frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.Abiertas, PuntoVentaActual, UsuarioLogeado, frmSearchOrdenesC.TipoDoc.OrdenCompra);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 if (frm.IdOrdenesSeleccionado != 0)

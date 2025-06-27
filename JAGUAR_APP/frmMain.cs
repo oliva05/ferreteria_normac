@@ -427,6 +427,8 @@ namespace JAGUAR_PRO
             txtClave.Text = "Gto1804?";
             //txtUsuario.Text = "wbaires";
             //txtClave.Text = "Tempo123";
+            //txtUsuario.Text = "aprieto";
+            //txtClave.Text = "Tempo1234";
 
             ValidateUserInfo();
         }
