@@ -141,7 +141,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         txtDescuentoMaximo.Text = string.Format("{0:###,##0.00}", PT_Class_instance.porcentaje_descuento);
                         PorcentajeUtilidad = PT_Class_instance.porcentaje_utilidad;
                         PorcentajeDescuento = PT_Class_instance.porcentaje_descuento;
-
+                        tsComision.IsOn = PT_Class_instance.Pt_comisiona;
                         LoadFamilia();
                         CargarCategorias(0); 
                         CargarClases(0); 
@@ -769,11 +769,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 switch (TipoOperacionActual)
                 {
                     case TipoOperacion.Insert:
-                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v6]";
+                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v7]";
 
                         break;
                     case TipoOperacion.Update:
-                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v6]";
+                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v7]";
                         cmd.Parameters.AddWithValue("@id", PT_Class_instance.Id);
                         break;
                 }
@@ -833,6 +833,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     cmd.Parameters.AddWithValue("@id_categoria", dp.ValidateNumberInt32(grdTipoCategoria.EditValue));
 
                 cmd.Parameters.AddWithValue("@code_referencia", txtCodigoReferencia.Text);
+                cmd.Parameters.AddWithValue("@comision", tsComision.IsOn);
                 if (TipoOperacionActual == TipoOperacion.Insert)
                 {
                     IdPT = dp.ValidateNumberInt32(cmd.ExecuteScalar());  

@@ -58,6 +58,7 @@ namespace JAGUAR_PRO.Clases
         private int id_Familia;
         private int id_Categoria;
         private string codig_Referencia;
+        private bool pt_comisiona;
 
         public decimal MaximoDescuentoPorcentajeAllClientes { get; set; }
         public int Id { get => id; set => id = value; }
@@ -119,6 +120,7 @@ namespace JAGUAR_PRO.Clases
         public int Id_Familia { get => id_Familia; set => id_Familia = value; }
         public int Id_Categoria { get => id_Categoria; set => id_Categoria = value; }
         public string Codig_Referencia { get => codig_Referencia; set => codig_Referencia = value; }
+        public bool Pt_comisiona { get => pt_comisiona; set => pt_comisiona = value; }
 
         public ProductoTerminado(string pConnectionString, DateTime fecha = default)
         {
@@ -243,7 +245,7 @@ namespace JAGUAR_PRO.Clases
         {
             try
             {//Recupera las caracteristicas 
-                string sql = @"[dbo].[sp_get_datos_maestros_pt_v6]";
+                string sql = @"[dbo].[sp_get_datos_maestros_pt_v7_by_id]";
                 DataOperations dp = new DataOperations();
                
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -335,6 +337,7 @@ namespace JAGUAR_PRO.Clases
                     //[porcentaje_descuento]
                     if (!dl.IsDBNull(dl.GetOrdinal("porcentaje_descuento")))
                         porcentaje_descuento = dl.GetDecimal(33);
+                    pt_comisiona = dl.GetBoolean(34);
 
                     Recuperado = true;
                     //Recuperar_Latas_and_bolsas(IdProd);
