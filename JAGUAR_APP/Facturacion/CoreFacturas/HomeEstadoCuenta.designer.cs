@@ -29,12 +29,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeEstadoCuenta));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsContabilidad = new JAGUAR_PRO.Facturacion.CoreFacturas.dsContabilidad();
             this.gvEstadoCuenta = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -130,6 +130,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.gridColumn2});
             this.gvEstadoCuenta.GridControl = this.gridControl1;
             this.gvEstadoCuenta.Name = "gvEstadoCuenta";
+            this.gvEstadoCuenta.OptionsView.ShowAutoFilterRow = true;
+            this.gvEstadoCuenta.OptionsView.ShowFooter = true;
             this.gvEstadoCuenta.OptionsView.ShowGroupPanel = false;
             // 
             // colid
@@ -196,6 +198,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // coldoc_date
             // 
             this.coldoc_date.Caption = "Fecha Documento";
+            this.coldoc_date.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.coldoc_date.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.coldoc_date.FieldName = "doc_date";
             this.coldoc_date.Name = "coldoc_date";
             this.coldoc_date.OptionsColumn.AllowMove = false;
@@ -208,6 +212,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // coldate_created
             // 
             this.coldate_created.Caption = "Fecha Creado";
+            this.coldate_created.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.coldate_created.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.coldate_created.FieldName = "date_created";
             this.coldate_created.Name = "coldate_created";
             this.coldate_created.OptionsColumn.AllowMove = false;
@@ -238,9 +244,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // btnPrint
             // 
             this.btnPrint.AutoHeight = false;
-            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.btnPrint.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -377,6 +383,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.simpleButton1.Size = new System.Drawing.Size(103, 47);
             this.simpleButton1.TabIndex = 59;
             this.simpleButton1.Text = "Imprimir";
+            this.simpleButton1.Visible = false;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // btnBuscar
@@ -482,6 +489,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.dtHasta.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
             this.dtHasta.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtHasta.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtHasta.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtHasta.Size = new System.Drawing.Size(121, 24);
             this.dtHasta.TabIndex = 69;
             // 
@@ -498,6 +507,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.dtDesde.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
             this.dtDesde.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDesde.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtDesde.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDesde.Size = new System.Drawing.Size(121, 24);
             this.dtDesde.TabIndex = 68;
             // 
@@ -519,7 +530,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.tggUsarRangoFechas.Properties.Appearance.Options.UseFont = true;
             this.tggUsarRangoFechas.Properties.OffText = "No";
             this.tggUsarRangoFechas.Properties.OnText = "Si";
-            this.tggUsarRangoFechas.Size = new System.Drawing.Size(95, 22);
+            this.tggUsarRangoFechas.Size = new System.Drawing.Size(95, 24);
             this.tggUsarRangoFechas.TabIndex = 71;
             this.tggUsarRangoFechas.Toggled += new System.EventHandler(this.tggUsarRangoFechas_Toggled);
             // 

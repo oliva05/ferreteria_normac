@@ -12,10 +12,16 @@ namespace JAGUAR_PRO.Facturacion.Reportes
 {
     public partial class rptEstadoCuenta : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptEstadoCuenta(int id_cliente)
+        DateTime Desde;
+        DateTime Hasta;
+        bool UtilizaRangoFechas;
+        public rptEstadoCuenta(int id_cliente, DateTime pDesde, DateTime phasta,  bool pUtilizaRangoFechas)
         {
             InitializeComponent();
             Cliente cliente = new Cliente();
+            Desde = pDesde;
+            Hasta = phasta;
+            UtilizaRangoFechas = pUtilizaRangoFechas;
 
             LoadData(id_cliente);
 
@@ -38,12 +44,26 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                 {
                     cnx.Open();
-                    SqlDataAdapter da = new SqlDataAdapter("dbo.uspCargarEstadoCuentaByCliente", cnx);
+
+                    //UtilizaRangoFechas
+                    SqlDataAdapter da;
+                    if (UtilizaRangoFechas)
+                        da = new SqlDataAdapter("dbo.[uspCargarEstadoCuentaByClienteV2]", cnx);
+                    else
+                        da = new SqlDataAdapter("dbo.uspCargarEstadoCuentaByCliente", cnx);
+
 
                     dsContabilidad1.EstadoCuenta.Clear();
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.Add("@id_cliente", SqlDbType.Int).Value = id_cliente;
+
+                    if (UtilizaRangoFechas)
+                    {
+                        da.SelectCommand.Parameters.AddWithValue("@desde", Desde);
+                        da.SelectCommand.Parameters.AddWithValue("@hasta", Hasta);
+                    }
+
                     da.Fill(dsContabilidad1.EstadoCuenta);
 
                     cnx.Close();

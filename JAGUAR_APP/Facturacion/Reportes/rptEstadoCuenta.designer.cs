@@ -29,7 +29,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptEstadoCuenta));
+            DevExpress.XtraReports.UI.XRWatermark xrWatermark1 = new DevExpress.XtraReports.UI.XRWatermark();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
@@ -53,7 +53,6 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrTable4 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow7 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell28 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -83,6 +82,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.lblSaldo = new DevExpress.XtraReports.UI.XRTableCell();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsContabilidad1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -92,11 +92,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 78.125F;
+            this.TopMargin.HeightF = 21.875F;
             this.TopMargin.Name = "TopMargin";
             // 
             // BottomMargin
             // 
+            this.BottomMargin.HeightF = 9.499867F;
             this.BottomMargin.Name = "BottomMargin";
             // 
             // Detail
@@ -235,7 +236,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable1.Font = new DevExpress.Drawing.DXFont("Segoe UI", 10F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0.0001271566F, 219.7917F);
+            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0.0001271566F, 202.5417F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -329,16 +330,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.xrLabel1,
             this.xrTable3,
             this.xrTable1});
-            this.PageHeader.HeightF = 244.7917F;
+            this.PageHeader.HeightF = 227.5417F;
             this.PageHeader.Name = "PageHeader";
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 10.00001F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(100F, 62.5F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
             // 
             // xrTable4
             // 
@@ -372,7 +365,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.xrTableCell29.Multiline = true;
             this.xrTableCell29.Name = "xrTableCell29";
             this.xrTableCell29.StylePriority.UseFont = false;
-            this.xrTableCell29.Text = "Panadería Jerusalem";
+            this.xrTableCell29.Text = "NORMAC ";
             this.xrTableCell29.Weight = 1.3270519647400532D;
             // 
             // xrTableRow8
@@ -426,7 +419,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             // xrLabel1
             // 
             this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Segoe UI", 12F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0.0002543131F, 93.33337F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0.0002543131F, 79.50002F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -439,7 +432,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             // xrTable3
             // 
             this.xrTable3.BorderColor = System.Drawing.Color.DarkGray;
-            this.xrTable3.LocationFloat = new DevExpress.Utils.PointFloat(0.0002543131F, 128.75F);
+            this.xrTable3.LocationFloat = new DevExpress.Utils.PointFloat(0.0002543131F, 111.5F);
             this.xrTable3.Name = "xrTable3";
             this.xrTable3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable3.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -634,7 +627,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             // 
             this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPageInfo1});
-            this.PageFooter.HeightF = 42.70833F;
+            this.PageFooter.HeightF = 28.70827F;
             this.PageFooter.Name = "PageFooter";
             // 
             // xrPageInfo1
@@ -647,6 +640,14 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.xrPageInfo1.StylePriority.UseFont = false;
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
             this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // xrPictureBox1
+            // 
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::JAGUAR_PRO.Properties.Resources.WhatsApp_Image_2025_03_01_at_11_16_12_AM1, true);
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 10.00001F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(100F, 62.5F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
             // 
             // rptEstadoCuenta
             // 
@@ -661,8 +662,10 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.DataMember = "EstadoCuenta";
             this.DataSource = this.dsContabilidad1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
-            this.Margins = new DevExpress.Drawing.DXMargins(41F, 41F, 78.125F, 100F);
-            this.Version = "23.1";
+            this.Margins = new DevExpress.Drawing.DXMargins(41F, 41F, 21.875F, 9.499867F);
+            this.Version = "23.2";
+            xrWatermark1.Id = "Watermark1";
+            this.Watermarks.Add(xrWatermark1);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsContabilidad1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
