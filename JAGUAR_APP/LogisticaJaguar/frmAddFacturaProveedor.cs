@@ -445,25 +445,45 @@ namespace JAGUAR_PRO.LogisticaJaguar
             DataOperations dp = new DataOperations();
             var gridView0 = (GridView)gridControl1.FocusedView;
             var row0 = (dsLogisticaJaguar.detalle_recepcion_factRow)gridView0.GetFocusedDataRow();
+            decimal PrecioConISV = 0;
             Impuesto impuesto = new Impuesto();
             switch (e.Column.FieldName)
             {
-                case "cantidad":
-                    
-                    row0.total_fila = row0.cantidad * row0.costo_unitario;
-                    impuesto.RecuperarRegistro(1);
-                    row0.isv = (row0.total_fila * impuesto.Valor) / 100;
+                case "isv_aplicable":
 
-                    row0.total_fila = row0.cantidad * row0.costo_unitario + row0.isv;
+                    row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                    PrecioConISV = row0.costo_unitario + row0.isv;
+                    row0.total_fila = PrecioConISV * row0.cantidad_ingreso;
 
                     break;
-                case "costo_unitario":
-                    
-                    row0.total_fila = row0.cantidad * row0.costo_unitario;
-                    impuesto.RecuperarRegistro(1);
-                    row0.isv = (row0.total_fila * impuesto.Valor) / 100;
+                case "cantidad":
 
-                    row0.total_fila = row0.cantidad * row0.costo_unitario + row0.isv;
+                    row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                    PrecioConISV = row0.costo_unitario + row0.isv;
+                    row0.total_fila = PrecioConISV * row0.cantidad_ingreso;
+
+                    //row0.total_fila = row0.cantidad * row0.costo_unitario;
+                    //impuesto.RecuperarRegistro(1);
+                    //row0.isv = (row0.total_fila * impuesto.Valor) / 100;
+
+                    //row0.total_fila = row0.cantidad * row0.costo_unitario + row0.isv;
+
+                    break;
+
+                case "cantidad_ingreso":
+                    row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                    PrecioConISV = row0.costo_unitario + row0.isv;
+                    row0.total_fila = PrecioConISV * row0.cantidad_ingreso;
+                    break;
+                case "costo_unitario":
+                    row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                    PrecioConISV = row0.costo_unitario + row0.isv;
+                    row0.total_fila = PrecioConISV * row0.cantidad_ingreso;
+                    //row0.total_fila = row0.cantidad * row0.costo_unitario;
+                    //impuesto.RecuperarRegistro(1);
+                    //row0.isv = (row0.total_fila * impuesto.Valor) / 100;
+
+                    //row0.total_fila = row0.cantidad * row0.costo_unitario + row0.isv;
                     break;
 
                 case "isv":
