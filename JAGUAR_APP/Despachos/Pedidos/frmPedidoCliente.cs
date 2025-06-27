@@ -3008,6 +3008,22 @@ namespace Eatery.Ventas
                                     else
                                         command.Parameters.AddWithValue("@descuento_porcentaje", dp.ValidateNumberDecimal(row.descuento_porcentaje));
 
+                                    if (!row.IsmarcaNull())
+                                    {
+                                        if (!string.IsNullOrEmpty(row.marca))
+                                        {
+                                            command.Parameters.AddWithValue("@marca", row.marca);
+                                        }
+                                        else
+                                        {
+                                            command.Parameters.AddWithValue("@marca", DBNull.Value);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        command.Parameters.AddWithValue("@marca", DBNull.Value);
+                                    }
+
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }
 
