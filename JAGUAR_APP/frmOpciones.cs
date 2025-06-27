@@ -3626,7 +3626,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(11))
+                if (UsuarioLogeado.ValidarNivelPermisos(16))
                 {
 
                     frmHomeFacturasEmitidas frm = new frmHomeFacturasEmitidas(this.UsuarioLogeado, puntoVenta1, EquipoActual);
@@ -3636,7 +3636,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #11 (Facturacion punto de venta)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #16 (Facturacion punto de venta)");
                 }
             }
         }
@@ -4170,7 +4170,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(14))
+                if (UsuarioLogeado.ValidarNivelPermisos(17))
                 {
                     frmCierreDiaHome frm = new frmCierreDiaHome(this.UsuarioLogeado, puntoVenta1);
                     frm.MdiParent = this.MdiParent;
@@ -4178,7 +4178,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #14 (Cierre de caja, punto de venta)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #17 (Cierre de caja, punto de venta)");
                 }
             }
         }
