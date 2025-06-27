@@ -895,8 +895,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 
                 CargarDetalleOrdenCompra(oc.Id_OrdenCompra);
                
-                
-
             }
         }
 
@@ -969,13 +967,18 @@ namespace JAGUAR_PRO.LogisticaJaguar
             //    row.id_mp = Convert.ToInt32(editValue);
             //}
 
-
-
         }
 
         private void gle_MP_y_ME_EditValueChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void gridLookUpEdit_CAI_Proveedor_EditValueChanged(object sender, EventArgs e)
+        {
+            DataRowView selectedRow = gridLookUpEdit_CAI_Proveedor.Properties.View.GetRow(gridLookUpEdit_CAI_Proveedor.Properties.View.FocusedRowHandle) as DataRowView;
+
+            txtNumeroFactura.Text = selectedRow["leyenda"].ToString();
         }
     }
 }

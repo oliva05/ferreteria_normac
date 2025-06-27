@@ -29,6 +29,7 @@
               <xs:element name="FechaLimite" msdata:Caption="Fecha Limite" msprop:Generator_ColumnPropNameInTable="FechaLimiteColumn" msprop:Generator_ColumnPropNameInRow="FechaLimite" msprop:Generator_UserColumnName="FechaLimite" msprop:Generator_ColumnVarNameInTable="columnFechaLimite" type="xs:dateTime" minOccurs="0" />
               <xs:element name="CorrelativoDesde" msdata:Caption="Correlativo Desde" msprop:Generator_ColumnPropNameInTable="CorrelativoDesdeColumn" msprop:Generator_ColumnPropNameInRow="CorrelativoDesde" msprop:Generator_UserColumnName="CorrelativoDesde" msprop:Generator_ColumnVarNameInTable="columnCorrelativoDesde" type="xs:string" minOccurs="0" />
               <xs:element name="CorrelativoHasta" msdata:Caption="Correlativo Hasta" msprop:Generator_ColumnPropNameInTable="CorrelativoHastaColumn" msprop:Generator_ColumnPropNameInRow="CorrelativoHasta" msprop:Generator_UserColumnName="CorrelativoHasta" msprop:Generator_ColumnVarNameInTable="columnCorrelativoHasta" type="xs:string" minOccurs="0" />
+              <xs:element name="leyenda" msprop:Generator_ColumnPropNameInRow="leyenda" msprop:Generator_ColumnPropNameInTable="leyendaColumn" msprop:Generator_ColumnVarNameInTable="columnleyenda" msprop:Generator_UserColumnName="leyenda" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -51,7 +52,7 @@
               <xs:element name="costo_unitario" msdata:Caption="Costo Unitario Lempiras" msprop:Generator_ColumnPropNameInTable="costo_unitarioColumn" msprop:Generator_ColumnPropNameInRow="costo_unitario" msprop:Generator_UserColumnName="costo_unitario" msprop:Generator_ColumnVarNameInTable="columncosto_unitario" type="xs:decimal" minOccurs="0" />
               <xs:element name="type_id" msprop:Generator_ColumnPropNameInTable="type_idColumn" msprop:Generator_ColumnPropNameInRow="type_id" msprop:Generator_UserColumnName="type_id" msprop:Generator_ColumnVarNameInTable="columntype_id" type="xs:int" minOccurs="0" />
               <xs:element name="isv" msprop:Generator_ColumnPropNameInTable="isvColumn" msprop:Generator_ColumnPropNameInRow="isv" msprop:Generator_UserColumnName="isv" msprop:Generator_ColumnVarNameInTable="columnisv" type="xs:decimal" minOccurs="0" />
-              <xs:element name="isv_aplicable" msprop:Generator_UserColumnName="isv_aplicable" msprop:Generator_ColumnPropNameInTable="isv_aplicableColumn" msprop:Generator_ColumnPropNameInRow="isv_aplicable" msprop:Generator_ColumnVarNameInTable="columnisv_aplicable" type="xs:decimal" default="15" minOccurs="0" />
+              <xs:element name="isv_aplicable" msprop:Generator_ColumnPropNameInTable="isv_aplicableColumn" msprop:Generator_ColumnPropNameInRow="isv_aplicable" msprop:Generator_UserColumnName="isv_aplicable" msprop:Generator_ColumnVarNameInTable="columnisv_aplicable" type="xs:decimal" default="15" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

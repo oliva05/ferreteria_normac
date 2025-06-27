@@ -30,12 +30,12 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddFacturaProveedor));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridLookUpEditProveedor = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourceProveedor = new System.Windows.Forms.BindingSource(this.components);
             this.dsLogisticaJaguar1 = new JAGUAR_PRO.LogisticaJaguar.dsLogisticaJaguar();
@@ -267,6 +267,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.gridLookUpEdit_CAI_Proveedor.Properties.ValueMember = "id";
             this.gridLookUpEdit_CAI_Proveedor.Size = new System.Drawing.Size(327, 26);
             this.gridLookUpEdit_CAI_Proveedor.TabIndex = 42;
+            this.gridLookUpEdit_CAI_Proveedor.EditValueChanged += new System.EventHandler(this.gridLookUpEdit_CAI_Proveedor_EditValueChanged);
             // 
             // gridView1
             // 
@@ -392,7 +393,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "detalle_recepcion_fact";
             this.gridControl1.DataSource = this.dsLogisticaJaguar1;
@@ -406,7 +408,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.GridLookUpE_Bodega,
             this.cmdEliminar,
             this.gle_MP_y_ME});
-            this.gridControl1.Size = new System.Drawing.Size(1202, 285);
+            this.gridControl1.Size = new System.Drawing.Size(1256, 285);
             this.gridControl1.TabIndex = 47;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -580,7 +582,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // coltotal_fila
             // 
             this.coltotal_fila.Caption = "Total Fila";
-            this.coltotal_fila.DisplayFormat.FormatString = "{0:#,###,##0.000000}";
+            this.coltotal_fila.DisplayFormat.FormatString = "{0:#,###,##0.0000}";
             this.coltotal_fila.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coltotal_fila.FieldName = "total_fila";
             this.coltotal_fila.Name = "coltotal_fila";
@@ -675,9 +677,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // cmdEliminar
             // 
             this.cmdEliminar.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
             this.cmdEliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdEliminar.Name = "cmdEliminar";
             this.cmdEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEliminar_ButtonClick);
@@ -690,7 +692,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // colisv
             // 
             this.colisv.Caption = "Impuesto";
-            this.colisv.DisplayFormat.FormatString = "{0:#,###,##0.000000}";
+            this.colisv.DisplayFormat.FormatString = "{0:#,###,##0.0000}";
             this.colisv.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colisv.FieldName = "isv";
             this.colisv.Name = "colisv";
@@ -702,7 +704,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // colcosto_unitario
             // 
             this.colcosto_unitario.Caption = "Precio Unit.";
-            this.colcosto_unitario.DisplayFormat.FormatString = "{0:#,###,##0.000000}";
+            this.colcosto_unitario.DisplayFormat.FormatString = "{0:#,###,##0.0000}";
             this.colcosto_unitario.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colcosto_unitario.FieldName = "costo_unitario";
             this.colcosto_unitario.Name = "colcosto_unitario";
@@ -880,7 +882,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCerrar.ImageOptions.Image")));
             this.cmdCerrar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.cmdCerrar.Location = new System.Drawing.Point(1392, 5);
+            this.cmdCerrar.Location = new System.Drawing.Point(1446, 5);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(108, 41);
             this.cmdCerrar.TabIndex = 50;
@@ -890,6 +892,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.dtHoraEntregado);
             this.groupBox1.Controls.Add(this.labelControl9);
             this.groupBox1.Controls.Add(this.txtTelefonoEntrega);
@@ -993,6 +996,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.dtHoraRecibido);
             this.groupBox2.Controls.Add(this.labelControl10);
             this.groupBox2.Controls.Add(this.txtNombreRecibido);
@@ -1056,6 +1060,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.groupBox3.Controls.Add(this.dtHoraRevisado);
             this.groupBox3.Controls.Add(this.labelControl12);
             this.groupBox3.Controls.Add(this.labelControl13);
@@ -1118,6 +1123,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // txtObservaciones
             // 
+            this.txtObservaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtObservaciones.EditValue = "";
             this.txtObservaciones.Location = new System.Drawing.Point(597, 502);
             this.txtObservaciones.Name = "txtObservaciones";
@@ -1128,6 +1134,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // labelControl5
             // 
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(514, 504);
@@ -1147,7 +1154,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.btnCopiarDe.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnCopiarDe.Appearance.Options.UseFont = true;
             this.btnCopiarDe.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
-            this.btnCopiarDe.Location = new System.Drawing.Point(1028, 95);
+            this.btnCopiarDe.Location = new System.Drawing.Point(1055, 95);
             this.btnCopiarDe.Name = "btnCopiarDe";
             this.btnCopiarDe.Size = new System.Drawing.Size(168, 29);
             this.btnCopiarDe.TabIndex = 87;
@@ -1187,7 +1194,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1208, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1262, 0);
             // 
             // barDockControlBottom
             // 
@@ -1195,7 +1202,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 564);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1208, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1262, 0);
             // 
             // barDockControlLeft
             // 
@@ -1209,7 +1216,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1208, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1262, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 564);
             // 
@@ -1243,7 +1250,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1208, 564);
+            this.ClientSize = new System.Drawing.Size(1262, 564);
             this.Controls.Add(this.tsWithCAI);
             this.Controls.Add(this.btnCopiarDe);
             this.Controls.Add(this.labelControl5);

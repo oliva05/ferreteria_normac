@@ -54,11 +54,11 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.seCorrelativoInicia = new DevExpress.XtraEditors.TextEdit();
             this.seCorrelativoTermina = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCAI.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaInicio.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaInicio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaInicio.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLeyenda.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProveedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jAGUARProveedorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsMantenimiento)).BeginInit();
@@ -128,6 +128,7 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             this.txtCAI.Name = "txtCAI";
             this.txtCAI.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtCAI.Properties.Appearance.Options.UseFont = true;
+            this.txtCAI.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCAI.Size = new System.Drawing.Size(327, 24);
             this.txtCAI.TabIndex = 0;
             // 

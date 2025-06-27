@@ -1077,6 +1077,8 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             private global::System.Data.DataColumn columnCorrelativoHasta;
             
+            private global::System.Data.DataColumn columnleyenda;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CAI_ListDataTable() {
@@ -1160,6 +1162,14 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn leyendaColumn {
+                get {
+                    return this.columnleyenda;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1195,7 +1205,7 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CAI_ListRow AddCAI_ListRow(int id, string CAI, System.DateTime FechaInicio, System.DateTime FechaLimite, string CorrelativoDesde, string CorrelativoHasta) {
+            public CAI_ListRow AddCAI_ListRow(int id, string CAI, System.DateTime FechaInicio, System.DateTime FechaLimite, string CorrelativoDesde, string CorrelativoHasta, string leyenda) {
                 CAI_ListRow rowCAI_ListRow = ((CAI_ListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -1203,7 +1213,8 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         FechaInicio,
                         FechaLimite,
                         CorrelativoDesde,
-                        CorrelativoHasta};
+                        CorrelativoHasta,
+                        leyenda};
                 rowCAI_ListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCAI_ListRow);
                 return rowCAI_ListRow;
@@ -1232,6 +1243,7 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 this.columnFechaLimite = base.Columns["FechaLimite"];
                 this.columnCorrelativoDesde = base.Columns["CorrelativoDesde"];
                 this.columnCorrelativoHasta = base.Columns["CorrelativoHasta"];
+                this.columnleyenda = base.Columns["leyenda"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1249,6 +1261,8 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 base.Columns.Add(this.columnCorrelativoDesde);
                 this.columnCorrelativoHasta = new global::System.Data.DataColumn("CorrelativoHasta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCorrelativoHasta);
+                this.columnleyenda = new global::System.Data.DataColumn("leyenda", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnleyenda);
                 this.columnFechaInicio.Caption = "Fecha Inicio";
                 this.columnFechaLimite.Caption = "Fecha Limite";
                 this.columnCorrelativoDesde.Caption = "Correlativo Desde";
@@ -6709,6 +6723,22 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string leyenda {
+                get {
+                    try {
+                        return ((string)(this[this.tableCAI_List.leyendaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'leyenda\' de la tabla \'CAI_List\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCAI_List.leyendaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tableCAI_List.idColumn);
             }
@@ -6777,6 +6807,18 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCorrelativoHastaNull() {
                 this[this.tableCAI_List.CorrelativoHastaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsleyendaNull() {
+                return this.IsNull(this.tableCAI_List.leyendaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetleyendaNull() {
+                this[this.tableCAI_List.leyendaColumn] = global::System.Convert.DBNull;
             }
         }
         
