@@ -760,7 +760,7 @@ namespace Eatery.Ventas
                             if (factura.IdVendedor == 0)
                                 command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
                             else
-                                command.Parameters.AddWithValue("@id_vendedor", IdPedido);
+                                command.Parameters.AddWithValue("@id_vendedor", factura.IdVendedor);
 
                             Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
