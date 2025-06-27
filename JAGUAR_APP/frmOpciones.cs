@@ -368,8 +368,8 @@ namespace JAGUAR_PRO
                             UsuarioLogeado.Idnivel = idNivel_11;
                             tabOpciones.TabPages[4].PageVisible = false;
                             NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
-                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
-                            NBI_Cliente.Visible = false;
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible = false;
+                            NBI_Cliente.Visible = true;
                             navBarFacturaMain.Visible =
                             navBarItemFacturasEmitidas.Visible =
                             NBI_NumeracionFiscal.Visible =

@@ -283,7 +283,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         {
             var gridView = (GridView)gridControl1.FocusedView;
             var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
-            frmCotizaciones frm = new frmCotizaciones(row.id, this.UsuarioLogeado, PuntoVentaActual);
+            frmCotizaciones frm = new frmCotizaciones(row.id, this.UsuarioLogeado, PuntoVentaActual, this.VendedorActual);
             frm.ShowDialog();
 
             ////Generar una nueva cotizacion 
@@ -360,7 +360,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(11))
+                if (UsuarioLogeado.ValidarNivelPermisos(15))
                 {
                     var gridView = (GridView)gridControl1.FocusedView;
                     var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
@@ -370,7 +370,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #11 (Facturacion punto de venta)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #15 (Facturacion punto de venta)");
                 }
             }
         }

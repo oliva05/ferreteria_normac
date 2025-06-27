@@ -25,13 +25,16 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         DataOperations dp;
         FacturacionEquipo equipo;
         PDV PuntoVentaActual;
-        public frmCotizaciones(int pIdPedidoH, UserLogin pUsuarioLogeado, PDV pPuntoVenta)
+        Vendedor Vendedor;
+
+        public frmCotizaciones(int pIdPedidoH, UserLogin pUsuarioLogeado, PDV pPuntoVenta, Vendedor pVendedor)
         {
             InitializeComponent();
             IdPedidoH = pIdPedidoH;
             dp = new DataOperations();
             PuntoVentaActual = pPuntoVenta;
             UsuarioLogeado = pUsuarioLogeado;
+            Vendedor = pVendedor;
             LoadDatos();
         }
 
@@ -91,7 +94,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 SqlCommand cmd = new SqlCommand("[dbo].[sp_InsertCotizacion]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_pedido", IdPedidoH);
-                cmd.Parameters.AddWithValue("@id_user", UsuarioLogeado.UserId);
+                cmd.Parameters.AddWithValue("@id_user", Vendedor.Id);
                 cmd.ExecuteScalar();
                 
                 con.Close();
