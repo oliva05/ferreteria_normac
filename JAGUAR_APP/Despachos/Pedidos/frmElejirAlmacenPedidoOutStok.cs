@@ -52,6 +52,13 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.isv1 = itemIsv1;
             LoadInventarios();
             RecuperarCantidadSeleccionada(pListaActual);
+            if (dsPrefacturas1.stock_por_almacen.Count > 0)
+                gridView1.FocusedRowHandle = dsPrefacturas1.stock_por_almacen.Count - 1;
+            else
+                gridView1.FocusedRowHandle = 0;
+
+            gridView1.FocusedColumn = colcantidad_seleccionada;
+            gridView1.ShowEditor();
         }
 
         private void RecuperarCantidadSeleccionada(ArrayList pListaActual)
@@ -141,6 +148,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
             decimal CantSeleccionada = 0;
+            
             foreach(dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
             {
                 CantSeleccionada += row.cantidad_seleccionada;
@@ -196,7 +204,47 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             ////    CajaDialogo.Error("La cantidad excede del inventario disponible!");
             ////    return;
             ////}
-            
+
+            if (dsPrefacturas1.stock_por_almacen.Rows.Count == 1)
+            {
+                var gv = (GridView)gridControl1.FocusedView;
+                var row = (dsPrefacturas.stock_por_almacenRow)gv.GetDataRow(gv.FocusedRowHandle);
+                dsPrefacturas1.AcceptChanges();
+                decimal cant = row.cantidad_seleccionada;
+                //var cell = 
+                DevExpress.XtraGrid.Columns.GridColumn focusedColumn = gv.FocusedColumn;
+                switch (focusedColumn.FieldName)
+                {
+                    case "cantidad_seleccionada":
+
+                        cmdGuardar_Click(sender, new EventArgs());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //var gv = (GridView)gridControl1.FocusedView;
+                //var row = (dsPrefacturas.stock_por_almacenRow)gv.GetDataRow(gv.FocusedRowHandle);
+                //dsPrefacturas1.AcceptChanges();
+                //decimal cant = row.cantidad_seleccionada;
+                ////var cell = 
+                //DevExpress.XtraGrid.Columns.GridColumn focusedColumn = gv.FocusedColumn;
+                //switch (focusedColumn.FieldName)
+                //{
+                //    case "cantidad_seleccionada":
+                        
+                //        cmdGuardar_Click(sender, new EventArgs());
+                //        break;
+                //    default:
+                //        break;
+                //}
+            }
         }
     }
 }

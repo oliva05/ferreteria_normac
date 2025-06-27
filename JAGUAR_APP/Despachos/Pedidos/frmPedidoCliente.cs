@@ -2079,12 +2079,15 @@ namespace Eatery.Ventas
                     if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
                     {
                         tasaISV = impuesto.Valor / 100;
-                        row1.isv1 = ((row1.precio - row1.descuento) / 100) * impuesto.Valor;
-                        //row1.precio = (row1.precio - row1.descuento) - row1.isv1;
-                        row1.precio = row1.precio - row1.isv1;
+
+                        //row1.isv1 = (row1.precio - row1.descuento) * tasaISV;
+                        decimal isv_calculo = (row1.precio - row1.descuento) - ((row1.precio - row1.descuento) / (1 + tasaISV));
+                        row1.isv1 = isv_calculo;
+                        row1.precio = (row1.precio - row1.descuento) - isv_calculo;
 
                         row1.tasa_isv = tasaISV;
                         row1.id_isv_aplicable = impuesto.Id;
+                        row1.total_linea = row1.cantidad * (row1.precio + isv_calculo);
                     }
                     else
                     {
@@ -2482,6 +2485,11 @@ namespace Eatery.Ventas
 
         private void cmdElejirAlmacen_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            ElejirAlmacen();
+        }
+
+        void ElejirAlmacen()
+        {
             var gridView = (GridView)gridControl1.FocusedView;
             var row = (dsVentas.detalle_factura_transactionRow)gridView.GetFocusedDataRow();
             ArrayList ListaActual = new ArrayList();
@@ -2517,16 +2525,16 @@ namespace Eatery.Ventas
                     ListaActual.Add(item);
                 }
             }
-           
 
-            frmElejirAlmacenPedidoOutStok frm = new frmElejirAlmacenPedidoOutStok(row.id_pt, row.itemcode + " - " + 
+
+            frmElejirAlmacenPedidoOutStok frm = new frmElejirAlmacenPedidoOutStok(row.id_pt, row.itemcode + " - " +
                                                                                   row.itemname, row.cantidad, ListaActual,
-                                                                                  row.descuento, row.precio, row.id_presentacion, 
+                                                                                  row.descuento, row.precio, row.id_presentacion,
                                                                                   row.itemcode, row.itemname, row.isv1, row.descuento_porcentaje);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 row.inventario_seleccionado = row.cantidad = AgregarDetalleInventarioSeleccionadoList(frm.ListaSeleccionAlmacen, row.id_pt);
-                row.total_linea = (row.cantidad * row.precio)-row.descuento;
+                row.total_linea = (row.cantidad * row.precio) - row.descuento;
                 //CalcularTotal();
                 CalcularTotalFactura();
             }
@@ -3287,6 +3295,27 @@ namespace Eatery.Ventas
                 rdContado.Checked = false;
                 IdTerminoPago = 2;
                 rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
+            }
+        }
+
+        private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var gv = (GridView)gridControl1.FocusedView;
+                var row = (dsVentas.detalle_factura_transactionRow)gv.GetDataRow(gv.FocusedRowHandle);
+                //var cell = 
+                DevExpress.XtraGrid.Columns.GridColumn focusedColumn = gv.FocusedColumn;
+                switch (focusedColumn.FieldName) 
+                {
+                    case "cantidad":
+                        //DevExpress.XtraEditors.Controls.ButtonPressedEventArgs event_ = new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen);
+                        //cmdElejirAlmacen_ButtonClick(sender, new );
+                        ElejirAlmacen();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
