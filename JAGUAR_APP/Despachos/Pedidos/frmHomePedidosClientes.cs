@@ -360,18 +360,24 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(15))
+                UserLogin VendedorValidate = new UserLogin();
+                if (VendedorValidate.RecuperarRegistro(VendedorActual.Id))
                 {
-                    var gridView = (GridView)gridControl1.FocusedView;
-                    var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
-                    frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual,row.id );
-                    frm.MdiParent = this.MdiParent;
-                    frm.Show();
+                    //if (UsuarioLogeado.ValidarNivelPermisos(15))
+                    if (VendedorValidate.ValidarNivelPermisos(15, VendedorActual.Id))
+                    {
+                        var gridView = (GridView)gridControl1.FocusedView;
+                        var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
+                        frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, row.id);
+                        frm.MdiParent = this.MdiParent;
+                        frm.Show();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #15 (Facturacion punto de venta)");
+                    }
                 }
-                else
-                {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #15 (Facturacion punto de venta)");
-                }
+                
             }
         }
 

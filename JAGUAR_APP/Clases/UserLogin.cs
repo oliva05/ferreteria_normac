@@ -264,6 +264,30 @@ namespace JAGUAR_PRO.Clases
             return r;
         }
 
+        internal bool ValidarNivelPermisos(int pIdVentana, int pIdUsuario)
+        {
+            bool r = false;
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection Conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                Conn.Open();
+                string sql = @"SELECT count(*)
+                                FROM conf_usuario_ventanas vv 
+                                where vv.id_ventana = " + pIdVentana.ToString() +
+                                      "and vv.id_usuario = " + pIdUsuario.ToString();
+                SqlCommand cmd = new SqlCommand(sql, Conn);
+                int v = Convert.ToInt32(cmd.ExecuteScalar());
+                if (v > 0)
+                    r = true;
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+            return r;
+        }
+
 
         //Vamos a cargar desde sql toda la data del usuario
         public bool RecuperarRegistro(string pUserID)
