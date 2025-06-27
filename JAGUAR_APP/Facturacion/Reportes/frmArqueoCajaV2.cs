@@ -106,6 +106,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             LoadDatosResumen(CierreDiaActual.id);
             LoadDetalleFacturas();
             LoadRecibos(fechaDesde, fechaHasta);
+            LoadFacturasCredito(fechaDesde, fechaHasta);
         }
 
         private void LoadDatosResumen(Int64 pIdCierreH)
@@ -182,7 +183,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             LoadDatosResumen(CierreDiaActual.id);
             LoadDetalleFacturas(); 
             LoadRecibos(fechaDesde, fechaHasta);
-            //LoadFacturasCredito(fechaDesde, fechaHasta);
+            LoadFacturasCredito(fechaDesde, fechaHasta);
         }
 
         private void LoadFacturasCredito(DateTime fechaDesde, DateTime fechaHasta)
