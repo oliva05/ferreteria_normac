@@ -228,6 +228,7 @@
             this.gridView2.CustomizationFormBounds = new System.Drawing.Rectangle(553, 343, 259, 287);
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsView.ShowAutoFilterRow = true;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.OptionsView.ShowViewCaption = true;
             this.gridView2.ViewCaption = "Doble Click para Seleccionar";
