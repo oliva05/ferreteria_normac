@@ -213,10 +213,11 @@ namespace JAGUAR_PRO.Mantenimientos.Proveedor
             }
             else
             {
-            deFechaFin.EditValue = DateTime.Now;
-            deFechaInicio.EditValue = DateTime.Now;
+                deFechaFin.EditValue = DateTime.Now;
+                deFechaInicio.EditValue = DateTime.Now;
 
             }
         }
+
     }
 }
