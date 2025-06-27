@@ -22,7 +22,8 @@ namespace JAGUAR_PRO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-ES");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-ES");
             string name_ = Environment.MachineName.ToString();
             //DataOperations dp = new DataOperations();
             //string query = "sp_get_verify_is_tablet_alosy";

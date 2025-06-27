@@ -585,7 +585,7 @@
             this.TabFacturas.Controls.Add(this.txtCodigo);
             this.TabFacturas.Controls.Add(this.gridControl1);
             this.TabFacturas.Name = "TabFacturas";
-            this.TabFacturas.Size = new System.Drawing.Size(923, 449);
+            this.TabFacturas.Size = new System.Drawing.Size(923, 445);
             this.TabFacturas.Text = "Facturas";
             // 
             // gleTipoPago
@@ -779,7 +779,7 @@
             this.TabRecibos.Controls.Add(this.cmdRefresh);
             this.TabRecibos.Controls.Add(this.gridControlRecibos);
             this.TabRecibos.Name = "TabRecibos";
-            this.TabRecibos.Size = new System.Drawing.Size(923, 449);
+            this.TabRecibos.Size = new System.Drawing.Size(923, 445);
             this.TabRecibos.Text = "Recibos de Pagos Efectuados";
             // 
             // dtHasta
@@ -824,8 +824,9 @@
             this.dtDesde.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
             this.dtDesde.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtDesde.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dtDesde.Properties.EditFormat.FormatString = "dd/ MM/ yyyy";
             this.dtDesde.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtDesde.Properties.MaskSettings.Set("mask", "dd/ MM/ yyyy");
             this.dtDesde.Size = new System.Drawing.Size(128, 26);
             this.dtDesde.TabIndex = 72;
             // 
