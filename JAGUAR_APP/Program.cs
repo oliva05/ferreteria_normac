@@ -22,8 +22,18 @@ namespace JAGUAR_PRO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-ES");
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-ES");
+
+            var customCulture = new System.Globalization.CultureInfo("es-ES", true);
+
+            // Configura separadores decimales y de miles como los de en-US
+            customCulture.NumberFormat.NumberDecimalSeparator = ".";
+            customCulture.NumberFormat.CurrencyDecimalSeparator = ".";
+            customCulture.NumberFormat.NumberGroupSeparator = ",";
+
+            // Asignar a la aplicación
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = customCulture;
+
             string name_ = Environment.MachineName.ToString();
             //DataOperations dp = new DataOperations();
             //string query = "sp_get_verify_is_tablet_alosy";
