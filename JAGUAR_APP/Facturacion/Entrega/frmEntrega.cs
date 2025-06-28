@@ -151,11 +151,12 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 switch (row.id_estado)
                 {
                     case 1://Confirmado
-                        Permitir = true;
+                        CajaDialogo.Error("Este pedido no se a facturado, no se puede concluir la entrega!");
                         break;
 
                     case 2://Facturado
-                        CajaDialogo.Error("Este pedido ya fue Facturado, no se puede concluir la entrega!");
+                        Permitir = true;
+                        //CajaDialogo.Error("Este pedido ya fue Facturado, no se puede concluir la entrega!");
                         break;
 
                     case 3://Entregado
@@ -171,7 +172,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                         break;
 
                     case 6://Nuevo
-                        Permitir = true;
+                        CajaDialogo.Error("Este pedido esta en estado: Nuevo, no se puede concluir la entrega!");
                         break;
 
                     default:

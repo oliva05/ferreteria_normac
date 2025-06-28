@@ -401,6 +401,7 @@ namespace JAGUAR_PRO.Compras
             this.cmdAddDetalle.Size = new System.Drawing.Size(47, 33);
             this.cmdAddDetalle.TabIndex = 67;
             this.cmdAddDetalle.Tag = "Agregar Item o Servicio";
+            this.cmdAddDetalle.Text = "n";
             this.cmdAddDetalle.ToolTip = "Guardar";
             this.cmdAddDetalle.Click += new System.EventHandler(this.cmdAddDetalle_Click);
             // 

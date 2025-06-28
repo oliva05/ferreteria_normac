@@ -3,8 +3,10 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using DocumentFormat.OpenXml.Wordprocessing;
+using JAGUAR_PRO.Calidad.LoteConfConsumo;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
+using JAGUAR_PRO.LogisticaJaguar;
 using LOSA.Calidad.LoteConfConsumo;
 using System;
 using System.Collections.Generic;
@@ -244,50 +246,86 @@ namespace JAGUAR_PRO.Compras
 
         private void cmdAddDetalle_Click(object sender, EventArgs e)
         {
-            frmSearchDefault frm = new frmSearchDefault(frmSearchDefault.TipoBusqueda.ProductoTerminado);
+            DataTable tablaPT = new DataTable();
+            frmSearchItemsMulti frm = new frmSearchItemsMulti();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                switch (tipooperacion)
-                {
-                    case TipoOperacion.New:
-                        bool Agregar = true;
-
-                        foreach (dsCompras.oc_detalleRow item in dsCompras1.oc_detalle)
-                        {
-                            
-                            if (item.itemcode == frm.ItemSeleccionado.ItemCode)
-                            {
-                                item.cantidad = item.cantidad + 1;
-                                Agregar = false;
-
-                            }
-                            
-                            
-                        }
-
-                        if (Agregar)
-                        {
-                            DataRow dr = dsCompras1.oc_detalle.NewRow();
-                            dr[0] = 0;
-                            dr[1] = frm.ItemSeleccionado.ItemName;
-                            dr[2] = frm.ItemSeleccionado.ItemCode; ;
-                            dr[3] = 1;
-                            dr[4] = 0;
-                            dr[5] = 0;
-                            //dr[6] = 0;
-                            dsCompras1.oc_detalle.Rows.Add(dr);
-                        }
-                        break;
-                    case TipoOperacion.Update:
-
-
-
-                        break;
-                    default:
-                        break;
-                }
-                
+                tablaPT = frm.ListProductosSeleccionados;
             }
+
+            int count_lines = dsCompras1.oc_detalle.Rows.Count;
+
+            foreach (DataRow item in tablaPT.Rows)
+            {
+                bool yaExiste = dsCompras1.oc_detalle.AsEnumerable()
+                                .Any(p => p.itemcode == (string)item["code"]);
+
+                if (!yaExiste)
+                {
+                    dsCompras.oc_detalleRow row1 = dsCompras1.oc_detalle.Newoc_detalleRow();
+                    row1.cantidad = 1;
+                    //row1. = 1;
+                    //row1.id_ud_medida_jaguar = 1;
+                    row1.itemcode = Convert.ToString(item["code"]);
+                    row1.descripcion= Convert.ToString(item["descripcion"]);
+                    row1.id_detalle = 0;
+                    row1.precio = 0;
+                    row1.total = 0;
+
+                    //row1. = count_lines + 1;
+                    //row1. = 1;
+                    dsCompras1.oc_detalle.Addoc_detalleRow(row1);
+                    dsCompras1.AcceptChanges();
+                }
+
+
+            }
+
+
+            //frmSearchDefault frm = new frmSearchDefault(frmSearchDefault.TipoBusqueda.ProductoTerminado);
+            //if (frm.ShowDialog() == DialogResult.OK)
+            //{
+            //    switch (tipooperacion)
+            //    {
+            //        case TipoOperacion.New:
+            //            bool Agregar = true;
+
+            //            foreach (dsCompras.oc_detalleRow item in dsCompras1.oc_detalle)
+            //            {
+                            
+            //                if (item.itemcode == frm.ItemSeleccionado.ItemCode)
+            //                {
+            //                    item.cantidad = item.cantidad + 1;
+            //                    Agregar = false;
+
+            //                }
+                            
+                            
+            //            }
+
+            //            if (Agregar)
+            //            {
+            //                DataRow dr = dsCompras1.oc_detalle.NewRow();
+            //                dr[0] = 0;
+            //                dr[1] = frm.ItemSeleccionado.ItemName;
+            //                dr[2] = frm.ItemSeleccionado.ItemCode; ;
+            //                dr[3] = 1;
+            //                dr[4] = 0;
+            //                dr[5] = 0;
+            //                //dr[6] = 0;
+            //                dsCompras1.oc_detalle.Rows.Add(dr);
+            //            }
+            //            break;
+            //        case TipoOperacion.Update:
+
+
+
+            //            break;
+            //        default:
+            //            break;
+            //    }
+                
+            //}
         }
 
         private void ButtonDeleteRow_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
