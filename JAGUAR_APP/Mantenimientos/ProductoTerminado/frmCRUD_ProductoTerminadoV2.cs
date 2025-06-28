@@ -716,11 +716,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
-            if (string.IsNullOrEmpty(grdMarca.Text))
-            {
-                CajaDialogo.Error("Debe colocar la Marca del Producto!");
-                return;
-            }
+            //if (string.IsNullOrEmpty(grdMarca.Text))
+            //{
+            //    CajaDialogo.Error("Debe colocar la Marca del Producto!");
+            //    return;
+            //}
 
             //if (string.IsNullOrEmpty(gridLookUpEditTipoProducto.Text))
             //{
@@ -822,7 +822,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
                 cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
                 cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
-                cmd.Parameters.AddWithValue("@id_marca", grdMarca.EditValue);
+                if (string.IsNullOrEmpty(grdMarca.Text) || (int)grdMarca.EditValue == 0)
+                    cmd.Parameters.AddWithValue("@id_marca", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@id_marca", grdMarca.EditValue);
                 if (string.IsNullOrEmpty(grdTipoFamilia.Text) || (int)grdTipoFamilia.EditValue == 0)
                     cmd.Parameters.AddWithValue("@id_familia", DBNull.Value);
                 else

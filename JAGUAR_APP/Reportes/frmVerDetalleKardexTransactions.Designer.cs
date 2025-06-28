@@ -61,6 +61,7 @@ namespace JAGUAR_PRO.Reportes
             this.lblInventario = new DevExpress.XtraEditors.LabelControl();
             this.lblAlmacen = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.colNumDocumento = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsKardexReportes1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -73,7 +74,7 @@ namespace JAGUAR_PRO.Reportes
             this.cmdRecargar.Appearance.Options.UseFont = true;
             this.cmdRecargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdRecargar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdRecargar.ImageOptions.SvgImage")));
-            this.cmdRecargar.Location = new System.Drawing.Point(584, 4);
+            this.cmdRecargar.Location = new System.Drawing.Point(812, 4);
             this.cmdRecargar.Name = "cmdRecargar";
             this.cmdRecargar.Size = new System.Drawing.Size(104, 47);
             this.cmdRecargar.TabIndex = 10;
@@ -87,7 +88,7 @@ namespace JAGUAR_PRO.Reportes
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(694, 4);
+            this.simpleButton1.Location = new System.Drawing.Point(922, 4);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(104, 47);
             this.simpleButton1.TabIndex = 9;
@@ -101,7 +102,7 @@ namespace JAGUAR_PRO.Reportes
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.Image")));
-            this.btnClose.Location = new System.Drawing.Point(804, 3);
+            this.btnClose.Location = new System.Drawing.Point(1032, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 47);
             this.btnClose.TabIndex = 8;
@@ -118,7 +119,7 @@ namespace JAGUAR_PRO.Reportes
             this.gridControl1.Location = new System.Drawing.Point(3, 94);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(900, 421);
+            this.gridControl1.Size = new System.Drawing.Size(1128, 421);
             this.gridControl1.TabIndex = 11;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -133,6 +134,7 @@ namespace JAGUAR_PRO.Reportes
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid,
             this.colfecha_reg,
+            this.colNumDocumento,
             this.colid_tipo_transaccion,
             this.colTipo,
             this.colenable,
@@ -165,7 +167,7 @@ namespace JAGUAR_PRO.Reportes
             this.colfecha_reg.OptionsColumn.ReadOnly = true;
             this.colfecha_reg.Visible = true;
             this.colfecha_reg.VisibleIndex = 0;
-            this.colfecha_reg.Width = 97;
+            this.colfecha_reg.Width = 104;
             // 
             // colid_tipo_transaccion
             // 
@@ -181,7 +183,7 @@ namespace JAGUAR_PRO.Reportes
             this.colTipo.OptionsColumn.ReadOnly = true;
             this.colTipo.Visible = true;
             this.colTipo.VisibleIndex = 1;
-            this.colTipo.Width = 97;
+            this.colTipo.Width = 94;
             // 
             // colenable
             // 
@@ -195,8 +197,8 @@ namespace JAGUAR_PRO.Reportes
             this.colenable_descripcion.Name = "colenable_descripcion";
             this.colenable_descripcion.OptionsColumn.ReadOnly = true;
             this.colenable_descripcion.Visible = true;
-            this.colenable_descripcion.VisibleIndex = 2;
-            this.colenable_descripcion.Width = 97;
+            this.colenable_descripcion.VisibleIndex = 3;
+            this.colenable_descripcion.Width = 102;
             // 
             // colid_pt
             // 
@@ -210,8 +212,8 @@ namespace JAGUAR_PRO.Reportes
             this.colItemCode.Name = "colItemCode";
             this.colItemCode.OptionsColumn.ReadOnly = true;
             this.colItemCode.Visible = true;
-            this.colItemCode.VisibleIndex = 3;
-            this.colItemCode.Width = 78;
+            this.colItemCode.VisibleIndex = 4;
+            this.colItemCode.Width = 81;
             // 
             // colItemName
             // 
@@ -219,8 +221,8 @@ namespace JAGUAR_PRO.Reportes
             this.colItemName.Name = "colItemName";
             this.colItemName.OptionsColumn.ReadOnly = true;
             this.colItemName.Visible = true;
-            this.colItemName.VisibleIndex = 4;
-            this.colItemName.Width = 157;
+            this.colItemName.VisibleIndex = 5;
+            this.colItemName.Width = 165;
             // 
             // colid_usuario
             // 
@@ -234,8 +236,8 @@ namespace JAGUAR_PRO.Reportes
             this.colUsuario.Name = "colUsuario";
             this.colUsuario.OptionsColumn.ReadOnly = true;
             this.colUsuario.Visible = true;
-            this.colUsuario.VisibleIndex = 5;
-            this.colUsuario.Width = 95;
+            this.colUsuario.VisibleIndex = 6;
+            this.colUsuario.Width = 100;
             // 
             // colFechaDoc
             // 
@@ -243,8 +245,8 @@ namespace JAGUAR_PRO.Reportes
             this.colFechaDoc.Name = "colFechaDoc";
             this.colFechaDoc.OptionsColumn.ReadOnly = true;
             this.colFechaDoc.Visible = true;
-            this.colFechaDoc.VisibleIndex = 6;
-            this.colFechaDoc.Width = 74;
+            this.colFechaDoc.VisibleIndex = 7;
+            this.colFechaDoc.Width = 76;
             // 
             // colEntrada
             // 
@@ -256,8 +258,8 @@ namespace JAGUAR_PRO.Reportes
             this.colEntrada.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Entrada", "SUM={0:n0}")});
             this.colEntrada.Visible = true;
-            this.colEntrada.VisibleIndex = 7;
-            this.colEntrada.Width = 85;
+            this.colEntrada.VisibleIndex = 8;
+            this.colEntrada.Width = 90;
             // 
             // colSalida
             // 
@@ -269,8 +271,8 @@ namespace JAGUAR_PRO.Reportes
             this.colSalida.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Salida", "SUM={0:n0}")});
             this.colSalida.Visible = true;
-            this.colSalida.VisibleIndex = 8;
-            this.colSalida.Width = 95;
+            this.colSalida.VisibleIndex = 9;
+            this.colSalida.Width = 100;
             // 
             // colsaldo
             // 
@@ -278,7 +280,8 @@ namespace JAGUAR_PRO.Reportes
             this.colsaldo.Name = "colsaldo";
             this.colsaldo.OptionsColumn.ReadOnly = true;
             this.colsaldo.Visible = true;
-            this.colsaldo.VisibleIndex = 9;
+            this.colsaldo.VisibleIndex = 10;
+            this.colsaldo.Width = 94;
             // 
             // labelControl1
             // 
@@ -353,11 +356,20 @@ namespace JAGUAR_PRO.Reportes
             this.labelControl5.TabIndex = 17;
             this.labelControl5.Text = "Almacen:";
             // 
+            // colNumDocumento
+            // 
+            this.colNumDocumento.FieldName = "NumDocumento";
+            this.colNumDocumento.Name = "colNumDocumento";
+            this.colNumDocumento.OptionsColumn.ReadOnly = true;
+            this.colNumDocumento.Visible = true;
+            this.colNumDocumento.VisibleIndex = 2;
+            this.colNumDocumento.Width = 95;
+            // 
             // frmVerDetalleKardexTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 516);
+            this.ClientSize = new System.Drawing.Size(1132, 516);
             this.Controls.Add(this.lblAlmacen);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.lblInventario);
@@ -409,5 +421,6 @@ namespace JAGUAR_PRO.Reportes
         private DevExpress.XtraGrid.Columns.GridColumn colsaldo;
         private LabelControl lblAlmacen;
         private LabelControl labelControl5;
+        private DevExpress.XtraGrid.Columns.GridColumn colNumDocumento;
     }
 }
