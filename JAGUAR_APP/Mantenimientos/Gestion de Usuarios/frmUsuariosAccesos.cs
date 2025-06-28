@@ -61,7 +61,7 @@ namespace ACS.IT_Managment
                                       ,usuario as alias
                               FROM [dbo].[conf_usuarios]
                               where activo = " + iVer + @"
-                              order by [aqf_code] desc";
+                              order by [nombre] asc";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 dsMant_IT1.usuarios.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
