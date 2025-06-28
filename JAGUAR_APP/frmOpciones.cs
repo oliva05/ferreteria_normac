@@ -90,6 +90,15 @@ namespace JAGUAR_PRO
             switch (pUser.GrupoUsuario.GrupoUsuarioActivo)
             {
                 case GrupoUser.GrupoUsuario.Logistica: //id: 1
+                    TabLogistica.PageVisible = true;
+                    navBarItemCAI_Proveedores.Visible =
+                        navBarItem23.Visible =
+                        navBarItem151.Visible =
+                        navBarGroup12.Visible =
+                        navBarItem154.Visible =
+                        nbReporteCompras.Visible =
+                        navBarGroup5.Visible =
+                    navBarItemRecepcionFactura.Visible = true;
                     //tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
                     //tabOpciones.TabPages[i].PageVisible = true;
                     break;
