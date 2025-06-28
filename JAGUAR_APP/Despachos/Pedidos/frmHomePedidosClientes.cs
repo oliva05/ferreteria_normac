@@ -182,8 +182,11 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                         case 6://Nuevo
                             frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, row.id);
                             if (this.MdiParent != null)
+                            {
                                 frm.MdiParent = this.MdiParent;
-
+                                frm.StartPosition = FormStartPosition.CenterParent;
+                            }
+                            frm.TopMost = true;
                             frm.Show();
                             break;
                         case 7://Parcialmente Entregado
@@ -221,10 +224,21 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
 
             frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, VendedorActual);
-            if(frm.ShowDialog() == DialogResult.OK)
+            if (this.MdiParent != null)
             {
-                LoadDatos();
+                frm.MdiParent = this.MdiParent;
+                frm.StartPosition = FormStartPosition.CenterParent;
             }
+            else
+            {
+                frm.StartPosition = FormStartPosition.CenterScreen;
+            }
+
+            frm.Show();
+            //if(frm.ShowDialog() == DialogResult.OK)
+            //{
+            //    LoadDatos();
+            //}
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -352,6 +366,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, row.id);
 
                     frm.MdiParent = this.MdiParent;
+                    frm.TopMost = true;
                     frm.Show();
                     break;
                 default:

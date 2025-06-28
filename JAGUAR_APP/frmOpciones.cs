@@ -4736,6 +4736,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
                         frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterParent;
                         frm.Show();
                         break;
                     default:
@@ -4750,6 +4751,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
                         frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterParent; 
                         frm.Show();
                     }
                     else

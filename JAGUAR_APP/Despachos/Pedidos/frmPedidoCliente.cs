@@ -1526,6 +1526,16 @@ namespace Eatery.Ventas
             txtTotal.Text = "0.00";
             dsVentas1.detalle_factura_transaction.Clear();
             ClienteFactura = new ClienteFacturacion();
+
+            txtAsesorVendedor.Enabled =
+            cmdChangeVendedor.Visible =
+            cmdCopiarDesde.Visible =
+            simpleButton1.Visible = 
+            simpleButton2.Visible = true;
+
+            gridView1.OptionsMenu.EnableColumnMenu = true;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+            gridView1.Columns["delete"].Visible = true; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
+
             CalcularTotalFactura();
         }
 
@@ -2655,7 +2665,10 @@ namespace Eatery.Ventas
                             //Guardamos el Header del Pedido 
                             command.CommandText = "[dbo].[sp_set_insert_pedido_header]";
                             command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.AddWithValue("@id_user", Pedido_.IdUser);
+                            
+                            //command.Parameters.AddWithValue("@id_user", Pedido_.IdUser);
+
+
                             command.Parameters.AddWithValue("@fecha_documento", Pedido_.FechaDocumento);
 
                             if (Pedido_.IdCliente == 0)
@@ -2689,19 +2702,29 @@ namespace Eatery.Ventas
 
 
                             command.Parameters.AddWithValue("@fecha_entrega_estimada", dtFechaEntrega.DateTime);
+
                             if (VendedorActual != null)
                             {
                                 if (VendedorActual.Id > 0)
+                                {
                                     command.Parameters.AddWithValue("@id_vendedor", VendedorActual.Id);
+                                    command.Parameters.AddWithValue("@id_user", VendedorActual.Id);
+                                }
                                 else
+                                {
                                     command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
+                                    command.Parameters.AddWithValue("@id_user", DBNull.Value);
+                                }
                             }
                             else
                             {
                                 command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
+                                command.Parameters.AddWithValue("@id_user", DBNull.Value);
                             }
 
+
                             int _id_estado = 6;//Nuevo
+
                             if (ckConfirmarPedido.Checked)
                                 _id_estado = 1;//Confirmado 
 
@@ -3185,6 +3208,14 @@ namespace Eatery.Ventas
                 cmd.ExecuteScalar();
                 con.Close();
                 gleEstados.EditValue = 1;
+                
+                simpleButton2.Visible =
+                cmdCopiarDesde.Visible =
+                simpleButton1.Visible = false;
+
+                gridView1.OptionsMenu.EnableColumnMenu = false;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                gridView1.Columns["delete"].Visible = false; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
+                
                 cmdConfirmarFactura.Visible = false;
             }
             catch (Exception ec)
@@ -3200,8 +3231,10 @@ namespace Eatery.Ventas
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 int pIdPedido = frm.IdPedido;
-                TipoOperacionActual = TipoOperacionSQL.Update;
+                TipoOperacionActual = TipoOperacionSQL.Insert;
                 ckConfirmarPedido.Visible = ckGenerarCotizacion.Visible = true;
+                cmdChangeVendedor.Visible = false;
+                txtAsesorVendedor.Enabled = false;
 
                 LoadEstadosPedidos();
                 PedidoActual = new PedidoCliente();
@@ -3267,6 +3300,7 @@ namespace Eatery.Ventas
                         lblfecha.Text = string.Format("{0:dd/MM/yyyy}", pedidoCliente.FechaDocumento);
                         dtFechaEntrega.DateTime = pedidoCliente.FechaEntrega;
                         txtComentario.Text = pedidoCliente.Comentario;
+
                         VendedorActual = new Vendedor();
                         if (!string.IsNullOrEmpty(pedidoCliente.CodigoVendedor))
                         {

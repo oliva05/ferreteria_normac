@@ -790,6 +790,7 @@ namespace Eatery.Ventas
             // 
             this.colDelete.Caption = "Elminar";
             this.colDelete.ColumnEdit = this.cmdDeleteRowFactura;
+            this.colDelete.FieldName = "delete";
             this.colDelete.Name = "colDelete";
             this.colDelete.Visible = true;
             this.colDelete.VisibleIndex = 12;
@@ -889,6 +890,7 @@ namespace Eatery.Ventas
             this.ClientSize = new System.Drawing.Size(1055, 598);
             this.Controls.Add(this.navigationFrame1);
             this.Name = "frmPedidoCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pre Factura";
             this.Activated += new System.EventHandler(this.frmPedidoCliente_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPedidoCliente_FormClosing);
