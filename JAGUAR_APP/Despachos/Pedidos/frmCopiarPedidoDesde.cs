@@ -73,5 +73,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void frmCopiarPedidoDesde_Load(object sender, EventArgs e)
+        {
+            this.BeginInvoke((Action)(() => txtCodigoCot.Focus()));
+        }
     }
 }

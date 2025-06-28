@@ -357,6 +357,7 @@
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "frmCopiarPedidoDesde";
             this.Text = "Copiar Pedido Desde";
+            this.Load += new System.EventHandler(this.frmCopiarPedidoDesde_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
