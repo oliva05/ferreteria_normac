@@ -698,6 +698,7 @@
             this.navBarItem24.Caption = "Entregar Factura";
             this.navBarItem24.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem24.ImageOptions.SmallImage")));
             this.navBarItem24.Name = "navBarItem24";
+            this.navBarItem24.Visible = false;
             this.navBarItem24.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem24_LinkClicked);
             // 
             // navBarGroup8
