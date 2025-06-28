@@ -309,6 +309,8 @@ namespace JAGUAR_PRO.Reportes {
             
             private global::System.Data.DataColumn columnsaldo;
             
+            private global::System.Data.DataColumn columnNumDocumento;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_transacciones_kardexDataTable() {
@@ -464,6 +466,14 @@ namespace JAGUAR_PRO.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NumDocumentoColumn {
+                get {
+                    return this.columnNumDocumento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -499,7 +509,23 @@ namespace JAGUAR_PRO.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public detalle_transacciones_kardexRow Adddetalle_transacciones_kardexRow(long id, System.DateTime fecha_reg, int id_tipo_transaccion, string Tipo, bool enable, string enable_descripcion, int id_pt, string ItemCode, string ItemName, int id_usuario, string Usuario, System.DateTime FechaDoc, decimal Entrada, decimal Salida, decimal saldo) {
+            public detalle_transacciones_kardexRow Adddetalle_transacciones_kardexRow(
+                        long id, 
+                        System.DateTime fecha_reg, 
+                        int id_tipo_transaccion, 
+                        string Tipo, 
+                        bool enable, 
+                        string enable_descripcion, 
+                        int id_pt, 
+                        string ItemCode, 
+                        string ItemName, 
+                        int id_usuario, 
+                        string Usuario, 
+                        System.DateTime FechaDoc, 
+                        decimal Entrada, 
+                        decimal Salida, 
+                        decimal saldo, 
+                        string NumDocumento) {
                 detalle_transacciones_kardexRow rowdetalle_transacciones_kardexRow = ((detalle_transacciones_kardexRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -516,7 +542,8 @@ namespace JAGUAR_PRO.Reportes {
                         FechaDoc,
                         Entrada,
                         Salida,
-                        saldo};
+                        saldo,
+                        NumDocumento};
                 rowdetalle_transacciones_kardexRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_transacciones_kardexRow);
                 return rowdetalle_transacciones_kardexRow;
@@ -554,6 +581,7 @@ namespace JAGUAR_PRO.Reportes {
                 this.columnEntrada = base.Columns["Entrada"];
                 this.columnSalida = base.Columns["Salida"];
                 this.columnsaldo = base.Columns["saldo"];
+                this.columnNumDocumento = base.Columns["NumDocumento"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -589,6 +617,8 @@ namespace JAGUAR_PRO.Reportes {
                 base.Columns.Add(this.columnSalida);
                 this.columnsaldo = new global::System.Data.DataColumn("saldo", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsaldo);
+                this.columnNumDocumento = new global::System.Data.DataColumn("NumDocumento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumDocumento);
                 this.columnenable_descripcion.Caption = "Estado descripcion";
                 this.columnsaldo.Caption = "Saldo Inventario";
             }
@@ -988,6 +1018,23 @@ namespace JAGUAR_PRO.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NumDocumento {
+                get {
+                    try {
+                        return ((string)(this[this.tabledetalle_transacciones_kardex.NumDocumentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NumDocumento\' de la tabla \'detalle_transacciones_kardex\' " +
+                                "es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_transacciones_kardex.NumDocumentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tabledetalle_transacciones_kardex.idColumn);
             }
@@ -1164,6 +1211,18 @@ namespace JAGUAR_PRO.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetsaldoNull() {
                 this[this.tabledetalle_transacciones_kardex.saldoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNumDocumentoNull() {
+                return this.IsNull(this.tabledetalle_transacciones_kardex.NumDocumentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNumDocumentoNull() {
+                this[this.tabledetalle_transacciones_kardex.NumDocumentoColumn] = global::System.Convert.DBNull;
             }
         }
         

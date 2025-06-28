@@ -246,5 +246,15 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 //}
             }
         }
+
+        private void gridView1_ShownEditor(object sender, EventArgs e)
+        {
+            var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+
+            if (view.FocusedColumn != null && view.ActiveEditor != null)
+            {
+                view.ActiveEditor.SelectAll();
+            }
+        }
     }
 }
