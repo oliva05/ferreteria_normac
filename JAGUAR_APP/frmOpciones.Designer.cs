@@ -646,6 +646,7 @@
             this.navBarItem154.Caption = "Solicitudes de Compra";
             this.navBarItem154.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.withtextwrapping_topright_32x32;
             this.navBarItem154.Name = "navBarItem154";
+            this.navBarItem154.Visible = false;
             this.navBarItem154.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem154_LinkClicked);
             // 
             // navBarGroup6
