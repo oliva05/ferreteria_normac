@@ -2347,25 +2347,28 @@ namespace Eatery.Ventas
 
         private void txtScanProducto_KeyDown(object sender, KeyEventArgs e)
         {
-            if(string.IsNullOrEmpty(txtScanProducto.Text)) return;
-            //errorProvLecturaCodigo.Clear();
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(txtScanProducto.Text)) return;
+                //errorProvLecturaCodigo.Clear();
 
-            ProductoTerminado pt1 = new ProductoTerminado();
-            if (pt1.Recuperar_productoByBarCode(txtScanProducto.Text))
-            {
-                AgregarProductoA_Prefactura(pt1.Id, pt1.Code, pt1.Descripcion, 1, true, 0, pt1, pt1.MarcaName);
-                txtScanProducto.Text = "";
-                txtScanProducto.Focus();
-            }
-            else
-            {
-                //Set error
-                //errorProvLecturaCodigo.SetError(txtScanProducto, "No se encontró el código escaneado!");
-                SetErrorBarra("No se encontró el código escaneado!");
-                txtScanProducto.Text = "";
-                txtScanProducto.Focus();
-                timerLimpiarMensaje.Enabled = true;
-                timerLimpiarMensaje.Start();
+                ProductoTerminado pt1 = new ProductoTerminado();
+                if (pt1.Recuperar_productoByBarCode(txtScanProducto.Text))
+                {
+                    AgregarProductoA_Prefactura(pt1.Id, pt1.Code, pt1.Descripcion, 1, true, 0, pt1, pt1.MarcaName);
+                    txtScanProducto.Text = "";
+                    txtScanProducto.Focus();
+                }
+                else
+                {
+                    //Set error
+                    //errorProvLecturaCodigo.SetError(txtScanProducto, "No se encontró el código escaneado!");
+                    SetErrorBarra("No se encontró el código escaneado!");
+                    txtScanProducto.Text = "";
+                    txtScanProducto.Focus();
+                    timerLimpiarMensaje.Enabled = true;
+                    timerLimpiarMensaje.Start();
+                }
             }
         }
 
