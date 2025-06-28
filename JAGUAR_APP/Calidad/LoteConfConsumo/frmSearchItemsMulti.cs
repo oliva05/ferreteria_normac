@@ -35,6 +35,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         public frmSearchItemsMulti()
         {
             InitializeComponent();
+            txtCodRefe.Focus();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -247,6 +248,14 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
             {
                 CajaDialogo.Error(ec.Message);
             }
+        }
+
+        private void frmSearchItemsMulti_Load(object sender, EventArgs e)
+        {
+        
+            this.BeginInvoke((Action)(() => txtCodRefe.Focus()));
+            
+
         }
     }
 }
