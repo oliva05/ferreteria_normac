@@ -746,7 +746,7 @@
             // 
             // xrPictureBox1
             // 
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::JAGUAR_PRO.Properties.Resources.Ovejita, true);
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::JAGUAR_PRO.Properties.Resources.WhatsApp_Image_2025_03_01_at_11_16_12_AM, true);
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(630.8493F, 10.00001F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(136.1507F, 115.8712F);
@@ -810,7 +810,7 @@
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
             this.ShowPreviewMarginLines = false;
             this.ShowPrintMarginsWarning = false;
-            this.Version = "23.1";
+            this.Version = "23.2";
             this.DataSourceDemanded += new System.EventHandler<System.EventArgs>(this.rptFact_ReciboVentaLetterSize_DataSourceDemanded);
             this.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.rptFact_ReciboVentaLetterSize_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
