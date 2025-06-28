@@ -456,6 +456,7 @@
             this.Controls.Add(this.btnObtener);
             this.Name = "frmSearchItemsMulti";
             this.Text = "Seleccion Multiple de Items";
+            this.Load += new System.EventHandler(this.frmSearchItemsMulti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtMarca.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodRefe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodComb.Properties)).EndInit();
