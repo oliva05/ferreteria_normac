@@ -2890,7 +2890,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(2))
+                if (UsuarioLogeado.ValidarNivelPermisos(18))
                 {
                     frmRecepcionFacturaProveedor frm = new frmRecepcionFacturaProveedor(this.UsuarioLogeado, puntoVenta1);
                     frm.MdiParent = this.MdiParent;
@@ -2898,7 +2898,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #2 (Recepción de Facturas)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #18 (Recepción de Facturas)");
                 }
             }
             
@@ -3171,7 +3171,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(2))
+                if (UsuarioLogeado.ValidarNivelPermisos(19))
                 {
                     xfrmProveedorCAI frm = new xfrmProveedorCAI(this.UsuarioLogeado);
                     frm.MdiParent = this.MdiParent;
@@ -3179,7 +3179,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #2 (Recepción de Facturas)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #19 (Recepción de Facturas)");
                 }
             }
             //xfrmProveedorCAI frm = new xfrmProveedorCAI();
@@ -4482,7 +4482,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(2))
+                if (UsuarioLogeado.ValidarNivelPermisos(20))
                 {
                     //frmRecepcionFacturaProveedor frm = new frmRecepcionFacturaProveedor(this.UsuarioLogeado);
                     frmReporteDeCompras frm = new frmReporteDeCompras(this.UsuarioLogeado);
@@ -4491,7 +4491,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #2 (Recepción de Facturas)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #20 (Recepción de Facturas)");
                 }
             }
         }
@@ -4889,7 +4889,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(24))
+                if (UsuarioLogeado.ValidarNivelPermisos(1))
                 {
                     frmOrdenesCompraMain mtx = new frmOrdenesCompraMain(UsuarioLogeado, frmOrdenesCompraMain.TipoOperacion.New, puntoVenta1);
                     mtx.MdiParent = this.MdiParent;
@@ -4898,7 +4898,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-24 (Ordenes de Compra)");
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-1 (Ordenes de Compra)");
                 }
             }
 
@@ -5452,7 +5452,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(24))
+                if (UsuarioLogeado.ValidarNivelPermisos(21))
                 {
                     frmOrdenCompraList mtx = new frmOrdenCompraList(puntoVenta1, UsuarioLogeado);
                     mtx.MdiParent = this.MdiParent;
@@ -5461,7 +5461,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-24 (Ordenes de Compra)");
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-21 (Ordenes de Compra)");
                 }
             }
 
