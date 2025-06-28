@@ -37,6 +37,8 @@
               <xs:element name="codeOEM" msprop:Generator_ColumnPropNameInTable="codeOEMColumn" msprop:Generator_ColumnPropNameInRow="codeOEM" msprop:Generator_UserColumnName="codeOEM" msprop:Generator_ColumnVarNameInTable="columncodeOEM" type="xs:string" minOccurs="0" />
               <xs:element name="tipo_inventario" msprop:Generator_ColumnPropNameInTable="tipo_inventarioColumn" msprop:Generator_ColumnPropNameInRow="tipo_inventario" msprop:Generator_UserColumnName="tipo_inventario" msprop:Generator_ColumnVarNameInTable="columntipo_inventario" type="xs:string" minOccurs="0" />
               <xs:element name="count_image" msprop:Generator_ColumnPropNameInTable="count_imageColumn" msprop:Generator_ColumnPropNameInRow="count_image" msprop:Generator_UserColumnName="count_image" msprop:Generator_ColumnVarNameInTable="columncount_image" type="xs:int" minOccurs="0" />
+              <xs:element name="codeReferencia" msprop:Generator_ColumnPropNameInRow="codeReferencia" msprop:Generator_ColumnPropNameInTable="codeReferenciaColumn" msprop:Generator_ColumnVarNameInTable="columncodeReferencia" msprop:Generator_UserColumnName="codeReferencia" type="xs:string" minOccurs="0" />
+              <xs:element name="codeInterno" msprop:Generator_ColumnPropNameInRow="codeInterno" msprop:Generator_ColumnPropNameInTable="codeInternoColumn" msprop:Generator_ColumnVarNameInTable="columncodeInterno" msprop:Generator_UserColumnName="codeInterno" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -293,8 +295,8 @@
               <xs:element name="Referencia" msprop:Generator_ColumnPropNameInTable="ReferenciaColumn" msprop:Generator_ColumnPropNameInRow="Referencia" msprop:Generator_UserColumnName="Referencia" msprop:Generator_ColumnVarNameInTable="columnReferencia" type="xs:string" minOccurs="0" />
               <xs:element name="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_UserColumnName="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" type="xs:string" minOccurs="0" />
               <xs:element name="Disponible" msprop:Generator_ColumnPropNameInTable="DisponibleColumn" msprop:Generator_ColumnPropNameInRow="Disponible" msprop:Generator_UserColumnName="Disponible" msprop:Generator_ColumnVarNameInTable="columnDisponible" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Costo" msprop:Generator_ColumnPropNameInRow="Costo" msprop:Generator_ColumnPropNameInTable="CostoColumn" msprop:Generator_ColumnVarNameInTable="columnCosto" msprop:Generator_UserColumnName="Costo" type="xs:decimal" minOccurs="0" />
-              <xs:element name="PVP" msprop:Generator_ColumnPropNameInRow="PVP" msprop:Generator_ColumnPropNameInTable="PVPColumn" msprop:Generator_ColumnVarNameInTable="columnPVP" msprop:Generator_UserColumnName="PVP" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Costo" msprop:Generator_UserColumnName="Costo" msprop:Generator_ColumnPropNameInTable="CostoColumn" msprop:Generator_ColumnPropNameInRow="Costo" msprop:Generator_ColumnVarNameInTable="columnCosto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PVP" msprop:Generator_UserColumnName="PVP" msprop:Generator_ColumnPropNameInTable="PVPColumn" msprop:Generator_ColumnPropNameInRow="PVP" msprop:Generator_ColumnVarNameInTable="columnPVP" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

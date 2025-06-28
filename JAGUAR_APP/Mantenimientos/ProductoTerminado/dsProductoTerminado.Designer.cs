@@ -1163,6 +1163,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             private global::System.Data.DataColumn columncount_image;
             
+            private global::System.Data.DataColumn columncodeReferencia;
+            
+            private global::System.Data.DataColumn columncodeInterno;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public lista_main_CRUDDataTable() {
@@ -1374,6 +1378,22 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn codeReferenciaColumn {
+                get {
+                    return this.columncodeReferencia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn codeInternoColumn {
+                get {
+                    return this.columncodeInterno;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1431,7 +1451,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
                         string tipo_facturacion_prd, 
                         string codeOEM, 
                         string tipo_inventario, 
-                        int count_image) {
+                        int count_image, 
+                        string codeReferencia, 
+                        string codeInterno) {
                 lista_main_CRUDRow rowlista_main_CRUDRow = ((lista_main_CRUDRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -1455,7 +1477,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
                         tipo_facturacion_prd,
                         codeOEM,
                         tipo_inventario,
-                        count_image};
+                        count_image,
+                        codeReferencia,
+                        codeInterno};
                 rowlista_main_CRUDRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlista_main_CRUDRow);
                 return rowlista_main_CRUDRow;
@@ -1500,6 +1524,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
                 this.columncodeOEM = base.Columns["codeOEM"];
                 this.columntipo_inventario = base.Columns["tipo_inventario"];
                 this.columncount_image = base.Columns["count_image"];
+                this.columncodeReferencia = base.Columns["codeReferencia"];
+                this.columncodeInterno = base.Columns["codeInterno"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1549,6 +1575,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
                 base.Columns.Add(this.columntipo_inventario);
                 this.columncount_image = new global::System.Data.DataColumn("count_image", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncount_image);
+                this.columncodeReferencia = new global::System.Data.DataColumn("codeReferencia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodeReferencia);
+                this.columncodeInterno = new global::System.Data.DataColumn("codeInterno", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodeInterno);
                 this.columntipo_facturacion_prd.Caption = "Destino del Producto";
             }
             
@@ -9258,6 +9288,38 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string codeReferencia {
+                get {
+                    try {
+                        return ((string)(this[this.tablelista_main_CRUD.codeReferenciaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codeReferencia\' de la tabla \'lista_main_CRUD\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelista_main_CRUD.codeReferenciaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string codeInterno {
+                get {
+                    try {
+                        return ((string)(this[this.tablelista_main_CRUD.codeInternoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codeInterno\' de la tabla \'lista_main_CRUD\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelista_main_CRUD.codeInternoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tablelista_main_CRUD.idColumn);
             }
@@ -9518,6 +9580,30 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setcount_imageNull() {
                 this[this.tablelista_main_CRUD.count_imageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscodeReferenciaNull() {
+                return this.IsNull(this.tablelista_main_CRUD.codeReferenciaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcodeReferenciaNull() {
+                this[this.tablelista_main_CRUD.codeReferenciaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscodeInternoNull() {
+                return this.IsNull(this.tablelista_main_CRUD.codeInternoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcodeInternoNull() {
+                this[this.tablelista_main_CRUD.codeInternoColumn] = global::System.Convert.DBNull;
             }
         }
         
