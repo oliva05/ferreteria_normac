@@ -46,8 +46,12 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
                     SqlCommand cmd = new SqlCommand("[dbo].[sp_get_buscar_codigo_cotizacion_h]", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@numDocCotizacion", "COT" + txtCodigoCot.Text);    
+                    int NumCoti = Convert.ToInt32(txtCodigoCot.Text);
 
+                    if(NumCoti < 99)
+                        cmd.Parameters.AddWithValue("@numDocCotizacion", "COT0" + txtCodigoCot.Text);
+                    else
+                        cmd.Parameters.AddWithValue("@numDocCotizacion", "COT" + txtCodigoCot.Text);
                     SqlDataAdapter adat = new SqlDataAdapter(cmd);
                     dsPedidosBusquedas1.cotizaciones.Clear();
                     adat.Fill(dsPedidosBusquedas1.cotizaciones);
