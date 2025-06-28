@@ -87,7 +87,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>jaguar.ico</ApplicationIcon>
+    <ApplicationIcon>normac_ico_.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>JAGUAR_PRO.Program</StartupObject>
@@ -5429,6 +5429,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="jaguar.ico" />
+    <Content Include="normac_ico_.ico" />
+    <Content Include="WhatsApp Image 2025-03-01 at 11.15.59 AM.ico" />
     <None Include="Resources\xml_24x24.png" />
     <None Include="Resources\_click_24X24.png" />
     <None Include="Resources\year_24x24.png" />

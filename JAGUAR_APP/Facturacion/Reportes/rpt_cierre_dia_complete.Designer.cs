@@ -48,14 +48,6 @@
             this.xrTableCell17 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTotalEfectivoVerificado = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTotalTarjetaVerificado = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTotalBancosVerificado = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTotalVerificado = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblFechaCierre = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -68,6 +60,14 @@
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotalEfectivoVerificado = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotalTarjetaVerificado = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotalBancosVerificado = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotalVerificado = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblFechaCierre = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTotalIngresos = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTotalDeposito = new DevExpress.XtraReports.UI.XRLabel();
@@ -84,6 +84,7 @@
             this.lblDireccion = new DevExpress.XtraReports.UI.XRLabel();
             this.lblCompanyName = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblRevisadoPor = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblResponsable = new DevExpress.XtraReports.UI.XRLabel();
@@ -96,7 +97,6 @@
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsContabilidad1)).BeginInit();
@@ -272,117 +272,6 @@
             this.PageHeader.HeightF = 78.41673F;
             this.PageHeader.Name = "PageHeader";
             // 
-            // xrLabel21
-            // 
-            this.xrLabel21.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel21.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(306.6776F, 104.3712F);
-            this.xrLabel21.Name = "xrLabel21";
-            this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel21.SizeF = new System.Drawing.SizeF(127.8804F, 15.70834F);
-            this.xrLabel21.StylePriority.UseBorders = false;
-            this.xrLabel21.StylePriority.UseFont = false;
-            this.xrLabel21.StylePriority.UseTextAlignment = false;
-            this.xrLabel21.Text = "Total Verificado";
-            this.xrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // xrLabel20
-            // 
-            this.xrLabel20.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel20.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(190.2554F, 104.3712F);
-            this.xrLabel20.Name = "xrLabel20";
-            this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel20.SizeF = new System.Drawing.SizeF(116.4221F, 15.70834F);
-            this.xrLabel20.StylePriority.UseBorders = false;
-            this.xrLabel20.StylePriority.UseFont = false;
-            this.xrLabel20.StylePriority.UseTextAlignment = false;
-            this.xrLabel20.Text = "Total";
-            this.xrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblTotalEfectivoVerificado
-            // 
-            this.lblTotalEfectivoVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblTotalEfectivoVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalEfectivoVerificado.LocationFloat = new DevExpress.Utils.PointFloat(306.6776F, 121.0795F);
-            this.lblTotalEfectivoVerificado.Name = "lblTotalEfectivoVerificado";
-            this.lblTotalEfectivoVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalEfectivoVerificado.SizeF = new System.Drawing.SizeF(127.8805F, 15.70834F);
-            this.lblTotalEfectivoVerificado.StylePriority.UseBorders = false;
-            this.lblTotalEfectivoVerificado.StylePriority.UseFont = false;
-            this.lblTotalEfectivoVerificado.StylePriority.UseTextAlignment = false;
-            this.lblTotalEfectivoVerificado.Text = "L 0.00";
-            this.lblTotalEfectivoVerificado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblTotalTarjetaVerificado
-            // 
-            this.lblTotalTarjetaVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblTotalTarjetaVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalTarjetaVerificado.LocationFloat = new DevExpress.Utils.PointFloat(306.6776F, 140.7878F);
-            this.lblTotalTarjetaVerificado.Name = "lblTotalTarjetaVerificado";
-            this.lblTotalTarjetaVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalTarjetaVerificado.SizeF = new System.Drawing.SizeF(127.8805F, 15.70833F);
-            this.lblTotalTarjetaVerificado.StylePriority.UseBorders = false;
-            this.lblTotalTarjetaVerificado.StylePriority.UseFont = false;
-            this.lblTotalTarjetaVerificado.StylePriority.UseTextAlignment = false;
-            this.lblTotalTarjetaVerificado.Text = "L 0.00";
-            this.lblTotalTarjetaVerificado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblTotalBancosVerificado
-            // 
-            this.lblTotalBancosVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblTotalBancosVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalBancosVerificado.LocationFloat = new DevExpress.Utils.PointFloat(306.6776F, 161.4962F);
-            this.lblTotalBancosVerificado.Name = "lblTotalBancosVerificado";
-            this.lblTotalBancosVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalBancosVerificado.SizeF = new System.Drawing.SizeF(127.8805F, 15.70833F);
-            this.lblTotalBancosVerificado.StylePriority.UseBorders = false;
-            this.lblTotalBancosVerificado.StylePriority.UseFont = false;
-            this.lblTotalBancosVerificado.StylePriority.UseTextAlignment = false;
-            this.lblTotalBancosVerificado.Text = "L 0.00";
-            this.lblTotalBancosVerificado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblTotalVerificado
-            // 
-            this.lblTotalVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblTotalVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblTotalVerificado.LocationFloat = new DevExpress.Utils.PointFloat(306.6776F, 182.7462F);
-            this.lblTotalVerificado.Name = "lblTotalVerificado";
-            this.lblTotalVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalVerificado.SizeF = new System.Drawing.SizeF(127.8804F, 15.70833F);
-            this.lblTotalVerificado.StylePriority.UseBorders = false;
-            this.lblTotalVerificado.StylePriority.UseFont = false;
-            this.lblTotalVerificado.StylePriority.UseTextAlignment = false;
-            this.lblTotalVerificado.Text = "L 0.00";
-            this.lblTotalVerificado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // xrLabel15
-            // 
-            this.xrLabel15.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel15.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(702.8808F, 105.3712F);
-            this.xrLabel15.Name = "xrLabel15";
-            this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel15.SizeF = new System.Drawing.SizeF(46.08295F, 15.70833F);
-            this.xrLabel15.StylePriority.UseBorders = false;
-            this.xrLabel15.StylePriority.UseFont = false;
-            this.xrLabel15.StylePriority.UseTextAlignment = false;
-            this.xrLabel15.Text = "Fecha";
-            this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
-            // 
-            // lblFechaCierre
-            // 
-            this.lblFechaCierre.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblFechaCierre.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblFechaCierre.LocationFloat = new DevExpress.Utils.PointFloat(748.9639F, 105.3712F);
-            this.lblFechaCierre.Name = "lblFechaCierre";
-            this.lblFechaCierre.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblFechaCierre.SizeF = new System.Drawing.SizeF(100.7972F, 15.70833F);
-            this.lblFechaCierre.StylePriority.UseBorders = false;
-            this.lblFechaCierre.StylePriority.UseFont = false;
-            this.lblFechaCierre.StylePriority.UseTextAlignment = false;
-            this.lblFechaCierre.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
             // xrTable1
             // 
             this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
@@ -536,6 +425,117 @@
             this.xrLabel5.StylePriority.UseTextAlignment = false;
             this.xrLabel5.Text = "Detalle de documentos";
             this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // xrLabel21
+            // 
+            this.xrLabel21.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel21.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(306.6776F, 104.3712F);
+            this.xrLabel21.Name = "xrLabel21";
+            this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel21.SizeF = new System.Drawing.SizeF(127.8804F, 15.70834F);
+            this.xrLabel21.StylePriority.UseBorders = false;
+            this.xrLabel21.StylePriority.UseFont = false;
+            this.xrLabel21.StylePriority.UseTextAlignment = false;
+            this.xrLabel21.Text = "Total Verificado";
+            this.xrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // xrLabel20
+            // 
+            this.xrLabel20.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel20.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(190.2554F, 104.3712F);
+            this.xrLabel20.Name = "xrLabel20";
+            this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel20.SizeF = new System.Drawing.SizeF(116.4221F, 15.70834F);
+            this.xrLabel20.StylePriority.UseBorders = false;
+            this.xrLabel20.StylePriority.UseFont = false;
+            this.xrLabel20.StylePriority.UseTextAlignment = false;
+            this.xrLabel20.Text = "Total";
+            this.xrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // lblTotalEfectivoVerificado
+            // 
+            this.lblTotalEfectivoVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblTotalEfectivoVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblTotalEfectivoVerificado.LocationFloat = new DevExpress.Utils.PointFloat(306.6776F, 121.0795F);
+            this.lblTotalEfectivoVerificado.Name = "lblTotalEfectivoVerificado";
+            this.lblTotalEfectivoVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTotalEfectivoVerificado.SizeF = new System.Drawing.SizeF(127.8805F, 15.70834F);
+            this.lblTotalEfectivoVerificado.StylePriority.UseBorders = false;
+            this.lblTotalEfectivoVerificado.StylePriority.UseFont = false;
+            this.lblTotalEfectivoVerificado.StylePriority.UseTextAlignment = false;
+            this.lblTotalEfectivoVerificado.Text = "L 0.00";
+            this.lblTotalEfectivoVerificado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // lblTotalTarjetaVerificado
+            // 
+            this.lblTotalTarjetaVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblTotalTarjetaVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblTotalTarjetaVerificado.LocationFloat = new DevExpress.Utils.PointFloat(306.6776F, 140.7878F);
+            this.lblTotalTarjetaVerificado.Name = "lblTotalTarjetaVerificado";
+            this.lblTotalTarjetaVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTotalTarjetaVerificado.SizeF = new System.Drawing.SizeF(127.8805F, 15.70833F);
+            this.lblTotalTarjetaVerificado.StylePriority.UseBorders = false;
+            this.lblTotalTarjetaVerificado.StylePriority.UseFont = false;
+            this.lblTotalTarjetaVerificado.StylePriority.UseTextAlignment = false;
+            this.lblTotalTarjetaVerificado.Text = "L 0.00";
+            this.lblTotalTarjetaVerificado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // lblTotalBancosVerificado
+            // 
+            this.lblTotalBancosVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblTotalBancosVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblTotalBancosVerificado.LocationFloat = new DevExpress.Utils.PointFloat(306.6776F, 161.4962F);
+            this.lblTotalBancosVerificado.Name = "lblTotalBancosVerificado";
+            this.lblTotalBancosVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTotalBancosVerificado.SizeF = new System.Drawing.SizeF(127.8805F, 15.70833F);
+            this.lblTotalBancosVerificado.StylePriority.UseBorders = false;
+            this.lblTotalBancosVerificado.StylePriority.UseFont = false;
+            this.lblTotalBancosVerificado.StylePriority.UseTextAlignment = false;
+            this.lblTotalBancosVerificado.Text = "L 0.00";
+            this.lblTotalBancosVerificado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // lblTotalVerificado
+            // 
+            this.lblTotalVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblTotalVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblTotalVerificado.LocationFloat = new DevExpress.Utils.PointFloat(306.6776F, 182.7462F);
+            this.lblTotalVerificado.Name = "lblTotalVerificado";
+            this.lblTotalVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTotalVerificado.SizeF = new System.Drawing.SizeF(127.8804F, 15.70833F);
+            this.lblTotalVerificado.StylePriority.UseBorders = false;
+            this.lblTotalVerificado.StylePriority.UseFont = false;
+            this.lblTotalVerificado.StylePriority.UseTextAlignment = false;
+            this.lblTotalVerificado.Text = "L 0.00";
+            this.lblTotalVerificado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // xrLabel15
+            // 
+            this.xrLabel15.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel15.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(702.8808F, 105.3712F);
+            this.xrLabel15.Name = "xrLabel15";
+            this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel15.SizeF = new System.Drawing.SizeF(46.08295F, 15.70833F);
+            this.xrLabel15.StylePriority.UseBorders = false;
+            this.xrLabel15.StylePriority.UseFont = false;
+            this.xrLabel15.StylePriority.UseTextAlignment = false;
+            this.xrLabel15.Text = "Fecha";
+            this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
+            // 
+            // lblFechaCierre
+            // 
+            this.lblFechaCierre.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblFechaCierre.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblFechaCierre.LocationFloat = new DevExpress.Utils.PointFloat(748.9639F, 105.3712F);
+            this.lblFechaCierre.Name = "lblFechaCierre";
+            this.lblFechaCierre.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblFechaCierre.SizeF = new System.Drawing.SizeF(100.7972F, 15.70833F);
+            this.lblFechaCierre.StylePriority.UseBorders = false;
+            this.lblFechaCierre.StylePriority.UseFont = false;
+            this.lblFechaCierre.StylePriority.UseTextAlignment = false;
+            this.lblFechaCierre.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
             // 
             // xrLabel4
             // 
@@ -753,8 +753,22 @@
             this.xrLabel10,
             this.lblResponsable,
             this.xrLabel8});
-            this.PageFooter.HeightF = 100F;
             this.PageFooter.Name = "PageFooter";
+            // 
+            // xrLabel16
+            // 
+            this.xrLabel16.Borders = DevExpress.XtraPrinting.BorderSide.Top;
+            this.xrLabel16.Font = new DevExpress.Drawing.DXFont("Consolas", 8F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(0.999999F, 84.00002F);
+            this.xrLabel16.Multiline = true;
+            this.xrLabel16.Name = "xrLabel16";
+            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(362.0526F, 16F);
+            this.xrLabel16.StylePriority.UseBorders = false;
+            this.xrLabel16.StylePriority.UseFont = false;
+            this.xrLabel16.StylePriority.UseTextAlignment = false;
+            this.xrLabel16.Text = "Responsable";
+            this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // lblRevisadoPor
             // 
@@ -955,21 +969,6 @@
             this.lblLegalName});
             this.ReportHeader.HeightF = 204.1667F;
             this.ReportHeader.Name = "ReportHeader";
-            // 
-            // xrLabel16
-            // 
-            this.xrLabel16.Borders = DevExpress.XtraPrinting.BorderSide.Top;
-            this.xrLabel16.Font = new DevExpress.Drawing.DXFont("Consolas", 8F);
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(0.999999F, 84.00002F);
-            this.xrLabel16.Multiline = true;
-            this.xrLabel16.Name = "xrLabel16";
-            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel16.SizeF = new System.Drawing.SizeF(362.0526F, 16F);
-            this.xrLabel16.StylePriority.UseBorders = false;
-            this.xrLabel16.StylePriority.UseFont = false;
-            this.xrLabel16.StylePriority.UseTextAlignment = false;
-            this.xrLabel16.Text = "Responsable";
-            this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // rpt_cierre_dia_complete
             // 
