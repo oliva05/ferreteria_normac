@@ -229,6 +229,7 @@
             // xtraTabPage2
             // 
             this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.PageVisible = false;
             this.xtraTabPage2.Size = new System.Drawing.Size(1300, 562);
             this.xtraTabPage2.Text = "OC Sin Filtro";
             // 
