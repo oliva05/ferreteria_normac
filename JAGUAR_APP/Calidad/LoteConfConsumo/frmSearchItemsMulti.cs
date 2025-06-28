@@ -68,6 +68,13 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
                         
                     }
                 }
+                txtCodRefe.Text = string.Empty;
+                txtDesc.Text = string.Empty;
+                txtCode.Text = string.Empty;
+                txtCodComb.Text = string.Empty;
+                txtMarca.Text = string.Empty;
+                txtCodRefe.Focus();
+
             }
             else
             {
