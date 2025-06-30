@@ -3028,10 +3028,8 @@ namespace JAGUAR_PRO
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
-                    accesoprevio = true;
                     break;
                 case 3://Medium Autorization
-                    accesoprevio = true;
                     break;
                 case 4://Depth With Delta
                     accesoprevio = true;
@@ -5493,10 +5491,8 @@ namespace JAGUAR_PRO
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
-                    accesoprevio = false;
                     break;
                 case 3://Medium Autorization
-                    accesoprevio = false;
                     break;
                 case 4://Depth With Delta
                 case 5://Depth Without Delta
@@ -5504,7 +5500,6 @@ namespace JAGUAR_PRO
                     frmEntrega mtx = new frmEntrega(UsuarioLogeado, puntoVenta1);
                     mtx.MdiParent = this.MdiParent;
                     mtx.Show();
-
 
                     break;
                 default:
@@ -5518,7 +5513,6 @@ namespace JAGUAR_PRO
                     frmEntrega mtx = new frmEntrega(UsuarioLogeado, puntoVenta1);
                     mtx.MdiParent = this.MdiParent;
                     mtx.Show();
-
                 }
                 else
                 {
@@ -5597,6 +5591,66 @@ namespace JAGUAR_PRO
 
             frmOC_SolicitudesMain frm = new frmOC_SolicitudesMain(UsuarioLogeado, puntoVenta1);
             frm.Show();
+        }
+
+        private void navBarItem208_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+           
+
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmMainProductoTerminado frm = new frmMainProductoTerminado(UsuarioLogeado, puntoVenta1);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                    break;
+                default:
+                    break;
+            }
+
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(22))
+                {
+                    frmMainProductoTerminado frm = new frmMainProductoTerminado(UsuarioLogeado, puntoVenta1);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-22 (Master de Producto Terminado)");
+                }
+            }
         }
     }
 }
