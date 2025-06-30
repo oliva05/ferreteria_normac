@@ -457,5 +457,45 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             frmChanguePinVendedores frm = new frmChanguePinVendedores();
             frm.ShowDialog();
         }
+
+        private void cmdDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Eliminar 
+            var gv = (GridView)gridControl1.FocusedView;
+            var row = (dsPedidosClientesV.lista_pedidosRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            if (!row.Isid_estadoNull())
+            {
+                if(row.id_estado == 6)//Nuevo
+                {
+                    DialogResult r = CajaDialogo.Pregunta("Esta seguro de cancelar esta pre factura?");
+                    if (r != DialogResult.Yes)
+                        return;
+
+                    try
+                    {
+                        DataOperations dp = new DataOperations();
+                        SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                        con.Open();
+
+                        SqlCommand cmd = new SqlCommand("[dbo].[sp_set_update_pedido_h_estado_id]", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id_estado", 6);
+                        cmd.Parameters.AddWithValue("@id", row.id);
+                        cmd.ExecuteNonQuery();
+                        gridView1.DeleteRow(gridView1.FocusedRowHandle);
+                        con.Close();
+                    }
+                    catch (Exception ec)
+                    {
+                        CajaDialogo.Error(ec.Message);
+                    }
+                }
+                else
+                {
+                    CajaDialogo.Error("Solo las prefacturas neuvas se permite cancelar...");
+                }
+            }
+        }
     }
 }

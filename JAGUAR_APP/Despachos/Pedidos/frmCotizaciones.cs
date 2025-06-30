@@ -39,7 +39,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             UsuarioLogeado = pUsuarioLogeado;
             Vendedor = pVendedor;
 
-            if (Vendedor != null)
+            if (Vendedor == null)
             {
                 Vendedor = new Vendedor();
                 if (Vendedor.RecuperarRegistro(this.PedidoActual.Id_Vendedor)) 
