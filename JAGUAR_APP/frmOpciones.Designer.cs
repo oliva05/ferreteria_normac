@@ -356,6 +356,8 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup19 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem208 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -424,7 +426,8 @@
             this.navBarGroup12,
             this.navBarGroup6,
             this.navBarGroup8,
-            this.navBarGroup9});
+            this.navBarGroup9,
+            this.navBarGroup19});
             this.navBarControl2.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItemRecepcionFactura,
             this.navBarItem25,
@@ -474,7 +477,8 @@
             this.navBarItem151,
             this.navBarItem152,
             this.navBarItem153,
-            this.navBarItem154});
+            this.navBarItem154,
+            this.navBarItem208});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -1509,7 +1513,7 @@
             this.simpleButton74.Name = "simpleButton74";
             this.simpleButton74.Size = new System.Drawing.Size(227, 58);
             this.simpleButton74.TabIndex = 18;
-            this.simpleButton74.Text = "Master Productos \r\nTerminados";
+            this.simpleButton74.Text = "Master de Productos";
             this.simpleButton74.Click += new System.EventHandler(this.simpleButton74_Click);
             // 
             // xtraTabPageUsuarios
@@ -4929,6 +4933,30 @@
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
             // 
+            // navBarGroup19
+            // 
+            this.navBarGroup19.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup19.Appearance.Options.UseFont = true;
+            this.navBarGroup19.Caption = "Mantenimiento";
+            this.navBarGroup19.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem208)});
+            this.navBarGroup19.Name = "navBarGroup19";
+            // 
+            // navBarItem208
+            // 
+            this.navBarItem208.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem208.Appearance.Options.UseFont = true;
+            this.navBarItem208.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem208.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem208.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem208.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem208.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem208.AppearancePressed.Options.UseFont = true;
+            this.navBarItem208.Caption = "Master de Productos";
+            this.navBarItem208.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.package_box32px;
+            this.navBarItem208.Name = "navBarItem208";
+            this.navBarItem208.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem208_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5299,5 +5327,7 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem154;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup18;
         private DevExpress.XtraNavBar.NavBarItem navBarItem155;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup19;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem208;
     }
 }
