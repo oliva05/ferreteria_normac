@@ -26,15 +26,35 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         FacturacionEquipo equipo;
         PDV PuntoVentaActual;
         Vendedor Vendedor;
+        PedidoCliente PedidoActual;
 
         public frmCotizaciones(int pIdPedidoH, UserLogin pUsuarioLogeado, PDV pPuntoVenta, Vendedor pVendedor)
         {
             InitializeComponent();
+            PedidoActual = new PedidoCliente();
+            this.PedidoActual.RecuperarRegistro(pIdPedidoH);
             IdPedidoH = pIdPedidoH;
             dp = new DataOperations();
             PuntoVentaActual = pPuntoVenta;
             UsuarioLogeado = pUsuarioLogeado;
             Vendedor = pVendedor;
+
+            if (Vendedor != null)
+            {
+                Vendedor = new Vendedor();
+                if (Vendedor.RecuperarRegistro(this.PedidoActual.Id_Vendedor)) 
+                {
+                    lblNombreVendedor.Text = Vendedor.CodigoVendedor + " - " + Vendedor.Nombre;
+                }
+                else
+                {
+                    lblNombreVendedor.Text = "";
+                }
+            }
+            else
+            {
+                lblNombreVendedor.Text = "";
+            }
             LoadDatos();
         }
 

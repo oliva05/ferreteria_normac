@@ -227,7 +227,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             if (this.MdiParent != null)
             {
                 frm.MdiParent = this.MdiParent;
-                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.StartPosition = FormStartPosition.CenterScreen;
             }
             else
             {

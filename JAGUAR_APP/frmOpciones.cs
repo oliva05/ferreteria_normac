@@ -4739,7 +4739,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
                         frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
-                        frm.StartPosition = FormStartPosition.CenterParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
                         break;
                     default:
@@ -4754,7 +4754,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
                         frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
-                        frm.StartPosition = FormStartPosition.CenterParent; 
+                        frm.StartPosition = FormStartPosition.CenterScreen; 
                         frm.Show();
                     }
                     else
@@ -4948,6 +4948,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         frmHomePedidosClientes frm = new frmHomePedidosClientes(this.UsuarioLogeado, puntoVenta1);
                         frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
                         break;
                     default:
@@ -4960,8 +4961,8 @@ namespace JAGUAR_PRO
                     {
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         frmHomePedidosClientes frm = new frmHomePedidosClientes(this.UsuarioLogeado, puntoVenta1);
-
                         frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
                     }
                     else
