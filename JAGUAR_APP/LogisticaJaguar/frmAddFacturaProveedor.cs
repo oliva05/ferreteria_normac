@@ -900,6 +900,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 CargarDetalleOrdenCompra(oc.Id_OrdenCompra);
                
             }
+
+
         }
 
         private void CargarDetalleOrdenCompra(int idSolicitudSeleccionado)
@@ -920,7 +922,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 adat.Fill(dsLogisticaJaguar1.detalle_recepcion_fact);
                 conn.Close();
 
-                //CalcularTotal();
+                //CALCULAR TOTALES
+                foreach (dsLogisticaJaguar.detalle_recepcion_factRow item in dsLogisticaJaguar1.detalle_recepcion_fact)
+                {
+                    item.isv = item.costo_unitario * (item.isv_aplicable / 100m);
+                    decimal ValorProductoConISV = item.costo_unitario + item.isv;
+                    
+                    item.total_fila = item.cantidad_ingreso * ValorProductoConISV;
+                }
+
             }
             catch (Exception ex)
             {

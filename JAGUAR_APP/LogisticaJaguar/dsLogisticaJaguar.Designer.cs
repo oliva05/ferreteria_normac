@@ -1757,6 +1757,7 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 base.Columns.Add(this.columnisv_aplicable);
                 this.columncantidad.Caption = "Cantidad Factura";
                 this.columnid_ud_medida_prv.Caption = "U. medida Factura";
+                this.columnid_ud_medida_prv.DefaultValue = ((int)(1));
                 this.columndescripcion_mp.Caption = "Descripción Recepción";
                 this.columnid_ud_medida_jaguar.Caption = "U. Medida Recepción";
                 this.columncantidad_ingreso.Caption = "Cantidad Ingreso";

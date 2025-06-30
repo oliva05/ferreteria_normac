@@ -2871,18 +2871,17 @@ namespace JAGUAR_PRO
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
-                    accesoprevio = true;
+                    
                     break;
                 case 3://Medium Autorization
-                    accesoprevio = true;
+                   
                     break;
                 case 4://Depth With Delta
+                case 5://Depth Without Delta
                     accesoprevio = true;
                     frmRecepcionFacturaProveedor frm = new frmRecepcionFacturaProveedor(this.UsuarioLogeado, puntoVenta1);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
-                    break;
-                case 5://Depth Without Delta
                     break;
                 default:
                     break;
@@ -3153,10 +3152,8 @@ namespace JAGUAR_PRO
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
-                    accesoprevio = true;
                     break;
                 case 3://Medium Autorization
-                    accesoprevio = true;
                     break;
                 case 4://Depth With Delta
                 case 5://Depth Without Delta
