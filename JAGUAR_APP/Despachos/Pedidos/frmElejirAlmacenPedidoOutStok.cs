@@ -59,6 +59,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
             gridView1.FocusedColumn = colcantidad_seleccionada;
             gridView1.ShowEditor();
+
         }
 
         private void RecuperarCantidadSeleccionada(ArrayList pListaActual)
@@ -229,6 +230,26 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         {
             if (e.KeyCode == Keys.Enter)
             {
+                e.Handled = true;
+
+                int filaActual = gridView1.FocusedRowHandle;
+                var columnaActual = gridView1.FocusedColumn;
+
+                if (filaActual < gridView1.RowCount - 1)
+                {
+                    gridView1.FocusedRowHandle = filaActual + 1 ;
+                    gridView1.FocusedColumn = columnaActual;
+
+                    gridView1.ShowEditor();
+                    gridView1.ActiveEditor?.SelectAll();
+                }
+                else
+                {
+                    cmdGuardar.Focus(); //para que haga focus en el boton
+
+                    //cmdGuardar_Click(sender,e);//o ejecutar el evento.. no lo se, mejor que se posicione
+                }
+
                 //var gv = (GridView)gridControl1.FocusedView;
                 //var row = (dsPrefacturas.stock_por_almacenRow)gv.GetDataRow(gv.FocusedRowHandle);
                 //dsPrefacturas1.AcceptChanges();
@@ -249,12 +270,12 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
         private void gridView1_ShownEditor(object sender, EventArgs e)
         {
-            var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+            //var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
 
-            if (view.FocusedColumn != null && view.ActiveEditor != null)
-            {
-                view.ActiveEditor.SelectAll();
-            }
+            //if (view.FocusedColumn != null && view.ActiveEditor != null)
+            //{
+            //    view.ActiveEditor.SelectAll();
+            //}
         }
     }
 }
