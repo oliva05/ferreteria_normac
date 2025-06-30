@@ -97,6 +97,7 @@ namespace JAGUAR_PRO
                         navBarGroup12.Visible =
                         navBarItem154.Visible =
                         nbReporteCompras.Visible =
+                        navBarItem15.Visible = navBarItem15.Enabled = 
                         navBarGroup5.Visible =
                     navBarItemRecepcionFactura.Visible = true;
                     //tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
@@ -3322,8 +3323,6 @@ namespace JAGUAR_PRO
 
         private void navBarItem15_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-           
-
             bool accesoprevio = false;
             int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
             switch (idNivel)
@@ -3331,10 +3330,10 @@ namespace JAGUAR_PRO
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
-                    accesoprevio = true;
+                    //accesoprevio = true;
                     break;
                 case 3://Medium Autorization
-                    accesoprevio = true;
+                    //accesoprevio = true;
                     break;
                 case 4://Depth With Delta
                     accesoprevio = true;
