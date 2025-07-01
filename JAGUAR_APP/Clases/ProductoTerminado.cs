@@ -59,6 +59,9 @@ namespace JAGUAR_PRO.Clases
         private int id_Categoria;
         private string codig_Referencia;
         private bool pt_comisiona;
+        private bool boolMaximoMinimio;
+        private decimal invMinimo;
+        private decimal invMaximo;
 
         public decimal MaximoDescuentoPorcentajeAllClientes { get; set; }
         public int Id { get => id; set => id = value; }
@@ -121,6 +124,9 @@ namespace JAGUAR_PRO.Clases
         public int Id_Categoria { get => id_Categoria; set => id_Categoria = value; }
         public string Codig_Referencia { get => codig_Referencia; set => codig_Referencia = value; }
         public bool Pt_comisiona { get => pt_comisiona; set => pt_comisiona = value; }
+        public bool BoolMaximoMinimio { get => boolMaximoMinimio; set => boolMaximoMinimio = value; }
+        public decimal InvMinimo { get => invMinimo; set => invMinimo = value; }
+        public decimal InvMaximo { get => invMaximo; set => invMaximo = value; }
 
         public ProductoTerminado(string pConnectionString, DateTime fecha = default)
         {
@@ -338,6 +344,9 @@ namespace JAGUAR_PRO.Clases
                     if (!dl.IsDBNull(dl.GetOrdinal("porcentaje_descuento")))
                         porcentaje_descuento = dl.GetDecimal(33);
                     pt_comisiona = dl.GetBoolean(34);
+                    boolMaximoMinimio = dl.GetBoolean(35);
+                    invMinimo = dl.GetDecimal(36);
+                    invMaximo = dl.GetDecimal(37);
 
                     Recuperado = true;
                     //Recuperar_Latas_and_bolsas(IdProd);

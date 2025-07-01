@@ -4,6 +4,7 @@ using DevExpress.DashboardWin.Design;
 using DevExpress.Internal;
 using DevExpress.Office.Utils;
 using DevExpress.Utils.CommonDialogs;
+using DevExpress.Utils.Extensions;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraCharts.Native;
 using DevExpress.XtraEditors;
@@ -55,6 +56,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         public decimal CostoActual;
         public decimal PorcentajeDescuento;
         public decimal PorcentajeUtilidad;
+        public bool IsEnabledMaximoMinimo = false;
 
         public PDV PuntoVentaActual;
 
@@ -110,6 +112,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                             rowI.hablitado_bit = true;
                         }
                     }
+
+                    tsGestionMaximosMinimos.IsOn = false;
+                    spinMaximo.Enabled = false;
+                    spinMinimo.Enabled = false;
+                    xtraTabControl1.SelectedTabPage = tabInventario;
                     break;
                 case TipoOperacion.Update:
                     TabConfigVentas.PageVisible = true;
@@ -202,9 +209,24 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                             lblStatusFTP.Text = "Servidor de Imagenes: NO DISPONIBLE";
                             lblStatusFTP.ForeColor = Color.Red;
                         }
-                        
-                        
+                        tsGestionMaximosMinimos.IsOn = PT_Class_instance.BoolMaximoMinimio;
+                        if (tsGestionMaximosMinimos.IsOn)
+                        {
+                            spinMaximo.EditValue = PT_Class_instance.InvMaximo;
+                            spinMinimo.EditValue = PT_Class_instance.InvMinimo;
+                            spinMaximo.Enabled = true;
+                            spinMinimo.Enabled = true;
+                        }
+                        else
+                        {
+                            spinMaximo.Enabled = false;
+                            spinMinimo.Enabled = false;
+                            spinMaximo.EditValue = PT_Class_instance.InvMaximo;
+                            spinMinimo.EditValue = PT_Class_instance.InvMinimo;
+                        }
+                            
 
+                        xtraTabControl1.SelectedTabPage = tabInventario;
                         //gridLookUpEditTipoFacturacionDestino.TextChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_TextChanged);
                         //gridLookUpEditTipoFacturacionDestino.Text = PT_Class_instance.TipoFacturacion_prd_name;
                         //gridLookUpEditTipoFacturacionDestino.TextChanged += new EventHandler(gridLookUpEditTipoFacturacionDestino_TextChanged);
@@ -679,6 +701,12 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 return;
             }
 
+            if (Convert.ToDecimal(spinMinimo.EditValue) > Convert.ToDecimal(spinMaximo.EditValue))
+            {
+                CajaDialogo.Error("El Inventario Minimo no puede ser mayor que el Inventario Maximo");
+                return;
+            }
+
             //if ((string)grdTipoFamilia.Text == "")
             //{
             //    CajaDialogo.Error("Debe Seleccionar una Familia!");
@@ -769,11 +797,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 switch (TipoOperacionActual)
                 {
                     case TipoOperacion.Insert:
-                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v7]";
+                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v8]";
 
                         break;
                     case TipoOperacion.Update:
-                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v7]";
+                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v8]";
                         cmd.Parameters.AddWithValue("@id", PT_Class_instance.Id);
                         break;
                 }
@@ -837,6 +865,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
                 cmd.Parameters.AddWithValue("@code_referencia", txtCodigoReferencia.Text);
                 cmd.Parameters.AddWithValue("@comision", tsComision.IsOn);
+                cmd.Parameters.AddWithValue("@bitMinimoMaximo",tsGestionMaximosMinimos.IsOn);
+                cmd.Parameters.AddWithValue("@invMinimo", spinMinimo.EditValue);
+                cmd.Parameters.AddWithValue("@invMaximo", spinMaximo.EditValue);
                 if (TipoOperacionActual == TipoOperacion.Insert)
                 {
                     IdPT = dp.ValidateNumberInt32(cmd.ExecuteScalar());  
@@ -1410,6 +1441,32 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 {
                     CajaDialogo.Error(ec.Message);
                 }
+            }
+        }
+
+        private void gCMaximosyMinimos_CustomButtonChecked(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
+        {
+
+        }
+
+        private void tsGestionMaximosMinimos_Toggled(object sender, EventArgs e)
+        {
+            if (tsGestionMaximosMinimos.IsOn)
+            {
+                //Habilitado
+
+                spinMaximo.Enabled = true;
+                spinMinimo.Enabled = true;
+               
+            }
+            else
+            {
+                //Habilitado
+                spinMaximo.EditValue = 0;
+                spinMinimo.EditValue = 0;
+                spinMaximo.Enabled = false;
+                spinMinimo.Enabled = false;
+
             }
         }
     }
