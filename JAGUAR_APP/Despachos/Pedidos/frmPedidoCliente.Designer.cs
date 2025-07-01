@@ -32,16 +32,16 @@ namespace Eatery.Ventas
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPedidoCliente));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtNombreCliente = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.cmdAbrirBusqueda = new DevExpress.XtraEditors.SimpleButton();
@@ -55,7 +55,10 @@ namespace Eatery.Ventas
             this.dsVentas1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsVentas();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmdSalir2 = new DevExpress.XtraEditors.SimpleButton();
             this.rdCredito = new System.Windows.Forms.RadioButton();
+            this.rdPorCobrar = new System.Windows.Forms.RadioButton();
             this.rdContado = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.cmdCopiarDesde = new DevExpress.XtraEditors.SimpleButton();
@@ -72,7 +75,6 @@ namespace Eatery.Ventas
             this.label11 = new System.Windows.Forms.Label();
             this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
             this.txtAsesorVendedor = new DevExpress.XtraEditors.TextEdit();
-            this.label10 = new System.Windows.Forms.Label();
             this.dtFechaEntrega = new DevExpress.XtraEditors.DateEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.txtComentario = new DevExpress.XtraEditors.MemoEdit();
@@ -141,33 +143,33 @@ namespace Eatery.Ventas
             // 
             // txtNombreCliente
             // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(136, 8);
+            this.txtNombreCliente.Location = new System.Drawing.Point(99, 8);
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.txtNombreCliente.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreCliente.Properties.Appearance.Options.UseFont = true;
             this.txtNombreCliente.Properties.NullValuePrompt = "Nombre del Cliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(392, 26);
+            this.txtNombreCliente.Size = new System.Drawing.Size(392, 22);
             this.txtNombreCliente.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label1.Location = new System.Drawing.Point(10, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
+            this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 9;
             this.label1.Text = "Cliente";
             // 
             // cmdAbrirBusqueda
             // 
-            this.cmdAbrirBusqueda.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
+            this.cmdAbrirBusqueda.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdAbrirBusqueda.Appearance.Options.UseFont = true;
             this.cmdAbrirBusqueda.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdAbrirBusqueda.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdAbrirBusqueda.ImageOptions.Image")));
-            this.cmdAbrirBusqueda.Location = new System.Drawing.Point(534, 52);
+            this.cmdAbrirBusqueda.Location = new System.Drawing.Point(493, 52);
             this.cmdAbrirBusqueda.Name = "cmdAbrirBusqueda";
-            this.cmdAbrirBusqueda.Size = new System.Drawing.Size(172, 40);
+            this.cmdAbrirBusqueda.Size = new System.Drawing.Size(123, 34);
             this.cmdAbrirBusqueda.TabIndex = 3;
             this.cmdAbrirBusqueda.Text = "&Buscar Cliente";
             this.cmdAbrirBusqueda.Click += new System.EventHandler(this.cmdAbrirBusqueda_Click);
@@ -175,13 +177,15 @@ namespace Eatery.Ventas
             // cmdSalir
             // 
             this.cmdSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cmdSalir.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSalir.Appearance.BackColor = System.Drawing.Color.White;
+            this.cmdSalir.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.cmdSalir.Appearance.Options.UseBackColor = true;
             this.cmdSalir.Appearance.Options.UseFont = true;
             this.cmdSalir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSalir.ImageOptions.Image")));
-            this.cmdSalir.Location = new System.Drawing.Point(3, 521);
+            this.cmdSalir.Location = new System.Drawing.Point(3, 435);
             this.cmdSalir.Name = "cmdSalir";
-            this.cmdSalir.Size = new System.Drawing.Size(246, 38);
+            this.cmdSalir.Size = new System.Drawing.Size(139, 38);
             this.cmdSalir.TabIndex = 6;
             this.cmdSalir.Text = "&Salir";
             this.cmdSalir.Click += new System.EventHandler(this.cmdSalir_Click);
@@ -190,7 +194,7 @@ namespace Eatery.Ventas
             // 
             this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(930, 479);
+            this.txtTotal.Location = new System.Drawing.Point(831, 396);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(122, 29);
@@ -201,13 +205,15 @@ namespace Eatery.Ventas
             // cmdNew
             // 
             this.cmdNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cmdNew.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdNew.Appearance.BackColor = System.Drawing.Color.White;
+            this.cmdNew.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.cmdNew.Appearance.Options.UseBackColor = true;
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdNew.ImageOptions.Image")));
-            this.cmdNew.Location = new System.Drawing.Point(3, 479);
+            this.cmdNew.Location = new System.Drawing.Point(3, 396);
             this.cmdNew.Name = "cmdNew";
-            this.cmdNew.Size = new System.Drawing.Size(246, 38);
+            this.cmdNew.Size = new System.Drawing.Size(139, 38);
             this.cmdNew.TabIndex = 14;
             this.cmdNew.Text = "&Nuevo";
             this.cmdNew.Click += new System.EventHandler(this.cmdNew_Click);
@@ -219,9 +225,9 @@ namespace Eatery.Ventas
             this.panelNotificacion.BackColor = System.Drawing.Color.White;
             this.panelNotificacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelNotificacion.Controls.Add(this.lblMensaje);
-            this.panelNotificacion.Location = new System.Drawing.Point(3, 561);
+            this.panelNotificacion.Location = new System.Drawing.Point(3, 474);
             this.panelNotificacion.Name = "panelNotificacion";
-            this.panelNotificacion.Size = new System.Drawing.Size(1049, 31);
+            this.panelNotificacion.Size = new System.Drawing.Size(953, 31);
             this.panelNotificacion.TabIndex = 15;
             // 
             // lblMensaje
@@ -232,7 +238,7 @@ namespace Eatery.Ventas
             this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.Location = new System.Drawing.Point(6, 6);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(1028, 17);
+            this.lblMensaje.Size = new System.Drawing.Size(932, 17);
             this.lblMensaje.TabIndex = 0;
             // 
             // timerLimpiarMensaje
@@ -245,7 +251,7 @@ namespace Eatery.Ventas
             this.lblfecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblfecha.AutoSize = true;
             this.lblfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfecha.Location = new System.Drawing.Point(1284, 22);
+            this.lblfecha.Location = new System.Drawing.Point(1188, 22);
             this.lblfecha.Name = "lblfecha";
             this.lblfecha.Size = new System.Drawing.Size(121, 24);
             this.lblfecha.TabIndex = 16;
@@ -268,13 +274,16 @@ namespace Eatery.Ventas
             this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPage1});
             this.navigationFrame1.SelectedPage = this.navigationPage1;
-            this.navigationFrame1.Size = new System.Drawing.Size(1055, 595);
+            this.navigationFrame1.Size = new System.Drawing.Size(959, 509);
             this.navigationFrame1.TabIndex = 19;
             this.navigationFrame1.Text = "navigationFrame1";
             // 
             // navigationPage1
             // 
+            this.navigationPage1.Controls.Add(this.label10);
+            this.navigationPage1.Controls.Add(this.cmdSalir2);
             this.navigationPage1.Controls.Add(this.rdCredito);
+            this.navigationPage1.Controls.Add(this.rdPorCobrar);
             this.navigationPage1.Controls.Add(this.rdContado);
             this.navigationPage1.Controls.Add(this.label4);
             this.navigationPage1.Controls.Add(this.cmdCopiarDesde);
@@ -287,7 +296,6 @@ namespace Eatery.Ventas
             this.navigationPage1.Controls.Add(this.label11);
             this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
             this.navigationPage1.Controls.Add(this.txtAsesorVendedor);
-            this.navigationPage1.Controls.Add(this.label10);
             this.navigationPage1.Controls.Add(this.dtFechaEntrega);
             this.navigationPage1.Controls.Add(this.label6);
             this.navigationPage1.Controls.Add(this.txtComentario);
@@ -310,29 +318,66 @@ namespace Eatery.Ventas
             this.navigationPage1.Controls.Add(this.txtNombreCliente);
             this.navigationPage1.Margin = new System.Windows.Forms.Padding(2);
             this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(1055, 595);
+            this.navigationPage1.Size = new System.Drawing.Size(959, 509);
             this.navigationPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.navigationPage1_Paint);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label10.Location = new System.Drawing.Point(624, 109);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 17);
+            this.label10.TabIndex = 51;
+            this.label10.Text = "Vendedor";
+            // 
+            // cmdSalir2
+            // 
+            this.cmdSalir2.Appearance.BackColor = System.Drawing.Color.White;
+            this.cmdSalir2.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.cmdSalir2.Appearance.Options.UseBackColor = true;
+            this.cmdSalir2.Appearance.Options.UseFont = true;
+            this.cmdSalir2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdSalir2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSalir2.ImageOptions.Image")));
+            this.cmdSalir2.Location = new System.Drawing.Point(878, 8);
+            this.cmdSalir2.Name = "cmdSalir2";
+            this.cmdSalir2.Size = new System.Drawing.Size(77, 38);
+            this.cmdSalir2.TabIndex = 65;
+            this.cmdSalir2.Text = "&Salir";
+            this.cmdSalir2.Click += new System.EventHandler(this.cmdSalir2_Click);
             // 
             // rdCredito
             // 
             this.rdCredito.AutoSize = true;
-            this.rdCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdCredito.Location = new System.Drawing.Point(814, 104);
+            this.rdCredito.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdCredito.Location = new System.Drawing.Point(865, 73);
             this.rdCredito.Name = "rdCredito";
-            this.rdCredito.Size = new System.Drawing.Size(100, 22);
-            this.rdCredito.TabIndex = 63;
-            this.rdCredito.Text = "Por Cobrar";
+            this.rdCredito.Size = new System.Drawing.Size(64, 19);
+            this.rdCredito.TabIndex = 64;
+            this.rdCredito.Text = "Crédito";
             this.rdCredito.UseVisualStyleBackColor = true;
-            this.rdCredito.CheckedChanged += new System.EventHandler(this.rdCredito_CheckedChanged_1);
+            this.rdCredito.CheckedChanged += new System.EventHandler(this.rdCredito_CheckedChanged_2);
+            // 
+            // rdPorCobrar
+            // 
+            this.rdPorCobrar.AutoSize = true;
+            this.rdPorCobrar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdPorCobrar.Location = new System.Drawing.Point(770, 73);
+            this.rdPorCobrar.Name = "rdPorCobrar";
+            this.rdPorCobrar.Size = new System.Drawing.Size(82, 19);
+            this.rdPorCobrar.TabIndex = 63;
+            this.rdPorCobrar.Text = "Por Cobrar";
+            this.rdPorCobrar.UseVisualStyleBackColor = true;
+            this.rdPorCobrar.CheckedChanged += new System.EventHandler(this.rdCredito_CheckedChanged_1);
             // 
             // rdContado
             // 
             this.rdContado.AutoSize = true;
             this.rdContado.Checked = true;
-            this.rdContado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdContado.Location = new System.Drawing.Point(813, 83);
+            this.rdContado.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdContado.Location = new System.Drawing.Point(689, 73);
             this.rdContado.Name = "rdContado";
-            this.rdContado.Size = new System.Drawing.Size(83, 22);
+            this.rdContado.Size = new System.Drawing.Size(71, 19);
             this.rdContado.TabIndex = 62;
             this.rdContado.TabStop = true;
             this.rdContado.Text = "Contado";
@@ -342,22 +387,22 @@ namespace Eatery.Ventas
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label4.Location = new System.Drawing.Point(738, 84);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label4.Location = new System.Drawing.Point(624, 73);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.Size = new System.Drawing.Size(55, 17);
             this.label4.TabIndex = 61;
             this.label4.Text = "Término";
             // 
             // cmdCopiarDesde
             // 
-            this.cmdCopiarDesde.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdCopiarDesde.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdCopiarDesde.Appearance.Options.UseFont = true;
             this.cmdCopiarDesde.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdCopiarDesde.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdCopiarDesde.ImageOptions.SvgImage")));
-            this.cmdCopiarDesde.Location = new System.Drawing.Point(534, 119);
+            this.cmdCopiarDesde.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCopiarDesde.ImageOptions.Image")));
+            this.cmdCopiarDesde.Location = new System.Drawing.Point(493, 94);
             this.cmdCopiarDesde.Name = "cmdCopiarDesde";
-            this.cmdCopiarDesde.Size = new System.Drawing.Size(172, 38);
+            this.cmdCopiarDesde.Size = new System.Drawing.Size(123, 34);
             this.cmdCopiarDesde.TabIndex = 60;
             this.cmdCopiarDesde.Text = "Copiar desde";
             this.cmdCopiarDesde.Click += new System.EventHandler(this.cmdCopiarDesde_Click);
@@ -365,36 +410,36 @@ namespace Eatery.Ventas
             // ckConfirmarPedido
             // 
             this.ckConfirmarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ckConfirmarPedido.Location = new System.Drawing.Point(556, 511);
+            this.ckConfirmarPedido.Location = new System.Drawing.Point(548, 427);
             this.ckConfirmarPedido.Name = "ckConfirmarPedido";
-            this.ckConfirmarPedido.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.ckConfirmarPedido.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.ckConfirmarPedido.Properties.Appearance.Options.UseFont = true;
             this.ckConfirmarPedido.Properties.Caption = "Confirmar Pre Factura";
-            this.ckConfirmarPedido.Size = new System.Drawing.Size(188, 24);
+            this.ckConfirmarPedido.Size = new System.Drawing.Size(165, 23);
             this.ckConfirmarPedido.TabIndex = 59;
             // 
             // ckGenerarCotizacion
             // 
             this.ckGenerarCotizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ckGenerarCotizacion.Location = new System.Drawing.Point(556, 534);
+            this.ckGenerarCotizacion.Location = new System.Drawing.Point(548, 450);
             this.ckGenerarCotizacion.Name = "ckGenerarCotizacion";
-            this.ckGenerarCotizacion.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.ckGenerarCotizacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.ckGenerarCotizacion.Properties.Appearance.Options.UseFont = true;
             this.ckGenerarCotizacion.Properties.Caption = "Generar Cotización";
-            this.ckGenerarCotizacion.Size = new System.Drawing.Size(158, 24);
+            this.ckGenerarCotizacion.Size = new System.Drawing.Size(158, 23);
             this.ckGenerarCotizacion.TabIndex = 58;
             // 
             // cmdConfirmarFactura
             // 
             this.cmdConfirmarFactura.Appearance.BackColor = System.Drawing.Color.SkyBlue;
-            this.cmdConfirmarFactura.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
+            this.cmdConfirmarFactura.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.cmdConfirmarFactura.Appearance.Options.UseBackColor = true;
             this.cmdConfirmarFactura.Appearance.Options.UseFont = true;
             this.cmdConfirmarFactura.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdConfirmarFactura.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdConfirmarFactura.ImageOptions.Image")));
-            this.cmdConfirmarFactura.Location = new System.Drawing.Point(814, 38);
+            this.cmdConfirmarFactura.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdConfirmarFactura.ImageOptions.SvgImage")));
+            this.cmdConfirmarFactura.Location = new System.Drawing.Point(689, 32);
             this.cmdConfirmarFactura.Name = "cmdConfirmarFactura";
-            this.cmdConfirmarFactura.Size = new System.Drawing.Size(195, 38);
+            this.cmdConfirmarFactura.Size = new System.Drawing.Size(186, 34);
             this.cmdConfirmarFactura.TabIndex = 57;
             this.cmdConfirmarFactura.Text = "Confirmar Pre Factura";
             this.cmdConfirmarFactura.Visible = false;
@@ -402,9 +447,9 @@ namespace Eatery.Ventas
             // 
             // gleEstados
             // 
-            this.gleEstados.Location = new System.Drawing.Point(814, 10);
+            this.gleEstados.Location = new System.Drawing.Point(689, 9);
             this.gleEstados.Name = "gleEstados";
-            this.gleEstados.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.gleEstados.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gleEstados.Properties.Appearance.Options.UseFont = true;
             this.gleEstados.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -414,7 +459,7 @@ namespace Eatery.Ventas
             this.gleEstados.Properties.PopupView = this.gridView2;
             this.gleEstados.Properties.ReadOnly = true;
             this.gleEstados.Properties.ValueMember = "id";
-            this.gleEstados.Size = new System.Drawing.Size(195, 24);
+            this.gleEstados.Size = new System.Drawing.Size(186, 22);
             this.gleEstados.TabIndex = 56;
             // 
             // bsEstadosFacturas
@@ -452,20 +497,20 @@ namespace Eatery.Ventas
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label12.Location = new System.Drawing.Point(738, 12);
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label12.Location = new System.Drawing.Point(623, 11);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 20);
+            this.label12.Size = new System.Drawing.Size(48, 17);
             this.label12.TabIndex = 55;
             this.label12.Text = "Estado";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label11.Location = new System.Drawing.Point(12, 135);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label11.Location = new System.Drawing.Point(10, 109);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 20);
+            this.label11.Size = new System.Drawing.Size(51, 17);
             this.label11.TabIndex = 54;
             this.label11.Text = "Código";
             // 
@@ -474,7 +519,7 @@ namespace Eatery.Ventas
             this.cmdChangeVendedor.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.cmdChangeVendedor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdChangeVendedor.ImageOptions.Image")));
             this.cmdChangeVendedor.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdChangeVendedor.Location = new System.Drawing.Point(1010, 130);
+            this.cmdChangeVendedor.Location = new System.Drawing.Point(885, 105);
             this.cmdChangeVendedor.Name = "cmdChangeVendedor";
             this.cmdChangeVendedor.Size = new System.Drawing.Size(39, 24);
             this.cmdChangeVendedor.TabIndex = 53;
@@ -482,158 +527,150 @@ namespace Eatery.Ventas
             // 
             // txtAsesorVendedor
             // 
-            this.txtAsesorVendedor.Location = new System.Drawing.Point(814, 130);
+            this.txtAsesorVendedor.Location = new System.Drawing.Point(689, 106);
             this.txtAsesorVendedor.Name = "txtAsesorVendedor";
-            this.txtAsesorVendedor.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAsesorVendedor.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtAsesorVendedor.Properties.Appearance.Options.UseFont = true;
-            this.txtAsesorVendedor.Size = new System.Drawing.Size(195, 24);
+            this.txtAsesorVendedor.Size = new System.Drawing.Size(195, 22);
             this.txtAsesorVendedor.TabIndex = 52;
             this.txtAsesorVendedor.DoubleClick += new System.EventHandler(this.textEdit1_DoubleClick);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label10.Location = new System.Drawing.Point(738, 133);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 20);
-            this.label10.TabIndex = 51;
-            this.label10.Text = "Asesor";
             // 
             // dtFechaEntrega
             // 
             this.dtFechaEntrega.EditValue = null;
-            this.dtFechaEntrega.Location = new System.Drawing.Point(136, 96);
+            this.dtFechaEntrega.Location = new System.Drawing.Point(99, 80);
             this.dtFechaEntrega.Name = "dtFechaEntrega";
-            this.dtFechaEntrega.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.dtFechaEntrega.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtFechaEntrega.Properties.Appearance.Options.UseFont = true;
             this.dtFechaEntrega.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtFechaEntrega.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
             this.dtFechaEntrega.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtFechaEntrega.Size = new System.Drawing.Size(214, 26);
+            this.dtFechaEntrega.Size = new System.Drawing.Size(214, 22);
             this.dtFechaEntrega.TabIndex = 44;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label6.Location = new System.Drawing.Point(12, 99);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label6.Location = new System.Drawing.Point(10, 83);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 20);
+            this.label6.Size = new System.Drawing.Size(90, 17);
             this.label6.TabIndex = 43;
             this.label6.Text = "Fecha Entrega";
             // 
             // txtComentario
             // 
             this.txtComentario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtComentario.Location = new System.Drawing.Point(271, 505);
+            this.txtComentario.Location = new System.Drawing.Point(148, 421);
             this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.txtComentario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.25F);
             this.txtComentario.Properties.Appearance.Options.UseFont = true;
-            this.txtComentario.Size = new System.Drawing.Size(257, 52);
+            this.txtComentario.Size = new System.Drawing.Size(312, 52);
             this.txtComentario.TabIndex = 41;
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label5.Location = new System.Drawing.Point(273, 479);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label5.Location = new System.Drawing.Point(145, 401);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 20);
+            this.label5.Size = new System.Drawing.Size(76, 17);
             this.label5.TabIndex = 42;
             this.label5.Text = "Comentario";
             // 
             // simpleButton2
             // 
             this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.White;
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(797, 521);
+            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.simpleButton2.Location = new System.Drawing.Point(770, 435);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(255, 38);
+            this.simpleButton2.Size = new System.Drawing.Size(186, 38);
             this.simpleButton2.TabIndex = 40;
-            this.simpleButton2.Text = "&Generar Pedido";
+            this.simpleButton2.Text = "&Guardar";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click_1);
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(136, 66);
+            this.txtDireccion.Location = new System.Drawing.Point(99, 56);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.txtDireccion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Properties.Appearance.Options.UseFont = true;
             this.txtDireccion.Properties.NullValuePrompt = "Direcci del Cliente";
-            this.txtDireccion.Size = new System.Drawing.Size(392, 26);
+            this.txtDireccion.Size = new System.Drawing.Size(392, 22);
             this.txtDireccion.TabIndex = 36;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label3.Location = new System.Drawing.Point(12, 69);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label3.Location = new System.Drawing.Point(10, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 20);
+            this.label3.Size = new System.Drawing.Size(62, 17);
             this.label3.TabIndex = 35;
             this.label3.Text = "Dirección";
             // 
             // cmdConsumidorFinal
             // 
-            this.cmdConsumidorFinal.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
+            this.cmdConsumidorFinal.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdConsumidorFinal.Appearance.Options.UseFont = true;
             this.cmdConsumidorFinal.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdConsumidorFinal.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdConsumidorFinal.ImageOptions.Image")));
-            this.cmdConsumidorFinal.Location = new System.Drawing.Point(534, 8);
+            this.cmdConsumidorFinal.Location = new System.Drawing.Point(493, 8);
             this.cmdConsumidorFinal.Name = "cmdConsumidorFinal";
-            this.cmdConsumidorFinal.Size = new System.Drawing.Size(172, 40);
+            this.cmdConsumidorFinal.Size = new System.Drawing.Size(123, 34);
             this.cmdConsumidorFinal.TabIndex = 34;
             this.cmdConsumidorFinal.Text = "Consumidor Final";
             this.cmdConsumidorFinal.Click += new System.EventHandler(this.cmdConsumidorFinal_Click);
             // 
             // txtRTN
             // 
-            this.txtRTN.Location = new System.Drawing.Point(136, 37);
+            this.txtRTN.Location = new System.Drawing.Point(99, 32);
             this.txtRTN.Name = "txtRTN";
-            this.txtRTN.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.txtRTN.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRTN.Properties.Appearance.Options.UseFont = true;
             this.txtRTN.Properties.NullValuePrompt = "Nombre del Cliente";
-            this.txtRTN.Size = new System.Drawing.Size(392, 26);
+            this.txtRTN.Size = new System.Drawing.Size(392, 22);
             this.txtRTN.TabIndex = 33;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label2.Location = new System.Drawing.Point(12, 40);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label2.Location = new System.Drawing.Point(10, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 20);
+            this.label2.Size = new System.Drawing.Size(32, 17);
             this.label2.TabIndex = 32;
             this.label2.Text = "RTN";
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.25F, System.Drawing.FontStyle.Bold);
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(356, 119);
+            this.simpleButton1.Location = new System.Drawing.Point(319, 94);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(172, 38);
+            this.simpleButton1.Size = new System.Drawing.Size(172, 34);
             this.simpleButton1.TabIndex = 31;
             this.simpleButton1.Text = "Agregar Producto";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_2);
             // 
             // txtScanProducto
             // 
-            this.txtScanProducto.Location = new System.Drawing.Point(135, 127);
+            this.txtScanProducto.Location = new System.Drawing.Point(99, 104);
             this.txtScanProducto.Name = "txtScanProducto";
-            this.txtScanProducto.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
+            this.txtScanProducto.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtScanProducto.Properties.Appearance.Options.UseFont = true;
             this.txtScanProducto.Properties.NullValuePrompt = "Leer código de Producto";
-            this.txtScanProducto.Size = new System.Drawing.Size(215, 30);
+            this.txtScanProducto.Size = new System.Drawing.Size(214, 24);
             this.txtScanProducto.TabIndex = 30;
             this.txtScanProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtScanProducto_KeyDown);
             // 
@@ -645,14 +682,14 @@ namespace Eatery.Ventas
             this.gridControl1.DataMember = "detalle_factura_transaction";
             this.gridControl1.DataSource = this.dsVentas1;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gridControl1.Location = new System.Drawing.Point(3, 162);
+            this.gridControl1.Location = new System.Drawing.Point(2, 134);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdDeleteRowFactura,
             this.cmdElejirAlmacen});
-            this.gridControl1.Size = new System.Drawing.Size(1046, 312);
+            this.gridControl1.Size = new System.Drawing.Size(955, 257);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -704,7 +741,7 @@ namespace Eatery.Ventas
             this.colitemcode.OptionsColumn.ReadOnly = true;
             this.colitemcode.Visible = true;
             this.colitemcode.VisibleIndex = 0;
-            this.colitemcode.Width = 51;
+            this.colitemcode.Width = 52;
             // 
             // colcodigo_referencia
             // 
@@ -730,7 +767,7 @@ namespace Eatery.Ventas
             this.colcantidad.OptionsColumn.ReadOnly = true;
             this.colcantidad.Visible = true;
             this.colcantidad.VisibleIndex = 7;
-            this.colcantidad.Width = 63;
+            this.colcantidad.Width = 61;
             // 
             // colprecio
             // 
@@ -741,7 +778,7 @@ namespace Eatery.Ventas
             this.colprecio.OptionsColumn.ReadOnly = true;
             this.colprecio.Visible = true;
             this.colprecio.VisibleIndex = 8;
-            this.colprecio.Width = 83;
+            this.colprecio.Width = 76;
             // 
             // coldescuento
             // 
@@ -763,7 +800,7 @@ namespace Eatery.Ventas
             this.colisv1.OptionsColumn.ReadOnly = true;
             this.colisv1.Visible = true;
             this.colisv1.VisibleIndex = 10;
-            this.colisv1.Width = 49;
+            this.colisv1.Width = 43;
             // 
             // colisv2
             // 
@@ -784,7 +821,7 @@ namespace Eatery.Ventas
             this.coltotal_linea.OptionsColumn.ReadOnly = true;
             this.coltotal_linea.Visible = true;
             this.coltotal_linea.VisibleIndex = 11;
-            this.coltotal_linea.Width = 73;
+            this.coltotal_linea.Width = 82;
             // 
             // colDelete
             // 
@@ -794,14 +831,14 @@ namespace Eatery.Ventas
             this.colDelete.Name = "colDelete";
             this.colDelete.Visible = true;
             this.colDelete.VisibleIndex = 12;
-            this.colDelete.Width = 50;
+            this.colDelete.Width = 40;
             // 
             // cmdDeleteRowFactura
             // 
             this.cmdDeleteRowFactura.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions7.Image")));
             this.cmdDeleteRowFactura.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdDeleteRowFactura.Name = "cmdDeleteRowFactura";
             this.cmdDeleteRowFactura.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdDeleteRowFactura.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdDeleteRowFactura_ButtonClick);
@@ -833,14 +870,14 @@ namespace Eatery.Ventas
             this.colGestionAlmacen.Name = "colGestionAlmacen";
             this.colGestionAlmacen.Visible = true;
             this.colGestionAlmacen.VisibleIndex = 6;
-            this.colGestionAlmacen.Width = 67;
+            this.colGestionAlmacen.Width = 59;
             // 
             // cmdElejirAlmacen
             // 
             this.cmdElejirAlmacen.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions8.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions8.Image")));
             this.cmdElejirAlmacen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdElejirAlmacen.Name = "cmdElejirAlmacen";
             this.cmdElejirAlmacen.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdElejirAlmacen.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdElejirAlmacen_ButtonClick);
@@ -887,7 +924,7 @@ namespace Eatery.Ventas
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1055, 598);
+            this.ClientSize = new System.Drawing.Size(959, 512);
             this.Controls.Add(this.navigationFrame1);
             this.Name = "frmPedidoCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -991,9 +1028,11 @@ namespace Eatery.Ventas
         private DevExpress.XtraEditors.SimpleButton cmdCopiarDesde;
         private System.Windows.Forms.ErrorProvider errorProvLecturaCodigo;
         private DevExpress.XtraGrid.Columns.GridColumn colcodigo_referencia;
-        private System.Windows.Forms.RadioButton rdCredito;
+        private System.Windows.Forms.RadioButton rdPorCobrar;
         private System.Windows.Forms.RadioButton rdContado;
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraGrid.Columns.GridColumn colmarca;
+        private System.Windows.Forms.RadioButton rdCredito;
+        private DevExpress.XtraEditors.SimpleButton cmdSalir2;
     }
 }

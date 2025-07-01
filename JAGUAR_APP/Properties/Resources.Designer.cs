@@ -1693,6 +1693,16 @@ namespace JAGUAR_PRO.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Ionic_Ionicons_Add_circle_sharp_32 {
+            get {
+                object obj = ResourceManager.GetObject("Ionic-Ionicons-Add-circle-sharp.32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap it_services_16px {
             get {
                 object obj = ResourceManager.GetObject("it_services_16px", resourceCulture);

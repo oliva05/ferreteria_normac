@@ -97,6 +97,7 @@ namespace JAGUAR_PRO
                         navBarGroup12.Visible =
                         navBarItem154.Visible =
                         nbReporteCompras.Visible =
+                        navBarItem15.Visible = navBarItem15.Enabled = 
                         navBarGroup5.Visible =
                     navBarItemRecepcionFactura.Visible = true;
                     //tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
@@ -3317,8 +3318,6 @@ namespace JAGUAR_PRO
 
         private void navBarItem15_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-           
-
             bool accesoprevio = false;
             int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
             switch (idNivel)
@@ -3326,10 +3325,10 @@ namespace JAGUAR_PRO
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
-                    accesoprevio = true;
+                    //accesoprevio = true;
                     break;
                 case 3://Medium Autorization
-                    accesoprevio = true;
+                    //accesoprevio = true;
                     break;
                 case 4://Depth With Delta
                     accesoprevio = true;
@@ -4740,7 +4739,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
                         frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
-                        frm.StartPosition = FormStartPosition.CenterParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
                         break;
                     default:
@@ -4755,7 +4754,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
                         frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
-                        frm.StartPosition = FormStartPosition.CenterParent; 
+                        frm.StartPosition = FormStartPosition.CenterScreen; 
                         frm.Show();
                     }
                     else
@@ -4949,6 +4948,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         frmHomePedidosClientes frm = new frmHomePedidosClientes(this.UsuarioLogeado, puntoVenta1);
                         frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
                         break;
                     default:
@@ -4961,8 +4961,8 @@ namespace JAGUAR_PRO
                     {
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         frmHomePedidosClientes frm = new frmHomePedidosClientes(this.UsuarioLogeado, puntoVenta1);
-
                         frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
                     }
                     else

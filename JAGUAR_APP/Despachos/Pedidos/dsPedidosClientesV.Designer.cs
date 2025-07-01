@@ -414,6 +414,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             private global::System.Data.DataColumn columntotal;
             private global::System.Data.DataColumn columnfacturar;
+            private global::System.Data.DataColumn columndelete;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -614,7 +615,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public lista_pedidosRow Addlista_pedidosRow(int id, System.DateTime fecha, System.DateTime fecha_row, int id_user, string usuario_nombre, string enable, string comentario, string DocNum, int id_estado, string estado_name, int id_cliente, string NombreCorto, System.DateTime fecha_entrega_estimada, string direccion, decimal total, string facturar) {
+            public lista_pedidosRow Addlista_pedidosRow(int id, System.DateTime fecha, System.DateTime fecha_row, int id_user, string usuario_nombre, string enable, string comentario, string DocNum, int id_estado, string estado_name, int id_cliente, string NombreCorto, System.DateTime fecha_entrega_estimada, string direccion, decimal total, string facturar, string delete) {
                 lista_pedidosRow rowlista_pedidosRow = ((lista_pedidosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -632,7 +633,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                         fecha_entrega_estimada,
                         direccion,
                         total,
-                        facturar};
+                        facturar,
+                        delete};
                 rowlista_pedidosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlista_pedidosRow);
                 return rowlista_pedidosRow;
@@ -671,6 +673,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 this.columndireccion = base.Columns["direccion"];
                 this.columntotal = base.Columns["total"];
                 this.columnfacturar = base.Columns["facturar"];
+                this.columndelete = base.Columns["delete"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -708,6 +711,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 base.Columns.Add(this.columntotal);
                 this.columnfacturar = new global::System.Data.DataColumn("facturar", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfacturar);
+                this.columndelete = new global::System.Data.DataColumn("delete", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndelete);
                 this.columnfecha.Caption = "Fecha Pedido";
                 this.columnfecha_row.Caption = "Fecha Creado";
                 this.columnusuario_nombre.Caption = "Usuario Creacion";
@@ -718,6 +723,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 this.columndireccion.Caption = "Direccion Entrega";
                 this.columntotal.Caption = "Total";
                 this.columnfacturar.Caption = "Facturar";
+                this.columndelete.Caption = "Delete";
                 
             }
             
