@@ -104,9 +104,8 @@ namespace JAGUAR_PRO.Accesos.GrupoLosa
             // 
             // grdAccesos
             // 
-            this.grdAccesos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdAccesos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.grdAccesos.DataMember = "roles_accesos";
             this.grdAccesos.DataSource = this.dsAccesos1;
             this.grdAccesos.Location = new System.Drawing.Point(644, 0);
@@ -176,9 +175,8 @@ namespace JAGUAR_PRO.Accesos.GrupoLosa
             // gridControlGruposJAGUAR_PRO
             // 
             this.gridControlGruposJAGUAR_PRO.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
-            this.gridControlGruposJAGUAR_PRO.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControlGruposJAGUAR_PRO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.gridControlGruposJAGUAR_PRO.Location = new System.Drawing.Point(0, 0);
             this.gridControlGruposJAGUAR_PRO.MainView = this.gridView1;
             this.gridControlGruposJAGUAR_PRO.Name = "gridControlGruposJAGUAR_PRO";
