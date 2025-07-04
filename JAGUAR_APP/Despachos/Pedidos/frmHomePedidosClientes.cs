@@ -353,10 +353,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
-                    accesoprevio = false;
+                    //accesoprevio = false;
                     break;
                 case 3://Medium Autorization
-                    accesoprevio = false;
+                    //accesoprevio = false;
                     break;
                 case 4://Depth With Delta
                 case 5://Depth Without Delta

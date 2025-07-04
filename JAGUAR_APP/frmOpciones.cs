@@ -449,8 +449,8 @@ namespace JAGUAR_PRO
                             navBarG_ReportesFacturacion.Visible =
                             navBarGroup7.Visible = false;
 
-                            navBarItemFacturasEmitidas.Visible =
-                            navBarItem57.Visible = true;
+                            navBarItemFacturasEmitidas.Visible = true;
+                            //navBarItem57.Visible = true;//Cierre de caja
                             break;
                         case 4://Depth With Delta
                             tabOpciones.TabPages[4].PageVisible = true;

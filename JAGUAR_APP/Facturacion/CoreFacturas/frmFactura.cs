@@ -124,7 +124,7 @@ namespace Eatery.Ventas
             txtRTN.Text = string.Empty;
             txtRTN.Properties.NullValuePrompt =
             txtDireccion.Properties.NullValuePrompt = "No Aplica";
-            lblCodigoProducto.Visible = txtScanProducto.Visible = simpleButton1.Visible = cmdCopiarFromPedido.Visible = false;
+            //lblCodigoProducto.Visible = txtScanProducto.Visible = simpleButton1.Visible = cmdCopiarFromPedido.Visible = false;
             cmdChangeVendedor.Visible = false ;
             txtVendedor.ReadOnly = true;
 
@@ -579,7 +579,7 @@ namespace Eatery.Ventas
 
             //Efectuar que se haga la facturacion en dos pasos, primero la factura y luego el pago
             //if (PuntoDeVentaActual.EmisionFacturaDosPasos)
-            if(rdCredito.Checked)
+            if(rdCredito.Checked || rdPorCobrar.Checked)
             {
                 //Primero postear el pago
                 //frmConfirmationFactura frm2 = new frmConfirmationFactura(txtNombreCliente.Text, txtRTN.Text, txtDireccion.Text, dsVentas1.detalle_factura_transaction);
@@ -1622,7 +1622,7 @@ namespace Eatery.Ventas
 
         private void frmFactura_Activated(object sender, EventArgs e)
         {
-            txtScanProducto.Focus();
+            //txtScanProducto.Focus();
         }
 
         private void toggleTipoVenta_Toggled(object sender, EventArgs e){}
@@ -1822,41 +1822,41 @@ namespace Eatery.Ventas
             //6=Reposteria
 
             CargarOpcionesMasVendidasLeftPriority(1);
-            txtScanProducto.Focus();
+            //txtScanProducto.Focus();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             //Comidas
             CargarOpcionesMasVendidasLeftPriority(2);//1=Lo mas Vendido, 2=Comida(s), 3=Bebidas Frias, 4=Bebidas Calientes, 5=PAN, 6=Reposteria
-            txtScanProducto.Focus();
+            //txtScanProducto.Focus();
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             //Bebidas Frias
             CargarOpcionesMasVendidasLeftPriority(3);//1=Lo mas Vendido, 2=Comida(s), 3=Bebidas Frias, 4=Bebidas Calientes, 5=PAN, 6=Reposteria
-            txtScanProducto.Focus();
+            //txtScanProducto.Focus();
         }
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
             //Bebidas Calientes
             CargarOpcionesMasVendidasLeftPriority(4);//1=Lo mas Vendido, 2=Comida(s), 3=Bebidas Frias, 4=Bebidas Calientes, 5=PAN, 6=Reposteria
-            txtScanProducto.Focus();
+            //txtScanProducto.Focus();
         }
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             //PAN
             CargarOpcionesMasVendidasLeftPriority(5);//1=Lo mas Vendido, 2=Comida(s), 3=Bebidas Frias, 4=Bebidas Calientes, 5=PAN, 6=Reposteria
-            txtScanProducto.Focus();
+            //txtScanProducto.Focus();
         }
         private void simpleButton6_Click(object sender, EventArgs e)
         {
             //Reposteria
             CargarOpcionesMasVendidasLeftPriority(6);//1=Lo mas Vendido, 2=Comida(s), 3=Bebidas Frias, 4=Bebidas Calientes, 5=PAN, 6=Reposteria
-            txtScanProducto.Focus();
+            //txtScanProducto.Focus();
         }
 
        
@@ -1892,7 +1892,7 @@ namespace Eatery.Ventas
             BusquedaSet = Busqueda.LoMasVendido;
             //SetBusqueda();
             //CargarOpcionesMasVendidas(2);
-            txtScanProducto.Focus();
+            //txtScanProducto.Focus();
         }
 
 
@@ -1900,7 +1900,7 @@ namespace Eatery.Ventas
         {
             BusquedaSet = Busqueda.Todos;
             //SetBusqueda();
-            txtScanProducto.Focus();
+            //txtScanProducto.Focus();
         }
 
         private void cmdAddToCart_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -2214,99 +2214,17 @@ namespace Eatery.Ventas
             return total;
         }
 
-        private void txtScanProducto_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(string.IsNullOrEmpty(txtScanProducto.Text)) return;
-
-            ProductoTerminado pt1 = new ProductoTerminado();
-            if (pt1.Recuperar_productoByBarCode(txtScanProducto.Text))
-            {
-                decimal valor_total = 0;
-
-                bool AgregarNuevo = true;
-                foreach (dsVentas.detalle_factura_transactionRow rowF in dsVentas1.detalle_factura_transaction)
-                {
-                    if (rowF.id_pt == pt1.Id)
-                    {
-                        //Sumar cantidad nada mas
-                        rowF.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
-                        rowF.cantidad = rowF.cantidad + 1;
-                        rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
-                        rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
-                        rowF.total_linea = (rowF.cantidad * rowF.precio) - rowF.descuento + rowF.isv1 + rowF.isv2 + rowF.isv3;
-                        AgregarNuevo = false;
-                    }
-                    valor_total += (rowF.total_linea);// + rowF.isv1);
-                    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
-                }
-
-                if (AgregarNuevo)
-                {
-                    dsVentas.detalle_factura_transactionRow row1 = dsVentas1.detalle_factura_transaction.Newdetalle_factura_transactionRow();
-                    //dsCompras.oc_d_normalRow row1 = dsCompras1.oc_d_normal.Newoc_d_normalRow();
-                    row1.id_pt = pt1.Id;
-                    row1.cantidad = 1;
-
-
-                    row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
-
-                    if (row1.precio == 0)
-                    {
-                        SetErrorBarra("Este producto no tiene definido un precio. Por favor valide Lista de Precios!");
-                    }
-
-                    row1.descuento = 0;
-                    row1.itemcode = pt1.Code;
-                    row1.itemname = pt1.Descripcion;
-                    row1.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
-
-                    row1.isv1 = row1.isv2 = row1.isv3 = 0;
-                    Impuesto impuesto = new Impuesto();
-                    decimal tasaISV = 0;
-
-                    if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
-                    {
-                        tasaISV = impuesto.Valor / 100;
-                        row1.isv1 = ((row1.precio - row1.descuento) / 100) * impuesto.Valor;
-                        row1.precio = (row1.precio - row1.descuento) - row1.isv1;
-
-                        row1.tasa_isv = tasaISV;
-                        row1.id_isv_aplicable = impuesto.Id;
-                    }
-                    else
-                    {
-                        row1.tasa_isv = 0;
-                        row1.id_isv_aplicable = 0;
-                        row1.precio = (row1.precio - row1.descuento);
-                    }
-
-                    row1.total_linea = (row1.cantidad * row1.precio) + (row1.cantidad * row1.isv1) + (row1.cantidad * row1.isv2) + (row1.cantidad * row1.isv3);
-
-
-                    //dsCompras.oc_d_normal.Addoc_d_normalRow(row1);
-                    dsVentas1.detalle_factura_transaction.Adddetalle_factura_transactionRow(row1);
-                    valor_total += (row1.total_linea + row1.isv1);
-                    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
-
-                    if (dsVentas1.detalle_factura_transaction.Count > 0)
-                        gridView1.FocusedRowHandle = dsVentas1.detalle_factura_transaction.Count - 1;
-                    else
-                        gridView1.FocusedRowHandle = 0;
-
-                    txtScanProducto.Text = "";
-                    gridView1.FocusedColumn = colcantidad;
-                    gridView1.ShowEditor();
-                }
-            }
-        }
 
         private void rdContado_CheckedChanged(object sender, EventArgs e)
         {
             if (rdContado.Checked)
             {
                 rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged); 
+                rdPorCobrar.CheckedChanged -= new EventHandler(rdPorCobrar_CheckedChanged);
                 rdCredito.Checked = false;
+                rdPorCobrar.Checked = false;
                 IdTerminoPago = 1;
+                rdPorCobrar.CheckedChanged += new EventHandler(rdPorCobrar_CheckedChanged);
                 rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
             }
         }
@@ -2315,10 +2233,13 @@ namespace Eatery.Ventas
         {
             if (rdCredito.Checked)
             {
+                rdPorCobrar.CheckedChanged -= new EventHandler(rdPorCobrar_CheckedChanged);
                 rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
                 rdContado.Checked = false;
+                rdPorCobrar.Checked = false;
                 IdTerminoPago = 2;
                 rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
+                rdPorCobrar.CheckedChanged += new EventHandler(rdPorCobrar_CheckedChanged);
             }
         }
 
@@ -2462,6 +2383,20 @@ namespace Eatery.Ventas
                 {
 
                 }
+            }
+        }
+
+        private void rdPorCobrar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdPorCobrar.Checked)
+            {
+                rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
+                rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
+                rdContado.Checked = false;
+                rdCredito.Checked = false;
+                IdTerminoPago = 3;
+                rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
+                rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
             }
         }
     }
