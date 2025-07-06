@@ -931,6 +931,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columnnum_cuenta);
                 this.columnmoneda = new global::System.Data.DataColumn("moneda", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmoneda);
+                this.columntitular.Caption = "Titular";
+                this.columnnum_cuenta.Caption = "No Cuenta";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
