@@ -5652,5 +5652,11 @@ namespace JAGUAR_PRO
                 }
             }
         }
+
+        private void navBarItemDepositoBancoCaja_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            // Para poner la seccion de depositos de banco de caja
+
+        }
     }
 }

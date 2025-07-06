@@ -358,6 +358,7 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemDepositoBancoCaja = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -3957,7 +3958,8 @@
             this.nbReportesFacturacionMain,
             this.navBarItemCambioDePrecio,
             this.navBarItem20,
-            this.navBarItem59});
+            this.navBarItem59,
+            this.navBarItemDepositoBancoCaja});
             this.navBarControl3.Location = new System.Drawing.Point(0, 0);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
@@ -3990,7 +3992,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.nB_PagoMultiple),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem56),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem57),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem58)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem58),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemDepositoBancoCaja)});
             this.navBarGroup10.Name = "navBarGroup10";
             // 
             // nbPrefactura
@@ -4957,6 +4960,20 @@
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
             // 
+            // navBarItemDepositoBancoCaja
+            // 
+            this.navBarItemDepositoBancoCaja.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.Appearance.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.AppearancePressed.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.Caption = "Depósito Bancario Caja";
+            this.navBarItemDepositoBancoCaja.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemDepositoBancoCaja.ImageOptions.SmallImage")));
+            this.navBarItemDepositoBancoCaja.Name = "navBarItemDepositoBancoCaja";
+            this.navBarItemDepositoBancoCaja.Visible = false;
+            this.navBarItemDepositoBancoCaja.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDepositoBancoCaja_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5329,5 +5346,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem155;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup19;
         private DevExpress.XtraNavBar.NavBarItem navBarItem208;
+        private DevExpress.XtraNavBar.NavBarItem navBarItemDepositoBancoCaja;
     }
 }
