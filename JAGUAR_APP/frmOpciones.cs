@@ -3179,7 +3179,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #19 (Recepción de Facturas)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #19 (CAI de Proveedores)");
                 }
             }
             //xfrmProveedorCAI frm = new xfrmProveedorCAI();
