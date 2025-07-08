@@ -184,13 +184,23 @@ namespace Eatery.Ventas
                         txtNombreCliente.Text = clienteEmpresa1.NombreLargo;
                         txtRTN.Text = clienteEmpresa1.RTN;
                         txtDireccion.Text = clienteEmpresa1.Direccion;
-
                     }
                     else
                     {
-                        txtNombreCliente.Text = ClienteFactura.NombreCliente;
-                        txtDireccion.Text = ClienteFactura.Direccion;
-                        txtRTN.Text = "";
+                        if (!string.IsNullOrEmpty(Pedido1.ClienteNombre))
+                            txtNombreCliente.Text = Pedido1.ClienteNombre;
+                        else
+                            txtNombreCliente.Text = ClienteFactura.NombreCliente;
+                        
+                        if (!string.IsNullOrEmpty(Pedido1.direccion_cliente))
+                            txtDireccion.Text = Pedido1.direccion_cliente;
+                        else
+                            txtDireccion.Text = ClienteFactura.Direccion;
+
+                        if (!string.IsNullOrEmpty(Pedido1.RTN))
+                            txtRTN.Text = Pedido1.RTN;
+                        else
+                            txtRTN.Text = "";
                     }
 
                     CargarDetalleCotizacion(pIdPedido);
