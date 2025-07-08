@@ -1219,6 +1219,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFacturasGestion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\CoreFacturas\dsRegistroPagos.cs">
+      <DependentUpon>dsRegistroPagos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\CoreFacturas\dsRegistroPagos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

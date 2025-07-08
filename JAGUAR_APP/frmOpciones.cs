@@ -128,6 +128,7 @@ namespace JAGUAR_PRO
                             tabOpciones.TabPages[2].PageVisible = false;//RRHH
                             tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
                             tabOpciones.TabPages[4].PageVisible = true; //Facturacion
+                            navBarItemDepositoBancoCaja.Visible = true;
                             break;
                         case 4://Depth With Delta
                             tabOpciones.TabPages[0].PageVisible = true;
@@ -135,6 +136,7 @@ namespace JAGUAR_PRO
                             tabOpciones.TabPages[2].PageVisible = true; //Administracion
                             tabOpciones.TabPages[3].PageVisible = true; //RRHH
                             tabOpciones.TabPages[4].PageVisible = true; //Contabilidad
+                            navBarItemDepositoBancoCaja.Visible = true;
                             //tabOpciones.TabPages[5].PageVisible = true; //Facturacion
                             //tabOpciones.TabPages[6].PageVisible = false;
                             //tabOpciones.TabPages[7].PageVisible = false;
@@ -159,6 +161,7 @@ namespace JAGUAR_PRO
                             NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
                             NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
                             NBI_Cliente.Visible = true;
+                            navBarItemDepositoBancoCaja.Visible = true;
                             break;
                         default:
                             tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
@@ -449,8 +452,9 @@ namespace JAGUAR_PRO
                             navBarG_ReportesFacturacion.Visible =
                             navBarGroup7.Visible = false;
 
-                            navBarItemFacturasEmitidas.Visible =
-                            navBarItem57.Visible = true;
+                            navBarItemDepositoBancoCaja.Visible = true;
+                            navBarItemFacturasEmitidas.Visible = true;
+                            //navBarItem57.Visible = true;//Cierre de caja
                             break;
                         case 4://Depth With Delta
                             tabOpciones.TabPages[4].PageVisible = true;
@@ -3175,7 +3179,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #19 (Recepción de Facturas)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #19 (CAI de Proveedores)");
                 }
             }
             //xfrmProveedorCAI frm = new xfrmProveedorCAI();
@@ -5651,6 +5655,12 @@ namespace JAGUAR_PRO
                     CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-22 (Master de Producto Terminado)");
                 }
             }
+        }
+
+        private void navBarItemDepositoBancoCaja_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            // Para poner la seccion de depositos de banco de caja
+
         }
     }
 }

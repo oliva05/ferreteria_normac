@@ -18,6 +18,7 @@ using JAGUAR_PRO.Facturacion.Numeracion_Fiscal;
 using JAGUAR_PRO.Facturacion.Reportes;
 using JAGUAR_PRO.Mantenimientos;
 using JAGUAR_PRO.Mantenimientos.Modelos;
+using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
 using JAGUAR_PRO.RecuentoInventario;
 using JAGUAR_PRO.TransaccionesPT;
 using JAGUAR_PRO.Utileria;
@@ -2589,6 +2590,25 @@ namespace Eatery.Ventas
             //    }
             //}
 
+            if (ckConfirmarPedido.Checked)
+            {
+                bool ItemSinInventario = false;
+                foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
+                {
+                    if (row.inventario <= 0)
+                    {
+                        ItemSinInventario |= true;
+                    }
+                }
+
+                if (ItemSinInventario)
+                {
+                    CajaDialogo.Error("Hay productos que tienen un invetario menor o igual a cero (0).\nDebe eliminar estos productos para poder confirmar la Pre Factura!");
+                    ckConfirmarPedido.Checked = false;
+                    return;
+                }
+            }
+
 
             //Valiadmos que se haya elejido un vendedor
             if (VendedorActual == null)
@@ -2692,7 +2712,7 @@ namespace Eatery.Ventas
                             command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
                             command.Parameters.AddWithValue("@cliente_nombre", Pedido_.ClienteNombre);
 
-                            if (string.IsNullOrEmpty(Pedido_.RTN))
+                            if (string.IsNullOrEmpty(Pedido_.direccion_cliente))
                                 command.Parameters.AddWithValue("@direccion", DBNull.Value);
                             else
                                 command.Parameters.AddWithValue("@direccion", Pedido_.direccion_cliente);
@@ -3198,6 +3218,21 @@ namespace Eatery.Ventas
                 return;
             }
 
+            bool ItemSinInventario = false;
+            foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
+            {
+                if (row.inventario <= 0)
+                {
+                    ItemSinInventario|= true;
+                }
+            }
+
+            if (ItemSinInventario)
+            {
+                CajaDialogo.Error("Hay productos que tienen un invetario menor o igual a cero (0).\nDebe eliminar estos productos para poder confirmar la Pre Factura!");
+                return;
+            }
+
             try
             {
                 DataOperations dp = new DataOperations();
@@ -3397,6 +3432,34 @@ namespace Eatery.Ventas
                 IdTerminoPago = 2;
                 rdPorCobrar.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
                 rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
+            }
+        }
+
+        private void gridView1_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view == null) return;
+
+            if (e.RowHandle >= 0)
+            {
+                var gridView = (GridView)gridControl1.FocusedView;
+                var row = (dsVentas.detalle_factura_transactionRow)gridView.GetDataRow(e.RowHandle);// GetFocusedDataRow();
+
+                if (row.inventario<=0)
+                {
+                    //BackColor Rojo Suave
+                    e.Appearance.Font = new Font(gridView2.Appearance.Row.Font.FontFamily,
+                        gridView2.Appearance.Row.Font.Size,
+                        FontStyle.Bold);
+
+                    //e.Appearance.BackColor = Color.FromArgb(102, 255, 102);//Verde
+                    e.Appearance.BackColor = Color.FromArgb(245, 141, 105);//Rojo Suave
+                }
+                else
+                {
+                    //Backcolor Blanco
+                    e.Appearance.BackColor = Color.FromArgb(255, 255, 255);
+                }
             }
         }
 
