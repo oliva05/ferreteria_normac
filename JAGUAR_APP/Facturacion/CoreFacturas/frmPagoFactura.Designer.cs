@@ -57,7 +57,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tabPageTransferenciaCliente = new DevExpress.XtraTab.XtraTabPage();
             this.gleCuentaBanco = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.bsBancosList_Deposito = new System.Windows.Forms.BindingSource(this.components);
+            this.bsCuentaBanco = new System.Windows.Forms.BindingSource(this.components);
             this.dsRegistroPagos1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsRegistroPagos();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,6 +65,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.txtValorTransferencia = new System.Windows.Forms.TextBox();
             this.gleBancoDeposito = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.bsBancosList_Deposito = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -122,7 +123,6 @@
             this.lblSaldo = new System.Windows.Forms.Label();
             this.cmdCheque = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
-            this.bsCuentaBanco = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabPagos)).BeginInit();
             this.tabPagos.SuspendLayout();
             this.tabPageEfectivo.SuspendLayout();
@@ -133,10 +133,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).BeginInit();
             this.tabPageTransferenciaCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gleCuentaBanco.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsBancosList_Deposito)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCuentaBanco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleBancoDeposito.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsBancosList_Deposito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListboxPrintersTransferencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).BeginInit();
@@ -150,7 +151,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmdValorCheque.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCuentaBanco)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPagos
@@ -483,10 +483,10 @@
             this.gleCuentaBanco.TabIndex = 61;
             this.gleCuentaBanco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gleCuentaBanco_KeyDown);
             // 
-            // bsBancosList_Deposito
+            // bsCuentaBanco
             // 
-            this.bsBancosList_Deposito.DataMember = "bancos_listDeposito";
-            this.bsBancosList_Deposito.DataSource = this.dsRegistroPagos1;
+            this.bsCuentaBanco.DataMember = "cuentas";
+            this.bsCuentaBanco.DataSource = this.dsRegistroPagos1;
             // 
             // dsRegistroPagos1
             // 
@@ -555,6 +555,11 @@
             this.gleBancoDeposito.TabIndex = 58;
             this.gleBancoDeposito.EditValueChanged += new System.EventHandler(this.gleBancoDeposito_EditValueChanged);
             this.gleBancoDeposito.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gleBancoDeposito_KeyDown);
+            // 
+            // bsBancosList_Deposito
+            // 
+            this.bsBancosList_Deposito.DataMember = "bancos_listDeposito";
+            this.bsBancosList_Deposito.DataSource = this.dsRegistroPagos1;
             // 
             // gridView2
             // 
@@ -1157,11 +1162,6 @@
             this.cmdCerrar.Text = "Salir";
             this.cmdCerrar.Click += new System.EventHandler(this.cmdCerrar_Click);
             // 
-            // bsCuentaBanco
-            // 
-            this.bsCuentaBanco.DataMember = "cuentas";
-            this.bsCuentaBanco.DataSource = this.dsRegistroPagos1;
-            // 
             // frmPagoFactura
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -1200,10 +1200,11 @@
             this.tabPageTransferenciaCliente.ResumeLayout(false);
             this.tabPageTransferenciaCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gleCuentaBanco.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsBancosList_Deposito)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCuentaBanco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleBancoDeposito.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsBancosList_Deposito)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListboxPrintersTransferencia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).EndInit();
@@ -1218,7 +1219,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmdValorCheque.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCuentaBanco)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

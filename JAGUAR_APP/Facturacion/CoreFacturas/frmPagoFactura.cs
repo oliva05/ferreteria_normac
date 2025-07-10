@@ -112,17 +112,17 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[]", con);
+                SqlCommand cmd = new SqlCommand("[sp_finanzas_get_cuentas_by_idbanco]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
                 //cmd.Parameters.AddWithValue("@desde", dtDesde.EditValue);
                 //cmd.Parameters.AddWithValue("@hasta", dtHasta.EditValue);
 
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                dsRegistroPagos1.bancos_list.Clear();
-                dsRegistroPagos1.bancos_listDeposito.Clear();
-                adat.Fill(dsRegistroPagos1.bancos_list);
-                adat.Fill(dsRegistroPagos1.bancos_listDeposito);
+                dsRegistroPagos1.cuentas.Clear();
+                //dsRegistroPagos1.bancos_listDeposito.Clear();
+                adat.Fill(dsRegistroPagos1.cuentas);
+                //adat.Fill(dsRegistroPagos1.bancos_listDeposito);
                 con.Close();
             }
             catch (Exception ec)
