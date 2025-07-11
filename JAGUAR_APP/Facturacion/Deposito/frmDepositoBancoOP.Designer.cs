@@ -36,6 +36,7 @@
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colmoneda = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label31 = new System.Windows.Forms.Label();
             this.gleBancoDeposito = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bancoslistBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -50,13 +51,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtValorTransferencia = new DevExpress.XtraEditors.CalcEdit();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
-            this.txtValorEnCaja = new DevExpress.XtraEditors.TextEdit();
             this.txtObs = new DevExpress.XtraEditors.MemoEdit();
             this.label2 = new System.Windows.Forms.Label();
-            this.colmoneda = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gleCuentaBanco.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).BeginInit();
@@ -66,13 +64,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorTransferencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtValorEnCaja.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObs.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gleCuentaBanco
             // 
-            this.gleCuentaBanco.Location = new System.Drawing.Point(206, 155);
+            this.gleCuentaBanco.Location = new System.Drawing.Point(212, 108);
             this.gleCuentaBanco.Name = "gleCuentaBanco";
             this.gleCuentaBanco.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.gleCuentaBanco.Properties.Appearance.Options.UseFont = true;
@@ -120,11 +117,19 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 0;
             // 
+            // colmoneda
+            // 
+            this.colmoneda.Caption = "Moneda";
+            this.colmoneda.FieldName = "moneda";
+            this.colmoneda.Name = "colmoneda";
+            this.colmoneda.Visible = true;
+            this.colmoneda.VisibleIndex = 1;
+            // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(33, 162);
+            this.label31.Location = new System.Drawing.Point(39, 115);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(64, 21);
             this.label31.TabIndex = 64;
@@ -132,7 +137,7 @@
             // 
             // gleBancoDeposito
             // 
-            this.gleBancoDeposito.Location = new System.Drawing.Point(206, 110);
+            this.gleBancoDeposito.Location = new System.Drawing.Point(212, 63);
             this.gleBancoDeposito.Name = "gleBancoDeposito";
             this.gleBancoDeposito.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.gleBancoDeposito.Properties.Appearance.Options.UseFont = true;
@@ -180,7 +185,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(33, 117);
+            this.label30.Location = new System.Drawing.Point(39, 70);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(57, 21);
             this.label30.TabIndex = 62;
@@ -210,7 +215,7 @@
             // txtReferencia
             // 
             this.txtReferencia.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.txtReferencia.Location = new System.Drawing.Point(206, 252);
+            this.txtReferencia.Location = new System.Drawing.Point(212, 205);
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(195, 29);
             this.txtReferencia.TabIndex = 23;
@@ -220,7 +225,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(33, 260);
+            this.label17.Location = new System.Drawing.Point(39, 213);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(137, 21);
             this.label17.TabIndex = 70;
@@ -230,7 +235,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(33, 206);
+            this.label13.Location = new System.Drawing.Point(39, 159);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(146, 21);
             this.label13.TabIndex = 69;
@@ -272,19 +277,9 @@
             this.simpleButton3.Text = "Generar";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 21);
-            this.label1.TabIndex = 75;
-            this.label1.Text = "Monto en Caja";
-            // 
             // txtValorTransferencia
             // 
-            this.txtValorTransferencia.Location = new System.Drawing.Point(206, 199);
+            this.txtValorTransferencia.Location = new System.Drawing.Point(212, 152);
             this.txtValorTransferencia.Name = "txtValorTransferencia";
             this.txtValorTransferencia.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.txtValorTransferencia.Properties.Appearance.Options.UseFont = true;
@@ -311,19 +306,6 @@
             this.radioGroup1.TabIndex = 77;
             this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
             // 
-            // txtValorEnCaja
-            // 
-            this.txtValorEnCaja.Enabled = false;
-            this.txtValorEnCaja.Location = new System.Drawing.Point(206, 72);
-            this.txtValorEnCaja.Name = "txtValorEnCaja";
-            this.txtValorEnCaja.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.txtValorEnCaja.Properties.Appearance.Options.UseFont = true;
-            this.txtValorEnCaja.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtValorEnCaja.Properties.MaskSettings.Set("mask", "n");
-            this.txtValorEnCaja.Properties.UseMaskAsDisplayFormat = true;
-            this.txtValorEnCaja.Size = new System.Drawing.Size(195, 28);
-            this.txtValorEnCaja.TabIndex = 78;
-            // 
             // txtObs
             // 
             this.txtObs.Location = new System.Drawing.Point(616, 157);
@@ -337,19 +319,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(492, 162);
+            this.label2.Location = new System.Drawing.Point(492, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 21);
             this.label2.TabIndex = 80;
             this.label2.Text = "Comentario";
-            // 
-            // colmoneda
-            // 
-            this.colmoneda.Caption = "Moneda";
-            this.colmoneda.FieldName = "moneda";
-            this.colmoneda.Name = "colmoneda";
-            this.colmoneda.Visible = true;
-            this.colmoneda.VisibleIndex = 1;
             // 
             // frmDepositoBancoOP
             // 
@@ -358,10 +332,8 @@
             this.ClientSize = new System.Drawing.Size(862, 392);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtObs);
-            this.Controls.Add(this.txtValorEnCaja);
             this.Controls.Add(this.radioGroup1);
             this.Controls.Add(this.txtValorTransferencia);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdCerrar);
             this.Controls.Add(this.simpleButton3);
             this.Controls.Add(this.txtReferencia);
@@ -383,7 +355,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorTransferencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtValorEnCaja.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObs.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -409,13 +380,11 @@
         private System.Windows.Forms.Label label13;
         private DevExpress.XtraEditors.SimpleButton cmdCerrar;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private System.Windows.Forms.Label label1;
         private CoreFacturas.dsRegistroPagos dsRegistroPagos1;
         private System.Windows.Forms.BindingSource cuentasBindingSource;
         private System.Windows.Forms.BindingSource bancoslistBindingSource;
         private DevExpress.XtraEditors.CalcEdit txtValorTransferencia;
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
-        private DevExpress.XtraEditors.TextEdit txtValorEnCaja;
         private DevExpress.XtraEditors.MemoEdit txtObs;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraGrid.Columns.GridColumn colmoneda;

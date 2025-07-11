@@ -26,6 +26,7 @@ namespace JAGUAR_PRO.Facturacion.Deposito
                 lblNumDeposito.Text = DepositoBanco.DepositoN;
                 lblReferenciaTransaccion.Text = DepositoBanco.NumTransaccion;
                 lblBanco.Text = DepositoBanco.Banco;
+                lblNumCuenta.Text = DepositoBanco.NumCuenta;
                 lblObs.Text = DepositoBanco.Obs;
                 lblUsuario.Text = DepositoBanco.CreadoPor;
                 lblTotal.Text = string.Format("Lps {0:###,##0.00}", DepositoBanco.Total);

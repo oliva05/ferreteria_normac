@@ -30,6 +30,7 @@ namespace JAGUAR_PRO.Clases
         private int modiPor;
         private DateTime moidEl;
         private bool recuperado;
+        private string numCuenta;
 
         // Propiedades públicas
         public int Id { get => id; set => id = value; }
@@ -38,6 +39,7 @@ namespace JAGUAR_PRO.Clases
         public DateTime Fecha { get => fecha; set => fecha = value; }
         public int IdBanco { get => idBanco; set => idBanco = value; }
         public string Banco { get => banco; set => banco = value; }
+        public string NumCuenta { get => numCuenta; set => numCuenta = value; }
         public decimal Total { get => total; set => total = value; }
         public string Obs { get => obs; set => obs = value; }
         public int CreatedUserId { get => createdUserId; set => createdUserId = value; }
@@ -75,6 +77,7 @@ namespace JAGUAR_PRO.Clases
                     CreadoEl = reader.GetDateTime(10);
                     ModiPor = reader.IsDBNull(11) ? 0 : reader.GetInt32(11);
                     MoidEl = reader.IsDBNull(12) ? DateTime.MinValue : reader.GetDateTime(12);
+                    NumCuenta = reader.IsDBNull(13) ? string.Empty : reader.GetString(13);
                     Recuperado = true;
                 }
             }
