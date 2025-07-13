@@ -741,6 +741,7 @@
     <Compile Include="Clases\CotizacionH.cs" />
     <Compile Include="Clases\Cuentas.cs" />
     <Compile Include="Clases\DataOperations.cs" />
+    <Compile Include="Clases\DepositoBanco.cs" />
     <Compile Include="Clases\ElejirInvAlmacen.cs" />
     <Compile Include="Clases\FacturaEstado.cs" />
     <Compile Include="Clases\FacturasPagoMultiple.cs" />
@@ -1447,6 +1448,29 @@
     </Compile>
     <Compile Include="Facturacion\Cotizaciones\xrSubRptCotizacion.Designer.cs">
       <DependentUpon>xrSubRptCotizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Deposito\dsDepositos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDepositos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Deposito\frmDepositoBancoMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Deposito\frmDepositoBancoMain.Designer.cs">
+      <DependentUpon>frmDepositoBancoMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Deposito\frmDepositoBancoOP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Deposito\frmDepositoBancoOP.Designer.cs">
+      <DependentUpon>frmDepositoBancoOP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Deposito\rptDepositoBancario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Deposito\rptDepositoBancario.Designer.cs">
+      <DependentUpon>rptDepositoBancario.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\Entrega\dsEntregaPedidos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2699,6 +2723,17 @@
     </None>
     <None Include="Facturacion\Cotizaciones\dsFactCotizacion.xss">
       <DependentUpon>dsFactCotizacion.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\Deposito\dsDepositos.xsc">
+      <DependentUpon>dsDepositos.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\Deposito\dsDepositos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDepositos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Facturacion\Deposito\dsDepositos.xss">
+      <DependentUpon>dsDepositos.xsd</DependentUpon>
     </None>
     <None Include="Facturacion\Entrega\dsEntregaPedidos.xsc">
       <DependentUpon>dsEntregaPedidos.xsd</DependentUpon>
@@ -4258,6 +4293,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Cotizaciones\xrSubRptCotizacion.resx">
       <DependentUpon>xrSubRptCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Deposito\frmDepositoBancoMain.resx">
+      <DependentUpon>frmDepositoBancoMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Deposito\frmDepositoBancoOP.resx">
+      <DependentUpon>frmDepositoBancoOP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Deposito\rptDepositoBancario.resx">
+      <DependentUpon>rptDepositoBancario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Entrega\fmrEntregaVerDetalle.resx">
       <DependentUpon>fmrEntregaVerDetalle.cs</DependentUpon>

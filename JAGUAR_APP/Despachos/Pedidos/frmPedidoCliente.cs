@@ -2711,7 +2711,7 @@ namespace Eatery.Ventas
                             command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
                             command.Parameters.AddWithValue("@cliente_nombre", Pedido_.ClienteNombre);
 
-                            if (string.IsNullOrEmpty(Pedido_.RTN))
+                            if (string.IsNullOrEmpty(Pedido_.direccion_cliente))
                                 command.Parameters.AddWithValue("@direccion", DBNull.Value);
                             else
                                 command.Parameters.AddWithValue("@direccion", Pedido_.direccion_cliente);

@@ -24,6 +24,7 @@ using JAGUAR_PRO.Despachos.Pedidos;
 using JAGUAR_PRO.Facturacion.Configuraciones;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.Facturacion.Cotizaciones;
+using JAGUAR_PRO.Facturacion.Deposito;
 using JAGUAR_PRO.Facturacion.Entrega;
 using JAGUAR_PRO.Facturacion.Mantenimientos;
 using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
@@ -3179,7 +3180,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #19 (Recepción de Facturas)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #19 (CAI de Proveedores)");
                 }
             }
             //xfrmProveedorCAI frm = new xfrmProveedorCAI();
@@ -5659,8 +5660,62 @@ namespace JAGUAR_PRO
 
         private void navBarItemDepositoBancoCaja_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
-            // Para poner la seccion de depositos de banco de caja
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
 
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmDepositoBancoMain frm = new frmDepositoBancoMain(this.UsuarioLogeado, puntoVenta1, EquipoActual);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(17))
+                {
+
+                    frmDepositoBancoMain frm = new frmDepositoBancoMain(this.UsuarioLogeado, puntoVenta1, EquipoActual);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #17 (Deposito Bancario)");
+                }
+            }
         }
     }
 }
