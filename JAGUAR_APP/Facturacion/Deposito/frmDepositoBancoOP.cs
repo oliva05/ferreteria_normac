@@ -39,7 +39,7 @@ namespace JAGUAR_PRO.Facturacion.Deposito
             PuntoVenta = ppdv;
             Operacion = pOperacion;
             GetBancos();
-            txtValorEnCaja.EditValue = 0.00;//
+            //txtValorEnCaja.EditValue = 0.00;//
             if (Operacion == TipoOperacion.Nuevo)
             {
                 
