@@ -979,7 +979,6 @@ namespace Eatery.Ventas
                     if (!string.IsNullOrEmpty(txtDireccion.Text))
                         factura.direccion_cliente = txtDireccion.Text;
 
-
                     if (ClienteFactura != null)
                         if (ClienteFactura.Id > 0)
                             factura.IdCliente = ClienteFactura.Id;
