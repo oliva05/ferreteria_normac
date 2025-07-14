@@ -253,6 +253,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                                 command.Parameters.AddWithValue("@id_estado", 2);//Pagada
                                 IdTipoPago = (int)frm.TipoPagoSeleccionadoActual;
                                 command.Parameters.AddWithValue("@id_tipo_pago", IdTipoPago);
+                                command.Parameters.AddWithValue("@monto_entregado", dp.ValidateNumberDecimal(frm.txtEntregado.Text));
+                                command.Parameters.AddWithValue("@cambio", dp.ValidateNumberDecimal(frm.txtCambio.Text));
                                 command.ExecuteNonQuery();
 
 

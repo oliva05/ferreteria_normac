@@ -781,6 +781,7 @@
             this.gleBancosList.Properties.ValueMember = "id";
             this.gleBancosList.Size = new System.Drawing.Size(178, 28);
             this.gleBancosList.TabIndex = 56;
+            this.gleBancosList.EditValueChanged += new System.EventHandler(this.gleBancosList_EditValueChanged);
             // 
             // bsBancosList_Cheque
             // 
@@ -847,6 +848,7 @@
             this.txtNumeroCheque.Size = new System.Drawing.Size(178, 29);
             this.txtNumeroCheque.TabIndex = 52;
             this.txtNumeroCheque.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNumeroCheque.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumeroCheque_KeyDown);
             // 
             // label22
             // 
@@ -941,6 +943,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmdValorCheque.Size = new System.Drawing.Size(178, 32);
             this.cmdValorCheque.TabIndex = 44;
+            this.cmdValorCheque.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmdValorCheque_KeyDown);
             // 
             // label25
             // 

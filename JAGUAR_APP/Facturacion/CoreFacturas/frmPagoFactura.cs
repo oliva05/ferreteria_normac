@@ -5,6 +5,7 @@ using DevExpress.XtraReports.UI;
 using DevExpress.XtraRichEdit.Import.Html;
 using DevExpress.XtraSpreadsheet.Import.Xls;
 using DocumentFormat.OpenXml.Office.CoverPageProps;
+using DocumentFormat.OpenXml.Office2010.CustomUI;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.Reportes;
 using System;
@@ -169,17 +170,21 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     radioGroup1.EditValue = 1;
                     radioGroup2.EditValue = 1;
                     radioGroup3.EditValue = 1;
+                    radioGroup4.EditValue = 1;
                     radioGroup1.ReadOnly = true;
                     radioGroup2.ReadOnly = true;
                     radioGroup3.ReadOnly = true;
+                    radioGroup4.ReadOnly = true;
                     break;
                 case 2:
                     radioGroup1.EditValue = 2;
                     radioGroup2.EditValue = 2;
                     radioGroup3.EditValue = 2;
+                    radioGroup4.EditValue= 2;
                     radioGroup1.ReadOnly = true;
                     radioGroup2.ReadOnly = true;
                     radioGroup3.ReadOnly = true;
+                    radioGroup4.ReadOnly = true;
                     break;
             }
             
@@ -429,6 +434,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 row1.id_banco = pIdBanco;
                 row1.numero_cheque = NumeroCheque;
                 row1.emisor_cheque = pEmisorCheque;
+                row1.id_cuenta = pIdCuenta;
+                row1.CuentaBanco = pNumeroCuenta;
 
                 dsRegistroPagos1.resumen_pago.Addresumen_pagoRow(row1);
                 dsRegistroPagos1.AcceptChanges();
@@ -446,6 +453,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     row.id_banco = pIdBanco;
                     row.numero_cheque = NumeroCheque;
                     row.emisor_cheque = pEmisorCheque;
+                    row.id_cuenta = pIdCuenta;
+                    row.CuentaBanco = pNumeroCuenta;
                     //SumaTotal += vValor;
                 }
 
@@ -513,7 +522,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void radioGroup2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IdFormato = Convert.ToInt32(radioGroup1.EditValue);
+            IdFormato = Convert.ToInt32(radioGroup2.EditValue);
         }
 
         private void checkedListBoxControl1_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
@@ -562,7 +571,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void radioGroup3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IdFormato = Convert.ToInt32(radioGroup1.EditValue);
+            IdFormato = Convert.ToInt32(radioGroup3.EditValue);
         }
 
         private void checkedListBoxControl2_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
@@ -601,7 +610,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             }
 
             int pIdCuenta;
-            if (!string.IsNullOrEmpty(gleCuentaBanco.Text))
+            if (string.IsNullOrEmpty(gleCuentaBanco.Text))
             {
                 CajaDialogo.Error("Es necesario indicar la cuenta a la que se efectuo el deposito!");
                 return;
@@ -892,6 +901,30 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private void tabPageTransferenciaCliente_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cmdValorCheque_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                gleBancosList.Focus();
+            }
+        }
+
+        private void gleBancosList_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(gleBancosList.Text))
+            {
+                txtNumeroCheque.Focus();
+            }
+        }
+
+        private void txtNumeroCheque_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                txtNombreEmisorCheque.Focus();
+            }
         }
     }
 }

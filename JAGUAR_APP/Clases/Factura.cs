@@ -50,6 +50,8 @@ namespace JAGUAR_PRO.Clases
         public decimal SaldoFactura { get; set; }
         public string Vendedor {  get; set; }
         public int IdVendedor {  get; set; }
+        public decimal monto_entregado { get; set; }
+        public decimal   cambio { get; set; }
 
         #region DatosPDV
         public int PDV_ID { get; set; }

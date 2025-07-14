@@ -912,6 +912,9 @@ namespace Eatery.Ventas
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Factura factura = new Factura();
+                    factura.cambio = dp.ValidateNumberDecimal(frm.txtCambio.Text);
+                    factura.monto_entregado = dp.ValidateNumberDecimal(frm.txtEntregado.Text);
+
                     //factura.RTN = frm2.RTN;
                     //factura.ClienteNombre = frm2.NombreCliente;
                     //factura.direccion_cliente = frm2.Direccion;
@@ -1041,7 +1044,7 @@ namespace Eatery.Ventas
                         try
                         {
                             //Guardamos el Header de la factura 
-                            command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v11]";
+                            command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v13]";
                             command.CommandType = CommandType.StoredProcedure;
                             //command.Parameters.AddWithValue("@numero_documento", factura.NumeroDocumento);
                             command.Parameters.AddWithValue("@enable", 1);
@@ -1114,6 +1117,9 @@ namespace Eatery.Ventas
                                 command.Parameters.AddWithValue("@id_termino_pago", DBNull.Value);
                             else
                                 command.Parameters.AddWithValue("@id_termino_pago", factura.IdTerminoPago);
+
+                            command.Parameters.AddWithValue("@monto_recibido", factura.monto_entregado);
+                            command.Parameters.AddWithValue("@cambio", factura.cambio);
 
                             Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
@@ -1208,7 +1214,7 @@ namespace Eatery.Ventas
                             //postearemos varias lineas por si el pago se combina entre si
                             foreach (RegistroPago registroPago in frm.ListaDetallePago)
                             {
-                                command.CommandText = "dbo.[sp_set_insert_recibo_pago_detalle_v4]";
+                                command.CommandText = "dbo.[sp_set_insert_recibo_pago_detalle_v5]";
                                 command.CommandType = CommandType.StoredProcedure;
                                 command.Parameters.Clear();
                                 command.Parameters.AddWithValue("@id_facturaH", IdFacturaH);
@@ -1224,7 +1230,7 @@ namespace Eatery.Ventas
                                 else
                                     command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
 
-                                if (registroPago.IdTipo == 3)
+                                if (registroPago.IdTipo == 3)//Deposito bancario
                                 {
                                     if (string.IsNullOrEmpty(registroPago.Referencia))
                                         command.Parameters.AddWithValue("@referencia", registroPago.Referencia);
@@ -1260,6 +1266,15 @@ namespace Eatery.Ventas
                                 else
                                     command.Parameters.AddWithValue("@emisor_cheque", registroPago.id_banco);
 
+                                if (registroPago.id_cuenta==0)
+                                    command.Parameters.AddWithValue("@id_cuenta", DBNull.Value);
+                                else
+                                    command.Parameters.AddWithValue("@id_cuenta", registroPago.id_cuenta);
+
+                                if (string.IsNullOrEmpty(registroPago.CuentaBanco))
+                                    command.Parameters.AddWithValue("@numero_cuenta", DBNull.Value);
+                                else
+                                    command.Parameters.AddWithValue("@numero_cuenta", registroPago.CuentaBanco);
 
                                 command.ExecuteNonQuery();
                             }
