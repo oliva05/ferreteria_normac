@@ -47,6 +47,7 @@ namespace JAGUAR_PRO.Compras
             LoadSucursales();
             grdSucursales.EditValue = PuntoVentaID;
             tipooperacion = ptipo;
+
             switch (tipooperacion)
             {
                 case TipoOperacion.New:
@@ -392,11 +393,12 @@ namespace JAGUAR_PRO.Compras
 
             //foreach (dsCompras.oc_detalleRow item in dsCompras1.oc_detalle.Rows)
             //{
-                
+
             //    SubTotal += item.total;
             //}
 
-            txtSubtotal.EditValue = decimal.Round(SubTotal, 2,MidpointRounding.AwayFromZero);
+            txtSubtotal.EditValue = string.Format("{0:#,###,##0.00}", Math.Round(SubTotal, 2));
+            //txtSubtotal.EditValue = decimal.Round(SubTotal, 2,MidpointRounding.AwayFromZero);
 
             Impuesto isv = new Impuesto();
             if (isv.RecuperarRegistro(1))
@@ -405,9 +407,13 @@ namespace JAGUAR_PRO.Compras
             }
             else
                 valor_impuesto = Convert.ToDecimal(isv15);
-            txtImpuesto.EditValue = decimal.Round(SubTotal * valor_impuesto/100, 2,MidpointRounding.AwayFromZero);
-            txtTotal.EditValue = decimal.Round(SubTotal + Convert.ToDecimal(txtImpuesto.EditValue),2,MidpointRounding.AwayFromZero);
-            
+
+            //txtImpuesto.EditValue = decimal.Round(SubTotal * valor_impuesto/100, 2,MidpointRounding.AwayFromZero);
+            txtImpuesto.EditValue = string.Format("{0:#,###,##0.00}",Math.Round(SubTotal * valor_impuesto / 100, 2));
+
+            //txtTotal.EditValue = decimal.Round(SubTotal + Convert.ToDecimal(txtImpuesto.EditValue),2,MidpointRounding.AwayFromZero);
+            txtTotal.EditValue = string.Format("{0:#,###,##0.00}", Math.Round(SubTotal + Convert.ToDecimal(txtImpuesto.EditValue), 2));
+
         }
 
         private void cmdNuevo_Click(object sender, EventArgs e)
