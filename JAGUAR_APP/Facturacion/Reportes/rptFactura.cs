@@ -50,9 +50,10 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             lblCliente.Text = Factura1.ClienteNombre;
             lblClienteRTN.Text = Factura1.RTN;
             //lblOrdenCompra.Text = Factura1.NumOrdenCompra;
-            
-            if(!string.IsNullOrEmpty(Factura1.direccion_cliente))
-                lblDireccionCliente.Text = Factura1.direccion_cliente;
+
+            if (!string.IsNullOrEmpty(Factura1.direccion_cliente))
+                if (Factura1.direccion_cliente != "N/D")
+                    lblDireccionCliente.Text = Factura1.direccion_cliente;
 
             txtVendedor.Text = Factura1.Vendedor;
             lblValorLetras.Text = Factura1.ValorLetras;
