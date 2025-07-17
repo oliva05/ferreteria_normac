@@ -63,6 +63,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             lblISV18.Text = string.Format("{0: ###,##0.00}", Factura1.ISV2);
             //lblISV.Text = string.Format("{0: ###,##0.00}", Factura1.ISV1+Factura1.ISV2);
             lblTotalPagar.Text = string.Format("{0: ###,##0.00}", Factura1.subtotalFactura-Factura1.descuentoTotalFactura+Factura1.ISV1 + Factura1.ISV2);
+            lblTotalPagado.Text = string.Format("{0: ###,##0.00}", Factura1.monto_entregado);
+            lblCambio.Text = string.Format("{0: ###,##0.00}", Factura1.cambio);
             lblTerminoPago.Text = Factura1.TerminoPagoName;
             //idFact = Factura1.id;
             //decimal saldo_actual = Factura1.Saldo;
