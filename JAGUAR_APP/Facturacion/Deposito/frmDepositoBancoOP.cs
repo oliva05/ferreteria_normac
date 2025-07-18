@@ -123,6 +123,13 @@ namespace JAGUAR_PRO.Facturacion.Deposito
             //    return;
             //}
 
+            //if (string.IsNullOrEmpty(gleCuentaBanco.Text))
+            //{
+            //    CajaDialogo.Error("Debe seleccionar una cuenta para el depósito.");
+            //    gleCuentaBanco.Focus();
+            //    return;
+            //}
+
             if (IdFormato == 0)
             {
                 IdFormato = Convert.ToInt32(radioGroup1.EditValue);
