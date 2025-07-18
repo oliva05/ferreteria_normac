@@ -3503,6 +3503,22 @@ namespace Eatery.Ventas
             }
         }
 
+        private void txtNombreCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRTN.Focus();
+            }
+        }
+
+        private void txtRTN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtDireccion.Focus();
+            }
+        }
+
         //frmLoginVendedores
     }
 }
