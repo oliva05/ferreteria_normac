@@ -49,6 +49,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             lblNombreComercial.Text = Factura1.NombreComercial_PDV;
             lblCliente.Text = Factura1.ClienteNombre;
             lblClienteRTN.Text = Factura1.RTN;
+            
+            if (Factura1.descuentoTotalFactura > 0)
+            {
+                lblUstedSeAhorro.Visible = true;
+                lblUstedSeAhorro.Text = "Usted se ahorró " + string.Format("{0: ###,##0.00}", Factura1.descuentoTotalFactura) + " Lempiras";
+            }
             //lblOrdenCompra.Text = Factura1.NumOrdenCompra;
 
             if (!string.IsNullOrEmpty(Factura1.direccion_cliente))
