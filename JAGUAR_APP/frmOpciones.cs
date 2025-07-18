@@ -3494,7 +3494,7 @@ namespace JAGUAR_PRO
                 case 5://Depth Without Delta
                     accesoprevio = true;
                     
-                    frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual);
+                    frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, frmFactura.TipoFacturacionStock.VentaNormal);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                     break;
@@ -3523,7 +3523,7 @@ namespace JAGUAR_PRO
 
                     //        break;
                     //}
-                    frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual);
+                    frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, frmFactura.TipoFacturacionStock.VentaNormal);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                 }
@@ -4742,7 +4742,7 @@ namespace JAGUAR_PRO
                         //frmRecepcionFacturaProveedor frm = new frmRecepcionFacturaProveedor(this.UsuarioLogeado);
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
-                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual, new Vendedor());
+                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual, new Vendedor(), frmPedidoCliente.TipoFacturacionStock.VentaNormal);
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
@@ -4757,7 +4757,7 @@ namespace JAGUAR_PRO
                     {
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
-                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual, new Vendedor());
+                        frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual, new Vendedor(), frmPedidoCliente.TipoFacturacionStock.VentaNormal);
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen; 
                         frm.Show();
@@ -5717,5 +5717,73 @@ namespace JAGUAR_PRO
                 }
             }
         }
+
+        private void navFacturacionUsados_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+
+                    frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, 
+                                                                EquipoActual, new Vendedor(), 
+                                                                frmPedidoCliente.TipoFacturacionStock.VentaUsados);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(24))
+                {
+                    frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, 
+                                                                EquipoActual, new Vendedor(), 
+                                                                frmPedidoCliente.TipoFacturacionStock.VentaUsados);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #24 (Facturacion de usados)");
+                }
+            }
+        }
+        //End Facturacion Usados
+
+
+
     }
 }

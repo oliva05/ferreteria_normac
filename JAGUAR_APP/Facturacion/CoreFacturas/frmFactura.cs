@@ -50,6 +50,12 @@ namespace Eatery.Ventas
         PedidoCliente PedidoRecuperado;
         Vendedor VendedorActual;
 
+        public enum TipoFacturacionStock
+        {
+            VentaNormal = 1,
+            VentaUsados = 2
+        }
+
         UserLogin UsuarioLogeado;
         public enum Busqueda
         {
@@ -59,7 +65,7 @@ namespace Eatery.Ventas
 
         Busqueda BusquedaSet;
 
-        public frmFactura(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual)
+        public frmFactura(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, TipoFacturacionStock pTipo)
         {
             InitializeComponent();
             ClienteFactura = new ClienteFacturacion();
@@ -178,15 +184,15 @@ namespace Eatery.Ventas
 
                 if (ClienteFactura.RecuperarRegistro(Pedido1.IdCliente))
                 {
-                    ClienteEmpresa clienteEmpresa1 = new ClienteEmpresa();
-                    if (clienteEmpresa1.RecuperarEmpresaRTNCliente(ClienteFactura.Id, Pedido1.RTN))
-                    {
-                        txtNombreCliente.Text = clienteEmpresa1.NombreLargo;
-                        txtRTN.Text = clienteEmpresa1.RTN;
-                        txtDireccion.Text = clienteEmpresa1.Direccion;
-                    }
-                    else
-                    {
+                    //ClienteEmpresa clienteEmpresa1 = new ClienteEmpresa();
+                    //if (clienteEmpresa1.RecuperarEmpresaRTNCliente(ClienteFactura.Id, Pedido1.RTN))
+                    //{
+                    //    txtNombreCliente.Text = clienteEmpresa1.NombreLargo;
+                    //    txtRTN.Text = clienteEmpresa1.RTN;
+                    //    txtDireccion.Text = clienteEmpresa1.Direccion;
+                    //}
+                    //else
+                    //{
                         if (!string.IsNullOrEmpty(Pedido1.ClienteNombre))
                             txtNombreCliente.Text = Pedido1.ClienteNombre;
                         else
@@ -201,7 +207,7 @@ namespace Eatery.Ventas
                             txtRTN.Text = Pedido1.RTN;
                         else
                             txtRTN.Text = "";
-                    }
+                    //}
 
                     CargarDetalleCotizacion(pIdPedido);
 

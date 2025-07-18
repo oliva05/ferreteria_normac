@@ -59,6 +59,13 @@ namespace Eatery.Ventas
             Insert = 1, Update = 2
         }
 
+        public enum TipoFacturacionStock
+        {
+            VentaNormal = 1,
+            VentaUsados = 2
+        }
+
+        TipoFacturacionStock TipoFacturacionActual;
         TipoOperacionSQL TipoOperacionActual;
 
         UserLogin UsuarioLogeado;
@@ -70,9 +77,11 @@ namespace Eatery.Ventas
 
         Busqueda BusquedaSet;
 
-        public frmPedidoCliente(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, Vendedor pVendedor)
+        public frmPedidoCliente(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, Vendedor pVendedor, TipoFacturacionStock pTipo)
         {
             InitializeComponent();
+            TipoFacturacionActual = pTipo;
+
             TipoOperacionActual = TipoOperacionSQL.Insert;
 
             this.VendedorActual = pVendedor;
@@ -1982,14 +1991,41 @@ namespace Eatery.Ventas
         private void simpleButton1_Click_2(object sender, EventArgs e)
         {
             //frmSearchDefault frm = new frmSearchDefault(frmSearchDefault.TipoBusqueda.ProductoTerminado, this.PuntoDeVentaActual);
-            frmSearchItems frm = new frmSearchItems();
-            if (frm.ShowDialog() == DialogResult.OK)
+
+            switch (TipoFacturacionActual)
             {
-                AgregarProductoA_Prefactura(frm.ItemSeleccionado.id, frm.ItemSeleccionado.ItemCode, 
-                                            frm.ItemSeleccionado.ItemName, 1, true, 0,
-                                            new ProductoTerminado(), frm.ItemSeleccionado.Marca);
-                txtScanProducto.Focus();
+                case TipoFacturacionStock.VentaNormal:
+                    //frmSearchItems.TipoFacturacion TipoFactBusqueda;
+                    //if (TipoFacturacionActual == TipoFacturacionStock.VentaNormal)
+                    //    TipoFactBusqueda = frmSearchItems.TipoFacturacion.VentaNormal;
+                    //else
+                    //    TipoFactBusqueda = frmSearchItems.TipoFacturacion.VentaUsados;
+
+                    frmSearchItems frm = new frmSearchItems();
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        AgregarProductoA_Prefactura(frm.ItemSeleccionado.id, frm.ItemSeleccionado.ItemCode,
+                                                    frm.ItemSeleccionado.ItemName, 1, true, 0,
+                                                    new ProductoTerminado(), frm.ItemSeleccionado.Marca);
+                        txtScanProducto.Focus();
+                    }
+                    break;
+                case TipoFacturacionStock.VentaUsados:
+                    frmSearchDefault frm2 = new frmSearchDefault( frmSearchDefault.TipoBusqueda.ProductoTerminadoVentaUnica);
+                    if (frm2.ShowDialog() == DialogResult.OK)
+                    {
+                        AgregarProductoA_Prefactura(frm2.ItemSeleccionado.id, frm2.ItemSeleccionado.ItemCode,
+                                                    frm2.ItemSeleccionado.ItemName, 1, true, 0,
+                                                    new ProductoTerminado(), frm2.ItemSeleccionado.Marca);
+                        txtScanProducto.Focus();
+                    }
+                    break;
+                default:
+
+                    break;
             }
+
+            
 
             
 

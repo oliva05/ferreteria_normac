@@ -386,5 +386,21 @@ namespace LOSA.Calidad.LoteConfConsumo
             }
             
         }
+
+        private void cmdAplicarSeleccionCliente_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+            var gridView = (GridView)gridControlDetalleMP.FocusedView;
+            var row = (dsConfigLoteConsumo.search_mpRow)gridView.GetFocusedDataRow();
+
+            ItemSeleccionado.id = row.id;
+            ItemSeleccionado.ItemCode = row.ItemCode;
+            ItemSeleccionado.ItemName = row.Name_;
+            row.Seleccionado = true;
+
+            //Next
+            navigationFrameSearch.SelectedPage = navigationPage2;
+            LoadRTN_EmpresasClietne();
+        }
     }
 }

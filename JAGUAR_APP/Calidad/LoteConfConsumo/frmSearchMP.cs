@@ -34,7 +34,6 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
             ItemSeleccionado = new ItemBusqueda();
             tipoTransaccion = pTipoTransaccion;
             LoadData();
-
         }
 
         private void LoadData()

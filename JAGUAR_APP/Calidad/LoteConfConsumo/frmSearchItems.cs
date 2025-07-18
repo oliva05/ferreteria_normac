@@ -39,6 +39,21 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
             tipoBusquedaActual = TipoBusqueda.Ninguna;
         }
 
+        public enum TipoFacturacion
+        {
+            VentaNormal = 1,
+            VentaUsados = 2
+        }
+        TipoFacturacion TipoFacturacionActual;
+
+        public frmSearchItems(TipoFacturacion pTipoFacturacion)
+        {
+            InitializeComponent();
+            txtDesc.Focus();
+            tipoBusquedaActual = TipoBusqueda.Ninguna;
+            TipoFacturacionActual = pTipoFacturacion;
+        }
+
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             switch (tipoBusquedaActual)

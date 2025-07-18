@@ -223,7 +223,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             }
 
 
-            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, VendedorActual);
+            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, VendedorActual, frmPedidoCliente.TipoFacturacionStock.VentaNormal);
             if (this.MdiParent != null)
             {
                 frm.MdiParent = this.MdiParent;

@@ -301,6 +301,7 @@
             this.navBarItem56 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem57 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem58 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemDepositoBancoCaja = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup11 = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbKardexFacturacion = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarG_ReportesFacturacion = new DevExpress.XtraNavBar.NavBarGroup();
@@ -358,7 +359,7 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemDepositoBancoCaja = new DevExpress.XtraNavBar.NavBarItem();
+            this.navFacturacionUsados = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -3959,7 +3960,8 @@
             this.navBarItemCambioDePrecio,
             this.navBarItem20,
             this.navBarItem59,
-            this.navBarItemDepositoBancoCaja});
+            this.navBarItemDepositoBancoCaja,
+            this.navFacturacionUsados});
             this.navBarControl3.Location = new System.Drawing.Point(0, 0);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
@@ -3993,7 +3995,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem56),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem57),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem58),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemDepositoBancoCaja)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemDepositoBancoCaja),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navFacturacionUsados)});
             this.navBarGroup10.Name = "navBarGroup10";
             // 
             // nbPrefactura
@@ -4201,6 +4204,20 @@
             this.navBarItem58.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem58.ImageOptions.SvgImage")));
             this.navBarItem58.Name = "navBarItem58";
             this.navBarItem58.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem58_LinkClicked);
+            // 
+            // navBarItemDepositoBancoCaja
+            // 
+            this.navBarItemDepositoBancoCaja.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.Appearance.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.AppearancePressed.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.Caption = "Depósito Bancario Caja";
+            this.navBarItemDepositoBancoCaja.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemDepositoBancoCaja.ImageOptions.SmallImage")));
+            this.navBarItemDepositoBancoCaja.Name = "navBarItemDepositoBancoCaja";
+            this.navBarItemDepositoBancoCaja.Visible = false;
+            this.navBarItemDepositoBancoCaja.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDepositoBancoCaja_LinkClicked);
             // 
             // navBarGroup11
             // 
@@ -4960,19 +4977,19 @@
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
             // 
-            // navBarItemDepositoBancoCaja
+            // navFacturacionUsados
             // 
-            this.navBarItemDepositoBancoCaja.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemDepositoBancoCaja.Appearance.Options.UseFont = true;
-            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItemDepositoBancoCaja.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemDepositoBancoCaja.AppearancePressed.Options.UseFont = true;
-            this.navBarItemDepositoBancoCaja.Caption = "Depósito Bancario Caja";
-            this.navBarItemDepositoBancoCaja.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemDepositoBancoCaja.ImageOptions.SmallImage")));
-            this.navBarItemDepositoBancoCaja.Name = "navBarItemDepositoBancoCaja";
-            this.navBarItemDepositoBancoCaja.Visible = false;
-            this.navBarItemDepositoBancoCaja.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDepositoBancoCaja_LinkClicked);
+            this.navFacturacionUsados.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navFacturacionUsados.Appearance.Options.UseFont = true;
+            this.navFacturacionUsados.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navFacturacionUsados.AppearanceHotTracked.Options.UseFont = true;
+            this.navFacturacionUsados.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navFacturacionUsados.AppearancePressed.Options.UseFont = true;
+            this.navFacturacionUsados.Caption = "Facturación Usados";
+            this.navFacturacionUsados.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem209.ImageOptions.LargeImage")));
+            this.navFacturacionUsados.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem209.ImageOptions.SmallImage")));
+            this.navFacturacionUsados.Name = "navFacturacionUsados";
+            this.navFacturacionUsados.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navFacturacionUsados_LinkClicked);
             // 
             // frmOpciones
             // 
@@ -5347,5 +5364,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup19;
         private DevExpress.XtraNavBar.NavBarItem navBarItem208;
         private DevExpress.XtraNavBar.NavBarItem navBarItemDepositoBancoCaja;
+        private DevExpress.XtraNavBar.NavBarItem navFacturacionUsados;
     }
 }
