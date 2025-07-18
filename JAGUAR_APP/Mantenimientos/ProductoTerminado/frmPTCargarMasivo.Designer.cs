@@ -45,6 +45,7 @@
             this.colDisponible = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCosto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPVP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGrupo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -78,7 +79,8 @@
             this.colDescripcion,
             this.colDisponible,
             this.colCosto,
-            this.colPVP});
+            this.colPVP,
+            this.colGrupo});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
@@ -186,6 +188,13 @@
             this.colPVP.Visible = true;
             this.colPVP.VisibleIndex = 5;
             // 
+            // colGrupo
+            // 
+            this.colGrupo.FieldName = "Grupo";
+            this.colGrupo.Name = "colGrupo";
+            this.colGrupo.Visible = true;
+            this.colGrupo.VisibleIndex = 6;
+            // 
             // frmPTCargarMasivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,5 +232,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDisponible;
         private DevExpress.XtraGrid.Columns.GridColumn colCosto;
         private DevExpress.XtraGrid.Columns.GridColumn colPVP;
+        private DevExpress.XtraGrid.Columns.GridColumn colGrupo;
     }
 }

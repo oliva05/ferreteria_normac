@@ -5521,7 +5521,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-13 (Ordenes de Compra)");
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-13 (Lista de Entrega)");
                 }
             }
         }
@@ -5703,7 +5703,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(17))
+                if (UsuarioLogeado.ValidarNivelPermisos(23))
                 {
 
                     frmDepositoBancoMain frm = new frmDepositoBancoMain(this.UsuarioLogeado, puntoVenta1, EquipoActual);
@@ -5713,7 +5713,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #17 (Deposito Bancario)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #23 (Deposito Bancario)");
                 }
             }
         }

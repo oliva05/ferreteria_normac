@@ -112,7 +112,7 @@ namespace Eatery.Ventas
             UsuarioLogeado = pUser;
             DateTime FechaActual_ = dp.NowSetDateTime();
             lblfecha.Text = Convert.ToString(FechaActual_);
-            dtFechaEntrega.DateTime = FechaActual_.AddDays(1);
+            dtFechaEntrega.DateTime = FechaActual_;//.AddDays(1);
             string.Format("{0:MM/dd/yyyy}", lblfecha.Text);
 
             string HostName = Dns.GetHostName();
