@@ -111,6 +111,10 @@
             this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
             this.dsFacturasGestion1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotalPagado = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblCambio = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsFacturasGestion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -848,6 +852,10 @@
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblCambio,
+            this.lblTotalPagado,
+            this.xrLabel16,
+            this.xrLabel4,
             this.xrLabel3,
             this.xrLabel2,
             this.xrLabel51,
@@ -1430,6 +1438,78 @@
             this.dsFacturasGestion1.DataSetName = "dsFacturasGestion";
             this.dsFacturasGestion1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // xrLabel4
+            // 
+            this.xrLabel4.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "TextAlignment", "Iif(, \'MiddleRight\', ?)"),
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Visible", "Iif(, True, ?)")});
+            this.xrLabel4.Font = new DevExpress.Drawing.DXFont("Consolas", 11.25F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(508.3813F, 150.6437F);
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(149.3082F, 17.99998F);
+            this.xrLabel4.StylePriority.UseBorders = false;
+            this.xrLabel4.StylePriority.UseFont = false;
+            this.xrLabel4.StylePriority.UseTextAlignment = false;
+            this.xrLabel4.Text = "Total Pagado L.";
+            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrLabel16
+            // 
+            this.xrLabel16.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel16.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "TextAlignment", "Iif(, \'MiddleRight\', ?)"),
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Visible", "Iif(, True, ?)")});
+            this.xrLabel16.Font = new DevExpress.Drawing.DXFont("Consolas", 11.25F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(508.3813F, 168.6437F);
+            this.xrLabel16.Name = "xrLabel16";
+            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(149.3082F, 17.99998F);
+            this.xrLabel16.StylePriority.UseBorders = false;
+            this.xrLabel16.StylePriority.UseFont = false;
+            this.xrLabel16.StylePriority.UseTextAlignment = false;
+            this.xrLabel16.Text = "Cambio L.";
+            this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // lblTotalPagado
+            // 
+            this.lblTotalPagado.AnchorHorizontal = DevExpress.XtraReports.UI.HorizontalAnchorStyles.Left;
+            this.lblTotalPagado.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.lblTotalPagado.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "TextAlignment", "Iif(, \'MiddleRight\', ?)"),
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Visible", "Iif(, True, ?)")});
+            this.lblTotalPagado.Font = new DevExpress.Drawing.DXFont("Consolas", 11.25F);
+            this.lblTotalPagado.LocationFloat = new DevExpress.Utils.PointFloat(662.625F, 150.6437F);
+            this.lblTotalPagado.Name = "lblTotalPagado";
+            this.lblTotalPagado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTotalPagado.SizeF = new System.Drawing.SizeF(104.375F, 16F);
+            this.lblTotalPagado.StylePriority.UseBorders = false;
+            this.lblTotalPagado.StylePriority.UseFont = false;
+            this.lblTotalPagado.StylePriority.UseTextAlignment = false;
+            this.lblTotalPagado.Text = "$ 0.00";
+            this.lblTotalPagado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // lblCambio
+            // 
+            this.lblCambio.AnchorHorizontal = DevExpress.XtraReports.UI.HorizontalAnchorStyles.Left;
+            this.lblCambio.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.lblCambio.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "TextAlignment", "Iif(, \'MiddleRight\', ?)"),
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Visible", "Iif(, True, ?)")});
+            this.lblCambio.Font = new DevExpress.Drawing.DXFont("Consolas", 11.25F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lblCambio.LocationFloat = new DevExpress.Utils.PointFloat(662.712F, 168.6437F);
+            this.lblCambio.Name = "lblCambio";
+            this.lblCambio.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblCambio.SizeF = new System.Drawing.SizeF(104.375F, 16F);
+            this.lblCambio.StylePriority.UseBorders = false;
+            this.lblCambio.StylePriority.UseFont = false;
+            this.lblCambio.StylePriority.UseTextAlignment = false;
+            this.lblCambio.Text = "$ 0.00";
+            this.lblCambio.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
             // rptFacturaLetterSize
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1546,5 +1626,9 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel16;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
+        private DevExpress.XtraReports.UI.XRLabel lblTotalPagado;
+        private DevExpress.XtraReports.UI.XRLabel lblCambio;
     }
 }

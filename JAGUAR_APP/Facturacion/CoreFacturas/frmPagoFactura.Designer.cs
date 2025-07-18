@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPagoFactura));
             this.tabPagos = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.tabPageEfectivo = new DevExpress.XtraTab.XtraTabPage();
             this.ListboxPrintersEfectivo = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.label6 = new System.Windows.Forms.Label();
             this.cmdPagar = new DevExpress.XtraEditors.SimpleButton();
@@ -44,7 +44,7 @@
             this.txtValorEfectivo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.tabPageTarjeta = new DevExpress.XtraTab.XtraTabPage();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.ListboxPrintersTarjeta = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.label7 = new System.Windows.Forms.Label();
@@ -55,10 +55,21 @@
             this.txtEntregadoTC = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.tabPageTransferenciaCliente = new DevExpress.XtraTab.XtraTabPage();
+            this.gleCuentaBanco = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.bsCuentaBanco = new System.Windows.Forms.BindingSource(this.components);
+            this.dsRegistroPagos1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsRegistroPagos();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid_cuenta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_banco = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcuenta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltitular = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colnum_cuenta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colmoneda = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label31 = new System.Windows.Forms.Label();
+            this.txtValorTransferencia = new System.Windows.Forms.TextBox();
             this.gleBancoDeposito = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bsBancosList_Deposito = new System.Windows.Forms.BindingSource(this.components);
-            this.dsRegistroPagos1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsRegistroPagos();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -71,11 +82,10 @@
             this.txtValorPagarTransferencia = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.radioGroup3 = new DevExpress.XtraEditors.RadioGroup();
-            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.tabPageCheques = new DevExpress.XtraTab.XtraTabPage();
             this.gleBancosList = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bsBancosList_Cheque = new System.Windows.Forms.BindingSource(this.components);
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -119,21 +129,23 @@
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabPagos)).BeginInit();
             this.tabPagos.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
+            this.tabPageEfectivo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListboxPrintersEfectivo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
-            this.xtraTabPage2.SuspendLayout();
+            this.tabPageTarjeta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListboxPrintersTarjeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).BeginInit();
-            this.xtraTabPage3.SuspendLayout();
+            this.tabPageTransferenciaCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gleCuentaBanco.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCuentaBanco)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleBancoDeposito.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBancosList_Deposito)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListboxPrintersTransferencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
-            this.xtraTabPage4.SuspendLayout();
+            this.tabPageCheques.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gleBancosList.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBancosList_Cheque)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
@@ -149,36 +161,36 @@
             // 
             this.tabPagos.Appearance.BackColor = System.Drawing.Color.White;
             this.tabPagos.Appearance.Options.UseBackColor = true;
-            this.tabPagos.Location = new System.Drawing.Point(209, 23);
+            this.tabPagos.Location = new System.Drawing.Point(209, 2);
             this.tabPagos.Name = "tabPagos";
-            this.tabPagos.SelectedTabPage = this.xtraTabPage1;
-            this.tabPagos.Size = new System.Drawing.Size(355, 476);
+            this.tabPagos.SelectedTabPage = this.tabPageEfectivo;
+            this.tabPagos.Size = new System.Drawing.Size(355, 516);
             this.tabPagos.TabIndex = 0;
             this.tabPagos.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
-            this.xtraTabPage2,
-            this.xtraTabPage3,
-            this.xtraTabPage4});
+            this.tabPageEfectivo,
+            this.tabPageTarjeta,
+            this.tabPageTransferenciaCliente,
+            this.tabPageCheques});
             // 
-            // xtraTabPage1
+            // tabPageEfectivo
             // 
-            this.xtraTabPage1.Appearance.PageClient.BackColor = System.Drawing.Color.White;
-            this.xtraTabPage1.Appearance.PageClient.Options.UseBackColor = true;
-            this.xtraTabPage1.Controls.Add(this.ListboxPrintersEfectivo);
-            this.xtraTabPage1.Controls.Add(this.label6);
-            this.xtraTabPage1.Controls.Add(this.cmdPagar);
-            this.xtraTabPage1.Controls.Add(this.label5);
-            this.xtraTabPage1.Controls.Add(this.radioGroup1);
-            this.xtraTabPage1.Controls.Add(this.txtCambio);
-            this.xtraTabPage1.Controls.Add(this.label4);
-            this.xtraTabPage1.Controls.Add(this.txtEntregado);
-            this.xtraTabPage1.Controls.Add(this.label3);
-            this.xtraTabPage1.Controls.Add(this.txtValorEfectivo);
-            this.xtraTabPage1.Controls.Add(this.label2);
-            this.xtraTabPage1.Controls.Add(this.label1);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(353, 447);
-            this.xtraTabPage1.Text = "Detalles del Pago";
+            this.tabPageEfectivo.Appearance.PageClient.BackColor = System.Drawing.Color.White;
+            this.tabPageEfectivo.Appearance.PageClient.Options.UseBackColor = true;
+            this.tabPageEfectivo.Controls.Add(this.ListboxPrintersEfectivo);
+            this.tabPageEfectivo.Controls.Add(this.label6);
+            this.tabPageEfectivo.Controls.Add(this.cmdPagar);
+            this.tabPageEfectivo.Controls.Add(this.label5);
+            this.tabPageEfectivo.Controls.Add(this.radioGroup1);
+            this.tabPageEfectivo.Controls.Add(this.txtCambio);
+            this.tabPageEfectivo.Controls.Add(this.label4);
+            this.tabPageEfectivo.Controls.Add(this.txtEntregado);
+            this.tabPageEfectivo.Controls.Add(this.label3);
+            this.tabPageEfectivo.Controls.Add(this.txtValorEfectivo);
+            this.tabPageEfectivo.Controls.Add(this.label2);
+            this.tabPageEfectivo.Controls.Add(this.label1);
+            this.tabPageEfectivo.Name = "tabPageEfectivo";
+            this.tabPageEfectivo.Size = new System.Drawing.Size(353, 487);
+            this.tabPageEfectivo.Text = "Detalles del Pago";
             // 
             // ListboxPrintersEfectivo
             // 
@@ -231,7 +243,7 @@
             this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "3.5 pulg. cinta"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "8x11.5 pulg. Carta")});
-            this.radioGroup1.Size = new System.Drawing.Size(178, 61);
+            this.radioGroup1.Size = new System.Drawing.Size(227, 61);
             this.radioGroup1.TabIndex = 29;
             this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
             // 
@@ -241,7 +253,7 @@
             this.txtCambio.Location = new System.Drawing.Point(115, 101);
             this.txtCambio.Name = "txtCambio";
             this.txtCambio.ReadOnly = true;
-            this.txtCambio.Size = new System.Drawing.Size(178, 29);
+            this.txtCambio.Size = new System.Drawing.Size(227, 29);
             this.txtCambio.TabIndex = 28;
             this.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -260,7 +272,7 @@
             this.txtEntregado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEntregado.Location = new System.Drawing.Point(115, 66);
             this.txtEntregado.Name = "txtEntregado";
-            this.txtEntregado.Size = new System.Drawing.Size(178, 29);
+            this.txtEntregado.Size = new System.Drawing.Size(227, 29);
             this.txtEntregado.TabIndex = 26;
             this.txtEntregado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtEntregado.TextChanged += new System.EventHandler(this.txtEntregado_TextChanged_1);
@@ -284,7 +296,7 @@
             this.txtValorEfectivo.Location = new System.Drawing.Point(115, 31);
             this.txtValorEfectivo.Name = "txtValorEfectivo";
             this.txtValorEfectivo.ReadOnly = true;
-            this.txtValorEfectivo.Size = new System.Drawing.Size(178, 29);
+            this.txtValorEfectivo.Size = new System.Drawing.Size(227, 29);
             this.txtValorEfectivo.TabIndex = 24;
             this.txtValorEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -308,23 +320,23 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Valor";
             // 
-            // xtraTabPage2
+            // tabPageTarjeta
             // 
-            this.xtraTabPage2.Appearance.PageClient.BackColor = System.Drawing.Color.White;
-            this.xtraTabPage2.Appearance.PageClient.Options.UseBackColor = true;
-            this.xtraTabPage2.Controls.Add(this.simpleButton1);
-            this.xtraTabPage2.Controls.Add(this.ListboxPrintersTarjeta);
-            this.xtraTabPage2.Controls.Add(this.label7);
-            this.xtraTabPage2.Controls.Add(this.label8);
-            this.xtraTabPage2.Controls.Add(this.radioGroup2);
-            this.xtraTabPage2.Controls.Add(this.txtValorTC);
-            this.xtraTabPage2.Controls.Add(this.label9);
-            this.xtraTabPage2.Controls.Add(this.txtEntregadoTC);
-            this.xtraTabPage2.Controls.Add(this.label10);
-            this.xtraTabPage2.Controls.Add(this.label11);
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(353, 447);
-            this.xtraTabPage2.Text = "Detalles del Pago";
+            this.tabPageTarjeta.Appearance.PageClient.BackColor = System.Drawing.Color.White;
+            this.tabPageTarjeta.Appearance.PageClient.Options.UseBackColor = true;
+            this.tabPageTarjeta.Controls.Add(this.simpleButton1);
+            this.tabPageTarjeta.Controls.Add(this.ListboxPrintersTarjeta);
+            this.tabPageTarjeta.Controls.Add(this.label7);
+            this.tabPageTarjeta.Controls.Add(this.label8);
+            this.tabPageTarjeta.Controls.Add(this.radioGroup2);
+            this.tabPageTarjeta.Controls.Add(this.txtValorTC);
+            this.tabPageTarjeta.Controls.Add(this.label9);
+            this.tabPageTarjeta.Controls.Add(this.txtEntregadoTC);
+            this.tabPageTarjeta.Controls.Add(this.label10);
+            this.tabPageTarjeta.Controls.Add(this.label11);
+            this.tabPageTarjeta.Name = "tabPageTarjeta";
+            this.tabPageTarjeta.Size = new System.Drawing.Size(353, 487);
+            this.tabPageTarjeta.Text = "Detalles del Pago";
             // 
             // simpleButton1
             // 
@@ -433,27 +445,127 @@
             this.label11.TabIndex = 16;
             this.label11.Text = "Pago con Tarjeta";
             // 
-            // xtraTabPage3
+            // tabPageTransferenciaCliente
             // 
-            this.xtraTabPage3.Appearance.PageClient.BackColor = System.Drawing.Color.White;
-            this.xtraTabPage3.Appearance.PageClient.Options.UseBackColor = true;
-            this.xtraTabPage3.Controls.Add(this.gleBancoDeposito);
-            this.xtraTabPage3.Controls.Add(this.label30);
-            this.xtraTabPage3.Controls.Add(this.txtReferencia);
-            this.xtraTabPage3.Controls.Add(this.label17);
-            this.xtraTabPage3.Controls.Add(this.simpleButton2);
-            this.xtraTabPage3.Controls.Add(this.ListboxPrintersTransferencia);
-            this.xtraTabPage3.Controls.Add(this.label16);
-            this.xtraTabPage3.Controls.Add(this.txtValorPagarTransferencia);
-            this.xtraTabPage3.Controls.Add(this.label12);
-            this.xtraTabPage3.Controls.Add(this.radioGroup3);
-            this.xtraTabPage3.Controls.Add(this.spinEdit1);
-            this.xtraTabPage3.Controls.Add(this.label13);
-            this.xtraTabPage3.Controls.Add(this.label14);
-            this.xtraTabPage3.Controls.Add(this.label15);
-            this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(353, 447);
-            this.xtraTabPage3.Text = "Detalles del Pago";
+            this.tabPageTransferenciaCliente.Appearance.PageClient.BackColor = System.Drawing.Color.White;
+            this.tabPageTransferenciaCliente.Appearance.PageClient.Options.UseBackColor = true;
+            this.tabPageTransferenciaCliente.Controls.Add(this.gleCuentaBanco);
+            this.tabPageTransferenciaCliente.Controls.Add(this.label31);
+            this.tabPageTransferenciaCliente.Controls.Add(this.txtValorTransferencia);
+            this.tabPageTransferenciaCliente.Controls.Add(this.gleBancoDeposito);
+            this.tabPageTransferenciaCliente.Controls.Add(this.label30);
+            this.tabPageTransferenciaCliente.Controls.Add(this.txtReferencia);
+            this.tabPageTransferenciaCliente.Controls.Add(this.label17);
+            this.tabPageTransferenciaCliente.Controls.Add(this.simpleButton2);
+            this.tabPageTransferenciaCliente.Controls.Add(this.ListboxPrintersTransferencia);
+            this.tabPageTransferenciaCliente.Controls.Add(this.label16);
+            this.tabPageTransferenciaCliente.Controls.Add(this.txtValorPagarTransferencia);
+            this.tabPageTransferenciaCliente.Controls.Add(this.label12);
+            this.tabPageTransferenciaCliente.Controls.Add(this.radioGroup3);
+            this.tabPageTransferenciaCliente.Controls.Add(this.label13);
+            this.tabPageTransferenciaCliente.Controls.Add(this.label14);
+            this.tabPageTransferenciaCliente.Controls.Add(this.label15);
+            this.tabPageTransferenciaCliente.Name = "tabPageTransferenciaCliente";
+            this.tabPageTransferenciaCliente.Size = new System.Drawing.Size(353, 487);
+            this.tabPageTransferenciaCliente.Text = "Detalles del Pago";
+            this.tabPageTransferenciaCliente.Paint += new System.Windows.Forms.PaintEventHandler(this.tabPageTransferenciaCliente_Paint);
+            // 
+            // gleCuentaBanco
+            // 
+            this.gleCuentaBanco.Location = new System.Drawing.Point(188, 182);
+            this.gleCuentaBanco.Name = "gleCuentaBanco";
+            this.gleCuentaBanco.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.gleCuentaBanco.Properties.Appearance.Options.UseFont = true;
+            this.gleCuentaBanco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gleCuentaBanco.Properties.DataSource = this.bsCuentaBanco;
+            this.gleCuentaBanco.Properties.DisplayMember = "cuenta";
+            this.gleCuentaBanco.Properties.NullText = "";
+            this.gleCuentaBanco.Properties.PopupView = this.gridView3;
+            this.gleCuentaBanco.Properties.ValueMember = "id_cuenta";
+            this.gleCuentaBanco.Size = new System.Drawing.Size(156, 28);
+            this.gleCuentaBanco.TabIndex = 61;
+            this.gleCuentaBanco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gleCuentaBanco_KeyDown);
+            // 
+            // bsCuentaBanco
+            // 
+            this.bsCuentaBanco.DataMember = "cuentas";
+            this.bsCuentaBanco.DataSource = this.dsRegistroPagos1;
+            // 
+            // dsRegistroPagos1
+            // 
+            this.dsRegistroPagos1.DataSetName = "dsRegistroPagos";
+            this.dsRegistroPagos1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gridView3
+            // 
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid_cuenta,
+            this.colid_banco,
+            this.colcuenta,
+            this.coltitular,
+            this.colnum_cuenta,
+            this.colmoneda});
+            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid_cuenta
+            // 
+            this.colid_cuenta.FieldName = "id_cuenta";
+            this.colid_cuenta.Name = "colid_cuenta";
+            // 
+            // colid_banco
+            // 
+            this.colid_banco.FieldName = "id_banco";
+            this.colid_banco.Name = "colid_banco";
+            // 
+            // colcuenta
+            // 
+            this.colcuenta.Caption = "Numero de Cuenta";
+            this.colcuenta.FieldName = "cuenta";
+            this.colcuenta.Name = "colcuenta";
+            this.colcuenta.OptionsColumn.ReadOnly = true;
+            this.colcuenta.Visible = true;
+            this.colcuenta.VisibleIndex = 0;
+            // 
+            // coltitular
+            // 
+            this.coltitular.FieldName = "titular";
+            this.coltitular.Name = "coltitular";
+            // 
+            // colnum_cuenta
+            // 
+            this.colnum_cuenta.FieldName = "num_cuenta";
+            this.colnum_cuenta.Name = "colnum_cuenta";
+            // 
+            // colmoneda
+            // 
+            this.colmoneda.FieldName = "moneda";
+            this.colmoneda.Name = "colmoneda";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(3, 183);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(64, 21);
+            this.label31.TabIndex = 60;
+            this.label31.Text = "Cuenta";
+            // 
+            // txtValorTransferencia
+            // 
+            this.txtValorTransferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorTransferencia.Location = new System.Drawing.Point(188, 72);
+            this.txtValorTransferencia.Name = "txtValorTransferencia";
+            this.txtValorTransferencia.Size = new System.Drawing.Size(156, 29);
+            this.txtValorTransferencia.TabIndex = 59;
+            this.txtValorTransferencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValorTransferencia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtValorTransferencia_KeyDown);
+            this.txtValorTransferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorTransferencia_KeyPress);
+            this.txtValorTransferencia.Validated += new System.EventHandler(this.txtValorTransferencia_Validated);
             // 
             // gleBancoDeposito
             // 
@@ -470,16 +582,13 @@
             this.gleBancoDeposito.Properties.ValueMember = "id";
             this.gleBancoDeposito.Size = new System.Drawing.Size(156, 28);
             this.gleBancoDeposito.TabIndex = 58;
+            this.gleBancoDeposito.EditValueChanged += new System.EventHandler(this.gleBancoDeposito_EditValueChanged);
+            this.gleBancoDeposito.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gleBancoDeposito_KeyDown);
             // 
             // bsBancosList_Deposito
             // 
             this.bsBancosList_Deposito.DataMember = "bancos_listDeposito";
             this.bsBancosList_Deposito.DataSource = this.dsRegistroPagos1;
-            // 
-            // dsRegistroPagos1
-            // 
-            this.dsRegistroPagos1.DataSetName = "dsRegistroPagos";
-            this.dsRegistroPagos1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView2
             // 
@@ -522,6 +631,7 @@
             this.txtReferencia.Size = new System.Drawing.Size(156, 29);
             this.txtReferencia.TabIndex = 40;
             this.txtReferencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtReferencia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtReferencia_KeyDown);
             this.txtReferencia.Validated += new System.EventHandler(this.txtReferencia_Validated);
             // 
             // label17
@@ -545,7 +655,7 @@
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(98, 394);
+            this.simpleButton2.Location = new System.Drawing.Point(98, 429);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(145, 46);
             this.simpleButton2.TabIndex = 38;
@@ -555,7 +665,7 @@
             // ListboxPrintersTransferencia
             // 
             this.ListboxPrintersTransferencia.CheckMode = DevExpress.XtraEditors.CheckMode.Single;
-            this.ListboxPrintersTransferencia.Location = new System.Drawing.Point(98, 248);
+            this.ListboxPrintersTransferencia.Location = new System.Drawing.Point(98, 283);
             this.ListboxPrintersTransferencia.Name = "ListboxPrintersTransferencia";
             this.ListboxPrintersTransferencia.Size = new System.Drawing.Size(246, 140);
             this.ListboxPrintersTransferencia.TabIndex = 37;
@@ -565,7 +675,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(3, 248);
+            this.label16.Location = new System.Drawing.Point(3, 283);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(87, 21);
             this.label16.TabIndex = 36;
@@ -585,7 +695,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(3, 181);
+            this.label12.Location = new System.Drawing.Point(3, 216);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(74, 21);
             this.label12.TabIndex = 34;
@@ -593,7 +703,7 @@
             // 
             // radioGroup3
             // 
-            this.radioGroup3.Location = new System.Drawing.Point(188, 181);
+            this.radioGroup3.Location = new System.Drawing.Point(188, 216);
             this.radioGroup3.Name = "radioGroup3";
             this.radioGroup3.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioGroup3.Properties.Appearance.Options.UseFont = true;
@@ -603,24 +713,6 @@
             this.radioGroup3.Size = new System.Drawing.Size(156, 61);
             this.radioGroup3.TabIndex = 33;
             this.radioGroup3.SelectedIndexChanged += new System.EventHandler(this.radioGroup3_SelectedIndexChanged);
-            // 
-            // spinEdit1
-            // 
-            this.spinEdit1.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.spinEdit1.Location = new System.Drawing.Point(188, 70);
-            this.spinEdit1.Name = "spinEdit1";
-            this.spinEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.spinEdit1.Properties.Appearance.Options.UseFont = true;
-            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEdit1.Size = new System.Drawing.Size(156, 32);
-            this.spinEdit1.TabIndex = 32;
-            this.spinEdit1.EditValueChanged += new System.EventHandler(this.spinEdit1_EditValueChanged);
-            this.spinEdit1.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.spinEdit1_EditValueChanging);
             // 
             // label13
             // 
@@ -652,27 +744,27 @@
             this.label15.TabIndex = 29;
             this.label15.Text = "Pago con Transferencia";
             // 
-            // xtraTabPage4
+            // tabPageCheques
             // 
-            this.xtraTabPage4.Controls.Add(this.gleBancosList);
-            this.xtraTabPage4.Controls.Add(this.label29);
-            this.xtraTabPage4.Controls.Add(this.txtNombreEmisorCheque);
-            this.xtraTabPage4.Controls.Add(this.label28);
-            this.xtraTabPage4.Controls.Add(this.txtNumeroCheque);
-            this.xtraTabPage4.Controls.Add(this.label22);
-            this.xtraTabPage4.Controls.Add(this.cmdAgregarPagoCheque);
-            this.xtraTabPage4.Controls.Add(this.ListBoxCheque);
-            this.xtraTabPage4.Controls.Add(this.label23);
-            this.xtraTabPage4.Controls.Add(this.txtValorPagarChque);
-            this.xtraTabPage4.Controls.Add(this.label24);
-            this.xtraTabPage4.Controls.Add(this.radioGroup4);
-            this.xtraTabPage4.Controls.Add(this.cmdValorCheque);
-            this.xtraTabPage4.Controls.Add(this.label25);
-            this.xtraTabPage4.Controls.Add(this.label26);
-            this.xtraTabPage4.Controls.Add(this.label27);
-            this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(353, 447);
-            this.xtraTabPage4.Text = "Detalles del Pago";
+            this.tabPageCheques.Controls.Add(this.gleBancosList);
+            this.tabPageCheques.Controls.Add(this.label29);
+            this.tabPageCheques.Controls.Add(this.txtNombreEmisorCheque);
+            this.tabPageCheques.Controls.Add(this.label28);
+            this.tabPageCheques.Controls.Add(this.txtNumeroCheque);
+            this.tabPageCheques.Controls.Add(this.label22);
+            this.tabPageCheques.Controls.Add(this.cmdAgregarPagoCheque);
+            this.tabPageCheques.Controls.Add(this.ListBoxCheque);
+            this.tabPageCheques.Controls.Add(this.label23);
+            this.tabPageCheques.Controls.Add(this.txtValorPagarChque);
+            this.tabPageCheques.Controls.Add(this.label24);
+            this.tabPageCheques.Controls.Add(this.radioGroup4);
+            this.tabPageCheques.Controls.Add(this.cmdValorCheque);
+            this.tabPageCheques.Controls.Add(this.label25);
+            this.tabPageCheques.Controls.Add(this.label26);
+            this.tabPageCheques.Controls.Add(this.label27);
+            this.tabPageCheques.Name = "tabPageCheques";
+            this.tabPageCheques.Size = new System.Drawing.Size(353, 487);
+            this.tabPageCheques.Text = "Detalles del Pago";
             // 
             // gleBancosList
             // 
@@ -689,6 +781,7 @@
             this.gleBancosList.Properties.ValueMember = "id";
             this.gleBancosList.Size = new System.Drawing.Size(178, 28);
             this.gleBancosList.TabIndex = 56;
+            this.gleBancosList.EditValueChanged += new System.EventHandler(this.gleBancosList_EditValueChanged);
             // 
             // bsBancosList_Cheque
             // 
@@ -755,6 +848,7 @@
             this.txtNumeroCheque.Size = new System.Drawing.Size(178, 29);
             this.txtNumeroCheque.TabIndex = 52;
             this.txtNumeroCheque.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNumeroCheque.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumeroCheque_KeyDown);
             // 
             // label22
             // 
@@ -849,6 +943,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmdValorCheque.Size = new System.Drawing.Size(178, 32);
             this.cmdValorCheque.TabIndex = 44;
+            this.cmdValorCheque.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmdValorCheque_KeyDown);
             // 
             // label25
             // 
@@ -1011,7 +1106,7 @@
             this.simpleButton3.Appearance.Options.UseFont = true;
             this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(671, 374);
+            this.simpleButton3.Location = new System.Drawing.Point(664, 412);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(145, 46);
             this.simpleButton3.TabIndex = 39;
@@ -1092,7 +1187,7 @@
             this.cmdCerrar.Appearance.Options.UseFont = true;
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCerrar.ImageOptions.Image")));
-            this.cmdCerrar.Location = new System.Drawing.Point(671, 426);
+            this.cmdCerrar.Location = new System.Drawing.Point(664, 464);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(145, 46);
             this.cmdCerrar.TabIndex = 46;
@@ -1105,7 +1200,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 501);
+            this.ClientSize = new System.Drawing.Size(897, 521);
             this.Controls.Add(this.cmdCerrar);
             this.Controls.Add(this.cmdCheque);
             this.Controls.Add(this.lblSaldo);
@@ -1126,25 +1221,27 @@
             this.Text = "Pago Factura";
             ((System.ComponentModel.ISupportInitialize)(this.tabPagos)).EndInit();
             this.tabPagos.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
-            this.xtraTabPage1.PerformLayout();
+            this.tabPageEfectivo.ResumeLayout(false);
+            this.tabPageEfectivo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListboxPrintersEfectivo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
-            this.xtraTabPage2.ResumeLayout(false);
-            this.xtraTabPage2.PerformLayout();
+            this.tabPageTarjeta.ResumeLayout(false);
+            this.tabPageTarjeta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListboxPrintersTarjeta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).EndInit();
-            this.xtraTabPage3.ResumeLayout(false);
-            this.xtraTabPage3.PerformLayout();
+            this.tabPageTransferenciaCliente.ResumeLayout(false);
+            this.tabPageTransferenciaCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gleCuentaBanco.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCuentaBanco)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleBancoDeposito.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBancosList_Deposito)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListboxPrintersTransferencia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
-            this.xtraTabPage4.ResumeLayout(false);
-            this.xtraTabPage4.PerformLayout();
+            this.tabPageCheques.ResumeLayout(false);
+            this.tabPageCheques.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gleBancosList.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBancosList_Cheque)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
@@ -1162,9 +1259,9 @@
         #endregion
 
         private DevExpress.XtraTab.XtraTabControl tabPagos;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraTab.XtraTabPage tabPageEfectivo;
+        private DevExpress.XtraTab.XtraTabPage tabPageTarjeta;
+        private DevExpress.XtraTab.XtraTabPage tabPageTransferenciaCliente;
         private DevExpress.XtraEditors.SimpleButton cmdEfectivo;
         private DevExpress.XtraEditors.SimpleButton cmdTarjeta;
         private DevExpress.XtraEditors.SimpleButton cmdDepositoBancario;
@@ -1173,9 +1270,7 @@
         private DevExpress.XtraEditors.SimpleButton cmdPagar;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
-        private System.Windows.Forms.TextBox txtCambio;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtEntregado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtValorEfectivo;
         private System.Windows.Forms.Label label2;
@@ -1192,7 +1287,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private DevExpress.XtraEditors.RadioGroup radioGroup3;
-        private DevExpress.XtraEditors.SpinEdit spinEdit1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -1220,7 +1314,7 @@
         private System.Windows.Forms.Label lblSaldo;
         private DevExpress.XtraGrid.Columns.GridColumn colreferencia;
         private DevExpress.XtraEditors.SimpleButton cmdCheque;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
+        private DevExpress.XtraTab.XtraTabPage tabPageCheques;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txtNumeroCheque;
         private System.Windows.Forms.Label label22;
@@ -1248,5 +1342,18 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.BindingSource bsBancosList_Deposito;
+        private System.Windows.Forms.TextBox txtValorTransferencia;
+        private DevExpress.XtraEditors.GridLookUpEdit gleCuentaBanco;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.BindingSource bsCuentaBanco;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_cuenta;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_banco;
+        private DevExpress.XtraGrid.Columns.GridColumn colcuenta;
+        private DevExpress.XtraGrid.Columns.GridColumn coltitular;
+        private DevExpress.XtraGrid.Columns.GridColumn colnum_cuenta;
+        private DevExpress.XtraGrid.Columns.GridColumn colmoneda;
+        public System.Windows.Forms.TextBox txtCambio;
+        public System.Windows.Forms.TextBox txtEntregado;
     }
 }

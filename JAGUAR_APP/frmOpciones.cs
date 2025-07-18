@@ -24,6 +24,7 @@ using JAGUAR_PRO.Despachos.Pedidos;
 using JAGUAR_PRO.Facturacion.Configuraciones;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.Facturacion.Cotizaciones;
+using JAGUAR_PRO.Facturacion.Deposito;
 using JAGUAR_PRO.Facturacion.Entrega;
 using JAGUAR_PRO.Facturacion.Mantenimientos;
 using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
@@ -97,6 +98,7 @@ namespace JAGUAR_PRO
                         navBarGroup12.Visible =
                         navBarItem154.Visible =
                         nbReporteCompras.Visible =
+                        navBarItem15.Visible = navBarItem15.Enabled = 
                         navBarGroup5.Visible =
                     navBarItemRecepcionFactura.Visible = true;
                     //tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
@@ -127,6 +129,7 @@ namespace JAGUAR_PRO
                             tabOpciones.TabPages[2].PageVisible = false;//RRHH
                             tabOpciones.TabPages[3].PageVisible = false;//Contabilidad
                             tabOpciones.TabPages[4].PageVisible = true; //Facturacion
+                            navBarItemDepositoBancoCaja.Visible = true;
                             break;
                         case 4://Depth With Delta
                             tabOpciones.TabPages[0].PageVisible = true;
@@ -134,6 +137,7 @@ namespace JAGUAR_PRO
                             tabOpciones.TabPages[2].PageVisible = true; //Administracion
                             tabOpciones.TabPages[3].PageVisible = true; //RRHH
                             tabOpciones.TabPages[4].PageVisible = true; //Contabilidad
+                            navBarItemDepositoBancoCaja.Visible = true;
                             //tabOpciones.TabPages[5].PageVisible = true; //Facturacion
                             //tabOpciones.TabPages[6].PageVisible = false;
                             //tabOpciones.TabPages[7].PageVisible = false;
@@ -158,6 +162,7 @@ namespace JAGUAR_PRO
                             NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
                             NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
                             NBI_Cliente.Visible = true;
+                            navBarItemDepositoBancoCaja.Visible = true;
                             break;
                         default:
                             tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
@@ -448,8 +453,9 @@ namespace JAGUAR_PRO
                             navBarG_ReportesFacturacion.Visible =
                             navBarGroup7.Visible = false;
 
-                            navBarItemFacturasEmitidas.Visible =
-                            navBarItem57.Visible = true;
+                            navBarItemDepositoBancoCaja.Visible = true;
+                            navBarItemFacturasEmitidas.Visible = true;
+                            //navBarItem57.Visible = true;//Cierre de caja
                             break;
                         case 4://Depth With Delta
                             tabOpciones.TabPages[4].PageVisible = true;
@@ -3174,7 +3180,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #19 (Recepción de Facturas)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #19 (CAI de Proveedores)");
                 }
             }
             //xfrmProveedorCAI frm = new xfrmProveedorCAI();
@@ -3317,8 +3323,6 @@ namespace JAGUAR_PRO
 
         private void navBarItem15_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-           
-
             bool accesoprevio = false;
             int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
             switch (idNivel)
@@ -3326,10 +3330,10 @@ namespace JAGUAR_PRO
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
-                    accesoprevio = true;
+                    //accesoprevio = true;
                     break;
                 case 3://Medium Autorization
-                    accesoprevio = true;
+                    //accesoprevio = true;
                     break;
                 case 4://Depth With Delta
                     accesoprevio = true;
@@ -4740,7 +4744,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
                         frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1,EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
-                        frm.StartPosition = FormStartPosition.CenterParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
                         break;
                     default:
@@ -4755,7 +4759,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionOP frm = new frmCotizacionOP(frmCotizacionOP.TipoOperacion.Insert, UsuarioLogeado, puntoVenta1, 0);
                         frmPedidoCliente frm = new frmPedidoCliente(UsuarioLogeado, puntoVenta1, EquipoActual, new Vendedor());
                         frm.MdiParent = this.MdiParent;
-                        frm.StartPosition = FormStartPosition.CenterParent; 
+                        frm.StartPosition = FormStartPosition.CenterScreen; 
                         frm.Show();
                     }
                     else
@@ -4949,6 +4953,7 @@ namespace JAGUAR_PRO
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         frmHomePedidosClientes frm = new frmHomePedidosClientes(this.UsuarioLogeado, puntoVenta1);
                         frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
                         break;
                     default:
@@ -4961,8 +4966,8 @@ namespace JAGUAR_PRO
                     {
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
                         frmHomePedidosClientes frm = new frmHomePedidosClientes(this.UsuarioLogeado, puntoVenta1);
-
                         frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
                     }
                     else
@@ -5649,6 +5654,66 @@ namespace JAGUAR_PRO
                 else
                 {
                     CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-22 (Master de Producto Terminado)");
+                }
+            }
+        }
+
+        private void navBarItemDepositoBancoCaja_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmDepositoBancoMain frm = new frmDepositoBancoMain(this.UsuarioLogeado, puntoVenta1, EquipoActual);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(17))
+                {
+
+                    frmDepositoBancoMain frm = new frmDepositoBancoMain(this.UsuarioLogeado, puntoVenta1, EquipoActual);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #17 (Deposito Bancario)");
                 }
             }
         }

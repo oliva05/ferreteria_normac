@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizaciones));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.cmdCargar = new DevExpress.XtraEditors.SimpleButton();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -42,6 +42,7 @@
             this.dsPrefacturas1 = new JAGUAR_PRO.Despachos.Pedidos.dsPrefacturas();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDocNum1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha_row = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_user = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,7 +61,7 @@
             this.colImprimir = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdPrintCotizacion = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocNum1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lblNombreVendedor = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPrefacturas1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -75,7 +76,7 @@
             this.cmdCargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCargar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCargar.ImageOptions.Image")));
             this.cmdCargar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdCargar.Location = new System.Drawing.Point(620, 9);
+            this.cmdCargar.Location = new System.Drawing.Point(554, 9);
             this.cmdCargar.Name = "cmdCargar";
             this.cmdCargar.Size = new System.Drawing.Size(94, 35);
             this.cmdCargar.TabIndex = 108;
@@ -90,7 +91,7 @@
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAtras.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.ImageOptions.Image")));
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAtras.Location = new System.Drawing.Point(720, 9);
+            this.btnAtras.Location = new System.Drawing.Point(654, 9);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(94, 35);
             this.btnAtras.TabIndex = 107;
@@ -137,7 +138,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdPrintCotizacion});
-            this.gridControl1.Size = new System.Drawing.Size(811, 349);
+            this.gridControl1.Size = new System.Drawing.Size(745, 344);
             this.gridControl1.TabIndex = 111;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -179,6 +180,16 @@
             this.colid.Name = "colid";
             this.colid.OptionsColumn.ReadOnly = true;
             // 
+            // colDocNum1
+            // 
+            this.colDocNum1.Caption = "# Cotizacion";
+            this.colDocNum1.FieldName = "DocNum";
+            this.colDocNum1.Name = "colDocNum1";
+            this.colDocNum1.OptionsColumn.ReadOnly = true;
+            this.colDocNum1.Visible = true;
+            this.colDocNum1.VisibleIndex = 0;
+            this.colDocNum1.Width = 77;
+            // 
             // colfecha
             // 
             this.colfecha.DisplayFormat.FormatString = "g";
@@ -188,7 +199,7 @@
             this.colfecha.OptionsColumn.ReadOnly = true;
             this.colfecha.Visible = true;
             this.colfecha.VisibleIndex = 1;
-            this.colfecha.Width = 102;
+            this.colfecha.Width = 110;
             // 
             // colfecha_row
             // 
@@ -209,7 +220,7 @@
             this.colusuario_nombre.OptionsColumn.ReadOnly = true;
             this.colusuario_nombre.Visible = true;
             this.colusuario_nombre.VisibleIndex = 2;
-            this.colusuario_nombre.Width = 78;
+            this.colusuario_nombre.Width = 68;
             // 
             // colenable
             // 
@@ -224,7 +235,7 @@
             this.colcomentario.OptionsColumn.ReadOnly = true;
             this.colcomentario.Visible = true;
             this.colcomentario.VisibleIndex = 5;
-            this.colcomentario.Width = 140;
+            this.colcomentario.Width = 123;
             // 
             // colDocNum
             // 
@@ -245,7 +256,7 @@
             this.colestado_name.OptionsColumn.ReadOnly = true;
             this.colestado_name.Visible = true;
             this.colestado_name.VisibleIndex = 3;
-            this.colestado_name.Width = 68;
+            this.colestado_name.Width = 59;
             // 
             // colid_cliente
             // 
@@ -260,7 +271,7 @@
             this.colNombreCorto.OptionsColumn.ReadOnly = true;
             this.colNombreCorto.Visible = true;
             this.colNombreCorto.VisibleIndex = 4;
-            this.colNombreCorto.Width = 143;
+            this.colNombreCorto.Width = 125;
             // 
             // colfecha_entrega_estimada
             // 
@@ -285,7 +296,7 @@
             this.coltotal.OptionsColumn.ReadOnly = true;
             this.coltotal.Visible = true;
             this.coltotal.VisibleIndex = 6;
-            this.coltotal.Width = 90;
+            this.coltotal.Width = 78;
             // 
             // colEditar
             // 
@@ -304,9 +315,9 @@
             // cmdPrintCotizacion
             // 
             this.cmdPrintCotizacion.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.cmdPrintCotizacion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdPrintCotizacion.Name = "cmdPrintCotizacion";
             this.cmdPrintCotizacion.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdPrintCotizacion.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdPrintCotizacion_ButtonClick);
@@ -316,15 +327,16 @@
             this.gridColumn1.Caption = "Ver Cotización";
             this.gridColumn1.Name = "gridColumn1";
             // 
-            // colDocNum1
+            // lblNombreVendedor
             // 
-            this.colDocNum1.Caption = "# Cotizacion";
-            this.colDocNum1.FieldName = "DocNum";
-            this.colDocNum1.Name = "colDocNum1";
-            this.colDocNum1.OptionsColumn.ReadOnly = true;
-            this.colDocNum1.Visible = true;
-            this.colDocNum1.VisibleIndex = 0;
-            this.colDocNum1.Width = 85;
+            this.lblNombreVendedor.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreVendedor.Appearance.Options.UseFont = true;
+            this.lblNombreVendedor.Location = new System.Drawing.Point(280, 24);
+            this.lblNombreVendedor.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.lblNombreVendedor.Name = "lblNombreVendedor";
+            this.lblNombreVendedor.Size = new System.Drawing.Size(98, 15);
+            this.lblNombreVendedor.TabIndex = 112;
+            this.lblNombreVendedor.Text = "Nombre Vendedor";
             // 
             // frmCotizaciones
             // 
@@ -332,7 +344,8 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 402);
+            this.ClientSize = new System.Drawing.Size(750, 397);
+            this.Controls.Add(this.lblNombreVendedor);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btnAgregar);
@@ -345,6 +358,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdPrintCotizacion)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -377,5 +391,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdPrintCotizacion;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn colDocNum1;
+        private DevExpress.XtraEditors.LabelControl lblNombreVendedor;
     }
 }

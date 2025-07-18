@@ -56,6 +56,8 @@
             this.navBarItem153 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem21 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup19 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem208 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem25 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem26 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem27 = new DevExpress.XtraNavBar.NavBarItem();
@@ -356,8 +358,7 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup19 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem208 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemDepositoBancoCaja = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -822,6 +823,30 @@
             this.navBarItem21.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.box32px;
             this.navBarItem21.Name = "navBarItem21";
             this.navBarItem21.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem21_LinkClicked);
+            // 
+            // navBarGroup19
+            // 
+            this.navBarGroup19.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup19.Appearance.Options.UseFont = true;
+            this.navBarGroup19.Caption = "Mantenimiento";
+            this.navBarGroup19.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem208)});
+            this.navBarGroup19.Name = "navBarGroup19";
+            // 
+            // navBarItem208
+            // 
+            this.navBarItem208.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem208.Appearance.Options.UseFont = true;
+            this.navBarItem208.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem208.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem208.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem208.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem208.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem208.AppearancePressed.Options.UseFont = true;
+            this.navBarItem208.Caption = "Master de Productos";
+            this.navBarItem208.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.package_box32px;
+            this.navBarItem208.Name = "navBarItem208";
+            this.navBarItem208.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem208_LinkClicked);
             // 
             // navBarItem25
             // 
@@ -1372,7 +1397,7 @@
             this.cmdCuentas.Name = "cmdCuentas";
             this.cmdCuentas.Size = new System.Drawing.Size(227, 58);
             this.cmdCuentas.TabIndex = 35;
-            this.cmdCuentas.Text = "Master Cuentas";
+            this.cmdCuentas.Text = "Master Cuentas Banco";
             this.cmdCuentas.Click += new System.EventHandler(this.cmdCuentas_Click);
             // 
             // btnME
@@ -3933,7 +3958,8 @@
             this.nbReportesFacturacionMain,
             this.navBarItemCambioDePrecio,
             this.navBarItem20,
-            this.navBarItem59});
+            this.navBarItem59,
+            this.navBarItemDepositoBancoCaja});
             this.navBarControl3.Location = new System.Drawing.Point(0, 0);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
@@ -3966,7 +3992,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.nB_PagoMultiple),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem56),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem57),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem58)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem58),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemDepositoBancoCaja)});
             this.navBarGroup10.Name = "navBarGroup10";
             // 
             // nbPrefactura
@@ -4933,29 +4960,19 @@
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
             // 
-            // navBarGroup19
+            // navBarItemDepositoBancoCaja
             // 
-            this.navBarGroup19.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
-            this.navBarGroup19.Appearance.Options.UseFont = true;
-            this.navBarGroup19.Caption = "Mantenimiento";
-            this.navBarGroup19.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem208)});
-            this.navBarGroup19.Name = "navBarGroup19";
-            // 
-            // navBarItem208
-            // 
-            this.navBarItem208.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem208.Appearance.Options.UseFont = true;
-            this.navBarItem208.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem208.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem208.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem208.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem208.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem208.AppearancePressed.Options.UseFont = true;
-            this.navBarItem208.Caption = "Master de Productos";
-            this.navBarItem208.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.package_box32px;
-            this.navBarItem208.Name = "navBarItem208";
-            this.navBarItem208.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem208_LinkClicked);
+            this.navBarItemDepositoBancoCaja.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.Appearance.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.AppearancePressed.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.Caption = "Depósito Bancario Caja";
+            this.navBarItemDepositoBancoCaja.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemDepositoBancoCaja.ImageOptions.SmallImage")));
+            this.navBarItemDepositoBancoCaja.Name = "navBarItemDepositoBancoCaja";
+            this.navBarItemDepositoBancoCaja.Visible = false;
+            this.navBarItemDepositoBancoCaja.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDepositoBancoCaja_LinkClicked);
             // 
             // frmOpciones
             // 
@@ -5329,5 +5346,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem155;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup19;
         private DevExpress.XtraNavBar.NavBarItem navBarItem208;
+        private DevExpress.XtraNavBar.NavBarItem navBarItemDepositoBancoCaja;
     }
 }

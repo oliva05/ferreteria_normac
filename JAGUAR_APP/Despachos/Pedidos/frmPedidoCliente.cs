@@ -18,6 +18,7 @@ using JAGUAR_PRO.Facturacion.Numeracion_Fiscal;
 using JAGUAR_PRO.Facturacion.Reportes;
 using JAGUAR_PRO.Mantenimientos;
 using JAGUAR_PRO.Mantenimientos.Modelos;
+using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
 using JAGUAR_PRO.RecuentoInventario;
 using JAGUAR_PRO.TransaccionesPT;
 using JAGUAR_PRO.Utileria;
@@ -207,20 +208,20 @@ namespace Eatery.Ventas
                     if(IdTerminoPago== 1)//Contado
                     {
                         rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged_1);
-                        rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_1);
+                        rdPorCobrar.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_1);
                         rdContado.Checked = true;
-                        rdCredito.Checked = false;
-                        rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_1);
+                        rdPorCobrar.Checked = false;
+                        rdPorCobrar.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_1);
                         rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged_1);
                     }
 
                     if (IdTerminoPago == 2)//Credito
                     {
                         rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged_1);
-                        rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_1);
+                        rdPorCobrar.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_1);
                         rdContado.Checked = false;
-                        rdCredito.Checked = true;
-                        rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_1);
+                        rdPorCobrar.Checked = true;
+                        rdPorCobrar.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_1);
                         rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged_1);
                     }
 
@@ -969,6 +970,9 @@ namespace Eatery.Ventas
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Factura factura = new Factura();
+                    factura.monto_entregado = dp.ValidateNumberDecimal(frm.txtEntregado.Text);
+                    factura.cambio = dp.ValidateNumberDecimal(frm.txtCambio.Text);
+
                     if (!string.IsNullOrEmpty(txtRTN.Text))
                         factura.RTN = txtRTN.Text;
 
@@ -977,7 +981,6 @@ namespace Eatery.Ventas
 
                     if (!string.IsNullOrEmpty(txtDireccion.Text))
                         factura.direccion_cliente = txtDireccion.Text;
-
 
                     if (ClienteFactura != null)
                         if (ClienteFactura.Id > 0)
@@ -1028,7 +1031,7 @@ namespace Eatery.Ventas
                         try
                         {
                             //Guardamos el Header de la factura 
-                            command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v8]";
+                            command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v12]";
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.AddWithValue("@enable", 1);
                             command.Parameters.AddWithValue("@id_estado", factura.IdEstado);
@@ -1056,6 +1059,8 @@ namespace Eatery.Ventas
                             command.Parameters.AddWithValue("@isv1", factura.ISV1);
                             command.Parameters.AddWithValue("@isv2", factura.ISV2);
                             command.Parameters.AddWithValue("@id_formato_impresion", PuntoDeVentaActual.IdFormatoFactura);
+                            command.Parameters.AddWithValue("@monto_entregado", factura.monto_entregado);
+                            command.Parameters.AddWithValue("@cambio", factura.cambio);
 
                             Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
@@ -2589,6 +2594,25 @@ namespace Eatery.Ventas
             //    }
             //}
 
+            if (ckConfirmarPedido.Checked)
+            {
+                bool ItemSinInventario = false;
+                foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
+                {
+                    if (row.inventario <= 0)
+                    {
+                        ItemSinInventario |= true;
+                    }
+                }
+
+                if (ItemSinInventario)
+                {
+                    CajaDialogo.Error("Hay productos que tienen un invetario menor o igual a cero (0).\nDebe eliminar estos productos para poder confirmar la Pre Factura!");
+                    ckConfirmarPedido.Checked = false;
+                    return;
+                }
+            }
+
 
             //Valiadmos que se haya elejido un vendedor
             if (VendedorActual == null)
@@ -2692,7 +2716,7 @@ namespace Eatery.Ventas
                             command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
                             command.Parameters.AddWithValue("@cliente_nombre", Pedido_.ClienteNombre);
 
-                            if (string.IsNullOrEmpty(Pedido_.RTN))
+                            if (string.IsNullOrEmpty(Pedido_.direccion_cliente))
                                 command.Parameters.AddWithValue("@direccion", DBNull.Value);
                             else
                                 command.Parameters.AddWithValue("@direccion", Pedido_.direccion_cliente);
@@ -3198,6 +3222,21 @@ namespace Eatery.Ventas
                 return;
             }
 
+            bool ItemSinInventario = false;
+            foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
+            {
+                if (row.inventario <= 0)
+                {
+                    ItemSinInventario|= true;
+                }
+            }
+
+            if (ItemSinInventario)
+            {
+                CajaDialogo.Error("Hay productos que tienen un invetario menor o igual a cero (0).\nDebe eliminar estos productos para poder confirmar la Pre Factura!");
+                return;
+            }
+
             try
             {
                 DataOperations dp = new DataOperations();
@@ -3333,21 +3372,29 @@ namespace Eatery.Ventas
         {
             if (rdContado.Checked)
             {
-                rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
-                rdCredito.Checked = false;
+                rdCredito.CheckedChanged -=  new EventHandler(rdCredito_CheckedChanged_2);
+                rdPorCobrar.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
+                rdCredito.Checked = 
+                rdPorCobrar.Checked = false;
                 IdTerminoPago = 1;
-                rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
+                rdPorCobrar.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
+                rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_2);
             }
         }
 
         private void rdCredito_CheckedChanged_1(object sender, EventArgs e)
         {
-            if (rdCredito.Checked)
+            if (rdPorCobrar.Checked)
             {
+                rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_2);
                 rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
+               
+                rdCredito.Checked = 
                 rdContado.Checked = false;
-                IdTerminoPago = 2;
+                IdTerminoPago = 3;
+
                 rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
+                rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_2);
             }
         }
 
@@ -3368,6 +3415,54 @@ namespace Eatery.Ventas
                         break;
                     default:
                         break;
+                }
+            }
+        }
+
+        private void cmdSalir2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();   
+        }
+
+        private void rdCredito_CheckedChanged_2(object sender, EventArgs e)
+        {
+            if (rdCredito.Checked)
+            {
+                rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
+                rdPorCobrar.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
+                rdCredito.Checked =
+                rdContado.Checked = false;
+                IdTerminoPago = 2;
+                rdPorCobrar.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
+                rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
+            }
+        }
+
+        private void gridView1_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view == null) return;
+
+            if (e.RowHandle >= 0)
+            {
+                var gridView = (GridView)gridControl1.FocusedView;
+                var row = (dsVentas.detalle_factura_transactionRow)gridView.GetDataRow(e.RowHandle);// GetFocusedDataRow();
+
+                if (row.inventario<=0)
+                {
+                    //BackColor Rojo Suave
+                    e.Appearance.Font = new Font(gridView2.Appearance.Row.Font.FontFamily,
+                        gridView2.Appearance.Row.Font.Size,
+                        FontStyle.Bold);
+
+                    //e.Appearance.BackColor = Color.FromArgb(102, 255, 102);//Verde
+                    e.Appearance.BackColor = Color.FromArgb(245, 141, 105);//Rojo Suave
+                }
+                else
+                {
+                    //Backcolor Blanco
+                    e.Appearance.BackColor = Color.FromArgb(255, 255, 255);
                 }
             }
         }

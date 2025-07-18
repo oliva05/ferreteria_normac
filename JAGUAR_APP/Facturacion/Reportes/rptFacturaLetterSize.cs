@@ -55,26 +55,41 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             lblTermino.Text = Factura1.TerminoPagoName;
             txtVendedor.Text = Factura1.Vendedor;
 
-            //((Factura1.sub - Factura1.descuento) + Factura1.Recargo));
-            //if (Factura1.Recargo > 0)
-            //{
-            //    lblRecargo.Text = string.Format("{0: ###,##0.00}", Factura1.Recargo);
-            //    lblRecargoDescuentoDescrip.Text = "Recargo";
-            //}
-            //else
-            //{
-            //    lblRecargoDescuentoDescrip.Text = "Descuento";
-            //    lblRecargo.Text = string.Format("{0: ###,##0.00}", Factura1.descuento);
-            //}
+            if(Factura1.monto_entregado > 0)
+            {
+                lblTotalPagado.Text = string.Format("{0: ###,##0.00}", Factura1.monto_entregado);
+                lblCambio.Text = string.Format("{0: ###,##0.00}", Factura1.cambio);
+            }
+            else
+            {
+                lblTotalPagado.Visible = false;
+                lblCambio.Visible = false;
+                xrLabel4.Visible = false;
+                xrLabel16.Visible = false;
+            }
 
-            //idFact = Factura1.id;
-            //decimal saldo_actual = Factura1.Saldo;
-            //lblSaldoAnterior.Text = string.Format("{0: ###,##0.00}", ((saldo_actual- Factura1.descuento) + Factura1.Recargo));
-            //lblAbono.Text = string.Format("{0: ###,##0.00}", (Factura1.sub - Factura1.descuento + Factura1.Recargo));
-            //lblSaldoActual.Text = string.Format("{0: ###,##0.00}",
-            //(((saldo_actual - Factura1.descuento) + Factura1.Recargo) - (Factura1.sub + Factura1.Recargo - Factura1.descuento)));
 
-            CargarDetalle(Factura1.Id);
+
+                //((Factura1.sub - Factura1.descuento) + Factura1.Recargo));
+                //if (Factura1.Recargo > 0)
+                //{
+                //    lblRecargo.Text = string.Format("{0: ###,##0.00}", Factura1.Recargo);
+                //    lblRecargoDescuentoDescrip.Text = "Recargo";
+                //}
+                //else
+                //{
+                //    lblRecargoDescuentoDescrip.Text = "Descuento";
+                //    lblRecargo.Text = string.Format("{0: ###,##0.00}", Factura1.descuento);
+                //}
+
+                //idFact = Factura1.id;
+                //decimal saldo_actual = Factura1.Saldo;
+                //lblSaldoAnterior.Text = string.Format("{0: ###,##0.00}", ((saldo_actual- Factura1.descuento) + Factura1.Recargo));
+                //lblAbono.Text = string.Format("{0: ###,##0.00}", (Factura1.sub - Factura1.descuento + Factura1.Recargo));
+                //lblSaldoActual.Text = string.Format("{0: ###,##0.00}",
+                //(((saldo_actual - Factura1.descuento) + Factura1.Recargo) - (Factura1.sub + Factura1.Recargo - Factura1.descuento)));
+
+                CargarDetalle(Factura1.Id);
         }
 
         private void CargarDetalle(long pIdFactura)

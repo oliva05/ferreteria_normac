@@ -5,6 +5,7 @@ using DevExpress.XtraReports.UI;
 using DevExpress.XtraRichEdit.Import.Html;
 using DevExpress.XtraSpreadsheet.Import.Xls;
 using DocumentFormat.OpenXml.Office.CoverPageProps;
+using DocumentFormat.OpenXml.Office2010.CustomUI;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.Reportes;
 using System;
@@ -72,10 +73,16 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             
             SetRadioButtonFormatt();
             GetPrintersNames();
-            GetBancos();
+            GetBancosTodos();
+            GetBancosDeposito();
+            radioGroup1.EditValue = 1;
+            radioGroup2.EditValue = 1;
+            radioGroup3.EditValue = 1;
+            radioGroup4.EditValue = 1;
+
         }
 
-        private void GetBancos()
+        private void GetBancosTodos()
         {
             //sp_get_lista_bancos_finanzas
             try
@@ -92,9 +99,61 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsRegistroPagos1.bancos_list.Clear();
-                dsRegistroPagos1.bancos_listDeposito.Clear();
+                //dsRegistroPagos1.bancos_listDeposito.Clear();
                 adat.Fill(dsRegistroPagos1.bancos_list);
+                //adat.Fill(dsRegistroPagos1.bancos_listDeposito);
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void GetBancosDeposito()
+        {
+            //sp_get_lista_bancos_finanzas
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_lista_bancos_finanzas_normac]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
+                //cmd.Parameters.AddWithValue("@desde", dtDesde.EditValue);
+                //cmd.Parameters.AddWithValue("@hasta", dtHasta.EditValue);
+
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsRegistroPagos1.bancos_listDeposito.Clear();
                 adat.Fill(dsRegistroPagos1.bancos_listDeposito);
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void GetCuentasBancos(int pIDBanco)
+        {
+            //sp_get_lista_bancos_finanzas
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_finanzas_get_cuentas_by_titular_y_banco]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
+                cmd.Parameters.AddWithValue("@IdTitular", 1);//NORMAC=1
+                cmd.Parameters.AddWithValue("@id_banco", pIDBanco);
+
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsRegistroPagos1.cuentas.Clear();
+                adat.Fill(dsRegistroPagos1.cuentas);
                 con.Close();
             }
             catch (Exception ec)
@@ -111,17 +170,21 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     radioGroup1.EditValue = 1;
                     radioGroup2.EditValue = 1;
                     radioGroup3.EditValue = 1;
+                    radioGroup4.EditValue = 1;
                     radioGroup1.ReadOnly = true;
                     radioGroup2.ReadOnly = true;
                     radioGroup3.ReadOnly = true;
+                    radioGroup4.ReadOnly = true;
                     break;
                 case 2:
                     radioGroup1.EditValue = 2;
                     radioGroup2.EditValue = 2;
                     radioGroup3.EditValue = 2;
+                    radioGroup4.EditValue= 2;
                     radioGroup1.ReadOnly = true;
                     radioGroup2.ReadOnly = true;
                     radioGroup3.ReadOnly = true;
+                    radioGroup4.ReadOnly = true;
                     break;
             }
             
@@ -214,48 +277,48 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 case TipoPago.Efectivo: //1
                     cmdEfectivo.Appearance.BackColor = Color.LightSkyBlue;
                     cmdTarjeta.Appearance.BackColor =
-                    cmdCheque.Appearance.BackColor = Color.White;
+                    cmdCheque.Appearance.BackColor =
                     cmdDepositoBancario.Appearance.BackColor = Color.White;
-                    xtraTabPage1.PageVisible = true;
-                    xtraTabPage2.PageVisible = 
-                    xtraTabPage3.PageVisible =
-                    xtraTabPage4.PageVisible = false;
+                    tabPageEfectivo.PageVisible = true;
+                    tabPageTarjeta.PageVisible = 
+                    tabPageTransferenciaCliente.PageVisible =
+                    tabPageCheques.PageVisible = false;
                     break;
                 case TipoPago.Tarjeta: //2
                     cmdEfectivo.Appearance.BackColor =
                     cmdCheque.Appearance.BackColor = Color.White;
                     cmdTarjeta.Appearance.BackColor = Color.LightSkyBlue;
                     cmdDepositoBancario.Appearance.BackColor = Color.White;
-                    xtraTabPage1.PageVisible = false;
-                    xtraTabPage2.PageVisible = true;
-                    xtraTabPage3.PageVisible =
-                    xtraTabPage4.PageVisible = false;
+                    tabPageEfectivo.PageVisible = false;
+                    tabPageTarjeta.PageVisible = true;
+                    tabPageTransferenciaCliente.PageVisible =
+                    tabPageCheques.PageVisible = false;
                     break;
                 case TipoPago.DepositoBancario: //3
                     cmdEfectivo.Appearance.BackColor =
-                    cmdCheque.Appearance.BackColor = Color.White;
+                    cmdCheque.Appearance.BackColor = 
                     cmdTarjeta.Appearance.BackColor = Color.White;
                     cmdDepositoBancario.Appearance.BackColor = Color.LightSkyBlue;
-                    xtraTabPage1.PageVisible = 
-                    xtraTabPage2.PageVisible =
-                    xtraTabPage4.PageVisible = false;
-                    xtraTabPage3.PageVisible = true;
+                    tabPageEfectivo.PageVisible = 
+                    tabPageTarjeta.PageVisible =
+                    tabPageCheques.PageVisible = false;
+                    tabPageTransferenciaCliente.PageVisible = true;
                     break;
                 case TipoPago.Cheque: //4
-                    cmdEfectivo.Appearance.BackColor = Color.White;
+                    cmdEfectivo.Appearance.BackColor = 
                     cmdTarjeta.Appearance.BackColor = cmdDepositoBancario.Appearance.BackColor = Color.White;
                     cmdCheque.Appearance.BackColor = Color.LightSkyBlue;
-                    xtraTabPage1.PageVisible =
-                    xtraTabPage2.PageVisible = 
-                    xtraTabPage3.PageVisible = false;
-                    xtraTabPage4.PageVisible = true;
+                    tabPageEfectivo.PageVisible =
+                    tabPageTarjeta.PageVisible = 
+                    tabPageTransferenciaCliente.PageVisible = false;
+                    tabPageCheques.PageVisible = true;
                     break;
             }
         }
 
         private void cmdEfectivo_Click(object sender, EventArgs e)
         {
-            tabPagos.SelectedTabPage = xtraTabPage1;
+            tabPagos.SelectedTabPage = tabPageEfectivo;
             TipoPagoSeleccionadoActual = TipoPago.Efectivo;
             SetButtonPago();
             txtEntregado.Focus();
@@ -263,14 +326,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void cmdTarjeta_Click(object sender, EventArgs e)
         {
-            tabPagos.SelectedTabPage = xtraTabPage2;
+            tabPagos.SelectedTabPage = tabPageTarjeta;
             TipoPagoSeleccionadoActual = TipoPago.Tarjeta;
             SetButtonPago();
         }
 
         private void cmdDepositoBancario_Click(object sender, EventArgs e)
         {
-            tabPagos.SelectedTabPage = xtraTabPage3;
+            tabPagos.SelectedTabPage = tabPageTransferenciaCliente;
             TipoPagoSeleccionadoActual = TipoPago.DepositoBancario;
             SetButtonPago();
         }
@@ -287,6 +350,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     CajaDialogo.Error("Debe ingresar un valor Decimal Valido!");
                     return;
                 }
+
                 decimal cambio = varPago - ValorA_Pagar;
                 if(cambio < 0) 
                     cambio = 0;
@@ -300,7 +364,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             if (e.KeyCode == Keys.Enter)
             {
                 calcularCambio();
-                cmdPagar.Focus();
+                //cmdPagar.Focus();
+                cmdPagar_Click(sender, new EventArgs());
             }
         }
 
@@ -337,13 +402,13 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 IdFormato = Convert.ToInt32(radioGroup1.EditValue);
             }
 
-            AgregarPago(1, "Efectivo", varPago,"N/D",0,"N/D", "N/D");
+            AgregarPago(1, "Efectivo", varPago,"N/D",0,"N/D", "N/D",0,"N/D");
 
             //this.DialogResult = DialogResult.OK;
             //this.Close();
         }
 
-        private void AgregarPago(int IdPago, string NombrePago, decimal vValor, string pReferencia, int pIdBanco, string pNumeroCheque, string pEmisorCheque)
+        private void AgregarPago(int IdPago, string NombrePago, decimal vValor, string pReferencia, int pIdBanco, string pNumeroCheque, string pEmisorCheque, int pIdCuenta, string pNumeroCuenta)
         {
             Saldo = 0;
             int ExistePreviamente = 0;
@@ -369,6 +434,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 row1.id_banco = pIdBanco;
                 row1.numero_cheque = NumeroCheque;
                 row1.emisor_cheque = pEmisorCheque;
+                row1.id_cuenta = pIdCuenta;
+                row1.CuentaBanco = pNumeroCuenta;
 
                 dsRegistroPagos1.resumen_pago.Addresumen_pagoRow(row1);
                 dsRegistroPagos1.AcceptChanges();
@@ -386,6 +453,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     row.id_banco = pIdBanco;
                     row.numero_cheque = NumeroCheque;
                     row.emisor_cheque = pEmisorCheque;
+                    row.id_cuenta = pIdCuenta;
+                    row.CuentaBanco = pNumeroCuenta;
                     //SumaTotal += vValor;
                 }
 
@@ -453,7 +522,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void radioGroup2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IdFormato = Convert.ToInt32(radioGroup1.EditValue);
+            IdFormato = Convert.ToInt32(radioGroup2.EditValue);
         }
 
         private void checkedListBoxControl1_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
@@ -490,19 +559,19 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 IdFormato = Convert.ToInt32(radioGroup1.EditValue);
             }
 
-            AgregarPago(2, "Tarjeta", varPago, "N/D", 0, "N/D", "N/D");
+            AgregarPago(2, "Tarjeta", varPago, "N/D", 0, "N/D", "N/D", 0, "N/D");
             //this.DialogResult = DialogResult.OK;
             //this.Close();
         }
 
         private void spinEdit1_EditValueChanged(object sender, EventArgs e)
         {
-            varPago = spinEdit1.Value;
+            //varPago = spinEdit1.Value;
         }
 
         private void radioGroup3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IdFormato = Convert.ToInt32(radioGroup1.EditValue);
+            IdFormato = Convert.ToInt32(radioGroup3.EditValue);
         }
 
         private void checkedListBoxControl2_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
@@ -516,7 +585,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            varPago = dp.ValidateNumberDecimal(spinEdit1.Value);
+            varPago = dp.ValidateNumberDecimal(txtValorTransferencia.Text);
             //if (ValorA_Pagar > varPago)
             //{
             //    CajaDialogo.Error("No se puede realizar la transaccion, el valor transferido debe ser mayor o igual al de la factura.");
@@ -540,11 +609,24 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 ReferenciaReciboPago = "N/D";
             }
 
+            int pIdCuenta;
+            if (string.IsNullOrEmpty(gleCuentaBanco.Text))
+            {
+                CajaDialogo.Error("Es necesario indicar la cuenta a la que se efectuo el deposito!");
+                return;
+            }
+            else
+            {
+                pIdCuenta = dp.ValidateNumberInt32(gleCuentaBanco.EditValue);
+
+            }
+
             if (IdFormato == 0)
             {
                 IdFormato = Convert.ToInt32(radioGroup1.EditValue);
             }
-            AgregarPago(3, "Deposito Bancario", varPago, ReferenciaReciboPago, dp.ValidateNumberInt32(gleBancoDeposito.EditValue), "N/D", "N/D");
+            AgregarPago(3, "Deposito Bancario", varPago, ReferenciaReciboPago, dp.ValidateNumberInt32(gleBancoDeposito.EditValue), 
+                        "N/D", "N/D", pIdCuenta, gleCuentaBanco.Text);
             //this.DialogResult = DialogResult.OK;
             //this.Close();
         }
@@ -605,7 +687,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void spinEdit1_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            varPago = spinEdit1.Value;
+            //varPago = spinEdit1.Value;
         }
 
         private void txtEntregado_TextChanged_1(object sender, EventArgs e)
@@ -639,10 +721,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 {
                     PagoParcial.Referencia = row.referencia;
                     PagoParcial.id_banco = row.id_banco;
+                    PagoParcial.id_cuenta = row.id_cuenta;
+                    PagoParcial.CuentaBanco = row.CuentaBanco;
                 }
                 else
                 {
-                    PagoParcial.Referencia = "N/D";
+                    PagoParcial.id_cuenta = 0;
+                    PagoParcial.Referencia = 
+                    PagoParcial.CuentaBanco = "N/D";
                 }
 
                 if (row.id == 4)//Cheque
@@ -651,11 +737,13 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     PagoParcial.id_banco = row.id_banco;
                     PagoParcial.EmisorCheque = row.emisor_cheque;
                     PagoParcial.NumeroCheque = row.numero_cheque;
+                    PagoParcial.CuentaBanco = "N/D";
                 }
                 else
                 {
                     PagoParcial.Referencia = "N/D";
                     PagoParcial.EmisorCheque = "N/D";
+                    PagoParcial.CuentaBanco =
                     PagoParcial.NumeroCheque = "N/D";
                 }
 
@@ -673,7 +761,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void cmdCheque_Click(object sender, EventArgs e)
         {
-            tabPagos.SelectedTabPage = xtraTabPage4;
+            tabPagos.SelectedTabPage = tabPageCheques;
             TipoPagoSeleccionadoActual = TipoPago.Cheque;
             SetButtonPago();
             cmdValorCheque.Focus();
@@ -734,7 +822,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             {
                 IdFormato = Convert.ToInt32(radioGroup1.EditValue);
             }
-            AgregarPago(4, "Cheque", varPago, ReferenciaReciboPago,dp.ValidateNumberInt32(gleBancosList.EditValue),NumeroCheque, NombreEmisorCheque);
+            AgregarPago(4, "Cheque", varPago, ReferenciaReciboPago,dp.ValidateNumberInt32(gleBancosList.EditValue),NumeroCheque, NombreEmisorCheque,0,"N/D");
             //this.DialogResult = DialogResult.OK;
             //this.Close();
         }
@@ -743,6 +831,100 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void txtValorTransferencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtValorTransferencia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtReferencia.Focus();
+            }
+        }
+
+        private void txtReferencia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                gleBancoDeposito.Focus();
+            }
+        }
+
+        private void gleBancoDeposito_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gleCuentaBanco.Focus();
+            }
+        }
+
+        private void gleCuentaBanco_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                simpleButton2_Click(sender, new EventArgs());
+            }
+        }
+
+        private void gleBancoDeposito_EditValueChanged(object sender, EventArgs e)
+        {
+            if (gleBancoDeposito != null) 
+            {
+                int idBanco = dp.ValidateNumberInt32(gleBancoDeposito.EditValue);
+                if (idBanco > 0)
+                {
+                    GetCuentasBancos(idBanco);
+                }
+            }
+
+        }
+
+        private void txtValorTransferencia_Validated(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtValorTransferencia.Text))
+                varPago = dp.ValidateNumberDecimal(txtValorTransferencia.Text);
+        }
+
+        private void tabPageTransferenciaCliente_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmdValorCheque_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                gleBancosList.Focus();
+            }
+        }
+
+        private void gleBancosList_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(gleBancosList.Text))
+            {
+                txtNumeroCheque.Focus();
+            }
+        }
+
+        private void txtNumeroCheque_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                txtNombreEmisorCheque.Focus();
+            }
         }
     }
 }

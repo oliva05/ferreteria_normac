@@ -4,6 +4,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
+using JAGUAR_PRO.Facturacion.Deposito;
 using JAGUAR_PRO.Mantenimientos.Modelos;
 using System;
 using System.Collections.Generic;
@@ -107,6 +108,31 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             LoadDetalleFacturas();
             LoadRecibos(fechaDesde, fechaHasta);
             LoadFacturasCredito(fechaDesde, fechaHasta);
+            LoadDepositosDeCaja(fechaDesde, fechaHasta);
+        }
+
+        private void LoadDepositosDeCaja(DateTime pDesde, DateTime pHasta)
+        {
+            string query = @"sp_get_listad_depositos";
+            try
+            {
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@desde", pDesde);
+                cmd.Parameters.AddWithValue("@hasta", pHasta);
+                cmd.Parameters.AddWithValue("@puntoVentaId", this.PuntoVentaActual.ID);
+                cmd.Parameters.AddWithValue("@completado", 1);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                dsDepositos1.lista_depositos.Clear();
+                da.Fill(dsDepositos1.lista_depositos);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
         }
 
         private void LoadDatosResumen(Int64 pIdCierreH)

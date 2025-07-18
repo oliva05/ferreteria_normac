@@ -402,6 +402,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             private global::System.Data.DataColumn columnemisor_cheque;
             
+            private global::System.Data.DataColumn columnid_cuenta;
+            
+            private global::System.Data.DataColumn columnCuentaBanco;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public resumen_pagoDataTable() {
@@ -509,6 +513,22 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_cuentaColumn {
+                get {
+                    return this.columnid_cuenta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CuentaBancoColumn {
+                get {
+                    return this.columnCuentaBanco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -544,7 +564,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public resumen_pagoRow Addresumen_pagoRow(int id, string descripcion, decimal valor, int tipo_id, string tipo_descripcion, string referencia, int id_banco, string numero_cheque, string emisor_cheque) {
+            public resumen_pagoRow Addresumen_pagoRow(int id, string descripcion, decimal valor, int tipo_id, string tipo_descripcion, string referencia, int id_banco, string numero_cheque, string emisor_cheque, int id_cuenta, string CuentaBanco) {
                 resumen_pagoRow rowresumen_pagoRow = ((resumen_pagoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -555,7 +575,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         referencia,
                         id_banco,
                         numero_cheque,
-                        emisor_cheque};
+                        emisor_cheque,
+                        id_cuenta,
+                        CuentaBanco};
                 rowresumen_pagoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowresumen_pagoRow);
                 return rowresumen_pagoRow;
@@ -587,6 +609,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columnid_banco = base.Columns["id_banco"];
                 this.columnnumero_cheque = base.Columns["numero_cheque"];
                 this.columnemisor_cheque = base.Columns["emisor_cheque"];
+                this.columnid_cuenta = base.Columns["id_cuenta"];
+                this.columnCuentaBanco = base.Columns["CuentaBanco"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -610,6 +634,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columnnumero_cheque);
                 this.columnemisor_cheque = new global::System.Data.DataColumn("emisor_cheque", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnemisor_cheque);
+                this.columnid_cuenta = new global::System.Data.DataColumn("id_cuenta", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_cuenta);
+                this.columnCuentaBanco = new global::System.Data.DataColumn("CuentaBanco", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuentaBanco);
                 this.columndescripcion.Caption = "Descripción";
                 this.columnvalor.Caption = "Valor";
                 this.columntipo_descripcion.Caption = "Tipo de Pago";
@@ -931,6 +959,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columnnum_cuenta);
                 this.columnmoneda = new global::System.Data.DataColumn("moneda", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmoneda);
+                this.columntitular.Caption = "Titular";
+                this.columnnum_cuenta.Caption = "No Cuenta";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1739,6 +1769,38 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_cuenta {
+                get {
+                    try {
+                        return ((int)(this[this.tableresumen_pago.id_cuentaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_cuenta\' de la tabla \'resumen_pago\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableresumen_pago.id_cuentaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CuentaBanco {
+                get {
+                    try {
+                        return ((string)(this[this.tableresumen_pago.CuentaBancoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CuentaBanco\' de la tabla \'resumen_pago\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableresumen_pago.CuentaBancoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tableresumen_pago.idColumn);
             }
@@ -1843,6 +1905,30 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setemisor_chequeNull() {
                 this[this.tableresumen_pago.emisor_chequeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_cuentaNull() {
+                return this.IsNull(this.tableresumen_pago.id_cuentaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_cuentaNull() {
+                this[this.tableresumen_pago.id_cuentaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCuentaBancoNull() {
+                return this.IsNull(this.tableresumen_pago.CuentaBancoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCuentaBancoNull() {
+                this[this.tableresumen_pago.CuentaBancoColumn] = global::System.Convert.DBNull;
             }
         }
         

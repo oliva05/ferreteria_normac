@@ -613,6 +613,7 @@ namespace JAGUAR_PRO.Compras
             this.colItemCode.OptionsColumn.AllowEdit = false;
             this.colItemCode.Visible = true;
             this.colItemCode.VisibleIndex = 0;
+            this.colItemCode.Width = 122;
             // 
             // colDscription
             // 
@@ -622,31 +623,42 @@ namespace JAGUAR_PRO.Compras
             this.colDscription.OptionsColumn.ReadOnly = true;
             this.colDscription.Visible = true;
             this.colDscription.VisibleIndex = 1;
+            this.colDscription.Width = 486;
             // 
             // colQuantity
             // 
             this.colQuantity.Caption = "Cantidad";
+            this.colQuantity.DisplayFormat.FormatString = "{0:#,###,##0} ";
+            this.colQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colQuantity.FieldName = "cantidad";
             this.colQuantity.Name = "colQuantity";
             this.colQuantity.Visible = true;
             this.colQuantity.VisibleIndex = 2;
+            this.colQuantity.Width = 121;
             // 
             // colPrice
             // 
             this.colPrice.Caption = "Precio";
+            this.colPrice.DisplayFormat.FormatString = "{0:#,###,##0.00} ";
+            this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colPrice.FieldName = "precio";
             this.colPrice.Name = "colPrice";
             this.colPrice.Visible = true;
             this.colPrice.VisibleIndex = 3;
+            this.colPrice.Width = 121;
             // 
             // colid
             // 
+            this.colid.DisplayFormat.FormatString = "0:#,###,##0.00";
+            this.colid.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colid.Name = "colid";
             this.colid.OptionsColumn.AllowEdit = false;
             // 
             // coltotal
             // 
             this.coltotal.Caption = "Total";
+            this.coltotal.DisplayFormat.FormatString = "{0:#,###,##0.00} ";
+            this.coltotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coltotal.FieldName = "total";
             this.coltotal.Name = "coltotal";
             this.coltotal.OptionsColumn.AllowEdit = false;
@@ -654,6 +666,7 @@ namespace JAGUAR_PRO.Compras
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "SUM={0:###,##0.00}")});
             this.coltotal.Visible = true;
             this.coltotal.VisibleIndex = 4;
+            this.coltotal.Width = 121;
             // 
             // coldelete
             // 
@@ -663,6 +676,7 @@ namespace JAGUAR_PRO.Compras
             this.coldelete.Name = "coldelete";
             this.coldelete.Visible = true;
             this.coldelete.VisibleIndex = 5;
+            this.coldelete.Width = 131;
             // 
             // ButtonDeleteRow
             // 
@@ -744,7 +758,7 @@ namespace JAGUAR_PRO.Compras
             this.txtTotal.Properties.Appearance.Options.UseTextOptions = true;
             this.txtTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtTotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtTotal.Properties.MaskSettings.Set("mask", "c");
+            this.txtTotal.Properties.MaskSettings.Set("mask", "n");
             this.txtTotal.Properties.NullText = "0.00";
             this.txtTotal.Properties.NullValuePrompt = "0.00";
             this.txtTotal.Size = new System.Drawing.Size(130, 24);
@@ -762,7 +776,7 @@ namespace JAGUAR_PRO.Compras
             this.txtImpuesto.Properties.Appearance.Options.UseTextOptions = true;
             this.txtImpuesto.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtImpuesto.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtImpuesto.Properties.MaskSettings.Set("mask", "c");
+            this.txtImpuesto.Properties.MaskSettings.Set("mask", "n");
             this.txtImpuesto.Properties.NullText = "0.00";
             this.txtImpuesto.Size = new System.Drawing.Size(130, 24);
             this.txtImpuesto.TabIndex = 80;
@@ -779,7 +793,7 @@ namespace JAGUAR_PRO.Compras
             this.txtSubtotal.Properties.Appearance.Options.UseTextOptions = true;
             this.txtSubtotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtSubtotal.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtSubtotal.Properties.MaskSettings.Set("mask", "c");
+            this.txtSubtotal.Properties.MaskSettings.Set("mask", "n");
             this.txtSubtotal.Properties.NullText = "0.00";
             this.txtSubtotal.Size = new System.Drawing.Size(130, 24);
             this.txtSubtotal.TabIndex = 79;
