@@ -5521,7 +5521,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-13 (Ordenes de Compra)");
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-13 (Lista de Entrega)");
                 }
             }
         }

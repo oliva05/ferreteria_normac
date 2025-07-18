@@ -52,7 +52,9 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 txtDireccion.Text = pedidoCliente.direccion_cliente;
                 if (pedidoCliente.IdFactura > 0)
                 {
-                    
+                    Factura factura = new Factura();
+                    factura.RecuperarRegistro(pedidoCliente.IdFactura);
+                    txtNumFactura.Text = factura.NumeroDocumento;
                 }
 
                 LoadDataDetalle();
