@@ -970,6 +970,9 @@ namespace Eatery.Ventas
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Factura factura = new Factura();
+                    factura.monto_entregado = dp.ValidateNumberDecimal(frm.txtEntregado.Text);
+                    factura.cambio = dp.ValidateNumberDecimal(frm.txtCambio.Text);
+
                     if (!string.IsNullOrEmpty(txtRTN.Text))
                         factura.RTN = txtRTN.Text;
 
@@ -978,7 +981,6 @@ namespace Eatery.Ventas
 
                     if (!string.IsNullOrEmpty(txtDireccion.Text))
                         factura.direccion_cliente = txtDireccion.Text;
-
 
                     if (ClienteFactura != null)
                         if (ClienteFactura.Id > 0)
@@ -1029,7 +1031,7 @@ namespace Eatery.Ventas
                         try
                         {
                             //Guardamos el Header de la factura 
-                            command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v8]";
+                            command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v12]";
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.AddWithValue("@enable", 1);
                             command.Parameters.AddWithValue("@id_estado", factura.IdEstado);
@@ -1057,6 +1059,8 @@ namespace Eatery.Ventas
                             command.Parameters.AddWithValue("@isv1", factura.ISV1);
                             command.Parameters.AddWithValue("@isv2", factura.ISV2);
                             command.Parameters.AddWithValue("@id_formato_impresion", PuntoDeVentaActual.IdFormatoFactura);
+                            command.Parameters.AddWithValue("@monto_entregado", factura.monto_entregado);
+                            command.Parameters.AddWithValue("@cambio", factura.cambio);
 
                             Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;

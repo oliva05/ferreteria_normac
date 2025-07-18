@@ -29,9 +29,9 @@ namespace JAGUAR_PRO.Compras
             lblComentario.Text = oc.Comentario;
             load_detalle(pIdOrdenCompraActual);
 
-            lblSub.Text = oc.Subtotal.ToString();
-            lblIsv.Text = oc.Impuesto.ToString();
-            lblTotal.Text = oc.Total.ToString();
+            lblSub.Text = string.Format("{0: ###,##0.00}", oc.Subtotal);
+            lblIsv.Text = string.Format("{0: ###,##0.00}", oc.Impuesto); 
+            lblTotal.Text = string.Format("{0: ###,##0.00}", oc.Total);
 
             PDV PuntoVentaActual = new PDV();
             PuntoVentaActual.RecuperaRegistro(oc.Id_PuntoVenta);
