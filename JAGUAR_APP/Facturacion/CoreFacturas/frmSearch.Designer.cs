@@ -35,6 +35,11 @@ namespace LOSA.Calidad.LoteConfConsumo
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtParametroBusqueda = new DevExpress.XtraEditors.TextEdit();
             this.cmdAplicar = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
@@ -45,6 +50,8 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSeleccionado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colconcat_ = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAplicar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdAplicarSeleccionCliente = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.navigationFrameSearch = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -67,12 +74,13 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colRTN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaCreacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSeleccionado1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAplicar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmdAplicarSeleccionCliente = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColAplicar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdAplicar_ = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParametroBusqueda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetalleMP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdAplicarSeleccionCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrameSearch)).BeginInit();
             this.navigationFrameSearch.SuspendLayout();
             this.navigationPage1.SuspendLayout();
@@ -81,7 +89,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSearchWindow1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdAplicarSeleccionCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdAplicar_)).BeginInit();
             this.SuspendLayout();
             // 
             // txtParametroBusqueda
@@ -190,6 +198,24 @@ namespace LOSA.Calidad.LoteConfConsumo
             // 
             this.colconcat_.FieldName = "concat_";
             this.colconcat_.Name = "colconcat_";
+            // 
+            // colAplicar
+            // 
+            this.colAplicar.Caption = "Seleccionar";
+            this.colAplicar.ColumnEdit = this.cmdAplicarSeleccionCliente;
+            this.colAplicar.Name = "colAplicar";
+            this.colAplicar.Visible = true;
+            this.colAplicar.VisibleIndex = 2;
+            // 
+            // cmdAplicarSeleccionCliente
+            // 
+            this.cmdAplicarSeleccionCliente.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.cmdAplicarSeleccionCliente.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdAplicarSeleccionCliente.Name = "cmdAplicarSeleccionCliente";
+            this.cmdAplicarSeleccionCliente.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdAplicarSeleccionCliente.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdAplicarSeleccionCliente_ButtonClick);
             // 
             // labelControl1
             // 
@@ -343,6 +369,8 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.gridControl1.Location = new System.Drawing.Point(3, 114);
             this.gridControl1.MainView = this.gridView2;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmdAplicar_});
             this.gridControl1.Size = new System.Drawing.Size(640, 295);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -363,7 +391,8 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colDireccion,
             this.colRTN,
             this.colFechaCreacion,
-            this.colSeleccionado1});
+            this.colSeleccionado1,
+            this.gridColAplicar});
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowAutoFilterRow = true;
@@ -420,26 +449,24 @@ namespace LOSA.Calidad.LoteConfConsumo
             // 
             this.colSeleccionado1.FieldName = "Seleccionado";
             this.colSeleccionado1.Name = "colSeleccionado1";
-            this.colSeleccionado1.Visible = true;
-            this.colSeleccionado1.VisibleIndex = 3;
             // 
-            // colAplicar
+            // gridColAplicar
             // 
-            this.colAplicar.Caption = "Seleccionar";
-            this.colAplicar.ColumnEdit = this.cmdAplicarSeleccionCliente;
-            this.colAplicar.Name = "colAplicar";
-            this.colAplicar.Visible = true;
-            this.colAplicar.VisibleIndex = 2;
+            this.gridColAplicar.Caption = "Aplicar";
+            this.gridColAplicar.ColumnEdit = this.cmdAplicar_;
+            this.gridColAplicar.Name = "gridColAplicar";
+            this.gridColAplicar.Visible = true;
+            this.gridColAplicar.VisibleIndex = 3;
             // 
-            // cmdAplicarSeleccionCliente
+            // cmdAplicar_
             // 
-            this.cmdAplicarSeleccionCliente.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.cmdAplicarSeleccionCliente.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.cmdAplicarSeleccionCliente.Name = "cmdAplicarSeleccionCliente";
-            this.cmdAplicarSeleccionCliente.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.cmdAplicarSeleccionCliente.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdAplicarSeleccionCliente_ButtonClick);
+            this.cmdAplicar_.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.cmdAplicar_.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdAplicar_.Name = "cmdAplicar_";
+            this.cmdAplicar_.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdAplicar_.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdAplicar__ButtonClick);
             // 
             // frmSearch
             // 
@@ -454,6 +481,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetalleMP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdAplicarSeleccionCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrameSearch)).EndInit();
             this.navigationFrameSearch.ResumeLayout(false);
             this.navigationPage1.ResumeLayout(false);
@@ -464,7 +492,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSearchWindow1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdAplicarSeleccionCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdAplicar_)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -504,5 +532,7 @@ namespace LOSA.Calidad.LoteConfConsumo
         private DevExpress.XtraEditors.SimpleButton cmdAplicarSinRTN;
         private DevExpress.XtraGrid.Columns.GridColumn colAplicar;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdAplicarSeleccionCliente;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColAplicar;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdAplicar_;
     }
 }

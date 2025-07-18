@@ -402,5 +402,24 @@ namespace LOSA.Calidad.LoteConfConsumo
             navigationFrameSearch.SelectedPage = navigationPage2;
             LoadRTN_EmpresasClietne();
         }
+
+        private void cmdAplicar__ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+            var gridView = (GridView)gridControl1.FocusedView;
+            var row = (dsSearchWindow.RTN_ClienteRow)gridView.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                EmpresaName = row.NombreLargo;
+                EmpresaRTN = row.RTN;
+                EmpresaID = row.IdEmpresa;
+                row.Seleccionado = true;
+            }
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+
+
+        }
     }
 }
