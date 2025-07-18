@@ -253,8 +253,11 @@ namespace Eatery.Ventas
                     LoadDetallePedidoForEdit(pIdPedido);
                     gleEstados.EditValue = pedidoCliente.IdEstado;
                     ckGenerarCotizacion.Visible = ckConfirmarPedido.Visible = false;
-                    txtScanProducto.Focus();
+                    
+
                 }
+                txtNombreCliente.Focus();
+                txtNombreCliente.SelectAll();
             }
 
             //if (HostName == "7L12TV3" || HostName == "F3DYSQ2" /*Danys Oliva*/ ||
@@ -3475,6 +3478,31 @@ namespace Eatery.Ventas
             }
         }
 
+        private string CapitalizarCadaPalabra(string texto)
+        {
+            var resultado = new System.Text.StringBuilder();
+            bool nuevaPalabra = true;
+
+            foreach (char c in texto)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    nuevaPalabra = true;
+                    resultado.Append(c);
+                }
+                else
+                {
+                    if (nuevaPalabra)
+                        resultado.Append(char.ToUpper(c));
+                    else
+                        resultado.Append(char.ToLower(c));
+
+                    nuevaPalabra = false;
+                }
+            }
+            return resultado.ToString();
+        }
+
         private void gridView1_RowStyle(object sender, RowStyleEventArgs e)
         {
             GridView view = sender as GridView;
@@ -3513,10 +3541,44 @@ namespace Eatery.Ventas
 
         private void txtRTN_KeyDown(object sender, KeyEventArgs e)
         {
+            
             if (e.KeyCode == Keys.Enter)
             {
+
+
                 txtDireccion.Focus();
             }
+        }
+
+        private void txtDireccion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtScanProducto.Focus();
+            }
+        }
+
+        private void txtNombreCliente_EditValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtNombreCliente_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            var te = (DevExpress.XtraEditors.TextEdit)sender;
+            int selStart = te.SelectionStart;
+
+            te.Text = CapitalizarCadaPalabra(te.Text);
+            te.SelectionStart = selStart;
+        }
+
+        private void txtDireccion_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            var te = (DevExpress.XtraEditors.TextEdit)sender;
+            int selStart = te.SelectionStart;
+
+            te.Text = CapitalizarCadaPalabra(te.Text);
+            te.SelectionStart = selStart;
         }
 
         //frmLoginVendedores
