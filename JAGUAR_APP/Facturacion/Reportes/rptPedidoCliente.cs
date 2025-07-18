@@ -6,6 +6,7 @@ using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
 using ACS.Classes;
 using System.Data.SqlClient;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
 
 namespace JAGUAR_PRO.Facturacion.Reportes
 {
@@ -13,6 +14,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
     {
         //PgSqlConnection psConnection;
         int idFact;
+        decimal IsvTotal = 0;
         public enum TipoCopia
         {
             Blanco = 0,//White
@@ -59,8 +61,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             //lblRangoAutorizado.Text = Factura1.RangoAutorizado;
             //lblFechaLimite.Text = string.Format("{0:dd/MM/yyyy}", Factura1.FechaLimite);
             lblSubTotal.Text = string.Format("{0: ###,##0.00}", PedidoCliente1.SubTotal );
-            lblDescuento.Text = string.Format("{0: ###,##0.00}", PedidoCliente1.Descuento);
             lbl_impuesto.Text = string.Format("{0: ###,##0.00}", PedidoCliente1.ISV);
+            lblDescuento.Text = string.Format("{0: ###,##0.00}", PedidoCliente1.Descuento);
+            
             //lblISV.Text = string.Format("{0: ###,##0.00}", 0);
             //lblISV2.Text = string.Format("{0: ###,##0.00}", 0);
             lblTotalPagar.Text = string.Format("{0: ###,##0.00}", PedidoCliente1.TotalPedido);
@@ -88,6 +91,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             //(((saldo_actual - Factura1.descuento) + Factura1.Recargo) - (Factura1.sub + Factura1.Recargo - Factura1.descuento)));
 
             CargarDetalle(PedidoCliente1.Id);
+            
         }
 
         private void CargarDetalle(long pIdFactura)
@@ -104,6 +108,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 da.SelectCommand.Parameters.Add("@id_pedido", System.Data.SqlDbType.Int).Value = pIdFactura;
                 dsFacturasGestion1.Factura_Detalle.Clear();
                 da.Fill(dsFacturasGestion1.Factura_Detalle);
+
+                //foreach (dsFacturasGestion.Factura_DetalleRow item in dsFacturasGestion1.Factura_Detalle)
+                //{
+                //    IsvTotal += dp.ValidateNumberDecimal(item.cantidad * item.impuesto2);
+                //}
+
             }
             catch (Exception ec)
             {

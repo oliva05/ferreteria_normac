@@ -301,6 +301,7 @@
             this.navBarItem56 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem57 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem58 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemDepositoBancoCaja = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup11 = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbKardexFacturacion = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarG_ReportesFacturacion = new DevExpress.XtraNavBar.NavBarGroup();
@@ -358,7 +359,6 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemDepositoBancoCaja = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -1289,7 +1289,6 @@
             this.simpleButton9.Size = new System.Drawing.Size(227, 58);
             this.simpleButton9.TabIndex = 43;
             this.simpleButton9.Text = "Carga Masiva";
-            this.simpleButton9.Visible = false;
             this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click_1);
             // 
             // btnConfigComisiones
@@ -4202,6 +4201,20 @@
             this.navBarItem58.Name = "navBarItem58";
             this.navBarItem58.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem58_LinkClicked);
             // 
+            // navBarItemDepositoBancoCaja
+            // 
+            this.navBarItemDepositoBancoCaja.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.Appearance.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemDepositoBancoCaja.AppearancePressed.Options.UseFont = true;
+            this.navBarItemDepositoBancoCaja.Caption = "Depósito Bancario Caja";
+            this.navBarItemDepositoBancoCaja.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemDepositoBancoCaja.ImageOptions.SmallImage")));
+            this.navBarItemDepositoBancoCaja.Name = "navBarItemDepositoBancoCaja";
+            this.navBarItemDepositoBancoCaja.Visible = false;
+            this.navBarItemDepositoBancoCaja.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDepositoBancoCaja_LinkClicked);
+            // 
             // navBarGroup11
             // 
             this.navBarGroup11.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
@@ -4959,20 +4972,6 @@
             this.navBarItem196.AppearancePressed.Options.UseFont = true;
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
-            // 
-            // navBarItemDepositoBancoCaja
-            // 
-            this.navBarItemDepositoBancoCaja.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemDepositoBancoCaja.Appearance.Options.UseFont = true;
-            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemDepositoBancoCaja.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItemDepositoBancoCaja.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItemDepositoBancoCaja.AppearancePressed.Options.UseFont = true;
-            this.navBarItemDepositoBancoCaja.Caption = "Depósito Bancario Caja";
-            this.navBarItemDepositoBancoCaja.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemDepositoBancoCaja.ImageOptions.SmallImage")));
-            this.navBarItemDepositoBancoCaja.Name = "navBarItemDepositoBancoCaja";
-            this.navBarItemDepositoBancoCaja.Visible = false;
-            this.navBarItemDepositoBancoCaja.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDepositoBancoCaja_LinkClicked);
             // 
             // frmOpciones
             // 

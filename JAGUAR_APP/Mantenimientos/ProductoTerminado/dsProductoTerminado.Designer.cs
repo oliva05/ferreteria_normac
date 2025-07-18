@@ -8612,6 +8612,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             private global::System.Data.DataColumn columnPVP;
             
+            private global::System.Data.DataColumn columnGrupo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public lista_pt_temporalDataTable() {
@@ -8695,6 +8697,14 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn GrupoColumn {
+                get {
+                    return this.columnGrupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -8730,7 +8740,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public lista_pt_temporalRow Addlista_pt_temporalRow(string CodigoBarras, string Referencia, string Descripcion, decimal Disponible, decimal Costo, decimal PVP) {
+            public lista_pt_temporalRow Addlista_pt_temporalRow(string CodigoBarras, string Referencia, string Descripcion, decimal Disponible, decimal Costo, decimal PVP, string Grupo) {
                 lista_pt_temporalRow rowlista_pt_temporalRow = ((lista_pt_temporalRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CodigoBarras,
@@ -8738,7 +8748,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
                         Descripcion,
                         Disponible,
                         Costo,
-                        PVP};
+                        PVP,
+                        Grupo};
                 rowlista_pt_temporalRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlista_pt_temporalRow);
                 return rowlista_pt_temporalRow;
@@ -8767,6 +8778,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
                 this.columnDisponible = base.Columns["Disponible"];
                 this.columnCosto = base.Columns["Costo"];
                 this.columnPVP = base.Columns["PVP"];
+                this.columnGrupo = base.Columns["Grupo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8784,6 +8796,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
                 base.Columns.Add(this.columnCosto);
                 this.columnPVP = new global::System.Data.DataColumn("PVP", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPVP);
+                this.columnGrupo = new global::System.Data.DataColumn("Grupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrupo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13105,6 +13119,22 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Grupo {
+                get {
+                    try {
+                        return ((string)(this[this.tablelista_pt_temporal.GrupoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Grupo\' de la tabla \'lista_pt_temporal\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelista_pt_temporal.GrupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCodigoBarrasNull() {
                 return this.IsNull(this.tablelista_pt_temporal.CodigoBarrasColumn);
             }
@@ -13173,6 +13203,18 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetPVPNull() {
                 this[this.tablelista_pt_temporal.PVPColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsGrupoNull() {
+                return this.IsNull(this.tablelista_pt_temporal.GrupoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetGrupoNull() {
+                this[this.tablelista_pt_temporal.GrupoColumn] = global::System.Convert.DBNull;
             }
         }
         
