@@ -14,13 +14,14 @@ namespace JAGUAR_PRO
         public enum GrupoUsuario
         {
             //Montacarga = 0,
-            Logistica = 1,
+            Compras_y_Logistica = 1,
             Administradores = 2,
             RRHH = 3,
             Contabilidad = 4,
             Facturacion_Admin = 5,
             Facturacion_EndUser = 6,
-            Caja = 7
+            Caja = 7,
+            Logistica = 8
         }
 
         public GrupoUsuario GrupoUsuarioActivo;

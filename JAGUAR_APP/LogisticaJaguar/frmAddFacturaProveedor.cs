@@ -457,14 +457,14 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                     row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
                     PrecioConISV = row0.costo_unitario + row0.isv;
-                    row0.total_fila = PrecioConISV * row0.cantidad_ingreso;
+                    row0.total_fila = Math.Round(( PrecioConISV * row0.cantidad_ingreso),2);
 
                     break;
                 case "cantidad":
 
                     row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
                     PrecioConISV = row0.costo_unitario + row0.isv;
-                    row0.total_fila = PrecioConISV * row0.cantidad_ingreso;
+                    row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
 
                     //row0.total_fila = row0.cantidad * row0.costo_unitario;
                     //impuesto.RecuperarRegistro(1);
@@ -477,12 +477,12 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 case "cantidad_ingreso":
                     row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
                     PrecioConISV = row0.costo_unitario + row0.isv;
-                    row0.total_fila = PrecioConISV * row0.cantidad_ingreso;
+                    row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
                     break;
                 case "costo_unitario":
                     row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
                     PrecioConISV = row0.costo_unitario + row0.isv;
-                    row0.total_fila = PrecioConISV * row0.cantidad_ingreso;
+                    row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
                     //row0.total_fila = row0.cantidad * row0.costo_unitario;
                     //impuesto.RecuperarRegistro(1);
                     //row0.isv = (row0.total_fila * impuesto.Valor) / 100;
@@ -492,7 +492,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                 case "isv":
 
-                    row0.total_fila = row0.cantidad * row0.costo_unitario + row0.isv;
+                    row0.total_fila = Math.Round((row0.cantidad * row0.costo_unitario + row0.isv),2);
 
                     break;
 
