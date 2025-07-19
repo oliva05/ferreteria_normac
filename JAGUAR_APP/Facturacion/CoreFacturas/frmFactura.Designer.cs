@@ -53,6 +53,7 @@ namespace Eatery.Ventas
             this.dsVentas1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsVentas();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.rdPorCobrar = new System.Windows.Forms.RadioButton();
             this.txtVendedor = new DevExpress.XtraEditors.TextEdit();
             this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
             this.label10 = new System.Windows.Forms.Label();
@@ -80,7 +81,8 @@ namespace Eatery.Ventas
             this.coltotal_linea = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colinventario = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.rdPorCobrar = new System.Windows.Forms.RadioButton();
+            this.txtComentario = new DevExpress.XtraEditors.MemoEdit();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cmdDeleteRowFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCliente.Properties)).BeginInit();
             this.panelNotificacion.SuspendLayout();
@@ -93,6 +95,7 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.txtRTN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdDeleteRowFactura
@@ -266,6 +269,9 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
+            this.navigationPage1.Caption = "navigationPage1";
+            this.navigationPage1.Controls.Add(this.txtComentario);
+            this.navigationPage1.Controls.Add(this.label5);
             this.navigationPage1.Controls.Add(this.rdPorCobrar);
             this.navigationPage1.Controls.Add(this.txtVendedor);
             this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
@@ -295,6 +301,18 @@ namespace Eatery.Ventas
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(1086, 617);
             this.navigationPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.navigationPage1_Paint);
+            // 
+            // rdPorCobrar
+            // 
+            this.rdPorCobrar.AutoSize = true;
+            this.rdPorCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.rdPorCobrar.Location = new System.Drawing.Point(664, 74);
+            this.rdPorCobrar.Name = "rdPorCobrar";
+            this.rdPorCobrar.Size = new System.Drawing.Size(100, 22);
+            this.rdPorCobrar.TabIndex = 57;
+            this.rdPorCobrar.Text = "Por Cobrar";
+            this.rdPorCobrar.UseVisualStyleBackColor = true;
+            this.rdPorCobrar.CheckedChanged += new System.EventHandler(this.rdPorCobrar_CheckedChanged);
             // 
             // txtVendedor
             // 
@@ -457,7 +475,7 @@ namespace Eatery.Ventas
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1072, 382);
+            this.gridControl1.Size = new System.Drawing.Size(1072, 355);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -594,17 +612,27 @@ namespace Eatery.Ventas
             this.colinventario.VisibleIndex = 2;
             this.colinventario.Width = 74;
             // 
-            // rdPorCobrar
+            // txtComentario
             // 
-            this.rdPorCobrar.AutoSize = true;
-            this.rdPorCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdPorCobrar.Location = new System.Drawing.Point(664, 74);
-            this.rdPorCobrar.Name = "rdPorCobrar";
-            this.rdPorCobrar.Size = new System.Drawing.Size(100, 22);
-            this.rdPorCobrar.TabIndex = 57;
-            this.rdPorCobrar.Text = "Por Cobrar";
-            this.rdPorCobrar.UseVisualStyleBackColor = true;
-            this.rdPorCobrar.CheckedChanged += new System.EventHandler(this.rdPorCobrar_CheckedChanged);
+            this.txtComentario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtComentario.Enabled = false;
+            this.txtComentario.Location = new System.Drawing.Point(82, 477);
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.txtComentario.Properties.Appearance.Options.UseFont = true;
+            this.txtComentario.Size = new System.Drawing.Size(312, 52);
+            this.txtComentario.TabIndex = 58;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label5.Location = new System.Drawing.Point(10, 473);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 17);
+            this.label5.TabIndex = 59;
+            this.label5.Text = "Comentario";
             // 
             // frmFactura
             // 
@@ -630,6 +658,7 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.txtRTN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -679,5 +708,7 @@ namespace Eatery.Ventas
         private DevExpress.XtraEditors.TextEdit txtVendedor;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton rdPorCobrar;
+        private DevExpress.XtraEditors.MemoEdit txtComentario;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -346,64 +346,90 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 return;
             }
 
-            bool accesoprevio = false;
-            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
-            switch (idNivel)                                                      //11 = Jaguar
-            {
-                case 1://Basic View
-                    break;
-                case 2://Basic No Autorization
-                    //accesoprevio = false;
-                    break;
-                case 3://Medium Autorization
-                    //accesoprevio = false;
-                    break;
-                case 4://Depth With Delta
-                case 5://Depth Without Delta
-                    accesoprevio = true;
-                    var gridView = (GridView)gridControl1.FocusedView;
-                    var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
-                    frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, row.id);
+            var gridView = (GridView)gridControl1.FocusedView;
+            var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
 
-                    frm.MdiParent = this.MdiParent;
-                    frm.TopMost = true;
-                    frm.Show();
+            bool Proceder = false;
+            string Mensaje = string.Empty;
+            switch (row.id_estado)
+            {
+                case 1:
+                    Proceder = true; //Confirmado
                     break;
+
+                case 2:
+                    Proceder = false;
+                    Mensaje = "Esta Pre Factura ya se Facturo!";
+                    break;
+
+                case 3:
+                    Proceder = false;
+                    Mensaje = "Esta Pre Factura ya se Entrego!\nSe debe generar una nueva.";
+                    break;
+
+                case 4:
+                    Proceder = false;
+                    Mensaje = "Esta Pre Factura esta Cancelada!\nSe debe generar una nueva.";
+                    break;
+
+                case 5:
+                    Proceder = false;
+                    Mensaje = "Esta Pre Factura fue Anulada!\nSe debe generar una nueva.";
+                    break;
+
+                case 6:
+                    Proceder = false;
+                    Mensaje = "Esta Pre Factura esta en proceso de Cotizacion!\nEl vendedor debe finalizar la Pre Factura";
+                    break;
+
+                case 7:
+                    Proceder = false;
+                    Mensaje = "Esta en proceso de entrega!";
+                    break;
+
                 default:
                     break;
             }
 
-            if (!accesoprevio)
+            if (Proceder)
             {
-                UserLogin VendedorValidate = new UserLogin();
-                if(VendedorActual == null)
-                    VendedorActual = new Vendedor();
+                bool accesoprevio = false;
+                int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                switch (idNivel)                                                      //11 = Jaguar
+                {
+                    case 1://Basic View
+                        break;
+                    case 2://Basic No Autorization
+                        //accesoprevio = false;
+                        break;
+                    case 3://Medium Autorization
+                        //accesoprevio = false;
+                        break;
+                    case 4://Depth With Delta
+                    case 5://Depth Without Delta
+                        accesoprevio = true;
 
-                if (VendedorValidate.Recuperado == false)
-                {
-                    if (UsuarioLogeado.ValidarNivelPermisos(15))
-                    //if (VendedorValidate.ValidarNivelPermisos(15, VendedorActual.Id))
-                    {
-                        var gridView = (GridView)gridControl1.FocusedView;
-                        var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
                         frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, row.id);
+
                         frm.MdiParent = this.MdiParent;
+                        frm.TopMost = true;
                         frm.Show();
-                    }
-                    else
-                    {
-                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #15 (Facturacion punto de venta)");
-                    }
+                        break;
+                    default:
+                        break;
                 }
-                else
+
+                if (!accesoprevio)
                 {
-                    if (VendedorValidate.RecuperarRegistro(VendedorActual.Id))
+                    UserLogin VendedorValidate = new UserLogin();
+                    if (VendedorActual == null)
+                        VendedorActual = new Vendedor();
+
+                    if (VendedorValidate.Recuperado == false)
                     {
-                        //if (UsuarioLogeado.ValidarNivelPermisos(15))
-                        if (VendedorValidate.ValidarNivelPermisos(15, VendedorActual.Id))
+                        if (UsuarioLogeado.ValidarNivelPermisos(15))
+                        //if (VendedorValidate.ValidarNivelPermisos(15, VendedorActual.Id))
                         {
-                            var gridView = (GridView)gridControl1.FocusedView;
-                            var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
                             frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, row.id);
                             frm.MdiParent = this.MdiParent;
                             frm.Show();
@@ -413,8 +439,31 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                             CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #15 (Facturacion punto de venta)");
                         }
                     }
+                    else
+                    {
+                        if (VendedorValidate.RecuperarRegistro(VendedorActual.Id))
+                        {
+                            //if (UsuarioLogeado.ValidarNivelPermisos(15))
+                            if (VendedorValidate.ValidarNivelPermisos(15, VendedorActual.Id))
+                            {
+
+                                frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, row.id);
+                                frm.MdiParent = this.MdiParent;
+                                frm.Show();
+                            }
+                            else
+                            {
+                                CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #15 (Facturacion punto de venta)");
+                            }
+                        }
+                    }
+
                 }
-                
+            }
+            else
+            {
+                CajaDialogo.Error(Mensaje);
+                return;
             }
         }
 

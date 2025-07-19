@@ -90,7 +90,22 @@ namespace JAGUAR_PRO
             int idNivel;
             switch (pUser.GrupoUsuario.GrupoUsuarioActivo)
             {
-                case GrupoUser.GrupoUsuario.Logistica: //id: 1
+                case GrupoUser.GrupoUsuario.Compras_y_Logistica: //id: 1
+                    TabLogistica.PageVisible = true;
+                    navBarItemCAI_Proveedores.Visible =
+                    navBarItem23.Visible =
+                    navBarItem151.Visible =
+                    navBarGroup12.Visible =
+                    navBarItem154.Visible =
+                    nbReporteCompras.Visible =
+                    navBarItem15.Visible = navBarItem15.Enabled =
+                    navBarGroup5.Visible =
+                    navBarItemKardexPT.Visible =
+                    navBarItemRecepcionFactura.Visible = true;
+                    //tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
+                    //tabOpciones.TabPages[i].PageVisible = true;
+                    break;
+                case GrupoUser.GrupoUsuario.Logistica: //id: 8
                     TabLogistica.PageVisible = true;
                     navBarItemCAI_Proveedores.Visible =
                         navBarItem23.Visible =
@@ -98,13 +113,13 @@ namespace JAGUAR_PRO
                         navBarGroup12.Visible =
                         navBarItem154.Visible =
                         nbReporteCompras.Visible =
-                        navBarItem15.Visible = navBarItem15.Enabled = 
+                        navBarItem15.Visible = navBarItem15.Enabled =
                         navBarGroup5.Visible =
                     navBarItemRecepcionFactura.Visible = true;
                     //tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
                     //tabOpciones.TabPages[i].PageVisible = true;
                     break;
-               
+
                 case GrupoUser.GrupoUsuario.Administradores://id: 2
                     //tabOpciones.SelectedTabPageIndex = Convert.ToInt32(pUser.GrupoUsuario.GrupoUsuarioActivo);
                     //tabOpciones.TabPages[i].PageVisible = true;
