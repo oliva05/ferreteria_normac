@@ -30,6 +30,7 @@
         {
             DevExpress.XtraReports.UI.XRWatermark xrWatermark1 = new DevExpress.XtraReports.UI.XRWatermark();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel31 = new DevExpress.XtraReports.UI.XRLabel();
@@ -99,6 +100,7 @@
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.txtVendedor = new DevExpress.XtraReports.UI.XRLabel();
@@ -107,8 +109,6 @@
             this.lblTerminoPago = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
             this.dsFacturasGestion1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
-            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dsFacturasGestion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -127,6 +127,25 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel16
+            // 
+            this.xrLabel16.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dash;
+            this.xrLabel16.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel16.CanShrink = true;
+            this.xrLabel16.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[codigo]")});
+            this.xrLabel16.Font = new DevExpress.Drawing.DXFont("Courier New", 7.5F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(9.135866F, 31.91664F);
+            this.xrLabel16.Name = "xrLabel16";
+            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(65.99976F, 16F);
+            this.xrLabel16.StylePriority.UseBorderDashStyle = false;
+            this.xrLabel16.StylePriority.UseBorders = false;
+            this.xrLabel16.StylePriority.UseFont = false;
+            this.xrLabel16.StylePriority.UseTextAlignment = false;
+            this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel16.TextFormatString = "{0:###.####}";
             // 
             // xrLine1
             // 
@@ -230,10 +249,10 @@
             // 
             this.lblFechaEmision.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.lblFechaEmision.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.lblFechaEmision.LocationFloat = new DevExpress.Utils.PointFloat(66.03468F, 156.75F);
+            this.lblFechaEmision.LocationFloat = new DevExpress.Utils.PointFloat(66.61336F, 156.75F);
             this.lblFechaEmision.Name = "lblFechaEmision";
             this.lblFechaEmision.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblFechaEmision.SizeF = new System.Drawing.SizeF(192.2907F, 16F);
+            this.lblFechaEmision.SizeF = new System.Drawing.SizeF(190.8651F, 16F);
             this.lblFechaEmision.StylePriority.UseBorders = false;
             this.lblFechaEmision.StylePriority.UseFont = false;
             this.lblFechaEmision.StylePriority.UseTextAlignment = false;
@@ -321,10 +340,10 @@
             // 
             this.xrLabel18.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel18.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(9.13562F, 232.3863F);
+            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(13.89627F, 232.3863F);
             this.xrLabel18.Name = "xrLabel18";
             this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel18.SizeF = new System.Drawing.SizeF(66F, 17.49239F);
+            this.xrLabel18.SizeF = new System.Drawing.SizeF(65F, 17.49239F);
             this.xrLabel18.StylePriority.UseBorders = false;
             this.xrLabel18.StylePriority.UseFont = false;
             this.xrLabel18.StylePriority.UseTextAlignment = false;
@@ -335,7 +354,7 @@
             // 
             this.xrLabel14.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel14.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(10.4435F, 156.75F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(11.02217F, 156.75F);
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel14.SizeF = new System.Drawing.SizeF(55.59119F, 16F);
@@ -349,10 +368,10 @@
             // 
             this.lblClienteRTN.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.lblClienteRTN.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.lblClienteRTN.LocationFloat = new DevExpress.Utils.PointFloat(75.13563F, 215.0681F);
+            this.lblClienteRTN.LocationFloat = new DevExpress.Utils.PointFloat(78.89629F, 215.0681F);
             this.lblClienteRTN.Name = "lblClienteRTN";
             this.lblClienteRTN.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblClienteRTN.SizeF = new System.Drawing.SizeF(183.1898F, 17.31815F);
+            this.lblClienteRTN.SizeF = new System.Drawing.SizeF(179.4292F, 17.31815F);
             this.lblClienteRTN.StylePriority.UseBorders = false;
             this.lblClienteRTN.StylePriority.UseFont = false;
             this.lblClienteRTN.StylePriority.UseTextAlignment = false;
@@ -362,10 +381,10 @@
             // 
             this.lblCliente.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.lblCliente.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.lblCliente.LocationFloat = new DevExpress.Utils.PointFloat(75.13563F, 197.75F);
+            this.lblCliente.LocationFloat = new DevExpress.Utils.PointFloat(78.89629F, 197.75F);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblCliente.SizeF = new System.Drawing.SizeF(183.1898F, 17.31818F);
+            this.lblCliente.SizeF = new System.Drawing.SizeF(179.4292F, 17.31818F);
             this.lblCliente.StylePriority.UseBorders = false;
             this.lblCliente.StylePriority.UseFont = false;
             this.lblCliente.StylePriority.UseTextAlignment = false;
@@ -375,10 +394,10 @@
             // 
             this.xrLabel12.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel12.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(9.13562F, 215.0681F);
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(13.89627F, 215.0681F);
             this.xrLabel12.Name = "xrLabel12";
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(66.00001F, 17.31818F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(61.23935F, 17.31818F);
             this.xrLabel12.StylePriority.UseBorders = false;
             this.xrLabel12.StylePriority.UseFont = false;
             this.xrLabel12.StylePriority.UseTextAlignment = false;
@@ -389,10 +408,10 @@
             // 
             this.xrLabel11.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel11.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(9.13562F, 197.75F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(12.43797F, 197.75F);
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(66.00002F, 17F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(62.69767F, 17F);
             this.xrLabel11.StylePriority.UseBorders = false;
             this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
@@ -503,10 +522,10 @@
             // 
             this.lblDireccionCliente.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.lblDireccionCliente.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.lblDireccionCliente.LocationFloat = new DevExpress.Utils.PointFloat(75.13563F, 232.3863F);
+            this.lblDireccionCliente.LocationFloat = new DevExpress.Utils.PointFloat(78.89627F, 232.3863F);
             this.lblDireccionCliente.Name = "lblDireccionCliente";
             this.lblDireccionCliente.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblDireccionCliente.SizeF = new System.Drawing.SizeF(183.1898F, 17.49239F);
+            this.lblDireccionCliente.SizeF = new System.Drawing.SizeF(180F, 17.49239F);
             this.lblDireccionCliente.StylePriority.UseBorders = false;
             this.lblDireccionCliente.StylePriority.UseFont = false;
             this.lblDireccionCliente.StylePriority.UseTextAlignment = false;
@@ -1248,6 +1267,22 @@
             this.ReportHeader.HeightF = 357.0041F;
             this.ReportHeader.Name = "ReportHeader";
             // 
+            // xrLabel9
+            // 
+            this.xrLabel9.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dash;
+            this.xrLabel9.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel9.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(9.13562F, 334.004F);
+            this.xrLabel9.Name = "xrLabel9";
+            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(66.00002F, 23F);
+            this.xrLabel9.StylePriority.UseBorderDashStyle = false;
+            this.xrLabel9.StylePriority.UseBorders = false;
+            this.xrLabel9.StylePriority.UseFont = false;
+            this.xrLabel9.StylePriority.UseTextAlignment = false;
+            this.xrLabel9.Text = "Código";
+            this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
             // xrLabel7
             // 
             this.xrLabel7.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dash;
@@ -1296,10 +1331,10 @@
             // 
             this.xrLabel2.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(10.38136F, 257.9205F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(13.89627F, 257.9205F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(64.75426F, 17.79172F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(61.23935F, 17.79172F);
             this.xrLabel2.StylePriority.UseBorders = false;
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
@@ -1310,24 +1345,24 @@
             // 
             this.xrLabel1.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(10.38136F, 172.75F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(11.02217F, 172.75F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(118.1171F, 15.99998F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(114.102F, 15.99998F);
             this.xrLabel1.StylePriority.UseBorders = false;
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "Término de Pago";
+            this.xrLabel1.Text = "Término de Pago:";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // lblTerminoPago
             // 
             this.lblTerminoPago.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.lblTerminoPago.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.lblTerminoPago.LocationFloat = new DevExpress.Utils.PointFloat(128.4984F, 172.75F);
+            this.lblTerminoPago.LocationFloat = new DevExpress.Utils.PointFloat(125.1242F, 172.75F);
             this.lblTerminoPago.Name = "lblTerminoPago";
             this.lblTerminoPago.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTerminoPago.SizeF = new System.Drawing.SizeF(128.9802F, 15.99998F);
+            this.lblTerminoPago.SizeF = new System.Drawing.SizeF(132.3542F, 15.99998F);
             this.lblTerminoPago.StylePriority.UseBorders = false;
             this.lblTerminoPago.StylePriority.UseFont = false;
             this.lblTerminoPago.StylePriority.UseTextAlignment = false;
@@ -1353,41 +1388,6 @@
             // 
             this.dsFacturasGestion1.DataSetName = "dsFacturasGestion";
             this.dsFacturasGestion1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // xrLabel9
-            // 
-            this.xrLabel9.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dash;
-            this.xrLabel9.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel9.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(9.13562F, 334.004F);
-            this.xrLabel9.Name = "xrLabel9";
-            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(66.00002F, 23F);
-            this.xrLabel9.StylePriority.UseBorderDashStyle = false;
-            this.xrLabel9.StylePriority.UseBorders = false;
-            this.xrLabel9.StylePriority.UseFont = false;
-            this.xrLabel9.StylePriority.UseTextAlignment = false;
-            this.xrLabel9.Text = "Código";
-            this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // xrLabel16
-            // 
-            this.xrLabel16.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dash;
-            this.xrLabel16.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel16.CanShrink = true;
-            this.xrLabel16.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[codigo]")});
-            this.xrLabel16.Font = new DevExpress.Drawing.DXFont("Courier New", 7.5F);
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(9.135866F, 31.91664F);
-            this.xrLabel16.Name = "xrLabel16";
-            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel16.SizeF = new System.Drawing.SizeF(65.99976F, 16F);
-            this.xrLabel16.StylePriority.UseBorderDashStyle = false;
-            this.xrLabel16.StylePriority.UseBorders = false;
-            this.xrLabel16.StylePriority.UseFont = false;
-            this.xrLabel16.StylePriority.UseTextAlignment = false;
-            this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel16.TextFormatString = "{0:###.####}";
             // 
             // rptFactura
             // 
