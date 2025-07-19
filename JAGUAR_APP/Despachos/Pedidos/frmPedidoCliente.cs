@@ -1568,7 +1568,8 @@ namespace Eatery.Ventas
 
         private void frmPedidoCliente_Activated(object sender, EventArgs e)
         {
-            txtScanProducto.Focus();
+            txtNombreCliente.Focus();
+            txtNombreCliente.SelectAll();
         }
 
         private void toggleTipoVenta_Toggled(object sender, EventArgs e){}
@@ -2400,6 +2401,13 @@ namespace Eatery.Ventas
                 if (pt1.Recuperar_productoByBarCode(txtScanProducto.Text))
                 {
                     AgregarProductoA_Prefactura(pt1.Id, pt1.Code, pt1.Descripcion, 1, true, 0, pt1, pt1.MarcaName);
+                    
+                    gridView1.RefreshData();
+                    int newRowHandle = gridView1.RowCount - 1;
+                    gridView1.FocusedRowHandle = newRowHandle;
+
+                    cmdElejirAlmacen_ButtonClick(cmdElejirAlmacen, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen.Buttons[0]));
+
                     txtScanProducto.Text = "";
                     txtScanProducto.Focus();
                 }
@@ -3558,12 +3566,18 @@ namespace Eatery.Ventas
             }
         }
 
-        private void txtNombreCliente_EditValueChanged(object sender, EventArgs e)
+
+        private void txtNombreCliente_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+
+        }
+
+        private void txtDireccion_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
             
         }
 
-        private void txtNombreCliente_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        private void txtNombreCliente_EditValueChanged(object sender, EventArgs e)
         {
             var te = (DevExpress.XtraEditors.TextEdit)sender;
             int selStart = te.SelectionStart;
@@ -3572,7 +3586,7 @@ namespace Eatery.Ventas
             te.SelectionStart = selStart;
         }
 
-        private void txtDireccion_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        private void txtDireccion_EditValueChanged(object sender, EventArgs e)
         {
             var te = (DevExpress.XtraEditors.TextEdit)sender;
             int selStart = te.SelectionStart;
