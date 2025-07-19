@@ -17,17 +17,21 @@ namespace JAGUAR_PRO.Facturacion.Entrega
         DataOperations dp = new DataOperations();
         UserLogin UsuarioLogeado;
         public int Conteo;
+        int IdBodega;
         public xrptEntrega(int idPedido, int idBodega, UserLogin userLogin)
         {
             InitializeComponent();
-            GetHeader(idPedido);
+            IdBodega = idBodega;
+            
 
+            
             Bodega bodega = new Bodega();
             if (bodega.RecuperarRegistro(idBodega))
                 lblAlmOrigen.Text = bodega.DescripcionCorta;
 
             UsuarioLogeado = userLogin;
             lblUsuario.Text = UsuarioLogeado.Nombre;
+            GetHeader(idPedido);
         }
 
         private void GetHeader(int idPedido)
@@ -37,8 +41,15 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 PedidoCliente pedidoCliente = new PedidoCliente();
                 if (pedidoCliente.RecuperarRegistro(idPedido))
                 {
-                    lblNumTraslado.Text = "# Entrega " + pedidoCliente.NumeroDocumento;
-                    lblFecha.Text = string.Format("{0:G}", pedidoCliente.FechaEntrega);
+                    lblNumTraslado.Text = pedidoCliente.NumeroDocumento;
+                    lblFecha.Text = string.Format("{0:g}", dp.Now());
+                    Factura fact = new Factura();
+                    fact.RecuperarRegistro(pedidoCliente.IdFactura);
+                    lblFacturaNo.Text = fact.NumeroDocumento;
+                    lblCliente.Text = pedidoCliente.ClienteNombre;
+                    lblDireccion.Text = pedidoCliente.direccion_cliente;
+
+
                     GetDetalle(idPedido);
                 }
                 
@@ -58,6 +69,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 SqlCommand cmd = new SqlCommand("sp_rpt_get_entregado_pedido", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_h", idTraslado);
+                cmd.Parameters.AddWithValue("@idBodega", IdBodega);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsEntregaPedidos1.detalle_entrega.Clear();
                 adat.Fill(dsEntregaPedidos1.detalle_entrega);
