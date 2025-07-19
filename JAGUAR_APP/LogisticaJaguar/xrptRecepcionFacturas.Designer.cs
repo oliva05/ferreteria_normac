@@ -31,17 +31,20 @@ namespace JAGUAR_PRO.LogisticaJaguar
         {
             DevExpress.XtraPrinting.Shape.ShapeRectangle shapeRectangle1 = new DevExpress.XtraPrinting.Shape.ShapeRectangle();
             DevExpress.XtraPrinting.Shape.ShapeRectangle shapeRectangle2 = new DevExpress.XtraPrinting.Shape.ShapeRectangle();
+            DevExpress.XtraReports.UI.XRWatermark xrWatermark1 = new DevExpress.XtraReports.UI.XRWatermark();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell27 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell28 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell20 = new DevExpress.XtraReports.UI.XRTableCell();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.lblDocNum = new DevExpress.XtraReports.UI.XRLabel();
             this.xrlFecha = new DevExpress.XtraReports.UI.XRLabel();
@@ -60,6 +63,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell22 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell26 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
@@ -119,33 +124,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // BottomMargin
             // 
+            this.BottomMargin.HeightF = 31.89131F;
             this.BottomMargin.Name = "BottomMargin";
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel6,
             this.xrTable2});
             this.Detail.HeightF = 22F;
             this.Detail.Name = "Detail";
-            // 
-            // xrLabel6
-            // 
-            this.xrLabel6.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total_linea]")});
-            this.xrLabel6.Font = new DevExpress.Drawing.DXFont("Segoe UI", 8.75F);
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(584.1113F, 0F);
-            this.xrLabel6.Multiline = true;
-            this.xrLabel6.Name = "xrLabel6";
-            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(106.5137F, 21.99999F);
-            this.xrLabel6.StylePriority.UseBorders = false;
-            this.xrLabel6.StylePriority.UseFont = false;
-            this.xrLabel6.StylePriority.UseTextAlignment = false;
-            this.xrLabel6.Text = "xrLabel6";
-            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrLabel6.TextFormatString = "{0:n2}";
             // 
             // xrTable2
             // 
@@ -158,7 +145,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow3});
-            this.xrTable2.SizeF = new System.Drawing.SizeF(584.1113F, 22F);
+            this.xrTable2.SizeF = new System.Drawing.SizeF(766F, 22F);
             this.xrTable2.StylePriority.UseBorders = false;
             this.xrTable2.StylePriority.UseFont = false;
             this.xrTable2.StylePriority.UseTextAlignment = false;
@@ -171,7 +158,10 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell11,
             this.xrTableCell12,
             this.xrTableCell13,
-            this.xrTableCell14});
+            this.xrTableCell27,
+            this.xrTableCell28,
+            this.xrTableCell14,
+            this.xrTableCell20});
             this.xrTableRow3.Name = "xrTableRow3";
             this.xrTableRow3.Weight = 1D;
             // 
@@ -202,7 +192,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell11.StylePriority.UseBorders = false;
             this.xrTableCell11.StylePriority.UseFont = false;
             this.xrTableCell11.Text = "xrTableCell11";
-            this.xrTableCell11.Weight = 1.1040529866112314D;
+            this.xrTableCell11.Weight = 0.85367027977366727D;
             // 
             // xrTableCell12
             // 
@@ -215,7 +205,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell12.StylePriority.UseBorders = false;
             this.xrTableCell12.StylePriority.UseFont = false;
             this.xrTableCell12.Text = "xrTableCell12";
-            this.xrTableCell12.Weight = 2.0430116764816746D;
+            this.xrTableCell12.Weight = 2.0123562546216407D;
             // 
             // xrTableCell13
             // 
@@ -231,7 +221,39 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell13.Text = "xrTableCell13";
             this.xrTableCell13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell13.TextFormatString = "{0:n2}";
-            this.xrTableCell13.Weight = 0.583749816931597D;
+            this.xrTableCell13.Weight = 0.6322906304144964D;
+            // 
+            // xrTableCell27
+            // 
+            this.xrTableCell27.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell27.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[costo_unitario]")});
+            this.xrTableCell27.Font = new DevExpress.Drawing.DXFont("Segoe UI", 8.75F);
+            this.xrTableCell27.Multiline = true;
+            this.xrTableCell27.Name = "xrTableCell27";
+            this.xrTableCell27.StylePriority.UseBorders = false;
+            this.xrTableCell27.StylePriority.UseFont = false;
+            this.xrTableCell27.StylePriority.UseTextAlignment = false;
+            this.xrTableCell27.Text = "xrTableCell27";
+            this.xrTableCell27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrTableCell27.TextFormatString = "{0:N2}";
+            this.xrTableCell27.Weight = 0.696915426143887D;
+            // 
+            // xrTableCell28
+            // 
+            this.xrTableCell28.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell28.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[isv]")});
+            this.xrTableCell28.Font = new DevExpress.Drawing.DXFont("Segoe UI", 8.75F);
+            this.xrTableCell28.Multiline = true;
+            this.xrTableCell28.Name = "xrTableCell28";
+            this.xrTableCell28.StylePriority.UseBorders = false;
+            this.xrTableCell28.StylePriority.UseFont = false;
+            this.xrTableCell28.StylePriority.UseTextAlignment = false;
+            this.xrTableCell28.Text = "xrTableCell28";
+            this.xrTableCell28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrTableCell28.TextFormatString = "{0:N2}";
+            this.xrTableCell28.Weight = 0.43630560000490004D;
             // 
             // xrTableCell14
             // 
@@ -246,7 +268,23 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell14.StylePriority.UseTextAlignment = false;
             this.xrTableCell14.Text = "xrTableCell14";
             this.xrTableCell14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell14.Weight = 0.7296889089668378D;
+            this.xrTableCell14.Weight = 0.69600813923985894D;
+            // 
+            // xrTableCell20
+            // 
+            this.xrTableCell20.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell20.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total_linea]")});
+            this.xrTableCell20.Font = new DevExpress.Drawing.DXFont("Segoe UI", 8.75F);
+            this.xrTableCell20.Multiline = true;
+            this.xrTableCell20.Name = "xrTableCell20";
+            this.xrTableCell20.StylePriority.UseBorders = false;
+            this.xrTableCell20.StylePriority.UseFont = false;
+            this.xrTableCell20.StylePriority.UseTextAlignment = false;
+            this.xrTableCell20.Text = "xrTableCell20";
+            this.xrTableCell20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrTableCell20.TextFormatString = "{0:N2}";
+            this.xrTableCell20.Weight = 0.69439290004054743D;
             // 
             // PageHeader
             // 
@@ -330,7 +368,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow2,
             this.xrTableRow1});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(690.625F, 36.875F);
+            this.xrTable1.SizeF = new System.Drawing.SizeF(766F, 36.875F);
             this.xrTable1.StylePriority.UseBackColor = false;
             this.xrTable1.StylePriority.UseBorders = false;
             this.xrTable1.StylePriority.UseFont = false;
@@ -374,7 +412,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "UNIDAD DE MEDIDA";
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell5.Weight = 3.0657231646355139D;
+            this.xrTableCell5.Weight = 2.3704619245093177D;
             // 
             // xrTableCell8
             // 
@@ -389,7 +427,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
             this.xrTableCell8.Text = "DESCRIPCIÓN";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell8.Weight = 5.6730146134103094D;
+            this.xrTableCell8.Weight = 5.5878905866381219D;
             // 
             // xrTableCell9
             // 
@@ -403,7 +441,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
             this.xrTableCell9.Text = "SISTEMA CONTABLE";
             this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell9.Weight = 6.1861666833598958D;
+            this.xrTableCell9.Weight = 8.76330673746507D;
             // 
             // xrTableRow1
             // 
@@ -413,7 +451,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell1,
             this.xrTableCell2,
             this.xrTableCell3,
-            this.xrTableCell18});
+            this.xrTableCell18,
+            this.xrTableCell22,
+            this.xrTableCell26});
             this.xrTableRow1.Name = "xrTableRow1";
             this.xrTableRow1.Weight = 1D;
             // 
@@ -428,13 +468,13 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             this.xrTableCell6.Multiline = true;
             this.xrTableCell6.Name = "xrTableCell6";
-            this.xrTableCell6.Weight = 3.0657228262956466D;
+            this.xrTableCell6.Weight = 2.3704613453483838D;
             // 
             // xrTableCell1
             // 
             this.xrTableCell1.Multiline = true;
             this.xrTableCell1.Name = "xrTableCell1";
-            this.xrTableCell1.Weight = 5.6730134838896547D;
+            this.xrTableCell1.Weight = 5.587889835897986D;
             // 
             // xrTableCell2
             // 
@@ -447,7 +487,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell2.StylePriority.UseTextAlignment = false;
             this.xrTableCell2.Text = "CANTIDAD";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell2.Weight = 1.620952699256208D;
+            this.xrTableCell2.Weight = 1.7557379465533904D;
             // 
             // xrTableCell3
             // 
@@ -458,9 +498,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell3.StylePriority.UseBorders = false;
             this.xrTableCell3.StylePriority.UseFont = false;
             this.xrTableCell3.StylePriority.UseTextAlignment = false;
-            this.xrTableCell3.Text = "UND. MEDIDA";
+            this.xrTableCell3.Text = "PRECIO UNIT.";
             this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell3.Weight = 2.0261909263514566D;
+            this.xrTableCell3.Weight = 1.9351871872878321D;
             // 
             // xrTableCell18
             // 
@@ -471,9 +511,35 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTableCell18.StylePriority.UseBorders = false;
             this.xrTableCell18.StylePriority.UseFont = false;
             this.xrTableCell18.StylePriority.UseTextAlignment = false;
-            this.xrTableCell18.Text = "TOTAL FILA L.";
+            this.xrTableCell18.Text = "ISV";
             this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell18.Weight = 2.5390219433802765D;
+            this.xrTableCell18.Weight = 1.2115286397753164D;
+            // 
+            // xrTableCell22
+            // 
+            this.xrTableCell22.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell22.Font = new DevExpress.Drawing.DXFont("Segoe UI", 8F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrTableCell22.Multiline = true;
+            this.xrTableCell22.Name = "xrTableCell22";
+            this.xrTableCell22.StylePriority.UseBorders = false;
+            this.xrTableCell22.StylePriority.UseFont = false;
+            this.xrTableCell22.StylePriority.UseTextAlignment = false;
+            this.xrTableCell22.Text = "UND. MEDIDA";
+            this.xrTableCell22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrTableCell22.Weight = 1.9326669224232909D;
+            // 
+            // xrTableCell26
+            // 
+            this.xrTableCell26.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell26.Font = new DevExpress.Drawing.DXFont("Segoe UI", 8F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrTableCell26.Multiline = true;
+            this.xrTableCell26.Name = "xrTableCell26";
+            this.xrTableCell26.StylePriority.UseBorders = false;
+            this.xrTableCell26.StylePriority.UseFont = false;
+            this.xrTableCell26.StylePriority.UseTextAlignment = false;
+            this.xrTableCell26.Text = "TOTAL FILA L.";
+            this.xrTableCell26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrTableCell26.Weight = 1.9281844714567402D;
             // 
             // xrLabel5
             // 
@@ -534,7 +600,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             this.xrTable4.BackColor = System.Drawing.Color.White;
             this.xrTable4.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9F);
-            this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(193.1249F, 8.625816F);
+            this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(257.6407F, 10F);
             this.xrTable4.Name = "xrTable4";
             this.xrTable4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable4.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -734,7 +800,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // xrTable3
             // 
             this.xrTable3.Font = new DevExpress.Drawing.DXFont("Arial", 9F);
-            this.xrTable3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 8.625816F);
+            this.xrTable3.LocationFloat = new DevExpress.Utils.PointFloat(64.51582F, 10F);
             this.xrTable3.Name = "xrTable3";
             this.xrTable3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable3.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -884,7 +950,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // xrShape1
             // 
-            this.xrShape1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 8.625816F);
+            this.xrShape1.LocationFloat = new DevExpress.Utils.PointFloat(64.51582F, 10F);
             this.xrShape1.Name = "xrShape1";
             shapeRectangle1.Fillet = 13;
             this.xrShape1.Shape = shapeRectangle1;
@@ -892,7 +958,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // xrShape2
             // 
-            this.xrShape2.LocationFloat = new DevExpress.Utils.PointFloat(603.2081F, 8.625825F);
+            this.xrShape2.LocationFloat = new DevExpress.Utils.PointFloat(667.7239F, 10F);
             this.xrShape2.Name = "xrShape2";
             shapeRectangle2.Fillet = 13;
             this.xrShape2.Shape = shapeRectangle2;
@@ -907,19 +973,19 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.xrTable3,
             this.xrShape1,
             this.xrShape2});
-            this.ReportFooter.HeightF = 208.7337F;
+            this.ReportFooter.HeightF = 241.3587F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLine1
             // 
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 179.6089F);
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(6.875038F, 193.7337F);
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(216.0414F, 10.49997F);
             // 
             // xrLabel2
             // 
             this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9.75F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(47.91667F, 190.1088F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(44.79167F, 204.2336F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -947,8 +1013,10 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.DataMember = "Detalle_Recepcion_Facturas_rpt";
             this.DataSource = this.dsLogisticaJaguar1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
-            this.Margins = new DevExpress.Drawing.DXMargins(90F, 30F, 29F, 100F);
+            this.Margins = new DevExpress.Drawing.DXMargins(44F, 30F, 29F, 31.89131F);
             this.Version = "23.2";
+            xrWatermark1.Id = "Watermark1";
+            this.Watermarks.Add(xrWatermark1);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
@@ -1032,7 +1100,11 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
         private DevExpress.XtraReports.UI.XRLine xrLine1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell18;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell20;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell27;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell28;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell22;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell26;
     }
 }

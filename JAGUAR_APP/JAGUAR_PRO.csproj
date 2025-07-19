@@ -3853,6 +3853,12 @@
     <Compile Include="TransaccionesPT\frmRequisaTraslado.Designer.cs">
       <DependentUpon>frmRequisaTraslado.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransaccionesPT\frmSolicitudAjusteKardexPT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmSolicitudAjusteKardexPT.Designer.cs">
+      <DependentUpon>frmSolicitudAjusteKardexPT.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransaccionesPT\frmTrasladoGestionKardex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4731,6 +4737,7 @@
     <EmbeddedResource Include="Micro\frmOpcionesMicro.resx">
       <DependentUpon>frmOpcionesMicro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -5124,6 +5131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmRequisaTraslado.resx">
       <DependentUpon>frmRequisaTraslado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\frmSolicitudAjusteKardexPT.resx">
+      <DependentUpon>frmSolicitudAjusteKardexPT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmTrasladoGestionKardex.resx">
       <DependentUpon>frmTrasladoGestionKardex.cs</DependentUpon>

@@ -150,9 +150,9 @@
             // xrLine1
             // 
             this.xrLine1.LineStyle = DevExpress.Drawing.DXDashStyle.Dash;
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(9.999998F, 47.91663F);
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(9.999998F, 47.9166F);
             this.xrLine1.Name = "xrLine1";
-            this.xrLine1.SizeF = new System.Drawing.SizeF(251.7633F, 2F);
+            this.xrLine1.SizeF = new System.Drawing.SizeF(245.3254F, 2F);
             // 
             // xrLabel24
             // 

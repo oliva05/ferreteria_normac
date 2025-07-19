@@ -5156,6 +5156,10 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             private global::System.Data.DataColumn columnnombre_comercial;
             
+            private global::System.Data.DataColumn columncosto_unitario;
+            
+            private global::System.Data.DataColumn columnisv;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Detalle_Recepcion_Facturas_rptDataTable() {
@@ -5287,6 +5291,22 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn costo_unitarioColumn {
+                get {
+                    return this.columncosto_unitario;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn isvColumn {
+                get {
+                    return this.columnisv;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5322,7 +5342,7 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Detalle_Recepcion_Facturas_rptRow AddDetalle_Recepcion_Facturas_rptRow(int id, int id_factura_h, int cantidad_factura, int id_unidad_medida_factura, string UM_Factura, string descripcion, int cantidad_entrada, string id_unidad_medida_entrada, string UM_Entrada_Jaguar, decimal total_linea, string id_materia_prima, string nombre_comercial) {
+            public Detalle_Recepcion_Facturas_rptRow AddDetalle_Recepcion_Facturas_rptRow(int id, int id_factura_h, int cantidad_factura, int id_unidad_medida_factura, string UM_Factura, string descripcion, int cantidad_entrada, string id_unidad_medida_entrada, string UM_Entrada_Jaguar, decimal total_linea, string id_materia_prima, string nombre_comercial, decimal costo_unitario, decimal isv) {
                 Detalle_Recepcion_Facturas_rptRow rowDetalle_Recepcion_Facturas_rptRow = ((Detalle_Recepcion_Facturas_rptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -5336,7 +5356,9 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         UM_Entrada_Jaguar,
                         total_linea,
                         id_materia_prima,
-                        nombre_comercial};
+                        nombre_comercial,
+                        costo_unitario,
+                        isv};
                 rowDetalle_Recepcion_Facturas_rptRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDetalle_Recepcion_Facturas_rptRow);
                 return rowDetalle_Recepcion_Facturas_rptRow;
@@ -5371,6 +5393,8 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 this.columntotal_linea = base.Columns["total_linea"];
                 this.columnid_materia_prima = base.Columns["id_materia_prima"];
                 this.columnnombre_comercial = base.Columns["nombre_comercial"];
+                this.columncosto_unitario = base.Columns["costo_unitario"];
+                this.columnisv = base.Columns["isv"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5400,6 +5424,10 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 base.Columns.Add(this.columnid_materia_prima);
                 this.columnnombre_comercial = new global::System.Data.DataColumn("nombre_comercial", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre_comercial);
+                this.columncosto_unitario = new global::System.Data.DataColumn("costo_unitario", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncosto_unitario);
+                this.columnisv = new global::System.Data.DataColumn("isv", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnisv);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9858,6 +9886,40 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal costo_unitario {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDetalle_Recepcion_Facturas_rpt.costo_unitarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'costo_unitario\' de la tabla \'Detalle_Recepcion_Facturas_r" +
+                                "pt\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDetalle_Recepcion_Facturas_rpt.costo_unitarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal isv {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDetalle_Recepcion_Facturas_rpt.isvColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'isv\' de la tabla \'Detalle_Recepcion_Facturas_rpt\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableDetalle_Recepcion_Facturas_rpt.isvColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tableDetalle_Recepcion_Facturas_rpt.idColumn);
             }
@@ -9998,6 +10060,30 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setnombre_comercialNull() {
                 this[this.tableDetalle_Recepcion_Facturas_rpt.nombre_comercialColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscosto_unitarioNull() {
+                return this.IsNull(this.tableDetalle_Recepcion_Facturas_rpt.costo_unitarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcosto_unitarioNull() {
+                this[this.tableDetalle_Recepcion_Facturas_rpt.costo_unitarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsisvNull() {
+                return this.IsNull(this.tableDetalle_Recepcion_Facturas_rpt.isvColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetisvNull() {
+                this[this.tableDetalle_Recepcion_Facturas_rpt.isvColumn] = global::System.Convert.DBNull;
             }
         }
         

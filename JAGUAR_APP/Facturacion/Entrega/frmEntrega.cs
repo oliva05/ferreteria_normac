@@ -62,6 +62,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 if (bodegas.RecuperarRegistro(EquipoActual.id_bodega_entrega))
                 {
                     txtEquipoBodega.Text = bodegas.Descripcion;
+                    IdBodega = bodegas.Id;
                 }
                
             }
@@ -198,7 +199,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             if (rpt.Conteo > 0)
             {
-                printTool.ShowPreviewDialog();
+                printTool.Print();
             }
             else {
                 CajaDialogo.Error("No se a entregado ningun item");
