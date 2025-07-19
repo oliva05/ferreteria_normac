@@ -192,5 +192,10 @@ namespace JAGUAR_PRO.Reportes
                 get_inventario();
             }
         }
+
+        private void cmdSolicitarAjusteInventario_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

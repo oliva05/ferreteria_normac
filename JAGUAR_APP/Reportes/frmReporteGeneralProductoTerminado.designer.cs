@@ -58,6 +58,7 @@ namespace JAGUAR_PRO.Reportes
             this.cmdVerDetalle = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colAlmacenCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcomprometido = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldisponible = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAlmacenName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdRecargar = new DevExpress.XtraEditors.SimpleButton();
@@ -65,7 +66,6 @@ namespace JAGUAR_PRO.Reportes
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmdAgregarAjuste_ = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSolicitarAjusteInventario = new DevExpress.XtraEditors.SimpleButton();
-            this.coldisponible = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesInventario1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_inventario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdv_inventario)).BeginInit();
@@ -313,6 +313,16 @@ namespace JAGUAR_PRO.Reportes
             this.colcomprometido.VisibleIndex = 7;
             this.colcomprometido.Width = 120;
             // 
+            // coldisponible
+            // 
+            this.coldisponible.Caption = "Disponible";
+            this.coldisponible.FieldName = "disponible";
+            this.coldisponible.Name = "coldisponible";
+            this.coldisponible.OptionsColumn.ReadOnly = true;
+            this.coldisponible.Visible = true;
+            this.coldisponible.VisibleIndex = 8;
+            this.coldisponible.Width = 98;
+            // 
             // colAlmacenName
             // 
             this.colAlmacenName.FieldName = "AlmacenName";
@@ -398,16 +408,7 @@ namespace JAGUAR_PRO.Reportes
             this.cmdSolicitarAjusteInventario.Size = new System.Drawing.Size(192, 47);
             this.cmdSolicitarAjusteInventario.TabIndex = 61;
             this.cmdSolicitarAjusteInventario.Text = "Solicitar Ajuste de Inventario";
-            // 
-            // coldisponible
-            // 
-            this.coldisponible.Caption = "Disponible";
-            this.coldisponible.FieldName = "disponible";
-            this.coldisponible.Name = "coldisponible";
-            this.coldisponible.OptionsColumn.ReadOnly = true;
-            this.coldisponible.Visible = true;
-            this.coldisponible.VisibleIndex = 8;
-            this.coldisponible.Width = 98;
+            this.cmdSolicitarAjusteInventario.Click += new System.EventHandler(this.cmdSolicitarAjusteInventario_Click);
             // 
             // frmReporteGeneralProductoTerminado
             // 
