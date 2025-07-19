@@ -826,6 +826,7 @@ namespace Eatery.Ventas
                             command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
                             command.Parameters.AddWithValue("@fecha_hora_row", factura.FechaDocumento);
                             command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                            command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
 
                             if (row.id_isv_aplicable > 0)
                                 command.Parameters.AddWithValue("@id_isv_aplicado", row.id_isv_aplicable);
@@ -913,9 +914,9 @@ namespace Eatery.Ventas
                 //{
                 decimal ValorTotalFactura = dp.ValidateNumberDecimal(txtTotal.Text);
                 Int64 IdReciboH_Inserted = 0;
-
+                
                 frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, ValorTotalFactura, this.PuntoDeVentaActual,
-                                                            facturaGenerada.subtotalFactura, facturaGenerada.ISV1);
+                                                            PedidoRecuperado.SubTotal, PedidoRecuperado.ISV);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Factura factura = new Factura();
@@ -1153,6 +1154,8 @@ namespace Eatery.Ventas
                                 command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
                                 command.Parameters.AddWithValue("@fecha_hora_row", factura.FechaDocumento);
                                 command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                                command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+
                                 if (row.id_isv_aplicable > 0)
                                     command.Parameters.AddWithValue("@id_isv_aplicado", row.id_isv_aplicable);
                                 else

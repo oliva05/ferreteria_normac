@@ -216,7 +216,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 12F;
+            this.BottomMargin.HeightF = 8.000691F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -315,7 +315,7 @@
             this.xrLabel8.StylePriority.UseFont = false;
             this.xrLabel8.StylePriority.UseTextAlignment = false;
             this.xrLabel8.Text = "Cant.";
-            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel18
             // 
@@ -514,7 +514,7 @@
             // 
             // PageFooter
             // 
-            this.PageFooter.HeightF = 13.02261F;
+            this.PageFooter.HeightF = 5.39271F;
             this.PageFooter.Name = "PageFooter";
             // 
             // lblValorLetras
@@ -1405,7 +1405,7 @@
             this.dsFacturasGestion1});
             this.DataMember = "Factura_Detalle";
             this.DataSource = this.dsFacturasGestion1;
-            this.Margins = new DevExpress.Drawing.DXMargins(16F, 0F, 11.83333F, 12F);
+            this.Margins = new DevExpress.Drawing.DXMargins(16F, 0F, 11.83333F, 8.000691F);
             this.PageWidth = 292;
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
             this.ShowPreviewMarginLines = false;
