@@ -81,7 +81,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             radioGroup2.EditValue = 1;
             radioGroup3.EditValue = 1;
             radioGroup4.EditValue = 1;
-
+            txtEntregado.Focus();
         }
 
         private void GetBancosTodos()

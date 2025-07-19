@@ -453,6 +453,7 @@
             this.dtDesde.Size = new System.Drawing.Size(128, 26);
             this.dtDesde.TabIndex = 67;
             this.dtDesde.EditValueChanged += new System.EventHandler(this.dtDesde_EditValueChanged);
+            this.dtDesde.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtDesde_KeyDown);
             // 
             // labelControl5
             // 
@@ -485,6 +486,7 @@
             this.dtHasta.Size = new System.Drawing.Size(128, 26);
             this.dtHasta.TabIndex = 69;
             this.dtHasta.EditValueChanged += new System.EventHandler(this.dtHasta_EditValueChanged);
+            this.dtHasta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtHasta_KeyDown);
             // 
             // labelControl3
             // 

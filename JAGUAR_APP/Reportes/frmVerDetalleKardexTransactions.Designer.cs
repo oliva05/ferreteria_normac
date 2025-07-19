@@ -41,6 +41,7 @@ namespace JAGUAR_PRO.Reportes
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha_reg = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNumDocumento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_tipo_transaccion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTipo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colenable = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,7 +62,6 @@ namespace JAGUAR_PRO.Reportes
             this.lblInventario = new DevExpress.XtraEditors.LabelControl();
             this.lblAlmacen = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.colNumDocumento = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsKardexReportes1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -162,12 +162,23 @@ namespace JAGUAR_PRO.Reportes
             // colfecha_reg
             // 
             this.colfecha_reg.Caption = "Fecha Transacción";
+            this.colfecha_reg.DisplayFormat.FormatString = "g";
+            this.colfecha_reg.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colfecha_reg.FieldName = "fecha_reg";
             this.colfecha_reg.Name = "colfecha_reg";
             this.colfecha_reg.OptionsColumn.ReadOnly = true;
             this.colfecha_reg.Visible = true;
             this.colfecha_reg.VisibleIndex = 0;
             this.colfecha_reg.Width = 104;
+            // 
+            // colNumDocumento
+            // 
+            this.colNumDocumento.FieldName = "NumDocumento";
+            this.colNumDocumento.Name = "colNumDocumento";
+            this.colNumDocumento.OptionsColumn.ReadOnly = true;
+            this.colNumDocumento.Visible = true;
+            this.colNumDocumento.VisibleIndex = 2;
+            this.colNumDocumento.Width = 95;
             // 
             // colid_tipo_transaccion
             // 
@@ -355,15 +366,6 @@ namespace JAGUAR_PRO.Reportes
             this.labelControl5.Size = new System.Drawing.Size(55, 19);
             this.labelControl5.TabIndex = 17;
             this.labelControl5.Text = "Almacen:";
-            // 
-            // colNumDocumento
-            // 
-            this.colNumDocumento.FieldName = "NumDocumento";
-            this.colNumDocumento.Name = "colNumDocumento";
-            this.colNumDocumento.OptionsColumn.ReadOnly = true;
-            this.colNumDocumento.Visible = true;
-            this.colNumDocumento.VisibleIndex = 2;
-            this.colNumDocumento.Width = 95;
             // 
             // frmVerDetalleKardexTransactions
             // 

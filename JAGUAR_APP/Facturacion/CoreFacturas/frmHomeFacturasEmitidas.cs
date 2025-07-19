@@ -449,5 +449,21 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 CajaDialogo.Error(ex.Message);
             }
         }
+
+        private void dtDesde_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dtHasta.Focus();
+            }
+        }
+
+        private void dtHasta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmdRefresh.Focus();
+            }
+        }
     }
 }
