@@ -53,9 +53,11 @@ namespace JAGUAR_PRO.Reportes
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcosto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcode_referencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colVerDetalle = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdVerDetalle = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colAlmacenCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcomprometido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAlmacenName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdRecargar = new DevExpress.XtraEditors.SimpleButton();
@@ -63,7 +65,7 @@ namespace JAGUAR_PRO.Reportes
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmdAgregarAjuste_ = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSolicitarAjusteInventario = new DevExpress.XtraEditors.SimpleButton();
-            this.colcode_referencia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldisponible = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesInventario1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_inventario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdv_inventario)).BeginInit();
@@ -141,6 +143,8 @@ namespace JAGUAR_PRO.Reportes
             this.colcode_referencia,
             this.colVerDetalle,
             this.colAlmacenCode,
+            this.colcomprometido,
+            this.coldisponible,
             this.colAlmacenName});
             this.grdv_inventario.GridControl = this.grd_inventario;
             this.grdv_inventario.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -167,7 +171,7 @@ namespace JAGUAR_PRO.Reportes
             this.colProducto1.OptionsColumn.ReadOnly = true;
             this.colProducto1.Visible = true;
             this.colProducto1.VisibleIndex = 4;
-            this.colProducto1.Width = 284;
+            this.colProducto1.Width = 251;
             // 
             // collote_pt1
             // 
@@ -221,7 +225,7 @@ namespace JAGUAR_PRO.Reportes
             this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 6;
-            this.gridColumn1.Width = 183;
+            this.gridColumn1.Width = 143;
             // 
             // gridColumn2
             // 
@@ -231,7 +235,7 @@ namespace JAGUAR_PRO.Reportes
             this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 5;
-            this.gridColumn2.Width = 183;
+            this.gridColumn2.Width = 162;
             // 
             // gridColumn3
             // 
@@ -248,8 +252,8 @@ namespace JAGUAR_PRO.Reportes
             this.colcosto.Name = "colcosto";
             this.colcosto.OptionsColumn.ReadOnly = true;
             this.colcosto.Visible = true;
-            this.colcosto.VisibleIndex = 7;
-            this.colcosto.Width = 155;
+            this.colcosto.VisibleIndex = 9;
+            this.colcosto.Width = 105;
             // 
             // colcode
             // 
@@ -259,7 +263,17 @@ namespace JAGUAR_PRO.Reportes
             this.colcode.OptionsColumn.ReadOnly = true;
             this.colcode.Visible = true;
             this.colcode.VisibleIndex = 2;
-            this.colcode.Width = 67;
+            this.colcode.Width = 59;
+            // 
+            // colcode_referencia
+            // 
+            this.colcode_referencia.Caption = "Cod. Referencia";
+            this.colcode_referencia.FieldName = "code_referencia";
+            this.colcode_referencia.Name = "colcode_referencia";
+            this.colcode_referencia.OptionsColumn.ReadOnly = true;
+            this.colcode_referencia.Visible = true;
+            this.colcode_referencia.VisibleIndex = 3;
+            this.colcode_referencia.Width = 98;
             // 
             // colVerDetalle
             // 
@@ -267,8 +281,8 @@ namespace JAGUAR_PRO.Reportes
             this.colVerDetalle.ColumnEdit = this.cmdVerDetalle;
             this.colVerDetalle.Name = "colVerDetalle";
             this.colVerDetalle.Visible = true;
-            this.colVerDetalle.VisibleIndex = 8;
-            this.colVerDetalle.Width = 111;
+            this.colVerDetalle.VisibleIndex = 10;
+            this.colVerDetalle.Width = 76;
             // 
             // cmdVerDetalle
             // 
@@ -287,7 +301,17 @@ namespace JAGUAR_PRO.Reportes
             this.colAlmacenCode.OptionsColumn.ReadOnly = true;
             this.colAlmacenCode.Visible = true;
             this.colAlmacenCode.VisibleIndex = 0;
-            this.colAlmacenCode.Width = 57;
+            this.colAlmacenCode.Width = 49;
+            // 
+            // colcomprometido
+            // 
+            this.colcomprometido.Caption = "Comprometido";
+            this.colcomprometido.FieldName = "comprometido";
+            this.colcomprometido.Name = "colcomprometido";
+            this.colcomprometido.OptionsColumn.ReadOnly = true;
+            this.colcomprometido.Visible = true;
+            this.colcomprometido.VisibleIndex = 7;
+            this.colcomprometido.Width = 120;
             // 
             // colAlmacenName
             // 
@@ -296,7 +320,7 @@ namespace JAGUAR_PRO.Reportes
             this.colAlmacenName.OptionsColumn.ReadOnly = true;
             this.colAlmacenName.Visible = true;
             this.colAlmacenName.VisibleIndex = 1;
-            this.colAlmacenName.Width = 86;
+            this.colAlmacenName.Width = 76;
             // 
             // simpleButton1
             // 
@@ -375,15 +399,15 @@ namespace JAGUAR_PRO.Reportes
             this.cmdSolicitarAjusteInventario.TabIndex = 61;
             this.cmdSolicitarAjusteInventario.Text = "Solicitar Ajuste de Inventario";
             // 
-            // colcode_referencia
+            // coldisponible
             // 
-            this.colcode_referencia.Caption = "Cod. Referencia";
-            this.colcode_referencia.FieldName = "code_referencia";
-            this.colcode_referencia.Name = "colcode_referencia";
-            this.colcode_referencia.OptionsColumn.ReadOnly = true;
-            this.colcode_referencia.Visible = true;
-            this.colcode_referencia.VisibleIndex = 3;
-            this.colcode_referencia.Width = 111;
+            this.coldisponible.Caption = "Disponible";
+            this.coldisponible.FieldName = "disponible";
+            this.coldisponible.Name = "coldisponible";
+            this.coldisponible.OptionsColumn.ReadOnly = true;
+            this.coldisponible.Visible = true;
+            this.coldisponible.VisibleIndex = 8;
+            this.coldisponible.Width = 98;
             // 
             // frmReporteGeneralProductoTerminado
             // 
@@ -441,5 +465,7 @@ namespace JAGUAR_PRO.Reportes
         private SimpleButton cmdAgregarAjuste_;
         private SimpleButton cmdSolicitarAjusteInventario;
         private DevExpress.XtraGrid.Columns.GridColumn colcode_referencia;
+        private DevExpress.XtraGrid.Columns.GridColumn colcomprometido;
+        private DevExpress.XtraGrid.Columns.GridColumn coldisponible;
     }
 }
