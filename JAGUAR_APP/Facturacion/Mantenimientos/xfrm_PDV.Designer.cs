@@ -183,7 +183,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 0;
-            this.gridColumn3.Width = 128;
+            this.gridColumn3.Width = 94;
             // 
             // gridColumn4
             // 
@@ -194,7 +194,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
-            this.gridColumn4.Width = 116;
+            this.gridColumn4.Width = 85;
             // 
             // gridColumn5
             // 
@@ -204,6 +204,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridColumn5.OptionsColumn.ReadOnly = true;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 55;
             // 
             // gridColumn6
             // 
@@ -214,6 +215,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridColumn6.OptionsColumn.ReadOnly = true;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.Width = 55;
             // 
             // gridColumn7
             // 
@@ -224,7 +226,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridColumn7.OptionsColumn.ReadOnly = true;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 7;
-            this.gridColumn7.Width = 112;
+            this.gridColumn7.Width = 82;
             // 
             // gridColumn8
             // 
@@ -235,6 +237,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridColumn8.OptionsColumn.ReadOnly = true;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 6;
+            this.gridColumn8.Width = 55;
             // 
             // gridColumn9
             // 
@@ -244,7 +247,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridColumn9.OptionsColumn.ReadOnly = true;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 8;
-            this.gridColumn9.Width = 108;
+            this.gridColumn9.Width = 79;
             // 
             // gridColumn10
             // 
@@ -253,7 +256,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 3;
-            this.gridColumn10.Width = 223;
+            this.gridColumn10.Width = 164;
             // 
             // gridColumn11
             // 
@@ -263,7 +266,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridColumn11.OptionsColumn.ReadOnly = true;
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 9;
-            this.gridColumn11.Width = 102;
+            this.gridColumn11.Width = 65;
             // 
             // gridColumn12
             // 
@@ -272,7 +275,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 1;
-            this.gridColumn12.Width = 173;
+            this.gridColumn12.Width = 127;
             // 
             // cmdContact
             // 

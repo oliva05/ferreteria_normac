@@ -3531,11 +3531,16 @@ namespace Eatery.Ventas
 
                     //e.Appearance.BackColor = Color.FromArgb(102, 255, 102);//Verde
                     e.Appearance.BackColor = Color.FromArgb(245, 141, 105);//Rojo Suave
+                    e.HighPriority = true;
                 }
                 else
                 {
                     //Backcolor Blanco
-                    e.Appearance.BackColor = Color.FromArgb(255, 255, 255);
+                    //e.Appearance.BackColor = Color.FromArgb(255, 255, 255);
+
+                    //Verde
+                    e.Appearance.BackColor = Color.FromArgb(102, 255, 102);
+                    e.HighPriority = true;
                 }
             }
         }

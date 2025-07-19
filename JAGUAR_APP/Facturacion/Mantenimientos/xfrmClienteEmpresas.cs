@@ -168,5 +168,105 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             txtCodigo.Text = "EMP" + (id_siguiente + countRecords).ToString().PadLeft(3, '0');
 
         }
+
+        private void txtNombre_EditValueChanged(object sender, EventArgs e)
+        {
+            var te = (DevExpress.XtraEditors.TextEdit)sender;
+            int selStart = te.SelectionStart;
+
+            te.Text = CapitalizarCadaPalabra(te.Text);
+            te.SelectionStart = selStart;
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtNombreCorto.Focus();
+            }
+        }
+
+        private void txtNombreCorto_EditValueChanged(object sender, EventArgs e)
+        {
+            var te = (DevExpress.XtraEditors.TextEdit)sender;
+            int selStart = te.SelectionStart;
+
+            te.Text = CapitalizarCadaPalabra(te.Text);
+            te.SelectionStart = selStart;
+        }
+
+        private void txtNombreCorto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtDireccion.Focus();
+            }
+        }
+
+        private string CapitalizarCadaPalabra(string texto)
+        {
+            var resultado = new System.Text.StringBuilder();
+            bool nuevaPalabra = true;
+
+            foreach (char c in texto)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    nuevaPalabra = true;
+                    resultado.Append(c);
+                }
+                else
+                {
+                    if (nuevaPalabra)
+                        resultado.Append(char.ToUpper(c));
+                    else
+                        resultado.Append(char.ToLower(c));
+
+                    nuevaPalabra = false;
+                }
+            }
+            return resultado.ToString();
+        }
+
+        private void txtDireccion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRTN.Focus();
+            }
+        }
+
+        private void txtRTN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCorreo.Focus();
+            }
+        }
+
+        private void txtCorreo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtTelefono.Focus();
+            }
+        }
+
+        private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSave_Click(sender, e);
+            }
+        }
+
+        private void txtDireccion_EditValueChanged(object sender, EventArgs e)
+        {
+            var te = (DevExpress.XtraEditors.TextEdit)sender;
+            int selStart = te.SelectionStart;
+
+            te.Text = CapitalizarCadaPalabra(te.Text);
+            te.SelectionStart = selStart;
+        }
     }
 }

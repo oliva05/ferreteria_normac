@@ -110,6 +110,8 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtNombre.Properties.Appearance.Options.UseFont = true;
             this.txtNombre.Size = new System.Drawing.Size(285, 26);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.EditValueChanged += new System.EventHandler(this.txtNombre_EditValueChanged);
+            this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
             // 
             // label1
             // 
@@ -130,6 +132,8 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtNombreCorto.Properties.Appearance.Options.UseFont = true;
             this.txtNombreCorto.Size = new System.Drawing.Size(285, 26);
             this.txtNombreCorto.TabIndex = 2;
+            this.txtNombreCorto.EditValueChanged += new System.EventHandler(this.txtNombreCorto_EditValueChanged);
+            this.txtNombreCorto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreCorto_KeyDown);
             // 
             // label3
             // 
@@ -160,6 +164,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtRTN.Properties.Appearance.Options.UseFont = true;
             this.txtRTN.Size = new System.Drawing.Size(285, 26);
             this.txtRTN.TabIndex = 4;
+            this.txtRTN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRTN_KeyDown);
             // 
             // label5
             // 
@@ -225,6 +230,8 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtDireccion.Properties.Appearance.Options.UseFont = true;
             this.txtDireccion.Size = new System.Drawing.Size(285, 61);
             this.txtDireccion.TabIndex = 3;
+            this.txtDireccion.EditValueChanged += new System.EventHandler(this.txtDireccion_EditValueChanged);
+            this.txtDireccion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDireccion_KeyDown);
             // 
             // txtCorreo
             // 
@@ -237,6 +244,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtCorreo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtCorreo.Size = new System.Drawing.Size(285, 26);
             this.txtCorreo.TabIndex = 5;
+            this.txtCorreo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCorreo_KeyDown);
             // 
             // label7
             // 
@@ -259,6 +267,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtTelefono.Properties.MaskSettings.Set("mask", "d");
             this.txtTelefono.Size = new System.Drawing.Size(285, 26);
             this.txtTelefono.TabIndex = 6;
+            this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
             // 
             // label8
             // 

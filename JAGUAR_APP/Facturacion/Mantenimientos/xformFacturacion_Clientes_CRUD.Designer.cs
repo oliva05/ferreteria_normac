@@ -129,6 +129,8 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtNombreLargo.Properties.Appearance.Options.UseFont = true;
             this.txtNombreLargo.Size = new System.Drawing.Size(285, 26);
             this.txtNombreLargo.TabIndex = 0;
+            this.txtNombreLargo.EditValueChanged += new System.EventHandler(this.txtNombreLargo_EditValueChanged);
+            this.txtNombreLargo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreLargo_KeyDown);
             // 
             // txtCodigo
             // 
@@ -419,7 +421,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.xtraTabPage1.Controls.Add(this.btnNew);
             this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1328, 406);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1328, 402);
             this.xtraTabPage1.Text = "Empresas";
             // 
             // xtraTabPage2
@@ -430,7 +432,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.PageVisible = false;
-            this.xtraTabPage2.Size = new System.Drawing.Size(1328, 406);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1328, 402);
             this.xtraTabPage2.Text = "Contactos";
             // 
             // gridControl2
@@ -584,6 +586,8 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtNombreCorto.Properties.Appearance.Options.UseFont = true;
             this.txtNombreCorto.Size = new System.Drawing.Size(285, 26);
             this.txtNombreCorto.TabIndex = 1;
+            this.txtNombreCorto.EditValueChanged += new System.EventHandler(this.txtNombreCorto_EditValueChanged);
+            this.txtNombreCorto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreCorto_KeyDown);
             // 
             // label3
             // 
@@ -604,6 +608,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtTelefono.Properties.Appearance.Options.UseFont = true;
             this.txtTelefono.Size = new System.Drawing.Size(285, 26);
             this.txtTelefono.TabIndex = 3;
+            this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
             // 
             // label4
             // 
@@ -627,6 +632,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtCorreo.Properties.MaskSettings.Set("mask", "(\\w|[.\\-])+@(\\w|[\\-]+.)*(\\w|[\\-]){2,63}.[a-zA-Z]{2,4}");
             this.txtCorreo.Size = new System.Drawing.Size(285, 26);
             this.txtCorreo.TabIndex = 4;
+            this.txtCorreo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCorreo_KeyDown);
             // 
             // label5
             // 
@@ -674,6 +680,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             this.txtDireccion.Properties.MaxLength = 200;
             this.txtDireccion.Size = new System.Drawing.Size(285, 79);
             this.txtDireccion.TabIndex = 5;
+            this.txtDireccion.EditValueChanged += new System.EventHandler(this.txtDireccion_EditValueChanged);
             // 
             // xformFacturacion_Clientes_CRUD
             // 

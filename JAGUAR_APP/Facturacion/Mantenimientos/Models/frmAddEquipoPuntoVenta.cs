@@ -143,6 +143,12 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos.Models
                 errorProvider1.SetError(txtNombreEquipo, "No se permite dejar el nombre de equipo en blanco!");
                 return;
             }
+            if (string.IsNullOrEmpty(txtDescripcionEquipo.Text))
+            {
+                errorProvider1.SetError(txtDescripcionEquipo, "No se permite dejar el nombre de equipo en blanco!");
+                return;
+            }
+            
 
             if (string.IsNullOrEmpty(glePuntoVenta.Text))
             {
