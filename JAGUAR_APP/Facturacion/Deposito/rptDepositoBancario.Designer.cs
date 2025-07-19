@@ -107,12 +107,11 @@
             // lblUsuario
             // 
             this.lblUsuario.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.lblUsuario.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.lblUsuario.LocationFloat = new DevExpress.Utils.PointFloat(110.9131F, 208.5658F);
+            this.lblUsuario.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.lblUsuario.LocationFloat = new DevExpress.Utils.PointFloat(121.9131F, 208.5658F);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblUsuario.SizeF = new System.Drawing.SizeF(149.2414F, 16F);
+            this.lblUsuario.SizeF = new System.Drawing.SizeF(138.2414F, 16F);
             this.lblUsuario.StylePriority.UseBorders = false;
             this.lblUsuario.StylePriority.UseFont = false;
             this.lblUsuario.StylePriority.UseTextAlignment = false;
@@ -121,9 +120,8 @@
             // xrLabel8
             // 
             this.xrLabel8.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel8.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(0F, 192.5658F);
+            this.xrLabel8.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(11F, 192.5658F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel8.SizeF = new System.Drawing.SizeF(110.9112F, 16F);
@@ -188,12 +186,11 @@
             // lblTotal
             // 
             this.lblTotal.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.lblTotal.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.lblTotal.LocationFloat = new DevExpress.Utils.PointFloat(110.9126F, 224.5658F);
+            this.lblTotal.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.lblTotal.LocationFloat = new DevExpress.Utils.PointFloat(121.9126F, 224.5658F);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotal.SizeF = new System.Drawing.SizeF(149.2414F, 16F);
+            this.lblTotal.SizeF = new System.Drawing.SizeF(138.2415F, 16F);
             this.lblTotal.StylePriority.UseBorders = false;
             this.lblTotal.StylePriority.UseFont = false;
             this.lblTotal.StylePriority.UseTextAlignment = false;
@@ -202,9 +199,8 @@
             // xrLabel7
             // 
             this.xrLabel7.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel7.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(0.001063347F, 224.5658F);
+            this.xrLabel7.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(11.00106F, 224.5658F);
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel7.SizeF = new System.Drawing.SizeF(110.911F, 15.99999F);
@@ -217,12 +213,11 @@
             // lblNumCuenta
             // 
             this.lblNumCuenta.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.lblNumCuenta.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.lblNumCuenta.LocationFloat = new DevExpress.Utils.PointFloat(110.9132F, 192.5658F);
+            this.lblNumCuenta.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.lblNumCuenta.LocationFloat = new DevExpress.Utils.PointFloat(121.9132F, 192.5657F);
             this.lblNumCuenta.Name = "lblNumCuenta";
             this.lblNumCuenta.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNumCuenta.SizeF = new System.Drawing.SizeF(149.2413F, 16.00002F);
+            this.lblNumCuenta.SizeF = new System.Drawing.SizeF(138.2413F, 16.00002F);
             this.lblNumCuenta.StylePriority.UseBorders = false;
             this.lblNumCuenta.StylePriority.UseFont = false;
             this.lblNumCuenta.StylePriority.UseTextAlignment = false;
@@ -231,9 +226,8 @@
             // xrLabel5
             // 
             this.xrLabel5.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel5.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(0.001084328F, 208.5658F);
+            this.xrLabel5.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(11.00108F, 208.5658F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel5.SizeF = new System.Drawing.SizeF(110.9111F, 15.99999F);
@@ -246,12 +240,11 @@
             // lblReferenciaTransaccion
             // 
             this.lblReferenciaTransaccion.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.lblReferenciaTransaccion.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.lblReferenciaTransaccion.LocationFloat = new DevExpress.Utils.PointFloat(110.9123F, 144.5659F);
+            this.lblReferenciaTransaccion.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.lblReferenciaTransaccion.LocationFloat = new DevExpress.Utils.PointFloat(121.9123F, 144.5658F);
             this.lblReferenciaTransaccion.Name = "lblReferenciaTransaccion";
             this.lblReferenciaTransaccion.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblReferenciaTransaccion.SizeF = new System.Drawing.SizeF(149.2413F, 16F);
+            this.lblReferenciaTransaccion.SizeF = new System.Drawing.SizeF(138.2413F, 16F);
             this.lblReferenciaTransaccion.StylePriority.UseBorders = false;
             this.lblReferenciaTransaccion.StylePriority.UseFont = false;
             this.lblReferenciaTransaccion.StylePriority.UseTextAlignment = false;
@@ -260,9 +253,8 @@
             // xrLabel2
             // 
             this.xrLabel2.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0.001063347F, 144.5658F);
+            this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(11.00106F, 144.5658F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(110.9112F, 16.00001F);
@@ -275,13 +267,12 @@
             // lblObs
             // 
             this.lblObs.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.lblObs.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.lblObs.LocationFloat = new DevExpress.Utils.PointFloat(110.9121F, 240.5659F);
+            this.lblObs.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.lblObs.LocationFloat = new DevExpress.Utils.PointFloat(121.9121F, 240.5659F);
             this.lblObs.Multiline = true;
             this.lblObs.Name = "lblObs";
             this.lblObs.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblObs.SizeF = new System.Drawing.SizeF(149.2414F, 16.00001F);
+            this.lblObs.SizeF = new System.Drawing.SizeF(138.2414F, 16.00002F);
             this.lblObs.StylePriority.UseBorders = false;
             this.lblObs.StylePriority.UseFont = false;
             this.lblObs.StylePriority.UseTextAlignment = false;
@@ -290,9 +281,8 @@
             // xrLabel6
             // 
             this.xrLabel6.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel6.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0.001080513F, 240.5659F);
+            this.xrLabel6.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(11.00108F, 240.5659F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel6.SizeF = new System.Drawing.SizeF(110.9111F, 15.99998F);
@@ -305,12 +295,11 @@
             // lblBanco
             // 
             this.lblBanco.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.lblBanco.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.lblBanco.LocationFloat = new DevExpress.Utils.PointFloat(110.9123F, 176.5658F);
+            this.lblBanco.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.lblBanco.LocationFloat = new DevExpress.Utils.PointFloat(121.9123F, 176.5657F);
             this.lblBanco.Name = "lblBanco";
             this.lblBanco.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblBanco.SizeF = new System.Drawing.SizeF(149.2414F, 16F);
+            this.lblBanco.SizeF = new System.Drawing.SizeF(138.2414F, 16.00002F);
             this.lblBanco.StylePriority.UseBorders = false;
             this.lblBanco.StylePriority.UseFont = false;
             this.lblBanco.StylePriority.UseTextAlignment = false;
@@ -319,9 +308,8 @@
             // xrLabel4
             // 
             this.xrLabel4.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel4.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(0.001063347F, 176.5658F);
+            this.xrLabel4.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(11.00106F, 176.5658F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel4.SizeF = new System.Drawing.SizeF(110.9112F, 16F);
@@ -334,12 +322,11 @@
             // lblNumDeposito
             // 
             this.lblNumDeposito.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.lblNumDeposito.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.lblNumDeposito.LocationFloat = new DevExpress.Utils.PointFloat(110.9126F, 128.5659F);
+            this.lblNumDeposito.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.lblNumDeposito.LocationFloat = new DevExpress.Utils.PointFloat(121.9126F, 128.5659F);
             this.lblNumDeposito.Name = "lblNumDeposito";
             this.lblNumDeposito.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNumDeposito.SizeF = new System.Drawing.SizeF(149.2413F, 16F);
+            this.lblNumDeposito.SizeF = new System.Drawing.SizeF(138.2413F, 15.99998F);
             this.lblNumDeposito.StylePriority.UseBorders = false;
             this.lblNumDeposito.StylePriority.UseFont = false;
             this.lblNumDeposito.StylePriority.UseTextAlignment = false;
@@ -348,9 +335,8 @@
             // xrLabel1
             // 
             this.xrLabel1.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0.001063347F, 128.5658F);
+            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(11.00106F, 128.5658F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(110.9115F, 16F);
@@ -363,9 +349,8 @@
             // xrLabel14
             // 
             this.xrLabel14.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel14.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(0.001063347F, 160.5658F);
+            this.xrLabel14.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(11.00106F, 160.5658F);
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel14.SizeF = new System.Drawing.SizeF(110.9111F, 16F);
@@ -378,12 +363,11 @@
             // lblFechaEmision
             // 
             this.lblFechaEmision.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.lblFechaEmision.Font = new DevExpress.Drawing.DXFont("Courier New", 9.75F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.lblFechaEmision.LocationFloat = new DevExpress.Utils.PointFloat(110.9122F, 160.5659F);
+            this.lblFechaEmision.Font = new DevExpress.Drawing.DXFont("Courier New", 9.5F);
+            this.lblFechaEmision.LocationFloat = new DevExpress.Utils.PointFloat(121.9122F, 160.5659F);
             this.lblFechaEmision.Name = "lblFechaEmision";
             this.lblFechaEmision.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblFechaEmision.SizeF = new System.Drawing.SizeF(149.2414F, 16F);
+            this.lblFechaEmision.SizeF = new System.Drawing.SizeF(138.2414F, 16F);
             this.lblFechaEmision.StylePriority.UseBorders = false;
             this.lblFechaEmision.StylePriority.UseFont = false;
             this.lblFechaEmision.StylePriority.UseTextAlignment = false;
