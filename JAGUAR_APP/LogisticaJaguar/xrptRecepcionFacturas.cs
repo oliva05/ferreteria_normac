@@ -20,7 +20,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
             xrlDocNum.Text = factura_h.NumeroFactura;
             xrlProveedor.Text = factura_h.Proveedor;
-            xrlFecha.Text ="San Pedro Sula "+ factura_h.Fecha.Day.ToString().PadLeft(2,'0')+" de "+ Meses[factura_h.Fecha.Month-1]+" del "+  factura_h.Fecha.Year;
+            xrlFecha.Text ="Olanchito "+ factura_h.Fecha.Day.ToString().PadLeft(2,'0')+" de "+ Meses[factura_h.Fecha.Month-1]+" del "+  factura_h.Fecha.Year;
             xrlEntregadoPor.Text = factura_h.EntregadoPor;
             xrlEntregadoPorIdentidad.Text = factura_h.EntregadoPorIdentidad;
             xrlEntregadoPorTelefono.Text = factura_h.EntregadoPorTelefono;

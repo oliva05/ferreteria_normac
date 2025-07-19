@@ -72,7 +72,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.UsuarioLogeado = pUsuarioLogeado;
             FacturaProveedorH_Actual = new FacturaProveedorH();
             dp = new DataOperations();
-
+         
             switch (TipoAccionActualVentana)
             {
                 case TipoAccionVentana.Insert:
@@ -187,6 +187,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             }
                         }
                     }
+                    cmdGuardar.Visible = false;
+                    cmdAddFactura.Visible = false;
+                    gridControl1.Enabled = false;
                     break;
             }
         }
