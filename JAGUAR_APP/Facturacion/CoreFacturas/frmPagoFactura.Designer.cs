@@ -127,6 +127,10 @@
             this.lblSaldo = new System.Windows.Forms.Label();
             this.cmdCheque = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
+            this.lblImpuesto = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.lblSubTotal = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tabPagos)).BeginInit();
             this.tabPagos.SuspendLayout();
             this.tabPageEfectivo.SuspendLayout();
@@ -1015,7 +1019,7 @@
             // 
             this.gridControl1.DataMember = "resumen_pago";
             this.gridControl1.DataSource = this.dsRegistroPagos1;
-            this.gridControl1.Location = new System.Drawing.Point(580, 96);
+            this.gridControl1.Location = new System.Drawing.Point(580, 138);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(310, 220);
@@ -1079,7 +1083,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(576, 75);
+            this.label18.Location = new System.Drawing.Point(576, 117);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(165, 21);
             this.label18.TabIndex = 31;
@@ -1088,7 +1092,7 @@
             // lblResumenPagosTotal
             // 
             this.lblResumenPagosTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResumenPagosTotal.Location = new System.Drawing.Point(725, 319);
+            this.lblResumenPagosTotal.Location = new System.Drawing.Point(725, 361);
             this.lblResumenPagosTotal.Name = "lblResumenPagosTotal";
             this.lblResumenPagosTotal.Size = new System.Drawing.Size(165, 21);
             this.lblResumenPagosTotal.TabIndex = 32;
@@ -1117,16 +1121,16 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(576, 47);
+            this.label19.Location = new System.Drawing.Point(576, 81);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(136, 21);
+            this.label19.Size = new System.Drawing.Size(114, 21);
             this.label19.TabIndex = 40;
-            this.label19.Text = "Pago Requerido:";
+            this.label19.Text = "Total a pagar:";
             // 
             // lblTotalPagoRequerido
             // 
             this.lblTotalPagoRequerido.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPagoRequerido.Location = new System.Drawing.Point(725, 47);
+            this.lblTotalPagoRequerido.Location = new System.Drawing.Point(725, 81);
             this.lblTotalPagoRequerido.Name = "lblTotalPagoRequerido";
             this.lblTotalPagoRequerido.Size = new System.Drawing.Size(165, 21);
             this.lblTotalPagoRequerido.TabIndex = 41;
@@ -1138,7 +1142,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(576, 319);
+            this.label20.Location = new System.Drawing.Point(576, 361);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(102, 21);
             this.label20.TabIndex = 42;
@@ -1148,7 +1152,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(576, 340);
+            this.label21.Location = new System.Drawing.Point(576, 382);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(57, 21);
             this.label21.TabIndex = 43;
@@ -1157,7 +1161,7 @@
             // lblSaldo
             // 
             this.lblSaldo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaldo.Location = new System.Drawing.Point(725, 340);
+            this.lblSaldo.Location = new System.Drawing.Point(725, 382);
             this.lblSaldo.Name = "lblSaldo";
             this.lblSaldo.Size = new System.Drawing.Size(165, 21);
             this.lblSaldo.TabIndex = 44;
@@ -1194,6 +1198,46 @@
             this.cmdCerrar.Text = "Salir";
             this.cmdCerrar.Click += new System.EventHandler(this.cmdCerrar_Click);
             // 
+            // lblImpuesto
+            // 
+            this.lblImpuesto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImpuesto.Location = new System.Drawing.Point(725, 60);
+            this.lblImpuesto.Name = "lblImpuesto";
+            this.lblImpuesto.Size = new System.Drawing.Size(165, 21);
+            this.lblImpuesto.TabIndex = 48;
+            this.lblImpuesto.Text = "L 0.00";
+            this.lblImpuesto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(576, 60);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(86, 21);
+            this.label33.TabIndex = 47;
+            this.label33.Text = "Impuesto:";
+            // 
+            // lblSubTotal
+            // 
+            this.lblSubTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTotal.Location = new System.Drawing.Point(725, 39);
+            this.lblSubTotal.Name = "lblSubTotal";
+            this.lblSubTotal.Size = new System.Drawing.Size(165, 21);
+            this.lblSubTotal.TabIndex = 50;
+            this.lblSubTotal.Text = "L 0.00";
+            this.lblSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(576, 39);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(85, 21);
+            this.label35.TabIndex = 49;
+            this.label35.Text = "Sub Total:";
+            // 
             // frmPagoFactura
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -1201,6 +1245,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 521);
+            this.Controls.Add(this.lblSubTotal);
+            this.Controls.Add(this.label35);
+            this.Controls.Add(this.lblImpuesto);
+            this.Controls.Add(this.label33);
             this.Controls.Add(this.cmdCerrar);
             this.Controls.Add(this.cmdCheque);
             this.Controls.Add(this.lblSaldo);
@@ -1355,5 +1403,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colmoneda;
         public System.Windows.Forms.TextBox txtCambio;
         public System.Windows.Forms.TextBox txtEntregado;
+        private System.Windows.Forms.Label lblImpuesto;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label lblSubTotal;
+        private System.Windows.Forms.Label label35;
     }
 }
