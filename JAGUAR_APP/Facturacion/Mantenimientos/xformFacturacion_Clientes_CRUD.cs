@@ -63,7 +63,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
 
             try
             {
-                xfrmClienteEmpresas frm = new xfrmClienteEmpresas(CountRecord, (int)TipoTransaccionesCRUD.Nuevo);
+                xfrmClienteEmpresas frm = new xfrmClienteEmpresas(CountRecord, (int)TipoTransaccionesCRUD.Nuevo, txtNombreLargo.Text.Trim(), txtNombreCorto.Text.Trim());
 
                 if (frm.ShowDialog() == DialogResult.OK)
                 {

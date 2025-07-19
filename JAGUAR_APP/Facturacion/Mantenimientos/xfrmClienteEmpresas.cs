@@ -20,12 +20,14 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
         int countRecords = 0;
         int tipoTransaccion = 0;
         ClienteEmpresa empresa2 = new ClienteEmpresa();
-        public xfrmClienteEmpresas(int pCountRecords,int pTipoTransaccion)
+        public xfrmClienteEmpresas(int pCountRecords,int pTipoTransaccion, string pNombreLargo, string pNombreCorto)
         {
             InitializeComponent();
             CargaTipoContacto();
             countRecords = pCountRecords;
             tipoTransaccion = pTipoTransaccion;
+            txtNombreCorto.Text = pNombreCorto;
+            txtNombre.Text = pNombreLargo;
 
         }
 
