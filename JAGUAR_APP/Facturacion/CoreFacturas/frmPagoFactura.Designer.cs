@@ -1005,14 +1005,14 @@
             // 
             // cmdDepositoBancario
             // 
-            this.cmdDepositoBancario.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdDepositoBancario.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdDepositoBancario.Appearance.Options.UseFont = true;
             this.cmdDepositoBancario.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdDepositoBancario.ImageOptions.Image")));
             this.cmdDepositoBancario.Location = new System.Drawing.Point(3, 276);
             this.cmdDepositoBancario.Name = "cmdDepositoBancario";
             this.cmdDepositoBancario.Size = new System.Drawing.Size(200, 92);
             this.cmdDepositoBancario.TabIndex = 3;
-            this.cmdDepositoBancario.Text = "Depósito\r\nBancario";
+            this.cmdDepositoBancario.Text = "Transferencia";
             this.cmdDepositoBancario.Click += new System.EventHandler(this.cmdDepositoBancario_Click);
             // 
             // gridControl1

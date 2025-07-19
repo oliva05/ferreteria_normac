@@ -147,7 +147,7 @@ namespace Eatery.Ventas
                 ProIdCliente = Pedido1.IdCliente;
                 if (ClienteFactura == null)
                     ClienteFactura = new ClienteFacturacion();
-
+                txtComentario.Text =  Pedido1.Comentario;
                 IdTerminoPago = Pedido1.IdTerminoPago;
                 if (IdTerminoPago == 1)//Contado
                 {
