@@ -243,7 +243,6 @@
             // 
             // cmdCerrar
             // 
-            this.cmdCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCerrar.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.cmdCerrar.Appearance.BorderColor = System.Drawing.Color.LightGray;
             this.cmdCerrar.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
@@ -252,7 +251,7 @@
             this.cmdCerrar.Appearance.Options.UseFont = true;
             this.cmdCerrar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCerrar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCerrar.ImageOptions.Image")));
-            this.cmdCerrar.Location = new System.Drawing.Point(457, 322);
+            this.cmdCerrar.Location = new System.Drawing.Point(472, 290);
             this.cmdCerrar.Name = "cmdCerrar";
             this.cmdCerrar.Size = new System.Drawing.Size(120, 46);
             this.cmdCerrar.TabIndex = 74;
@@ -261,7 +260,6 @@
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton3.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.simpleButton3.Appearance.BorderColor = System.Drawing.Color.LightGray;
             this.simpleButton3.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
@@ -270,7 +268,7 @@
             this.simpleButton3.Appearance.Options.UseFont = true;
             this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(287, 322);
+            this.simpleButton3.Location = new System.Drawing.Point(302, 290);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(120, 46);
             this.simpleButton3.TabIndex = 73;
@@ -329,7 +327,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 392);
+            this.ClientSize = new System.Drawing.Size(862, 342);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtObs);
             this.Controls.Add(this.radioGroup1);
