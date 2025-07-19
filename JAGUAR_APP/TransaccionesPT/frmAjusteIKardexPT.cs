@@ -189,11 +189,6 @@ namespace JAGUAR_PRO.TransaccionesPT
             }
         }
 
-        private void txtPT_Name_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtPT_Name_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             //int tipoTraansaccion = 0;
@@ -371,6 +366,33 @@ namespace JAGUAR_PRO.TransaccionesPT
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void txtCodigoPT_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(txtCodigoPT.Text))
+                {
+                    errorProvider1.SetError(txtCodigoPT, "Es necesario ingresar un codigo de Producto!");
+                    return;
+                }
+                else
+                {
+                    errorProvider1.Clear();
+                }
+
+                ProductoTerminado productoTerminado = new ProductoTerminado();
+                if (productoTerminado.Recuperar_producto(txtCodigoPT.Text))
+                {
+                    txtPT_Name.Text = productoTerminado.Descripcion;
+                    Id_PT = productoTerminado.Id;
+                    this.ItemCode = productoTerminado.Code;
+                    gridLookUpEditPresentacion.EditValue = productoTerminado.Id_presentacion;
+                    LoadBodegasAlmacenes(Id_PT);
+                }
+            }
+
         }
     }
 }

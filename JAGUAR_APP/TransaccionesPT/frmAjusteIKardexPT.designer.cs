@@ -33,16 +33,16 @@ namespace JAGUAR_PRO.TransaccionesPT
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAjusteIKardexPT));
             this.dtFechaDocumento = new DevExpress.XtraEditors.DateEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
@@ -78,6 +78,9 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colselect = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCodigoPT = new DevExpress.XtraEditors.TextEdit();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegadestinoBindingSource1)).BeginInit();
@@ -97,12 +100,14 @@ namespace JAGUAR_PRO.TransaccionesPT
             ((System.ComponentModel.ISupportInitialize)(this.gleAlmacen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoPT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dtFechaDocumento
             // 
             this.dtFechaDocumento.EditValue = null;
-            this.dtFechaDocumento.Location = new System.Drawing.Point(221, 166);
+            this.dtFechaDocumento.Location = new System.Drawing.Point(221, 205);
             this.dtFechaDocumento.Name = "dtFechaDocumento";
             this.dtFechaDocumento.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.dtFechaDocumento.Properties.Appearance.Options.UseFont = true;
@@ -119,7 +124,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl12.Appearance.Options.UseFont = true;
-            this.labelControl12.Location = new System.Drawing.Point(22, 166);
+            this.labelControl12.Location = new System.Drawing.Point(22, 205);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(157, 24);
             this.labelControl12.TabIndex = 134;
@@ -152,37 +157,35 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             // txtPT_Name
             // 
-            this.txtPT_Name.Location = new System.Drawing.Point(222, 130);
+            this.txtPT_Name.Location = new System.Drawing.Point(222, 169);
             this.txtPT_Name.Name = "txtPT_Name";
             this.txtPT_Name.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtPT_Name.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
-            serializableAppearanceObject5.BackColor = System.Drawing.Color.Transparent;
-            serializableAppearanceObject5.Options.UseBackColor = true;
-            serializableAppearanceObject6.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject6.Options.UseBackColor = true;
-            serializableAppearanceObject7.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject7.Options.UseBackColor = true;
-            serializableAppearanceObject8.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject8.Options.UseBackColor = true;
+            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
+            serializableAppearanceObject9.BackColor = System.Drawing.Color.Transparent;
+            serializableAppearanceObject9.Options.UseBackColor = true;
+            serializableAppearanceObject10.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject10.Options.UseBackColor = true;
+            serializableAppearanceObject11.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject11.Options.UseBackColor = true;
+            serializableAppearanceObject12.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject12.Options.UseBackColor = true;
             this.txtPT_Name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtPT_Name.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.txtPT_Name.Properties.ReadOnly = true;
             this.txtPT_Name.Size = new System.Drawing.Size(355, 30);
             this.txtPT_Name.TabIndex = 123;
             this.txtPT_Name.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtPT_Name_ButtonClick);
-            this.txtPT_Name.EditValueChanged += new System.EventHandler(this.txtPT_Name_EditValueChanged);
             // 
             // labelControl2
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(24, 132);
+            this.labelControl2.Location = new System.Drawing.Point(22, 174);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(173, 24);
+            this.labelControl2.Size = new System.Drawing.Size(176, 20);
             this.labelControl2.TabIndex = 127;
-            this.labelControl2.Text = "Producto Terminado";
+            this.labelControl2.Text = "Descripción del Producto";
             // 
             // tsTipoTransaccion
             // 
@@ -200,7 +203,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(23, 329);
+            this.labelControl5.Location = new System.Drawing.Point(23, 416);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(51, 24);
             this.labelControl5.TabIndex = 137;
@@ -209,21 +212,21 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             // txtNumLote
             // 
-            this.txtNumLote.Location = new System.Drawing.Point(221, 327);
+            this.txtNumLote.Location = new System.Drawing.Point(221, 414);
             this.txtNumLote.Name = "txtNumLote";
             this.txtNumLote.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtNumLote.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
-            serializableAppearanceObject9.BackColor = System.Drawing.Color.Transparent;
-            serializableAppearanceObject9.Options.UseBackColor = true;
-            serializableAppearanceObject10.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject10.Options.UseBackColor = true;
-            serializableAppearanceObject11.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject11.Options.UseBackColor = true;
-            serializableAppearanceObject12.BackColor = System.Drawing.Color.LightBlue;
-            serializableAppearanceObject12.Options.UseBackColor = true;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.wheat;
+            serializableAppearanceObject1.BackColor = System.Drawing.Color.Transparent;
+            serializableAppearanceObject1.Options.UseBackColor = true;
+            serializableAppearanceObject2.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject2.Options.UseBackColor = true;
+            serializableAppearanceObject3.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject3.Options.UseBackColor = true;
+            serializableAppearanceObject4.BackColor = System.Drawing.Color.LightBlue;
+            serializableAppearanceObject4.Options.UseBackColor = true;
             this.txtNumLote.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtNumLote.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.txtNumLote.Properties.ReadOnly = true;
             this.txtNumLote.Size = new System.Drawing.Size(355, 30);
@@ -235,7 +238,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.gridLookUpEditPresentacion.EditValue = "";
             this.gridLookUpEditPresentacion.Enabled = false;
-            this.gridLookUpEditPresentacion.Location = new System.Drawing.Point(221, 198);
+            this.gridLookUpEditPresentacion.Location = new System.Drawing.Point(221, 237);
             this.gridLookUpEditPresentacion.Name = "gridLookUpEditPresentacion";
             this.gridLookUpEditPresentacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.gridLookUpEditPresentacion.Properties.Appearance.Options.UseFont = true;
@@ -304,7 +307,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(24, 198);
+            this.labelControl11.Location = new System.Drawing.Point(24, 237);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(110, 24);
             this.labelControl11.TabIndex = 140;
@@ -314,7 +317,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(24, 230);
+            this.labelControl1.Location = new System.Drawing.Point(24, 269);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(80, 24);
             this.labelControl1.TabIndex = 142;
@@ -323,7 +326,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // txtCantidadUnidades
             // 
             this.txtCantidadUnidades.EditValue = "0";
-            this.txtCantidadUnidades.Location = new System.Drawing.Point(222, 230);
+            this.txtCantidadUnidades.Location = new System.Drawing.Point(222, 269);
             this.txtCantidadUnidades.Name = "txtCantidadUnidades";
             this.txtCantidadUnidades.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtCantidadUnidades.Properties.Appearance.Options.UseFont = true;
@@ -340,7 +343,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.lblCostoUnitario.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCostoUnitario.Appearance.Options.UseFont = true;
-            this.lblCostoUnitario.Location = new System.Drawing.Point(22, 295);
+            this.lblCostoUnitario.Location = new System.Drawing.Point(22, 382);
             this.lblCostoUnitario.Name = "lblCostoUnitario";
             this.lblCostoUnitario.Size = new System.Drawing.Size(116, 24);
             this.lblCostoUnitario.TabIndex = 144;
@@ -350,7 +353,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // txtCostoUnitario
             // 
             this.txtCostoUnitario.EditValue = "0";
-            this.txtCostoUnitario.Location = new System.Drawing.Point(220, 295);
+            this.txtCostoUnitario.Location = new System.Drawing.Point(220, 382);
             this.txtCostoUnitario.Name = "txtCostoUnitario";
             this.txtCostoUnitario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtCostoUnitario.Properties.Appearance.Options.UseFont = true;
@@ -393,7 +396,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(23, 262);
+            this.labelControl4.Location = new System.Drawing.Point(23, 301);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(75, 24);
             this.labelControl4.TabIndex = 147;
@@ -401,7 +404,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             // gleAlmacen
             // 
-            this.gleAlmacen.Location = new System.Drawing.Point(222, 262);
+            this.gleAlmacen.Location = new System.Drawing.Point(222, 301);
             this.gleAlmacen.Name = "gleAlmacen";
             this.gleAlmacen.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.gleAlmacen.Properties.Appearance.Options.UseFont = true;
@@ -449,11 +452,37 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.colselect.FieldName = "select";
             this.colselect.Name = "colselect";
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Location = new System.Drawing.Point(22, 137);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(143, 20);
+            this.labelControl6.TabIndex = 149;
+            this.labelControl6.Text = "Código del Producto";
+            // 
+            // txtCodigoPT
+            // 
+            this.txtCodigoPT.Location = new System.Drawing.Point(222, 134);
+            this.txtCodigoPT.Name = "txtCodigoPT";
+            this.txtCodigoPT.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.txtCodigoPT.Properties.Appearance.Options.UseFont = true;
+            this.txtCodigoPT.Size = new System.Drawing.Size(354, 26);
+            this.txtCodigoPT.TabIndex = 150;
+            this.txtCodigoPT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoPT_KeyDown);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmAjusteIKardexPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 309);
+            this.ClientSize = new System.Drawing.Size(592, 333);
+            this.Controls.Add(this.txtCodigoPT);
+            this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.gleAlmacen);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.btnClose);
@@ -493,6 +522,8 @@ namespace JAGUAR_PRO.TransaccionesPT
             ((System.ComponentModel.ISupportInitialize)(this.gleAlmacen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAlmacen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoPT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -534,5 +565,8 @@ namespace JAGUAR_PRO.TransaccionesPT
         private DevExpress.XtraGrid.Columns.GridColumn colid1;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion1;
         private DevExpress.XtraGrid.Columns.GridColumn colselect;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit txtCodigoPT;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
