@@ -91,6 +91,10 @@ namespace JAGUAR_PRO.Clases
                         Fecha_Modi = dr.GetDateTime(17);
                     Id_PuntoVenta = dr.GetInt32(18);
                     DocNum1 = dr.GetString(19);
+                    if (DocNum1.Length < 4)
+                    {
+                        DocNum1 = DocNum1.PadLeft(4, '0');
+                    }
                     Recuperado = true;
                 }
                 dr.Close();
