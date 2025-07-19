@@ -347,7 +347,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 if (factura.RecuperarRegistro(row.id))
                 {
                     //frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, row.TotalFactura, puntoVentaFactura);
-                    frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, row.saldo, puntoVentaFactura);
+                    frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, row.saldo, puntoVentaFactura,
+                                                            factura.subtotalFactura, factura.ISV1);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         bool TransaccionExitosa = false;

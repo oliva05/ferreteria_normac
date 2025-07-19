@@ -56,7 +56,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         PDV PuntoVentaActual;
 
-        public frmPagoFactura(UserLogin pUsuarioLogeado, decimal pValorA_Pagar, PDV pPuntoVentaActual)
+        public frmPagoFactura(UserLogin pUsuarioLogeado, decimal pValorA_Pagar, PDV pPuntoVentaActual, decimal pSubTotal, decimal pImpuesto)
         {
             InitializeComponent();
             dp = new DataOperations();
@@ -65,6 +65,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.UsuarioLogeado = pUsuarioLogeado;
             ValorA_Pagar = pValorA_Pagar;
             lblTotalPagoRequerido.Text = string.Format("{0: L #,###,##0.00}", pValorA_Pagar);
+            lblSubTotal.Text = string.Format("{0: L #,###,##0.00}", pSubTotal);
+            lblImpuesto.Text = string.Format("{0: L #,###,##0.00}", pImpuesto);
             //spinEdit2.EditValue = pValorA_Pagar;
             txtValorPagarChque.Text = txtValorEfectivo.Text = txtValorTC.Text = txtValorPagarTransferencia.Text = string.Format("{0:###,##0.00}", pValorA_Pagar);
 

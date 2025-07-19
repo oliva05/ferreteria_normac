@@ -978,7 +978,8 @@ namespace Eatery.Ventas
                 decimal ValorTotalFactura = dp.ValidateNumberDecimal(txtTotal.Text);
                 Int64 IdReciboH_Inserted = 0;
 
-                frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, ValorTotalFactura, this.PuntoDeVentaActual);
+                frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, ValorTotalFactura, this.PuntoDeVentaActual, 
+                                                        facturaGenerada.subtotalFactura, facturaGenerada.ISV1);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Factura factura = new Factura();
