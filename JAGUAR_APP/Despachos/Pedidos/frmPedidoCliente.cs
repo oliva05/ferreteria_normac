@@ -3542,6 +3542,8 @@ namespace Eatery.Ventas
                     e.Appearance.BackColor = Color.FromArgb(102, 255, 102);
                     e.HighPriority = true;
                 }
+
+               
             }
         }
 
@@ -3599,6 +3601,39 @@ namespace Eatery.Ventas
 
             te.Text = CapitalizarCadaPalabra(te.Text);
             te.SelectionStart = selStart;
+        }
+
+        private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view == null || e.RowHandle < 0)
+                return;
+
+            // Verifica si es la columna "inventario"
+            if (e.Column.FieldName == "inventario")
+            {
+                var row = (dsVentas.detalle_factura_transactionRow)view.GetDataRow(e.RowHandle);
+
+                if (row.inventario <= 0)
+                {
+                    e.Appearance.BackColor = Color.FromArgb(245, 141, 105); // Rojo suave
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                    e.Appearance.Options.UseBackColor = true;
+                    e.Appearance.Options.UseFont = true;
+                }
+                else
+                {
+                    //Backcolor Blanco
+                    //e.Appearance.BackColor = Color.FromArgb(255, 255, 255);
+
+                    //Verde
+                    e.Appearance.BackColor = Color.FromArgb(102, 255, 102);
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                    e.Appearance.Options.UseBackColor = true;
+                    e.Appearance.Options.UseFont = true;
+                }
+            }
+            
         }
 
         //frmLoginVendedores

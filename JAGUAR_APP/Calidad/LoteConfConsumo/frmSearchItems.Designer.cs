@@ -56,6 +56,7 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.colinvDisponible = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -224,7 +225,8 @@
             this.gridColumn5,
             this.gridColumn6,
             this.colid,
-            this.colmarca});
+            this.colmarca,
+            this.colinvDisponible});
             this.gridView2.CustomizationFormBounds = new System.Drawing.Rectangle(553, 343, 259, 287);
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
@@ -278,7 +280,7 @@
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 2;
-            this.gridColumn5.Width = 132;
+            this.gridColumn5.Width = 110;
             // 
             // gridColumn6
             // 
@@ -343,6 +345,15 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // colinvDisponible
+            // 
+            this.colinvDisponible.Caption = "Inv. Total";
+            this.colinvDisponible.FieldName = "invDisponible";
+            this.colinvDisponible.Name = "colinvDisponible";
+            this.colinvDisponible.OptionsColumn.AllowEdit = false;
+            this.colinvDisponible.Visible = true;
+            this.colinvDisponible.VisibleIndex = 5;
+            // 
             // frmSearchItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,5 +408,6 @@
         private DevExpress.XtraEditors.TextEdit txtMarca;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private DevExpress.XtraGrid.Columns.GridColumn colinvDisponible;
     }
 }
