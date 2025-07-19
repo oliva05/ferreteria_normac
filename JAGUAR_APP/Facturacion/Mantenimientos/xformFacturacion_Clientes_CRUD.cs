@@ -63,7 +63,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
 
             try
             {
-                xfrmClienteEmpresas frm = new xfrmClienteEmpresas(CountRecord, (int)TipoTransaccionesCRUD.Nuevo);
+                xfrmClienteEmpresas frm = new xfrmClienteEmpresas(CountRecord, (int)TipoTransaccionesCRUD.Nuevo, txtNombreLargo.Text.Trim(), txtNombreCorto.Text.Trim());
 
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
@@ -391,6 +391,91 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             {
                 CajaDialogo.Error(ex.Message);
             }
+        }
+
+        private string CapitalizarCadaPalabra(string texto)
+        {
+            var resultado = new System.Text.StringBuilder();
+            bool nuevaPalabra = true;
+
+            foreach (char c in texto)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    nuevaPalabra = true;
+                    resultado.Append(c);
+                }
+                else
+                {
+                    if (nuevaPalabra)
+                        resultado.Append(char.ToUpper(c));
+                    else
+                        resultado.Append(char.ToLower(c));
+
+                    nuevaPalabra = false;
+                }
+            }
+            return resultado.ToString();
+        }
+
+        private void txtNombreLargo_EditValueChanged(object sender, EventArgs e)
+        {
+            var te = (DevExpress.XtraEditors.TextEdit)sender;
+            int selStart = te.SelectionStart;
+
+            te.Text = CapitalizarCadaPalabra(te.Text);
+            te.SelectionStart = selStart;
+        }
+
+        private void txtNombreLargo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtNombreCorto.Focus();
+            }
+        }
+
+        private void txtNombreCorto_EditValueChanged(object sender, EventArgs e)
+        {
+            var te = (DevExpress.XtraEditors.TextEdit)sender;
+            int selStart = te.SelectionStart;
+
+            te.Text = CapitalizarCadaPalabra(te.Text);
+            te.SelectionStart = selStart;
+        }
+
+        private void txtNombreCorto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtTelefono.Focus();
+            }
+        }
+
+
+        private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCorreo.Focus();
+            }
+        }
+
+        private void txtCorreo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtDireccion.Focus();
+            }
+        }
+
+        private void txtDireccion_EditValueChanged(object sender, EventArgs e)
+        {
+            var te = (DevExpress.XtraEditors.TextEdit)sender;
+            int selStart = te.SelectionStart;
+
+            te.Text = CapitalizarCadaPalabra(te.Text);
+            te.SelectionStart = selStart;
         }
     }
 }
