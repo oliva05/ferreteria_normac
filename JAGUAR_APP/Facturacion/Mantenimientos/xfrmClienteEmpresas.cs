@@ -158,11 +158,11 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
 
 
                 txtCodigo.Text = empresa2.Codigo;
-                 txtNombre.Text= empresa2.NombreLargo ;
-                 txtNombreCorto.Text = empresa2.NombreCorto;
+                txtNombre.Text= empresa2.NombreLargo ;
+                txtNombreCorto.Text = empresa2.NombreCorto;
                 txtRTN.Text = empresa2.RTN;
-                 txtDireccion.Text= empresa2.Direccion;
-                 txtTelefono.Text =empresa2.Telefono;
+                txtDireccion.Text= empresa2.Direccion;
+                txtTelefono.Text =empresa2.Telefono;
                 txtCorreo.Text = empresa2.Correo;
                
             }
