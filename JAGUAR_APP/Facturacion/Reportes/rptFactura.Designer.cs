@@ -380,7 +380,7 @@
             // lblCliente
             // 
             this.lblCliente.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.lblCliente.Font = new DevExpress.Drawing.DXFont("Courier New", 8F);
+            this.lblCliente.Font = new DevExpress.Drawing.DXFont("Courier New", 8F, DevExpress.Drawing.DXFontStyle.Bold);
             this.lblCliente.LocationFloat = new DevExpress.Utils.PointFloat(78.89629F, 197.75F);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
