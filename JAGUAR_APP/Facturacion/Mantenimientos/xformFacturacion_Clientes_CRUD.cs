@@ -1,5 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.Web.WebDocumentViewer.Native.Services;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
 using System;
@@ -63,7 +64,15 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
 
             try
             {
-                xfrmClienteEmpresas frm = new xfrmClienteEmpresas(CountRecord, (int)TipoTransaccionesCRUD.Nuevo, txtNombreLargo.Text.Trim(), txtNombreCorto.Text.Trim());
+                ClienteEmpresa empresaParametro = new ClienteEmpresa();
+                empresaParametro.NombreLargo = txtNombreLargo.Text.Trim();
+                empresaParametro.NombreCorto = txtNombreCorto.Text.Trim();
+                empresaParametro.Direccion = txtDireccion.Text.Trim();
+                empresaParametro.Correo = txtCorreo.Text.Trim();
+                empresaParametro.Telefono = txtTelefono.Text.Trim();
+
+
+                xfrmClienteEmpresas frm = new xfrmClienteEmpresas(CountRecord, (int)TipoTransaccionesCRUD.Nuevo, empresaParametro);
 
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
