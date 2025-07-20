@@ -2604,7 +2604,10 @@ namespace Eatery.Ventas
                     int newRowHandle = gridView1.RowCount - 1;
                     gridView1.FocusedRowHandle = newRowHandle;
 
-                    //cmdElejirAlmacen_ButtonClick(cmdElejirAlmacen, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen.Buttons[0]));
+                    if (dsVentas1.detalle_factura_transaction.Rows.Count > 0)
+                    {
+                        cmdElejirAlmacen_ButtonClick(cmdElejirAlmacen, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen.Buttons[0]));
+                    }
 
                     txtScanProducto.Text = "";
                     txtScanProducto.Focus();
