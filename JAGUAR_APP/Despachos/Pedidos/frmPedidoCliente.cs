@@ -1543,6 +1543,7 @@ namespace Eatery.Ventas
             txtRTN.Text = txtNombreCliente.Text = lblMensaje.Text = "";
             txtTotal.Text = "0.00";
             dsVentas1.detalle_factura_transaction.Clear();
+            dsVentas1.detalle_factura_transaccion_inv.Clear();
             ClienteFactura = new ClienteFacturacion();
 
             txtAsesorVendedor.Enabled =
