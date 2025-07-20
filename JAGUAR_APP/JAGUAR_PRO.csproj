@@ -29,7 +29,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>59</ApplicationRevision>
+    <ApplicationRevision>61</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -3853,6 +3853,12 @@
     <Compile Include="TransaccionesPT\frmRequisaTraslado.Designer.cs">
       <DependentUpon>frmRequisaTraslado.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransaccionesPT\frmSolicitudAjusteKardexPT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmSolicitudAjusteKardexPT.Designer.cs">
+      <DependentUpon>frmSolicitudAjusteKardexPT.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransaccionesPT\frmTrasladoGestionKardex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5125,6 +5131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmRequisaTraslado.resx">
       <DependentUpon>frmRequisaTraslado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\frmSolicitudAjusteKardexPT.resx">
+      <DependentUpon>frmSolicitudAjusteKardexPT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmTrasladoGestionKardex.resx">
       <DependentUpon>frmTrasladoGestionKardex.cs</DependentUpon>

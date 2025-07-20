@@ -402,6 +402,8 @@ namespace JAGUAR_PRO.Facturacion.Entrega {
             
             private global::System.Data.DataColumn columnid_estado;
             
+            private global::System.Data.DataColumn columnnum_factura;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public list_entregasDataTable() {
@@ -509,6 +511,14 @@ namespace JAGUAR_PRO.Facturacion.Entrega {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn num_facturaColumn {
+                get {
+                    return this.columnnum_factura;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -544,7 +554,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public list_entregasRow Addlist_entregasRow(int id, string NumDoc, string estado, string cliente_nombre, string RTN, string vendedor, System.DateTime fecha, System.DateTime fecha_entrega_estimada, int id_estado) {
+            public list_entregasRow Addlist_entregasRow(int id, string NumDoc, string estado, string cliente_nombre, string RTN, string vendedor, System.DateTime fecha, System.DateTime fecha_entrega_estimada, int id_estado, string num_factura) {
                 list_entregasRow rowlist_entregasRow = ((list_entregasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -555,7 +565,8 @@ namespace JAGUAR_PRO.Facturacion.Entrega {
                         vendedor,
                         fecha,
                         fecha_entrega_estimada,
-                        id_estado};
+                        id_estado,
+                        num_factura};
                 rowlist_entregasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlist_entregasRow);
                 return rowlist_entregasRow;
@@ -587,6 +598,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega {
                 this.columnfecha = base.Columns["fecha"];
                 this.columnfecha_entrega_estimada = base.Columns["fecha_entrega_estimada"];
                 this.columnid_estado = base.Columns["id_estado"];
+                this.columnnum_factura = base.Columns["num_factura"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -610,6 +622,8 @@ namespace JAGUAR_PRO.Facturacion.Entrega {
                 base.Columns.Add(this.columnfecha_entrega_estimada);
                 this.columnid_estado = new global::System.Data.DataColumn("id_estado", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_estado);
+                this.columnnum_factura = new global::System.Data.DataColumn("num_factura", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnum_factura);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2116,6 +2130,22 @@ namespace JAGUAR_PRO.Facturacion.Entrega {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string num_factura {
+                get {
+                    try {
+                        return ((string)(this[this.tablelist_entregas.num_facturaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'num_factura\' de la tabla \'list_entregas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelist_entregas.num_facturaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tablelist_entregas.idColumn);
             }
@@ -2220,6 +2250,18 @@ namespace JAGUAR_PRO.Facturacion.Entrega {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setid_estadoNull() {
                 this[this.tablelist_entregas.id_estadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isnum_facturaNull() {
+                return this.IsNull(this.tablelist_entregas.num_facturaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setnum_facturaNull() {
+                this[this.tablelist_entregas.num_facturaColumn] = global::System.Convert.DBNull;
             }
         }
         

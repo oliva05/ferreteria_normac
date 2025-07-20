@@ -79,6 +79,7 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
+            this.colnum_factura = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtEquipoBodega.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggIncluirDocCerrados.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -182,7 +183,8 @@
             this.colfecha_entrega_estimada,
             this.gridColumn1,
             this.gridColumn2,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.colnum_factura});
             this.gridView1.FooterPanelHeight = 0;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupRowHeight = 0;
@@ -215,7 +217,7 @@
             this.colestado.Name = "colestado";
             this.colestado.OptionsColumn.AllowEdit = false;
             this.colestado.Visible = true;
-            this.colestado.VisibleIndex = 1;
+            this.colestado.VisibleIndex = 2;
             // 
             // colcliente_nombre
             // 
@@ -224,7 +226,7 @@
             this.colcliente_nombre.Name = "colcliente_nombre";
             this.colcliente_nombre.OptionsColumn.AllowEdit = false;
             this.colcliente_nombre.Visible = true;
-            this.colcliente_nombre.VisibleIndex = 2;
+            this.colcliente_nombre.VisibleIndex = 3;
             // 
             // colRTN
             // 
@@ -232,7 +234,7 @@
             this.colRTN.Name = "colRTN";
             this.colRTN.OptionsColumn.AllowEdit = false;
             this.colRTN.Visible = true;
-            this.colRTN.VisibleIndex = 3;
+            this.colRTN.VisibleIndex = 4;
             // 
             // colvendedor
             // 
@@ -241,7 +243,7 @@
             this.colvendedor.Name = "colvendedor";
             this.colvendedor.OptionsColumn.AllowEdit = false;
             this.colvendedor.Visible = true;
-            this.colvendedor.VisibleIndex = 4;
+            this.colvendedor.VisibleIndex = 5;
             // 
             // colfecha
             // 
@@ -250,7 +252,7 @@
             this.colfecha.Name = "colfecha";
             this.colfecha.OptionsColumn.AllowEdit = false;
             this.colfecha.Visible = true;
-            this.colfecha.VisibleIndex = 5;
+            this.colfecha.VisibleIndex = 6;
             // 
             // colfecha_entrega_estimada
             // 
@@ -259,7 +261,7 @@
             this.colfecha_entrega_estimada.Name = "colfecha_entrega_estimada";
             this.colfecha_entrega_estimada.OptionsColumn.AllowEdit = false;
             this.colfecha_entrega_estimada.Visible = true;
-            this.colfecha_entrega_estimada.VisibleIndex = 6;
+            this.colfecha_entrega_estimada.VisibleIndex = 7;
             // 
             // gridColumn1
             // 
@@ -267,7 +269,7 @@
             this.gridColumn1.ColumnEdit = this.cmdVerDetalle;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 7;
+            this.gridColumn1.VisibleIndex = 8;
             // 
             // cmdVerDetalle
             // 
@@ -285,7 +287,7 @@
             this.gridColumn2.ColumnEdit = this.cmdConcluirEntrega;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 8;
+            this.gridColumn2.VisibleIndex = 9;
             // 
             // cmdConcluirEntrega
             // 
@@ -303,7 +305,7 @@
             this.gridColumn3.ColumnEdit = this.cmdImprimir;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 9;
+            this.gridColumn3.VisibleIndex = 10;
             // 
             // cmdImprimir
             // 
@@ -445,6 +447,15 @@
             this.btnAtras.Text = "Cerrar";
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
+            // colnum_factura
+            // 
+            this.colnum_factura.Caption = "Num. de Factura";
+            this.colnum_factura.FieldName = "num_factura";
+            this.colnum_factura.Name = "colnum_factura";
+            this.colnum_factura.OptionsColumn.AllowEdit = false;
+            this.colnum_factura.Visible = true;
+            this.colnum_factura.VisibleIndex = 1;
+            // 
             // frmEntrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -514,5 +525,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn colnum_factura;
     }
 }
