@@ -32,6 +32,30 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             UsuarioLogeado = userLogin;
             lblUsuario.Text = UsuarioLogeado.Nombre;
             GetHeader(idPedido);
+            GetDetalle(idPedido);
+        }
+
+        public xrptEntrega(int idPedido, int idBodega, UserLogin userLogin, DataTable pDetalle)
+        {
+            InitializeComponent();
+            IdBodega = idBodega;
+
+
+
+            Bodega bodega = new Bodega();
+            if (bodega.RecuperarRegistro(idBodega))
+                lblAlmOrigen.Text = bodega.DescripcionCorta;
+
+            UsuarioLogeado = userLogin;
+            lblUsuario.Text = UsuarioLogeado.Nombre;
+
+            GetHeader(idPedido);
+            dsEntregaPedidos1.detalle_entrega.Clear();
+            foreach (DataRow item in pDetalle.Rows)
+            {
+
+                //dsEntregaPedidos1.detalle_entrega.ImportRow(item);
+            }
         }
 
         private void GetHeader(int idPedido)
@@ -50,7 +74,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                     lblDireccion.Text = pedidoCliente.direccion_cliente;
 
 
-                    GetDetalle(idPedido);
+                    
                 }
                 
             }
