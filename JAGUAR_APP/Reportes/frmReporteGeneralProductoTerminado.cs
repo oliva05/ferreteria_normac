@@ -45,10 +45,8 @@ namespace JAGUAR_PRO.Reportes
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
-                    accesoprevio = true;
                     break;
                 case 3://Medium Autorization
-                    accesoprevio = true;
                     break;
                 case 4://Depth With Delta
                 case 5://Depth Without Delta
@@ -195,7 +193,35 @@ namespace JAGUAR_PRO.Reportes
 
         private void cmdSolicitarAjusteInventario_Click(object sender, EventArgs e)
         {
+            switch (UsuarioLogeado.GrupoUsuarioActivo)
+            {
+                case GrupoUser.GrupoUsuario.Administradores:
+                    frmSolicitudAjusteKardexPT frmAdmin = new frmSolicitudAjusteKardexPT(frmSolicitudAjusteKardexPT.TipoOperacion.CreacionDirecta, UsuarioLogeado, 0);
+                    if (frmAdmin.ShowDialog() == DialogResult.OK)
+                    {
+                        Especie = 2;
+                        get_inventario();
+                    }
 
+                    break;
+                case GrupoUser.GrupoUsuario.Compras_y_Logistica:
+                case GrupoUser.GrupoUsuario.RRHH:
+                case GrupoUser.GrupoUsuario.Contabilidad:
+                case GrupoUser.GrupoUsuario.Facturacion_Admin:
+                case GrupoUser.GrupoUsuario.Facturacion_EndUser:
+                case GrupoUser.GrupoUsuario.Caja:
+                case GrupoUser.GrupoUsuario.Logistica:
+                    frmSolicitudAjusteKardexPT frm = new frmSolicitudAjusteKardexPT(frmSolicitudAjusteKardexPT.TipoOperacion.Solicitud, UsuarioLogeado, 0);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        Especie = 2;
+                        get_inventario();
+                    }
+
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

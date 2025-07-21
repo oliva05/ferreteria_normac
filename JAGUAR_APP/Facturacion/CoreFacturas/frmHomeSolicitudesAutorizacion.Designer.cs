@@ -29,17 +29,27 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHomeSolicitudesAutorizacion));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsFacturasGestion1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.grd_data = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -92,6 +102,41 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.TabFacturas = new DevExpress.XtraTab.XtraTabPage();
+            this.TabSolicitudesAjuste = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldocnum = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcreadopor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcomentario = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colautorizadopor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colestado1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colidestado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemGestion = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.TabAnulacionPreFactura = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn47 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn48 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn49 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsFacturasGestion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_data)).BeginInit();
@@ -106,6 +151,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.TabFacturas.SuspendLayout();
+            this.TabSolicitudesAjuste.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGestion)).BeginInit();
+            this.TabAnulacionPreFactura.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -293,9 +346,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // btnGestionar
             // 
             this.btnGestionar.AutoHeight = false;
-            editorButtonImageOptions5.Image = global::JAGUAR_PRO.Properties.Resources.gestionar_16X16;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.gestionar_16X16;
             this.btnGestionar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnGestionar.Name = "btnGestionar";
             this.btnGestionar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnGestionar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnGestionar_ButtonClick);
@@ -391,7 +444,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.xtraTabControl1.TabIndex = 53;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabFacturas,
-            this.TabCompras});
+            this.TabCompras,
+            this.TabSolicitudesAjuste,
+            this.TabAnulacionPreFactura});
             this.xtraTabControl1.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl1_SelectedPageChanged);
             // 
             // TabCompras
@@ -573,9 +628,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // reposGestionarOC
             // 
             this.reposGestionarOC.AutoHeight = false;
-            editorButtonImageOptions6.Image = global::JAGUAR_PRO.Properties.Resources.gestionar_16X16;
+            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.gestionar_16X16;
             this.reposGestionarOC.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposGestionarOC.Name = "reposGestionarOC";
             this.reposGestionarOC.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposGestionarOC.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
@@ -651,6 +706,361 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.TabFacturas.Size = new System.Drawing.Size(1183, 409);
             this.TabFacturas.Text = "Facturas";
             // 
+            // TabSolicitudesAjuste
+            // 
+            this.TabSolicitudesAjuste.Appearance.HeaderActive.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.TabSolicitudesAjuste.Appearance.HeaderActive.Options.UseFont = true;
+            this.TabSolicitudesAjuste.Controls.Add(this.gridControl3);
+            this.TabSolicitudesAjuste.Name = "TabSolicitudesAjuste";
+            this.TabSolicitudesAjuste.Size = new System.Drawing.Size(1183, 409);
+            this.TabSolicitudesAjuste.Text = "Ajuste de Inventario";
+            // 
+            // gridControl3
+            // 
+            this.gridControl3.DataMember = "AjusteInventarioAutorizacion";
+            this.gridControl3.DataSource = this.dsFacturasGestion1;
+            this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl3.Location = new System.Drawing.Point(0, 0);
+            this.gridControl3.MainView = this.gridView3;
+            this.gridControl3.Name = "gridControl3";
+            this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemGestion});
+            this.gridControl3.Size = new System.Drawing.Size(1183, 409);
+            this.gridControl3.TabIndex = 2;
+            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView3});
+            // 
+            // gridView3
+            // 
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid1,
+            this.coldocnum,
+            this.colcreadopor,
+            this.colfecha,
+            this.colcomentario,
+            this.colautorizadopor,
+            this.colestado1,
+            this.colidestado,
+            this.gridColumn4});
+            this.gridView3.GridControl = this.gridControl3;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsView.ShowAutoFilterRow = true;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid1
+            // 
+            this.colid1.FieldName = "id";
+            this.colid1.Name = "colid1";
+            this.colid1.OptionsColumn.ReadOnly = true;
+            // 
+            // coldocnum
+            // 
+            this.coldocnum.Caption = "# Documento";
+            this.coldocnum.FieldName = "docnum";
+            this.coldocnum.Name = "coldocnum";
+            this.coldocnum.OptionsColumn.ReadOnly = true;
+            this.coldocnum.Visible = true;
+            this.coldocnum.VisibleIndex = 0;
+            // 
+            // colcreadopor
+            // 
+            this.colcreadopor.Caption = "Solicitado por";
+            this.colcreadopor.FieldName = "creadopor";
+            this.colcreadopor.Name = "colcreadopor";
+            this.colcreadopor.OptionsColumn.ReadOnly = true;
+            this.colcreadopor.Visible = true;
+            this.colcreadopor.VisibleIndex = 1;
+            // 
+            // colfecha
+            // 
+            this.colfecha.Caption = "Fecha Solicitud";
+            this.colfecha.FieldName = "fecha";
+            this.colfecha.Name = "colfecha";
+            this.colfecha.OptionsColumn.ReadOnly = true;
+            this.colfecha.Visible = true;
+            this.colfecha.VisibleIndex = 2;
+            // 
+            // colcomentario
+            // 
+            this.colcomentario.Caption = "Comentario";
+            this.colcomentario.FieldName = "comentario";
+            this.colcomentario.Name = "colcomentario";
+            this.colcomentario.OptionsColumn.ReadOnly = true;
+            this.colcomentario.Visible = true;
+            this.colcomentario.VisibleIndex = 3;
+            // 
+            // colautorizadopor
+            // 
+            this.colautorizadopor.Caption = "Autorizado por";
+            this.colautorizadopor.FieldName = "autorizadopor";
+            this.colautorizadopor.Name = "colautorizadopor";
+            this.colautorizadopor.OptionsColumn.ReadOnly = true;
+            this.colautorizadopor.Visible = true;
+            this.colautorizadopor.VisibleIndex = 4;
+            // 
+            // colestado1
+            // 
+            this.colestado1.Caption = "Estado";
+            this.colestado1.FieldName = "estado";
+            this.colestado1.Name = "colestado1";
+            this.colestado1.OptionsColumn.ReadOnly = true;
+            this.colestado1.Visible = true;
+            this.colestado1.VisibleIndex = 5;
+            // 
+            // colidestado
+            // 
+            this.colidestado.FieldName = "idestado";
+            this.colidestado.Name = "colidestado";
+            this.colidestado.OptionsColumn.ReadOnly = true;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Gestion";
+            this.gridColumn4.ColumnEdit = this.repositoryItemGestion;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 6;
+            // 
+            // repositoryItemGestion
+            // 
+            this.repositoryItemGestion.AutoHeight = false;
+            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.gestionar_16X16;
+            this.repositoryItemGestion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemGestion.Name = "repositoryItemGestion";
+            this.repositoryItemGestion.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemGestion.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemGestion_ButtonClick);
+            // 
+            // TabAnulacionPreFactura
+            // 
+            this.TabAnulacionPreFactura.Appearance.HeaderActive.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.TabAnulacionPreFactura.Appearance.HeaderActive.Options.UseFont = true;
+            this.TabAnulacionPreFactura.Controls.Add(this.gridControl4);
+            this.TabAnulacionPreFactura.Name = "TabAnulacionPreFactura";
+            this.TabAnulacionPreFactura.Size = new System.Drawing.Size(1183, 409);
+            this.TabAnulacionPreFactura.Text = "Anulacion de PreFactura";
+            // 
+            // gridControl4
+            // 
+            this.gridControl4.DataMember = "ordenesCompraAuto";
+            this.gridControl4.DataSource = this.dsFacturasGestion1;
+            this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl4.Location = new System.Drawing.Point(0, 0);
+            this.gridControl4.MainView = this.gridView4;
+            this.gridControl4.Name = "gridControl4";
+            this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit2});
+            this.gridControl4.Size = new System.Drawing.Size(1183, 409);
+            this.gridControl4.TabIndex = 2;
+            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView4});
+            // 
+            // gridView4
+            // 
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn33,
+            this.gridColumn34,
+            this.gridColumn35,
+            this.gridColumn36,
+            this.gridColumn37,
+            this.gridColumn38,
+            this.gridColumn39,
+            this.gridColumn40,
+            this.gridColumn41,
+            this.gridColumn42,
+            this.gridColumn43,
+            this.gridColumn44,
+            this.gridColumn45,
+            this.gridColumn46,
+            this.gridColumn47,
+            this.gridColumn48,
+            this.gridColumn49,
+            this.gridColumn50});
+            this.gridView4.GridControl = this.gridControl4;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsView.ShowAutoFilterRow = true;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn33
+            // 
+            this.gridColumn33.FieldName = "id";
+            this.gridColumn33.Name = "gridColumn33";
+            this.gridColumn33.OptionsColumn.ReadOnly = true;
+            // 
+            // gridColumn34
+            // 
+            this.gridColumn34.Caption = "# Documento";
+            this.gridColumn34.FieldName = "docnum";
+            this.gridColumn34.Name = "gridColumn34";
+            this.gridColumn34.OptionsColumn.ReadOnly = true;
+            this.gridColumn34.OptionsFilter.AllowFilter = false;
+            this.gridColumn34.Visible = true;
+            this.gridColumn34.VisibleIndex = 1;
+            this.gridColumn34.Width = 91;
+            // 
+            // gridColumn35
+            // 
+            this.gridColumn35.Caption = "Cod. Proveedor";
+            this.gridColumn35.FieldName = "code_prov";
+            this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.Visible = true;
+            this.gridColumn35.VisibleIndex = 2;
+            this.gridColumn35.Width = 88;
+            // 
+            // gridColumn36
+            // 
+            this.gridColumn36.FieldName = "id_punto_venta";
+            this.gridColumn36.Name = "gridColumn36";
+            this.gridColumn36.OptionsColumn.ReadOnly = true;
+            this.gridColumn36.Width = 72;
+            // 
+            // gridColumn37
+            // 
+            this.gridColumn37.Caption = "Punto de Venta";
+            this.gridColumn37.FieldName = "nombre_local";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.OptionsColumn.ReadOnly = true;
+            this.gridColumn37.OptionsFilter.AllowFilter = false;
+            this.gridColumn37.Visible = true;
+            this.gridColumn37.VisibleIndex = 4;
+            this.gridColumn37.Width = 114;
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.FieldName = "usuario_autoriza_id";
+            this.gridColumn38.Name = "gridColumn38";
+            this.gridColumn38.OptionsColumn.ReadOnly = true;
+            this.gridColumn38.Width = 73;
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.Caption = "Comentario";
+            this.gridColumn39.FieldName = "comentario";
+            this.gridColumn39.Name = "gridColumn39";
+            this.gridColumn39.OptionsColumn.ReadOnly = true;
+            this.gridColumn39.OptionsFilter.AllowFilter = false;
+            this.gridColumn39.Visible = true;
+            this.gridColumn39.VisibleIndex = 6;
+            this.gridColumn39.Width = 111;
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.Caption = "Fecha Creación";
+            this.gridColumn40.FieldName = "fecha_registro";
+            this.gridColumn40.Name = "gridColumn40";
+            this.gridColumn40.OptionsColumn.ReadOnly = true;
+            this.gridColumn40.OptionsFilter.AllowFilter = false;
+            this.gridColumn40.Visible = true;
+            this.gridColumn40.VisibleIndex = 0;
+            this.gridColumn40.Width = 101;
+            // 
+            // gridColumn41
+            // 
+            this.gridColumn41.FieldName = "id_user_cre";
+            this.gridColumn41.Name = "gridColumn41";
+            this.gridColumn41.OptionsColumn.ReadOnly = true;
+            // 
+            // gridColumn42
+            // 
+            this.gridColumn42.FieldName = "id_usuario_solicita";
+            this.gridColumn42.Name = "gridColumn42";
+            this.gridColumn42.OptionsColumn.ReadOnly = true;
+            this.gridColumn42.Width = 57;
+            // 
+            // gridColumn43
+            // 
+            this.gridColumn43.Caption = "Usuario Solicita";
+            this.gridColumn43.FieldName = "usuario";
+            this.gridColumn43.Name = "gridColumn43";
+            this.gridColumn43.OptionsColumn.ReadOnly = true;
+            this.gridColumn43.OptionsFilter.AllowFilter = false;
+            this.gridColumn43.Visible = true;
+            this.gridColumn43.VisibleIndex = 5;
+            this.gridColumn43.Width = 92;
+            // 
+            // gridColumn44
+            // 
+            this.gridColumn44.FieldName = "id_estado";
+            this.gridColumn44.Name = "gridColumn44";
+            this.gridColumn44.OptionsColumn.ReadOnly = true;
+            this.gridColumn44.Width = 57;
+            // 
+            // gridColumn45
+            // 
+            this.gridColumn45.Caption = "Estado";
+            this.gridColumn45.FieldName = "estado";
+            this.gridColumn45.Name = "gridColumn45";
+            this.gridColumn45.OptionsColumn.ReadOnly = true;
+            this.gridColumn45.OptionsFilter.AllowFilter = false;
+            this.gridColumn45.Visible = true;
+            this.gridColumn45.VisibleIndex = 7;
+            this.gridColumn45.Width = 99;
+            // 
+            // gridColumn46
+            // 
+            this.gridColumn46.Caption = "Gestionar";
+            this.gridColumn46.ColumnEdit = this.repositoryItemButtonEdit2;
+            this.gridColumn46.Name = "gridColumn46";
+            this.gridColumn46.OptionsFilter.AllowFilter = false;
+            this.gridColumn46.Visible = true;
+            this.gridColumn46.VisibleIndex = 11;
+            this.gridColumn46.Width = 118;
+            // 
+            // repositoryItemButtonEdit2
+            // 
+            this.repositoryItemButtonEdit2.AutoHeight = false;
+            editorButtonImageOptions4.Image = global::JAGUAR_PRO.Properties.Resources.gestionar_16X16;
+            this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
+            this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // gridColumn47
+            // 
+            this.gridColumn47.Caption = "Proveedor";
+            this.gridColumn47.FieldName = "proveedor";
+            this.gridColumn47.Name = "gridColumn47";
+            this.gridColumn47.OptionsColumn.ReadOnly = true;
+            this.gridColumn47.Visible = true;
+            this.gridColumn47.VisibleIndex = 3;
+            this.gridColumn47.Width = 112;
+            // 
+            // gridColumn48
+            // 
+            this.gridColumn48.Caption = "ISV";
+            this.gridColumn48.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.gridColumn48.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn48.FieldName = "impuesto";
+            this.gridColumn48.Name = "gridColumn48";
+            this.gridColumn48.OptionsColumn.ReadOnly = true;
+            this.gridColumn48.Visible = true;
+            this.gridColumn48.VisibleIndex = 8;
+            this.gridColumn48.Width = 66;
+            // 
+            // gridColumn49
+            // 
+            this.gridColumn49.Caption = "Sub Total";
+            this.gridColumn49.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.gridColumn49.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn49.FieldName = "subtotal";
+            this.gridColumn49.Name = "gridColumn49";
+            this.gridColumn49.OptionsColumn.ReadOnly = true;
+            this.gridColumn49.Visible = true;
+            this.gridColumn49.VisibleIndex = 9;
+            this.gridColumn49.Width = 68;
+            // 
+            // gridColumn50
+            // 
+            this.gridColumn50.Caption = "Total";
+            this.gridColumn50.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.gridColumn50.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn50.FieldName = "total";
+            this.gridColumn50.Name = "gridColumn50";
+            this.gridColumn50.OptionsColumn.ReadOnly = true;
+            this.gridColumn50.Visible = true;
+            this.gridColumn50.VisibleIndex = 10;
+            this.gridColumn50.Width = 88;
+            // 
             // frmHomeSolicitudesAutorizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -678,6 +1088,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.TabFacturas.ResumeLayout(false);
+            this.TabSolicitudesAjuste.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGestion)).EndInit();
+            this.TabAnulacionPreFactura.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -737,5 +1155,40 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private DevExpress.XtraGrid.Columns.GridColumn colimpuesto;
         private DevExpress.XtraGrid.Columns.GridColumn colsubtotal;
         private DevExpress.XtraGrid.Columns.GridColumn coltotal;
+        private DevExpress.XtraTab.XtraTabPage TabSolicitudesAjuste;
+        private DevExpress.XtraGrid.GridControl gridControl3;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemGestion;
+        private DevExpress.XtraTab.XtraTabPage TabAnulacionPreFactura;
+        private DevExpress.XtraGrid.GridControl gridControl4;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn44;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn45;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn46;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn47;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn48;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn49;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn50;
+        private DevExpress.XtraGrid.Columns.GridColumn colid1;
+        private DevExpress.XtraGrid.Columns.GridColumn coldocnum;
+        private DevExpress.XtraGrid.Columns.GridColumn colcreadopor;
+        private DevExpress.XtraGrid.Columns.GridColumn colfecha;
+        private DevExpress.XtraGrid.Columns.GridColumn colcomentario;
+        private DevExpress.XtraGrid.Columns.GridColumn colautorizadopor;
+        private DevExpress.XtraGrid.Columns.GridColumn colestado1;
+        private DevExpress.XtraGrid.Columns.GridColumn colidestado;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

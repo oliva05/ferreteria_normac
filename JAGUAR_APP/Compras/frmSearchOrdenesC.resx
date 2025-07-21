@@ -120,11 +120,52 @@
   <metadata name="dsCompras1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="editorButtonImageOptions3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAXdEVYdFRpdGxlAFByZXZpb3VzO0Fycm93O1VwXgNKAgAAA71JREFUOE81U21Mk2cUfeZCtmXt
+        xo8lYqQtbYGGYh1qxsaGyTK+WmEdFAUFmVLChzA04IiVQlf3oZuyVa3FVpAgIE5oZApdMbrVDuZoceg2
+        oAJS0I7B+JDaQqFAcpa3mffHfe49ec6598e5xPZUTcZdLeSJ+xohhLyQV8XdWFYXpqi8wv9F2bppWKnf
+        NKZo4fccbeB/dUAVEkYIeZH653DrybBTS8gjZy154tZT5HXF50Jl8qYtS3pLIe7av8HI3BXYnVdheVyF
+        tr5iKFu2eEt0PBU/yv9lSmTM1UCI/Vk9iU5d73fgdOhldXsyhucaMeTSYHD+ODTGZGgMKbA5T2DUVY2H
+        s/U4a0jCwWpeZ6ToDRol4pssPRFaUXUtCcPO8+ieykf3tBQdtkwkFodjRxEfxqEs9EznwzJ7EI/cdVB3
+        SJB7KuQCIcSPpJSyWEWqzYt9U1X4yZEJ00QWTP98jDQ5Bz/cvo52UwfSytnomtwP89Q+mCb2oX/mDEq0
+        EWuph1mRJF3OrdQaM/GzIxs3H+/EbUc6yuu34gtdGZ66FvFswYPjF2U4emkbTBMZuOXYjTt/5+CyORd7
+        ldw6ki5nd11/kI8b9mS028Wo6foAGfJ3YXfMwLO8Ao93FY7JWWQptqO2OwbGcQkM4xIYbZ8gU8kdIztl
+        bEf7w73QD8Xh6kA8xEcYMFutmHcvw+3xYmFpBS6PF133rJDIg9A6mIC2ESFujUmRoeCskZQy1r9Nf8Tj
+        +8H3If2WicYOHVZX10CFc2EZzgWvr6awZmMNclQstAzFoHVAhF3l7BUiLmFZ1ea30PDnO4g7TINIRsMO
+        OR2JFTRMzy9hxrns64VHaIj9lIaYQzQ09b8HTVckJGWsCSIsYKpklwTQ/r4ZN0ZS0Wnfg86xDHz4GR2T
+        c4uYnPMgsZKOm+OZPvzH0TTU3I9AZXMEEouYbSQ6PUCwS8ZZUd8Nh6Y3DOfvhaPm/psQK2m+1alIUtBR
+        +2ArdH0CVPfyUW0RYHdFMLbv2ZBAGckvIY+hyTnJhdrCwzlrKDS9POTrGEj+kg7x53QUaJk+cQqn3jwV
+        FwkFjDZCyCu+A2IK6K8JC5h3sk+y8d2vIThrCUVzfzRabXHQ2+LQ+Fc01FYeTplDsP9rNoSFzIGQSP8A
+        ysXE7Mj22Xkj71X/GGngRXFpEIovcHCsgwPVb8E43ROMYwYuDtVy8FFpEOJyGQbuttc3UFfp41LpuQgh
+        5KUoyfqoWGlgXUI+Y1RUyKKmIb6A6YjNCWx9WxIg+n/tdc95/wFMQ0XGxLuPQQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="editorButtonImageOptions4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAADnRFWHRUaXRsZQBQcmludGVy
+        O+e/YcUAAALGSURBVDhPhZP7S1NhHMbfzC5eyn4K+hs0JNLwpzJXGeENQkUUNzXFUlybszTvTuddMy8V
+        A50aBEXRRRQrTVcrtan0Y0orXcdNN3MXN3VuPvGePCP1hw4854XveZ4PvA/fQwAQToQQz6au8dGWnkk0
+        d6txV6FGs0KNpq4vqJWrlISQA//62cwuwMHGzgm4XFtwUjm3sMnKhTr5ODV4/Q9wuFY+xgb0yzbol1eh
+        W7ZBZ7RBdv8TNfjsAWw/+wgh+wkhvlUdKmw4nFgwWMEsrYJZskC7ZEV5q5K6/eg1CSEeNMQBPGQPlBea
+        u6fV8Zk1SM+Tw76+Ca3egjm9GfM6M+Z0ZgiE7Yjhl6JGPjFZ2DAQTnMcwLOhc3JxwWBDZFIxknPaYLU7
+        8HPBhB+MCRpmhVVCZhMuxkrALK6iomNskfbFAQ7JHqrhcLgQl1oGXowEvGgJeFEShEXlIixSjPMRYoRG
+        iBGTdAf2dSeKWlTuQtniSls/w7zqwODwJK7EiRHCS8WZ0BQEhwoQdI6P02f5CI/OQf+QGkbTGm7VjdKk
+        Nwfwzq9XQvfbhu86CzSsrNAwFmgYKzvj5uzJWCCUDtGkLwfwEVUNY4YxY3rGgKDwgm3l79HUjBHTswZc
+        L3pDk0fcgKySt1B/M2J4SgtpmwomywYqB3+hfECLoj4tls3rkLZ/xDv1PEa/LuDa7X6aPOruICGrdyQx
+        5zFiMxUobVGy9zSurMFgWoNhxY6lFTs7vxRfjcsJ9eBdLadr7e6ALoUXJRJCjksq+z4UNr7HX424T7H0
+        lYoQcoIQcoyG3XtAX7nS10RU8ZKD0Y9+GXWBDVnNp5BSFdCwHfKh25qa20sEop6d/4Kw7AVySp4ju/gZ
+        sgqf4kbBE2TfC8EscpFRF4y0vEdIFfciRdQD/s1uJAsV2AHYrfTGQJJWe7JaIAtAUqV/dWKF/x4Ppz8r
+        /GXRLNo8NwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="sucursalesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>136, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="editorButtonImageOptions6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="editorButtonImageOptions5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAedEVYdFRpdGxlAFNlbGVjdFRvb2w7Q3Vyc29yO01v

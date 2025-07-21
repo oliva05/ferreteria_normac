@@ -67,6 +67,7 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reposDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnBuscare = new DevExpress.XtraEditors.SimpleButton();
+            this.colinvDisponible = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtMarca.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodRefe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodComb.Properties)).BeginInit();
@@ -204,7 +205,8 @@
             this.gridColumn5,
             this.gridColumn6,
             this.colid,
-            this.colmarca});
+            this.colmarca,
+            this.colinvDisponible});
             this.gridView2.CustomizationFormBounds = new System.Drawing.Rectangle(553, 343, 259, 287);
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
@@ -221,7 +223,7 @@
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 60;
+            this.gridColumn1.Width = 54;
             // 
             // gridColumn2
             // 
@@ -231,7 +233,7 @@
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 3;
-            this.gridColumn2.Width = 228;
+            this.gridColumn2.Width = 205;
             // 
             // gridColumn3
             // 
@@ -241,15 +243,15 @@
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;
-            this.gridColumn3.Width = 88;
+            this.gridColumn3.Width = 79;
             // 
             // gridColumn4
             // 
             this.gridColumn4.FieldName = "Seleccionado";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 5;
-            this.gridColumn4.Width = 110;
+            this.gridColumn4.VisibleIndex = 6;
+            this.gridColumn4.Width = 79;
             // 
             // gridColumn5
             // 
@@ -259,7 +261,7 @@
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 2;
-            this.gridColumn5.Width = 104;
+            this.gridColumn5.Width = 93;
             // 
             // gridColumn6
             // 
@@ -279,7 +281,7 @@
             this.colmarca.OptionsColumn.AllowEdit = false;
             this.colmarca.Visible = true;
             this.colmarca.VisibleIndex = 4;
-            this.colmarca.Width = 85;
+            this.colmarca.Width = 76;
             // 
             // txtDesc
             // 
@@ -432,6 +434,16 @@
             this.btnBuscare.Text = "Buscar";
             this.btnBuscare.Click += new System.EventHandler(this.btnBuscare_Click);
             // 
+            // colinvDisponible
+            // 
+            this.colinvDisponible.Caption = "Inv. Disponible";
+            this.colinvDisponible.FieldName = "invDisponible";
+            this.colinvDisponible.Name = "colinvDisponible";
+            this.colinvDisponible.OptionsColumn.AllowEdit = false;
+            this.colinvDisponible.Visible = true;
+            this.colinvDisponible.VisibleIndex = 5;
+            this.colinvDisponible.Width = 89;
+            // 
             // frmSearchItemsMulti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,5 +520,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposDelete;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.SimpleButton btnBuscare;
+        private DevExpress.XtraGrid.Columns.GridColumn colinvDisponible;
     }
 }
