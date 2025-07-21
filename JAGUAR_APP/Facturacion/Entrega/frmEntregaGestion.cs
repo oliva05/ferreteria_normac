@@ -124,6 +124,8 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 {
                     try
                     {
+                        DataTable DetalleEntregado = dsEntregaPedidos1.detalle_entrega_gestion.Clone();
+
                         DataOperations dp = new DataOperations();
                         using (SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                         {
@@ -133,18 +135,24 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                             {
                                 foreach (dsEntregaPedidos.detalle_entrega_gestionRow row in dsEntregaPedidos1.detalle_entrega_gestion)
                                 {
-                                    using (SqlCommand cmd = new SqlCommand("sp_insert_entrega_pedido", conn, transaction))
+                                    if (row.cant_a_entregar > 0)
                                     {
-                                        cmd.CommandType = CommandType.StoredProcedure;
+                                        DetalleEntregado.ImportRow(row);
 
-                                        cmd.Parameters.AddWithValue("@id_h", IdH);
-                                        cmd.Parameters.AddWithValue("@id_detalle", row.id);
-                                        cmd.Parameters.AddWithValue("@cant_a_entregar", row.cant_a_entregar);
-                                        cmd.Parameters.AddWithValue("@id_pt", row.id_pt);
-                                        cmd.Parameters.AddWithValue("@fecha", dp.Now());
-                                        cmd.Parameters.AddWithValue("@entrego_todo", row.entregar_todo);
-                                        cmd.ExecuteNonQuery();
+                                        using (SqlCommand cmd = new SqlCommand("sp_insert_entrega_pedido", conn, transaction))
+                                        {
+                                            cmd.CommandType = CommandType.StoredProcedure;
+
+                                            cmd.Parameters.AddWithValue("@id_h", IdH);
+                                            cmd.Parameters.AddWithValue("@id_detalle", row.id);
+                                            cmd.Parameters.AddWithValue("@cant_a_entregar", row.cant_a_entregar);
+                                            cmd.Parameters.AddWithValue("@id_pt", row.id_pt);
+                                            cmd.Parameters.AddWithValue("@fecha", dp.Now());
+                                            cmd.Parameters.AddWithValue("@entrego_todo", row.entregar_todo);
+                                            cmd.ExecuteNonQuery();
+                                        }
                                     }
+                                    
                                 }
                                 transaction.Commit();
                             }
@@ -159,7 +167,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                             CajaDialogo.Information("Entregado con Exito!");
                             //LoadDataDetalle();
 
-                            xrptEntrega rpt = new xrptEntrega(IdH, IdBodega, UsuarioLogeado);
+                            xrptEntrega rpt = new xrptEntrega(IdH, IdBodega, UsuarioLogeado, DetalleEntregado);
                             ReportPrintTool printTool = new ReportPrintTool(rpt);
                             printTool.ShowPreviewDialog();
 

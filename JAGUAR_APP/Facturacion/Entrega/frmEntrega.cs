@@ -54,7 +54,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             }
             dp = new DataOperations();
             dtDesde.DateTime = dp.Now().AddDays(-7);
-            dtHasta.DateTime = dp.Now();
+            dtHasta.DateTime = dp.Now().AddDays(1);
 
             if (EquipoActual.id_bodega_entrega > 0)
             {
@@ -176,6 +176,10 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                         CajaDialogo.Error("Este pedido esta en estado: Nuevo, no se puede concluir la entrega!");
                         break;
 
+                    case 7:
+                        Permitir = true;
+
+                        break;
                     default:
                         break;
                 }
@@ -183,7 +187,11 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 if (Permitir)
                 {
                     frmEntregaGestion frm = new frmEntregaGestion(UsuarioLogeado, row.id, IdBodega);
-                    frm.ShowDialog();
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadData(IdBodega, PDVId);
+                    }
+
                 }    
             }
         }
