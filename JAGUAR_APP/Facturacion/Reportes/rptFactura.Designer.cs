@@ -145,7 +145,6 @@
             this.xrLabel16.StylePriority.UseFont = false;
             this.xrLabel16.StylePriority.UseTextAlignment = false;
             this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel16.TextFormatString = "{0:###.####}";
             // 
             // xrLine1
             // 
@@ -224,7 +223,7 @@
             this.xrLabel41.StylePriority.UseFont = false;
             this.xrLabel41.StylePriority.UseTextAlignment = false;
             this.xrLabel41.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrLabel41.TextFormatString = "{0:###.####}";
+            this.xrLabel41.TextFormatString = "{0:###,##0.0}";
             // 
             // TopMargin
             // 
