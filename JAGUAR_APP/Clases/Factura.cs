@@ -229,7 +229,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[sp_set_update_estado_factura_h]", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_set_update_estado_factura_h_abono]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_factura", pIdFactura);
                 cmd.Parameters.AddWithValue("@id_estado", pIdStatus);

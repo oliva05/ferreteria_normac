@@ -110,6 +110,11 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                         if (frm2.ShowDialog() == DialogResult.OK)
                         {
                             LoadData(Convert.ToBoolean(tsFiltro.EditValue));
+                            
+                            //Impresion de voucher de Anulacion de factura.
+                            //To do
+
+
                         }
                         break;
 

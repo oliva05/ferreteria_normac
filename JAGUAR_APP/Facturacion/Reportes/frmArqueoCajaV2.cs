@@ -106,6 +106,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
 
             LoadDatosResumen(CierreDiaActual.id);
             LoadDetalleFacturas();
+            LoadDetalleFacturasAnuladas();
             LoadRecibos(fechaDesde, fechaHasta);
             LoadFacturasCredito(fechaDesde, fechaHasta);
             LoadDepositosDeCaja(fechaDesde, fechaHasta);
@@ -207,7 +208,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             fechaDesde = new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day, 0, 0, 0);
             fechaHasta = new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day, 23, 59, 59);
             LoadDatosResumen(CierreDiaActual.id);
-            LoadDetalleFacturas(); 
+            LoadDetalleFacturas();
+            LoadDetalleFacturasAnuladas();
             LoadRecibos(fechaDesde, fechaHasta);
             LoadFacturasCredito(fechaDesde, fechaHasta);
         }
@@ -294,6 +296,42 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsContabilidad1.HomeFacturas.Clear();
                 adat.Fill(dsContabilidad1.HomeFacturas);
+
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+        private void LoadDetalleFacturasAnuladas()
+        {
+
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd;
+                if (this.CierreDiaActual.id == 0)
+                {
+                    cmd = new SqlCommand("[dbo].[sp_get_home_facturacion_punto_venta_fact_anuladas]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoVentaActual.ID);
+                    cmd.Parameters.AddWithValue("@desde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@hasta", fechaHasta);
+                }
+                else
+                {
+                    cmd = new SqlCommand("[dbo].[sp_get_home_facturacion_punto_venta_fact_anuladas_by_id_cierre]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idCierreDia", this.CierreDiaActual.id);
+                }
+
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsContabilidad1.FacturasNulas.Clear();
+                adat.Fill(dsContabilidad1.FacturasNulas);
 
                 con.Close();
             }
@@ -478,6 +516,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             fechaHasta = new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day, 23, 59, 59);
             LoadDatosResumen(this.CierreDiaActual.id);
             LoadDetalleFacturas();
+            LoadDetalleFacturasAnuladas();
         }
 
         private void cmdAutorizarCierre_Click(object sender, EventArgs e)
@@ -548,6 +587,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 ReportPrintTool printReport = new ReportPrintTool(report);
                 printReport.ShowPreviewDialog();
             }
+        }
+
+        private void cmdImprimirNula_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Imprimir nuevo formato de las factura anulada
+
         }
     }
 }

@@ -46,7 +46,7 @@ namespace JAGUAR_PRO.Clases
             // Validación para permitir solo números
             textBox.KeyPress += (sender, e) =>
             {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
                 {
                     e.Handled = true; // Bloquea el carácter
                 }
