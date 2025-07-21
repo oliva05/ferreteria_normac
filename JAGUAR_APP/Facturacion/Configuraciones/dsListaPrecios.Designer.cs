@@ -2331,6 +2331,8 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones {
             
             private global::System.Data.DataColumn columnid_lista_h;
             
+            private global::System.Data.DataColumn columncode_referencia;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public productos_precioDataTable() {
@@ -2414,6 +2416,14 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn code_referenciaColumn {
+                get {
+                    return this.columncode_referencia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2449,7 +2459,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public productos_precioRow Addproductos_precioRow(int id_pt, string itemcode, string itemname, string borrar, int id_detalle_lista, int id_lista_h) {
+            public productos_precioRow Addproductos_precioRow(int id_pt, string itemcode, string itemname, string borrar, int id_detalle_lista, int id_lista_h, string code_referencia) {
                 productos_precioRow rowproductos_precioRow = ((productos_precioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_pt,
@@ -2457,7 +2467,8 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones {
                         itemname,
                         borrar,
                         id_detalle_lista,
-                        id_lista_h};
+                        id_lista_h,
+                        code_referencia};
                 rowproductos_precioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowproductos_precioRow);
                 return rowproductos_precioRow;
@@ -2486,6 +2497,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones {
                 this.columnborrar = base.Columns["borrar"];
                 this.columnid_detalle_lista = base.Columns["id_detalle_lista"];
                 this.columnid_lista_h = base.Columns["id_lista_h"];
+                this.columncode_referencia = base.Columns["code_referencia"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2503,9 +2515,12 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones {
                 base.Columns.Add(this.columnid_detalle_lista);
                 this.columnid_lista_h = new global::System.Data.DataColumn("id_lista_h", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_lista_h);
+                this.columncode_referencia = new global::System.Data.DataColumn("code_referencia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncode_referencia);
                 this.columnitemcode.Caption = "Codigo";
                 this.columnitemname.Caption = "Nombre";
                 this.columnborrar.Caption = "Borrar";
+                this.columncode_referencia.Caption = "Código Referencia";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4787,6 +4802,23 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string code_referencia {
+                get {
+                    try {
+                        return ((string)(this[this.tableproductos_precio.code_referenciaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'code_referencia\' de la tabla \'productos_precio\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableproductos_precio.code_referenciaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_ptNull() {
                 return this.IsNull(this.tableproductos_precio.id_ptColumn);
             }
@@ -4855,6 +4887,18 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setid_lista_hNull() {
                 this[this.tableproductos_precio.id_lista_hColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscode_referenciaNull() {
+                return this.IsNull(this.tableproductos_precio.code_referenciaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcode_referenciaNull() {
+                this[this.tableproductos_precio.code_referenciaColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -108,6 +108,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.colborrar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdBorrarProducto = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colid_detalle_lista = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcode_referencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tpCliente = new DevExpress.XtraTab.XtraTabPage();
             this.gcCliente = new DevExpress.XtraGrid.GridControl();
             this.dsListaPreciosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -495,12 +496,12 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             | System.Windows.Forms.AnchorStyles.Left)));
             this.gridControlPuntosVenta.DataMember = "ListaPrecioPuntosDeVenta";
             this.gridControlPuntosVenta.DataSource = this.dsListaPrecios;
-            this.gridControlPuntosVenta.Location = new System.Drawing.Point(333, 39);
+            this.gridControlPuntosVenta.Location = new System.Drawing.Point(424, 39);
             this.gridControlPuntosVenta.MainView = this.gridView2;
             this.gridControlPuntosVenta.Name = "gridControlPuntosVenta";
             this.gridControlPuntosVenta.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdBorrar});
-            this.gridControlPuntosVenta.Size = new System.Drawing.Size(385, 362);
+            this.gridControlPuntosVenta.Size = new System.Drawing.Size(294, 362);
             this.gridControlPuntosVenta.TabIndex = 1;
             this.gridControlPuntosVenta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -608,7 +609,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.cmdAdd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.cmdAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdAdd.ImageOptions.Image")));
             this.cmdAdd.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.cmdAdd.Location = new System.Drawing.Point(267, 3);
+            this.cmdAdd.Location = new System.Drawing.Point(358, 3);
             this.cmdAdd.Name = "cmdAdd";
             this.cmdAdd.Size = new System.Drawing.Size(60, 35);
             this.cmdAdd.TabIndex = 4;
@@ -626,7 +627,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.gridControlProductos.Name = "gridControlProductos";
             this.gridControlProductos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdBorrarProducto});
-            this.gridControlProductos.Size = new System.Drawing.Size(326, 362);
+            this.gridControlProductos.Size = new System.Drawing.Size(417, 362);
             this.gridControlProductos.TabIndex = 0;
             this.gridControlProductos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -638,7 +639,8 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.colitemcode,
             this.colitemname,
             this.colborrar,
-            this.colid_detalle_lista});
+            this.colid_detalle_lista,
+            this.colcode_referencia});
             this.gridView1.GridControl = this.gridControlProductos;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -660,7 +662,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.colitemcode.OptionsColumn.ReadOnly = true;
             this.colitemcode.Visible = true;
             this.colitemcode.VisibleIndex = 0;
-            this.colitemcode.Width = 57;
+            this.colitemcode.Width = 73;
             // 
             // colitemname
             // 
@@ -669,8 +671,8 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.colitemname.OptionsColumn.AllowEdit = false;
             this.colitemname.OptionsColumn.ReadOnly = true;
             this.colitemname.Visible = true;
-            this.colitemname.VisibleIndex = 1;
-            this.colitemname.Width = 205;
+            this.colitemname.VisibleIndex = 2;
+            this.colitemname.Width = 195;
             // 
             // colborrar
             // 
@@ -678,8 +680,8 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             this.colborrar.FieldName = "borrar";
             this.colborrar.Name = "colborrar";
             this.colborrar.Visible = true;
-            this.colborrar.VisibleIndex = 2;
-            this.colborrar.Width = 39;
+            this.colborrar.VisibleIndex = 3;
+            this.colborrar.Width = 41;
             // 
             // cmdBorrarProducto
             // 
@@ -695,6 +697,16 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             // 
             this.colid_detalle_lista.FieldName = "id_detalle_lista";
             this.colid_detalle_lista.Name = "colid_detalle_lista";
+            // 
+            // colcode_referencia
+            // 
+            this.colcode_referencia.FieldName = "code_referencia";
+            this.colcode_referencia.Name = "colcode_referencia";
+            this.colcode_referencia.OptionsColumn.AllowEdit = false;
+            this.colcode_referencia.OptionsColumn.ReadOnly = true;
+            this.colcode_referencia.Visible = true;
+            this.colcode_referencia.VisibleIndex = 1;
+            this.colcode_referencia.Width = 81;
             // 
             // tpCliente
             // 
@@ -975,6 +987,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdBorrarCliente;
         private DevExpress.XtraGrid.Columns.GridColumn colprecio_punto_venta;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdBorrar3;
+        private DevExpress.XtraGrid.Columns.GridColumn colcode_referencia;
         //private Configuraciones.dsListaPrecios dsListaPrecios;
     }
 }
