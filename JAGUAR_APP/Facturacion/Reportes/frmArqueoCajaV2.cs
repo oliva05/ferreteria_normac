@@ -72,7 +72,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                     {
                         txtCodigoCierre.Text = CierreDiaActual.codigo;
                         txtEstado.Text = CierreDiaActual.estado_descripcion;
-                        fechaHasta = fechaDesde = CierreDiaActual.fecha;
+                        fechaDesde = new DateTime(CierreDiaActual.fecha.Year, CierreDiaActual.fecha.Month, CierreDiaActual.fecha.Day, 0, 0, 0);
+                        fechaHasta = CierreDiaActual.fecha;
                         txtResponsable.Text = CierreDiaActual.usuario_responsable_nombre;
                         dtHasta.EditValueChanged -= new EventHandler(dtHasta_EditValueChanged);
                         dtHasta.EditValue = fechaHasta;
@@ -212,6 +213,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             LoadDetalleFacturasAnuladas();
             LoadRecibos(fechaDesde, fechaHasta);
             LoadFacturasCredito(fechaDesde, fechaHasta);
+            LoadDepositosDeCaja(fechaDesde, fechaHasta);
         }
 
         private void LoadFacturasCredito(DateTime fechaDesde, DateTime fechaHasta)
@@ -398,7 +400,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                         if (IdInserted > 0)
                         {
 
-                            //Ligamos los documentos al cierre de caja
+                            //Ligamos los documentos al cierre de caja - FACTURAS EMITIDAS -
                             foreach (dsContabilidad.HomeFacturasRow row in dsContabilidad1.HomeFacturas)
                             {
                                 command.CommandText = "dbo.sp_set_cierre_dia_punto_venta";
@@ -406,6 +408,28 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                                 command.Parameters.Clear();
                                 command.Parameters.AddWithValue("@id_cierre_h", IdInserted);
                                 command.Parameters.AddWithValue("@num_doc", row.numero_documento);
+                                command.ExecuteNonQuery();
+                            }
+
+                            //Ligamos los documentos al cierre de caja - FACTURAS NULAS - 
+                            foreach (dsContabilidad.FacturasNulasRow row in dsContabilidad1.FacturasNulas)
+                            {
+                                command.CommandText = "dbo.sp_set_cierre_dia_punto_venta";
+                                command.CommandType = CommandType.StoredProcedure;
+                                command.Parameters.Clear();
+                                command.Parameters.AddWithValue("@id_cierre_h", IdInserted);
+                                command.Parameters.AddWithValue("@num_doc", row.numero_documento);
+                                command.ExecuteNonQuery();
+                            }
+
+                            //Ligamos los documentos al cierre de caja - Depositos Internos de CAJA - 
+                            foreach (dsDepositos.lista_depositosRow row in dsDepositos1.lista_depositos)
+                            {
+                                command.CommandText = "dbo.sp_set_id_Cierre_caja_deposito_bancario";
+                                command.CommandType = CommandType.StoredProcedure;
+                                command.Parameters.Clear();
+                                command.Parameters.AddWithValue("@id_cierre_caja", IdInserted);
+                                command.Parameters.AddWithValue("@id", row.id);//Id del deposito
                                 command.ExecuteNonQuery();
                             }
 
@@ -517,6 +541,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             LoadDatosResumen(this.CierreDiaActual.id);
             LoadDetalleFacturas();
             LoadDetalleFacturasAnuladas();
+            LoadDepositosDeCaja(fechaDesde, fechaHasta);
         }
 
         private void cmdAutorizarCierre_Click(object sender, EventArgs e)
