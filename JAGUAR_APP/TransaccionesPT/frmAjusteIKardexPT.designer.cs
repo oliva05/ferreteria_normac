@@ -81,6 +81,8 @@ namespace JAGUAR_PRO.TransaccionesPT
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtCodigoPT = new DevExpress.XtraEditors.TextEdit();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCodeReferencia = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegadestinoBindingSource1)).BeginInit();
@@ -102,12 +104,13 @@ namespace JAGUAR_PRO.TransaccionesPT
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoPT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodeReferencia.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dtFechaDocumento
             // 
             this.dtFechaDocumento.EditValue = null;
-            this.dtFechaDocumento.Location = new System.Drawing.Point(221, 205);
+            this.dtFechaDocumento.Location = new System.Drawing.Point(221, 246);
             this.dtFechaDocumento.Name = "dtFechaDocumento";
             this.dtFechaDocumento.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.dtFechaDocumento.Properties.Appearance.Options.UseFont = true;
@@ -124,7 +127,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl12.Appearance.Options.UseFont = true;
-            this.labelControl12.Location = new System.Drawing.Point(22, 205);
+            this.labelControl12.Location = new System.Drawing.Point(22, 246);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(157, 24);
             this.labelControl12.TabIndex = 134;
@@ -157,7 +160,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             // txtPT_Name
             // 
-            this.txtPT_Name.Location = new System.Drawing.Point(222, 169);
+            this.txtPT_Name.Location = new System.Drawing.Point(222, 210);
             this.txtPT_Name.Name = "txtPT_Name";
             this.txtPT_Name.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtPT_Name.Properties.Appearance.Options.UseFont = true;
@@ -181,7 +184,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(22, 174);
+            this.labelControl2.Location = new System.Drawing.Point(22, 215);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(176, 20);
             this.labelControl2.TabIndex = 127;
@@ -238,7 +241,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.gridLookUpEditPresentacion.EditValue = "";
             this.gridLookUpEditPresentacion.Enabled = false;
-            this.gridLookUpEditPresentacion.Location = new System.Drawing.Point(221, 237);
+            this.gridLookUpEditPresentacion.Location = new System.Drawing.Point(221, 278);
             this.gridLookUpEditPresentacion.Name = "gridLookUpEditPresentacion";
             this.gridLookUpEditPresentacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.gridLookUpEditPresentacion.Properties.Appearance.Options.UseFont = true;
@@ -307,7 +310,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(24, 237);
+            this.labelControl11.Location = new System.Drawing.Point(24, 278);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(110, 24);
             this.labelControl11.TabIndex = 140;
@@ -317,7 +320,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(24, 269);
+            this.labelControl1.Location = new System.Drawing.Point(24, 310);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(80, 24);
             this.labelControl1.TabIndex = 142;
@@ -326,7 +329,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // txtCantidadUnidades
             // 
             this.txtCantidadUnidades.EditValue = "0";
-            this.txtCantidadUnidades.Location = new System.Drawing.Point(222, 269);
+            this.txtCantidadUnidades.Location = new System.Drawing.Point(222, 310);
             this.txtCantidadUnidades.Name = "txtCantidadUnidades";
             this.txtCantidadUnidades.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtCantidadUnidades.Properties.Appearance.Options.UseFont = true;
@@ -396,7 +399,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(23, 301);
+            this.labelControl4.Location = new System.Drawing.Point(23, 342);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(75, 24);
             this.labelControl4.TabIndex = 147;
@@ -404,7 +407,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             // gleAlmacen
             // 
-            this.gleAlmacen.Location = new System.Drawing.Point(222, 301);
+            this.gleAlmacen.Location = new System.Drawing.Point(222, 342);
             this.gleAlmacen.Name = "gleAlmacen";
             this.gleAlmacen.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.gleAlmacen.Properties.Appearance.Options.UseFont = true;
@@ -456,7 +459,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(22, 137);
+            this.labelControl6.Location = new System.Drawing.Point(22, 178);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(143, 20);
             this.labelControl6.TabIndex = 149;
@@ -464,7 +467,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             // txtCodigoPT
             // 
-            this.txtCodigoPT.Location = new System.Drawing.Point(222, 134);
+            this.txtCodigoPT.Location = new System.Drawing.Point(222, 175);
             this.txtCodigoPT.Name = "txtCodigoPT";
             this.txtCodigoPT.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtCodigoPT.Properties.Appearance.Options.UseFont = true;
@@ -476,11 +479,33 @@ namespace JAGUAR_PRO.TransaccionesPT
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(22, 143);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(154, 20);
+            this.labelControl7.TabIndex = 151;
+            this.labelControl7.Text = "Código de Referencia";
+            // 
+            // txtCodeReferencia
+            // 
+            this.txtCodeReferencia.Location = new System.Drawing.Point(221, 140);
+            this.txtCodeReferencia.Name = "txtCodeReferencia";
+            this.txtCodeReferencia.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.txtCodeReferencia.Properties.Appearance.Options.UseFont = true;
+            this.txtCodeReferencia.Size = new System.Drawing.Size(354, 26);
+            this.txtCodeReferencia.TabIndex = 10;
+            this.txtCodeReferencia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodeReferencia_KeyDown);
+            // 
             // frmAjusteIKardexPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 333);
+            this.ClientSize = new System.Drawing.Size(592, 380);
+            this.Controls.Add(this.txtCodeReferencia);
+            this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.txtCodigoPT);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.gleAlmacen);
@@ -524,6 +549,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoPT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodeReferencia.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,5 +594,7 @@ namespace JAGUAR_PRO.TransaccionesPT
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit txtCodigoPT;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private DevExpress.XtraEditors.TextEdit txtCodeReferencia;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
     }
 }

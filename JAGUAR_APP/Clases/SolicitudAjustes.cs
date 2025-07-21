@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using DevExpress.XtraRichEdit.Import.Rtf;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -34,20 +35,22 @@ namespace JAGUAR_PRO.Clases
                 using (SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", id);
                     conn.Open();
-
+                    
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
 
                             Id = reader.GetInt32(reader.GetOrdinal("id"));
-                            Comentario = reader.GetOrdinal("comentario").ToString();
-                            UsuarioSolicitante = reader.GetOrdinal("usuario_solicitante");
+                            Comentario = reader.GetString(reader.GetOrdinal("comentario"));
+                            UsuarioSolicitante = reader.GetInt32(reader.GetOrdinal("usuario_solicitante"));
                             FechaSolicitada = reader.GetDateTime(reader.GetOrdinal("fecha_solicitada"));
                             IdEstado = reader.GetInt32(reader.GetOrdinal("id_estado"));
                             DocNum = reader.GetString(reader.GetOrdinal("docnum"));
-                            UsuarioAprobador = reader.IsDBNull(4) ? 0 : reader.GetOrdinal("usuario_aprobador");
+                            UsuarioAprobador = reader.IsDBNull(reader.GetOrdinal("usuario_aprobador")) ? 0 : reader.GetOrdinal("usuario_aprobador");
                             nameUsuarioSolicitante = reader.GetString(reader.GetOrdinal("nameUsuarioSolicitante"));
 
                             reader.Close();

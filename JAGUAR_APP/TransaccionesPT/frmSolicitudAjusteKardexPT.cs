@@ -45,6 +45,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                 case TipoOperacion.Solicitud:
                     lblTitulo.Text = "Solicitud de Ajuste de Inventario";
                     txtNumSolicitud.Visible = false;
+                    labelControl1.Visible = false;
                     break;
                 case TipoOperacion.Aprobacion:
                     lblTitulo.Text = "Solicitud de Ajuste de Inventario: Aprobacion";
@@ -56,19 +57,41 @@ namespace JAGUAR_PRO.TransaccionesPT
                     txtNumSolicitud.Text = solicitud.DocNum;
                     txtUsuario.Text = solicitud.nameUsuarioSolicitante;
                     lblUsuario.Text = "Solicitado por___________";
-                    txtNumSolicitud.Text = string.Empty;
                     cmdGuardar.Text = "Aprobar";
                     cmdAgregarItems.Visible = false;
                     btnRechazar.Visible = true;
                     gridView2.OptionsBehavior.Editable = false;
+                    CargarDetalle();
+
                     break;
                 case TipoOperacion.CreacionDirecta:
                     lblTitulo.Text = "Creacion Ajuste de Inventario";
-                    cmdGuardar.Text = "Crear Ajuste";
+                    cmdGuardar.Text = "Crear";
                     btnRechazar.Visible = false;
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void CargarDetalle()
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_get_detalle_solicitud_ajuste_inventario",conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdSOlicitud", IdSOlicitud);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsPT1.ajuste_inventario_detalle.Clear();
+                adat.Fill(dsPT1.ajuste_inventario_detalle);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
 
@@ -117,7 +140,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                 {
                     if (item.cantidad > item.inventario)
                     {
-                        CajaDialogo.Error("No se puede realizar el Ajuste de Salida por que el inventario del codigo:"+item.ItemCode+"-"+item.descripcion+"seria negativo.\nCantidad Salida: "+item.cantidad+"\nInventario Actual: "+item.inventario);
+                        CajaDialogo.Error("Operación inválida: esta acción dejaría el inventario por debajo de cero.\n" + item.ItemCode+"-"+item.descripcion+" .\nCantidad Salida: "+item.cantidad+"\nInventario Actual: "+item.inventario);
                         return;
                     }
                 }
@@ -265,6 +288,15 @@ namespace JAGUAR_PRO.TransaccionesPT
                             cmd.ExecuteNonQuery();
                         }
 
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = "sp_Insert_Solicitud_Ajuste_Inventario";
+                        cmd.Connection = conn;
+                        cmd.Transaction = transaction;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id_solicitud_h", id_header);
+                        cmd.Parameters.AddWithValue("@user_id",UsuarioLogueado.Id);
+                        cmd.ExecuteNonQuery();
+
 
                         transaction.Commit();
                         Guardar = true;
@@ -309,7 +341,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                         break;
 
                     case "Rechazar":
-                        CajaDialogo.Information("Ajuste rechazado!");
+                        CajaDialogo.Information("Ajuste Rechazado!");
                         break;
                     default:
                         break;

@@ -333,15 +333,15 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void repositoryItemGestion_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var gridview = (GridView)grdOrdenesCompras.FocusedView;
-            var row = (dsFacturasGestion.ordenesCompraAutoRow)gridview.GetFocusedDataRow();
+            var gridview = (GridView)gridControl3.FocusedView;
+            var row = (dsFacturasGestion.AjusteInventarioAutorizacionRow)gridview.GetFocusedDataRow();
 
             if (row != null) {
 
 
                 bool Proceder = false;
                 string mensaje = string.Empty;
-                switch (row.id_estado)
+                switch (row.idestado)
                 {
                     case 1://Pendiente de Aprobacion
                         Proceder = true;
@@ -363,7 +363,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                         try
                         {
                            
-                            LoadDataOrdensCompra(tsFiltro.IsOn);
+                            LoadSolicitudes(tsFiltro.IsOn);
                         }
                         catch (Exception ex)
                         {

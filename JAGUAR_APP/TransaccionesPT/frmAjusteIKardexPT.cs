@@ -38,6 +38,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             //gridLookUpEditDestino.EditValue = 10;
 
             LoadPresentaciones();
+            txtCodeReferencia.Focus();
             
             //txtNumLote.Visible = true;
         }
@@ -182,6 +183,8 @@ namespace JAGUAR_PRO.TransaccionesPT
             try
             {
                 cantidad_ = Convert.ToDecimal(txtCantidadUnidades.Text);
+
+                gleAlmacen.Focus();
             }
             catch (Exception ex)
             {
@@ -388,11 +391,43 @@ namespace JAGUAR_PRO.TransaccionesPT
                     txtPT_Name.Text = productoTerminado.Descripcion;
                     Id_PT = productoTerminado.Id;
                     this.ItemCode = productoTerminado.Code;
+                    txtCodeReferencia.Text = productoTerminado.Codig_Referencia;
                     gridLookUpEditPresentacion.EditValue = productoTerminado.Id_presentacion;
                     LoadBodegasAlmacenes(Id_PT);
                 }
             }
 
+        }
+
+        private void txtCodeReferencia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(txtCodeReferencia.Text))
+                {
+                    errorProvider1.SetError(txtCodeReferencia, "Es necesario ingresar un codigo de Referencia de Producto!");
+                    return;
+                }
+                else
+                {
+                    errorProvider1.Clear();
+                }
+
+                ProductoTerminado productoTerminado = new ProductoTerminado();
+                if (productoTerminado.Recuperar_producto_by_code_referencia(txtCodeReferencia.Text))
+                {
+                    txtPT_Name.Text = productoTerminado.Descripcion;
+                    Id_PT = productoTerminado.Id;
+                    txtCodigoPT.Text = productoTerminado.Code;
+                    this.ItemCode = productoTerminado.Code;
+                    txtCodeReferencia.Text = productoTerminado.Codig_Referencia;
+                    gridLookUpEditPresentacion.EditValue = productoTerminado.Id_presentacion;
+                    //gleAlmacen.EditValue = productoTerminado.GetAlmacenDefault(Id_PT);
+                    LoadBodegasAlmacenes(Id_PT);
+                }
+
+                txtCantidadUnidades.Focus();
+            }
         }
     }
 }
