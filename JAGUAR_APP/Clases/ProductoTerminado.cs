@@ -334,7 +334,7 @@ namespace JAGUAR_PRO.Clases
                     if (!dl.IsDBNull(dl.GetOrdinal("marca")))
                         MarcaName = dl.GetString(31);
                     else
-                        MarcaName = " ";
+                        MarcaName = "";
 
                     //[porcentaje_utilidad]
                     if (!dl.IsDBNull(dl.GetOrdinal("porcentaje_utilidad")))
@@ -757,6 +757,34 @@ namespace JAGUAR_PRO.Clases
             }
 
             return dataImagenes;
+        }
+
+        public int GetAlmacenDefault(int pIdPt)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_pt_get_almacen_by_default", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdPt", pIdPt);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if(dr.Read())
+                {
+                    Id_Almacen_standard = dr.GetInt32(dr.GetOrdinal("idAlmacen"));
+                    dr.Close();
+                    conn.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+
+
+            return Id_Almacen_standard;
         }
     }
 

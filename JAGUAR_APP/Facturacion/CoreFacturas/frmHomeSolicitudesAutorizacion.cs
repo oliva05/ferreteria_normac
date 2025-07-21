@@ -6,6 +6,7 @@ using DevExpress.XtraRichEdit.Commands.Internal;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.LogisticaJaguar;
+using JAGUAR_PRO.TransaccionesPT;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,6 +73,11 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             if (xtraTabControl1.SelectedTabPage.Name == "TabCompras")
             {
                 LoadDataOrdensCompra(tsFiltro.IsOn);
+            }
+
+            if (xtraTabControl1.SelectedTabPage.Name == "TabSolicitudesAjuste")
+            {
+                LoadSolicitudes(tsFiltro.IsOn);
             }
         }
 
@@ -161,8 +167,11 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             {
                 LoadDataOrdensCompra(tsFiltro.IsOn);
             }
-           
 
+            if (xtraTabControl1.SelectedTabPage.Name == "TabSolicitudesAjuste")
+            {
+                LoadSolicitudes(tsFiltro.IsOn);
+            }
         }
 
         private void btnGestionar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -180,6 +189,36 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             if (e.Page == TabCompras)
             {
                 LoadDataOrdensCompra(false);
+            }
+
+            if (e.Page == TabSolicitudesAjuste)
+            {
+                LoadSolicitudes(false);
+            }
+        }
+
+        private void LoadSolicitudes(bool Filtro)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+
+                using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                {
+                    cnx.Open();
+                    SqlDataAdapter da = new SqlDataAdapter("dbo.sp_get_lista_solicitudes_ajuste", cnx);
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.Add("@filtro", SqlDbType.Bit).Value = Filtro;
+                    dsFacturasGestion1.AjusteInventarioAutorizacion.Clear();
+                    //da.SelectCommand.Parameters.Add("@id_cliente", SqlDbType.Int).Value = id_cliente;
+                    da.Fill(dsFacturasGestion1.AjusteInventarioAutorizacion);
+
+                    cnx.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
 
@@ -285,6 +324,55 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private bool ValidarPermisoDeGestion(UserLogin usuarioLogeado)
         {
             throw new NotImplementedException();
+        }
+
+        private void repositoryItemGestion_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdOrdenesCompras.FocusedView;
+            var row = (dsFacturasGestion.ordenesCompraAutoRow)gridview.GetFocusedDataRow();
+
+            if (row != null) {
+
+
+                bool Proceder = false;
+                string mensaje = string.Empty;
+                switch (row.id_estado)
+                {
+                    case 1://Pendiente de Aprobacion
+                        Proceder = true;
+
+                        break;
+                    case 2:
+                        Proceder = false;
+                        mensaje = "La Solicitud esta Aprobada\nCree una nueva Soliciutd";
+                        break;
+                    default:
+                        break;
+                }
+
+                if (Proceder)
+                {
+                    frmSolicitudAjusteKardexPT frm = new frmSolicitudAjusteKardexPT(frmSolicitudAjusteKardexPT.TipoOperacion.Aprobacion, usuarioLogeado, row.id);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                           
+                            LoadDataOrdensCompra(tsFiltro.IsOn);
+                        }
+                        catch (Exception ex)
+                        {
+                            CajaDialogo.Error(ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    CajaDialogo.Error(mensaje);
+                    return;
+                }
+
+            }
         }
     }
 }
