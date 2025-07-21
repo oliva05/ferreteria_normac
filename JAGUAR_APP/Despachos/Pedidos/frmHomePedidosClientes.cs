@@ -460,11 +460,11 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
                 }
             }
-            else
-            {
-                CajaDialogo.Error(Mensaje);
-                return;
-            }
+            //else
+            //{
+            //    CajaDialogo.Error(Mensaje);
+            //    return;
+            //}
         }
 
         private void txtAsesorVendedor_DoubleClick(object sender, EventArgs e)

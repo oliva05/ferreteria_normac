@@ -31,12 +31,14 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         int id_presentacion;
         string itemcode;
         string itemname;
-
+        bool IsUsados;
+        
         public frmElejirAlmacenPedidoOutStok(int pIdPt, string ProductoName, decimal pCantidarReq, ArrayList pListaActual,
                                             decimal pdescuento, decimal pprecio, int id_presentacion, string itemcode, 
-                                            string itemname, decimal itemIsv1, decimal pDescuentoPorcentaje)
+                                            string itemname, decimal itemIsv1, decimal pDescuentoPorcentaje, bool pIsUsados)
         {
             InitializeComponent();
+            IsUsados = pIsUsados;
             ListaSeleccionAlmacen = new ArrayList();
             lblProductoName.Text = ProductoName;
             IdPT = pIdPt;
@@ -61,6 +63,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             gridView1.ShowEditor();
 
         }
+
+       
 
         private void RecuperarCantidadSeleccionada(ArrayList pListaActual)
         {
@@ -89,55 +93,87 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
         private void LoadInventarios()
         {
-            try
+            if (IsUsados)
             {
-                DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                con.Open();
 
-                SqlCommand cmd = new SqlCommand("[jaguar_sp_get_cantidad_inv_kardex_pt_for_elejir_stock]", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                dsPrefacturas1.stock_por_almacen.Clear();
-                SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                adat.Fill(dsPrefacturas1.stock_por_almacen);
+                dsPrefacturas.stock_por_almacenRow row1 = dsPrefacturas1.stock_por_almacen.Newstock_por_almacenRow();
+                row1.itemcode = itemcode;
+                ProductoUsado pt1 = new ProductoUsado();
+                decimal cant_inv_usados = 0;
 
-                foreach (dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
-                {
-                    row.itemcode = itemcode;
-                    row.itemname = itemname;
-                    row.id_presentacion = id_presentacion;
-                    row.descuento = descuento;
-                    row.descuento_porcentaje = descuento_porcentaje;
-                    row.precio = precio;
-                    row.isv1 = isv1;
-                }
+                cant_inv_usados = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacionUsados(IdPT, 1);
+                
 
-                if(dsPrefacturas1.stock_por_almacen.Rows.Count==0)
-                {
-                    dsPrefacturas.stock_por_almacenRow row1 = dsPrefacturas1.stock_por_almacen.Newstock_por_almacenRow();
-                    row1.itemcode = itemcode;
-                    row1.itemname = itemname;
-                    row1.id_presentacion = id_presentacion;
-                    row1.descuento= descuento;
-                    row1.descuento_porcentaje = descuento_porcentaje;
-                    row1.precio = precio;
-                    row1.isv1 = isv1;
-                    row1.cantidad = 0;
-                    row1.cantidad_seleccionada = 0;
-                    row1.whs_code = null;
-                    row1.id_bodega = 0;
-                    row1.bodega_name = null;
-                    row1.comprometido = 0;
-                    dsPrefacturas1.stock_por_almacen.Addstock_por_almacenRow(row1);
-                    dsPrefacturas1.AcceptChanges();
-                }
-                con.Close();
+                row1.itemname = itemname;
+                row1.id_presentacion = id_presentacion;
+                row1.descuento = descuento;
+                row1.descuento_porcentaje = descuento_porcentaje;
+                row1.precio = precio;
+                row1.isv1 = isv1;
+                row1.cantidad = cant_inv_usados;
+                //row1.cantidad = 0;
+                row1.cantidad_seleccionada = 0;
+                row1.whs_code = "BG002";
+                row1.id_bodega = 2;
+                row1.bodega_name = "ALMACEN DE USADOS";
+                row1.comprometido = 0;
+                dsPrefacturas1.stock_por_almacen.Addstock_por_almacenRow(row1);
+                dsPrefacturas1.AcceptChanges();
+
             }
-            catch (Exception ec)
+            else
             {
-                CajaDialogo.Error(ec.Message);
+                try
+                {
+                    DataOperations dp = new DataOperations();
+                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand("[jaguar_sp_get_cantidad_inv_kardex_pt_for_elejir_stock]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                    dsPrefacturas1.stock_por_almacen.Clear();
+                    SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                    adat.Fill(dsPrefacturas1.stock_por_almacen);
+
+                    foreach (dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
+                    {
+                        row.itemcode = itemcode;
+                        row.itemname = itemname;
+                        row.id_presentacion = id_presentacion;
+                        row.descuento = descuento;
+                        row.descuento_porcentaje = descuento_porcentaje;
+                        row.precio = precio;
+                        row.isv1 = isv1;
+                    }
+
+                    if (dsPrefacturas1.stock_por_almacen.Rows.Count == 0)
+                    {
+                        dsPrefacturas.stock_por_almacenRow row1 = dsPrefacturas1.stock_por_almacen.Newstock_por_almacenRow();
+                        row1.itemcode = itemcode;
+                        row1.itemname = itemname;
+                        row1.id_presentacion = id_presentacion;
+                        row1.descuento = descuento;
+                        row1.descuento_porcentaje = descuento_porcentaje;
+                        row1.precio = precio;
+                        row1.isv1 = isv1;
+                        row1.cantidad = 0;
+                        row1.cantidad_seleccionada = 0;
+                        row1.whs_code = null;
+                        row1.id_bodega = 0;
+                        row1.bodega_name = null;
+                        row1.comprometido = 0;
+                        dsPrefacturas1.stock_por_almacen.Addstock_por_almacenRow(row1);
+                        dsPrefacturas1.AcceptChanges();
+                    }
+                    con.Close();
+                }
+                catch (Exception ec)
+                {
+                    CajaDialogo.Error(ec.Message);
+                }
             }
+               
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)

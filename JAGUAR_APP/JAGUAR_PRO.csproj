@@ -775,6 +775,7 @@
     <Compile Include="Clases\ProductoClase.cs" />
     <Compile Include="Clases\ProductoFamilia.cs" />
     <Compile Include="Clases\ProductoSubClase.cs" />
+    <Compile Include="Clases\ProductoUsado.cs" />
     <Compile Include="Clases\ReciboH.cs" />
     <Compile Include="Clases\Notas_CreditoDebito.cs" />
     <Compile Include="Clases\RegistroPago.cs" />

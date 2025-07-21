@@ -542,7 +542,7 @@ namespace JAGUAR_PRO.Clases
             }
             return val;
         }
-
+       
 
         public string GenerarSiguienteCodigoPT()
         {

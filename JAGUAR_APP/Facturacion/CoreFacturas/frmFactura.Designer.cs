@@ -53,6 +53,8 @@ namespace Eatery.Ventas
             this.dsVentas1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsVentas();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.txtComentario = new DevExpress.XtraEditors.MemoEdit();
+            this.label5 = new System.Windows.Forms.Label();
             this.rdPorCobrar = new System.Windows.Forms.RadioButton();
             this.txtVendedor = new DevExpress.XtraEditors.TextEdit();
             this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
@@ -81,8 +83,6 @@ namespace Eatery.Ventas
             this.coltotal_linea = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colinventario = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtComentario = new DevExpress.XtraEditors.MemoEdit();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cmdDeleteRowFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCliente.Properties)).BeginInit();
             this.panelNotificacion.SuspendLayout();
@@ -90,12 +90,12 @@ namespace Eatery.Ventas
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
             this.navigationPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRTN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdDeleteRowFactura
@@ -174,7 +174,7 @@ namespace Eatery.Ventas
             this.cmdSalir.Appearance.Options.UseFont = true;
             this.cmdSalir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSalir.ImageOptions.Image")));
-            this.cmdSalir.Location = new System.Drawing.Point(255, 539);
+            this.cmdSalir.Location = new System.Drawing.Point(9, 539);
             this.cmdSalir.Name = "cmdSalir";
             this.cmdSalir.Size = new System.Drawing.Size(246, 38);
             this.cmdSalir.TabIndex = 6;
@@ -200,11 +200,12 @@ namespace Eatery.Ventas
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdNew.ImageOptions.Image")));
-            this.cmdNew.Location = new System.Drawing.Point(3, 539);
+            this.cmdNew.Location = new System.Drawing.Point(261, 539);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(246, 38);
             this.cmdNew.TabIndex = 14;
             this.cmdNew.Text = "&Nuevo";
+            this.cmdNew.Visible = false;
             this.cmdNew.Click += new System.EventHandler(this.cmdNew_Click);
             // 
             // panelNotificacion
@@ -269,7 +270,6 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
-            this.navigationPage1.Caption = "navigationPage1";
             this.navigationPage1.Controls.Add(this.txtComentario);
             this.navigationPage1.Controls.Add(this.label5);
             this.navigationPage1.Controls.Add(this.rdPorCobrar);
@@ -301,6 +301,28 @@ namespace Eatery.Ventas
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(1086, 617);
             this.navigationPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.navigationPage1_Paint);
+            // 
+            // txtComentario
+            // 
+            this.txtComentario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtComentario.Enabled = false;
+            this.txtComentario.Location = new System.Drawing.Point(82, 477);
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.txtComentario.Properties.Appearance.Options.UseFont = true;
+            this.txtComentario.Size = new System.Drawing.Size(312, 52);
+            this.txtComentario.TabIndex = 58;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label5.Location = new System.Drawing.Point(10, 473);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 17);
+            this.label5.TabIndex = 59;
+            this.label5.Text = "Comentario";
             // 
             // rdPorCobrar
             // 
@@ -612,28 +634,6 @@ namespace Eatery.Ventas
             this.colinventario.VisibleIndex = 2;
             this.colinventario.Width = 74;
             // 
-            // txtComentario
-            // 
-            this.txtComentario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtComentario.Enabled = false;
-            this.txtComentario.Location = new System.Drawing.Point(82, 477);
-            this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.txtComentario.Properties.Appearance.Options.UseFont = true;
-            this.txtComentario.Size = new System.Drawing.Size(312, 52);
-            this.txtComentario.TabIndex = 58;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.label5.Location = new System.Drawing.Point(10, 473);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 17);
-            this.label5.TabIndex = 59;
-            this.label5.Text = "Comentario";
-            // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -653,12 +653,12 @@ namespace Eatery.Ventas
             this.navigationFrame1.ResumeLayout(false);
             this.navigationPage1.ResumeLayout(false);
             this.navigationPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendedor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRTN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

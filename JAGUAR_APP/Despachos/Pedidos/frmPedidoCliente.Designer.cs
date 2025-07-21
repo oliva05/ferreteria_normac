@@ -32,16 +32,16 @@ namespace Eatery.Ventas
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPedidoCliente));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtNombreCliente = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.cmdAbrirBusqueda = new DevExpress.XtraEditors.SimpleButton();
@@ -72,7 +72,7 @@ namespace Eatery.Ventas
             this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblScanProducto = new System.Windows.Forms.Label();
             this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
             this.txtAsesorVendedor = new DevExpress.XtraEditors.TextEdit();
             this.dtFechaEntrega = new DevExpress.XtraEditors.DateEdit();
@@ -296,7 +296,7 @@ namespace Eatery.Ventas
             this.navigationPage1.Controls.Add(this.cmdConfirmarFactura);
             this.navigationPage1.Controls.Add(this.gleEstados);
             this.navigationPage1.Controls.Add(this.label12);
-            this.navigationPage1.Controls.Add(this.label11);
+            this.navigationPage1.Controls.Add(this.lblScanProducto);
             this.navigationPage1.Controls.Add(this.cmdChangeVendedor);
             this.navigationPage1.Controls.Add(this.txtAsesorVendedor);
             this.navigationPage1.Controls.Add(this.dtFechaEntrega);
@@ -507,15 +507,15 @@ namespace Eatery.Ventas
             this.label12.TabIndex = 55;
             this.label12.Text = "Estado";
             // 
-            // label11
+            // lblScanProducto
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.label11.Location = new System.Drawing.Point(10, 109);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 17);
-            this.label11.TabIndex = 54;
-            this.label11.Text = "Código";
+            this.lblScanProducto.AutoSize = true;
+            this.lblScanProducto.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.lblScanProducto.Location = new System.Drawing.Point(10, 109);
+            this.lblScanProducto.Name = "lblScanProducto";
+            this.lblScanProducto.Size = new System.Drawing.Size(51, 17);
+            this.lblScanProducto.TabIndex = 54;
+            this.lblScanProducto.Text = "Código";
             // 
             // cmdChangeVendedor
             // 
@@ -844,9 +844,9 @@ namespace Eatery.Ventas
             // cmdDeleteRowFactura
             // 
             this.cmdDeleteRowFactura.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.cmdDeleteRowFactura.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdDeleteRowFactura.Name = "cmdDeleteRowFactura";
             this.cmdDeleteRowFactura.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdDeleteRowFactura.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdDeleteRowFactura_ButtonClick);
@@ -883,9 +883,9 @@ namespace Eatery.Ventas
             // cmdElejirAlmacen
             // 
             this.cmdElejirAlmacen.AutoHeight = false;
-            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.cmdElejirAlmacen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdElejirAlmacen.Name = "cmdElejirAlmacen";
             this.cmdElejirAlmacen.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdElejirAlmacen.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdElejirAlmacen_ButtonClick);
@@ -1022,7 +1022,7 @@ namespace Eatery.Ventas
         private DevExpress.XtraEditors.TextEdit txtAsesorVendedor;
         private System.Windows.Forms.Label label10;
         private DevExpress.XtraEditors.SimpleButton cmdChangeVendedor;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblScanProducto;
         private System.Windows.Forms.Label label12;
         private DevExpress.XtraEditors.GridLookUpEdit gleEstados;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
