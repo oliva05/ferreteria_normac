@@ -183,8 +183,6 @@ namespace JAGUAR_PRO.TransaccionesPT
             try
             {
                 cantidad_ = Convert.ToDecimal(txtCantidadUnidades.Text);
-
-                gleAlmacen.Focus();
             }
             catch (Exception ex)
             {
