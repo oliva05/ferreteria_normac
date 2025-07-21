@@ -53,6 +53,20 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             dsEntregaPedidos1.detalle_entrega.Clear();
             foreach (DataRow item in pDetalle.Rows)
             {
+                DataRow dr  = dsEntregaPedidos1.detalle_entrega.NewRow();
+                dr[0] = item["id"];
+                dr[1] = item["id_pt"];
+                dr[2] = item["cant_a_entregar"];
+                dr[3] = item["id_h"];
+                dr[4] = item["precio"];
+                dr[5] = item["id_estado"];
+                dr[6] = item["bodega"];
+                dr[7] = item["id_bodega"]; 
+                dr[8] = item["code"];
+                dr[9] = item["code_referencia"];
+                dr[10] = item["descripcion"];
+                dsEntregaPedidos1.detalle_entrega.Rows.Add(dr);
+                dsEntregaPedidos1.detalle_entrega.AcceptChanges();
 
                 //dsEntregaPedidos1.detalle_entrega.ImportRow(item);
             }
