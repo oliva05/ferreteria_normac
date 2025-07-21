@@ -443,6 +443,34 @@ namespace JAGUAR_PRO
                     {
                         case 1://Basic View
                         case 2://Basic No Autorization
+                            UsuarioLogeado.Idnivel = idNivel_12;
+                            tabOpciones.TabPages[4].PageVisible = false;
+                            NBI_Despachos.Visible = NBI_ListaPrecios.Visible =
+                            NBI_PuntoVenta.Visible = NBI_NumeracionFiscal.Visible =
+                            NBI_Cliente.Visible =
+                            navBarFacturaMain.Visible =
+                            NBI_NumeracionFiscal.Visible =
+                            NBI_PuntoVenta.Visible =
+                            NBI_ListaPrecios.Visible =
+                            NBI_Despachos.Visible =
+                            navBarItem55.Visible =
+                            nbRequest.Visible =
+                            nB_PagoMultiple.Visible =
+                            navBarItem56.Visible =
+                            navBarItem57.Visible =
+                            navBarItem58.Visible =
+                            nbKardexFacturacion.Visible =
+                            nbReportesFacturacionMain.Visible =
+                            navBarItemCambioDePrecio.Visible =
+                            navBarItem20.Visible =
+                            navBarGroup11.Visible =
+                            navBarG_ReportesFacturacion.Visible =
+                            navBarGroup7.Visible = false;
+
+                            navBarItemDepositoBancoCaja.Visible = true;
+                            navBarItemFacturasEmitidas.Visible = true;
+                            //navBarItem57.Visible = true;//Cierre de caja
+                            break;
                         case 3://Medium Autorization
                             UsuarioLogeado.Idnivel = idNivel_12;
                             tabOpciones.TabPages[4].PageVisible = false;
@@ -463,14 +491,17 @@ namespace JAGUAR_PRO
                             nbKardexFacturacion.Visible =
                             nbReportesFacturacionMain.Visible =
                             navBarItemCambioDePrecio.Visible =
-                            navBarItem20.Visible = 
+                            navBarItem20.Visible =
                             navBarGroup11.Visible =
                             navBarG_ReportesFacturacion.Visible =
                             navBarGroup7.Visible = false;
-
+                            
                             navBarItemDepositoBancoCaja.Visible = true;
                             navBarItemFacturasEmitidas.Visible = true;
-                            //navBarItem57.Visible = true;//Cierre de caja
+                            //ACCESO a Logistica
+                            TabLogistica.PageVisible = true;
+                            navBarRecepBodegon.Visible = false;
+                            navBarItem152.Visible = false;
                             break;
                         case 4://Depth With Delta
                             tabOpciones.TabPages[4].PageVisible = true;
@@ -5025,20 +5056,20 @@ namespace JAGUAR_PRO
                     break;
             }
 
-            //if (!accesoprevio)
-            //{
-            //    if (UsuarioLogeado.ValidarNivelPermisos(24))
-            //    {
-            //        frmRecepcionCompraVentaUnica mtx = new frmRecepcionCompraVentaUnica(UsuarioLogeado);
-            //        mtx.MdiParent = this.MdiParent;
-            //        mtx.Show();
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(25))
+                {
+                    frmRecepcionCompraVentaUnica mtx = new frmRecepcionCompraVentaUnica(UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
 
-            //    }
-            //    else
-            //    {
-            //        CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-24 (Recepcion Compras Bodegon)");
-            //    }
-            //}
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-25 (Recepcion Compras Usados)");
+                }
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
