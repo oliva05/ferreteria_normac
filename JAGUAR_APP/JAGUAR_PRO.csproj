@@ -775,10 +775,12 @@
     <Compile Include="Clases\ProductoClase.cs" />
     <Compile Include="Clases\ProductoFamilia.cs" />
     <Compile Include="Clases\ProductoSubClase.cs" />
+    <Compile Include="Clases\ProductoUsado.cs" />
     <Compile Include="Clases\ReciboH.cs" />
     <Compile Include="Clases\Notas_CreditoDebito.cs" />
     <Compile Include="Clases\RegistroPago.cs" />
     <Compile Include="Clases\RequisaTraslado.cs" />
+    <Compile Include="Clases\SolicitudAjustes.cs" />
     <Compile Include="Clases\TablesId.cs" />
     <Compile Include="Clases\Traslado.cs" />
     <Compile Include="Clases\TrasladoDetalle.cs" />
@@ -3853,6 +3855,12 @@
     <Compile Include="TransaccionesPT\frmRequisaTraslado.Designer.cs">
       <DependentUpon>frmRequisaTraslado.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransaccionesPT\frmSelectAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\frmSelectAlmacen.Designer.cs">
+      <DependentUpon>frmSelectAlmacen.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransaccionesPT\frmSolicitudAjusteKardexPT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5130,6 +5138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmRequisaTraslado.resx">
       <DependentUpon>frmRequisaTraslado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\frmSelectAlmacen.resx">
+      <DependentUpon>frmSelectAlmacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\frmSolicitudAjusteKardexPT.resx">
       <DependentUpon>frmSolicitudAjusteKardexPT.cs</DependentUpon>

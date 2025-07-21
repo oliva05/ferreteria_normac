@@ -86,7 +86,7 @@ namespace JAGUAR_PRO.Clases
             return valor;
         }
 
-
+        
         public decimal RecuperarPrecioItemParaPuntoVenta(int pId_PT, int pidPuntoVenta, int pIdCliente,int pidPuntoVentaDestino)
         {
             decimal valor = 0;

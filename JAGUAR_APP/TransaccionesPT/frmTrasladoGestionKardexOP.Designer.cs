@@ -325,7 +325,7 @@
             // txtNumTraslado
             // 
             this.txtNumTraslado.Enabled = false;
-            this.txtNumTraslado.Location = new System.Drawing.Point(117, 42);
+            this.txtNumTraslado.Location = new System.Drawing.Point(135, 42);
             this.txtNumTraslado.Name = "txtNumTraslado";
             this.txtNumTraslado.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumTraslado.Properties.Appearance.Options.UseFont = true;
@@ -367,7 +367,7 @@
             // txtBodOrigen
             // 
             this.txtBodOrigen.Enabled = false;
-            this.txtBodOrigen.Location = new System.Drawing.Point(117, 144);
+            this.txtBodOrigen.Location = new System.Drawing.Point(135, 144);
             this.txtBodOrigen.Name = "txtBodOrigen";
             this.txtBodOrigen.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBodOrigen.Properties.Appearance.Options.UseFont = true;
@@ -381,14 +381,14 @@
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(12, 151);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(118, 17);
+            this.labelControl3.Size = new System.Drawing.Size(133, 17);
             this.labelControl3.TabIndex = 83;
-            this.labelControl3.Text = "Bod. Origen________:";
+            this.labelControl3.Text = "Bod. Origen___________:";
             // 
             // txtBodDestino
             // 
             this.txtBodDestino.Enabled = false;
-            this.txtBodDestino.Location = new System.Drawing.Point(396, 144);
+            this.txtBodDestino.Location = new System.Drawing.Point(435, 144);
             this.txtBodDestino.Name = "txtBodDestino";
             this.txtBodDestino.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBodDestino.Properties.Appearance.Options.UseFont = true;
@@ -400,7 +400,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(294, 151);
+            this.labelControl4.Location = new System.Drawing.Point(333, 151);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(129, 17);
             this.labelControl4.TabIndex = 85;
@@ -409,11 +409,11 @@
             // txtDescr
             // 
             this.txtDescr.Enabled = false;
-            this.txtDescr.Location = new System.Drawing.Point(117, 72);
+            this.txtDescr.Location = new System.Drawing.Point(135, 72);
             this.txtDescr.Name = "txtDescr";
             this.txtDescr.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtDescr.Properties.Appearance.Options.UseFont = true;
-            this.txtDescr.Size = new System.Drawing.Size(283, 66);
+            this.txtDescr.Size = new System.Drawing.Size(265, 66);
             this.txtDescr.TabIndex = 87;
             // 
             // labelControl5
@@ -422,9 +422,9 @@
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(12, 73);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(121, 17);
+            this.labelControl5.Size = new System.Drawing.Size(136, 17);
             this.labelControl5.TabIndex = 88;
-            this.labelControl5.Text = "Comentario_________:";
+            this.labelControl5.Text = "Comentario____________:";
             // 
             // frmTrasladoGestionKardexOP
             // 

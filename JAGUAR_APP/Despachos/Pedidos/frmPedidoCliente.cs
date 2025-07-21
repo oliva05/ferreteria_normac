@@ -1,5 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.CodeParser;
+using DevExpress.DashboardWin.Design;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraCharts.Native;
 using DevExpress.XtraEditors;
@@ -81,6 +82,7 @@ namespace Eatery.Ventas
         {
             InitializeComponent();
             TipoFacturacionActual = pTipo;
+            
 
             TipoOperacionActual = TipoOperacionSQL.Insert;
 
@@ -137,6 +139,15 @@ namespace Eatery.Ventas
                 }
             }
             LoadBancosAndTiposPago();
+
+            if (TipoFacturacionActual == TipoFacturacionStock.VentaUsados)
+            {
+                lblScanProducto.Visible =
+                txtScanProducto.Visible =
+                cmdCopiarDesde.Visible =
+                ckGenerarCotizacion.Visible = false;
+            }
+
             //if (HostName == "7L12TV3" || HostName == "F3DYSQ2" /*Danys Oliva*/ ||
             //    HostName == "9SSCBV2" || HostName == "9PG91W2" /*Ruben Garcia */ ||
             //    HostName == "F9Q11Q2" /*PC Soporte La 50*/||
@@ -1543,6 +1554,7 @@ namespace Eatery.Ventas
             txtRTN.Text = txtNombreCliente.Text = lblMensaje.Text = "";
             txtTotal.Text = "0.00";
             dsVentas1.detalle_factura_transaction.Clear();
+            dsVentas1.detalle_factura_transaccion_inv.Clear();
             ClienteFactura = new ClienteFacturacion();
 
             txtAsesorVendedor.Enabled =
@@ -2228,196 +2240,178 @@ namespace Eatery.Ventas
             }
         }
 
-        private void AgregarProductoA_PrefacturaUsados(int pIdPT, string pItemCode, string pItemName,
+        private void AgregarProductoA_PrefacturaUsados(int pIdUsado, string pItemCode, string pItemName,
                                                        decimal pCantidad, bool AddDistribucionAlmacen,
                                                        decimal pDescuentoPorcentaje, ProductoTerminado pProductoTerminado,
                                                        string pMarca)
         {
-            //ProductoTerminado pt1;
-            //if (pProductoTerminado == null)
-            //    pt1 = new ProductoTerminado();
-            //else
-            //    pt1 = pProductoTerminado;
+            ProductoUsado pt1 = new ProductoUsado();
+            if (pt1.RecuperarRegistro(pIdUsado))
+            {
+
+                decimal valor_total = 0;
+
+                bool AgregarNuevo = true;
+                foreach (dsVentas.detalle_factura_transactionRow rowF in dsVentas1.detalle_factura_transaction)
+                {
+                    if (rowF.id_pt == pIdUsado)
+                    {
+                        //Sumar cantidad nada mas
+
+                        rowF.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacionUsados(pt1.Id, this.PuntoDeVentaActual.ID);
 
 
-            //if (!pt1.Recuperado)
-            //    pt1.Recuperar_producto(pIdPT);
+                        rowF.cantidad = rowF.cantidad + 1;
+                        rowF.codigo_referencia = "N/D";
+                        rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
+                        rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
+                        rowF.total_linea = ((rowF.cantidad * rowF.precio) - rowF.descuento) + rowF.isv1 + rowF.isv2 + rowF.isv3;
+                        AgregarNuevo = false;
+                    }
+                    //valor_total += (rowF.total_linea + rowF.isv1);
+                    valor_total += rowF.total_linea;
+                    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
+                }
+
+                if (AgregarNuevo)
+                {
+                    dsVentas.detalle_factura_transactionRow row1 = dsVentas1.detalle_factura_transaction.Newdetalle_factura_transactionRow();
+                    row1.id_pt = pIdUsado;
+                    row1.cantidad = pCantidad;
+                    row1.descuento =
+                    row1.descuento_porcentaje = 0;
+                    row1.codigo_referencia = "N/D";
+                    row1.marca = "N/D";
+                    //row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+                    row1.precio = pt1.PrecioVenta;
+                    row1.id_presentacion = 1;// pt1.Id_presentacion;
 
 
-            //if (pt1.Id > 0)
-            //{
-
-                //decimal valor_total = 0;
-
-                //bool AgregarNuevo = true;
-                //foreach (dsVentas.detalle_factura_transactionRow rowF in dsVentas1.detalle_factura_transaction)
-                //{
-                //    if (rowF.id_pt == pIdPT)
-                //    {
-                //        //Sumar cantidad nada mas
-
-                //        rowF.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
+                    if (row1.precio == 0)
+                    {
+                        SetErrorBarra("Este producto no tiene definido un precio. Por favor valide Lista de Precios!");
+                        return;
+                    }
 
 
-                //        rowF.cantidad = rowF.cantidad + 1;
-                //        rowF.codigo_referencia = pt1.Codig_Referencia;
-                //        rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
-                //        rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
-                //        rowF.total_linea = ((rowF.cantidad * rowF.precio) - rowF.descuento) + rowF.isv1 + rowF.isv2 + rowF.isv3;
-                //        AgregarNuevo = false;
-                //    }
-                //    //valor_total += (rowF.total_linea + rowF.isv1);
-                //    valor_total += rowF.total_linea;
-                //    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
-                //}
+                    row1.itemcode = pItemCode;
+                    row1.itemname = pItemName;
+                    decimal invTotal = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacionUsados(pt1.Id, this.PuntoDeVentaActual.ID);
+                    // pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
 
-                //if (AgregarNuevo)
-                //{
-                //    dsVentas.detalle_factura_transactionRow row1 = dsVentas1.detalle_factura_transaction.Newdetalle_factura_transactionRow();
-                //    row1.id_pt = pIdPT;
-                //    row1.cantidad = pCantidad;
-                //    row1.descuento =
-                //    row1.descuento_porcentaje = 0;
-                //    row1.codigo_referencia = pt1.Codig_Referencia;
-                //    row1.marca = pt1.MarcaName;
-                //    row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
-                //    row1.id_presentacion = pt1.Id_presentacion;
+                    //Recalculamos el Descuento si hay alguno
+                    if (pDescuentoPorcentaje > 0 && pDescuentoPorcentaje < 100)
+                    {
+                        decimal vDescuento = pDescuentoPorcentaje;
 
+                        //decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(pt1.Id, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+                        decimal vPorcentajeDescuento = 0;
 
-                //    if (row1.precio == 0)
-                //    {
-                //        SetErrorBarra("Este producto no tiene definido un precio. Por favor valide Lista de Precios!");
-                //        return;
-                //    }
+                        if (vDescuento > vPorcentajeDescuento)
+                        {
+                            row1.descuento = row1.descuento_porcentaje = 0;
+                            //CajaDialogo.Error("No se permite un descuento mayor al permitido!");
+                            return;
+                        }
+
+                        row1.descuento_porcentaje = vDescuento;
+                        decimal vDescuentoLinea = ((row1.cantidad * row1.precio) * (vDescuento / 100));
+                        row1.descuento = vDescuentoLinea;
 
 
-                //    row1.itemcode = pItemCode;
-                //    row1.itemname = pItemName;
-                //    decimal invTotal = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
+                    }
+                    else
+                    {
+                        row1.descuento_porcentaje = 0;
+                    }
 
-                //    //Recalculamos el Descuento si hay alguno
-                //    if (pDescuentoPorcentaje > 0 && pDescuentoPorcentaje < 100)
-                //    {
-                //        decimal vDescuento = pDescuentoPorcentaje;
+                    //Calculo del impuesto
+                    row1.isv1 = row1.isv2 = row1.isv3 = 0;
+                    Impuesto impuesto = new Impuesto();
+                    decimal tasaISV = 0;
 
-                //        decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(pt1.Id, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+                    //if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
+                    //{
+                    //    tasaISV = impuesto.Valor / 100;
 
-                //        if (vDescuento > vPorcentajeDescuento)
-                //        {
-                //            row1.descuento = row1.descuento_porcentaje = 0;
-                //            //CajaDialogo.Error("No se permite un descuento mayor al permitido!");
-                //            return;
-                //        }
+                    //    //row1.isv1 = (row1.precio - row1.descuento) * tasaISV;
+                    //    decimal isv_calculo = (row1.precio - row1.descuento) - ((row1.precio - row1.descuento) / (1 + tasaISV));
+                    //    row1.isv1 = isv_calculo;
+                    //    row1.precio = (row1.precio - row1.descuento) - isv_calculo;
 
-                //        row1.descuento_porcentaje = vDescuento;
-                //        decimal vDescuentoLinea = ((row1.cantidad * row1.precio) * (vDescuento / 100));
-                //        row1.descuento = vDescuentoLinea;
+                    //    row1.tasa_isv = tasaISV;
+                    //    row1.id_isv_aplicable = impuesto.Id;
+                    //    row1.total_linea = row1.cantidad * (row1.precio + isv_calculo);
+                    //}
+                    //else
+                    //{
+                    //    row1.tasa_isv = 0;
+                    //    row1.id_isv_aplicable = 0;
+                    //    //row1.precio = (row1.precio - row1.descuento);
+                    //    row1.isv1 = 0;
+                    //}
+
+                    row1.tasa_isv = 0;
+                    row1.id_isv_aplicable = 0;
+                    //row1.precio = (row1.precio - row1.descuento);
+                    row1.isv1 = 0;
+
+                    row1.total_linea = ((row1.cantidad * row1.precio) - row1.descuento) +
+                                        (row1.cantidad * row1.isv1) +
+                                        (row1.cantidad * row1.isv2) +
+                                        (row1.cantidad * row1.isv3);
 
 
-                //    }
-                //    else
-                //    {
-                //        row1.descuento_porcentaje = 0;
-                //    }
+                    int IdBodega_ = 2;
+                    string BodegaName_ = "BG002 - ALMACEN DE USADOS";
+                    decimal Cantidad_ = 1;
+                    row1.inventario = invTotal;
+                    row1.inventario_seleccionado = 1;
+                    row1.bodega_descripcion = BodegaName_;
 
-                //    //Calculo del impuesto
-                //    row1.isv1 = row1.isv2 = row1.isv3 = 0;
-                //    Impuesto impuesto = new Impuesto();
-                //    decimal tasaISV = 0;
+                    if (AddDistribucionAlmacen)
+                    {
+                        AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
+                                                             1, 1, row1.precio, row1.descuento,
+                                                             pt1.ItemCode, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, row1.marca);
 
-                //    if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
-                //    {
-                //        tasaISV = impuesto.Valor / 100;
-
-                //        //row1.isv1 = (row1.precio - row1.descuento) * tasaISV;
-                //        decimal isv_calculo = (row1.precio - row1.descuento) - ((row1.precio - row1.descuento) / (1 + tasaISV));
-                //        row1.isv1 = isv_calculo;
-                //        row1.precio = (row1.precio - row1.descuento) - isv_calculo;
-
-                //        row1.tasa_isv = tasaISV;
-                //        row1.id_isv_aplicable = impuesto.Id;
-                //        row1.total_linea = row1.cantidad * (row1.precio + isv_calculo);
-                //    }
-                //    else
-                //    {
-                //        row1.tasa_isv = 0;
-                //        row1.id_isv_aplicable = 0;
-                //        //row1.precio = (row1.precio - row1.descuento);
-                //        row1.isv1 = 0;
-                //    }
-
-                //    row1.total_linea = ((row1.cantidad * row1.precio) - row1.descuento) +
-                //                        (row1.cantidad * row1.isv1) +
-                //                        (row1.cantidad * row1.isv2) +
-                //                        (row1.cantidad * row1.isv3);
-                //    try
-                //    {
-                //        DataOperations dp = new DataOperations();
-                //        SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                //        con.Open();
-
-                //        SqlCommand cmd = new SqlCommand("dbo.[sp_get_cantidad_inv_kardex_pt_for_elejir_stock]", con);
-                //        cmd.CommandType = CommandType.StoredProcedure;
-                //        cmd.Parameters.AddWithValue("@id_pt", row1.id_pt);
-                //        SqlDataReader dr = cmd.ExecuteReader();
-                //        if (dr.Read())
-                //        {
-                //            int IdBodega_ = dr.GetInt32(0);
-                //            string BodegaName_ = dr.GetString(1);
-                //            decimal Cantidad_ = dr.GetDecimal(2);
-                //            row1.inventario = invTotal;
-                //            row1.inventario_seleccionado = 1;
-                //            row1.bodega_descripcion = BodegaName_;
-
-                //            if (AddDistribucionAlmacen)
-                //            {
-                //                AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
-                //                                                     1, pt1.Id_presentacion, row1.precio, row1.descuento,
-                //                                                     pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, row1.marca);
-
-                //                //Buscamos el detalle en la seleccion de stock
-                //                foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
-                //                {
-                //                    if (RowInv.id_pt == row1.id_pt)
-                //                    {
-                //                        RowInv.descuento = row1.descuento;
-                //                        RowInv.descuento_porcentaje = row1.descuento_porcentaje;
-                //                    }
-                //                }
-                //            }
-                //        }
-                //        else
-                //        {
-                //            row1.inventario =
-                //            row1.inventario_seleccionado = 0;
-                //        }
-                //        dr.Close();
-                //    }
-                //    catch (Exception ec)
-                //    {
-                //        CajaDialogo.Error(ec.Message);
-                //    }
+                        //Buscamos el detalle en la seleccion de stock
+                        foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
+                        {
+                            if (RowInv.id_pt == row1.id_pt)
+                            {
+                                RowInv.descuento = row1.descuento;
+                                RowInv.descuento_porcentaje = row1.descuento_porcentaje;
+                            }
+                        }
+                    }
 
 
 
-                //    dsVentas1.detalle_factura_transaction.Adddetalle_factura_transactionRow(row1);
-                //    valor_total += (row1.total_linea);// + row1.isv1);
-                //    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
-
-                //    dsVentas1.AcceptChanges();
-
-                //    if (dsVentas1.detalle_factura_transaction.Count > 0)
-                //        gridView1.FocusedRowHandle = dsVentas1.detalle_factura_transaction.Count - 1;
-                //    else
-                //        gridView1.FocusedRowHandle = 0;
 
 
-                //    gridView1.FocusedColumn = colcantidad;
-                //    gridView1.ShowEditor();
-                //}
-            
+                    dsVentas1.detalle_factura_transaction.Adddetalle_factura_transactionRow(row1);
+                    valor_total += (row1.total_linea);// + row1.isv1);
+                    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
+
+                    dsVentas1.AcceptChanges();
+
+                    if (dsVentas1.detalle_factura_transaction.Count > 0)
+                        gridView1.FocusedRowHandle = dsVentas1.detalle_factura_transaction.Count - 1;
+                    else
+                        gridView1.FocusedRowHandle = 0;
+
+
+                    gridView1.FocusedColumn = colcantidad;
+                    gridView1.ShowEditor();
+                }
+
+            }
+
+
+
+
         }
-
 
 
 
@@ -2792,11 +2786,14 @@ namespace Eatery.Ventas
                 }
             }
 
-            
+            bool isUsados = false;
+            if (TipoFacturacionActual == TipoFacturacionStock.VentaUsados)
+                isUsados = true;
+
             frmElejirAlmacenPedidoOutStok frm = new frmElejirAlmacenPedidoOutStok(row.id_pt, row.itemcode + " - " +
-                                                                                  row.itemname, row.cantidad, ListaActual,
-                                                                                  row.descuento, row.precio, row.id_presentacion,
-                                                                                  row.itemcode, row.itemname, row.isv1, row.descuento_porcentaje);
+                                                                              row.itemname, row.cantidad, ListaActual,
+                                                                              row.descuento, row.precio, row.id_presentacion,
+                                                                              row.itemcode, row.itemname, row.isv1, row.descuento_porcentaje, isUsados);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 row.inventario_seleccionado = row.cantidad = AgregarDetalleInventarioSeleccionadoList(frm.ListaSeleccionAlmacen, row.id_pt);

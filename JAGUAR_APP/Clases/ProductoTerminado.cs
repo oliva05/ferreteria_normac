@@ -334,7 +334,7 @@ namespace JAGUAR_PRO.Clases
                     if (!dl.IsDBNull(dl.GetOrdinal("marca")))
                         MarcaName = dl.GetString(31);
                     else
-                        MarcaName = " ";
+                        MarcaName = "";
 
                     //[porcentaje_utilidad]
                     if (!dl.IsDBNull(dl.GetOrdinal("porcentaje_utilidad")))
@@ -376,6 +376,123 @@ namespace JAGUAR_PRO.Clases
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@itemcode", pItemCode);
+                SqlDataReader dl = cmd.ExecuteReader();
+                if (dl.Read())
+                {
+
+                    Id = dl.GetInt32(0);
+                    enable = dl.GetBoolean(1);
+                    id_user_created = dl.GetInt32(2);
+                    usuario_nombre = dl.GetString(3);
+                    id_presentacion = dl.GetInt32(4);
+                    Presentacion_name = dl.GetString(5);
+                    id_estado = dl.GetInt32(6);
+                    Descripcion = dl.GetString(7);
+                    code = dl.GetString(8);
+                    fecha = dl.GetDateTime(9);
+                    tipo_id = dl.IsDBNull(10) ? 0 : dl.GetInt32(10);
+                    TipoDescripcion = dl.GetString(11);
+                    EstadoDescripcion = dl.GetString(12);
+                    CostoDeMO_porArrobaBit = dl.GetBoolean(13);
+                    CostoPorArroba = dl.GetDecimal(14);
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("id_tipo_facturacion")))
+                        tipo_facturacion_id = dl.GetInt32(15);
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("id_tipo_buffet")))
+                        tipo_buffet_id = dl.GetInt32(16);
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("id_tipo_facturacion_prd")))
+                        id_tipo_facturacion_prd = dl.GetInt32(17);
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("tipo_facturacion_prd")))
+                        TipoFacturacion_prd_name = dl.GetString(18);
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("id_clase")))
+                        _id_clase = dl.GetInt32(19);
+                    else
+                        _id_clase = 0;
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("id_isv_aplicable")))
+                        _id_isv_aplicable = dl.GetInt32(20);
+                    else
+                        _id_isv_aplicable = 0;
+                    if (!dl.IsDBNull(dl.GetOrdinal("id_subClase")))
+                        Id_sub_clase = dl.GetInt32(21);
+                    else
+                        Id_sub_clase = 0;
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("code_interno")))
+                        Code_interno = dl.GetString(22);
+                    else
+                        Code_interno = "N/D";
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("id_tipo_inventario")))
+                        TipoInventario = dl.GetInt32(23);
+                    else
+                        TipoInventario = 0;
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("barcode")))
+                        Barcode = dl.GetString(24);
+                    else
+                        Barcode = "";
+
+                    if (!dl.IsDBNull(dl.GetOrdinal("codeOEM")))
+                        CodeOEM = dl.GetString(25);
+                    else
+                        CodeOEM = "";
+
+                    IdMarca = dl.IsDBNull(26) ? 0 : dl.GetInt32(26);
+                    Id_Familia = dl.GetInt32(27);
+                    Id_Categoria = dl.GetInt32(28);
+                    Codig_Referencia = dl.IsDBNull(29) ? "" : dl.GetString(29);
+
+                    MaximoDescuentoPorcentajeAllClientes = dl.GetDecimal(30);
+                    if (!dl.IsDBNull(dl.GetOrdinal("marca")))
+                        MarcaName = dl.GetString(31);
+                    else
+                        MarcaName = " ";
+
+                    //[porcentaje_utilidad]
+                    if (!dl.IsDBNull(dl.GetOrdinal("porcentaje_utilidad")))
+                        porcentaje_utilidad = dl.GetDecimal(32);
+
+                    //[porcentaje_descuento]
+                    if (!dl.IsDBNull(dl.GetOrdinal("porcentaje_descuento")))
+                        porcentaje_descuento = dl.GetDecimal(33);
+                    pt_comisiona = dl.GetBoolean(34);
+                    boolMaximoMinimio = dl.GetBoolean(35);
+                    invMinimo = dl.GetDecimal(36);
+                    invMaximo = dl.GetDecimal(37);
+
+                    Recuperado = true;
+                    //Recuperar_Latas_and_bolsas(IdProd);
+
+                    CantInventarioKardex = Recuperar_Cant_Inv_Actual_by_PT(Id);
+                    //CantInventarioKardexFor_Facturacion = Recuperar_Cant_Inv_Actual_PT_for_facturacion(IdProd);    
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Recuperado = false;
+                MessageBox.Show(ex.Message);
+            }
+            return Recuperado;
+        }
+
+        public bool Recuperar_producto_by_code_referencia(string pItemCode)
+        {
+            try
+            {//Recupera las caracteristicas 
+                string sql = @"[dbo].[sp_get_datos_maestros_pt_v9_by_code_referencia]";
+                DataOperations dp = new DataOperations();
+
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@code_referencia", pItemCode);
                 SqlDataReader dl = cmd.ExecuteReader();
                 if (dl.Read())
                 {
@@ -542,7 +659,7 @@ namespace JAGUAR_PRO.Clases
             }
             return val;
         }
-
+       
 
         public string GenerarSiguienteCodigoPT()
         {
@@ -757,6 +874,34 @@ namespace JAGUAR_PRO.Clases
             }
 
             return dataImagenes;
+        }
+
+        public int GetAlmacenDefault(int pIdPt)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_pt_get_almacen_by_default", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdPt", pIdPt);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if(dr.Read())
+                {
+                    Id_Almacen_standard = dr.GetInt32(dr.GetOrdinal("idAlmacen"));
+                    dr.Close();
+                    conn.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+
+
+            return Id_Almacen_standard;
         }
     }
 
