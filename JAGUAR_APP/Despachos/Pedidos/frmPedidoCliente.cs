@@ -3619,9 +3619,13 @@ namespace Eatery.Ventas
             {
                 rdCredito.CheckedChanged -=  new EventHandler(rdCredito_CheckedChanged_2);
                 rdPorCobrar.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
+                rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
+
                 rdCredito.Checked = 
                 rdPorCobrar.Checked = false;
                 IdTerminoPago = 1;
+
+                rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
                 rdPorCobrar.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
                 rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_2);
             }
@@ -3633,11 +3637,13 @@ namespace Eatery.Ventas
             {
                 rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_2);
                 rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
-               
+                rdPorCobrar.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
+
                 rdCredito.Checked = 
                 rdContado.Checked = false;
                 IdTerminoPago = 3;
 
+                rdPorCobrar.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
                 rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
                 rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_2);
             }
@@ -3676,9 +3682,13 @@ namespace Eatery.Ventas
             {
                 rdContado.CheckedChanged -= new EventHandler(rdContado_CheckedChanged);
                 rdPorCobrar.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
-                rdCredito.Checked =
+                rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged_2);
+
+                rdPorCobrar.Checked =
                 rdContado.Checked = false;
                 IdTerminoPago = 2;
+
+                rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged_2);
                 rdPorCobrar.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
                 rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
             }
