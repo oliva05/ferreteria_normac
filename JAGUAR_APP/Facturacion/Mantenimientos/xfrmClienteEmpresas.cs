@@ -34,8 +34,8 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos
             }
             EmpresaParametro = empresa;
 
-            txtNombreCorto.Text = EmpresaParametro.NombreLargo;
-            txtNombre.Text = EmpresaParametro.NombreCorto;
+            txtNombreCorto.Text = EmpresaParametro.NombreCorto;
+            txtNombre.Text = EmpresaParametro.NombreLargo;
             txtDireccion.Text = EmpresaParametro.Direccion;
             txtCorreo.Text = EmpresaParametro.Correo;
             txtTelefono.Text = EmpresaParametro.Telefono;
