@@ -64,14 +64,13 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                     txtEquipoBodega.Text = bodegas.Descripcion;
                     IdBodega = bodegas.Id;
                 }
-               
+
             }
 
-            
+
             IdBodega = EquipoActual.id_bodega_entrega;
             PDVId = EquipoActual.id_punto_venta;
 
-            tggIncluirDocCerrados.IsOn = false;
             LoadData(IdBodega, PDVId);
 
         }
@@ -81,16 +80,16 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             try
             {
                 dp = new DataOperations();
-                string query = @"sp_get_pedidos_h_list";
+                string query = @"sp_get_pedidos_h_list_abiertas";
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_bodega", idBodega);
                 cmd.Parameters.AddWithValue("@idPuntoVenta", PuntoVentaId);
-                cmd.Parameters.AddWithValue("@DocCerrados", tggIncluirDocCerrados.IsOn);
-                cmd.Parameters.AddWithValue("@dtDesde", dtDesde.DateTime);
-                cmd.Parameters.AddWithValue("@dtHasta", dtHasta.DateTime);
+                //cmd.Parameters.AddWithValue("@DocCerrados", tggIncluirDocCerrados.IsOn);
+                //cmd.Parameters.AddWithValue("@dtDesde", dtDesde.DateTime);
+                //cmd.Parameters.AddWithValue("@dtHasta", dtHasta.DateTime);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsEntregaPedidos1.list_entregas.Clear();
                 adat.Fill(dsEntregaPedidos1.list_entregas);
@@ -109,7 +108,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
         private void cmdVerDetalle_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var gridview = (GridView)gridControl1.FocusedView;
+            var gridview = (GridView)grdAbiertas.FocusedView;
             var row = (dsEntregaPedidos.list_entregasRow)gridview.GetFocusedDataRow();
 
             if (row != null)
@@ -121,7 +120,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
         private void cmdCargar_Click(object sender, EventArgs e)
         {
-            LoadData(IdBodega, PDVId);
+            LoadDataEntregadasCerradas(IdBodega, PDVId);
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -137,13 +136,13 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                gridControl1.ExportToXlsx(dialog.FileName);
+                grdCerradas.ExportToXlsx(dialog.FileName);
             }
         }
 
         private void cmdConcluirEntrega_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var gridview = (GridView)gridControl1.FocusedView;
+            var gridview = (GridView)grdAbiertas.FocusedView;
             var row = (dsEntregaPedidos.list_entregasRow)gridview.GetFocusedDataRow();
 
             bool Permitir = false;
@@ -192,16 +191,14 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                         LoadData(IdBodega, PDVId);
                     }
 
-                }    
+                }
             }
         }
 
         private void cmdImprimir_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var gridview = (GridView)gridControl1.FocusedView;
+            var gridview = (GridView)grdAbiertas.FocusedView;
             var row = (dsEntregaPedidos.list_entregasRow)gridview.GetFocusedDataRow();
-
-
 
             xrptEntrega rpt = new xrptEntrega(row.id, IdBodega, UsuarioLogeado);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
@@ -209,11 +206,204 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             {
                 printTool.Print();
             }
-            else {
+            else
+            {
                 CajaDialogo.Error("No se a entregado ningun item");
                 return;
             }
-                
+
+        }
+
+        private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            if (e.Page == TabAbiertas)
+            {
+                LoadData(IdBodega, PDVId);
+            }
+
+            if (e.Page == TabParcial)
+            {
+                LoadDataParcialmenteEntregado(IdBodega, PDVId);
+            }
+
+            if (e.Page == TabCerrado)
+            {
+                LoadDataEntregadasCerradas(IdBodega, PDVId);
+            }
+        }
+
+        private void LoadDataParcialmenteEntregado(int idBodega, int PuntoVentaId)
+        {
+            try
+            {
+                dp = new DataOperations();
+                string query = @"[sp_get_pedidos_h_list_parcial]";
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_bodega", idBodega);
+                cmd.Parameters.AddWithValue("@idPuntoVenta", PuntoVentaId);
+                //cmd.Parameters.AddWithValue("@DocCerrados", tggIncluirDocCerrados.IsOn);
+                //cmd.Parameters.AddWithValue("@dtDesde", dtDesde.DateTime);
+                //cmd.Parameters.AddWithValue("@dtHasta", dtHasta.DateTime);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsEntregaPedidos1.list_entregas_parcial.Clear();
+                adat.Fill(dsEntregaPedidos1.list_entregas_parcial);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void LoadDataEntregadasCerradas(int idBodega, int PuntoVentaId)
+        {
+            try
+            {
+                dp = new DataOperations();
+                string query = @"[sp_get_pedidos_h_list_cerradas]";
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_bodega", idBodega);
+                cmd.Parameters.AddWithValue("@idPuntoVenta", PuntoVentaId);
+                //cmd.Parameters.AddWithValue("@DocCerrados", tggIncluirDocCerrados.IsOn);
+                cmd.Parameters.AddWithValue("@dtDesde", dtDesde.DateTime);
+                cmd.Parameters.AddWithValue("@dtHasta", dtHasta.DateTime);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsEntregaPedidos1.list_entregas_cerradas.Clear();
+                adat.Fill(dsEntregaPedidos1.list_entregas_cerradas);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdParciales.FocusedView;
+            var row = (dsEntregaPedidos.list_entregas_parcialRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                fmrEntregaVerDetalle frm = new fmrEntregaVerDetalle(row.id, UsuarioLogeado, IdBodega);
+                frm.ShowDialog();
+            }
+        }
+
+        private void repositoryItemButtonEdit3_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdParciales.FocusedView;
+            var row = (dsEntregaPedidos.list_entregas_parcialRow)gridview.GetFocusedDataRow();
+
+            xrptEntrega rpt = new xrptEntrega(row.id, IdBodega, UsuarioLogeado);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            if (rpt.Conteo > 0)
+            {
+                printTool.Print();
+            }
+            else
+            {
+                CajaDialogo.Error("No se a entregado ningun item");
+                return;
+            }
+        }
+
+        private void repositoryItemButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdParciales.FocusedView;
+            var row = (dsEntregaPedidos.list_entregas_parcialRow)gridview.GetFocusedDataRow();
+
+            bool Permitir = false;
+            if (row != null)
+            {
+                switch (row.id_estado)
+                {
+                    case 1://Confirmado
+                        CajaDialogo.Error("Este pedido no se a facturado, no se puede concluir la entrega!");
+                        break;
+
+                    case 2://Facturado
+                        Permitir = true;
+                        //CajaDialogo.Error("Este pedido ya fue Facturado, no se puede concluir la entrega!");
+                        break;
+
+                    case 3://Entregado
+                        CajaDialogo.Error("Este pedido ya fue Entregado, no se puede concluir la entrega!");
+                        break;
+
+                    case 4://Cancelado
+                        CajaDialogo.Error("Este pedido fue Cancelado, no se puede concluir la entrega!");
+                        break;
+
+                    case 5://Anulado
+                        CajaDialogo.Error("Este pedido fue Anulado, no se puede concluir la entrega!");
+                        break;
+
+                    case 6://Nuevo
+                        CajaDialogo.Error("Este pedido esta en estado: Nuevo, no se puede concluir la entrega!");
+                        break;
+
+                    case 7:
+                        Permitir = true;
+
+                        break;
+                    default:
+                        break;
+                }
+
+                if (Permitir)
+                {
+                    frmEntregaGestion frm = new frmEntregaGestion(UsuarioLogeado, row.id, IdBodega);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadDataParcialmenteEntregado(IdBodega, PDVId);
+                    }
+
+                }
+            }
+
+        }
+
+        private void repositoryItemButtonEdit5_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdCerradas.FocusedView;
+            var row = (dsEntregaPedidos.list_entregas_cerradasRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                fmrEntregaVerDetalle frm = new fmrEntregaVerDetalle(row.id, UsuarioLogeado, IdBodega);
+                frm.ShowDialog();
+            }
+        }
+
+        private void repositoryItemButtonEdit7_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdCerradas.FocusedView;
+            var row = (dsEntregaPedidos.list_entregas_cerradasRow)gridview.GetFocusedDataRow();
+
+            xrptEntrega rpt = new xrptEntrega(row.id, IdBodega, UsuarioLogeado);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            if (rpt.Conteo > 0)
+            {
+                printTool.Print();
+            }
+            else
+            {
+                CajaDialogo.Error("No se a entregado ningun item");
+                return;
+            }
+
+        }
+
+        private void repositoryItemButtonEdit6_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
         }
     }
 }

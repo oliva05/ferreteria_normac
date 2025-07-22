@@ -164,12 +164,12 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
                             conn.Close();
 
-                            CajaDialogo.Information("Entregado con Exito!");
+                            //CajaDialogo.Information("Entregado con Exito!");
                             //LoadDataDetalle();
 
                             xrptEntrega rpt = new xrptEntrega(IdH, IdBodega, UsuarioLogeado, DetalleEntregado);
                             ReportPrintTool printTool = new ReportPrintTool(rpt);
-                            printTool.ShowPreviewDialog();
+                            printTool.Print();
 
                             this.DialogResult = DialogResult.OK;
                             this.Close();
@@ -292,6 +292,32 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                             break;
                     default:
                         break;
+                }
+            }
+        }
+
+        private void chkEntregarTodo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkEntregarTodo.Checked)
+            {
+                foreach (dsEntregaPedidos.detalle_entrega_gestionRow fila in dsEntregaPedidos1.detalle_entrega_gestion)
+                {
+                    if (fila.cant_pendiente > 0)
+                    {
+                        fila.entregar_todo = true;
+                        fila.cant_a_entregar = fila.cant_pendiente;
+                    }
+                }
+            }
+            else 
+            {
+                foreach (dsEntregaPedidos.detalle_entrega_gestionRow fila in dsEntregaPedidos1.detalle_entrega_gestion)
+                {
+                    if (fila.cant_pendiente > 0)
+                    {
+                        fila.entregar_todo = false;
+                        fila.cant_a_entregar = 0;
+                    }
                 }
             }
         }

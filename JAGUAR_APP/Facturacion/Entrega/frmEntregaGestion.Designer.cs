@@ -71,6 +71,7 @@
             this.txtCodigBarra = new DevExpress.XtraEditors.TextEdit();
             this.txtNumFactura = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.chkEntregarTodo = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsEntregaPedidos1)).BeginInit();
@@ -81,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigBarra.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumFactura.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEntregarTodo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView1
@@ -510,6 +512,20 @@
             this.labelControl6.TabIndex = 79;
             this.labelControl6.Text = "Num Factura_______:";
             // 
+            // chkEntregarTodo
+            // 
+            this.chkEntregarTodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkEntregarTodo.Location = new System.Drawing.Point(1305, 125);
+            this.chkEntregarTodo.Name = "chkEntregarTodo";
+            this.chkEntregarTodo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.chkEntregarTodo.Properties.Appearance.Options.UseFont = true;
+            this.chkEntregarTodo.Properties.Caption = "Entregar Todo";
+            this.chkEntregarTodo.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.chkEntregarTodo.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.chkEntregarTodo.Size = new System.Drawing.Size(214, 25);
+            this.chkEntregarTodo.TabIndex = 81;
+            this.chkEntregarTodo.CheckedChanged += new System.EventHandler(this.chkEntregarTodo_CheckedChanged);
+            // 
             // frmEntregaGestion
             // 
             this.Appearance.BackColor = System.Drawing.Color.FloralWhite;
@@ -517,6 +533,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1521, 788);
+            this.Controls.Add(this.chkEntregarTodo);
             this.Controls.Add(this.txtNumFactura);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.txtCodigBarra);
@@ -547,6 +564,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigBarra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumFactura.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEntregarTodo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -596,5 +614,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcant_pendiente;
         private DevExpress.XtraGrid.Columns.GridColumn colentregar_todo;
         private DevExpress.XtraGrid.Columns.GridColumn colcant_a_entregar;
+        private DevExpress.XtraEditors.CheckEdit chkEntregarTodo;
     }
 }
