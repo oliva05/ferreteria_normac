@@ -37,7 +37,8 @@ namespace LOSA.Calidad.LoteConfConsumo
             Clientes = 8,
             PuntosDeVenta = 9,
             Proveedor = 11,
-            ProductoTerminadoVentaUnica = 12
+            ProductoTerminadoVentaUnica = 12,
+            PTParaCrearUsados = 13
         }
 
         public enum TipoFacturacion
@@ -86,6 +87,9 @@ namespace LOSA.Calidad.LoteConfConsumo
                     LoadData();
                     break;
                 case TipoBusqueda.ProductoTerminadoVentaUnica:
+                    LoadData();
+                    break;
+                case TipoBusqueda.PTParaCrearUsados:
                     LoadData();
                     break;
                 default:

@@ -31,7 +31,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void btnSelecItemCode_Click(object sender, EventArgs e)
         {
-            frmSearchDefault frm = new frmSearchDefault(frmSearchDefault.TipoBusqueda.ProductoTerminadoVentaUnica);
+            frmSearchDefault frm = new frmSearchDefault(frmSearchDefault.TipoBusqueda.PTParaCrearUsados);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 txtCodigoPT.Text = frm.ItemSeleccionado.ItemCode;
