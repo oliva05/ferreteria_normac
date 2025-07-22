@@ -1600,12 +1600,6 @@
     <Compile Include="Facturacion\Reportes\frmArqueoCajaV2.Designer.cs">
       <DependentUpon>frmArqueoCajaV2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturacion\Reportes\frmArqueoCaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\Reportes\frmArqueoCaja.Designer.cs">
-      <DependentUpon>frmArqueoCaja.cs</DependentUpon>
-    </Compile>
     <Compile Include="Facturacion\Reportes\frmCierreDiaHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4364,9 +4358,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\frmArqueoCajaV2.resx">
       <DependentUpon>frmArqueoCajaV2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\Reportes\frmArqueoCaja.resx">
-      <DependentUpon>frmArqueoCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\frmCierreDiaHome.resx">
       <DependentUpon>frmCierreDiaHome.cs</DependentUpon>
