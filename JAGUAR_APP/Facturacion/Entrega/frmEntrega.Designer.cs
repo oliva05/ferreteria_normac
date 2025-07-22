@@ -256,6 +256,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.PreviewIndent = 0;
             this.gridView1.RowHeight = 0;
             this.gridView1.ViewCaptionHeight = 0;
@@ -839,6 +840,7 @@
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowAutoFilterRow = true;
             this.gridView2.OptionsView.ShowFooter = true;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.PreviewIndent = 0;
             this.gridView2.RowHeight = 0;
             this.gridView2.ViewCaptionHeight = 0;
