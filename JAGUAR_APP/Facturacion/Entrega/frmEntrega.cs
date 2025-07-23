@@ -71,6 +71,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             IdBodega = EquipoActual.id_bodega_entrega;
             PDVId = EquipoActual.id_punto_venta;
 
+            xtraTabControl1.SelectedTabPage = TabAbiertas;
             LoadData(IdBodega, PDVId);
 
         }

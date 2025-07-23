@@ -27,6 +27,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
         {
             InitializeComponent();
             UsuarioLogeado = pUser;
+            
         }
 
         private void btnSelecItemCode_Click(object sender, EventArgs e)
@@ -37,8 +38,10 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 txtCodigoPT.Text = frm.ItemSeleccionado.ItemCode;
                 txtItemName.Text = frm.ItemSeleccionado.ItemName;
                 txtDescripcion.Text = frm.ItemSeleccionado.ItemName;
-
+                txtDescripcion.Focus();
             }
+
+            
         }
 
         private void btnAddLote_Click(object sender, EventArgs e)
@@ -156,6 +159,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             txtCodigoPT.Text = txtItemName.Text = txtDescripcion.Text = string.Empty;
             txtCosto.EditValue = txtMargGanancia.EditValue  = txtPrecioVenta.EditValue = 0.00;
             spinUd.EditValue = 1;
+            btnSelecItemCode.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -325,6 +329,51 @@ namespace JAGUAR_PRO.LogisticaJaguar
             
 
 
+        }
+
+        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCosto.Focus();
+            }
+        }
+
+        private void txtCosto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtMargGanancia.Focus();
+            }
+        }
+
+        private void txtMargGanancia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                spinUd.Focus();
+            }
+        }
+
+        private void spinUd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPrecioVenta.Focus();
+            }
+        }
+
+        private void txtPrecioVenta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnAddLote.Focus();
+            }
+        }
+
+        private void frmAddRecepcionCompraVentaUnica_Shown(object sender, EventArgs e)
+        {
+            btnSelecItemCode.Focus();
         }
     }
 }

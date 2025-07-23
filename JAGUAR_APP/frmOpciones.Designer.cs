@@ -302,6 +302,7 @@
             this.navBarItem57 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem58 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemDepositoBancoCaja = new DevExpress.XtraNavBar.NavBarItem();
+            this.navFacturacionUsados = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup11 = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbKardexFacturacion = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarG_ReportesFacturacion = new DevExpress.XtraNavBar.NavBarGroup();
@@ -359,7 +360,6 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navFacturacionUsados = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -830,6 +830,7 @@
             this.navBarGroup19.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.navBarGroup19.Appearance.Options.UseFont = true;
             this.navBarGroup19.Caption = "Mantenimiento";
+            this.navBarGroup19.Expanded = true;
             this.navBarGroup19.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem208)});
             this.navBarGroup19.Name = "navBarGroup19";
@@ -4219,6 +4220,20 @@
             this.navBarItemDepositoBancoCaja.Visible = false;
             this.navBarItemDepositoBancoCaja.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDepositoBancoCaja_LinkClicked);
             // 
+            // navFacturacionUsados
+            // 
+            this.navFacturacionUsados.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navFacturacionUsados.Appearance.Options.UseFont = true;
+            this.navFacturacionUsados.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navFacturacionUsados.AppearanceHotTracked.Options.UseFont = true;
+            this.navFacturacionUsados.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navFacturacionUsados.AppearancePressed.Options.UseFont = true;
+            this.navFacturacionUsados.Caption = "Facturación Usados";
+            this.navFacturacionUsados.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navFacturacionUsados.ImageOptions.LargeImage")));
+            this.navFacturacionUsados.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navFacturacionUsados.ImageOptions.SmallImage")));
+            this.navFacturacionUsados.Name = "navFacturacionUsados";
+            this.navFacturacionUsados.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navFacturacionUsados_LinkClicked);
+            // 
             // navBarGroup11
             // 
             this.navBarGroup11.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
@@ -4976,20 +4991,6 @@
             this.navBarItem196.AppearancePressed.Options.UseFont = true;
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
-            // 
-            // navFacturacionUsados
-            // 
-            this.navFacturacionUsados.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navFacturacionUsados.Appearance.Options.UseFont = true;
-            this.navFacturacionUsados.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navFacturacionUsados.AppearanceHotTracked.Options.UseFont = true;
-            this.navFacturacionUsados.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navFacturacionUsados.AppearancePressed.Options.UseFont = true;
-            this.navFacturacionUsados.Caption = "Facturación Usados";
-            this.navFacturacionUsados.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem209.ImageOptions.LargeImage")));
-            this.navFacturacionUsados.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem209.ImageOptions.SmallImage")));
-            this.navFacturacionUsados.Name = "navFacturacionUsados";
-            this.navFacturacionUsados.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navFacturacionUsados_LinkClicked);
             // 
             // frmOpciones
             // 
