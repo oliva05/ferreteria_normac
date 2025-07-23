@@ -81,7 +81,7 @@
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable2});
-            this.Detail.HeightF = 20.8333F;
+            this.Detail.HeightF = 19.79167F;
             this.Detail.MultiColumn.Layout = DevExpress.XtraPrinting.ColumnLayout.AcrossThenDown;
             this.Detail.MultiColumn.Mode = DevExpress.XtraReports.UI.MultiColumnMode.UseColumnWidth;
             this.Detail.Name = "Detail";
@@ -456,6 +456,7 @@
             this.Margins = new DevExpress.Drawing.DXMargins(16F, 3F, 11.83F, 9.746615F);
             this.PageWidth = 290;
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
+            this.RollPaper = true;
             this.ShowPreviewMarginLines = false;
             this.ShowPrintMarginsWarning = false;
             this.Version = "23.2";
