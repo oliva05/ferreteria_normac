@@ -948,7 +948,7 @@
             this.gridControl3.Location = new System.Drawing.Point(3, 3);
             this.gridControl3.MainView = this.gridView2;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(876, 293);
+            this.gridControl3.Size = new System.Drawing.Size(953, 304);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1400,7 +1400,7 @@
             this.gridControl4.Location = new System.Drawing.Point(3, 3);
             this.gridControl4.MainView = this.gridView3;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(876, 296);
+            this.gridControl4.Size = new System.Drawing.Size(953, 307);
             this.gridControl4.TabIndex = 0;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
