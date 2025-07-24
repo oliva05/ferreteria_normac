@@ -88,7 +88,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                     lblFacturaNo.Text = fact.NumeroDocumento;
                     lblCliente.Text = pedidoCliente.ClienteNombre;
                     lblDireccion.Text = pedidoCliente.direccion_cliente;
-                    lblCodeVenedor.Text = pedidoCliente.CodigoVendedor;
+                    lblCodeVenedor.Text = pedidoCliente.VendedorNombre;
                     
                 }
                 
