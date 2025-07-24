@@ -1434,6 +1434,8 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             private global::System.Data.DataColumn columnisv_aplicable;
             
+            private global::System.Data.DataColumn columneliminar;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_recepcion_factDataTable() {
@@ -1605,6 +1607,14 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn eliminarColumn {
+                get {
+                    return this.columneliminar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1657,7 +1667,8 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         decimal costo_unitario, 
                         int type_id, 
                         decimal isv, 
-                        decimal isv_aplicable) {
+                        decimal isv_aplicable, 
+                        string eliminar) {
                 detalle_recepcion_factRow rowdetalle_recepcion_factRow = ((detalle_recepcion_factRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         cantidad,
@@ -1676,7 +1687,8 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         costo_unitario,
                         type_id,
                         isv,
-                        isv_aplicable};
+                        isv_aplicable,
+                        eliminar};
                 rowdetalle_recepcion_factRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_recepcion_factRow);
                 return rowdetalle_recepcion_factRow;
@@ -1716,6 +1728,7 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 this.columntype_id = base.Columns["type_id"];
                 this.columnisv = base.Columns["isv"];
                 this.columnisv_aplicable = base.Columns["isv_aplicable"];
+                this.columneliminar = base.Columns["eliminar"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1755,6 +1768,8 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 base.Columns.Add(this.columnisv);
                 this.columnisv_aplicable = new global::System.Data.DataColumn("isv_aplicable", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnisv_aplicable);
+                this.columneliminar = new global::System.Data.DataColumn("eliminar", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columneliminar);
                 this.columncantidad.Caption = "Cantidad Factura";
                 this.columnid_ud_medida_prv.Caption = "U. medida Factura";
                 this.columnid_ud_medida_prv.DefaultValue = ((int)(1));
@@ -7150,6 +7165,23 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string eliminar {
+                get {
+                    try {
+                        return ((string)(this[this.tabledetalle_recepcion_fact.eliminarColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'eliminar\' de la tabla \'detalle_recepcion_fact\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_recepcion_fact.eliminarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IscantidadNull() {
                 return this.IsNull(this.tabledetalle_recepcion_fact.cantidadColumn);
             }
@@ -7350,6 +7382,18 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setisv_aplicableNull() {
                 this[this.tabledetalle_recepcion_fact.isv_aplicableColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IseliminarNull() {
+                return this.IsNull(this.tabledetalle_recepcion_fact.eliminarColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SeteliminarNull() {
+                this[this.tabledetalle_recepcion_fact.eliminarColumn] = global::System.Convert.DBNull;
             }
         }
         

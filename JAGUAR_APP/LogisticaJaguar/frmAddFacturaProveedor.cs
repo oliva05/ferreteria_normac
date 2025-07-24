@@ -191,8 +191,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     }
                     cmdGuardar.Visible = false;
                     cmdAddFactura.Visible = false;
-                    gridView1.Columns["eliminar"].Visible = true;
-                    gridView1.OptionsMenu.EnableColumnMenu = true;
+                    gridView2.Columns["eliminar"].Visible = false;
+
+                    gridView2.OptionsMenu.EnableColumnMenu = true;
                     foreach (GridColumn column in gridView2.Columns)
                     {
                         column.OptionsColumn.ReadOnly = true;
