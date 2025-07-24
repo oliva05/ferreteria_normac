@@ -1,8 +1,10 @@
 ﻿using ACS.Classes;
+using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.Configuraciones;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.Facturacion.Deposito;
 using JAGUAR_PRO.Mantenimientos.Modelos;
@@ -26,6 +28,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
         DateTime fechaDesde;
         DateTime fechaHasta;
         DataOperations dp;
+        UserLogin UserCajero;
+
         public FacturacionCierreDiaPuntoVenta CierreDiaActual;
 
         public enum TipoTransaccion
@@ -46,9 +50,10 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             DateTime fechaActual = dp.NowSetDateTime();
             
             PuntoVentaActual = pPuntoVenta;
-
+            
+            LoadCajeros();
             txtPuntoVenta.Text = PuntoVentaActual.Nombre;
-            txtResponsable.Text = this.UsuarioLogeado.Nombre;
+            //txtCajero.Text = this.UsuarioLogeado.Nombre;
 
             switch (TipoTransaccionActual)
             {
@@ -56,6 +61,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                     lblCodigoCierre.Visible = txtCodigoCierre.Visible = false;
                     txtEstado.Text = "Borrador";
                     
+
                     dtHasta.EditValueChanged -= new EventHandler(dtHasta_EditValueChanged);
                     dtHasta.EditValue = fechaActual;
                     dtHasta.EditValueChanged += new EventHandler(dtHasta_EditValueChanged);
@@ -70,11 +76,16 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                     lblCodigoCierre.Visible = txtCodigoCierre.Visible = true;
                     if (CierreDiaActual.RecuperarRegistro(pIdCierreDia))
                     {
+                        UserCajero = new UserLogin();
+
                         txtCodigoCierre.Text = CierreDiaActual.codigo;
                         txtEstado.Text = CierreDiaActual.estado_descripcion;
                         fechaDesde = new DateTime(CierreDiaActual.fecha.Year, CierreDiaActual.fecha.Month, CierreDiaActual.fecha.Day, 0, 0, 0);
                         fechaHasta = CierreDiaActual.fecha;
-                        txtResponsable.Text = CierreDiaActual.usuario_responsable_nombre;
+                        //txtCajero.Text = CierreDiaActual.usuario_responsable_nombre;
+                        gleCajero.EditValue = CierreDiaActual.id_user_responsable;
+                        
+
                         dtHasta.EditValueChanged -= new EventHandler(dtHasta_EditValueChanged);
                         dtHasta.EditValue = fechaHasta;
                         dtHasta.EditValueChanged += new EventHandler(dtHasta_EditValueChanged);
@@ -88,6 +99,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                     break;
                     default: break;
             }
+
+            if (CierreDiaActual.id_estado == 2)//Confirmado
+                gleCajero.Properties.ReadOnly = true;
 
             if (PermitirAutorizarCierre)
             {
@@ -104,13 +118,36 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             {
                 cmdAutorizarCierre.Visible = false;
             }
-
             LoadDatosResumen(CierreDiaActual.id);
             LoadDetalleFacturas();
             LoadDetalleFacturasAnuladas();
             LoadRecibos(fechaDesde, fechaHasta);
             LoadFacturasCredito(fechaDesde, fechaHasta);
             LoadDepositosDeCaja(fechaDesde, fechaHasta);
+        }
+
+        private void LoadCajeros()
+        {
+            string query = @"sp_get_lista_cajeros_activos";
+            try
+            {
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@desde", pDesde);
+                //cmd.Parameters.AddWithValue("@hasta", pHasta);
+                //cmd.Parameters.AddWithValue("@puntoVentaId", this.PuntoVentaActual.ID);
+                //cmd.Parameters.AddWithValue("@completado", 1);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                dsContabilidad1.cajeros.Clear();
+                da.Fill(dsContabilidad1.cajeros);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
         }
 
         private void LoadDepositosDeCaja(DateTime pDesde, DateTime pHasta)
@@ -149,7 +186,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
 
                 if (pIdCierreH == 0)
                 {
-                    cmd = new SqlCommand("dbo.sp_get_datos_resumen_cierre_caja", con);
+                    //cmd = new SqlCommand("dbo.[sp_get_datos_resumen_cierre_caja]", con);
+                    cmd = new SqlCommand("dbo.[sp_get_datos_resumen_cierre_caja_v2]", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@fechadesde", fechaDesde);
                     cmd.Parameters.AddWithValue("@fechahasta", fechaHasta);
@@ -157,7 +195,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 }
                 else
                 {
-                    cmd = new SqlCommand("[dbo].[sp_get_datos_resumen_cierre_caja_by_id_v2]", con);
+                    //cmd = new SqlCommand("[dbo].[sp_get_datos_resumen_cierre_caja_by_id_v2]", con);
+                    cmd = new SqlCommand("[dbo].[sp_get_datos_resumen_cierre_caja_by_id_v3]", con);
+                    
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@idCierreH", pIdCierreH);
                     //cmd.Parameters.AddWithValue("@fechahasta", fechaHasta);
@@ -168,35 +208,55 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 dsContabilidad1.resumen_cobros.Clear();
                 adat.Fill(dsContabilidad1.resumen_cobros);
 
+                
 
-                decimal valor = 0;
-                //var row = (dsContabilidad.resumen_cobrosRow)gridView1.GetFocusedDataRow();
+                //decimal valor = 0;
 
-                foreach (dsContabilidad.resumen_cobrosRow rowi in dsContabilidad1.resumen_cobros)
-                {
-                    try
-                    {
-                        if (rowi.id_tipo_pago < 5)//SI no es la linea del total
-                        {
-                            valor += rowi.valor_contado;
-                            rowi.diferencia = rowi.valor_contado - rowi.total;
-                        }
-                        else
-                        {
-                            rowi.valor_contado = valor;//LInea del total
-                            rowi.diferencia = rowi.valor_contado - rowi.total;
-                        }
+                //foreach (dsContabilidad.resumen_cobrosRow rowi in dsContabilidad1.resumen_cobros)
+                //{
+                //    try
+                //    {
+                //        if (rowi.id_tipo_pago < 5)//SI no es la linea del total
+                //        {
+                //            valor += rowi.valor_contado;
+                //            rowi.diferencia = rowi.valor_contado - rowi.total;
+                //        }
+                //        else
+                //        {
+                //            rowi.valor_contado = valor;//LInea del total
+                //            rowi.diferencia = rowi.valor_contado - rowi.total;
+                //        }
 
-                    }
-                    catch { }
-                }
+                //    }
+                //    catch { }
+                //}
 
 
                 con.Close();
+                CalcularDiferenciaTotal();
             }
             catch (Exception ec)
             {
                 CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        void CalcularDiferenciaTotal()
+        {
+            decimal total_dif = 0;
+            foreach (dsContabilidad.resumen_cobrosRow row in dsContabilidad1.resumen_cobros)
+            {
+                if (row.id_tipo_pago != 5)
+                    total_dif += row.diferencia;
+            }
+
+            foreach (dsContabilidad.resumen_cobrosRow row in dsContabilidad1.resumen_cobros)
+            {
+                if (row.id_tipo_pago == 5)
+                {
+                    row.diferencia = total_dif;
+                    break;
+                }
             }
         }
 
@@ -358,6 +418,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 return;
             }
 
+            if (string.IsNullOrEmpty(gleCajero.Text))
+            {
+                CajaDialogo.Error("Es necesario seleccionar el cajero!");
+                return;
+            }
+
             Int64 IdInserted = 0;
             dp = new DataOperations();
             using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
@@ -385,7 +451,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                         // Parámetros de entrada
                         command.Parameters.AddWithValue("@id_punto_venta", this.PuntoVentaActual.ID);
                         command.Parameters.AddWithValue("@fecha", fechaHasta);
-                        command.Parameters.AddWithValue("@id_user_responsable", this.UsuarioLogeado.Id);
+                        command.Parameters.AddWithValue("@id_user_responsable", gleCajero.EditValue);
 
                         //// Parámetro de salida
                         //SqlParameter outputParameter = new SqlParameter("@value", SqlDbType.Int);
@@ -475,6 +541,15 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                     {
                         if (CierreDiaActual.id > 0)
                         {
+                            //Actualizamos el cajero en el header
+                            command.CommandText = "[dbo].[sp_set_cambio_cajero_cierre_caja]";
+                            command.CommandType = CommandType.StoredProcedure;
+                            command.Parameters.Clear();
+                            command.Parameters.AddWithValue("@id_cierre_caja", this.CierreDiaActual.id);
+                            command.Parameters.AddWithValue("@id_user_responsable", gleCajero.EditValue);
+                            command.ExecuteNonQuery();
+
+
                             foreach (dsContabilidad.resumen_cobrosRow row in dsContabilidad1.resumen_cobros)
                             {
                                 if (row.id_tipo_pago != 4)
@@ -585,20 +660,58 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             {
                 try
                 {
-                    if (rowi.id_tipo_pago < 5)//SI no es la linea del total
+                    //if (rowi.id_tipo_pago < 5)//SI no es la linea del total
+                    //{
+                    //    valor += rowi.valor_contado;
+                    //    rowi.diferencia = rowi.valor_contado - rowi.total;
+                    //}
+                    //else
+                    //{
+                    //    rowi.valor_contado = valor;//LInea del total
+                    //    rowi.diferencia = rowi.valor_contado - rowi.total;
+                    //}
+                    if(rowi.id_tipo_pago == 1)
                     {
-                        valor += rowi.valor_contado;
-                        rowi.diferencia = rowi.valor_contado - rowi.total;
+                        if ((rowi.total_deposito_caja + rowi.valor_contado) > rowi.total) 
+                        {
+                            rowi.diferencia = (rowi.total_deposito_caja + rowi.valor_contado) - rowi.total;
+                            rowi.tipo_diferencia = "Sobrante";
+                        }
+                        if ((rowi.total_deposito_caja + rowi.valor_contado) == rowi.total)
+                        {
+                            rowi.diferencia = 0;
+                            rowi.tipo_diferencia = "Cuadrado";
+                        }
+                        if ((rowi.total_deposito_caja + rowi.valor_contado) < rowi.total)
+                        {
+                            rowi.diferencia = (rowi.total - (rowi.total_deposito_caja + rowi.valor_contado));
+                            rowi.tipo_diferencia = "Faltante";
+                        }
                     }
-                    else
+
+                    if (rowi.id_tipo_pago == 2 || rowi.id_tipo_pago == 3 || rowi.id_tipo_pago == 4)
                     {
-                        rowi.valor_contado = valor;//LInea del total
-                        rowi.diferencia = rowi.valor_contado - rowi.total;
+                        if (rowi.valor_contado > rowi.total)
+                        {
+                            rowi.diferencia = rowi.valor_contado - rowi.total;
+                            rowi.tipo_diferencia = "Sobrante";
+                        }
+                        if (rowi.valor_contado == rowi.total)
+                        {
+                            rowi.diferencia = 0;
+                            rowi.tipo_diferencia = "Cuadrado";
+                        }
+                        if (rowi.valor_contado < rowi.total)
+                        {
+                            rowi.diferencia = rowi.total - rowi.valor_contado;
+                            rowi.tipo_diferencia = "Faltante";
+                        }
                     }
+                    
 
                 }catch { }
             }
-
+            CalcularDiferenciaTotal();
         }
 
         private void cmdImprimir_Click(object sender, EventArgs e)
@@ -618,6 +731,59 @@ namespace JAGUAR_PRO.Facturacion.Reportes
         {
             //Imprimir nuevo formato de las factura anulada
 
+        }
+
+        private void gleCajero_EditValueChanged(object sender, EventArgs e)
+        {
+            if(TipoTransaccionActual == TipoTransaccion.Insert)
+            {
+                UserCajero = new UserLogin();
+                if (UserCajero.RecuperarRegistro(dp.ValidateNumberInt32(gleCajero.EditValue))) 
+                {
+
+                }
+            }
+        }
+
+        private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            //var gv = (GridView)gridControl1.FocusedView;
+            //var row = (dsContabilidad.resumen_cobrosRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            if (e.KeyCode == Keys.Enter) 
+            {
+                if (gridView1.FocusedColumn.FieldName == "valor_contado")
+                {
+                    GridView view = sender as GridView;
+                    e.Handled = true;
+
+                    // Obtener la celda actual
+                    int rowHandle = view.FocusedRowHandle;
+                    int colIndex = view.FocusedColumn.VisibleIndex;
+
+                    // Si hay otra celda hacia abajo en la misma columna
+                    if (view.IsValidRowHandle(rowHandle + 1))
+                    {
+                        view.FocusedRowHandle = rowHandle + 1;
+                        view.FocusedColumn = view.VisibleColumns[colIndex];
+                    }
+                    else
+                    {
+                        // Opcional: agregar nueva fila si estás en modo edición
+                        // view.AddNewRow();
+                    }
+                }
+            }
+            
+
+            //if (dsVentas1.detalle_factura_transaction.Count > 0)
+            //    gridView1.FocusedRowHandle = dsVentas1.detalle_factura_transaction.Count - 1;
+            //else
+            //    gridView1.FocusedRowHandle = 0;
+
+
+            //gridView1.FocusedColumn = colcantidad;
+            //gridView1.ShowEditor();
         }
     }
 }
