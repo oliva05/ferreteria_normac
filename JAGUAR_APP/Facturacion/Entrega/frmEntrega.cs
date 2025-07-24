@@ -28,6 +28,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
         DataOperations dp;
         int IdBodega;
         int PDVId;
+        PDV puntoVenta1;
         public frmEntrega(UserLogin pUserLogin, PDV puntoVenta)
         {
             InitializeComponent();
@@ -37,7 +38,8 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             //Generar factura
             string HostName = Dns.GetHostName();
             FacturacionEquipo EquipoActual = new FacturacionEquipo();
-            PDV puntoVenta1 = new PDV();
+
+            puntoVenta1 = puntoVenta;
 
             if (EquipoActual.RecuperarRegistro(HostName))
             {
@@ -186,7 +188,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
                 if (Permitir)
                 {
-                    frmEntregaGestion frm = new frmEntregaGestion(UsuarioLogeado, row.id, IdBodega);
+                    frmEntregaGestion frm = new frmEntregaGestion(UsuarioLogeado, row.id, IdBodega, puntoVenta1);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         LoadData(IdBodega, PDVId);
@@ -201,7 +203,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             var gridview = (GridView)grdAbiertas.FocusedView;
             var row = (dsEntregaPedidos.list_entregasRow)gridview.GetFocusedDataRow();
 
-            xrptEntrega rpt = new xrptEntrega(row.id, IdBodega, UsuarioLogeado);
+            xrptEntrega rpt = new xrptEntrega(row.id, IdBodega, UsuarioLogeado, puntoVenta1);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             if (rpt.Conteo > 0)
             {
@@ -302,7 +304,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             var gridview = (GridView)grdParciales.FocusedView;
             var row = (dsEntregaPedidos.list_entregas_parcialRow)gridview.GetFocusedDataRow();
 
-            xrptEntrega rpt = new xrptEntrega(row.id, IdBodega, UsuarioLogeado);
+            xrptEntrega rpt = new xrptEntrega(row.id, IdBodega, UsuarioLogeado, puntoVenta1);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             if (rpt.Conteo > 0)
             {
@@ -360,7 +362,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
                 if (Permitir)
                 {
-                    frmEntregaGestion frm = new frmEntregaGestion(UsuarioLogeado, row.id, IdBodega);
+                    frmEntregaGestion frm = new frmEntregaGestion(UsuarioLogeado, row.id, IdBodega, puntoVenta1);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         LoadDataParcialmenteEntregado(IdBodega, PDVId);
@@ -388,11 +390,12 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             var gridview = (GridView)grdCerradas.FocusedView;
             var row = (dsEntregaPedidos.list_entregas_cerradasRow)gridview.GetFocusedDataRow();
 
-            xrptEntrega rpt = new xrptEntrega(row.id, IdBodega, UsuarioLogeado);
+            xrptEntrega rpt = new xrptEntrega(row.id, IdBodega, UsuarioLogeado, puntoVenta1);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             if (rpt.Conteo > 0)
             {
-                printTool.Print();
+                //printTool.Print();
+                printTool.ShowPreviewDialog();
             }
             else
             {

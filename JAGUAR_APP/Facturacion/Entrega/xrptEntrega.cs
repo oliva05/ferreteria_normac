@@ -18,12 +18,13 @@ namespace JAGUAR_PRO.Facturacion.Entrega
         UserLogin UsuarioLogeado;
         public int Conteo;
         int IdBodega;
-        public xrptEntrega(int idPedido, int idBodega, UserLogin userLogin)
+        PDV PuntoVentaActual;
+        public xrptEntrega(int idPedido, int idBodega, UserLogin userLogin,PDV PuntoVenta)
         {
             InitializeComponent();
             IdBodega = idBodega;
             
-
+            PuntoVentaActual = PuntoVenta;
             
             Bodega bodega = new Bodega();
             if (bodega.RecuperarRegistro(idBodega))
@@ -39,8 +40,6 @@ namespace JAGUAR_PRO.Facturacion.Entrega
         {
             InitializeComponent();
             IdBodega = idBodega;
-
-
 
             Bodega bodega = new Bodega();
             if (bodega.RecuperarRegistro(idBodega))
@@ -63,7 +62,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 dr[6] = item["bodega"];
                 dr[7] = item["id_bodega"]; 
                 dr[8] = item["code"];
-                dr[9] = item["code_referencia"];
+                dr[9] = "COD:"+item["code_referencia"];
                 dr[10] = item["descripcion"];
                 dsEntregaPedidos1.detalle_entrega.Rows.Add(dr);
                 dsEntregaPedidos1.detalle_entrega.AcceptChanges();
@@ -79,6 +78,9 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 PedidoCliente pedidoCliente = new PedidoCliente();
                 if (pedidoCliente.RecuperarRegistro(idPedido))
                 {
+                    lblNombreLegal.Text = PuntoVentaActual.NombreLegal;
+                    lblRtn.Text = "R.T.N " + PuntoVentaActual.RTN;
+
                     lblNumTraslado.Text = pedidoCliente.NumeroDocumento;
                     lblFecha.Text = string.Format("{0:g}", dp.Now());
                     Factura fact = new Factura();
@@ -86,8 +88,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                     lblFacturaNo.Text = fact.NumeroDocumento;
                     lblCliente.Text = pedidoCliente.ClienteNombre;
                     lblDireccion.Text = pedidoCliente.direccion_cliente;
-
-
+                    lblCodeVenedor.Text = pedidoCliente.CodigoVendedor;
                     
                 }
                 
