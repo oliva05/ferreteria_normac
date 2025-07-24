@@ -51,7 +51,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         FTP_Class ftp = new FTP_Class();
         decimal CostoPorArroba;
         int IdPT;
-
+        public Clases.ProductoTerminado PT_Actualizado;
         public decimal PrecioVenta;
         public decimal CostoActual;
         public decimal PorcentajeDescuento;
@@ -79,6 +79,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             LoadConfiguracionAlmacenes(pId_PT);
             LoadMarcas();
             LoadFamilia();
+            LoadTipoProducto();
 
             TipoOperacionActual = pTipoOperacion;
             PT_Class_instance = new Clases.ProductoTerminado();
@@ -91,7 +92,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     toggleSwitchEnablePT.IsOn = true;
                     toggleSwitchEnablePT.Enabled = false;
                     gridLookUpEdit_Presentaciones.EditValue = 1;
-
+                    toggleEntegaBodega.IsOn = false;
                     TabConfigVentas.PageVisible = false;
 
 
@@ -230,6 +231,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         //gridLookUpEditTipoFacturacionDestino.TextChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_TextChanged);
                         //gridLookUpEditTipoFacturacionDestino.Text = PT_Class_instance.TipoFacturacion_prd_name;
                         //gridLookUpEditTipoFacturacionDestino.TextChanged += new EventHandler(gridLookUpEditTipoFacturacionDestino_TextChanged);
+
+                        grdTipoProducto.EditValue = PT_Class_instance.TipoProducto;
+                        toggleEntegaBodega.IsOn = PT_Class_instance.EntregaBodega;
                     }
                     break;
                 default:
@@ -237,6 +241,25 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     break;
             }
             
+        }
+
+        private void LoadTipoProducto()
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("sp_get_tipo_producto", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                dsProductoTerminado1.tipo_producto.Clear();
+                adapter.Fill(dsProductoTerminado1.tipo_producto);
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
         }
 
         private void CargarDatosDeCostos(int pIdPt, int pIdPuntoVenta)
@@ -782,9 +805,19 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             //    return;
             //}
 
+            if (string.IsNullOrEmpty(grdTipoProducto.Text))
+            {
+                CajaDialogo.Error("Es necesario indicar el Tipo de Producto!");
+                return;
+            }
+
             DialogResult r = CajaDialogo.Pregunta("Desea guardar los cambios?");
             if (r != DialogResult.Yes)
                 return;
+
+
+           
+
 
 
             try
@@ -797,11 +830,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 switch (TipoOperacionActual)
                 {
                     case TipoOperacion.Insert:
-                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v8]";
+                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v9]";
 
                         break;
                     case TipoOperacion.Update:
-                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v8]";
+                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v9]";
                         cmd.Parameters.AddWithValue("@id", PT_Class_instance.Id);
                         break;
                 }
@@ -868,6 +901,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@bitMinimoMaximo",tsGestionMaximosMinimos.IsOn);
                 cmd.Parameters.AddWithValue("@invMinimo", spinMinimo.EditValue);
                 cmd.Parameters.AddWithValue("@invMaximo", spinMaximo.EditValue);
+                cmd.Parameters.AddWithValue("@tipo_producto", grdTipoProducto.EditValue);
+                cmd.Parameters.AddWithValue("@entrega_bodega", toggleEntegaBodega.IsOn);
+
                 if (TipoOperacionActual == TipoOperacion.Insert)
                 {
                     IdPT = dp.ValidateNumberInt32(cmd.ExecuteScalar());  
@@ -922,8 +958,24 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         }
                     }
                 }
-                        
 
+                PT_Actualizado = new Clases.ProductoTerminado();
+                PT_Actualizado.Id = IdPT;
+                PT_Actualizado.Enable = toggleSwitchEnablePT.IsOn;
+                PT_Actualizado.Id_user_created = UsuarioLogeado.Id;
+                PT_Actualizado.Usuario_nombre = UsuarioLogeado.Nombre;
+                PT_Actualizado.Id_presentacion = Convert.ToInt32(gridLookUpEdit_Presentaciones.EditValue);
+                PT_Actualizado.Presentacion_name = gridLookUpEdit_Presentaciones.Text;
+                PT_Actualizado.Descripcion = txtDescripcionProducto.Text;
+                PT_Actualizado.Code = txtCodigoPT.Text;
+                PT_Actualizado.Fecha = dp.Now();
+                PT_Actualizado.Codig_Referencia = txtCodigoReferencia.Text;
+                PT_Actualizado.Code_interno = txtCodigoInterno.Text;
+                PT_Actualizado.TipoFacturacion_prd_name = gridTipoInventario.Text;
+                PT_Actualizado.TipoInventario = Convert.ToInt32(gridTipoInventario.EditValue);
+                PT_Actualizado.CodeOEM = txtOEM.Text;
+                PT_Actualizado.TipoProducto = Convert.ToInt32(grdTipoProducto.EditValue);
+                PT_Actualizado.TipoProductoName = grdTipoProducto.Text;
 
                 switch (TipoOperacionActual)
                 {

@@ -62,6 +62,10 @@ namespace JAGUAR_PRO.Clases
         private bool boolMaximoMinimio;
         private decimal invMinimo;
         private decimal invMaximo;
+        private bool entregaBodega;
+        private int tipoProducto;
+        private string tipoProdutoName;
+
 
         public decimal MaximoDescuentoPorcentajeAllClientes { get; set; }
         public int Id { get => id; set => id = value; }
@@ -127,6 +131,10 @@ namespace JAGUAR_PRO.Clases
         public bool BoolMaximoMinimio { get => boolMaximoMinimio; set => boolMaximoMinimio = value; }
         public decimal InvMinimo { get => invMinimo; set => invMinimo = value; }
         public decimal InvMaximo { get => invMaximo; set => invMaximo = value; }
+        public bool EntregaBodega { get => entregaBodega; set => entregaBodega = value; }
+        public int TipoProducto { get => tipoProducto; set => tipoProducto = value; }
+
+        public string TipoProductoName { get => tipoProdutoName; set => tipoProdutoName = value; }
 
         public ProductoTerminado(string pConnectionString, DateTime fecha = default)
         {
@@ -251,7 +259,7 @@ namespace JAGUAR_PRO.Clases
         {
             try
             {//Recupera las caracteristicas 
-                string sql = @"[dbo].[sp_get_datos_maestros_pt_v7_by_id]";
+                string sql = @"[dbo].[sp_get_datos_maestros_pt_v8_by_id]";
                 DataOperations dp = new DataOperations();
                
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -347,6 +355,8 @@ namespace JAGUAR_PRO.Clases
                     boolMaximoMinimio = dl.GetBoolean(35);
                     invMinimo = dl.GetDecimal(36);
                     invMaximo = dl.GetDecimal(37);
+                    TipoProducto = dl.GetInt32(dl.GetOrdinal("tipoProducto"));
+                    EntregaBodega = dl.GetBoolean(dl.GetOrdinal("entregaBodega"));
 
                     Recuperado = true;
                     //Recuperar_Latas_and_bolsas(IdProd);
