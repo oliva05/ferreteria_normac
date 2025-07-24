@@ -36,11 +36,11 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             GetDetalle(idPedido);
         }
 
-        public xrptEntrega(int idPedido, int idBodega, UserLogin userLogin, DataTable pDetalle)
+        public xrptEntrega(int idPedido, int idBodega, UserLogin userLogin, DataTable pDetalle , PDV PuntoVenta)
         {
             InitializeComponent();
             IdBodega = idBodega;
-
+            PuntoVentaActual = PuntoVenta;
             Bodega bodega = new Bodega();
             if (bodega.RecuperarRegistro(idBodega))
                 lblAlmOrigen.Text = bodega.DescripcionCorta;

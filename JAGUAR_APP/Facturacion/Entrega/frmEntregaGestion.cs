@@ -168,7 +168,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                             //CajaDialogo.Information("Entregado con Exito!");
                             //LoadDataDetalle();
 
-                            xrptEntrega rpt = new xrptEntrega(IdH, IdBodega, UsuarioLogeado, DetalleEntregado);
+                            xrptEntrega rpt = new xrptEntrega(IdH, IdBodega, UsuarioLogeado, DetalleEntregado , PuntoVentaActual);
                             ReportPrintTool printTool = new ReportPrintTool(rpt);
                             printTool.Print();
 
