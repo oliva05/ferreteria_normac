@@ -172,7 +172,21 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     frmCRUD_ProductoTerminadoV2 frm = new frmCRUD_ProductoTerminadoV2(this.UsuarioLogeado, frmCRUD_ProductoTerminadoV2.TipoOperacion.Update, row.id, puntoVenta1);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
-                        LoadDataDetallePT();
+                        frm.PT_Actualizado.Id = row.id;
+                        frm.PT_Actualizado.Code = row.code;
+                        frm.PT_Actualizado.CodeOEM = row.codeOEM;
+                        frm.PT_Actualizado.Enable = row.enable; 
+                        frm.PT_Actualizado.Fecha = row.fecha;
+                        frm.PT_Actualizado.Id_estado = 1;
+                        frm.PT_Actualizado.Id_presentacion = row.id_presentacion;
+                        frm.PT_Actualizado.Code_interno = row.codeInterno;
+                        frm.PT_Actualizado.Codig_Referencia = row.codeReferencia;
+                        frm.PT_Actualizado.Id_user_created = row.id_user_created;
+                        frm.PT_Actualizado.Usuario_nombre = row.name_user;
+                        frm.PT_Actualizado.Descripcion = row.descripcion;
+                        frm.PT_Actualizado.Presentacion_name = row.presentacion_name;
+                        frm.PT_Actualizado.TipoProductoName = row.tipo_producto;
+                        //LoadDataDetallePT();
                     }
                 }
             }

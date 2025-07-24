@@ -1,5 +1,7 @@
 ﻿using ACS.Classes;
+using DevExpress.Utils.Extensions;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraRichEdit.Layout;
 using DevExpress.XtraSpreadsheet.Model;
@@ -189,7 +191,13 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     }
                     cmdGuardar.Visible = false;
                     cmdAddFactura.Visible = false;
-                    gridControl1.Enabled = false;
+                    gridView2.Columns["eliminar"].Visible = false;
+
+                    gridView2.OptionsMenu.EnableColumnMenu = true;
+                    foreach (GridColumn column in gridView2.Columns)
+                    {
+                        column.OptionsColumn.ReadOnly = true;
+                    }
                     break;
             }
         }

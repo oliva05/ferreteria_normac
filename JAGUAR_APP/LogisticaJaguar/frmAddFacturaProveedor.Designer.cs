@@ -669,6 +669,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             this.gridColumn3.Caption = "Eliminar";
             this.gridColumn3.ColumnEdit = this.cmdEliminar;
+            this.gridColumn3.FieldName = "eliminar";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 12;

@@ -26,11 +26,12 @@ namespace JAGUAR_PRO.Facturacion.Entrega
         int IdBodega;
         int IdH;
 
-        public frmEntregaGestion(UserLogin userLogin, int idH, int idBodega)
+        PDV PuntoVentaActual;
+        public frmEntregaGestion(UserLogin userLogin, int idH, int idBodega, PDV puntoventa)
         {
             InitializeComponent();
             UsuarioLogeado = userLogin;
-           
+            PuntoVentaActual = puntoventa;
             IdBodega = idBodega;
             IdH = idH;
 
@@ -167,7 +168,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                             //CajaDialogo.Information("Entregado con Exito!");
                             //LoadDataDetalle();
 
-                            xrptEntrega rpt = new xrptEntrega(IdH, IdBodega, UsuarioLogeado, DetalleEntregado);
+                            xrptEntrega rpt = new xrptEntrega(IdH, IdBodega, UsuarioLogeado, DetalleEntregado , PuntoVentaActual);
                             ReportPrintTool printTool = new ReportPrintTool(rpt);
                             printTool.Print();
 
