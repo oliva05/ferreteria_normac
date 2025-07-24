@@ -128,7 +128,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gridDetalleProductosCRUD.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdEditar2,
             this.cmdVistaImagenes});
-            this.gridDetalleProductosCRUD.Size = new System.Drawing.Size(1286, 437);
+            this.gridDetalleProductosCRUD.Size = new System.Drawing.Size(1286, 492);
             this.gridDetalleProductosCRUD.TabIndex = 0;
             this.gridDetalleProductosCRUD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -484,7 +484,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1289, 524);
+            this.ClientSize = new System.Drawing.Size(1289, 579);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.labelControl2);
