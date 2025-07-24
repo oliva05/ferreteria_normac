@@ -360,6 +360,7 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
+            this.lblUsuarioLogeado = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -4992,11 +4993,25 @@
             this.navBarItem196.Caption = "Departamentos";
             this.navBarItem196.Name = "navBarItem196";
             // 
+            // lblUsuarioLogeado
+            // 
+            this.lblUsuarioLogeado.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.75F, System.Drawing.FontStyle.Bold);
+            this.lblUsuarioLogeado.Appearance.Options.UseFont = true;
+            this.lblUsuarioLogeado.Appearance.Options.UseTextOptions = true;
+            this.lblUsuarioLogeado.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.lblUsuarioLogeado.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblUsuarioLogeado.Location = new System.Drawing.Point(254, 16);
+            this.lblUsuarioLogeado.Name = "lblUsuarioLogeado";
+            this.lblUsuarioLogeado.Size = new System.Drawing.Size(376, 39);
+            this.lblUsuarioLogeado.TabIndex = 35;
+            this.lblUsuarioLogeado.Text = "Usuario: ";
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(958, 639);
+            this.Controls.Add(this.lblUsuarioLogeado);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtEquipoLogeadoActual);
             this.Controls.Add(this.labelControl5);
@@ -5366,5 +5381,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem208;
         private DevExpress.XtraNavBar.NavBarItem navBarItemDepositoBancoCaja;
         private DevExpress.XtraNavBar.NavBarItem navFacturacionUsados;
+        private DevExpress.XtraEditors.LabelControl lblUsuarioLogeado;
     }
 }

@@ -424,6 +424,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 return;
             }
 
+            LoadDetalleFacturas();
+            LoadDetalleFacturasAnuladas();
+            LoadRecibos(fechaDesde, fechaHasta);
+           // LoadFacturasCredito(fechaDesde, fechaHasta);
+            LoadDepositosDeCaja(fechaDesde, fechaHasta);
+
             Int64 IdInserted = 0;
             dp = new DataOperations();
             using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))

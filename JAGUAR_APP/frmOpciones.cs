@@ -77,6 +77,7 @@ namespace JAGUAR_PRO
         {
             InitializeComponent();
             UsuarioLogeado = pUser;
+            lblUsuarioLogeado.Text = "Usuario: " + pUser.Nombre;
             txtEquipoLogeadoActual.Text = Dns.GetHostName();
             if (string.IsNullOrEmpty(txtEquipoLogeadoActual.Text))
                 txtEquipoLogeadoActual.Visible = false;
