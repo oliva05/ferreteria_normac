@@ -203,21 +203,42 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 if (row.cantidad_seleccionada > 0)
                 {
                     ElejirInvAlmacen Eleccion = new ElejirInvAlmacen();
+
                     Eleccion.id_pt = IdPT;
-                    Eleccion.IdBodega = row.id_bodega;
+
+                    if (!row.Isid_bodegaNull())
+                        Eleccion.IdBodega = row.id_bodega;
+
                     if (row.Isbodega_nameNull())
                         Eleccion.BodegaName = string.Empty;
                     else
                         Eleccion.BodegaName = row.bodega_name;
 
-                    Eleccion.CantSeleccionada = row.cantidad_seleccionada;
-                    Eleccion.descuento = row.descuento;
-                    Eleccion.descuento_porcentaje = row.descuento_porcentaje;
-                    Eleccion.Precio = row.precio;
-                    Eleccion.ItemCode = row.itemcode;
-                    Eleccion.Descripcion = row.itemname;
-                    Eleccion.id_presentacion = row.id_presentacion;
-                    Eleccion.isv1 = row.isv1;
+                    if (!row.Iscantidad_seleccionadaNull())
+                        Eleccion.CantSeleccionada = row.cantidad_seleccionada;
+                    else
+                        Eleccion.CantSeleccionada = 0;
+
+                    if (!row.IsdescuentoNull())
+                        Eleccion.descuento = row.descuento;
+
+                    if (!row.Isdescuento_porcentajeNull())
+                        Eleccion.descuento_porcentaje = row.descuento_porcentaje;
+
+                    if (!row.IsprecioNull())
+                        Eleccion.Precio = row.precio;
+
+                    if (!row.IsitemcodeNull())
+                        Eleccion.ItemCode = row.itemcode;
+
+                    if (!row.IsitemnameNull())
+                        Eleccion.Descripcion = row.itemname;
+
+                    if (!row.Isid_presentacionNull())
+                        Eleccion.id_presentacion = row.id_presentacion;
+
+                    if (!row.Isisv1Null())
+                        Eleccion.isv1 = row.isv1;
 
                     if (!string.IsNullOrEmpty(lblMarca.Text))
                         Eleccion.marca = lblMarca.Text;
@@ -247,7 +268,11 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 var gv = (GridView)gridControl1.FocusedView;
                 var row = (dsPrefacturas.stock_por_almacenRow)gv.GetDataRow(gv.FocusedRowHandle);
                 dsPrefacturas1.AcceptChanges();
-                decimal cant = row.cantidad_seleccionada;
+                decimal cant = 0;
+
+                if (!row.Iscantidad_seleccionadaNull())
+                    cant = row.cantidad_seleccionada;
+
                 //var cell = 
                 DevExpress.XtraGrid.Columns.GridColumn focusedColumn = gv.FocusedColumn;
                 switch (focusedColumn.FieldName)

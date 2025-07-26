@@ -4793,6 +4793,7 @@ namespace JAGUAR_PRO
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
+                        frm.BringToFront();
                         break;
                     default:
                         break;
@@ -4808,6 +4809,7 @@ namespace JAGUAR_PRO
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen; 
                         frm.Show();
+                        frm.BringToFront();
                     }
                     else
                     {
@@ -5002,6 +5004,7 @@ namespace JAGUAR_PRO
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
+                        frm.BringToFront();
                         break;
                     default:
                         break;
@@ -5016,6 +5019,7 @@ namespace JAGUAR_PRO
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
+                        frm.BringToFront();
                     }
                     else
                     {

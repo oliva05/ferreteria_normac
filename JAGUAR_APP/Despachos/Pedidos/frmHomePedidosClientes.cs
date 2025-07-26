@@ -157,7 +157,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
             var gridView = (GridView)gridControl1.FocusedView;
             var row = (dsPedidosClientesV.lista_pedidosRow)gridView.GetFocusedDataRow();
-
+            
             if (row != null)
             {
                 if (!row.Isid_estadoNull())
@@ -180,7 +180,13 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                             CajaDialogo.Error("El pedido ya fue anulado, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
                             break;
                         case 6://Nuevo
-                            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, row.id);
+                            frmPedidoCliente.TipoFacturacionStock tipoFactura = frmPedidoCliente.TipoFacturacionStock.VentaNormal;
+                            if (row.tipo_factura == 1)
+                                tipoFactura = frmPedidoCliente.TipoFacturacionStock.VentaNormal;
+                            else
+                                tipoFactura = frmPedidoCliente.TipoFacturacionStock.VentaUsados;
+
+                            frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, equipo, row.id, tipoFactura);
                             if (this.MdiParent != null)
                             {
                                 frm.MdiParent = this.MdiParent;
@@ -188,6 +194,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                             }
                             frm.TopMost = true;
                             frm.Show();
+                            frm.BringToFront();
                             break;
                         case 7://Parcialmente Entregado
                             CajaDialogo.Error("El pedido ya esta en proceso de entrega, no se permite modificar!\nPuede crear un nuevo pedido copiando desde el numero de pedido actual...");
@@ -386,6 +393,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     Proceder = false;
                     Mensaje = "Esta en proceso de entrega!";
                     break;
+                case 8:
+                    Proceder = false;
+                    Mensaje = "Hay productos con inventario insuficiente en la Pre Factura!";
+                    break;
 
                 default:
                     break;
@@ -414,6 +425,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                         frm.MdiParent = this.MdiParent;
                         frm.TopMost = true;
                         frm.Show();
+                        frm.BringToFront();
                         break;
                     default:
                         break;
@@ -433,6 +445,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                             frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, row.id);
                             frm.MdiParent = this.MdiParent;
                             frm.Show();
+                            frm.BringToFront();
                         }
                         else
                         {
@@ -450,6 +463,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                                 frmFactura frm = new frmFactura(this.UsuarioLogeado, puntoVenta1, EquipoActual, row.id);
                                 frm.MdiParent = this.MdiParent;
                                 frm.Show();
+                                frm.BringToFront();
                             }
                             else
                             {
@@ -460,11 +474,11 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
                 }
             }
-            //else
-            //{
-            //    CajaDialogo.Error(Mensaje);
-            //    return;
-            //}
+            else
+            {
+                CajaDialogo.Error(Mensaje);
+                return;
+            }
         }
 
         private void txtAsesorVendedor_DoubleClick(object sender, EventArgs e)
@@ -542,7 +556,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 }
                 else
                 {
-                    CajaDialogo.Error("Solo las prefacturas neuvas se permite cancelar...");
+                    CajaDialogo.Error("Solo las prefacturas nuevas se permite cancelar...");
                 }
             }
         }

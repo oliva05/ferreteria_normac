@@ -49,7 +49,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_datos_resumen_cierre_caja_by_id_v2]", con);
+                //SqlCommand cmd = new SqlCommand("[dbo].[sp_get_datos_resumen_cierre_caja_by_id_v2]", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_datos_resumen_cierre_caja_by_id_v3]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idCierreH", pIdCierre);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -66,14 +67,23 @@ namespace JAGUAR_PRO.Facturacion.Reportes
 
                     switch (tipopago)
                     {
-                        case 1:
-                            decimal valor1 = dr.GetDecimal(3);
-                            decimal valorC1 = dr.GetDecimal(4);
+                        case 1://Efectivo
+                            decimal valor1 = dr.GetDecimal(3);//Total
+                            decimal TotalEfectivoDeposito = dr.GetDecimal(4);//Total deposito caja
+                            
 
+                            decimal valorC1 = dr.GetDecimal(5);//Valor contado
+                            
                             Total += valor1;
                             TotalC += valorC1;
+                            lblTipoDiferenciaEfectivo.Text = dr.GetString(6);
+
+                            decimal diferenciaEfectivo = dr.GetDecimal(7);
+                            lblDiferenciaEfectivo.Text = string.Format("{0:L ###,##0.00}", diferenciaEfectivo);
+
                             lblTotalEfectivo.Text = string.Format("{0:L ###,##0.00}", valor1);
                             lblTotalEfectivoVerificado.Text = string.Format("{0:L ###,##0.00}", valorC1);
+                            lblDepositoEfectivoCaja.Text = string.Format("{0:L ###,##0.00}", TotalEfectivoDeposito);
                             break;
                         case 2:
                             decimal valor2 = dr.GetDecimal(3);
