@@ -2739,6 +2739,10 @@ namespace JAGUAR_PRO.TransaccionesPT {
             
             private global::System.Data.DataColumn columnseleccion;
             
+            private global::System.Data.DataColumn columncantidad_enviada;
+            
+            private global::System.Data.DataColumn columncantidad_pendiente;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public almacen_destinoDataTable() {
@@ -2838,6 +2842,22 @@ namespace JAGUAR_PRO.TransaccionesPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cantidad_enviadaColumn {
+                get {
+                    return this.columncantidad_enviada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cantidad_pendienteColumn {
+                get {
+                    return this.columncantidad_pendiente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2873,7 +2893,7 @@ namespace JAGUAR_PRO.TransaccionesPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public almacen_destinoRow Addalmacen_destinoRow(int id_pt, string itemcode, string descripcion, decimal existencia, decimal cantidad_trasladar, int id, decimal cantidad_fisica, bool seleccion) {
+            public almacen_destinoRow Addalmacen_destinoRow(int id_pt, string itemcode, string descripcion, decimal existencia, decimal cantidad_trasladar, int id, decimal cantidad_fisica, bool seleccion, decimal cantidad_enviada, decimal cantidad_pendiente) {
                 almacen_destinoRow rowalmacen_destinoRow = ((almacen_destinoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_pt,
@@ -2883,7 +2903,9 @@ namespace JAGUAR_PRO.TransaccionesPT {
                         cantidad_trasladar,
                         id,
                         cantidad_fisica,
-                        seleccion};
+                        seleccion,
+                        cantidad_enviada,
+                        cantidad_pendiente};
                 rowalmacen_destinoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowalmacen_destinoRow);
                 return rowalmacen_destinoRow;
@@ -2914,6 +2936,8 @@ namespace JAGUAR_PRO.TransaccionesPT {
                 this.columnid = base.Columns["id"];
                 this.columncantidad_fisica = base.Columns["cantidad_fisica"];
                 this.columnseleccion = base.Columns["seleccion"];
+                this.columncantidad_enviada = base.Columns["cantidad_enviada"];
+                this.columncantidad_pendiente = base.Columns["cantidad_pendiente"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2935,7 +2959,13 @@ namespace JAGUAR_PRO.TransaccionesPT {
                 base.Columns.Add(this.columncantidad_fisica);
                 this.columnseleccion = new global::System.Data.DataColumn("seleccion", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnseleccion);
+                this.columncantidad_enviada = new global::System.Data.DataColumn("cantidad_enviada", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncantidad_enviada);
+                this.columncantidad_pendiente = new global::System.Data.DataColumn("cantidad_pendiente", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncantidad_pendiente);
                 this.columnseleccion.DefaultValue = ((bool)(false));
+                this.columncantidad_enviada.DefaultValue = ((decimal)(0m));
+                this.columncantidad_pendiente.DefaultValue = ((decimal)(0m));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6625,6 +6655,40 @@ namespace JAGUAR_PRO.TransaccionesPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cantidad_enviada {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablealmacen_destino.cantidad_enviadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cantidad_enviada\' de la tabla \'almacen_destino\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablealmacen_destino.cantidad_enviadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cantidad_pendiente {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablealmacen_destino.cantidad_pendienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cantidad_pendiente\' de la tabla \'almacen_destino\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablealmacen_destino.cantidad_pendienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_ptNull() {
                 return this.IsNull(this.tablealmacen_destino.id_ptColumn);
             }
@@ -6717,6 +6781,30 @@ namespace JAGUAR_PRO.TransaccionesPT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetseleccionNull() {
                 this[this.tablealmacen_destino.seleccionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscantidad_enviadaNull() {
+                return this.IsNull(this.tablealmacen_destino.cantidad_enviadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcantidad_enviadaNull() {
+                this[this.tablealmacen_destino.cantidad_enviadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscantidad_pendienteNull() {
+                return this.IsNull(this.tablealmacen_destino.cantidad_pendienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcantidad_pendienteNull() {
+                this[this.tablealmacen_destino.cantidad_pendienteColumn] = global::System.Convert.DBNull;
             }
         }
         

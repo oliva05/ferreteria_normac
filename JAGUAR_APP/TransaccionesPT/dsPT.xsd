@@ -103,6 +103,8 @@
               <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
               <xs:element name="cantidad_fisica" msprop:Generator_ColumnPropNameInTable="cantidad_fisicaColumn" msprop:Generator_ColumnPropNameInRow="cantidad_fisica" msprop:Generator_UserColumnName="cantidad_fisica" msprop:Generator_ColumnVarNameInTable="columncantidad_fisica" type="xs:decimal" minOccurs="0" />
               <xs:element name="seleccion" msprop:Generator_ColumnPropNameInTable="seleccionColumn" msprop:Generator_ColumnPropNameInRow="seleccion" msprop:Generator_UserColumnName="seleccion" msprop:Generator_ColumnVarNameInTable="columnseleccion" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="cantidad_enviada" msprop:Generator_UserColumnName="cantidad_enviada" msprop:Generator_ColumnPropNameInTable="cantidad_enviadaColumn" msprop:Generator_ColumnPropNameInRow="cantidad_enviada" msprop:Generator_ColumnVarNameInTable="columncantidad_enviada" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="cantidad_pendiente" msprop:Generator_ColumnPropNameInRow="cantidad_pendiente" msprop:Generator_ColumnPropNameInTable="cantidad_pendienteColumn" msprop:Generator_ColumnVarNameInTable="columncantidad_pendiente" msprop:Generator_UserColumnName="cantidad_pendiente" type="xs:decimal" default="0" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -179,15 +181,15 @@
               <xs:element name="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
               <xs:element name="marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_UserColumnName="marca" msprop:Generator_ColumnVarNameInTable="columnmarca" type="xs:string" minOccurs="0" />
               <xs:element name="code_referencia" msprop:Generator_ColumnPropNameInTable="code_referenciaColumn" msprop:Generator_ColumnPropNameInRow="code_referencia" msprop:Generator_UserColumnName="code_referencia" msprop:Generator_ColumnVarNameInTable="columncode_referencia" type="xs:string" minOccurs="0" />
-              <xs:element name="inventario" msprop:Generator_ColumnPropNameInRow="inventario" msprop:Generator_ColumnPropNameInTable="inventarioColumn" msprop:Generator_ColumnVarNameInTable="columninventario" msprop:Generator_UserColumnName="inventario" type="xs:decimal" minOccurs="0" />
+              <xs:element name="inventario" msprop:Generator_ColumnPropNameInTable="inventarioColumn" msprop:Generator_ColumnPropNameInRow="inventario" msprop:Generator_UserColumnName="inventario" msprop:Generator_ColumnVarNameInTable="columninventario" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="select_almacen" msprop:Generator_RowClassName="select_almacenRow" msprop:Generator_RowEvHandlerName="select_almacenRowChangeEventHandler" msprop:Generator_RowDeletedName="select_almacenRowDeleted" msprop:Generator_RowDeletingName="select_almacenRowDeleting" msprop:Generator_RowEvArgName="select_almacenRowChangeEvent" msprop:Generator_TablePropName="select_almacen" msprop:Generator_RowChangedName="select_almacenRowChanged" msprop:Generator_UserTableName="select_almacen" msprop:Generator_RowChangingName="select_almacenRowChanging" msprop:Generator_TableClassName="select_almacenDataTable" msprop:Generator_TableVarName="tableselect_almacen">
+        <xs:element name="select_almacen" msprop:Generator_RowEvHandlerName="select_almacenRowChangeEventHandler" msprop:Generator_RowDeletedName="select_almacenRowDeleted" msprop:Generator_RowDeletingName="select_almacenRowDeleting" msprop:Generator_RowEvArgName="select_almacenRowChangeEvent" msprop:Generator_TablePropName="select_almacen" msprop:Generator_RowChangedName="select_almacenRowChanged" msprop:Generator_UserTableName="select_almacen" msprop:Generator_RowChangingName="select_almacenRowChanging" msprop:Generator_RowClassName="select_almacenRow" msprop:Generator_TableClassName="select_almacenDataTable" msprop:Generator_TableVarName="tableselect_almacen">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
-              <xs:element name="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

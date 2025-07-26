@@ -111,6 +111,12 @@ namespace JAGUAR_PRO.TransaccionesPT
                     alMenosUnoSeleccionado = true;
                 }
 
+                if (item.cantidad_fisica> item.cantidad_pendiente)
+                {
+                    Mensaje = "Cantidad Fisica no puede ser mayor que la Cantidad Pendiente";
+                    Error = true;
+                    break;
+                }
                
             }
 
@@ -142,7 +148,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                         {
                             if (row.seleccion)
                             {
-                                using (SqlCommand cmd = new SqlCommand("[usp_insert_Traslado_Kardex_PT]", conn, transaction))
+                                using (SqlCommand cmd = new SqlCommand("[usp_insert_Traslado_Kardex_PTV2]", conn, transaction))
                                 {
                                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -158,6 +164,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                                     cmd.Parameters.AddWithValue("@id_almacen_origen", IdBodegaOrigen);
                                     cmd.Parameters.AddWithValue("@id_almacen_destino", IdBodegaDestino);
                                     cmd.Parameters.AddWithValue("@idTraslado", IdH);
+                                    cmd.Parameters.AddWithValue("@IdTraslado_d", row.id);
                                     cmd.ExecuteNonQuery();
 
 
