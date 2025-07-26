@@ -78,7 +78,8 @@ namespace Eatery.Ventas
 
         Busqueda BusquedaSet;
 
-        public frmPedidoCliente(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, Vendedor pVendedor, TipoFacturacionStock pTipo)
+        public frmPedidoCliente(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, 
+                                Vendedor pVendedor, TipoFacturacionStock pTipo)
         {
             InitializeComponent();
             TipoFacturacionActual = pTipo;
@@ -159,12 +160,15 @@ namespace Eatery.Ventas
 
        
 
-        public frmPedidoCliente(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, Int64 pIdPedido)
+        public frmPedidoCliente(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, 
+                                Int64 pIdPedido, TipoFacturacionStock pTipo)
         {
             InitializeComponent();
             TipoOperacionActual = TipoOperacionSQL.Update;
+            TipoFacturacionActual = pTipo;
             ckConfirmarPedido.Visible = ckGenerarCotizacion.Visible = false;
-
+            simpleButton1.Enabled = true;
+            
             LoadEstadosPedidos();
             PedidoActual = new PedidoCliente();
             ClienteFactura = new ClienteFacturacion();
@@ -2774,14 +2778,31 @@ namespace Eatery.Ventas
                         item.BodegaName = rowi.bodega_descripcion;
 
                     item.CantSeleccionada = rowi.cantidad;
-                    item.descuento = rowi.descuento;
-                    item.descuento_porcentaje = rowi.descuento_porcentaje;
-                    item.Precio = rowi.precio;
-                    item.id_presentacion = rowi.id_presentacion;
-                    item.ItemCode = rowi.item_code;
-                    item.Descripcion = rowi.descripcion;
-                    item.marca = rowi.marca;
-                    item.isv1 = rowi.isv1;
+
+                    if (!rowi.IsdescuentoNull())
+                        item.descuento = rowi.descuento;
+
+                    if(!rowi.Isdescuento_porcentajeNull())
+                        item.descuento_porcentaje = rowi.descuento_porcentaje;
+
+                    if (!rowi.IsprecioNull())
+                        item.Precio = rowi.precio;
+
+                    if (!rowi.Isid_presentacionNull())
+                        item.id_presentacion = rowi.id_presentacion;
+
+                    if (!rowi.Isitem_codeNull())
+                        item.ItemCode = rowi.item_code;
+
+                    if(!rowi.IsdescripcionNull())
+                        item.Descripcion = rowi.descripcion;
+
+                    if(!rowi.IsmarcaNull())
+                        item.marca = rowi.marca;
+                    
+                    if(rowi.Isisv1Null())
+                        item.isv1 = rowi.isv1;
+
                     ListaActual.Add(item);
                 }
             }
@@ -2805,11 +2826,6 @@ namespace Eatery.Ventas
 
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
-            //DialogResult r = CajaDialogo.Pregunta("Esta seguro de realizar este pedido?");
-            //if(r != DialogResult.Yes) 
-            //{
-            //    return;
-            //}
 
             //Validamos el nombre del cliente que no este vacio
             DataOperations dp = new DataOperations();
@@ -2844,15 +2860,17 @@ namespace Eatery.Ventas
                 bool ItemSinInventario = false;
                 foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
                 {
-                    if (row.inventario <= 0)
+                    if (row.inventario < row.cantidad)
                     {
-                        ItemSinInventario |= true;
+                        ItemSinInventario = true;
+                        break;
                     }
                 }
 
                 if (ItemSinInventario)
                 {
-                    CajaDialogo.Error("Hay productos que tienen un invetario menor o igual a cero (0).\nDebe eliminar estos productos para poder confirmar la Pre Factura!");
+                    CajaDialogo.Error("Hay productos que No tienen suficiente invetario.\n" +
+                                      "Debe eliminar estos productos para poder confirmar la Pre Factura!");
                     ckConfirmarPedido.Checked = false;
                     return;
                 }
@@ -2935,7 +2953,8 @@ namespace Eatery.Ventas
                         try
                         {
                             //Guardamos el Header del Pedido 
-                            command.CommandText = "[dbo].[sp_set_insert_pedido_header]";
+                            //command.CommandText = "[dbo].[sp_set_insert_pedido_header]";
+                            command.CommandText = "[dbo].[sp_set_insert_pedido_header_v2]";
                             command.CommandType = CommandType.StoredProcedure;
                             
                             //command.Parameters.AddWithValue("@id_user", Pedido_.IdUser);
@@ -3002,7 +3021,17 @@ namespace Eatery.Ventas
 
                             command.Parameters.AddWithValue("@id_estado", _id_estado);
                             command.Parameters.AddWithValue("@id_termino_pago", IdTerminoPago);
+
+                            int tipo_factura = 0;
+                            if (TipoFacturacionActual == TipoFacturacionStock.VentaNormal)
+                                tipo_factura = 1;
+                            else
+                                tipo_factura = 2;
                             
+                            if(tipo_factura == 0)
+                                command.Parameters.AddWithValue("@id_tipo_factura", 1);
+                            else
+                                command.Parameters.AddWithValue("@id_tipo_factura", tipo_factura);
 
                             Int64 IdPedidoH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
@@ -3461,7 +3490,7 @@ namespace Eatery.Ventas
                 return;
             }
 
-            if(PedidoActual.IdEstado != 6)
+            if(PedidoActual.IdEstado == 1)
             {
                 CajaDialogo.Error("Esta pre factura ya fue confirmada!");
                 return;
@@ -3470,16 +3499,22 @@ namespace Eatery.Ventas
             bool ItemSinInventario = false;
             foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
             {
-                if (row.inventario <= 0)
+                //if (row.inventario <= 0)
+                if (row.inventario < row.cantidad)
                 {
-                    ItemSinInventario|= true;
+                    ItemSinInventario = true;
+                    break;
                 }
             }
 
             if (ItemSinInventario)
             {
-                CajaDialogo.Error("Hay productos que tienen un invetario menor o igual a cero (0).\nDebe eliminar estos productos para poder confirmar la Pre Factura!");
+                CajaDialogo.Error("Hay productos en este pedido que No tienen invetario suficiente.\nDebe eliminar estos productos para poder confirmar la Pre Factura!");
                 return;
+                //if (PedidoActual != null)
+                //{
+                //    PedidoActual.IdEstado = 8;//8=Inventario Insuficiente
+                //}
             }
 
             try
@@ -3494,15 +3529,15 @@ namespace Eatery.Ventas
                 cmd.Parameters.AddWithValue("@id_pedido", this.PedidoActual.Id);
                 cmd.ExecuteScalar();
                 con.Close();
-                gleEstados.EditValue = 1;
-                
+                gleEstados.EditValue = PedidoActual.IdEstado;
+
                 simpleButton2.Visible =
                 cmdCopiarDesde.Visible =
                 simpleButton1.Visible = false;
 
                 gridView1.OptionsMenu.EnableColumnMenu = false;//Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
                 gridView1.Columns["delete"].Visible = false; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
-                
+
                 cmdConfirmarFactura.Visible = false;
             }
             catch (Exception ec)

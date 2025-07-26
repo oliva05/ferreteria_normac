@@ -415,7 +415,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             private global::System.Data.DataColumn columntotal;
             private global::System.Data.DataColumn columnfacturar;
             private global::System.Data.DataColumn columndelete;
-            
+            private global::System.Data.DataColumn columntipo_factura;
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public lista_pedidosDataTable() {
@@ -570,6 +571,16 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             }
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tipo_facturaColumn
+            {
+                get
+                {
+                    return this.columntipo_factura;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn facturarColumn
             {
                 get
@@ -615,7 +626,11 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public lista_pedidosRow Addlista_pedidosRow(int id, System.DateTime fecha, System.DateTime fecha_row, int id_user, string usuario_nombre, string enable, string comentario, string DocNum, int id_estado, string estado_name, int id_cliente, string NombreCorto, System.DateTime fecha_entrega_estimada, string direccion, decimal total, string facturar, string delete) {
+            public lista_pedidosRow Addlista_pedidosRow(int id, System.DateTime fecha, System.DateTime fecha_row, int id_user, 
+                                                        string usuario_nombre, string enable, string comentario, string DocNum, 
+                                                        int id_estado, string estado_name, int id_cliente, string NombreCorto, 
+                                                        System.DateTime fecha_entrega_estimada, string direccion, decimal total, 
+                                                        string facturar, string delete, int tipo_factura) {
                 lista_pedidosRow rowlista_pedidosRow = ((lista_pedidosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -634,7 +649,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                         direccion,
                         total,
                         facturar,
-                        delete};
+                        delete,
+                        tipo_factura};
                 rowlista_pedidosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlista_pedidosRow);
                 return rowlista_pedidosRow;
@@ -674,6 +690,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 this.columntotal = base.Columns["total"];
                 this.columnfacturar = base.Columns["facturar"];
                 this.columndelete = base.Columns["delete"];
+                this.columntipo_factura = base.Columns["tipo_factura"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -713,6 +730,9 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 base.Columns.Add(this.columnfacturar);
                 this.columndelete = new global::System.Data.DataColumn("delete", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndelete);
+                this.columntipo_factura = new global::System.Data.DataColumn("tipo_factura", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo_factura);
+
                 this.columnfecha.Caption = "Fecha Pedido";
                 this.columnfecha_row.Caption = "Fecha Creado";
                 this.columnusuario_nombre.Caption = "Usuario Creacion";
@@ -724,7 +744,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                 this.columntotal.Caption = "Total";
                 this.columnfacturar.Caption = "Facturar";
                 this.columndelete.Caption = "Delete";
-                
+                this.columndelete.Caption = "tipo_factura";
+
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1993,7 +2014,28 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
                     this[this.tablelista_pedidos.totalColumn] = value;
                 }
             }
-            
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int tipo_factura
+            {
+                get
+                {
+                    try
+                    {
+                        return ((int)(this[this.tablelista_pedidos.tipo_facturaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipo_factura\' de la tabla \'lista_pedidos\' es DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tablelista_pedidos.tipo_facturaColumn] = value;
+                }
+            }
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
@@ -2172,6 +2214,13 @@ namespace JAGUAR_PRO.Despachos.Pedidos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SettotalNull() {
                 this[this.tablelista_pedidos.totalColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istipo_facturaNull()
+            {
+                return this.IsNull(this.tablelista_pedidos.tipo_facturaColumn);
             }
         }
         

@@ -619,18 +619,12 @@ namespace Eatery.Ventas
             //if (PuntoDeVentaActual.EmisionFacturaDosPasos)
             if(rdCredito.Checked || rdPorCobrar.Checked)
             {
-                //Primero postear el pago
-                //frmConfirmationFactura frm2 = new frmConfirmationFactura(txtNombreCliente.Text, txtRTN.Text, txtDireccion.Text, dsVentas1.detalle_factura_transaction);
-                //if (frm2.ShowDialog() == DialogResult.OK)
-                //{
                 DialogResult r = CajaDialogo.Pregunta("Esta seguro de generar esta factura?");
                 if (r != DialogResult.Yes)
                     return;
 
                 Factura factura = new Factura();
-                //factura.RTN = frm2.RTN;
-                //factura.ClienteNombre = frm2.NombreCliente;
-                //factura.direccion_cliente = frm2.Direccion;
+                
                 if (!string.IsNullOrEmpty(txtRTN.Text))
                     factura.RTN = txtRTN.Text;
 
@@ -640,9 +634,6 @@ namespace Eatery.Ventas
                 if (!string.IsNullOrEmpty(txtDireccion.Text))
                     factura.direccion_cliente = txtDireccion.Text;
                 
-                    
-                
-
                 if (ClienteFactura != null)
                         if(ClienteFactura.Id>0)
                             factura.IdCliente = ClienteFactura.Id;
@@ -675,51 +666,6 @@ namespace Eatery.Ventas
                         factura.ISV1 += dp.ValidateNumberDecimal(row.isv1);
                         factura.ISV2 += dp.ValidateNumberDecimal(row.isv2);
                     }
-
-                #region Creacion de correlativo como una string
-                ////Generacion de numero de documento fiscal para la factura
-                //NumeracionFiscal NumDocumentoFiscal = new NumeracionFiscal();
-                //if (PuntoDeVentaActual.EmiteFacturaFiscal)
-                //{
-                //if (NumDocumentoFiscal.GetIdNumeracionFiscalFromPuntoVentaId(this.PuntoDeVentaActual.ID, NumeracionFiscal.TipoDocumentoFiscal.Factura))
-                //    {
-                //        id_numeracion = NumDocumentoFiscal.ID;
-                //        correlativoSiguiente = NumDocumentoFiscal.Correlative;
-
-                //        if (NumDocumentoFiscal.RecuperarRegistro(id_numeracion))
-                //        {
-                //            string sCorrelativo = correlativoSiguiente.ToString();
-
-                //            //Rellenar ceros a la izquierda
-                //            while (sCorrelativo.Length < 8)
-                //            {
-                //                sCorrelativo = "0" + sCorrelativo;
-                //            }
-
-                //            factura.NumeroDocumento = NumDocumentoFiscal.Leyenda + sCorrelativo;
-
-                //            //Guardamos el id del cual se genero el numero fiscal, por un tema de reporteria
-                //            factura.IdNumeracionFiscal = id_numeracion;
-                //        }
-                //    }
-                //}
-                //else
-                //{
-                //    //Haremos un recibo de entrega 
-                //    string NumRecibo = PuntoDeVentaActual.CorrelativoRecibo.ToString();
-                //    while( NumRecibo.Length < 4)
-                //    {
-                //        NumRecibo = "0" + NumRecibo;
-                //    }
-
-                //    NumRecibo = this.PuntoDeVentaActual.Codigo + "_" + NumRecibo;
-                //    factura.NumeroDocumento = NumRecibo;
-
-                //    //Guardamos el id del cual se genero el numero fiscal, por un tema de reporteria
-                //    factura.IdNumeracionFiscal = 0;
-                //}
-                #endregion
-
 
                 //Vamos por el detalle de lineas para la factura y la transaccion
                 using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
@@ -780,25 +726,6 @@ namespace Eatery.Ventas
 
 
                         command.Parameters.AddWithValue("@id_tipo_pago", DBNull.Value);
-
-                        //if (factura.IdNumeracionFiscal == 0)
-                        //    command.Parameters.AddWithValue("@CAI", "N/D");
-                        //else
-                        //    command.Parameters.AddWithValue("@CAI", NumDocumentoFiscal.CAI);
-
-                        //string FechaLimite = null;
-                        //if (factura.IdNumeracionFiscal == 0)
-                        //    FechaLimite = string.Format("{0:dd/MM/yyyy}", factura.FechaDocumento);
-                        //else
-                        //    FechaLimite = string.Format("{0:dd/MM/yyyy}", NumDocumentoFiscal.FechaVence);
-
-                        //command.Parameters.AddWithValue("@fecha_limite", FechaLimite);
-
-                        //if (factura.IdNumeracionFiscal == 0)
-                        //    command.Parameters.AddWithValue("@rango_autorizado", "N/D");
-                        //else
-                        //command.Parameters.AddWithValue("@rango_autorizado", "desde: " + NumDocumentoFiscal.Numeracion_Inicial
-                        //                                                  + " hasta: " + NumDocumentoFiscal.Numeracion_Final);
 
                         if (string.IsNullOrEmpty(factura.direccion_cliente))
                             command.Parameters.AddWithValue("@direccion_cliente", DBNull.Value);
@@ -927,30 +854,19 @@ namespace Eatery.Ventas
             }
             else
             {
-
                 //PRIMERO EL PAGO LUEGO LA FACTURA
 
-                //Sino, significa que primero el pago y despues la factura.
-                //frmConfirmationFactura frm2 = new frmConfirmationFactura(txtNombreCliente.Text, txtRTN.Text, txtDireccion.Text, dsVentas1.detalle_factura_transaction);
-                //if (frm2.ShowDialog() == DialogResult.OK)
-                //{
                 decimal ValorTotalFactura = dp.ValidateNumberDecimal(txtTotal.Text);
                 Int64 IdReciboH_Inserted = 0;
                 
                 frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, ValorTotalFactura, this.PuntoDeVentaActual,
-                                                            PedidoRecuperado.SubTotal, PedidoRecuperado.ISV);
+                                                        PedidoRecuperado.SubTotal, PedidoRecuperado.ISV);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Factura factura = new Factura();
                     factura.cambio = dp.ValidateNumberDecimal(frm.txtCambio.Text);
                     factura.monto_entregado = dp.ValidateNumberDecimal(frm.txtEntregado.Text);
 
-                    //factura.RTN = frm2.RTN;
-                    //factura.ClienteNombre = frm2.NombreCliente;
-                    //factura.direccion_cliente = frm2.Direccion;
-                    //factura.RTN = txtRTN.Text;
-                    //factura.ClienteNombre = txtNombreCliente.Text;
-                    //factura.direccion_cliente = txtDireccion.Text;
                     if (!string.IsNullOrEmpty(txtRTN.Text))
                         factura.RTN = txtRTN.Text;
 
@@ -973,18 +889,15 @@ namespace Eatery.Ventas
                     //2   Pagada
                     //3   Anulada
                     factura.IdEstado = 2;
-
                     factura.CantidadImpresionesFactura = 0;
                     factura.IdUser = this.UsuarioLogeado.Id;
                     factura.IdPuntoVenta = this.PuntoDeVentaActual.ID;
                     factura.Enable = true;
                     factura.NumOrdenCompra = "";
                     factura.idFormatoFactura = this.PuntoDeVentaActual.IdFormatoFactura;
-
                     factura.IdTerminoPago = IdTerminoPago;
 
                     int correlativoSiguiente = 0;
-                    //int id_numeracion = 0;
 
                     factura.descuentoTotalFactura = factura.subtotalFactura =
                     factura.ISV1 = factura.ISV2 = 0;
@@ -996,52 +909,6 @@ namespace Eatery.Ventas
                         factura.ISV1 += dp.ValidateNumberDecimal(row.isv1);
                         factura.ISV2 += dp.ValidateNumberDecimal(row.isv2);
                     }
-
-
-
-
-                    //int correlativoSiguiente = 0;
-                    //int id_numeracion = 0;
-                    ////Generacion de numero de documento fiscal para la factura
-                    //NumeracionFiscal NumDocumentoFiscal = new NumeracionFiscal();
-                    //if (PuntoDeVentaActual.EmiteFacturaFiscal)
-                    //{
-                    //    if (NumDocumentoFiscal.GetIdNumeracionFiscalFromPuntoVentaId(this.PuntoDeVentaActual.ID, NumeracionFiscal.TipoDocumentoFiscal.Factura))
-                    //    {
-                    //        id_numeracion = NumDocumentoFiscal.ID;
-                    //        correlativoSiguiente = NumDocumentoFiscal.Correlative;
-
-                    //        if (NumDocumentoFiscal.RecuperarRegistro(id_numeracion))
-                    //        {
-                    //            string sCorrelativo = correlativoSiguiente.ToString();
-
-                    //            //Rellenar ceros a la izquierda
-                    //            while (sCorrelativo.Length < 8)
-                    //            {
-                    //                sCorrelativo = "0" + sCorrelativo;
-                    //            }
-
-                    //            factura.NumeroDocumento = NumDocumentoFiscal.Leyenda + sCorrelativo;
-                    //            //Guardamos el id del cual se genero el numero fiscal, por un tema de reporteria
-                    //            factura.IdNumeracionFiscal = id_numeracion;
-                    //        }
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    //Haremos un recibo de entrega 
-                    //    string NumRecibo = PuntoDeVentaActual.CorrelativoRecibo.ToString();
-                    //    while (NumRecibo.Length < 4)
-                    //    {
-                    //        NumRecibo = "0" + NumRecibo;
-                    //    }
-
-                    //    NumRecibo = this.PuntoDeVentaActual.Codigo + "_" + NumRecibo;
-                    //    factura.NumeroDocumento = NumRecibo;
-
-                    //    //Guardamos el id del cual se genero el numero fiscal, por un tema de reporteria
-                    //    factura.IdNumeracionFiscal = 0;
-                    //}
 
                     factura.descuentoTotalFactura = factura.subtotalFactura =
                     factura.ISV1 = factura.ISV2 = 0;
@@ -1102,29 +969,6 @@ namespace Eatery.Ventas
                             int id_tipo_pago = (int)frm.TipoPagoSeleccionadoActual;
                             command.Parameters.AddWithValue("@id_tipo_pago", id_tipo_pago);
                             command.Parameters.AddWithValue("@emiteFacturaFiscal", PuntoDeVentaActual.EmiteFacturaFiscal);
-
-
-                            //command.Parameters.AddWithValue("@CAI", NumDocumentoFiscal.CAI);
-                            //if (factura.IdNumeracionFiscal == 0)
-                            //    command.Parameters.AddWithValue("@CAI", "N/D");
-                            //else
-                            //    command.Parameters.AddWithValue("@CAI", NumDocumentoFiscal.CAI);  
-
-                            //string FechaLimite = string.Format("{0:dd/MM/yyyy}", NumDocumentoFiscal.FechaVence);
-                            //string FechaLimite = null;
-                            //if (factura.IdNumeracionFiscal == 0)
-                            //    FechaLimite = string.Format("{0:dd/MM/yyyy}", factura.FechaDocumento);
-                            //else
-                            //    FechaLimite = string.Format("{0:dd/MM/yyyy}", NumDocumentoFiscal.FechaVence);
-
-                            //command.Parameters.AddWithValue("@fecha_limite", FechaLimite);
-                            //command.Parameters.AddWithValue("@rango_autorizado", "desde: " + NumDocumentoFiscal.Numeracion_Inicial
-                            //                                                  + " hasta: " + NumDocumentoFiscal.Numeracion_Final);
-                            //if (factura.IdNumeracionFiscal == 0)
-                            //    command.Parameters.AddWithValue("@rango_autorizado", "N/D");
-                            //else
-                            //    command.Parameters.AddWithValue("@rango_autorizado", "desde: " + NumDocumentoFiscal.Numeracion_Inicial
-                            //                                                      + " hasta: " + NumDocumentoFiscal.Numeracion_Final);
 
                             command.Parameters.AddWithValue("@direccion_cliente", factura.direccion_cliente);
                             command.Parameters.AddWithValue("@subtotal", factura.subtotalFactura);
@@ -1187,14 +1031,7 @@ namespace Eatery.Ventas
                                 command.ExecuteNonQuery();
                             }
 
-
-
-
-
                             //Vamos a postear transaccion en estado de cuenta de cliente
-                            //if (factura.IdCliente > 0)
-                            //{
-                            //El cargo por la factura
                             command.CommandText = "dbo.[sp_set_insert_estado_cuenta_cliente_v5]";
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.Clear();
@@ -1250,8 +1087,6 @@ namespace Eatery.Ventas
                                 command.CommandType = CommandType.StoredProcedure;
                                 command.Parameters.Clear();
                                 command.Parameters.AddWithValue("@id_facturaH", IdFacturaH);
-                                //command.Parameters.AddWithValue("@num_doc", factura.NumeroDocumento);
-                                //command.Parameters.AddWithValue("@valor", frm.varPago);
                                 command.Parameters.AddWithValue("@valor", registroPago.Valor);
                                 command.Parameters.AddWithValue("@date_created", dp.NowSetDateTime());
                                 command.Parameters.AddWithValue("@id_recibo_h", IdReciboH_Inserted);
@@ -1274,18 +1109,15 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@referencia", DBNull.Value);
                                 }
 
-
                                 if (registroPago.IdTipo == 0)
                                     command.Parameters.AddWithValue("@id_tipo_pago", DBNull.Value);
                                 else
                                     command.Parameters.AddWithValue("@id_tipo_pago", registroPago.IdTipo);
 
-
                                 if (registroPago.id_banco == 0)
                                     command.Parameters.AddWithValue("@id_banco", DBNull.Value);
                                 else
                                     command.Parameters.AddWithValue("@id_banco", registroPago.id_banco);
-
 
                                 if (string.IsNullOrEmpty(registroPago.NumeroCheque))
                                     command.Parameters.AddWithValue("@numero_cheque", DBNull.Value);
@@ -1339,6 +1171,7 @@ namespace Eatery.Ventas
 
                             //Limpiar Datos
                             dsVentas1.detalle_factura_transaction.Clear();
+                            //dsVentas1.detalle_factura_transaccion_inv.Clear();
                             ClienteFactura = new ClienteFacturacion();
                             cmdConsumidorFinal_Click(sender, e);
                             txtVendedor.Text = txtTotal.Text = "";
@@ -1358,7 +1191,6 @@ namespace Eatery.Ventas
                         }
                     }
                 }
-                //}
             }
 
 
