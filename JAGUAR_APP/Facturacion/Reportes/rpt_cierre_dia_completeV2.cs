@@ -55,7 +55,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 cmd.Parameters.AddWithValue("@idCierreH", pIdCierre);
                 SqlDataReader dr = cmd.ExecuteReader();
                 decimal Total = 0;
-                decimal TotalC = 0;
+                decimal TotalContado = 0;
+                decimal TotalDespoitos = 0;
+                decimal TotalDiferencias = 0;
 
                 while (dr.Read())
                 {
@@ -70,44 +72,63 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                         case 1://Efectivo
                             decimal valor1 = dr.GetDecimal(3);//Total
                             decimal TotalEfectivoDeposito = dr.GetDecimal(4);//Total deposito caja
-                            
 
                             decimal valorC1 = dr.GetDecimal(5);//Valor contado
                             
                             Total += valor1;
-                            TotalC += valorC1;
+                            TotalContado += valorC1;
                             lblTipoDiferenciaEfectivo.Text = dr.GetString(6);
-
                             decimal diferenciaEfectivo = dr.GetDecimal(7);
-                            lblDiferenciaEfectivo.Text = string.Format("{0:L ###,##0.00}", diferenciaEfectivo);
+                            TotalDespoitos += TotalEfectivoDeposito;
+                            TotalDiferencias += diferenciaEfectivo;
 
                             lblTotalEfectivo.Text = string.Format("{0:L ###,##0.00}", valor1);
-                            lblTotalEfectivoVerificado.Text = string.Format("{0:L ###,##0.00}", valorC1);
                             lblDepositoEfectivoCaja.Text = string.Format("{0:L ###,##0.00}", TotalEfectivoDeposito);
+                            lblTotalEfectivoVerificado.Text = string.Format("{0:L ###,##0.00}", valorC1);
+                            //Arriba pusimos la descripcion de tipo de diferencia
+                            lblDiferenciaEfectivo.Text = string.Format("{0:L ###,##0.00}", diferenciaEfectivo);
                             break;
                         case 2:
                             decimal valor2 = dr.GetDecimal(3);
-                            decimal valorC2 = dr.GetDecimal(4);
+                            decimal valorC2 = dr.GetDecimal(5);
+
                             Total += valor2;
-                            TotalC += valorC2;
+                            TotalContado += valorC2;
+                            lblTipoDiferenciaTarjetas.Text = dr.GetString(6);
+                            decimal diferenciaTarjeta = dr.GetDecimal(7);
+                            TotalDiferencias += diferenciaTarjeta;
+
                             lblTotalTarjetas.Text = string.Format("{0:L ###,##0.00}", valor2);
                             lblTotalTarjetaVerificado.Text = string.Format("{0:L ###,##0.00}", valorC2);
+                            lblDiferenciaTarjetas.Text = string.Format("{0:L ###,##0.00}", diferenciaTarjeta);
                             break;
                         case 3:
                             decimal valor3 = dr.GetDecimal(3);
-                            decimal valorC3 = dr.GetDecimal(4);
+                            decimal valorC3 = dr.GetDecimal(5);
+
                             Total += valor3;
-                            TotalC += valorC3;
+                            TotalContado += valorC3;
+                            lblTipoDiferenciaTransferencia.Text = dr.GetString(6);
+                            decimal diferenciaTransferencia = dr.GetDecimal(7);
+                            TotalDiferencias += diferenciaTransferencia;
+
                             lblTotalDeposito.Text = string.Format("{0:L ###,##0.00}", valor3);
                             lblTotalBancosVerificado.Text = string.Format("{0:L ###,##0.00}", valorC3);
+                            lblDiferenciaTransferencia.Text = string.Format("{0:L ###,##0.00}", diferenciaTransferencia);
                             break;
                         case 4:
                             decimal valor4 = dr.GetDecimal(3);
-                            decimal valorC4 = dr.GetDecimal(4);
+                            decimal valorC4 = dr.GetDecimal(5);
+
                             Total += valor4;
-                            TotalC += valorC4;
+                            TotalContado += valorC4;
+                            lblTipoDiferenciaCheque.Text = dr.GetString(6);
+                            decimal diferenciaCheque = dr.GetDecimal(7);
+                            TotalDiferencias += diferenciaCheque;
+
                             lblTotalCheque.Text = string.Format("{0:L ###,##0.00}", valor4);
                             lblTotalChequeVerificado.Text = string.Format("{0:L ###,##0.00}", valorC4);
+                            lblDiferenciaCheque.Text = string.Format("{0:L ###,##0.00}", diferenciaCheque);
                             break;
                         case 5:
                             break;
@@ -117,7 +138,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                     
                 }
                 lblTotalIngresos.Text = string.Format("{0:L ###,##0.00}", Total);
-                lblTotalVerificado.Text = string.Format("{0:L ###,##0.00}", TotalC);
+                lblTotalVerificado.Text = string.Format("{0:L ###,##0.00}", TotalContado);
+                lblTotalDepositoCaja.Text = string.Format("{0:L ###,##0.00}", TotalDespoitos);
+                lblDiferencia_Total.Text = string.Format("{0:L ###,##0.00}", TotalDiferencias);
                 con.Close();
             }
             catch (Exception ec)

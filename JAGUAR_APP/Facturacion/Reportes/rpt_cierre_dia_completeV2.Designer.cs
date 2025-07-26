@@ -98,28 +98,29 @@
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTotalCheque = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTotalChequeVerificado = new DevExpress.XtraReports.UI.XRLabel();
-            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.lblTotalDepositoCaja = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblDepositoEfectivoCaja = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblDiferenciaCheque = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblDiferenciaEfectivo = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblDiferenciaTarjetas = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblDiferenciaTransferencia = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblDiferencia_Total = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel30 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTipoDiferenciaTransferencia = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTipoDiferenciaTarjetas = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTipoDiferenciaEfectivo = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel34 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTipoDiferenciaCheque = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblDiferenciaCheque = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblDiferenciaEfectivo = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblDiferenciaTarjetas = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblDiferenciaTransferencia = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblDiferencia_Total = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotalDepositoCaja = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblDepositoEfectivoCaja = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotalCheque = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotalChequeVerificado = new DevExpress.XtraReports.UI.XRLabel();
+            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
+            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsContabilidad1)).BeginInit();
@@ -456,10 +457,10 @@
             // 
             this.xrLabel21.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel21.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(409.6412F, 72.62853F);
+            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(422.609F, 72.62853F);
             this.xrLabel21.Name = "xrLabel21";
             this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel21.SizeF = new System.Drawing.SizeF(101.7965F, 31.4167F);
+            this.xrLabel21.SizeF = new System.Drawing.SizeF(112.836F, 31.4167F);
             this.xrLabel21.StylePriority.UseBorders = false;
             this.xrLabel21.StylePriority.UseFont = false;
             this.xrLabel21.StylePriority.UseTextAlignment = false;
@@ -484,10 +485,10 @@
             // 
             this.lblTotalEfectivoVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.lblTotalEfectivoVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalEfectivoVerificado.LocationFloat = new DevExpress.Utils.PointFloat(409.6412F, 105.0452F);
+            this.lblTotalEfectivoVerificado.LocationFloat = new DevExpress.Utils.PointFloat(422.609F, 112.0452F);
             this.lblTotalEfectivoVerificado.Name = "lblTotalEfectivoVerificado";
             this.lblTotalEfectivoVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalEfectivoVerificado.SizeF = new System.Drawing.SizeF(101.7965F, 15.70834F);
+            this.lblTotalEfectivoVerificado.SizeF = new System.Drawing.SizeF(112.836F, 15.70834F);
             this.lblTotalEfectivoVerificado.StylePriority.UseBorders = false;
             this.lblTotalEfectivoVerificado.StylePriority.UseFont = false;
             this.lblTotalEfectivoVerificado.StylePriority.UseTextAlignment = false;
@@ -498,10 +499,10 @@
             // 
             this.lblTotalTarjetaVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.lblTotalTarjetaVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalTarjetaVerificado.LocationFloat = new DevExpress.Utils.PointFloat(409.6412F, 122.7535F);
+            this.lblTotalTarjetaVerificado.LocationFloat = new DevExpress.Utils.PointFloat(422.609F, 129.7535F);
             this.lblTotalTarjetaVerificado.Name = "lblTotalTarjetaVerificado";
             this.lblTotalTarjetaVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalTarjetaVerificado.SizeF = new System.Drawing.SizeF(101.7965F, 15.70833F);
+            this.lblTotalTarjetaVerificado.SizeF = new System.Drawing.SizeF(112.836F, 15.70836F);
             this.lblTotalTarjetaVerificado.StylePriority.UseBorders = false;
             this.lblTotalTarjetaVerificado.StylePriority.UseFont = false;
             this.lblTotalTarjetaVerificado.StylePriority.UseTextAlignment = false;
@@ -512,10 +513,10 @@
             // 
             this.lblTotalBancosVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.lblTotalBancosVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalBancosVerificado.LocationFloat = new DevExpress.Utils.PointFloat(409.6412F, 141.4619F);
+            this.lblTotalBancosVerificado.LocationFloat = new DevExpress.Utils.PointFloat(422.609F, 148.4619F);
             this.lblTotalBancosVerificado.Name = "lblTotalBancosVerificado";
             this.lblTotalBancosVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalBancosVerificado.SizeF = new System.Drawing.SizeF(101.7965F, 15.70833F);
+            this.lblTotalBancosVerificado.SizeF = new System.Drawing.SizeF(112.836F, 15.70833F);
             this.lblTotalBancosVerificado.StylePriority.UseBorders = false;
             this.lblTotalBancosVerificado.StylePriority.UseFont = false;
             this.lblTotalBancosVerificado.StylePriority.UseTextAlignment = false;
@@ -526,10 +527,10 @@
             // 
             this.lblTotalVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.lblTotalVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblTotalVerificado.LocationFloat = new DevExpress.Utils.PointFloat(409.6412F, 177.8787F);
+            this.lblTotalVerificado.LocationFloat = new DevExpress.Utils.PointFloat(422.609F, 184.8787F);
             this.lblTotalVerificado.Name = "lblTotalVerificado";
             this.lblTotalVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalVerificado.SizeF = new System.Drawing.SizeF(101.7965F, 15.70833F);
+            this.lblTotalVerificado.SizeF = new System.Drawing.SizeF(112.836F, 15.70833F);
             this.lblTotalVerificado.StylePriority.UseBorders = false;
             this.lblTotalVerificado.StylePriority.UseFont = false;
             this.lblTotalVerificado.StylePriority.UseTextAlignment = false;
@@ -567,7 +568,7 @@
             // 
             this.xrLabel4.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrLabel4.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(1F, 177.8786F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(1F, 184.8786F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel4.SizeF = new System.Drawing.SizeF(188.2971F, 15.70833F);
@@ -581,7 +582,7 @@
             // 
             this.lblTotalIngresos.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.lblTotalIngresos.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblTotalIngresos.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 177.8787F);
+            this.lblTotalIngresos.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 184.8787F);
             this.lblTotalIngresos.Name = "lblTotalIngresos";
             this.lblTotalIngresos.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblTotalIngresos.SizeF = new System.Drawing.SizeF(116.4221F, 15.70833F);
@@ -595,7 +596,7 @@
             // 
             this.lblTotalDeposito.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.lblTotalDeposito.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalDeposito.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 141.4619F);
+            this.lblTotalDeposito.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 148.4619F);
             this.lblTotalDeposito.Name = "lblTotalDeposito";
             this.lblTotalDeposito.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblTotalDeposito.SizeF = new System.Drawing.SizeF(116.4221F, 15.70833F);
@@ -609,7 +610,7 @@
             // 
             this.xrLabel7.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrLabel7.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(1F, 141.4619F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(1F, 148.4619F);
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel7.SizeF = new System.Drawing.SizeF(188.2971F, 15.70833F);
@@ -623,7 +624,7 @@
             // 
             this.xrLabel3.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(1F, 122.7535F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(1F, 129.7535F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(188.2971F, 15.70833F);
@@ -637,7 +638,7 @@
             // 
             this.lblTotalTarjetas.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.lblTotalTarjetas.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalTarjetas.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 122.7535F);
+            this.lblTotalTarjetas.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 129.7535F);
             this.lblTotalTarjetas.Name = "lblTotalTarjetas";
             this.lblTotalTarjetas.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblTotalTarjetas.SizeF = new System.Drawing.SizeF(116.4221F, 15.70833F);
@@ -651,7 +652,7 @@
             // 
             this.lblTotalEfectivo.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.lblTotalEfectivo.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalEfectivo.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 105.0452F);
+            this.lblTotalEfectivo.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 112.0452F);
             this.lblTotalEfectivo.Name = "lblTotalEfectivo";
             this.lblTotalEfectivo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblTotalEfectivo.SizeF = new System.Drawing.SizeF(116.4221F, 15.70834F);
@@ -665,7 +666,7 @@
             // 
             this.xrLabel2.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(1F, 105.0452F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(1F, 112.0452F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(188.2971F, 15.70834F);
@@ -780,7 +781,7 @@
             // 
             this.lblRevisadoPor.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.lblRevisadoPor.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblRevisadoPor.LocationFloat = new DevExpress.Utils.PointFloat(585.1777F, 60.99998F);
+            this.lblRevisadoPor.LocationFloat = new DevExpress.Utils.PointFloat(585.1777F, 80.74651F);
             this.lblRevisadoPor.Multiline = true;
             this.lblRevisadoPor.Name = "lblRevisadoPor";
             this.lblRevisadoPor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -794,7 +795,7 @@
             // 
             this.xrLabel10.Borders = DevExpress.XtraPrinting.BorderSide.Top;
             this.xrLabel10.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(585.1777F, 83.99993F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(585.1777F, 103.7465F);
             this.xrLabel10.Multiline = true;
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -809,7 +810,7 @@
             // 
             this.lblResponsable.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.lblResponsable.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblResponsable.LocationFloat = new DevExpress.Utils.PointFloat(106.4276F, 60.99998F);
+            this.lblResponsable.LocationFloat = new DevExpress.Utils.PointFloat(106.4276F, 80.74651F);
             this.lblResponsable.Multiline = true;
             this.lblResponsable.Name = "lblResponsable";
             this.lblResponsable.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -823,7 +824,7 @@
             // 
             this.xrLabel8.Borders = DevExpress.XtraPrinting.BorderSide.Top;
             this.xrLabel8.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(106.4276F, 84F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(106.4276F, 103.7465F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -971,6 +972,7 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLine1,
             this.xrLabel30,
             this.lblTipoDiferenciaTransferencia,
             this.lblTipoDiferenciaTarjetas,
@@ -1015,14 +1017,266 @@
             this.lblCompanyName,
             this.lblDireccion,
             this.lblLegalName});
-            this.ReportHeader.HeightF = 193.587F;
+            this.ReportHeader.HeightF = 200.8787F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // xrLabel30
+            // 
+            this.xrLabel30.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel30.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel30.LocationFloat = new DevExpress.Utils.PointFloat(635.6628F, 184.8787F);
+            this.xrLabel30.Name = "xrLabel30";
+            this.xrLabel30.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel30.SizeF = new System.Drawing.SizeF(95.58832F, 15.70833F);
+            this.xrLabel30.StylePriority.UseBorders = false;
+            this.xrLabel30.StylePriority.UseFont = false;
+            this.xrLabel30.StylePriority.UseTextAlignment = false;
+            this.xrLabel30.Text = " ";
+            this.xrLabel30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // lblTipoDiferenciaTransferencia
+            // 
+            this.lblTipoDiferenciaTransferencia.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblTipoDiferenciaTransferencia.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblTipoDiferenciaTransferencia.LocationFloat = new DevExpress.Utils.PointFloat(635.6628F, 148.4619F);
+            this.lblTipoDiferenciaTransferencia.Name = "lblTipoDiferenciaTransferencia";
+            this.lblTipoDiferenciaTransferencia.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTipoDiferenciaTransferencia.SizeF = new System.Drawing.SizeF(95.5885F, 15.70833F);
+            this.lblTipoDiferenciaTransferencia.StylePriority.UseBorders = false;
+            this.lblTipoDiferenciaTransferencia.StylePriority.UseFont = false;
+            this.lblTipoDiferenciaTransferencia.StylePriority.UseTextAlignment = false;
+            this.lblTipoDiferenciaTransferencia.Text = " ";
+            this.lblTipoDiferenciaTransferencia.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // lblTipoDiferenciaTarjetas
+            // 
+            this.lblTipoDiferenciaTarjetas.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblTipoDiferenciaTarjetas.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblTipoDiferenciaTarjetas.LocationFloat = new DevExpress.Utils.PointFloat(635.6628F, 129.7535F);
+            this.lblTipoDiferenciaTarjetas.Name = "lblTipoDiferenciaTarjetas";
+            this.lblTipoDiferenciaTarjetas.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTipoDiferenciaTarjetas.SizeF = new System.Drawing.SizeF(95.5885F, 15.70836F);
+            this.lblTipoDiferenciaTarjetas.StylePriority.UseBorders = false;
+            this.lblTipoDiferenciaTarjetas.StylePriority.UseFont = false;
+            this.lblTipoDiferenciaTarjetas.StylePriority.UseTextAlignment = false;
+            this.lblTipoDiferenciaTarjetas.Text = " ";
+            this.lblTipoDiferenciaTarjetas.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // lblTipoDiferenciaEfectivo
+            // 
+            this.lblTipoDiferenciaEfectivo.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblTipoDiferenciaEfectivo.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblTipoDiferenciaEfectivo.LocationFloat = new DevExpress.Utils.PointFloat(635.6628F, 112.0452F);
+            this.lblTipoDiferenciaEfectivo.Name = "lblTipoDiferenciaEfectivo";
+            this.lblTipoDiferenciaEfectivo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTipoDiferenciaEfectivo.SizeF = new System.Drawing.SizeF(95.58862F, 15.70834F);
+            this.lblTipoDiferenciaEfectivo.StylePriority.UseBorders = false;
+            this.lblTipoDiferenciaEfectivo.StylePriority.UseFont = false;
+            this.lblTipoDiferenciaEfectivo.StylePriority.UseTextAlignment = false;
+            this.lblTipoDiferenciaEfectivo.Text = " ";
+            this.lblTipoDiferenciaEfectivo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // xrLabel34
+            // 
+            this.xrLabel34.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel34.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.xrLabel34.LocationFloat = new DevExpress.Utils.PointFloat(635.6628F, 72.62853F);
+            this.xrLabel34.Name = "xrLabel34";
+            this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel34.SizeF = new System.Drawing.SizeF(95.58862F, 31.4167F);
+            this.xrLabel34.StylePriority.UseBorders = false;
+            this.xrLabel34.StylePriority.UseFont = false;
+            this.xrLabel34.StylePriority.UseTextAlignment = false;
+            this.xrLabel34.Text = "Tipo de diferencia";
+            this.xrLabel34.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // lblTipoDiferenciaCheque
+            // 
+            this.lblTipoDiferenciaCheque.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblTipoDiferenciaCheque.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblTipoDiferenciaCheque.LocationFloat = new DevExpress.Utils.PointFloat(635.6628F, 167.1702F);
+            this.lblTipoDiferenciaCheque.Name = "lblTipoDiferenciaCheque";
+            this.lblTipoDiferenciaCheque.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTipoDiferenciaCheque.SizeF = new System.Drawing.SizeF(95.5885F, 15.70834F);
+            this.lblTipoDiferenciaCheque.StylePriority.UseBorders = false;
+            this.lblTipoDiferenciaCheque.StylePriority.UseFont = false;
+            this.lblTipoDiferenciaCheque.StylePriority.UseTextAlignment = false;
+            this.lblTipoDiferenciaCheque.Text = " ";
+            this.lblTipoDiferenciaCheque.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // lblDiferenciaCheque
+            // 
+            this.lblDiferenciaCheque.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblDiferenciaCheque.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblDiferenciaCheque.LocationFloat = new DevExpress.Utils.PointFloat(535.4449F, 167.1702F);
+            this.lblDiferenciaCheque.Name = "lblDiferenciaCheque";
+            this.lblDiferenciaCheque.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblDiferenciaCheque.SizeF = new System.Drawing.SizeF(100.218F, 15.70834F);
+            this.lblDiferenciaCheque.StylePriority.UseBorders = false;
+            this.lblDiferenciaCheque.StylePriority.UseFont = false;
+            this.lblDiferenciaCheque.StylePriority.UseTextAlignment = false;
+            this.lblDiferenciaCheque.Text = "L 0.00";
+            this.lblDiferenciaCheque.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // xrLabel23
+            // 
+            this.xrLabel23.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel23.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(535.4451F, 72.62853F);
+            this.xrLabel23.Name = "xrLabel23";
+            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel23.SizeF = new System.Drawing.SizeF(100.2181F, 31.4167F);
+            this.xrLabel23.StylePriority.UseBorders = false;
+            this.xrLabel23.StylePriority.UseFont = false;
+            this.xrLabel23.StylePriority.UseTextAlignment = false;
+            this.xrLabel23.Text = "Diferencia";
+            this.xrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // lblDiferenciaEfectivo
+            // 
+            this.lblDiferenciaEfectivo.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblDiferenciaEfectivo.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblDiferenciaEfectivo.LocationFloat = new DevExpress.Utils.PointFloat(535.4449F, 112.0452F);
+            this.lblDiferenciaEfectivo.Name = "lblDiferenciaEfectivo";
+            this.lblDiferenciaEfectivo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblDiferenciaEfectivo.SizeF = new System.Drawing.SizeF(100.2181F, 15.70834F);
+            this.lblDiferenciaEfectivo.StylePriority.UseBorders = false;
+            this.lblDiferenciaEfectivo.StylePriority.UseFont = false;
+            this.lblDiferenciaEfectivo.StylePriority.UseTextAlignment = false;
+            this.lblDiferenciaEfectivo.Text = "L 0.00";
+            this.lblDiferenciaEfectivo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // lblDiferenciaTarjetas
+            // 
+            this.lblDiferenciaTarjetas.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblDiferenciaTarjetas.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblDiferenciaTarjetas.LocationFloat = new DevExpress.Utils.PointFloat(535.4449F, 129.7535F);
+            this.lblDiferenciaTarjetas.Name = "lblDiferenciaTarjetas";
+            this.lblDiferenciaTarjetas.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblDiferenciaTarjetas.SizeF = new System.Drawing.SizeF(100.218F, 15.70836F);
+            this.lblDiferenciaTarjetas.StylePriority.UseBorders = false;
+            this.lblDiferenciaTarjetas.StylePriority.UseFont = false;
+            this.lblDiferenciaTarjetas.StylePriority.UseTextAlignment = false;
+            this.lblDiferenciaTarjetas.Text = "L 0.00";
+            this.lblDiferenciaTarjetas.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // lblDiferenciaTransferencia
+            // 
+            this.lblDiferenciaTransferencia.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblDiferenciaTransferencia.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblDiferenciaTransferencia.LocationFloat = new DevExpress.Utils.PointFloat(535.4449F, 148.4619F);
+            this.lblDiferenciaTransferencia.Name = "lblDiferenciaTransferencia";
+            this.lblDiferenciaTransferencia.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblDiferenciaTransferencia.SizeF = new System.Drawing.SizeF(100.218F, 15.70833F);
+            this.lblDiferenciaTransferencia.StylePriority.UseBorders = false;
+            this.lblDiferenciaTransferencia.StylePriority.UseFont = false;
+            this.lblDiferenciaTransferencia.StylePriority.UseTextAlignment = false;
+            this.lblDiferenciaTransferencia.Text = "L 0.00";
+            this.lblDiferenciaTransferencia.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // lblDiferencia_Total
+            // 
+            this.lblDiferencia_Total.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblDiferencia_Total.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblDiferencia_Total.LocationFloat = new DevExpress.Utils.PointFloat(535.4449F, 184.8787F);
+            this.lblDiferencia_Total.Name = "lblDiferencia_Total";
+            this.lblDiferencia_Total.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblDiferencia_Total.SizeF = new System.Drawing.SizeF(100.2178F, 15.70833F);
+            this.lblDiferencia_Total.StylePriority.UseBorders = false;
+            this.lblDiferencia_Total.StylePriority.UseFont = false;
+            this.lblDiferencia_Total.StylePriority.UseTextAlignment = false;
+            this.lblDiferencia_Total.Text = "L 0.00";
+            this.lblDiferencia_Total.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // lblTotalDepositoCaja
+            // 
+            this.lblTotalDepositoCaja.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblTotalDepositoCaja.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblTotalDepositoCaja.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 184.8787F);
+            this.lblTotalDepositoCaja.Name = "lblTotalDepositoCaja";
+            this.lblTotalDepositoCaja.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTotalDepositoCaja.SizeF = new System.Drawing.SizeF(116.8897F, 15.70833F);
+            this.lblTotalDepositoCaja.StylePriority.UseBorders = false;
+            this.lblTotalDepositoCaja.StylePriority.UseFont = false;
+            this.lblTotalDepositoCaja.StylePriority.UseTextAlignment = false;
+            this.lblTotalDepositoCaja.Text = "L 0.00";
+            this.lblTotalDepositoCaja.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // xrLabel19
+            // 
+            this.xrLabel19.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel19.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 148.4619F);
+            this.xrLabel19.Name = "xrLabel19";
+            this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(116.8898F, 15.70833F);
+            this.xrLabel19.StylePriority.UseBorders = false;
+            this.xrLabel19.StylePriority.UseFont = false;
+            this.xrLabel19.StylePriority.UseTextAlignment = false;
+            this.xrLabel19.Text = "L 0.00";
+            this.xrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // xrLabel22
+            // 
+            this.xrLabel22.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel22.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 129.7535F);
+            this.xrLabel22.Name = "xrLabel22";
+            this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel22.SizeF = new System.Drawing.SizeF(116.8898F, 15.70836F);
+            this.xrLabel22.StylePriority.UseBorders = false;
+            this.xrLabel22.StylePriority.UseFont = false;
+            this.xrLabel22.StylePriority.UseTextAlignment = false;
+            this.xrLabel22.Text = "L 0.00";
+            this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // lblDepositoEfectivoCaja
+            // 
+            this.lblDepositoEfectivoCaja.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblDepositoEfectivoCaja.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.lblDepositoEfectivoCaja.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 112.0452F);
+            this.lblDepositoEfectivoCaja.Name = "lblDepositoEfectivoCaja";
+            this.lblDepositoEfectivoCaja.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblDepositoEfectivoCaja.SizeF = new System.Drawing.SizeF(116.89F, 15.70834F);
+            this.lblDepositoEfectivoCaja.StylePriority.UseBorders = false;
+            this.lblDepositoEfectivoCaja.StylePriority.UseFont = false;
+            this.lblDepositoEfectivoCaja.StylePriority.UseTextAlignment = false;
+            this.lblDepositoEfectivoCaja.Text = "L 0.00";
+            this.lblDepositoEfectivoCaja.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // xrLabel24
+            // 
+            this.xrLabel24.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel24.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 72.62853F);
+            this.xrLabel24.Name = "xrLabel24";
+            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(116.89F, 31.4167F);
+            this.xrLabel24.StylePriority.UseBorders = false;
+            this.xrLabel24.StylePriority.UseFont = false;
+            this.xrLabel24.StylePriority.UseTextAlignment = false;
+            this.xrLabel24.Text = "Total Depósito Caja";
+            this.xrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // xrLabel25
+            // 
+            this.xrLabel25.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel25.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
+            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 167.1702F);
+            this.xrLabel25.Name = "xrLabel25";
+            this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel25.SizeF = new System.Drawing.SizeF(116.8898F, 15.70834F);
+            this.xrLabel25.StylePriority.UseBorders = false;
+            this.xrLabel25.StylePriority.UseFont = false;
+            this.xrLabel25.StylePriority.UseTextAlignment = false;
+            this.xrLabel25.Text = "L 0.00";
+            this.xrLabel25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
             // 
             // xrLabel16
             // 
             this.xrLabel16.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrLabel16.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(1F, 160.1702F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(1F, 167.1702F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel16.SizeF = new System.Drawing.SizeF(188.2971F, 15.70833F);
@@ -1036,7 +1290,7 @@
             // 
             this.lblTotalCheque.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.lblTotalCheque.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalCheque.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 160.1702F);
+            this.lblTotalCheque.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 167.1702F);
             this.lblTotalCheque.Name = "lblTotalCheque";
             this.lblTotalCheque.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblTotalCheque.SizeF = new System.Drawing.SizeF(116.4221F, 15.70833F);
@@ -1050,10 +1304,10 @@
             // 
             this.lblTotalChequeVerificado.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.lblTotalChequeVerificado.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTotalChequeVerificado.LocationFloat = new DevExpress.Utils.PointFloat(409.6412F, 160.1702F);
+            this.lblTotalChequeVerificado.LocationFloat = new DevExpress.Utils.PointFloat(422.609F, 167.1702F);
             this.lblTotalChequeVerificado.Name = "lblTotalChequeVerificado";
             this.lblTotalChequeVerificado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalChequeVerificado.SizeF = new System.Drawing.SizeF(101.7965F, 15.70833F);
+            this.lblTotalChequeVerificado.SizeF = new System.Drawing.SizeF(112.836F, 15.70834F);
             this.lblTotalChequeVerificado.StylePriority.UseBorders = false;
             this.lblTotalChequeVerificado.StylePriority.UseFont = false;
             this.lblTotalChequeVerificado.StylePriority.UseTextAlignment = false;
@@ -1067,259 +1321,14 @@
             this.xrLabel10,
             this.lblResponsable,
             this.xrLabel8});
+            this.ReportFooter.HeightF = 119.7465F;
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // lblTotalDepositoCaja
+            // xrLine1
             // 
-            this.lblTotalDepositoCaja.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblTotalDepositoCaja.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblTotalDepositoCaja.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 177.8787F);
-            this.lblTotalDepositoCaja.Name = "lblTotalDepositoCaja";
-            this.lblTotalDepositoCaja.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalDepositoCaja.SizeF = new System.Drawing.SizeF(103.9217F, 15.70833F);
-            this.lblTotalDepositoCaja.StylePriority.UseBorders = false;
-            this.lblTotalDepositoCaja.StylePriority.UseFont = false;
-            this.lblTotalDepositoCaja.StylePriority.UseTextAlignment = false;
-            this.lblTotalDepositoCaja.Text = "L 0.00";
-            this.lblTotalDepositoCaja.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // xrLabel19
-            // 
-            this.xrLabel19.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel19.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 141.4619F);
-            this.xrLabel19.Name = "xrLabel19";
-            this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel19.SizeF = new System.Drawing.SizeF(103.9218F, 15.70833F);
-            this.xrLabel19.StylePriority.UseBorders = false;
-            this.xrLabel19.StylePriority.UseFont = false;
-            this.xrLabel19.StylePriority.UseTextAlignment = false;
-            this.xrLabel19.Text = "L 0.00";
-            this.xrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // xrLabel22
-            // 
-            this.xrLabel22.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel22.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 122.7535F);
-            this.xrLabel22.Name = "xrLabel22";
-            this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel22.SizeF = new System.Drawing.SizeF(103.9218F, 15.70833F);
-            this.xrLabel22.StylePriority.UseBorders = false;
-            this.xrLabel22.StylePriority.UseFont = false;
-            this.xrLabel22.StylePriority.UseTextAlignment = false;
-            this.xrLabel22.Text = "L 0.00";
-            this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblDepositoEfectivoCaja
-            // 
-            this.lblDepositoEfectivoCaja.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblDepositoEfectivoCaja.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblDepositoEfectivoCaja.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 105.0452F);
-            this.lblDepositoEfectivoCaja.Name = "lblDepositoEfectivoCaja";
-            this.lblDepositoEfectivoCaja.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblDepositoEfectivoCaja.SizeF = new System.Drawing.SizeF(103.922F, 15.70834F);
-            this.lblDepositoEfectivoCaja.StylePriority.UseBorders = false;
-            this.lblDepositoEfectivoCaja.StylePriority.UseFont = false;
-            this.lblDepositoEfectivoCaja.StylePriority.UseTextAlignment = false;
-            this.lblDepositoEfectivoCaja.Text = "L 0.00";
-            this.lblDepositoEfectivoCaja.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // xrLabel24
-            // 
-            this.xrLabel24.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel24.Font = new DevExpress.Drawing.DXFont("Consolas", 8F);
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 72.62853F);
-            this.xrLabel24.Name = "xrLabel24";
-            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(103.922F, 31.4167F);
-            this.xrLabel24.StylePriority.UseBorders = false;
-            this.xrLabel24.StylePriority.UseFont = false;
-            this.xrLabel24.StylePriority.UseTextAlignment = false;
-            this.xrLabel24.Text = "Total Depósito Caja";
-            this.xrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            // 
-            // xrLabel25
-            // 
-            this.xrLabel25.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel25.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(305.7192F, 160.1702F);
-            this.xrLabel25.Name = "xrLabel25";
-            this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel25.SizeF = new System.Drawing.SizeF(103.9218F, 15.70833F);
-            this.xrLabel25.StylePriority.UseBorders = false;
-            this.xrLabel25.StylePriority.UseFont = false;
-            this.xrLabel25.StylePriority.UseTextAlignment = false;
-            this.xrLabel25.Text = "L 0.00";
-            this.xrLabel25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblDiferenciaCheque
-            // 
-            this.lblDiferenciaCheque.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblDiferenciaCheque.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblDiferenciaCheque.LocationFloat = new DevExpress.Utils.PointFloat(511.4377F, 160.1702F);
-            this.lblDiferenciaCheque.Name = "lblDiferenciaCheque";
-            this.lblDiferenciaCheque.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblDiferenciaCheque.SizeF = new System.Drawing.SizeF(75.79681F, 15.70833F);
-            this.lblDiferenciaCheque.StylePriority.UseBorders = false;
-            this.lblDiferenciaCheque.StylePriority.UseFont = false;
-            this.lblDiferenciaCheque.StylePriority.UseTextAlignment = false;
-            this.lblDiferenciaCheque.Text = "L 0.00";
-            this.lblDiferenciaCheque.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // xrLabel23
-            // 
-            this.xrLabel23.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel23.Font = new DevExpress.Drawing.DXFont("Consolas", 8F);
-            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(511.4378F, 72.62853F);
-            this.xrLabel23.Name = "xrLabel23";
-            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel23.SizeF = new System.Drawing.SizeF(75.79694F, 31.4167F);
-            this.xrLabel23.StylePriority.UseBorders = false;
-            this.xrLabel23.StylePriority.UseFont = false;
-            this.xrLabel23.StylePriority.UseTextAlignment = false;
-            this.xrLabel23.Text = "Diferencia";
-            this.xrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            // 
-            // lblDiferenciaEfectivo
-            // 
-            this.lblDiferenciaEfectivo.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblDiferenciaEfectivo.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblDiferenciaEfectivo.LocationFloat = new DevExpress.Utils.PointFloat(511.4377F, 105.0452F);
-            this.lblDiferenciaEfectivo.Name = "lblDiferenciaEfectivo";
-            this.lblDiferenciaEfectivo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblDiferenciaEfectivo.SizeF = new System.Drawing.SizeF(75.79694F, 15.70834F);
-            this.lblDiferenciaEfectivo.StylePriority.UseBorders = false;
-            this.lblDiferenciaEfectivo.StylePriority.UseFont = false;
-            this.lblDiferenciaEfectivo.StylePriority.UseTextAlignment = false;
-            this.lblDiferenciaEfectivo.Text = "L 0.00";
-            this.lblDiferenciaEfectivo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblDiferenciaTarjetas
-            // 
-            this.lblDiferenciaTarjetas.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblDiferenciaTarjetas.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblDiferenciaTarjetas.LocationFloat = new DevExpress.Utils.PointFloat(511.4377F, 122.7535F);
-            this.lblDiferenciaTarjetas.Name = "lblDiferenciaTarjetas";
-            this.lblDiferenciaTarjetas.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblDiferenciaTarjetas.SizeF = new System.Drawing.SizeF(75.79681F, 15.70833F);
-            this.lblDiferenciaTarjetas.StylePriority.UseBorders = false;
-            this.lblDiferenciaTarjetas.StylePriority.UseFont = false;
-            this.lblDiferenciaTarjetas.StylePriority.UseTextAlignment = false;
-            this.lblDiferenciaTarjetas.Text = "L 0.00";
-            this.lblDiferenciaTarjetas.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblDiferenciaTransferencia
-            // 
-            this.lblDiferenciaTransferencia.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblDiferenciaTransferencia.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblDiferenciaTransferencia.LocationFloat = new DevExpress.Utils.PointFloat(511.4377F, 141.4619F);
-            this.lblDiferenciaTransferencia.Name = "lblDiferenciaTransferencia";
-            this.lblDiferenciaTransferencia.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblDiferenciaTransferencia.SizeF = new System.Drawing.SizeF(75.79681F, 15.70833F);
-            this.lblDiferenciaTransferencia.StylePriority.UseBorders = false;
-            this.lblDiferenciaTransferencia.StylePriority.UseFont = false;
-            this.lblDiferenciaTransferencia.StylePriority.UseTextAlignment = false;
-            this.lblDiferenciaTransferencia.Text = "L 0.00";
-            this.lblDiferenciaTransferencia.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblDiferencia_Total
-            // 
-            this.lblDiferencia_Total.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblDiferencia_Total.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblDiferencia_Total.LocationFloat = new DevExpress.Utils.PointFloat(511.4377F, 177.8787F);
-            this.lblDiferencia_Total.Name = "lblDiferencia_Total";
-            this.lblDiferencia_Total.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblDiferencia_Total.SizeF = new System.Drawing.SizeF(75.79663F, 15.70833F);
-            this.lblDiferencia_Total.StylePriority.UseBorders = false;
-            this.lblDiferencia_Total.StylePriority.UseFont = false;
-            this.lblDiferencia_Total.StylePriority.UseTextAlignment = false;
-            this.lblDiferencia_Total.Text = "L 0.00";
-            this.lblDiferencia_Total.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // xrLabel30
-            // 
-            this.xrLabel30.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel30.Font = new DevExpress.Drawing.DXFont("Consolas", 9F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel30.LocationFloat = new DevExpress.Utils.PointFloat(587.2346F, 177.8787F);
-            this.xrLabel30.Name = "xrLabel30";
-            this.xrLabel30.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel30.SizeF = new System.Drawing.SizeF(72.67163F, 15.70833F);
-            this.xrLabel30.StylePriority.UseBorders = false;
-            this.xrLabel30.StylePriority.UseFont = false;
-            this.xrLabel30.StylePriority.UseTextAlignment = false;
-            this.xrLabel30.Text = " ";
-            this.xrLabel30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblTipoDiferenciaTransferencia
-            // 
-            this.lblTipoDiferenciaTransferencia.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblTipoDiferenciaTransferencia.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTipoDiferenciaTransferencia.LocationFloat = new DevExpress.Utils.PointFloat(587.2346F, 141.4619F);
-            this.lblTipoDiferenciaTransferencia.Name = "lblTipoDiferenciaTransferencia";
-            this.lblTipoDiferenciaTransferencia.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTipoDiferenciaTransferencia.SizeF = new System.Drawing.SizeF(72.67181F, 15.70833F);
-            this.lblTipoDiferenciaTransferencia.StylePriority.UseBorders = false;
-            this.lblTipoDiferenciaTransferencia.StylePriority.UseFont = false;
-            this.lblTipoDiferenciaTransferencia.StylePriority.UseTextAlignment = false;
-            this.lblTipoDiferenciaTransferencia.Text = " ";
-            this.lblTipoDiferenciaTransferencia.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblTipoDiferenciaTarjetas
-            // 
-            this.lblTipoDiferenciaTarjetas.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblTipoDiferenciaTarjetas.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTipoDiferenciaTarjetas.LocationFloat = new DevExpress.Utils.PointFloat(587.2346F, 122.7535F);
-            this.lblTipoDiferenciaTarjetas.Name = "lblTipoDiferenciaTarjetas";
-            this.lblTipoDiferenciaTarjetas.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTipoDiferenciaTarjetas.SizeF = new System.Drawing.SizeF(72.67181F, 15.70833F);
-            this.lblTipoDiferenciaTarjetas.StylePriority.UseBorders = false;
-            this.lblTipoDiferenciaTarjetas.StylePriority.UseFont = false;
-            this.lblTipoDiferenciaTarjetas.StylePriority.UseTextAlignment = false;
-            this.lblTipoDiferenciaTarjetas.Text = " ";
-            this.lblTipoDiferenciaTarjetas.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // lblTipoDiferenciaEfectivo
-            // 
-            this.lblTipoDiferenciaEfectivo.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblTipoDiferenciaEfectivo.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTipoDiferenciaEfectivo.LocationFloat = new DevExpress.Utils.PointFloat(587.2346F, 105.0452F);
-            this.lblTipoDiferenciaEfectivo.Name = "lblTipoDiferenciaEfectivo";
-            this.lblTipoDiferenciaEfectivo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTipoDiferenciaEfectivo.SizeF = new System.Drawing.SizeF(72.67194F, 15.70834F);
-            this.lblTipoDiferenciaEfectivo.StylePriority.UseBorders = false;
-            this.lblTipoDiferenciaEfectivo.StylePriority.UseFont = false;
-            this.lblTipoDiferenciaEfectivo.StylePriority.UseTextAlignment = false;
-            this.lblTipoDiferenciaEfectivo.Text = " ";
-            this.lblTipoDiferenciaEfectivo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            // 
-            // xrLabel34
-            // 
-            this.xrLabel34.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel34.Font = new DevExpress.Drawing.DXFont("Consolas", 8F);
-            this.xrLabel34.LocationFloat = new DevExpress.Utils.PointFloat(587.2347F, 72.62853F);
-            this.xrLabel34.Name = "xrLabel34";
-            this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel34.SizeF = new System.Drawing.SizeF(72.67194F, 31.4167F);
-            this.xrLabel34.StylePriority.UseBorders = false;
-            this.xrLabel34.StylePriority.UseFont = false;
-            this.xrLabel34.StylePriority.UseTextAlignment = false;
-            this.xrLabel34.Text = "Tipo de diferencia";
-            this.xrLabel34.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            // 
-            // lblTipoDiferenciaCheque
-            // 
-            this.lblTipoDiferenciaCheque.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lblTipoDiferenciaCheque.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.lblTipoDiferenciaCheque.LocationFloat = new DevExpress.Utils.PointFloat(587.2346F, 160.1702F);
-            this.lblTipoDiferenciaCheque.Name = "lblTipoDiferenciaCheque";
-            this.lblTipoDiferenciaCheque.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTipoDiferenciaCheque.SizeF = new System.Drawing.SizeF(72.67181F, 15.70833F);
-            this.lblTipoDiferenciaCheque.StylePriority.UseBorders = false;
-            this.lblTipoDiferenciaCheque.StylePriority.UseFont = false;
-            this.lblTipoDiferenciaCheque.StylePriority.UseTextAlignment = false;
-            this.lblTipoDiferenciaCheque.Text = " ";
-            this.lblTipoDiferenciaCheque.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 104.0452F);
+            this.xrLine1.Name = "xrLine1";
+            this.xrLine1.SizeF = new System.Drawing.SizeF(541.9544F, 7.829567F);
             // 
             // rpt_cierre_dia_completeV2
             // 
@@ -1439,5 +1448,6 @@
         private DevExpress.XtraReports.UI.XRLabel lblTipoDiferenciaEfectivo;
         private DevExpress.XtraReports.UI.XRLabel xrLabel34;
         private DevExpress.XtraReports.UI.XRLabel lblTipoDiferenciaCheque;
+        private DevExpress.XtraReports.UI.XRLine xrLine1;
     }
 }
