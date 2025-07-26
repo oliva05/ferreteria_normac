@@ -52,8 +52,10 @@ namespace JAGUAR_PRO.TransaccionesPT
                 case 5://Depth Without Delta
                     accesoprevio = true;
                     frmNewTrasladoPT frm = new frmNewTrasladoPT(UsuarioLogeado, frmNewTrasladoPT.TipoOperacion.TrasladoFinal, 0);
-                    frm.MdiParent = this.MdiParent;
-                    frm.Show();
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadDatos();
+                    }
                     break;
 
                 default:

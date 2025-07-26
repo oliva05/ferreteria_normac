@@ -43,6 +43,8 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidad_fisica = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colseleccion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcantidad_enviada = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcantidad_pendiente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_detalle_factura = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -157,7 +159,9 @@
             this.colcantidad_trasladar,
             this.colid,
             this.colcantidad_fisica,
-            this.colseleccion});
+            this.colseleccion,
+            this.colcantidad_enviada,
+            this.colcantidad_pendiente});
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowFooter = true;
@@ -178,7 +182,7 @@
             this.colitemcode.OptionsColumn.AllowEdit = false;
             this.colitemcode.Visible = true;
             this.colitemcode.VisibleIndex = 0;
-            this.colitemcode.Width = 120;
+            this.colitemcode.Width = 107;
             // 
             // coldescripcion
             // 
@@ -188,7 +192,7 @@
             this.coldescripcion.OptionsColumn.AllowEdit = false;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 1;
-            this.coldescripcion.Width = 443;
+            this.coldescripcion.Width = 397;
             // 
             // colexistencia
             // 
@@ -204,7 +208,7 @@
             this.colcantidad_trasladar.OptionsColumn.AllowEdit = false;
             this.colcantidad_trasladar.Visible = true;
             this.colcantidad_trasladar.VisibleIndex = 2;
-            this.colcantidad_trasladar.Width = 344;
+            this.colcantidad_trasladar.Width = 227;
             // 
             // colid
             // 
@@ -218,8 +222,8 @@
             this.colcantidad_fisica.FieldName = "cantidad_fisica";
             this.colcantidad_fisica.Name = "colcantidad_fisica";
             this.colcantidad_fisica.Visible = true;
-            this.colcantidad_fisica.VisibleIndex = 3;
-            this.colcantidad_fisica.Width = 315;
+            this.colcantidad_fisica.VisibleIndex = 5;
+            this.colcantidad_fisica.Width = 201;
             // 
             // colseleccion
             // 
@@ -227,8 +231,27 @@
             this.colseleccion.FieldName = "seleccion";
             this.colseleccion.Name = "colseleccion";
             this.colseleccion.Visible = true;
-            this.colseleccion.VisibleIndex = 4;
-            this.colseleccion.Width = 140;
+            this.colseleccion.VisibleIndex = 6;
+            this.colseleccion.Width = 106;
+            // 
+            // colcantidad_enviada
+            // 
+            this.colcantidad_enviada.Caption = "Cantidad Trasladada";
+            this.colcantidad_enviada.FieldName = "cantidad_enviada";
+            this.colcantidad_enviada.Name = "colcantidad_enviada";
+            this.colcantidad_enviada.OptionsColumn.AllowEdit = false;
+            this.colcantidad_enviada.Visible = true;
+            this.colcantidad_enviada.VisibleIndex = 3;
+            this.colcantidad_enviada.Width = 158;
+            // 
+            // colcantidad_pendiente
+            // 
+            this.colcantidad_pendiente.Caption = "Cantidad Pendiente";
+            this.colcantidad_pendiente.FieldName = "cantidad_pendiente";
+            this.colcantidad_pendiente.Name = "colcantidad_pendiente";
+            this.colcantidad_pendiente.Visible = true;
+            this.colcantidad_pendiente.VisibleIndex = 4;
+            this.colcantidad_pendiente.Width = 166;
             // 
             // gridView1
             // 
@@ -498,5 +521,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colcantidad_fisica;
         private DevExpress.XtraGrid.Columns.GridColumn colseleccion;
+        private DevExpress.XtraGrid.Columns.GridColumn colcantidad_enviada;
+        private DevExpress.XtraGrid.Columns.GridColumn colcantidad_pendiente;
     }
 }
