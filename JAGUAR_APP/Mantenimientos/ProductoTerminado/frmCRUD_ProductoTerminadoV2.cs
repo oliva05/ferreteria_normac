@@ -1372,25 +1372,17 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private void cmdEditarPrecio_Click(object sender, EventArgs e)
         {
             InputBox Input1 = new InputBox();
-            decimal valor = Input1.ShowNumeric("Ingrese un precio de venta:", "Ingrese el valor");
+            decimal vPrecio = Input1.ShowNumeric("Ingrese un precio de venta:", "Ingrese el valor");
 
             if (Input1.IsOk)
             {
-                //MessageBox.Show("Ingresaste: " + valor);
-                try
+                if (vPrecio > 0)
                 {
-                    DataOperations dp = new DataOperations();
-                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand("[]", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    //cmd.Parameters.AddWithValue("", idClase);
-                    con.Close();
-                }
-                catch (Exception ec)
-                {
-                    CajaDialogo.Error(ec.Message);
+                    //Calculamos el Porcentaje de Utilidad
+                    PrecioVenta = vPrecio;
+                    PorcentajeUtilidad = (1 - (CostoActual / PrecioVenta))*100;
+                    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
+                    txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
                 }
             }
         }
@@ -1402,69 +1394,87 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
             if (Input1.IsOk)
             {
-                try
+                if (valor > 0)
                 {
-                    DataOperations dp = new DataOperations();
-                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand("[sp_set_costo_producto]", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                    cmd.Parameters.AddWithValue("@costo", valor);
-                    cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
-                    cmd.ExecuteNonQuery();
-                    txtCostoActual.Text = string.Format("{0:###,##0.00}", valor);
-
-                    dsDatosProductos.historial_costoRow row = dsDatosProductos1.historial_costo.Newhistorial_costoRow();
-                    int cantRows = dsDatosProductos1.historial_costo.Rows.Count;
-                    row.id = 0;
-                    row.id_pt = IdPT;
-                    row.costo = valor;
-                    row.cantidad = 0;
-                    row.fecha_entrada = dp.NowSetDateTime();
-                    row.usuario_name = this.UsuarioLogeado.Nombre;
-                    row.id_usuario = this.UsuarioLogeado.Id;
-                    row.num_linea = cantRows + 1;
-
-
-                    dsDatosProductos1.historial_costo.Addhistorial_costoRow(row);
-                    dsDatosProductos1.AcceptChanges();
-                    con.Close();
+                    CostoActual = valor;
+                    //Calculamos el precio
+                    PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad)/100);
+                    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
+                    txtCostoActual.Text = string.Format("{0:###,##0.00}", CostoActual);
+                    txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
                 }
-                catch (Exception ec)
-                {
-                    CajaDialogo.Error(ec.Message);
-                }
+                //try
+                //{
+                //    DataOperations dp = new DataOperations();
+                //    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                //    con.Open();
+
+                //    SqlCommand cmd = new SqlCommand("[sp_set_costo_producto]", con);
+                //    cmd.CommandType = CommandType.StoredProcedure;
+                //    cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                //    cmd.Parameters.AddWithValue("@costo", valor);
+                //    cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                //    cmd.ExecuteNonQuery();
+                //    txtCostoActual.Text = string.Format("{0:###,##0.00}", valor);
+
+                //    dsDatosProductos.historial_costoRow row = dsDatosProductos1.historial_costo.Newhistorial_costoRow();
+                //    int cantRows = dsDatosProductos1.historial_costo.Rows.Count;
+                //    row.id = 0;
+                //    row.id_pt = IdPT;
+                //    row.costo = valor;
+                //    row.cantidad = 0;
+                //    row.fecha_entrada = dp.NowSetDateTime();
+                //    row.usuario_name = this.UsuarioLogeado.Nombre;
+                //    row.id_usuario = this.UsuarioLogeado.Id;
+                //    row.num_linea = cantRows + 1;
+
+
+                //    dsDatosProductos1.historial_costo.Addhistorial_costoRow(row);
+                //    dsDatosProductos1.AcceptChanges();
+                //    con.Close();
+                //}
+                //catch (Exception ec)
+                //{
+                //    CajaDialogo.Error(ec.Message);
+                //}
             }
         }
 
         private void cmdEditarMargenUtilidad_Click(object sender, EventArgs e)
         {
             InputBox Input1 = new InputBox();
-            decimal valor = Input1.ShowNumeric("Ingrese el valor para el margen de utilidad:", "Ingrese el valor");
+            decimal vPorcentajeUtilidad = Input1.ShowNumeric("Ingrese el valor para el margen de utilidad:", "Ingrese el valor");
 
             if (Input1.IsOk)
             {
-                //MessageBox.Show("Ingresaste: " + valor);
-                try
+                if (vPorcentajeUtilidad > 0)
                 {
-                    DataOperations dp = new DataOperations();
-                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                    con.Open();
+                    //Calculamos el precio
+                    PorcentajeUtilidad = vPorcentajeUtilidad;
+                    PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad/100));
+                    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
+                    txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
+                }
+                
+                ////MessageBox.Show("Ingresaste: " + valor);
+                //try
+                //{
+                //    DataOperations dp = new DataOperations();
+                //    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                //    con.Open();
 
-                    SqlCommand cmd = new SqlCommand("[sp_set_margen_utilidad_master_producto]", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@porcentaje_utilidad", valor);
-                    cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                    cmd.ExecuteNonQuery();
-                    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", valor);
-                    con.Close();
-                }
-                catch (Exception ec)
-                {
-                    CajaDialogo.Error(ec.Message);
-                }
+                //    SqlCommand cmd = new SqlCommand("[sp_set_margen_utilidad_master_producto]", con);
+                //    cmd.CommandType = CommandType.StoredProcedure;
+                //    cmd.Parameters.AddWithValue("@porcentaje_utilidad", valor);
+                //    cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                //    cmd.ExecuteNonQuery();
+                //    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", valor);
+                //    con.Close();
+                //}
+                //catch (Exception ec)
+                //{
+                //    CajaDialogo.Error(ec.Message);
+                //}
             }
         }
 
@@ -1520,6 +1530,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 spinMinimo.Enabled = false;
 
             }
+        }
+
+        private void cmdCancelarRecalculo_Click(object sender, EventArgs e)
+        {
+            CargarDatosDeCostos(IdPT, PuntoVentaActual.ID);
         }
     }
 }
