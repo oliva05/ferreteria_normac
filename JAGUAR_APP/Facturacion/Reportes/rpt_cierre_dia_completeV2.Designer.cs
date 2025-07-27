@@ -98,6 +98,7 @@
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel30 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTipoDiferenciaTransferencia = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTipoDiferenciaTarjetas = new DevExpress.XtraReports.UI.XRLabel();
@@ -120,7 +121,6 @@
             this.lblTotalCheque = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTotalChequeVerificado = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsContabilidad1)).BeginInit();
@@ -1020,6 +1020,12 @@
             this.ReportHeader.HeightF = 200.8787F;
             this.ReportHeader.Name = "ReportHeader";
             // 
+            // xrLine1
+            // 
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 104.0452F);
+            this.xrLine1.Name = "xrLine1";
+            this.xrLine1.SizeF = new System.Drawing.SizeF(541.9544F, 7.829567F);
+            // 
             // xrLabel30
             // 
             this.xrLabel30.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
@@ -1080,7 +1086,7 @@
             // 
             this.xrLabel34.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel34.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
-            this.xrLabel34.LocationFloat = new DevExpress.Utils.PointFloat(635.6628F, 72.62853F);
+            this.xrLabel34.LocationFloat = new DevExpress.Utils.PointFloat(635.6632F, 72.62853F);
             this.xrLabel34.Name = "xrLabel34";
             this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel34.SizeF = new System.Drawing.SizeF(95.58862F, 31.4167F);
@@ -1323,12 +1329,6 @@
             this.xrLabel8});
             this.ReportFooter.HeightF = 119.7465F;
             this.ReportFooter.Name = "ReportFooter";
-            // 
-            // xrLine1
-            // 
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(189.2971F, 104.0452F);
-            this.xrLine1.Name = "xrLine1";
-            this.xrLine1.SizeF = new System.Drawing.SizeF(541.9544F, 7.829567F);
             // 
             // rpt_cierre_dia_completeV2
             // 
