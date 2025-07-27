@@ -672,7 +672,7 @@ namespace JAGUAR_PRO.Compras
             // 
             this.coldelete.Caption = "Eliminar";
             this.coldelete.ColumnEdit = this.ButtonDeleteRow;
-            this.coldelete.FieldName = "delete";
+            this.coldelete.FieldName = "eliminar";
             this.coldelete.Name = "coldelete";
             this.coldelete.Visible = true;
             this.coldelete.VisibleIndex = 5;
