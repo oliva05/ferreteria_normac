@@ -910,6 +910,8 @@ namespace JAGUAR_PRO.Compras {
             
             private global::System.Data.DataColumn columntotal;
             
+            private global::System.Data.DataColumn columneliminar;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public oc_detalleDataTable() {
@@ -993,6 +995,14 @@ namespace JAGUAR_PRO.Compras {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn eliminarColumn {
+                get {
+                    return this.columneliminar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1028,7 +1038,7 @@ namespace JAGUAR_PRO.Compras {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public oc_detalleRow Addoc_detalleRow(int id_detalle, string descripcion, string itemcode, int cantidad, decimal precio, decimal total) {
+            public oc_detalleRow Addoc_detalleRow(int id_detalle, string descripcion, string itemcode, int cantidad, decimal precio, decimal total, string eliminar) {
                 oc_detalleRow rowoc_detalleRow = ((oc_detalleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_detalle,
@@ -1036,7 +1046,8 @@ namespace JAGUAR_PRO.Compras {
                         itemcode,
                         cantidad,
                         precio,
-                        total};
+                        total,
+                        eliminar};
                 rowoc_detalleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowoc_detalleRow);
                 return rowoc_detalleRow;
@@ -1065,6 +1076,7 @@ namespace JAGUAR_PRO.Compras {
                 this.columncantidad = base.Columns["cantidad"];
                 this.columnprecio = base.Columns["precio"];
                 this.columntotal = base.Columns["total"];
+                this.columneliminar = base.Columns["eliminar"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1082,6 +1094,8 @@ namespace JAGUAR_PRO.Compras {
                 base.Columns.Add(this.columnprecio);
                 this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal);
+                this.columneliminar = new global::System.Data.DataColumn("eliminar", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columneliminar);
                 this.columnid_detalle.DefaultValue = ((int)(0));
             }
             
@@ -4130,6 +4144,22 @@ namespace JAGUAR_PRO.Compras {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string eliminar {
+                get {
+                    try {
+                        return ((string)(this[this.tableoc_detalle.eliminarColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'eliminar\' de la tabla \'oc_detalle\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableoc_detalle.eliminarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_detalleNull() {
                 return this.IsNull(this.tableoc_detalle.id_detalleColumn);
             }
@@ -4198,6 +4228,18 @@ namespace JAGUAR_PRO.Compras {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SettotalNull() {
                 this[this.tableoc_detalle.totalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IseliminarNull() {
+                return this.IsNull(this.tableoc_detalle.eliminarColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SeteliminarNull() {
+                this[this.tableoc_detalle.eliminarColumn] = global::System.Convert.DBNull;
             }
         }
         
