@@ -1,5 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
+using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -64,8 +65,8 @@ namespace JAGUAR_PRO.Compras
             }
 
             ValidarAccesosSegunUsuario();
+   
 
-           
         }
 
         private void ValidarAccesosSegunUsuario()
@@ -434,7 +435,7 @@ namespace JAGUAR_PRO.Compras
             txtComentarios.Enabled = true;
             grDetalle.Enabled = true;
             dtFechaContabilizacion.Enabled = true;
-            cmdGuardar.Enabled = true;
+
             cmdAddDetalle.Enabled = true;
             txtCodProv.Enabled = true;
             txtUsuarioCreador.Text = UsuarioLogueado.Nombre;
@@ -446,6 +447,12 @@ namespace JAGUAR_PRO.Compras
             txtSubtotal.EditValue = 0;
             txtImpuesto.EditValue = 0;
             txtTotal.EditValue = 0;
+
+            cmdGuardar.Enabled = true;
+            grdvDetalle.OptionsMenu.EnableColumnMenu = true;
+            //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+            grdvDetalle.Columns["eliminar"].Visible = true;
+            //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el datasets
             //GetSigID();
 
         }
@@ -490,24 +497,41 @@ namespace JAGUAR_PRO.Compras
                 switch (IdEstadoOrdenCompra)
                 {
                     case 1://Nueva
+
                         cmdNuevo.Enabled = true;
                         cmdAddDetalle.Enabled = true;
                         txtComentarios.Enabled = true;
                         grDetalle.Enabled = true;
                         dtFechaContabilizacion.Enabled = true;
                         btnPrint.Enabled = false;
+
+                        cmdGuardar.Enabled = true;
+                        grdvDetalle.OptionsMenu.EnableColumnMenu = true;
+                        //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                        grdvDetalle.Columns["eliminar"].Visible = true;
+                        //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el datasets
+
                         break;
 
-                    case 2://Abierta
+                    case 2://Autorizada
+
                         cmdNuevo.Enabled = true;
-                        cmdAddDetalle.Enabled = true;
+                        cmdAddDetalle.Enabled = false;
                         txtComentarios.Enabled = true;
                         grDetalle.Enabled = true;
                         dtFechaContabilizacion.Enabled = true;
                         btnPrint.Enabled = true;
+
+                        cmdGuardar.Enabled = false;
+                        grdvDetalle.OptionsMenu.EnableColumnMenu = false;
+                        //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                        grdvDetalle.Columns["eliminar"].Visible = false;
+                        //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el datasets
+
                         break;
 
                     case 3://Cerrada
+
                         cmdNuevo.Enabled = false;
                         cmdAddDetalle.Enabled = false;
                         txtComentarios.Enabled = false;
@@ -516,9 +540,16 @@ namespace JAGUAR_PRO.Compras
                         cmdGuardar.Enabled = false;
                         txtCodProv.Enabled = false;
                         btnPrint.Enabled = true;
+                        cmdGuardar.Enabled = false;
+                        grdvDetalle.OptionsMenu.EnableColumnMenu = false;
+                        //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                        grdvDetalle.Columns["eliminar"].Visible = false;
+                        //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el datasets
+
                         break;
 
                     case 4://Cancelada
+
                         cmdNuevo.Enabled = false;
                         cmdAddDetalle.Enabled = false;
                         txtComentarios.Enabled = false;
@@ -526,6 +557,12 @@ namespace JAGUAR_PRO.Compras
                         dtFechaContabilizacion.Enabled = false;
                         cmdGuardar.Enabled = false;
                         txtCodProv.Enabled = false;
+                        cmdGuardar.Enabled = false;
+                        grdvDetalle.OptionsMenu.EnableColumnMenu = false;
+                        //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                        grdvDetalle.Columns["eliminar"].Visible = false;
+                        //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el datasets
+
                         break;
 
                     default:
@@ -739,9 +776,9 @@ namespace JAGUAR_PRO.Compras
                         else
                             cmd.Parameters.AddWithValue("@direccion", direccion);
                         cmd.Parameters.AddWithValue("@comentario", txtComentarios.Text);
-                        cmd.Parameters.AddWithValue("@impuesto",txtImpuesto.EditValue);
-                        cmd.Parameters.AddWithValue("@subtotal",txtSubtotal.EditValue);
-                        cmd.Parameters.AddWithValue("@total",txtTotal.EditValue);
+                        cmd.Parameters.AddWithValue("@impuesto",Convert.ToDecimal(txtImpuesto.EditValue));
+                        cmd.Parameters.AddWithValue("@subtotal",Convert.ToDecimal(txtSubtotal.EditValue));
+                        cmd.Parameters.AddWithValue("@total",Convert.ToDecimal(txtTotal.EditValue));
                         cmd.Parameters.AddWithValue("@id_user_cre", UsuarioLogueado.Id);
                         cmd.Parameters.AddWithValue("@id_punto_venta", PuntoVentaID);
                         int id_header = Convert.ToInt32(cmd.ExecuteScalar());
@@ -821,9 +858,9 @@ namespace JAGUAR_PRO.Compras
                         cmdUpdate.Parameters.AddWithValue("@fecha_contabilizacion",dtFechaContabilizacion.Value);
                         cmdUpdate.Parameters.AddWithValue("@direccion",direccion);
                         cmdUpdate.Parameters.AddWithValue("@comentario",txtComentarios.Text);
-                        cmdUpdate.Parameters.AddWithValue("@impuesto",txtImpuesto.EditValue);
-                        cmdUpdate.Parameters.AddWithValue("@subtotal",txtSubtotal.EditValue);
-                        cmdUpdate.Parameters.AddWithValue("@total",txtTotal.EditValue);
+                        cmdUpdate.Parameters.AddWithValue("@impuesto",Convert.ToDecimal(txtImpuesto.EditValue));
+                        cmdUpdate.Parameters.AddWithValue("@subtotal",Convert.ToDecimal(txtSubtotal.EditValue));
+                        cmdUpdate.Parameters.AddWithValue("@total",Convert.ToDecimal(txtTotal.EditValue));
                         cmdUpdate.Parameters.AddWithValue("@id_user_modi",UsuarioLogueado.Id);
                         cmdUpdate.Parameters.AddWithValue("@fecha_modi",dp.Now());
                         cmdUpdate.ExecuteNonQuery();
