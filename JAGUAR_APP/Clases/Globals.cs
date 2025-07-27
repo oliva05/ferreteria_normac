@@ -38,10 +38,10 @@ namespace ACS.Classes
         //public static string JAGUAR_DB_Pass = " tBW3DER7";
         //
 
-        ////Jaguar Server Local Oliva
+        //////Jaguar Server Local Oliva
         //public static string JAGUAR_ServerAddress = @"7L12TV3";
         //public static string JAGUAR_ServerName = @"7L12TV3";
-        //public static string JAGUAR_ActiveDB = "JAGUAR_DB";
+        //public static string JAGUAR_ActiveDB = "normac";
         //public static string JAGUAR_DB_User = "sa";
         //public static string JAGUAR_DB_Pass = "Aq4x_3Fj2#";
 

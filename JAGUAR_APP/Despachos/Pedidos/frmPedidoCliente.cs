@@ -1571,6 +1571,26 @@ namespace Eatery.Ventas
             gridView1.Columns["delete"].Visible = true; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
 
             CalcularTotalFactura();
+
+
+            //Reiniciar la ventana Totalmente
+            ckConfirmarPedido.Visible = ckGenerarCotizacion.Visible = true;
+            ckConfirmarPedido.Checked = ckGenerarCotizacion.Checked = false;
+
+            gleEstados.EditValue = 6;//Nuevo
+            txtNombreCliente.Text = "Consumidor Final";
+            txtRTN.Text = string.Empty;
+            txtRTN.Properties.NullValuePrompt =
+            txtDireccion.Properties.NullValuePrompt = "No Aplica";
+                        
+            if (TipoFacturacionActual == TipoFacturacionStock.VentaUsados)
+            {
+                lblScanProducto.Visible =
+                txtScanProducto.Visible =
+                cmdCopiarDesde.Visible =
+                ckGenerarCotizacion.Visible = false;
+            }
+
         }
 
         private void timerLimpiarMensaje_Tick(object sender, EventArgs e)
@@ -2162,7 +2182,7 @@ namespace Eatery.Ventas
 
                         row1.tasa_isv = tasaISV;
                         row1.id_isv_aplicable = impuesto.Id;
-                        row1.total_linea = row1.cantidad * (row1.precio + isv_calculo);
+                        row1.total_linea = row1.cantidad * ((row1.precio - row1.descuento) + isv_calculo);
                     }
                     else
                     {
@@ -2172,7 +2192,7 @@ namespace Eatery.Ventas
                         row1.isv1 = 0;
                     }
 
-                    row1.total_linea = ((row1.cantidad * row1.precio) - row1.descuento) + 
+                    row1.total_linea =  (row1.cantidad * (row1.precio - row1.descuento)) + 
                                         (row1.cantidad * row1.isv1) + 
                                         (row1.cantidad * row1.isv2) + 
                                         (row1.cantidad * row1.isv3);
@@ -2602,9 +2622,12 @@ namespace Eatery.Ventas
                     int newRowHandle = gridView1.RowCount - 1;
                     gridView1.FocusedRowHandle = newRowHandle;
 
-                    if (dsVentas1.detalle_factura_transaction.Rows.Count > 0)
+                    if (ckEscaner.Checked == false)
                     {
-                        cmdElejirAlmacen_ButtonClick(cmdElejirAlmacen, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen.Buttons[0]));
+                        if (dsVentas1.detalle_factura_transaction.Rows.Count > 0)
+                        {
+                            cmdElejirAlmacen_ButtonClick(cmdElejirAlmacen, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen.Buttons[0]));
+                        }
                     }
 
                     txtScanProducto.Text = "";
@@ -3191,7 +3214,8 @@ namespace Eatery.Ventas
                             //Limpiar Datos
                             dsVentas1.detalle_factura_transaction.Clear();
                             ClienteFactura = new ClienteFacturacion();
-                            cmdConsumidorFinal_Click(sender, e);
+                            //cmdConsumidorFinal_Click(sender, e);
+                            cmdNew_Click(sender, e);
                         }
                         catch (Exception ex)
                         {
@@ -3365,7 +3389,9 @@ namespace Eatery.Ventas
                             //Limpiar Datos
                             dsVentas1.detalle_factura_transaction.Clear();
                             ClienteFactura = new ClienteFacturacion();
-                            cmdConsumidorFinal_Click(sender, e);
+                            //cmdConsumidorFinal_Click(sender, e);
+                            cmdNew_Click(sender, e);
+
                         }
                         catch (Exception ex)
                         {
