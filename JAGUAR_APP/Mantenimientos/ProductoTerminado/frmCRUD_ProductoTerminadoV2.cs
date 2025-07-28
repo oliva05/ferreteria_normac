@@ -1584,23 +1584,23 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
                     //Actualizamos el precio hasta la "lista de precios"
 
-                    var row = (dsListaPrecios.clientes_punto_ventaRow)gridView3.GetFocusedDataRow();
-                    if (row != null)
-                    {
-                        if (row.id_detalle_punto_venta_clientes > 0)//Es el id de la tabla donde se definen los clientes y precios.
-                                                                    //[JAGUAR_DB].[dbo].[ListaPrecios_ProductosPuntoVenta_Clientes]
-                        {
-                            ClientesPuntoVentaLP cliente = new ClientesPuntoVentaLP();
-                            if (cliente.RecuperarRegistro(row.id_detalle_punto_venta_clientes))
-                            {
-                                cliente.Precio = PrecioVenta;
-                                if (cliente.Precio > 0)
-                                {
-                                    cliente.UpdateRecord();
-                                }
-                            }
-                        }
-                    }
+                    //var row = (dsListaPrecios.clientes_punto_ventaRow)gridView3.GetFocusedDataRow();
+                    //if (row != null)
+                    //{
+                    //    if (row.id_detalle_punto_venta_clientes > 0)//Es el id de la tabla donde se definen los clientes y precios.
+                    //                                                //[JAGUAR_DB].[dbo].[ListaPrecios_ProductosPuntoVenta_Clientes]
+                    //    {
+                    //        ClientesPuntoVentaLP cliente = new ClientesPuntoVentaLP();
+                    //        if (cliente.RecuperarRegistro(row.id_detalle_punto_venta_clientes))
+                    //        {
+                    //            cliente.Precio = PrecioVenta;
+                    //            if (cliente.Precio > 0)
+                    //            {
+                    //                cliente.UpdateRecord();
+                    //            }
+                    //        }
+                    //    }
+                    //}
                     command.CommandText = "[sp_set_costo_producto]";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Clear();
