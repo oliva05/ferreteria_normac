@@ -409,7 +409,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     row1.total_fila = 0;
 
                     row1.num_linea = count_lines + 1;
-                    row1.id_bodega = 1;
+                    ProductoTerminado pt = new ProductoTerminado();
+                    row1.id_bodega = pt.GetAlmacenDefault(Convert.ToInt32(item["id"]));
+                    //row1.id_bodega = 3;
                     dsLogisticaJaguar1.detalle_recepcion_fact.Adddetalle_recepcion_factRow(row1);
                     dsLogisticaJaguar1.AcceptChanges();
                 }
