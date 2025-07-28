@@ -54,6 +54,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         public Clases.ProductoTerminado PT_Actualizado;
         public decimal PrecioVenta;
         public decimal CostoActual;
+        public bool ModificoElUltimoCosto;
         public decimal PorcentajeDescuento;
         public decimal PorcentajeUtilidad;
         public bool IsEnabledMaximoMinimo = false;
@@ -63,6 +64,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         public frmCRUD_ProductoTerminadoV2(UserLogin pUser, TipoOperacion pTipoOperacion, int pId_PT, PDV pPuntoVentaActual)
         {
             InitializeComponent();
+            ModificoElUltimoCosto = false;
             PuntoVentaActual = pPuntoVentaActual ?? new PDV();
             MagiaEmbellezedora();
            
@@ -1402,6 +1404,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     CostoActual = valor;
                     //Calculamos el precio
                     PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad)/100);
+                    ModificoElUltimoCosto = true;
                     txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
                     txtCostoActual.Text = string.Format("{0:###,##0.00}", CostoActual);
                     txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
@@ -1487,25 +1490,27 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             decimal valor = Input1.ShowNumeric("Ingrese el descuento maximo permitido por defecto:", "Ingrese el valor");
             if (Input1.IsOk)
             {
-                //MessageBox.Show("Ingresaste: " + valor);
-                try
-                {
-                    DataOperations dp = new DataOperations();
-                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                    con.Open();
+                txtDescuentoMaximo.Text = string.Format("{0:###,##0.00}", valor);
+                PorcentajeDescuento = valor;
+                ////MessageBox.Show("Ingresaste: " + valor);
+                //try
+                //{
+                //    DataOperations dp = new DataOperations();
+                //    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                //    con.Open();
 
-                    SqlCommand cmd = new SqlCommand("[sp_set_porcentaje_descuento_master_producto]", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@porcentaje_descuento", valor);
-                    cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                    cmd.ExecuteNonQuery();
-                    txtDescuentoMaximo.Text = string.Format("{0:###,##0.00}", valor);
-                    con.Close();
-                }
-                catch (Exception ec)
-                {
-                    CajaDialogo.Error(ec.Message);
-                }
+                //    SqlCommand cmd = new SqlCommand("[sp_set_porcentaje_descuento_master_producto]", con);
+                //    cmd.CommandType = CommandType.StoredProcedure;
+                //    cmd.Parameters.AddWithValue("@porcentaje_descuento", valor);
+                //    cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                //    cmd.ExecuteNonQuery();
+                //    txtDescuentoMaximo.Text = string.Format("{0:###,##0.00}", valor);
+                //    con.Close();
+                //}
+                //catch (Exception ec)
+                //{
+                //    CajaDialogo.Error(ec.Message);
+                //}
             }
         }
 
@@ -1572,60 +1577,55 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     command.Parameters.AddWithValue("@id_pt", IdPT);
                     command.ExecuteNonQuery();
 
-                    //Actualizamos el costo de producto
-                    command.CommandText = "[sp_set_costo_producto]";
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Clear();
-                    command.Parameters.AddWithValue("@id_pt", IdPT);
-                    command.Parameters.AddWithValue("@costo", CostoActual);
-                    command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
-                    command.ExecuteNonQuery();
-
+                    if (ModificoElUltimoCosto)
+                    {
+                        //Actualizamos el costo de producto
+                        command.CommandText = "[sp_set_costo_producto]";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@id_pt", IdPT);
+                        command.Parameters.AddWithValue("@costo", CostoActual);
+                        command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                        command.ExecuteNonQuery();
+                    }
 
                     //Actualizamos el precio hasta la "lista de precios"
-
-                    //var row = (dsListaPrecios.clientes_punto_ventaRow)gridView3.GetFocusedDataRow();
-                    //if (row != null)
-                    //{
-                    //    if (row.id_detalle_punto_venta_clientes > 0)//Es el id de la tabla donde se definen los clientes y precios.
-                    //                                                //[JAGUAR_DB].[dbo].[ListaPrecios_ProductosPuntoVenta_Clientes]
-                    //    {
-                    //        ClientesPuntoVentaLP cliente = new ClientesPuntoVentaLP();
-                    //        if (cliente.RecuperarRegistro(row.id_detalle_punto_venta_clientes))
-                    //        {
-                    //            cliente.Precio = PrecioVenta;
-                    //            if (cliente.Precio > 0)
-                    //            {
-                    //                cliente.UpdateRecord();
-                    //            }
-                    //        }
-                    //    }
-                    //}
-                    command.CommandText = "[sp_set_costo_producto]";
+                    command.CommandText = "[sp_set_precio_desde_id_pt]";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@id_pt", IdPT);
-                    command.Parameters.AddWithValue("@costo", CostoActual);
-                    command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                    command.Parameters.AddWithValue("@precio", PrecioVenta);
+                    command.ExecuteNonQuery();
+
+                    //Actualizamos el descuento maximo hasta la "lista de precios"
+                    command.CommandText = "[sp_set_porcentaje_descuento_master_producto]";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@porcentaje_descuento", PorcentajeDescuento);
+                    command.Parameters.AddWithValue("@id_pt", IdPT);
                     command.ExecuteNonQuery();
 
                     transaction.Commit();
 
-                    dsDatosProductos.historial_costoRow row = dsDatosProductos1.historial_costo.Newhistorial_costoRow();
-                    int cantRows = dsDatosProductos1.historial_costo.Rows.Count;
-                    row.id = 0;
-                    row.id_pt = IdPT;
-                    row.costo = CostoActual;
-                    row.cantidad = 0;
-                    row.fecha_entrada = dp.NowSetDateTime();
-                    row.usuario_name = this.UsuarioLogeado.Nombre;
-                    row.id_usuario = this.UsuarioLogeado.Id;
-                    row.num_linea = cantRows + 1;
+                    
+                    if (ModificoElUltimoCosto)
+                    {
+                        dsDatosProductos.historial_costoRow row = dsDatosProductos1.historial_costo.Newhistorial_costoRow();
+                        int cantRows = dsDatosProductos1.historial_costo.Rows.Count;
+                        row.id = 0;
+                        row.id_pt = IdPT;
+                        row.costo = CostoActual;
+                        row.cantidad = 0;
+                        row.fecha_entrada = dp.NowSetDateTime();
+                        row.usuario_name = this.UsuarioLogeado.Nombre;
+                        row.id_usuario = this.UsuarioLogeado.Id;
+                        row.num_linea = cantRows + 1;
 
-
-                    dsDatosProductos1.historial_costo.Addhistorial_costoRow(row);
-                    dsDatosProductos1.AcceptChanges();
+                        dsDatosProductos1.historial_costo.Addhistorial_costoRow(row);
+                        dsDatosProductos1.AcceptChanges();
+                    }
                     connection.Close();
+                    CajaDialogo.InformationAuto();
                 }
                 catch (Exception ec)
                 {

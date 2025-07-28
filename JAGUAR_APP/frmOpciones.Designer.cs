@@ -361,6 +361,7 @@
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
             this.lblUsuarioLogeado = new DevExpress.XtraEditors.LabelControl();
+            this.navBarItem209 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -481,7 +482,8 @@
             this.navBarItem152,
             this.navBarItem153,
             this.navBarItem154,
-            this.navBarItem208});
+            this.navBarItem208,
+            this.navBarItem209});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -505,7 +507,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemmaterialEmpaqueLogistica),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem15),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbReporteCompras),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarRecepBodegon)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarRecepBodegon),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem209)});
             this.navBarGroup5.Name = "navBarGroup5";
             // 
             // navBarItemRecepcionFactura
@@ -5006,6 +5009,21 @@
             this.lblUsuarioLogeado.TabIndex = 35;
             this.lblUsuarioLogeado.Text = "Usuario: ";
             // 
+            // navBarItem209
+            // 
+            this.navBarItem209.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem209.Appearance.Options.UseFont = true;
+            this.navBarItem209.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem209.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem209.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem209.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem209.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem209.AppearancePressed.Options.UseFont = true;
+            this.navBarItem209.Caption = "Gestión de Marcas";
+            this.navBarItem209.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem209.ImageOptions.SvgImage")));
+            this.navBarItem209.Name = "navBarItem209";
+            this.navBarItem209.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem209_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5382,5 +5400,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItemDepositoBancoCaja;
         private DevExpress.XtraNavBar.NavBarItem navFacturacionUsados;
         private DevExpress.XtraEditors.LabelControl lblUsuarioLogeado;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem209;
     }
 }
