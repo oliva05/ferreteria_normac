@@ -36,6 +36,11 @@ namespace JAGUAR_PRO.LogisticaJaguar
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridLookUpEditProveedor = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourceProveedor = new System.Windows.Forms.BindingSource(this.components);
             this.dsLogisticaJaguar1 = new JAGUAR_PRO.LogisticaJaguar.dsLogisticaJaguar();
@@ -138,6 +143,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.txtCAI = new DevExpress.XtraEditors.TextEdit();
             this.tsWithCAI = new DevExpress.XtraEditors.ToggleSwitch();
+            this.reposbtnAlmacenes = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditProveedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsLogisticaJaguar1)).BeginInit();
@@ -182,6 +188,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCAI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsWithCAI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposbtnAlmacenes)).BeginInit();
             this.SuspendLayout();
             // 
             // gridLookUpEditProveedor
@@ -407,7 +414,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.R_GridLookUpEdit_Ud_medida_Jaguar,
             this.GridLookUpE_Bodega,
             this.cmdEliminar,
-            this.gle_MP_y_ME});
+            this.gle_MP_y_ME,
+            this.reposbtnAlmacenes});
             this.gridControl1.Size = new System.Drawing.Size(1256, 285);
             this.gridControl1.TabIndex = 47;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1245,6 +1253,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.tsWithCAI.TabIndex = 93;
             this.tsWithCAI.Toggled += new System.EventHandler(this.tsWithCAI_Toggled);
             // 
+            // reposbtnAlmacenes
+            // 
+            this.reposbtnAlmacenes.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.reposbtnAlmacenes.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.reposbtnAlmacenes.Name = "reposbtnAlmacenes";
+            this.reposbtnAlmacenes.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
             // frmAddFacturaProveedor
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -1326,6 +1343,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCAI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsWithCAI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposbtnAlmacenes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1435,5 +1453,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private DevExpress.XtraGrid.Columns.GridColumn colisv;
         private DevExpress.XtraGrid.Columns.GridColumn colcosto_unitario;
         private DevExpress.XtraGrid.Columns.GridColumn colisv_aplicable;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposbtnAlmacenes;
     }
 }
