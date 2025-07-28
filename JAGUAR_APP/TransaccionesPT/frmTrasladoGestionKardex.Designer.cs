@@ -66,6 +66,7 @@
             this.reposImprimir = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reposGestionar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colnum_requisa = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tggIncluirDocCerrados.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
@@ -265,7 +266,8 @@
             this.colid_bod_destino,
             this.coldestino,
             this.gridColumn1,
-            this.gridColumn2});
+            this.gridColumn2,
+            this.colnum_requisa});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -357,7 +359,7 @@
             this.gridColumn1.ColumnEdit = this.reposImprimir;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 6;
+            this.gridColumn1.VisibleIndex = 7;
             // 
             // reposImprimir
             // 
@@ -374,7 +376,7 @@
             this.gridColumn2.ColumnEdit = this.reposGestionar;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 7;
+            this.gridColumn2.VisibleIndex = 8;
             // 
             // reposGestionar
             // 
@@ -385,6 +387,15 @@
             this.reposGestionar.Name = "reposGestionar";
             this.reposGestionar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposGestionar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposGestionar_ButtonClick);
+            // 
+            // colnum_requisa
+            // 
+            this.colnum_requisa.Caption = "Basado en Requisa #";
+            this.colnum_requisa.FieldName = "num_requisa";
+            this.colnum_requisa.Name = "colnum_requisa";
+            this.colnum_requisa.OptionsColumn.ReadOnly = true;
+            this.colnum_requisa.Visible = true;
+            this.colnum_requisa.VisibleIndex = 6;
             // 
             // frmTrasladoGestionKardex
             // 
@@ -449,5 +460,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposImprimir;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposGestionar;
+        private DevExpress.XtraGrid.Columns.GridColumn colnum_requisa;
     }
 }

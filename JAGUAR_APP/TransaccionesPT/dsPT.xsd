@@ -103,8 +103,8 @@
               <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
               <xs:element name="cantidad_fisica" msprop:Generator_ColumnPropNameInTable="cantidad_fisicaColumn" msprop:Generator_ColumnPropNameInRow="cantidad_fisica" msprop:Generator_UserColumnName="cantidad_fisica" msprop:Generator_ColumnVarNameInTable="columncantidad_fisica" type="xs:decimal" minOccurs="0" />
               <xs:element name="seleccion" msprop:Generator_ColumnPropNameInTable="seleccionColumn" msprop:Generator_ColumnPropNameInRow="seleccion" msprop:Generator_UserColumnName="seleccion" msprop:Generator_ColumnVarNameInTable="columnseleccion" type="xs:boolean" default="false" minOccurs="0" />
-              <xs:element name="cantidad_enviada" msprop:Generator_UserColumnName="cantidad_enviada" msprop:Generator_ColumnPropNameInTable="cantidad_enviadaColumn" msprop:Generator_ColumnPropNameInRow="cantidad_enviada" msprop:Generator_ColumnVarNameInTable="columncantidad_enviada" type="xs:decimal" default="0" minOccurs="0" />
-              <xs:element name="cantidad_pendiente" msprop:Generator_ColumnPropNameInRow="cantidad_pendiente" msprop:Generator_ColumnPropNameInTable="cantidad_pendienteColumn" msprop:Generator_ColumnVarNameInTable="columncantidad_pendiente" msprop:Generator_UserColumnName="cantidad_pendiente" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="cantidad_enviada" msprop:Generator_ColumnPropNameInTable="cantidad_enviadaColumn" msprop:Generator_ColumnPropNameInRow="cantidad_enviada" msprop:Generator_UserColumnName="cantidad_enviada" msprop:Generator_ColumnVarNameInTable="columncantidad_enviada" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="cantidad_pendiente" msprop:Generator_UserColumnName="cantidad_pendiente" msprop:Generator_ColumnPropNameInTable="cantidad_pendienteColumn" msprop:Generator_ColumnPropNameInRow="cantidad_pendiente" msprop:Generator_ColumnVarNameInTable="columncantidad_pendiente" type="xs:decimal" default="0" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -122,6 +122,7 @@
               <xs:element name="id_bod_destino" msprop:Generator_ColumnPropNameInTable="id_bod_destinoColumn" msprop:Generator_ColumnPropNameInRow="id_bod_destino" msprop:Generator_UserColumnName="id_bod_destino" msprop:Generator_ColumnVarNameInTable="columnid_bod_destino" type="xs:int" minOccurs="0" />
               <xs:element name="destino" msprop:Generator_ColumnPropNameInTable="destinoColumn" msprop:Generator_ColumnPropNameInRow="destino" msprop:Generator_UserColumnName="destino" msprop:Generator_ColumnVarNameInTable="columndestino" type="xs:string" minOccurs="0" />
               <xs:element name="id_estado" msprop:Generator_ColumnPropNameInTable="id_estadoColumn" msprop:Generator_ColumnPropNameInRow="id_estado" msprop:Generator_UserColumnName="id_estado" msprop:Generator_ColumnVarNameInTable="columnid_estado" type="xs:int" minOccurs="0" />
+              <xs:element name="num_requisa" msprop:Generator_ColumnPropNameInRow="num_requisa" msprop:Generator_ColumnPropNameInTable="num_requisaColumn" msprop:Generator_ColumnVarNameInTable="columnnum_requisa" msprop:Generator_UserColumnName="num_requisa" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
