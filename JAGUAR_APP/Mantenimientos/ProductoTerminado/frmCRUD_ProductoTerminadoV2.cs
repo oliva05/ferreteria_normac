@@ -14,6 +14,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraSpreadsheet.Forms;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
+using JAGUAR_PRO.Facturacion.Configuraciones;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.Mantenimientos.Modelos;
@@ -49,7 +50,6 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         TipoOperacion TipoOperacionActual;
         Clases.ProductoTerminado PT_Class_instance;
         FTP_Class ftp = new FTP_Class();
-        decimal CostoPorArroba;
         int IdPT;
         public Clases.ProductoTerminado PT_Actualizado;
         public decimal PrecioVenta;
@@ -276,7 +276,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 //connection.Close();
                 DataOperations dp = new DataOperations();
                 SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                using (SqlCommand cmd = new SqlCommand("[dbo].[sp_get_precio_pt_from_lista_y_punto_venta_v2]", cnx))
+                //using (SqlCommand cmd = new SqlCommand("[dbo].[sp_get_precio_pt_from_lista_y_punto_venta_v2]", cnx))
+                using (SqlCommand cmd = new SqlCommand("[dbo].[sp_get_precio_cost_y_margen_utilidad_pt]", cnx))
                 {
                     cnx.Open();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -291,7 +292,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     {
                         //CostoActual = dr.GetDecimal(0);
                         PrecioVenta = dr.GetDecimal(0);
+                        PorcentajeUtilidad = dr.GetDecimal(1);
                         txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
+                        txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
                     }
                     dr.Close();
                     cnx.Close();
@@ -850,7 +853,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
                 cmd.Parameters.AddWithValue("@tipo_id", DBNull.Value/*gridLookUpEditTipoProducto.EditValue*/);
                 cmd.Parameters.AddWithValue("@costo_mo_por_arroba", 0);
-                cmd.Parameters.AddWithValue("@costo_por_arroba", CostoPorArroba);
+                cmd.Parameters.AddWithValue("@costo_por_arroba", 0);// CostoPorArroba);
                 cmd.Parameters.AddWithValue("@id_tipo_facturacion", DBNull.Value /*glueTipoFacturacion.EditValue*/);
 
                 //int id_tipoBuffet = dp.ValidateNumberInt32(glueTipoBuffet.EditValue);
@@ -1535,6 +1538,108 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private void cmdCancelarRecalculo_Click(object sender, EventArgs e)
         {
             CargarDatosDeCostos(IdPT, PuntoVentaActual.ID);
+        }
+
+        private void cmdRecalculoPrecio_Click(object sender, EventArgs e)
+        {
+            DialogResult r = CajaDialogo.Pregunta("Esta seguro de aplicar estos cambios?");
+            if (r != DialogResult.Yes)
+                return;
+
+            //Actualizamos el porcentaje de utilidad en Master de Producto
+            DataOperations dp = new DataOperations();
+            using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+            {
+                connection.Open();
+
+                SqlCommand command = connection.CreateCommand();
+                SqlTransaction transaction;
+
+                // Start a local transaction.
+                transaction = connection.BeginTransaction("SampleTransaction");
+
+                // Must assign both transaction object and connection
+                // to Command object for a pending local transaction
+                command.Connection = connection;
+                command.Transaction = transaction;
+
+                try
+                {
+                    //Actualizamos margen de utilidad
+                    command.CommandText = "[sp_set_margen_utilidad_master_producto]";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@porcentaje_utilidad", PorcentajeUtilidad);
+                    command.Parameters.AddWithValue("@id_pt", IdPT);
+                    command.ExecuteNonQuery();
+
+                    //Actualizamos el costo de producto
+                    command.CommandText = "[sp_set_costo_producto]";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@id_pt", IdPT);
+                    command.Parameters.AddWithValue("@costo", CostoActual);
+                    command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                    command.ExecuteNonQuery();
+
+
+                    //Actualizamos el precio hasta la "lista de precios"
+
+                    var row = (dsListaPrecios.clientes_punto_ventaRow)gridView3.GetFocusedDataRow();
+                    if (row != null)
+                    {
+                        if (row.id_detalle_punto_venta_clientes > 0)//Es el id de la tabla donde se definen los clientes y precios.
+                                                                    //[JAGUAR_DB].[dbo].[ListaPrecios_ProductosPuntoVenta_Clientes]
+                        {
+                            ClientesPuntoVentaLP cliente = new ClientesPuntoVentaLP();
+                            if (cliente.RecuperarRegistro(row.id_detalle_punto_venta_clientes))
+                            {
+                                cliente.Precio = PrecioVenta;
+                                if (cliente.Precio > 0)
+                                {
+                                    cliente.UpdateRecord();
+                                }
+                            }
+                        }
+                    }
+                    command.CommandText = "[sp_set_costo_producto]";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@id_pt", IdPT);
+                    command.Parameters.AddWithValue("@costo", CostoActual);
+                    command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                    command.ExecuteNonQuery();
+
+                    transaction.Commit();
+
+                    dsDatosProductos.historial_costoRow row = dsDatosProductos1.historial_costo.Newhistorial_costoRow();
+                    int cantRows = dsDatosProductos1.historial_costo.Rows.Count;
+                    row.id = 0;
+                    row.id_pt = IdPT;
+                    row.costo = CostoActual;
+                    row.cantidad = 0;
+                    row.fecha_entrada = dp.NowSetDateTime();
+                    row.usuario_name = this.UsuarioLogeado.Nombre;
+                    row.id_usuario = this.UsuarioLogeado.Id;
+                    row.num_linea = cantRows + 1;
+
+
+                    dsDatosProductos1.historial_costo.Addhistorial_costoRow(row);
+                    dsDatosProductos1.AcceptChanges();
+                    connection.Close();
+                }
+                catch (Exception ec)
+                {
+                    //CajaDialogo.Error(ec.Message);
+                    try
+                    {
+                        transaction.Rollback();
+                    }
+                    catch (Exception ex2)
+                    {
+                        CajaDialogo.Error(ex2.Message);
+                    }
+                }
+            }
         }
     }
 }
