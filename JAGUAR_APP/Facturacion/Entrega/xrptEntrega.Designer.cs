@@ -475,6 +475,7 @@
             this.Margins = new DevExpress.Drawing.DXMargins(2F, 2F, 11.83F, 9.746615F);
             this.PageWidth = 260;
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
+            this.RollPaper = true;
             this.ShowPreviewMarginLines = false;
             this.ShowPrintMarginsWarning = false;
             this.Version = "23.2";
