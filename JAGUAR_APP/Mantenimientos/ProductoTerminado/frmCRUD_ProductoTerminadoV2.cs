@@ -1605,6 +1605,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     command.Parameters.AddWithValue("@id_pt", IdPT);
                     command.ExecuteNonQuery();
 
+                    //Commit de la transaccion
                     transaction.Commit();
 
                     

@@ -1452,7 +1452,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.Location = new System.Drawing.Point(556, 535);
+            this.btnClose.Location = new System.Drawing.Point(452, 535);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 36);
             this.btnClose.TabIndex = 10;
