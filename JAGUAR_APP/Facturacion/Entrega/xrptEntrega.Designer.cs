@@ -90,7 +90,7 @@
             this.xrLabel13.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[cantidad]")});
             this.xrLabel13.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(203.7501F, 22.91654F);
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(186.7936F, 22.91654F);
             this.xrLabel13.Multiline = true;
             this.xrLabel13.Name = "xrLabel13";
             this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -105,7 +105,7 @@
             this.xrLabel12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[code_referencia]")});
             this.xrLabel12.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(16.95831F, 22.91658F);
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(0.001798153F, 22.91658F);
             this.xrLabel12.Multiline = true;
             this.xrLabel12.Name = "xrLabel12";
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -120,7 +120,7 @@
             this.xrLabel11.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[descripcion]")});
             this.xrLabel11.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(16.95831F, 0F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(0.001798153F, 0F);
             this.xrLabel11.Multiline = true;
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -160,7 +160,7 @@
             // xrLabel15
             // 
             this.xrLabel15.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(16.95839F, 169.7919F);
+            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(0.001798153F, 169.7919F);
             this.xrLabel15.Multiline = true;
             this.xrLabel15.Name = "xrLabel15";
             this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -173,7 +173,7 @@
             // lblCodeVenedor
             // 
             this.lblCodeVenedor.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblCodeVenedor.LocationFloat = new DevExpress.Utils.PointFloat(101.8751F, 207.4586F);
+            this.lblCodeVenedor.LocationFloat = new DevExpress.Utils.PointFloat(84.91851F, 207.4586F);
             this.lblCodeVenedor.Multiline = true;
             this.lblCodeVenedor.Name = "lblCodeVenedor";
             this.lblCodeVenedor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -186,7 +186,7 @@
             // xrLabel14
             // 
             this.xrLabel14.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(16.95831F, 207.4586F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(0.001718044F, 207.4586F);
             this.xrLabel14.Multiline = true;
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -199,14 +199,14 @@
             // xrLine1
             // 
             this.xrLine1.LineStyle = DevExpress.Drawing.DXDashStyle.Dash;
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(6.960011F, 275.8784F);
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(0.001700719F, 275.8784F);
             this.xrLine1.Name = "xrLine1";
-            this.xrLine1.SizeF = new System.Drawing.SizeF(264.04F, 5.07F);
+            this.xrLine1.SizeF = new System.Drawing.SizeF(247.0833F, 5.070007F);
             // 
             // xrLabel5
             // 
             this.xrLabel5.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(203.7502F, 257.045F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(186.7936F, 257.045F);
             this.xrLabel5.Multiline = true;
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -219,7 +219,7 @@
             // xrLabel2
             // 
             this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(16.95836F, 257.045F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0.001769543F, 257.045F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -232,11 +232,11 @@
             // lblRtn
             // 
             this.lblRtn.Font = new DevExpress.Drawing.DXFont("Arial", 9F);
-            this.lblRtn.LocationFloat = new DevExpress.Utils.PointFloat(6.958312F, 26.66668F);
+            this.lblRtn.LocationFloat = new DevExpress.Utils.PointFloat(0F, 26.66669F);
             this.lblRtn.Multiline = true;
             this.lblRtn.Name = "lblRtn";
             this.lblRtn.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblRtn.SizeF = new System.Drawing.SizeF(257.0834F, 18.83337F);
+            this.lblRtn.SizeF = new System.Drawing.SizeF(247.085F, 18.83337F);
             this.lblRtn.StylePriority.UseFont = false;
             this.lblRtn.StylePriority.UseTextAlignment = false;
             this.lblRtn.Text = "RTN";
@@ -245,7 +245,7 @@
             // xrLabel10
             // 
             this.xrLabel10.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(16.95829F, 132.1251F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(0.001698971F, 132.1251F);
             this.xrLabel10.Multiline = true;
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -258,7 +258,7 @@
             // lblDireccion
             // 
             this.lblDireccion.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblDireccion.LocationFloat = new DevExpress.Utils.PointFloat(101.875F, 132.1251F);
+            this.lblDireccion.LocationFloat = new DevExpress.Utils.PointFloat(84.91841F, 132.1251F);
             this.lblDireccion.Multiline = true;
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -271,7 +271,7 @@
             // xrLabel8
             // 
             this.xrLabel8.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(16.95829F, 113.2918F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(0.001698971F, 113.2918F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -284,7 +284,7 @@
             // lblCliente
             // 
             this.lblCliente.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblCliente.LocationFloat = new DevExpress.Utils.PointFloat(101.875F, 113.2918F);
+            this.lblCliente.LocationFloat = new DevExpress.Utils.PointFloat(84.91841F, 113.2918F);
             this.lblCliente.Multiline = true;
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -297,7 +297,7 @@
             // xrLabel7
             // 
             this.xrLabel7.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(16.95831F, 150.9585F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(0.001718044F, 150.9585F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -310,7 +310,7 @@
             // lblFacturaNo
             // 
             this.lblFacturaNo.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblFacturaNo.LocationFloat = new DevExpress.Utils.PointFloat(101.875F, 150.9585F);
+            this.lblFacturaNo.LocationFloat = new DevExpress.Utils.PointFloat(84.91841F, 150.9585F);
             this.lblFacturaNo.Multiline = true;
             this.lblFacturaNo.Name = "lblFacturaNo";
             this.lblFacturaNo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -323,11 +323,11 @@
             // xrLabel4
             // 
             this.xrLabel4.Font = new DevExpress.Drawing.DXFont("Arial", 9F);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(6.958312F, 64.16669F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(0F, 64.16669F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(257.0834F, 18.83337F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(247.085F, 18.83337F);
             this.xrLabel4.StylePriority.UseFont = false;
             this.xrLabel4.StylePriority.UseTextAlignment = false;
             this.xrLabel4.Text = "COMPROBANTE DE ENTREGA";
@@ -336,7 +336,7 @@
             // lblFecha
             // 
             this.lblFecha.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblFecha.LocationFloat = new DevExpress.Utils.PointFloat(101.875F, 169.7919F);
+            this.lblFecha.LocationFloat = new DevExpress.Utils.PointFloat(84.91841F, 169.7919F);
             this.lblFecha.Multiline = true;
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -349,7 +349,7 @@
             // xrLabel1
             // 
             this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(16.95831F, 226.2921F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0.001718044F, 226.2921F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -363,11 +363,11 @@
             // lblNumTraslado
             // 
             this.lblNumTraslado.Font = new DevExpress.Drawing.DXFont("Arial", 9F);
-            this.lblNumTraslado.LocationFloat = new DevExpress.Utils.PointFloat(6.958312F, 83.00008F);
+            this.lblNumTraslado.LocationFloat = new DevExpress.Utils.PointFloat(0F, 83.00009F);
             this.lblNumTraslado.Multiline = true;
             this.lblNumTraslado.Name = "lblNumTraslado";
             this.lblNumTraslado.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNumTraslado.SizeF = new System.Drawing.SizeF(257.0834F, 18.83337F);
+            this.lblNumTraslado.SizeF = new System.Drawing.SizeF(247.085F, 18.83337F);
             this.lblNumTraslado.StylePriority.UseFont = false;
             this.lblNumTraslado.StylePriority.UseTextAlignment = false;
             this.lblNumTraslado.Text = "# Entrega ###";
@@ -376,7 +376,7 @@
             // lblUsuario
             // 
             this.lblUsuario.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblUsuario.LocationFloat = new DevExpress.Utils.PointFloat(101.8751F, 226.292F);
+            this.lblUsuario.LocationFloat = new DevExpress.Utils.PointFloat(84.91851F, 226.292F);
             this.lblUsuario.Multiline = true;
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -390,7 +390,7 @@
             // xrLabel3
             // 
             this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(16.95829F, 188.6252F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(0.001698971F, 188.6252F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -403,7 +403,7 @@
             // lblAlmOrigen
             // 
             this.lblAlmOrigen.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblAlmOrigen.LocationFloat = new DevExpress.Utils.PointFloat(101.875F, 188.6252F);
+            this.lblAlmOrigen.LocationFloat = new DevExpress.Utils.PointFloat(84.91841F, 188.6252F);
             this.lblAlmOrigen.Multiline = true;
             this.lblAlmOrigen.Name = "lblAlmOrigen";
             this.lblAlmOrigen.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -416,11 +416,11 @@
             // lblNombreLegal
             // 
             this.lblNombreLegal.Font = new DevExpress.Drawing.DXFont("Arial", 9F);
-            this.lblNombreLegal.LocationFloat = new DevExpress.Utils.PointFloat(6.958312F, 7.833303F);
+            this.lblNombreLegal.LocationFloat = new DevExpress.Utils.PointFloat(0F, 7.833306F);
             this.lblNombreLegal.Multiline = true;
             this.lblNombreLegal.Name = "lblNombreLegal";
             this.lblNombreLegal.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNombreLegal.SizeF = new System.Drawing.SizeF(257.0834F, 18.83337F);
+            this.lblNombreLegal.SizeF = new System.Drawing.SizeF(247.085F, 18.83337F);
             this.lblNombreLegal.StylePriority.UseFont = false;
             this.lblNombreLegal.StylePriority.UseTextAlignment = false;
             this.lblNombreLegal.Text = "Nombre Legal";
@@ -437,18 +437,18 @@
             // xrLine2
             // 
             this.xrLine2.LineStyle = DevExpress.Drawing.DXDashStyle.Dash;
-            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(6.958312F, 44.81174F);
+            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(0.001804034F, 44.8117F);
             this.xrLine2.Name = "xrLine2";
-            this.xrLine2.SizeF = new System.Drawing.SizeF(264.04F, 5.07F);
+            this.xrLine2.SizeF = new System.Drawing.SizeF(247.0834F, 5.069996F);
             // 
             // xrLabel9
             // 
             this.xrLabel9.Font = new DevExpress.Drawing.DXFont("Arial", 8.75F);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(9.999998F, 49.88174F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(3.043485F, 49.88174F);
             this.xrLabel9.Multiline = true;
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(254.0417F, 22.99999F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(244.0415F, 22.99998F);
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
             this.xrLabel9.Text = "RECIBIDO POR";
@@ -472,10 +472,9 @@
             this.DataMember = "detalle_entrega";
             this.DataSource = this.dsEntregaPedidos1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
-            this.Margins = new DevExpress.Drawing.DXMargins(16F, 2F, 11.83F, 9.746615F);
-            this.PageWidth = 292;
+            this.Margins = new DevExpress.Drawing.DXMargins(2F, 2F, 11.83F, 9.746615F);
+            this.PageWidth = 260;
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
-            this.RollPaper = true;
             this.ShowPreviewMarginLines = false;
             this.ShowPrintMarginsWarning = false;
             this.Version = "23.2";
