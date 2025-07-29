@@ -2469,31 +2469,43 @@ namespace Eatery.Ventas
 
             try
             {
-                
+
                 //foreach(dsVentas.detalle_factura_transaccion_invRow rowi in dsVentas1.detalle_factura_transaccion_inv.Rows)
                 //for (int h = 0; h < dsVentas1.detalle_factura_transaccion_inv.Rows.Count; h++)
                 //{
 
                 //}
 
-                for (int h = 0; h < dsVentas1.detalle_factura_transaccion_inv.Rows.Count; h++)
-                {
-                    dsVentas.detalle_factura_transaccion_invRow rowDel = dsVentas1.detalle_factura_transaccion_inv[h];
+                //for (int h = 0; h < dsVentas1.detalle_factura_transaccion_inv.Rows.Count; h++)
+                //{
+                //    dsVentas.detalle_factura_transaccion_invRow rowDel = dsVentas1.detalle_factura_transaccion_inv[h];
 
-                    if (rowDel.id_pt == row.id_pt)
-                    {
-                        //dsVentas1.detalle_factura_transaccion_inv[h].Delete();
-                        //h = dsVentas1.detalle_factura_transaccion_inv.Count;
-                        rowDel.Delete();
-                        dsVentas1.AcceptChanges();
-                    }
+                //    if (rowDel.id_pt == row.id_pt)
+                //    {
+                //        //dsVentas1.detalle_factura_transaccion_inv[h].Delete();
+                //        //h = dsVentas1.detalle_factura_transaccion_inv.Count;
+                //        rowDel.Delete();
+                //        dsVentas1.AcceptChanges();
+                //    }
+                //}
+
+                //Nueva funcion de elminar 
+                int idPT_Eliminar = row.id_pt; // ID que quieres eliminar
+
+                // Buscar las filas que coincidan con el ID
+                DataRow[] filas = dsVentas1.detalle_factura_transaccion_inv.Select($"id_pt = {idPT_Eliminar}");
+
+                // Eliminar cada fila encontrada
+                foreach (DataRow fila in filas)
+                {
+                    dsVentas1.detalle_factura_transaccion_inv.Rows.Remove(fila);
                 }
 
                 //Eliminamos el registro padre 
                 gridView1.DeleteRow(gridView1.FocusedRowHandle);
                 dsVentas1.AcceptChanges();
                 //detalle_factura_transaction
-
+                int count = dsVentas1.detalle_factura_transaction.Count;
                 CalcularTotalFactura();
             }
             catch (Exception ec)
