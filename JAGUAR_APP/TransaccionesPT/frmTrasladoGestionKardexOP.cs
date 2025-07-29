@@ -214,7 +214,7 @@ namespace JAGUAR_PRO.TransaccionesPT
 
                 if (Estado)
                 {
-                    row.cantidad_fisica = 1;
+                    row.cantidad_fisica = row.cantidad_pendiente;
                 }
                 else
                 {
