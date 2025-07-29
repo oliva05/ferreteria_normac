@@ -3121,6 +3121,8 @@ namespace JAGUAR_PRO.TransaccionesPT {
             
             private global::System.Data.DataColumn columnid_estado;
             
+            private global::System.Data.DataColumn columnnum_requisa;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public traslados_hDataTable() {
@@ -3244,6 +3246,14 @@ namespace JAGUAR_PRO.TransaccionesPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn num_requisaColumn {
+                get {
+                    return this.columnnum_requisa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3279,7 +3289,7 @@ namespace JAGUAR_PRO.TransaccionesPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public traslados_hRow Addtraslados_hRow(int id_traslado, string num_traslado, string descripcion, System.DateTime fecha, int user_id, string usuario, int id_bod_origen, string origen, int id_bod_destino, string destino, int id_estado) {
+            public traslados_hRow Addtraslados_hRow(int id_traslado, string num_traslado, string descripcion, System.DateTime fecha, int user_id, string usuario, int id_bod_origen, string origen, int id_bod_destino, string destino, int id_estado, string num_requisa) {
                 traslados_hRow rowtraslados_hRow = ((traslados_hRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_traslado,
@@ -3292,7 +3302,8 @@ namespace JAGUAR_PRO.TransaccionesPT {
                         origen,
                         id_bod_destino,
                         destino,
-                        id_estado};
+                        id_estado,
+                        num_requisa};
                 rowtraslados_hRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtraslados_hRow);
                 return rowtraslados_hRow;
@@ -3326,6 +3337,7 @@ namespace JAGUAR_PRO.TransaccionesPT {
                 this.columnid_bod_destino = base.Columns["id_bod_destino"];
                 this.columndestino = base.Columns["destino"];
                 this.columnid_estado = base.Columns["id_estado"];
+                this.columnnum_requisa = base.Columns["num_requisa"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3353,6 +3365,8 @@ namespace JAGUAR_PRO.TransaccionesPT {
                 base.Columns.Add(this.columndestino);
                 this.columnid_estado = new global::System.Data.DataColumn("id_estado", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_estado);
+                this.columnnum_requisa = new global::System.Data.DataColumn("num_requisa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnum_requisa);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7000,6 +7014,22 @@ namespace JAGUAR_PRO.TransaccionesPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string num_requisa {
+                get {
+                    try {
+                        return ((string)(this[this.tabletraslados_h.num_requisaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'num_requisa\' de la tabla \'traslados_h\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletraslados_h.num_requisaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_trasladoNull() {
                 return this.IsNull(this.tabletraslados_h.id_trasladoColumn);
             }
@@ -7128,6 +7158,18 @@ namespace JAGUAR_PRO.TransaccionesPT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setid_estadoNull() {
                 this[this.tabletraslados_h.id_estadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isnum_requisaNull() {
+                return this.IsNull(this.tabletraslados_h.num_requisaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setnum_requisaNull() {
+                this[this.tabletraslados_h.num_requisaColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -129,6 +129,12 @@ namespace JAGUAR_PRO.TransaccionesPT
 
             foreach (dsPT.ajuste_inventario_detalleRow item in dsPT1.ajuste_inventario_detalle)
             {
+                if(item.id_almacen == 0)
+                {
+                    CajaDialogo.Error("Debe seleccionar un Almacen!");
+                    return;
+                }
+
                 if (item.cantidad == 0)
                 {
                     CajaDialogo.Error("El Producto debe ser mayor que 0");
@@ -145,6 +151,8 @@ namespace JAGUAR_PRO.TransaccionesPT
                     }
                 }
             }
+
+
 
             DataOperations dp = new DataOperations();
             SqlTransaction transaction = null;
@@ -480,8 +488,28 @@ namespace JAGUAR_PRO.TransaccionesPT
                     }
                     break;
                 case TipoOperacion.Aprobacion:
+
+                    try
+                    {
+                        gridView2.DeleteRow(gridView2.FocusedRowHandle);
+                        dsPT1.AcceptChanges();
+                    }
+                    catch (Exception ec)
+                    {
+                        CajaDialogo.Error(ec.Message);
+                    }
                     break;
                 case TipoOperacion.CreacionDirecta:
+
+                    try
+                    {
+                        gridView2.DeleteRow(gridView2.FocusedRowHandle);
+                        dsPT1.AcceptChanges();
+                    }
+                    catch (Exception ec)
+                    {
+                        CajaDialogo.Error(ec.Message);
+                    }
                     break;
                 default:
                     break;

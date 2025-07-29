@@ -75,7 +75,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             {
                 foreach (dsPT.almacen_destinoRow item in dsPT1.almacen_destino)
                 {
-                    item.cantidad_fisica = item.cantidad_trasladar;
+                    item.cantidad_fisica = item.cantidad_pendiente;
                     item.seleccion = true;
                 }
             }

@@ -41,7 +41,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                 con.Open();
 
                 //SqlCommand cmd = new SqlCommand("codesahn.sp_get_detalle_facturas_recibidas", con);
-                SqlCommand cmd = new SqlCommand("dbo.[sp_pt_gestion_traslados_almacenes_by_dates]", con);
+                SqlCommand cmd = new SqlCommand("dbo.[sp_pt_gestion_traslados_almacenes_by_datesV2]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@ver_todas", toggleSwitchVerTodas.IsOn);
                 cmd.Parameters.AddWithValue("@desde", dtDesde.DateTime);
