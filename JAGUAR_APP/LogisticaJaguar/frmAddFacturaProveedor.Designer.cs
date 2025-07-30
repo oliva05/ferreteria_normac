@@ -97,6 +97,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colisv_aplicable = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colporcentaje_utilidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colprecio_venta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colutilidad_lps = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RGridLookUpE_MateriaPrimaList = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.mPListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -146,7 +147,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.txtCAI = new DevExpress.XtraEditors.TextEdit();
             this.tsWithCAI = new DevExpress.XtraEditors.ToggleSwitch();
-            this.colutilidad_lps = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdClose = new DevExpress.XtraEditors.DropDownButton();
+            this.cmdAplicarCalculoPrecioVenta = new DevExpress.XtraEditors.DropDownButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditProveedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsLogisticaJaguar1)).BeginInit();
@@ -757,6 +759,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colprecio_venta.VisibleIndex = 14;
             this.colprecio_venta.Width = 77;
             // 
+            // colutilidad_lps
+            // 
+            this.colutilidad_lps.DisplayFormat.FormatString = "n2";
+            this.colutilidad_lps.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colutilidad_lps.FieldName = "utilidad_lps";
+            this.colutilidad_lps.Name = "colutilidad_lps";
+            this.colutilidad_lps.Visible = true;
+            this.colutilidad_lps.VisibleIndex = 13;
+            // 
             // RGridLookUpE_MateriaPrimaList
             // 
             this.RGridLookUpE_MateriaPrimaList.AutoHeight = false;
@@ -1193,13 +1204,12 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // btnCopiarDe
             // 
-            this.btnCopiarDe.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCopiarDe.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnCopiarDe.Appearance.Options.UseFont = true;
             this.btnCopiarDe.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
-            this.btnCopiarDe.Location = new System.Drawing.Point(1055, 95);
+            this.btnCopiarDe.Location = new System.Drawing.Point(813, 82);
             this.btnCopiarDe.Name = "btnCopiarDe";
-            this.btnCopiarDe.Size = new System.Drawing.Size(168, 29);
+            this.btnCopiarDe.Size = new System.Drawing.Size(168, 41);
             this.btnCopiarDe.TabIndex = 87;
             this.btnCopiarDe.Text = "Copiar De";
             this.btnCopiarDe.Click += new System.EventHandler(this.btnCopiarDe_Click);
@@ -1287,14 +1297,36 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.tsWithCAI.TabIndex = 93;
             this.tsWithCAI.Toggled += new System.EventHandler(this.tsWithCAI_Toggled);
             // 
-            // colutilidad_lps
+            // cmdClose
             // 
-            this.colutilidad_lps.DisplayFormat.FormatString = "n2";
-            this.colutilidad_lps.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colutilidad_lps.FieldName = "utilidad_lps";
-            this.colutilidad_lps.Name = "colutilidad_lps";
-            this.colutilidad_lps.Visible = true;
-            this.colutilidad_lps.VisibleIndex = 13;
+            this.cmdClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdClose.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cmdClose.Appearance.Options.UseFont = true;
+            this.cmdClose.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
+            this.cmdClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdClose.ImageOptions.SvgImage")));
+            this.cmdClose.Location = new System.Drawing.Point(1090, 4);
+            this.cmdClose.Name = "cmdClose";
+            this.cmdClose.Size = new System.Drawing.Size(168, 41);
+            this.cmdClose.TabIndex = 98;
+            this.cmdClose.Text = "Cerrar";
+            this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
+            // 
+            // cmdAplicarCalculoPrecioVenta
+            // 
+            this.cmdAplicarCalculoPrecioVenta.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cmdAplicarCalculoPrecioVenta.Appearance.BorderColor = System.Drawing.Color.Green;
+            this.cmdAplicarCalculoPrecioVenta.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cmdAplicarCalculoPrecioVenta.Appearance.Options.UseBackColor = true;
+            this.cmdAplicarCalculoPrecioVenta.Appearance.Options.UseBorderColor = true;
+            this.cmdAplicarCalculoPrecioVenta.Appearance.Options.UseFont = true;
+            this.cmdAplicarCalculoPrecioVenta.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
+            this.cmdAplicarCalculoPrecioVenta.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdAplicarCalculoPrecioVenta.ImageOptions.SvgImage")));
+            this.cmdAplicarCalculoPrecioVenta.Location = new System.Drawing.Point(987, 82);
+            this.cmdAplicarCalculoPrecioVenta.Name = "cmdAplicarCalculoPrecioVenta";
+            this.cmdAplicarCalculoPrecioVenta.Size = new System.Drawing.Size(168, 41);
+            this.cmdAplicarCalculoPrecioVenta.TabIndex = 103;
+            this.cmdAplicarCalculoPrecioVenta.Text = "Recalcular \r\nPrecio de Venta";
+            this.cmdAplicarCalculoPrecioVenta.Click += new System.EventHandler(this.cmdAplicarCalculoPrecioVenta_Click);
             // 
             // frmAddFacturaProveedor
             // 
@@ -1303,6 +1335,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 564);
+            this.Controls.Add(this.cmdAplicarCalculoPrecioVenta);
+            this.Controls.Add(this.cmdClose);
             this.Controls.Add(this.tsWithCAI);
             this.Controls.Add(this.btnCopiarDe);
             this.Controls.Add(this.labelControl5);
@@ -1491,5 +1525,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private DevExpress.XtraGrid.Columns.GridColumn colporcentaje_utilidad;
         private DevExpress.XtraGrid.Columns.GridColumn colprecio_venta;
         private DevExpress.XtraGrid.Columns.GridColumn colutilidad_lps;
+        private DevExpress.XtraEditors.DropDownButton cmdClose;
+        private DevExpress.XtraEditors.DropDownButton cmdAplicarCalculoPrecioVenta;
     }
 }

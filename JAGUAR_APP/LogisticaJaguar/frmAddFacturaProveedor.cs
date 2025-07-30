@@ -387,6 +387,11 @@ namespace JAGUAR_PRO.LogisticaJaguar
             }
 
 
+            //Lista de Productos a los que iremos a traer el precio y margen de utilidad
+            DataTable idsTable_PT = new DataTable();
+            idsTable_PT.Columns.Add("id_pt", typeof(int));
+        
+
             int count_lines = dsLogisticaJaguar1.detalle_recepcion_fact.Rows.Count;
 
             foreach (DataRow item in tablaPT.Rows)
@@ -409,8 +414,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     row1.total_fila = 0;
 
                     row1.num_linea = count_lines + 1;
+
                     row1.porcentaje_utilidad = 0;
                     row1.precio_venta = 0;
+
+
+                    //Agregamos el ID PT a la lista de los que iremos a consultar precio de venta y margen de utilidad.
+                    idsTable_PT.Rows.Add(row1.id_mp);
+                    
+
                     ProductoTerminado pt = new ProductoTerminado();
                     row1.id_bodega = pt.GetAlmacenDefault(Convert.ToInt32(item["id"]));
                     //row1.id_bodega = 3;
@@ -428,6 +440,47 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 {
                     row.num_linea = filai;
                     filai++;
+                }
+            }
+
+            //Obtenemos el precio actual y el porcentaje de utilidad
+            using (SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+            using (SqlCommand cmd = new SqlCommand("[sp_get_margen_precio_costo_from_pt]", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoVentaActual.ID);
+
+                SqlParameter tvpParam = cmd.Parameters.AddWithValue("@Ids", idsTable_PT);
+                tvpParam.SqlDbType = SqlDbType.Structured;
+                tvpParam.TypeName = "dbo.IntPT_List";
+                
+
+                conn.Open();
+                
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id_pt_ = Convert.ToInt32(reader["id"]);
+                        decimal porcentaje_utilidad_ = Convert.ToDecimal(reader["porcentaje_utilidad"]);
+                        decimal precio_venta_ = Convert.ToDecimal(reader["precio"]);
+
+                        //Console.WriteLine(reader["Nombre"]);
+                        foreach (dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact)
+                        {
+                            if (row != null) 
+                            {
+                                if(row.id_mp == id_pt_)
+                                {
+                                    if(row.precio_venta == 0)
+                                    {
+                                        row.precio_venta = precio_venta_;
+                                        row.porcentaje_utilidad = porcentaje_utilidad_;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
@@ -1008,6 +1061,17 @@ namespace JAGUAR_PRO.LogisticaJaguar
             DataRowView selectedRow = gridLookUpEdit_CAI_Proveedor.Properties.View.GetRow(gridLookUpEdit_CAI_Proveedor.Properties.View.FocusedRowHandle) as DataRowView;
             //txtNumeroFactura.Text = selectedRow["leyenda"].ToString();
             txtNumeroFactura.Text = dp.ValidateNumberString(selectedRow["leyenda"]);
+        }
+
+        private void cmdClose_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void cmdAplicarCalculoPrecioVenta_Click(object sender, EventArgs e)
+        {
+            CajaDialogo.Error("Esta función aun está en construcción...");
         }
     }
 }

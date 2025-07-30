@@ -2196,6 +2196,10 @@ namespace Eatery.Ventas
                                         (row1.cantidad * row1.isv1) + 
                                         (row1.cantidad * row1.isv2) + 
                                         (row1.cantidad * row1.isv3);
+
+                    int IdBodega_ = 0;
+                    string BodegaName_ = "N/D";
+                    decimal Cantidad_ = 0;
                     try
                     {
                         DataOperations dp = new DataOperations();
@@ -2208,29 +2212,12 @@ namespace Eatery.Ventas
                         SqlDataReader dr = cmd.ExecuteReader();
                         if (dr.Read())
                         {
-                            int IdBodega_ = dr.GetInt32(0);
-                            string BodegaName_ = dr.GetString(1);
-                            decimal Cantidad_ = dr.GetDecimal(2);
+                            IdBodega_ = dr.GetInt32(0);
+                            BodegaName_ = dr.GetString(1);
+                            Cantidad_ = dr.GetDecimal(2);
                             row1.inventario = invTotal;
                             row1.inventario_seleccionado = 1;
                             row1.bodega_descripcion = BodegaName_;
-
-                            if (AddDistribucionAlmacen)
-                            {
-                                AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
-                                                                     1, pt1.Id_presentacion, row1.precio, row1.descuento,
-                                                                     pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, row1.marca);
-
-                                //Buscamos el detalle en la seleccion de stock
-                                foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
-                                {
-                                    if (RowInv.id_pt == row1.id_pt)
-                                    {
-                                        RowInv.descuento = row1.descuento;
-                                        RowInv.descuento_porcentaje = row1.descuento_porcentaje;
-                                    }
-                                }
-                            }
                         }
                         else
                         {
@@ -2238,6 +2225,24 @@ namespace Eatery.Ventas
                             row1.inventario_seleccionado = 0;
                         }
                         dr.Close();
+
+
+                        if (AddDistribucionAlmacen)
+                        {
+                            AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
+                                                                 1, pt1.Id_presentacion, row1.precio, row1.descuento,
+                                                                 pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, row1.marca);
+
+                            //Buscamos el detalle en la seleccion de stock
+                            foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
+                            {
+                                if (RowInv.id_pt == row1.id_pt)
+                                {
+                                    RowInv.descuento = row1.descuento;
+                                    RowInv.descuento_porcentaje = row1.descuento_porcentaje;
+                                }
+                            }
+                        }
                     }
                     catch (Exception ec)
                     {
