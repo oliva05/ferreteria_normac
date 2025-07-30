@@ -8,6 +8,7 @@ using DevExpress.Utils.Extensions;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraCharts.Native;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGauges.Core.Primitive;
 using DevExpress.XtraGrid.Views.Grid;
@@ -90,7 +91,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             switch (pTipoOperacion)
             {
                 case TipoOperacion.Insert:
-                    txtCodigoPT.Text = PT_Class_instance.GenerarSiguienteCodigoPT();
+                    //txtCodigoPT.Text = PT_Class_instance.GenerarSiguienteCodigoPT();
                     toggleSwitchEnablePT.IsOn = true;
                     toggleSwitchEnablePT.Enabled = false;
                     gridLookUpEdit_Presentaciones.EditValue = 1;
@@ -120,6 +121,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     spinMaximo.Enabled = false;
                     spinMinimo.Enabled = false;
                     xtraTabControl1.SelectedTabPage = tabInventario;
+
                     break;
                 case TipoOperacion.Update:
                     TabConfigVentas.PageVisible = true;
@@ -819,189 +821,503 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             DialogResult r = CajaDialogo.Pregunta("Desea guardar los cambios?");
             if (r != DialogResult.Yes)
                 return;
+            bool Guardar = false;
+            SqlTransaction transaction = null;
+            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
+            switch (TipoOperacionActual)
+            {
+                case TipoOperacion.Insert:
+
+                    try
+                    {
+                        conn.Open();
+                        transaction = conn.BeginTransaction("Transaction Order");
+
+                        SqlCommand cmd = conn.CreateCommand();
+                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v10]";
+                        cmd.Connection = conn;
+                        cmd.Transaction = transaction;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id_user_created", UsuarioLogeado.Id);
+                        cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
+                        cmd.Parameters.AddWithValue("@id_presentacion", gridLookUpEdit_Presentaciones.EditValue);
+                        cmd.Parameters.AddWithValue("@id_estado", 1);
+                        cmd.Parameters.AddWithValue("@descripcion", txtDescripcionProducto.Text);
+                        //cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
+                        cmd.Parameters.AddWithValue("@tipo_id", DBNull.Value/*gridLookUpEditTipoProducto.EditValue*/);
+                        cmd.Parameters.AddWithValue("@costo_mo_por_arroba", 0);
+                        cmd.Parameters.AddWithValue("@costo_por_arroba", 0);// CostoPorArroba);
+                        cmd.Parameters.AddWithValue("@id_tipo_facturacion", DBNull.Value /*glueTipoFacturacion.EditValue*/);
+
+                        //int id_tipoBuffet = dp.ValidateNumberInt32(glueTipoBuffet.EditValue);
+                        //if(id_tipoBuffet <= 0)
+                        cmd.Parameters.AddWithValue("@id_tipo_buffet", DBNull.Value);
+                        //else
+                        //    cmd.Parameters.AddWithValue("@id_tipo_buffet", glueTipoBuffet.EditValue);
+
+                        cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd", DBNull.Value /*gridLookUpEditTipoFacturacionDestino.EditValue*/);
+
+                        //if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
+                        if (string.IsNullOrEmpty(grdSubClase.Text) || (int)grdSubClase.EditValue == 0)
+                            cmd.Parameters.AddWithValue("@id_clase", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_clase", dp.ValidateNumberInt32(grdTipoClase.EditValue));
+                        //else
+                        //    cmd.Parameters.AddWithValue("@id_clase", gle_ClaseProducto.EditValue);
+
+
+                        if (dp.ValidateNumberInt32(Convert.ToInt32(gleImpuestoAplicable.EditValue)) == 0 || string.IsNullOrEmpty(gleImpuestoAplicable.Text))
+                            cmd.Parameters.AddWithValue("@id_impuesto_aplicable", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
+
+                        cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
+                        if (string.IsNullOrEmpty(grdSubClase.Text) || (int)grdSubClase.EditValue == 0)
+                            cmd.Parameters.AddWithValue("@id_subClase", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
+                        cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
+                        cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
+                        cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
+                        if (string.IsNullOrEmpty(grdMarca.Text) || (int)grdMarca.EditValue == 0)
+                            cmd.Parameters.AddWithValue("@id_marca", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_marca", grdMarca.EditValue);
+                        if (string.IsNullOrEmpty(grdTipoFamilia.Text) || (int)grdTipoFamilia.EditValue == 0)
+                            cmd.Parameters.AddWithValue("@id_familia", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_familia", dp.ValidateNumberInt32(grdTipoFamilia.EditValue));
+                        if (string.IsNullOrEmpty(grdTipoCategoria.Text) || (int)grdTipoCategoria.EditValue == 0)
+                            cmd.Parameters.AddWithValue("@id_categoria", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_categoria", dp.ValidateNumberInt32(grdTipoCategoria.EditValue));
+
+                        cmd.Parameters.AddWithValue("@code_referencia", txtCodigoReferencia.Text);
+                        cmd.Parameters.AddWithValue("@comision", tsComision.IsOn);
+                        cmd.Parameters.AddWithValue("@bitMinimoMaximo", tsGestionMaximosMinimos.IsOn);
+                        cmd.Parameters.AddWithValue("@invMinimo", spinMinimo.EditValue);
+                        cmd.Parameters.AddWithValue("@invMaximo", spinMaximo.EditValue);
+                        cmd.Parameters.AddWithValue("@tipo_producto", grdTipoProducto.EditValue);
+                        cmd.Parameters.AddWithValue("@entrega_bodega", toggleEntegaBodega.IsOn);
+
+                        IdPT = dp.ValidateNumberInt32(cmd.ExecuteScalar());
+
+                        FTP_Class ftp = new FTP_Class();
+                        string file_name;
+                        foreach (dsProductoTerminado.PTImagenesRow item in dsProductoTerminado1.PTImagenes)
+                        {
+                            if (item.id == 0)
+                            {
+                                string ext = Path.GetExtension(item.file_name);
+                                file_name = dp.Now().ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
+
+                                cmd.Parameters.Clear();
+                                cmd.CommandText = "sp_pt_insert_imagenes";
+                                cmd.Connection = conn;
+                                cmd.Transaction = transaction;
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                                cmd.Parameters.AddWithValue("@path", dp.FTP_Normac_PT + file_name);
+                                cmd.Parameters.AddWithValue("@file_name", item.file_name);
+                                cmd.Parameters.AddWithValue("@id_user", UsuarioLogeado.Id);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                        }
+
+                        if (IdPT > 0)
+                        {
+                            //Agregamos la informacion de almacenes configurada
+                            foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
+                            {
+                                cmd.Parameters.Clear();
+                                cmd.CommandText = "dbo.[sp_add_or_update_config_bodega_for_pt_v2]";
+                                cmd.Connection = conn;
+                                cmd.Transaction = transaction;
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                                cmd.Parameters.AddWithValue("@id_bodega", rowI.id);
+                                cmd.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
+                                cmd.Parameters.AddWithValue("@enable", rowI.hablitado_bit);
+                                cmd.Parameters.AddWithValue("@fijar_como_estandar", rowI.fijado_como_estandar_bit);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            cmd.Parameters.Clear();
+                            cmd.CommandText = "[sp_set_agregar_producto_nuevo_a_lista_precio]";
+                            cmd.Connection = conn;
+                            cmd.Transaction = transaction;
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                            cmd.Parameters.AddWithValue("@id_user", UsuarioLogeado.Id);
+                            cmd.Parameters.AddWithValue("@precio", PrecioVenta);
+                            cmd.Parameters.AddWithValue("@id_pdv", PuntoVentaActual.ID);
+                            cmd.ExecuteNonQuery();
+                        }
+
+
+
+                        transaction.Commit();
+                        Guardar = true;
+
+
+
+                    }
+                    catch (Exception ec)
+                    {
+                        transaction.Rollback();
+                        CajaDialogo.Error(ec.Message);
+
+                        Guardar = false;
+                    }
+
+                    if (Guardar)
+                    {
+                        PT_Actualizado = new Clases.ProductoTerminado();
+                        PT_Actualizado.Id = IdPT;
+                        PT_Actualizado.Enable = toggleSwitchEnablePT.IsOn;
+                        PT_Actualizado.Id_user_created = UsuarioLogeado.Id;
+                        PT_Actualizado.Usuario_nombre = UsuarioLogeado.Nombre;
+                        PT_Actualizado.Id_presentacion = Convert.ToInt32(gridLookUpEdit_Presentaciones.EditValue);
+                        PT_Actualizado.Presentacion_name = gridLookUpEdit_Presentaciones.Text;
+                        PT_Actualizado.Descripcion = txtDescripcionProducto.Text;
+                        PT_Class_instance.Recuperar_producto(IdPT);
+                        PT_Actualizado.Code = PT_Class_instance.Code;
+                        PT_Actualizado.Fecha = dp.Now();
+                        PT_Actualizado.Codig_Referencia = txtCodigoReferencia.Text;
+                        PT_Actualizado.Code_interno = txtCodigoInterno.Text;
+                        PT_Actualizado.TipoFacturacion_prd_name = gridTipoInventario.Text;
+                        PT_Actualizado.TipoInventario = Convert.ToInt32(gridTipoInventario.EditValue);
+                        PT_Actualizado.CodeOEM = txtOEM.Text;
+                        PT_Actualizado.TipoProducto = Convert.ToInt32(grdTipoProducto.EditValue);
+                        PT_Actualizado.TipoProductoName = grdTipoProducto.Text;
+
+                        CajaDialogo.Information("Producto Terminado Creado con Exito!");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+
+
+                    break;
+                case TipoOperacion.Update:
+
+                    try
+                    {
+                        conn.Open();
+                        transaction = conn.BeginTransaction("Transaction Order");
+
+                        SqlCommand cmd = conn.CreateCommand();
+                        cmd.CommandText = "sp_set_update_nuevo_producto_terminado_v9";
+                        cmd.Connection = conn;
+                        cmd.Transaction = transaction;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id", PT_Class_instance.Id);
+                        cmd.Parameters.AddWithValue("@id_user_created", UsuarioLogeado.Id);
+                        cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
+                        cmd.Parameters.AddWithValue("@id_presentacion", gridLookUpEdit_Presentaciones.EditValue);
+                        cmd.Parameters.AddWithValue("@id_estado", 1);
+                        cmd.Parameters.AddWithValue("@descripcion", txtDescripcionProducto.Text);
+                        cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
+                        cmd.Parameters.AddWithValue("@tipo_id", DBNull.Value/*gridLookUpEditTipoProducto.EditValue*/);
+                        cmd.Parameters.AddWithValue("@costo_mo_por_arroba", 0);
+                        cmd.Parameters.AddWithValue("@costo_por_arroba", 0);// CostoPorArroba);
+                        cmd.Parameters.AddWithValue("@id_tipo_facturacion", DBNull.Value /*glueTipoFacturacion.EditValue*/);
+
+                        //int id_tipoBuffet = dp.ValidateNumberInt32(glueTipoBuffet.EditValue);
+                        //if(id_tipoBuffet <= 0)
+                        cmd.Parameters.AddWithValue("@id_tipo_buffet", DBNull.Value);
+                        //else
+                        //    cmd.Parameters.AddWithValue("@id_tipo_buffet", glueTipoBuffet.EditValue);
+
+                        cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd", DBNull.Value /*gridLookUpEditTipoFacturacionDestino.EditValue*/);
+
+                        //if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
+                        if (string.IsNullOrEmpty(grdSubClase.Text) || (int)grdSubClase.EditValue == 0)
+                            cmd.Parameters.AddWithValue("@id_clase", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_clase", dp.ValidateNumberInt32(grdTipoClase.EditValue));
+                        //else
+                        //    cmd.Parameters.AddWithValue("@id_clase", gle_ClaseProducto.EditValue);
+                        if (dp.ValidateNumberInt32(Convert.ToInt32(gleImpuestoAplicable.EditValue)) == 0 || string.IsNullOrEmpty(gleImpuestoAplicable.Text))
+                            cmd.Parameters.AddWithValue("@id_impuesto_aplicable", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
+                        cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
+                        if (string.IsNullOrEmpty(grdSubClase.Text) || (int)grdSubClase.EditValue == 0)
+                            cmd.Parameters.AddWithValue("@id_subClase", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
+                        cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
+                        cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
+                        cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
+                        if (string.IsNullOrEmpty(grdMarca.Text) || (int)grdMarca.EditValue == 0)
+                            cmd.Parameters.AddWithValue("@id_marca", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_marca", grdMarca.EditValue);
+                        if (string.IsNullOrEmpty(grdTipoFamilia.Text) || (int)grdTipoFamilia.EditValue == 0)
+                            cmd.Parameters.AddWithValue("@id_familia", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_familia", dp.ValidateNumberInt32(grdTipoFamilia.EditValue));
+                        if (string.IsNullOrEmpty(grdTipoCategoria.Text) || (int)grdTipoCategoria.EditValue == 0)
+                            cmd.Parameters.AddWithValue("@id_categoria", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@id_categoria", dp.ValidateNumberInt32(grdTipoCategoria.EditValue));
+                        cmd.Parameters.AddWithValue("@code_referencia", txtCodigoReferencia.Text);
+                        cmd.Parameters.AddWithValue("@comision", tsComision.IsOn);
+                        cmd.Parameters.AddWithValue("@bitMinimoMaximo", tsGestionMaximosMinimos.IsOn);
+                        cmd.Parameters.AddWithValue("@invMinimo", spinMinimo.EditValue);
+                        cmd.Parameters.AddWithValue("@invMaximo", spinMaximo.EditValue);
+                        cmd.Parameters.AddWithValue("@tipo_producto", grdTipoProducto.EditValue);
+                        cmd.Parameters.AddWithValue("@entrega_bodega", toggleEntegaBodega.IsOn);
+                        cmd.ExecuteNonQuery();
+
+                        FTP_Class ftp = new FTP_Class();
+                        string file_name;
+                        foreach (dsProductoTerminado.PTImagenesRow item in dsProductoTerminado1.PTImagenes)
+                        {
+                            if (item.id == 0)
+                            {
+                                string ext = Path.GetExtension(item.file_name);
+                                file_name = dp.Now().ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
+
+                                cmd.Parameters.Clear();
+                                cmd.CommandText = "sp_pt_insert_imagenes";
+                                cmd.Connection = conn;
+                                cmd.Transaction = transaction;
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                                cmd.Parameters.AddWithValue("@path", dp.FTP_Normac_PT + file_name);
+                                cmd.Parameters.AddWithValue("@file_name", item.file_name);
+                                cmd.Parameters.AddWithValue("@id_user", UsuarioLogeado.Id);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        transaction.Commit();
+                        Guardar = true;
+
+
+                    }
+                    catch (Exception ec)
+                    {
+                        transaction.Rollback();
+                        CajaDialogo.Error(ec.Message);
+                        Guardar = false;
+                    }
+
+                    if (Guardar)
+                    {
+                        CajaDialogo.Information("Producto Terminado Actualizado con Exito!");
+                        PT_Actualizado = new Clases.ProductoTerminado();
+                        PT_Actualizado.Id = IdPT;
+                        PT_Actualizado.Enable = toggleSwitchEnablePT.IsOn;
+                        PT_Actualizado.Id_user_created = UsuarioLogeado.Id;
+                        PT_Actualizado.Usuario_nombre = UsuarioLogeado.Nombre;
+                        PT_Actualizado.Id_presentacion = Convert.ToInt32(gridLookUpEdit_Presentaciones.EditValue);
+                        PT_Actualizado.Presentacion_name = gridLookUpEdit_Presentaciones.Text;
+                        PT_Actualizado.Descripcion = txtDescripcionProducto.Text;
+                        PT_Actualizado.Code = txtCodigoPT.Text;
+                        PT_Actualizado.Fecha = dp.Now();
+                        PT_Actualizado.Codig_Referencia = txtCodigoReferencia.Text;
+                        PT_Actualizado.Code_interno = txtCodigoInterno.Text;
+                        PT_Actualizado.TipoFacturacion_prd_name = gridTipoInventario.Text;
+                        PT_Actualizado.TipoInventario = Convert.ToInt32(gridTipoInventario.EditValue);
+                        PT_Actualizado.CodeOEM = txtOEM.Text;
+                        PT_Actualizado.TipoProducto = Convert.ToInt32(grdTipoProducto.EditValue);
+                        PT_Actualizado.TipoProductoName = grdTipoProducto.Text;
+
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+
+                    break;
+                default:
+                    break;
+            }
 
            
 
+            
 
 
-            try
-            {
-                DataOperations dp = new DataOperations();
-                SqlConnection Conn1 = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                Conn1.Open();
-                SqlCommand cmd = new SqlCommand("", Conn1);
-                cmd.CommandType = CommandType.StoredProcedure;
-                switch (TipoOperacionActual)
-                {
-                    case TipoOperacion.Insert:
-                        cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v9]";
+            //try
+            //{
+            //    DataOperations dp = new DataOperations();
+            //    SqlConnection Conn1 = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+            //    Conn1.Open();
+            //    SqlCommand cmd = new SqlCommand("", Conn1);
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    switch (TipoOperacionActual)
+            //    {
+            //        case TipoOperacion.Insert:
+            //            cmd.CommandText = "[dbo].[sp_set_insert_nuevo_producto_terminado_v9]";
 
-                        break;
-                    case TipoOperacion.Update:
-                        cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v9]";
-                        cmd.Parameters.AddWithValue("@id", PT_Class_instance.Id);
-                        break;
-                }
+            //            break;
+            //        case TipoOperacion.Update:
+            //            cmd.CommandText = "[dbo].[sp_set_update_nuevo_producto_terminado_v9]";
+            //            cmd.Parameters.AddWithValue("@id", PT_Class_instance.Id);
+            //            break;
+            //    }
 
-                //if (!tggCosteoPorArroba.IsOn)
-                //    CostoPorArroba = 0;
+            //    //if (!tggCosteoPorArroba.IsOn)
+            //    //    CostoPorArroba = 0;
 
-                cmd.Parameters.AddWithValue("@id_user_created", UsuarioLogeado.Id);
-                cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
-                cmd.Parameters.AddWithValue("@id_presentacion", gridLookUpEdit_Presentaciones.EditValue);
-                cmd.Parameters.AddWithValue("@id_estado", 1);
-                cmd.Parameters.AddWithValue("@descripcion", txtDescripcionProducto.Text);
-                cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
-                cmd.Parameters.AddWithValue("@tipo_id", DBNull.Value/*gridLookUpEditTipoProducto.EditValue*/);
-                cmd.Parameters.AddWithValue("@costo_mo_por_arroba", 0);
-                cmd.Parameters.AddWithValue("@costo_por_arroba", 0);// CostoPorArroba);
-                cmd.Parameters.AddWithValue("@id_tipo_facturacion", DBNull.Value /*glueTipoFacturacion.EditValue*/);
+            //    cmd.Parameters.AddWithValue("@id_user_created", UsuarioLogeado.Id);
+            //    cmd.Parameters.AddWithValue("@enable", toggleSwitchEnablePT.IsOn);
+            //    cmd.Parameters.AddWithValue("@id_presentacion", gridLookUpEdit_Presentaciones.EditValue);
+            //    cmd.Parameters.AddWithValue("@id_estado", 1);
+            //    cmd.Parameters.AddWithValue("@descripcion", txtDescripcionProducto.Text);
+            //    cmd.Parameters.AddWithValue("@code", txtCodigoPT.Text);
+            //    cmd.Parameters.AddWithValue("@tipo_id", DBNull.Value/*gridLookUpEditTipoProducto.EditValue*/);
+            //    cmd.Parameters.AddWithValue("@costo_mo_por_arroba", 0);
+            //    cmd.Parameters.AddWithValue("@costo_por_arroba", 0);// CostoPorArroba);
+            //    cmd.Parameters.AddWithValue("@id_tipo_facturacion", DBNull.Value /*glueTipoFacturacion.EditValue*/);
 
-                //int id_tipoBuffet = dp.ValidateNumberInt32(glueTipoBuffet.EditValue);
-                //if(id_tipoBuffet <= 0)
-                cmd.Parameters.AddWithValue("@id_tipo_buffet", DBNull.Value);
-                //else
-                //    cmd.Parameters.AddWithValue("@id_tipo_buffet", glueTipoBuffet.EditValue);
+            //    //int id_tipoBuffet = dp.ValidateNumberInt32(glueTipoBuffet.EditValue);
+            //    //if(id_tipoBuffet <= 0)
+            //    cmd.Parameters.AddWithValue("@id_tipo_buffet", DBNull.Value);
+            //    //else
+            //    //    cmd.Parameters.AddWithValue("@id_tipo_buffet", glueTipoBuffet.EditValue);
 
-                cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd", DBNull.Value /*gridLookUpEditTipoFacturacionDestino.EditValue*/);
+            //    cmd.Parameters.AddWithValue("@id_tipo_facturacion_prd", DBNull.Value /*gridLookUpEditTipoFacturacionDestino.EditValue*/);
 
-                //if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
-                if (string.IsNullOrEmpty(grdSubClase.Text) || (int)grdSubClase.EditValue == 0)
-                    cmd.Parameters.AddWithValue("@id_clase", DBNull.Value);
-                else
-                    cmd.Parameters.AddWithValue("@id_clase", dp.ValidateNumberInt32(grdTipoClase.EditValue));
-                //else
-                //    cmd.Parameters.AddWithValue("@id_clase", gle_ClaseProducto.EditValue);
+            //    //if(dp.ValidateNumberInt32(Convert.ToInt32(gle_ClaseProducto.EditValue))==0)
+            //    if (string.IsNullOrEmpty(grdSubClase.Text) || (int)grdSubClase.EditValue == 0)
+            //        cmd.Parameters.AddWithValue("@id_clase", DBNull.Value);
+            //    else
+            //        cmd.Parameters.AddWithValue("@id_clase", dp.ValidateNumberInt32(grdTipoClase.EditValue));
+            //    //else
+            //    //    cmd.Parameters.AddWithValue("@id_clase", gle_ClaseProducto.EditValue);
 
 
-                if (dp.ValidateNumberInt32(Convert.ToInt32(gleImpuestoAplicable.EditValue)) == 0)
-                    cmd.Parameters.AddWithValue("@id_impuesto_aplicable", DBNull.Value);
-                else
-                    cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
+            //    if (dp.ValidateNumberInt32(Convert.ToInt32(gleImpuestoAplicable.EditValue)) == 0)
+            //        cmd.Parameters.AddWithValue("@id_impuesto_aplicable", DBNull.Value);
+            //    else
+            //        cmd.Parameters.AddWithValue("@id_impuesto_aplicable", gleImpuestoAplicable.EditValue);
 
-                cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
-                if (string.IsNullOrEmpty(grdSubClase.Text) || (int)grdSubClase.EditValue == 0)
-                    cmd.Parameters.AddWithValue("@id_subClase", DBNull.Value);
-                else
-                    cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
-                cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
-                cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
-                cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
-                if (string.IsNullOrEmpty(grdMarca.Text) || (int)grdMarca.EditValue == 0)
-                    cmd.Parameters.AddWithValue("@id_marca", DBNull.Value);
-                else
-                    cmd.Parameters.AddWithValue("@id_marca", grdMarca.EditValue);
-                if (string.IsNullOrEmpty(grdTipoFamilia.Text) || (int)grdTipoFamilia.EditValue == 0)
-                    cmd.Parameters.AddWithValue("@id_familia", DBNull.Value);
-                else
-                    cmd.Parameters.AddWithValue("@id_familia", dp.ValidateNumberInt32(grdTipoFamilia.EditValue));
-                if (string.IsNullOrEmpty(grdTipoCategoria.Text) || (int)grdTipoCategoria.EditValue == 0)
-                    cmd.Parameters.AddWithValue("@id_categoria", DBNull.Value);
-                else
-                    cmd.Parameters.AddWithValue("@id_categoria", dp.ValidateNumberInt32(grdTipoCategoria.EditValue));
+            //    cmd.Parameters.AddWithValue("@codigo_interno", txtCodigoInterno.Text);
+            //    if (string.IsNullOrEmpty(grdSubClase.Text) || (int)grdSubClase.EditValue == 0)
+            //        cmd.Parameters.AddWithValue("@id_subClase", DBNull.Value);
+            //    else
+            //        cmd.Parameters.AddWithValue("@id_subClase", grdSubClase.EditValue);
+            //    cmd.Parameters.AddWithValue("@idTipoInventario", gridTipoInventario.EditValue);
+            //    cmd.Parameters.AddWithValue("@barcode", txtBarCode.Text.Trim());
+            //    cmd.Parameters.AddWithValue("@codeOEM", txtOEM.Text.Trim());
+            //    if (string.IsNullOrEmpty(grdMarca.Text) || (int)grdMarca.EditValue == 0)
+            //        cmd.Parameters.AddWithValue("@id_marca", DBNull.Value);
+            //    else
+            //        cmd.Parameters.AddWithValue("@id_marca", grdMarca.EditValue);
+            //    if (string.IsNullOrEmpty(grdTipoFamilia.Text) || (int)grdTipoFamilia.EditValue == 0)
+            //        cmd.Parameters.AddWithValue("@id_familia", DBNull.Value);
+            //    else
+            //        cmd.Parameters.AddWithValue("@id_familia", dp.ValidateNumberInt32(grdTipoFamilia.EditValue));
+            //    if (string.IsNullOrEmpty(grdTipoCategoria.Text) || (int)grdTipoCategoria.EditValue == 0)
+            //        cmd.Parameters.AddWithValue("@id_categoria", DBNull.Value);
+            //    else
+            //        cmd.Parameters.AddWithValue("@id_categoria", dp.ValidateNumberInt32(grdTipoCategoria.EditValue));
 
-                cmd.Parameters.AddWithValue("@code_referencia", txtCodigoReferencia.Text);
-                cmd.Parameters.AddWithValue("@comision", tsComision.IsOn);
-                cmd.Parameters.AddWithValue("@bitMinimoMaximo",tsGestionMaximosMinimos.IsOn);
-                cmd.Parameters.AddWithValue("@invMinimo", spinMinimo.EditValue);
-                cmd.Parameters.AddWithValue("@invMaximo", spinMaximo.EditValue);
-                cmd.Parameters.AddWithValue("@tipo_producto", grdTipoProducto.EditValue);
-                cmd.Parameters.AddWithValue("@entrega_bodega", toggleEntegaBodega.IsOn);
+            //    cmd.Parameters.AddWithValue("@code_referencia", txtCodigoReferencia.Text);
+            //    cmd.Parameters.AddWithValue("@comision", tsComision.IsOn);
+            //    cmd.Parameters.AddWithValue("@bitMinimoMaximo",tsGestionMaximosMinimos.IsOn);
+            //    cmd.Parameters.AddWithValue("@invMinimo", spinMinimo.EditValue);
+            //    cmd.Parameters.AddWithValue("@invMaximo", spinMaximo.EditValue);
+            //    cmd.Parameters.AddWithValue("@tipo_producto", grdTipoProducto.EditValue);
+            //    cmd.Parameters.AddWithValue("@entrega_bodega", toggleEntegaBodega.IsOn);
 
-                if (TipoOperacionActual == TipoOperacion.Insert)
-                {
-                    IdPT = dp.ValidateNumberInt32(cmd.ExecuteScalar());  
-                }
-                else
-                {
-                    cmd.ExecuteNonQuery();
-                }
+            //    if (TipoOperacionActual == TipoOperacion.Insert)
+            //    {
+            //        IdPT = dp.ValidateNumberInt32(cmd.ExecuteScalar());  
+            //    }
+            //    else
+            //    {
+            //        cmd.ExecuteNonQuery();
+            //    }
 
-                FTP_Class ftp = new FTP_Class();
-                string file_name;
-                foreach (dsProductoTerminado.PTImagenesRow item in dsProductoTerminado1.PTImagenes)
-                {
-                    if (item.id == 0)
-                    {
-                        string ext = Path.GetExtension(item.file_name);
-                        file_name = dp.Now().ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
+            //    FTP_Class ftp = new FTP_Class();
+            //    string file_name;
+            //    foreach (dsProductoTerminado.PTImagenesRow item in dsProductoTerminado1.PTImagenes)
+            //    {
+            //        if (item.id == 0)
+            //        {
+            //            string ext = Path.GetExtension(item.file_name);
+            //            file_name = dp.Now().ToString("ddMMyyyyhhmmss") + '_' + item.file_name;
 
-                        if (ftp.GuardarArchivo(UsuarioLogeado, file_name, item.path))
-                        {
-                            cmd.Parameters.Clear();
-                            cmd.CommandText = "sp_pt_insert_imagenes";
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                            cmd.Parameters.AddWithValue("@path", dp.FTP_Normac_PT + file_name);
-                            cmd.Parameters.AddWithValue("@file_name", item.file_name);
-                            cmd.Parameters.AddWithValue("@id_user", UsuarioLogeado.Id);
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
+            //            if (ftp.GuardarArchivo(UsuarioLogeado, file_name, item.path))
+            //            {
+            //                cmd.Parameters.Clear();
+            //                cmd.CommandText = "sp_pt_insert_imagenes";
+            //                cmd.CommandType = CommandType.StoredProcedure;
+            //                cmd.Parameters.AddWithValue("@id_pt", IdPT);
+            //                cmd.Parameters.AddWithValue("@path", dp.FTP_Normac_PT + file_name);
+            //                cmd.Parameters.AddWithValue("@file_name", item.file_name);
+            //                cmd.Parameters.AddWithValue("@id_user", UsuarioLogeado.Id);
+            //                cmd.ExecuteNonQuery();
+            //            }
+            //        }
 
-                }
+            //    }
 
-                if (IdPT > 0)
-                {
-                    if (TipoOperacionActual == TipoOperacion.Insert)
-                    {
-                        //Agregamos la informacion de almacenes configurada
-                        foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
-                        {
-                            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                            conn.Open();
-                            SqlCommand cmd_b = new SqlCommand("dbo.[sp_add_or_update_config_bodega_for_pt_v2]", conn);
-                            cmd_b.CommandType = CommandType.StoredProcedure;
-                            cmd_b.Parameters.AddWithValue("@id_pt", IdPT);
-                            cmd_b.Parameters.AddWithValue("@id_bodega", rowI.id);
-                            cmd_b.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
-                            cmd_b.Parameters.AddWithValue("@enable", rowI.hablitado_bit);
-                            cmd_b.Parameters.AddWithValue("@fijar_como_estandar", rowI.fijado_como_estandar_bit);
-                            cmd_b.ExecuteNonQuery();
-                            conn.Close();
-                        }
-                    }
-                }
+            //    if (IdPT > 0)
+            //    {
+            //        if (TipoOperacionActual == TipoOperacion.Insert)
+            //        {
+            //            //Agregamos la informacion de almacenes configurada
+            //            foreach (dsProductoTerminado.config_pt_invRow rowI in dsProductoTerminado1.config_pt_inv)
+            //            {
+            //                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+            //                conn.Open();
+            //                SqlCommand cmd_b = new SqlCommand("dbo.[sp_add_or_update_config_bodega_for_pt_v2]", conn);
+            //                cmd_b.CommandType = CommandType.StoredProcedure;
+            //                cmd_b.Parameters.AddWithValue("@id_pt", IdPT);
+            //                cmd_b.Parameters.AddWithValue("@id_bodega", rowI.id);
+            //                cmd_b.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
+            //                cmd_b.Parameters.AddWithValue("@enable", rowI.hablitado_bit);
+            //                cmd_b.Parameters.AddWithValue("@fijar_como_estandar", rowI.fijado_como_estandar_bit);
+            //                cmd_b.ExecuteNonQuery();
+            //                conn.Close();
+            //            }
+            //        }
+            //    }
 
-                PT_Actualizado = new Clases.ProductoTerminado();
-                PT_Actualizado.Id = IdPT;
-                PT_Actualizado.Enable = toggleSwitchEnablePT.IsOn;
-                PT_Actualizado.Id_user_created = UsuarioLogeado.Id;
-                PT_Actualizado.Usuario_nombre = UsuarioLogeado.Nombre;
-                PT_Actualizado.Id_presentacion = Convert.ToInt32(gridLookUpEdit_Presentaciones.EditValue);
-                PT_Actualizado.Presentacion_name = gridLookUpEdit_Presentaciones.Text;
-                PT_Actualizado.Descripcion = txtDescripcionProducto.Text;
-                PT_Actualizado.Code = txtCodigoPT.Text;
-                PT_Actualizado.Fecha = dp.Now();
-                PT_Actualizado.Codig_Referencia = txtCodigoReferencia.Text;
-                PT_Actualizado.Code_interno = txtCodigoInterno.Text;
-                PT_Actualizado.TipoFacturacion_prd_name = gridTipoInventario.Text;
-                PT_Actualizado.TipoInventario = Convert.ToInt32(gridTipoInventario.EditValue);
-                PT_Actualizado.CodeOEM = txtOEM.Text;
-                PT_Actualizado.TipoProducto = Convert.ToInt32(grdTipoProducto.EditValue);
-                PT_Actualizado.TipoProductoName = grdTipoProducto.Text;
+            //    PT_Actualizado = new Clases.ProductoTerminado();
+            //    PT_Actualizado.Id = IdPT;
+            //    PT_Actualizado.Enable = toggleSwitchEnablePT.IsOn;
+            //    PT_Actualizado.Id_user_created = UsuarioLogeado.Id;
+            //    PT_Actualizado.Usuario_nombre = UsuarioLogeado.Nombre;
+            //    PT_Actualizado.Id_presentacion = Convert.ToInt32(gridLookUpEdit_Presentaciones.EditValue);
+            //    PT_Actualizado.Presentacion_name = gridLookUpEdit_Presentaciones.Text;
+            //    PT_Actualizado.Descripcion = txtDescripcionProducto.Text;
+            //    PT_Actualizado.Code = txtCodigoPT.Text;
+            //    PT_Actualizado.Fecha = dp.Now();
+            //    PT_Actualizado.Codig_Referencia = txtCodigoReferencia.Text;
+            //    PT_Actualizado.Code_interno = txtCodigoInterno.Text;
+            //    PT_Actualizado.TipoFacturacion_prd_name = gridTipoInventario.Text;
+            //    PT_Actualizado.TipoInventario = Convert.ToInt32(gridTipoInventario.EditValue);
+            //    PT_Actualizado.CodeOEM = txtOEM.Text;
+            //    PT_Actualizado.TipoProducto = Convert.ToInt32(grdTipoProducto.EditValue);
+            //    PT_Actualizado.TipoProductoName = grdTipoProducto.Text;
 
-                switch (TipoOperacionActual)
-                {
-                    case TipoOperacion.Insert:
-                        CajaDialogo.Information("Producto Terminado Creado con Exito!");
-                        break;
+            //    switch (TipoOperacionActual)
+            //    {
+            //        case TipoOperacion.Insert:
+            //            CajaDialogo.Information("Producto Terminado Creado con Exito!");
+            //            break;
 
-                    case TipoOperacion.Update:
-                        CajaDialogo.Information("Producto Terminado Actualizado con Exito!");
-                        break;
-                    default:
-                        break;
-                }
+            //        case TipoOperacion.Update:
+            //            CajaDialogo.Information("Producto Terminado Actualizado con Exito!");
+            //            break;
+            //        default:
+            //            break;
+            //    }
 
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                CajaDialogo.Error(ex.Message);
-            }
+            //    this.DialogResult = DialogResult.OK;
+            //    this.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    CajaDialogo.Error(ex.Message);
+            //}
         }
         private void LoadConfiguracionAlmacenes(int pIdPT)
         {
