@@ -1436,6 +1436,12 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             private global::System.Data.DataColumn columneliminar;
             
+            private global::System.Data.DataColumn columnporcentaje_utilidad;
+            
+            private global::System.Data.DataColumn columnprecio_venta;
+            
+            private global::System.Data.DataColumn columnutilidad_lps;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_recepcion_factDataTable() {
@@ -1615,6 +1621,30 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn porcentaje_utilidadColumn {
+                get {
+                    return this.columnporcentaje_utilidad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn precio_ventaColumn {
+                get {
+                    return this.columnprecio_venta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn utilidad_lpsColumn {
+                get {
+                    return this.columnutilidad_lps;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1668,7 +1698,10 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         int type_id, 
                         decimal isv, 
                         decimal isv_aplicable, 
-                        string eliminar) {
+                        string eliminar, 
+                        decimal porcentaje_utilidad, 
+                        decimal precio_venta, 
+                        decimal utilidad_lps) {
                 detalle_recepcion_factRow rowdetalle_recepcion_factRow = ((detalle_recepcion_factRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         cantidad,
@@ -1688,7 +1721,10 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         type_id,
                         isv,
                         isv_aplicable,
-                        eliminar};
+                        eliminar,
+                        porcentaje_utilidad,
+                        precio_venta,
+                        utilidad_lps};
                 rowdetalle_recepcion_factRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_recepcion_factRow);
                 return rowdetalle_recepcion_factRow;
@@ -1729,6 +1765,9 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 this.columnisv = base.Columns["isv"];
                 this.columnisv_aplicable = base.Columns["isv_aplicable"];
                 this.columneliminar = base.Columns["eliminar"];
+                this.columnporcentaje_utilidad = base.Columns["porcentaje_utilidad"];
+                this.columnprecio_venta = base.Columns["precio_venta"];
+                this.columnutilidad_lps = base.Columns["utilidad_lps"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1770,6 +1809,12 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 base.Columns.Add(this.columnisv_aplicable);
                 this.columneliminar = new global::System.Data.DataColumn("eliminar", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columneliminar);
+                this.columnporcentaje_utilidad = new global::System.Data.DataColumn("porcentaje_utilidad", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnporcentaje_utilidad);
+                this.columnprecio_venta = new global::System.Data.DataColumn("precio_venta", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprecio_venta);
+                this.columnutilidad_lps = new global::System.Data.DataColumn("utilidad_lps", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnutilidad_lps);
                 this.columncantidad.Caption = "Cantidad Factura";
                 this.columnid_ud_medida_prv.Caption = "U. medida Factura";
                 this.columnid_ud_medida_prv.DefaultValue = ((int)(1));
@@ -1781,6 +1826,9 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 this.columnlote_mp.Caption = "Lote MP";
                 this.columncosto_unitario.Caption = "Costo Unitario Lempiras";
                 this.columnisv_aplicable.DefaultValue = ((decimal)(15m));
+                this.columnporcentaje_utilidad.Caption = "% Utilidad";
+                this.columnprecio_venta.Caption = "Precio Venta";
+                this.columnutilidad_lps.Caption = "Utilidad Lps";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7182,6 +7230,57 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal porcentaje_utilidad {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledetalle_recepcion_fact.porcentaje_utilidadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'porcentaje_utilidad\' de la tabla \'detalle_recepcion_fact\'" +
+                                " es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_recepcion_fact.porcentaje_utilidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal precio_venta {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledetalle_recepcion_fact.precio_ventaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'precio_venta\' de la tabla \'detalle_recepcion_fact\' es DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_recepcion_fact.precio_ventaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal utilidad_lps {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledetalle_recepcion_fact.utilidad_lpsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'utilidad_lps\' de la tabla \'detalle_recepcion_fact\' es DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_recepcion_fact.utilidad_lpsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IscantidadNull() {
                 return this.IsNull(this.tabledetalle_recepcion_fact.cantidadColumn);
             }
@@ -7394,6 +7493,42 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SeteliminarNull() {
                 this[this.tabledetalle_recepcion_fact.eliminarColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isporcentaje_utilidadNull() {
+                return this.IsNull(this.tabledetalle_recepcion_fact.porcentaje_utilidadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setporcentaje_utilidadNull() {
+                this[this.tabledetalle_recepcion_fact.porcentaje_utilidadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isprecio_ventaNull() {
+                return this.IsNull(this.tabledetalle_recepcion_fact.precio_ventaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setprecio_ventaNull() {
+                this[this.tabledetalle_recepcion_fact.precio_ventaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isutilidad_lpsNull() {
+                return this.IsNull(this.tabledetalle_recepcion_fact.utilidad_lpsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setutilidad_lpsNull() {
+                this[this.tabledetalle_recepcion_fact.utilidad_lpsColumn] = global::System.Convert.DBNull;
             }
         }
         
