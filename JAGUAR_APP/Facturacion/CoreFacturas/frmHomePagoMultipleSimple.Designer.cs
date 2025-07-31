@@ -484,6 +484,8 @@
             this.colsaldo.FieldName = "saldo";
             this.colsaldo.Name = "colsaldo";
             this.colsaldo.OptionsColumn.ReadOnly = true;
+            this.colsaldo.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "saldo", "SUM={0:n2}")});
             this.colsaldo.Visible = true;
             this.colsaldo.VisibleIndex = 4;
             this.colsaldo.Width = 104;
@@ -725,6 +727,7 @@
             this.lblSaldo.Size = new System.Drawing.Size(146, 19);
             this.lblSaldo.TabIndex = 66;
             this.lblSaldo.Text = "0.00";
+            this.lblSaldo.Visible = false;
             // 
             // labelControl7
             // 
@@ -739,6 +742,7 @@
             this.labelControl7.Size = new System.Drawing.Size(112, 19);
             this.labelControl7.TabIndex = 65;
             this.labelControl7.Text = "Saldo Actual:";
+            this.labelControl7.Visible = false;
             // 
             // labelControl3
             // 
