@@ -77,6 +77,7 @@
             this.colcode_referencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rpsBtnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colinventario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rpsGridLTipoOperacion = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -129,7 +130,7 @@
             this.txtDescr.Name = "txtDescr";
             this.txtDescr.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtDescr.Properties.Appearance.Options.UseFont = true;
-            this.txtDescr.Properties.MaxLength = 50;
+            this.txtDescr.Properties.MaxLength = 300;
             this.txtDescr.Size = new System.Drawing.Size(265, 66);
             this.txtDescr.TabIndex = 1;
             this.txtDescr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescr_KeyDown);
@@ -268,7 +269,8 @@
             this.colnum_linea,
             this.colmarca,
             this.colcode_referencia,
-            this.gridColumn2});
+            this.gridColumn2,
+            this.colinventario});
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowAutoFilterRow = true;
@@ -289,8 +291,8 @@
             this.coltipo_op.FieldName = "tipo_op";
             this.coltipo_op.Name = "coltipo_op";
             this.coltipo_op.Visible = true;
-            this.coltipo_op.VisibleIndex = 5;
-            this.coltipo_op.Width = 109;
+            this.coltipo_op.VisibleIndex = 6;
+            this.coltipo_op.Width = 93;
             // 
             // repositoryItemComboBox1
             // 
@@ -326,7 +328,7 @@
             this.colItemCode.OptionsColumn.ReadOnly = true;
             this.colItemCode.Visible = true;
             this.colItemCode.VisibleIndex = 1;
-            this.colItemCode.Width = 84;
+            this.colItemCode.Width = 79;
             // 
             // colcantidad
             // 
@@ -334,8 +336,8 @@
             this.colcantidad.FieldName = "cantidad";
             this.colcantidad.Name = "colcantidad";
             this.colcantidad.Visible = true;
-            this.colcantidad.VisibleIndex = 8;
-            this.colcantidad.Width = 97;
+            this.colcantidad.VisibleIndex = 9;
+            this.colcantidad.Width = 82;
             // 
             // collote
             // 
@@ -352,8 +354,8 @@
             this.colid_almacen.Name = "colid_almacen";
             this.colid_almacen.OptionsColumn.ReadOnly = true;
             this.colid_almacen.Visible = true;
-            this.colid_almacen.VisibleIndex = 6;
-            this.colid_almacen.Width = 153;
+            this.colid_almacen.VisibleIndex = 7;
+            this.colid_almacen.Width = 131;
             // 
             // rpsGridAlmacenes
             // 
@@ -418,8 +420,8 @@
             this.gridColumn1.ColumnEdit = this.rpsBtnAlmacenes;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 7;
-            this.gridColumn1.Width = 112;
+            this.gridColumn1.VisibleIndex = 8;
+            this.gridColumn1.Width = 95;
             // 
             // rpsBtnAlmacenes
             // 
@@ -439,7 +441,7 @@
             this.coldescripcion.OptionsColumn.ReadOnly = true;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 3;
-            this.coldescripcion.Width = 389;
+            this.coldescripcion.Width = 368;
             // 
             // colnum_linea
             // 
@@ -449,7 +451,7 @@
             this.colnum_linea.OptionsColumn.ReadOnly = true;
             this.colnum_linea.Visible = true;
             this.colnum_linea.VisibleIndex = 0;
-            this.colnum_linea.Width = 45;
+            this.colnum_linea.Width = 42;
             // 
             // colmarca
             // 
@@ -458,8 +460,8 @@
             this.colmarca.Name = "colmarca";
             this.colmarca.OptionsColumn.ReadOnly = true;
             this.colmarca.Visible = true;
-            this.colmarca.VisibleIndex = 4;
-            this.colmarca.Width = 171;
+            this.colmarca.VisibleIndex = 5;
+            this.colmarca.Width = 146;
             // 
             // colcode_referencia
             // 
@@ -469,7 +471,7 @@
             this.colcode_referencia.OptionsColumn.ReadOnly = true;
             this.colcode_referencia.Visible = true;
             this.colcode_referencia.VisibleIndex = 2;
-            this.colcode_referencia.Width = 114;
+            this.colcode_referencia.Width = 108;
             // 
             // gridColumn2
             // 
@@ -477,8 +479,8 @@
             this.gridColumn2.ColumnEdit = this.rpsBtnDelete;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 9;
-            this.gridColumn2.Width = 88;
+            this.gridColumn2.VisibleIndex = 10;
+            this.gridColumn2.Width = 86;
             // 
             // rpsBtnDelete
             // 
@@ -489,6 +491,16 @@
             this.rpsBtnDelete.Name = "rpsBtnDelete";
             this.rpsBtnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.rpsBtnDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.rpsBtnDelete_ButtonClick);
+            // 
+            // colinventario
+            // 
+            this.colinventario.Caption = "Inventario Actual";
+            this.colinventario.FieldName = "inventario";
+            this.colinventario.Name = "colinventario";
+            this.colinventario.OptionsColumn.ReadOnly = true;
+            this.colinventario.Visible = true;
+            this.colinventario.VisibleIndex = 4;
+            this.colinventario.Width = 132;
             // 
             // rpsGridLTipoOperacion
             // 
@@ -707,5 +719,6 @@
         private DevExpress.XtraEditors.SimpleButton btnRechazar;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit rpsBtnDelete;
+        private DevExpress.XtraGrid.Columns.GridColumn colinventario;
     }
 }
