@@ -667,6 +667,42 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     
 
                     break;
+                case "porcentaje_utilidad":
+                    var gridView3 = (GridView)gridControl1.FocusedView;
+                    var row3 = (dsLogisticaJaguar.detalle_recepcion_factRow)gridView3.GetFocusedDataRow();
+                    decimal PrecioU1 = row3.costo_unitario;
+                    decimal Impuesto1 = row3.isv;
+                    decimal PrecioVenta1 = 0;
+
+                    if((PrecioU1 + Impuesto1) > 0 &&  row3.porcentaje_utilidad > 0)
+                    {
+                        decimal Costo = (PrecioU1 + Impuesto1);
+                        PrecioVenta1 = Costo / (1 - (row3.porcentaje_utilidad / 100));
+                        row3.precio_venta = Math.Round(PrecioVenta1,4);
+                        if (row3.precio_venta > Costo)
+                            row3.utilidad_lps = Math.Round((row3.precio_venta - Costo),4);
+                        else
+                            row3.utilidad_lps = 0;
+                    }
+
+                    break;
+                case "precio_venta":
+                    var gridView4 = (GridView)gridControl1.FocusedView;
+                    var row4 = (dsLogisticaJaguar.detalle_recepcion_factRow)gridView4.GetFocusedDataRow();
+                    decimal PrecioU2 = row4.costo_unitario;
+                    decimal Impuesto2 = row4.isv;
+
+                    if ((PrecioU2 + Impuesto2) > 0 && row4.precio_venta > 0)
+                    {
+                        decimal Costo = (PrecioU2 + Impuesto2);
+                        row4.porcentaje_utilidad = Math.Round(((1 - (Costo / row4.precio_venta))*100),4);
+
+                        if (row4.precio_venta > Costo)
+                            row4.utilidad_lps = Math.Round((row4.precio_venta - Costo),4);
+                        else
+                            row4.utilidad_lps = 0;
+                    }
+                    break;
             }
         }
 
@@ -838,6 +874,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         else
                             cmd.ExecuteNonQuery();
 
+
+
                         //Insert Detalle y transaccion de kardex
                         foreach (dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
                         {
@@ -892,6 +930,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             cmd.Parameters.AddWithValue("@isv", row.isv);
                             cmd.Parameters.AddWithValue("@costo_unitario", row.costo_unitario);
                             cmd.ExecuteNonQuery();
+
+
                         }
                         transaction.Commit();
                         this.DialogResult = DialogResult.OK;
@@ -1071,7 +1111,31 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void cmdAplicarCalculoPrecioVenta_Click(object sender, EventArgs e)
         {
-            CajaDialogo.Error("Esta función aun está en construcción...");
+            //CajaDialogo.Error("Esta función aun está en construcción...");
+            DialogResult r = CajaDialogo.Pregunta("Esta opción Calculará el Precio de Venta segun el % de Utilidad ingresado en cada Item.\n\n" +
+                                                  "Esta seguro de continuar?");
+            
+            if (r != DialogResult.Yes) 
+                return;
+
+            foreach(dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact)
+            {
+                decimal PrecioU1 = row.costo_unitario;
+                decimal Impuesto1 = row.isv;
+                decimal PrecioVenta1 = 0;
+
+                if ((PrecioU1 + Impuesto1) > 0 && row.porcentaje_utilidad > 0)
+                {
+                    decimal Costo = (PrecioU1 + Impuesto1);
+                    PrecioVenta1 = Costo / (1 - (row.porcentaje_utilidad / 100));
+                    row.precio_venta = Math.Round(PrecioVenta1, 4);
+                    if (row.precio_venta > Costo)
+                        row.utilidad_lps = Math.Round((row.precio_venta - Costo), 4);
+                    else
+                        row.utilidad_lps = 0;
+                }
+            }
+            
         }
     }
 }
