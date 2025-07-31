@@ -46,6 +46,8 @@ namespace JAGUAR_PRO.TransaccionesPT
                     lblTitulo.Text = "Solicitud de Ajuste de Inventario";
                     txtNumSolicitud.Visible = false;
                     labelControl1.Visible = false;
+                    gridView2.Columns["inventario"].Visible = false;
+                    //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el datas
                     break;
                 case TipoOperacion.Aprobacion:
                     lblTitulo.Text = "Solicitud de Ajuste de Inventario: Aprobacion";
@@ -61,6 +63,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                     cmdAgregarItems.Visible = false;
                     btnRechazar.Visible = true;
                     gridView2.OptionsBehavior.Editable = false;
+                    gridView2.Columns["inventario"].Visible = true;
                     CargarDetalle();
 
                     break;
@@ -68,6 +71,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                     lblTitulo.Text = "Creacion Ajuste de Inventario";
                     cmdGuardar.Text = "Crear";
                     btnRechazar.Visible = false;
+                    gridView2.Columns["inventario"].Visible = false;
                     break;
                 default:
                     break;
