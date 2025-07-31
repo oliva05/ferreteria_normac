@@ -931,7 +931,16 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             cmd.Parameters.AddWithValue("@costo_unitario", row.costo_unitario);
                             cmd.ExecuteNonQuery();
 
-
+                            if (row.precio_venta > 0)
+                            {
+                                cmd.CommandText = "[dbo].sp_set_utilidad_precio_desde_ingreso_factura_proveedor";
+                                cmd.CommandType = CommandType.Text;
+                                cmd.Parameters.Clear();
+                                cmd.Parameters.AddWithValue("@porcentaje_utilidad", row.porcentaje_utilidad);
+                                cmd.Parameters.AddWithValue("@id_pt", row.id_mp);
+                                cmd.Parameters.AddWithValue("@precio", row.precio_venta);
+                                cmd.ExecuteNonQuery();
+                            }
                         }
                         transaction.Commit();
                         this.DialogResult = DialogResult.OK;
