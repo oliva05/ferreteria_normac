@@ -934,9 +934,13 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             if (row.precio_venta > 0)
                             {
                                 cmd.CommandText = "[dbo].sp_set_utilidad_precio_desde_ingreso_factura_proveedor";
-                                cmd.CommandType = CommandType.Text;
+                                cmd.CommandType = CommandType.StoredProcedure;
                                 cmd.Parameters.Clear();
-                                cmd.Parameters.AddWithValue("@porcentaje_utilidad", row.porcentaje_utilidad);
+                                decimal Porcentaje = 0;
+                                if (!row.Isporcentaje_utilidadNull())
+                                    Porcentaje = row.porcentaje_utilidad;
+
+                                cmd.Parameters.AddWithValue("@porcentaje_utilidad", Porcentaje);
                                 cmd.Parameters.AddWithValue("@id_pt", row.id_mp);
                                 cmd.Parameters.AddWithValue("@precio", row.precio_venta);
                                 cmd.ExecuteNonQuery();
