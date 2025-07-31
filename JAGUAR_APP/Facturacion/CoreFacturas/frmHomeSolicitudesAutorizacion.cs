@@ -28,7 +28,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             InitializeComponent();
             LoadData(false);
             usuarioLogeado = userLog;
-
+            xtraTabControl1.SelectedTabPage = TabFacturas;
         }
 
         private void LoadData(bool filtro)
