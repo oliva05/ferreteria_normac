@@ -1636,6 +1636,23 @@
     <Compile Include="Facturacion\Reportes\frmRptBancosAjuste.Designer.cs">
       <DependentUpon>frmRptBancosAjuste.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\dsReportesDeVenta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReportesDeVenta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmDetalleFacturasVentas_vendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmDetalleFacturasVentas_vendedor.Designer.cs">
+      <DependentUpon>frmDetalleFacturasVentas_vendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmResumenVentasVendedoresPorFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmResumenVentasVendedoresPorFecha.Designer.cs">
+      <DependentUpon>frmResumenVentasVendedoresPorFecha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Reportes\rptEstadoCuenta.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2787,6 +2804,17 @@
     </None>
     <None Include="Facturacion\Reportes\dsReportesFacturacion.xss">
       <DependentUpon>dsReportesFacturacion.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\Reportes\Reportes de Ventas\dsReportesDeVenta.xsc">
+      <DependentUpon>dsReportesDeVenta.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\Reportes\Reportes de Ventas\dsReportesDeVenta.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReportesDeVenta.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Facturacion\Reportes\Reportes de Ventas\dsReportesDeVenta.xss">
+      <DependentUpon>dsReportesDeVenta.xsd</DependentUpon>
     </None>
     <None Include="Formulas\dsFormulasCRUD.xsc">
       <DependentUpon>dsFormulasCRUD.xsd</DependentUpon>
@@ -4376,6 +4404,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\frmRptBancosAjuste.resx">
       <DependentUpon>frmRptBancosAjuste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Reportes\Reportes de Ventas\frmDetalleFacturasVentas_vendedor.resx">
+      <DependentUpon>frmDetalleFacturasVentas_vendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Reportes\Reportes de Ventas\frmResumenVentasVendedoresPorFecha.resx">
+      <DependentUpon>frmResumenVentasVendedoresPorFecha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\rptEstadoCuenta.resx">
       <DependentUpon>rptEstadoCuenta.cs</DependentUpon>

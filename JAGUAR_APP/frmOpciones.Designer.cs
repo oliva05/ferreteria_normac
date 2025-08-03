@@ -40,6 +40,7 @@
             this.navBarItem15 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbReporteCompras = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarRecepBodegon = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem209 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup12 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem23 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem151 = new DevExpress.XtraNavBar.NavBarItem();
@@ -361,7 +362,7 @@
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
             this.lblUsuarioLogeado = new DevExpress.XtraEditors.LabelControl();
-            this.navBarItem209 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarReporteVentasPorVendedor = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -596,6 +597,21 @@
             this.navBarRecepBodegon.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.recepcion_compra_x32;
             this.navBarRecepBodegon.Name = "navBarRecepBodegon";
             this.navBarRecepBodegon.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarRecepBodegon_LinkClicked);
+            // 
+            // navBarItem209
+            // 
+            this.navBarItem209.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem209.Appearance.Options.UseFont = true;
+            this.navBarItem209.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem209.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem209.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem209.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem209.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem209.AppearancePressed.Options.UseFont = true;
+            this.navBarItem209.Caption = "Gestión de Marcas";
+            this.navBarItem209.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem209.ImageOptions.SvgImage")));
+            this.navBarItem209.Name = "navBarItem209";
+            this.navBarItem209.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem209_LinkClicked);
             // 
             // navBarGroup12
             // 
@@ -3966,7 +3982,8 @@
             this.navBarItem20,
             this.navBarItem59,
             this.navBarItemDepositoBancoCaja,
-            this.navFacturacionUsados});
+            this.navFacturacionUsados,
+            this.navBarReporteVentasPorVendedor});
             this.navBarControl3.Location = new System.Drawing.Point(0, 0);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
@@ -4271,7 +4288,8 @@
             this.navBarG_ReportesFacturacion.Expanded = true;
             this.navBarG_ReportesFacturacion.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbReportesFacturacionMain),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCambioDePrecio)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCambioDePrecio),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarReporteVentasPorVendedor)});
             this.navBarG_ReportesFacturacion.Name = "navBarG_ReportesFacturacion";
             // 
             // nbReportesFacturacionMain
@@ -5009,20 +5027,18 @@
             this.lblUsuarioLogeado.TabIndex = 35;
             this.lblUsuarioLogeado.Text = "Usuario: ";
             // 
-            // navBarItem209
+            // navBarReporteVentasPorVendedor
             // 
-            this.navBarItem209.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem209.Appearance.Options.UseFont = true;
-            this.navBarItem209.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem209.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem209.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem209.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem209.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem209.AppearancePressed.Options.UseFont = true;
-            this.navBarItem209.Caption = "Gestión de Marcas";
-            this.navBarItem209.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem209.ImageOptions.SvgImage")));
-            this.navBarItem209.Name = "navBarItem209";
-            this.navBarItem209.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem209_LinkClicked);
+            this.navBarReporteVentasPorVendedor.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarReporteVentasPorVendedor.Appearance.Options.UseFont = true;
+            this.navBarReporteVentasPorVendedor.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarReporteVentasPorVendedor.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarReporteVentasPorVendedor.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarReporteVentasPorVendedor.AppearancePressed.Options.UseFont = true;
+            this.navBarReporteVentasPorVendedor.Caption = "Reporte de Ventas por Vendedor";
+            this.navBarReporteVentasPorVendedor.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem210.ImageOptions.SmallImage")));
+            this.navBarReporteVentasPorVendedor.Name = "navBarReporteVentasPorVendedor";
+            this.navBarReporteVentasPorVendedor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarReporteVentasPorVendedor_LinkClicked);
             // 
             // frmOpciones
             // 
@@ -5401,5 +5417,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navFacturacionUsados;
         private DevExpress.XtraEditors.LabelControl lblUsuarioLogeado;
         private DevExpress.XtraNavBar.NavBarItem navBarItem209;
+        private DevExpress.XtraNavBar.NavBarItem navBarReporteVentasPorVendedor;
     }
 }

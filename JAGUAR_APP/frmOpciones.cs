@@ -30,6 +30,7 @@ using JAGUAR_PRO.Facturacion.Mantenimientos;
 using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
 using JAGUAR_PRO.Facturacion.Numeracion_Fiscal;
 using JAGUAR_PRO.Facturacion.Reportes;
+using JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas;
 using JAGUAR_PRO.JaguarProduccion;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.LogisticaJaguar.Despacho;
@@ -5889,6 +5890,66 @@ namespace JAGUAR_PRO
                 else
                 {
                     CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #26 (Gestión de Marcas)");
+                }
+            }
+        }
+
+        private void navBarReporteVentasPorVendedor_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+
+                    frmResumenVentasVendedoresPorFecha frm = new frmResumenVentasVendedoresPorFecha(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(27))
+                {
+                    frmResumenVentasVendedoresPorFecha frm = new frmResumenVentasVendedoresPorFecha(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #27 (Reporte de ventas por vendedor)");
                 }
             }
         }
