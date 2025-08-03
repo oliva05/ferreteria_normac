@@ -51,7 +51,7 @@ namespace JAGUAR_PRO.Clases
                 cmd.Parameters.AddWithValue("@codigo", pCodigo);
                 if (pCodigo == "")
                 {
-                    Nombre = "Aquafeed S.A de C.V.";
+                    Nombre = "N/D";
                 }
                 else
                 {

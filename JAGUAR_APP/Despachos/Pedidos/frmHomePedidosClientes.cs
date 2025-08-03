@@ -45,8 +45,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             DateTime fechaActual = dp.NowSetDateTime();
             DateTime FechaInicial = new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day, 0, 0, 0);
 
-            DateTime FechaFinal = FechaInicial.AddDays(3);
-            FechaInicial = FechaInicial.AddDays(-30);
+            //DateTime FechaFinal = FechaInicial.AddDays(3);
+            DateTime FechaFinal = new DateTime(fechaActual.Year, fechaActual.Month, fechaActual.Day, 23, 59, 0);
+            //FechaInicial = FechaInicial.AddDays(-30);
+
 
             dtDesde.EditValue = FechaInicial;
             dtHasta.EditValue = FechaFinal;
