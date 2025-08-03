@@ -32,6 +32,7 @@ namespace JAGUAR_PRO.Clases
         DateTime fecha_Modi;
         int id_PuntoVenta;
         string DocNum;
+        string RTN;
 
         public bool Recuperado { get => recuperado; set => recuperado = value; }
         public int Id_OrdenCompra { get => id_OrdenCompra; set => id_OrdenCompra = value; }
@@ -54,6 +55,7 @@ namespace JAGUAR_PRO.Clases
         public DateTime Fecha_Modi { get => fecha_Modi; set => fecha_Modi = value; }
         public int Id_PuntoVenta { get => id_PuntoVenta; set => id_PuntoVenta = value; }
         public string DocNum1 { get => DocNum; set => DocNum = value; }
+        public string RTN1 { get => RTN; set => RTN = value; }
 
         public bool RecuperarRegistos(int pIdOrdenCompra) 
         {
@@ -83,14 +85,15 @@ namespace JAGUAR_PRO.Clases
                     Impuesto = (decimal)(dr.IsDBNull(dr.GetOrdinal("impuesto")) ? 0 : (decimal?)dr.GetDecimal(dr.GetOrdinal("impuesto")));
                     Subtotal = (decimal)(dr.IsDBNull(dr.GetOrdinal("subtotal")) ? 0 : (decimal?)dr.GetDecimal(dr.GetOrdinal("subtotal")));
                     Total = (decimal)(dr.IsDBNull(dr.GetOrdinal("total")) ? 0 : (decimal?)dr.GetDecimal(dr.GetOrdinal("total")));
-                    Id_UserCrea = dr.GetOrdinal("id_user_cre");
-                    Usuario_Cre = dr.GetOrdinal("usuario_cre").ToString();
+                    Id_UserCrea =dr.GetInt32(dr.GetOrdinal("id_user_cre"));
+                    Usuario_Cre = dr.GetString(dr.GetOrdinal("usuario_cre"));
                     Id_UserModi = (int)(dr.IsDBNull(dr.GetOrdinal("id_user_modi")) ? 0 : (int)dr.GetInt32(dr.GetOrdinal("id_user_modi")));
                     Usuario_Modi = dr.IsDBNull(dr.GetOrdinal("usuario_Modi")) ? "" : dr.GetString(dr.GetOrdinal("usuario_Modi"));
                     if (!dr.IsDBNull(dr.GetOrdinal("fecha_modi")))
                         Fecha_Modi = dr.GetDateTime(17);
                     Id_PuntoVenta = dr.GetInt32(18);
                     DocNum1 = dr.GetString(19);
+                    RTN = dr.GetString(dr.GetOrdinal("RTN"));
                     if (DocNum1.Length < 4)
                     {
                         DocNum1 = DocNum1.PadLeft(4, '0');
