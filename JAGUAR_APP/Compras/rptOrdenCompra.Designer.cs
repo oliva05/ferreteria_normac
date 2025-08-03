@@ -68,6 +68,8 @@ namespace JAGUAR_PRO.Compras
             this.lblTelefonoPuntoVenta = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.lblComentario = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel35 = new DevExpress.XtraReports.UI.XRLabel();
@@ -87,8 +89,7 @@ namespace JAGUAR_PRO.Compras
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtBorrador = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsCompras1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -474,6 +475,7 @@ namespace JAGUAR_PRO.Compras
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.txtBorrador,
             this.xrLabel1,
             this.xrLine1,
             this.lblComentario,
@@ -487,6 +489,24 @@ namespace JAGUAR_PRO.Compras
             this.lblSub});
             this.ReportFooter.HeightF = 163.5466F;
             this.ReportFooter.Name = "ReportFooter";
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Calibri", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(72.19551F, 137.9166F);
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(92.0343F, 22.99999F);
+            this.xrLabel1.StylePriority.UseFont = false;
+            this.xrLabel1.StylePriority.UseTextAlignment = false;
+            this.xrLabel1.Text = "Autorización";
+            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLine1
+            // 
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 126.3749F);
+            this.xrLine1.Name = "xrLine1";
+            this.xrLine1.SizeF = new System.Drawing.SizeF(229.1667F, 11.54169F);
             // 
             // lblComentario
             // 
@@ -702,23 +722,18 @@ namespace JAGUAR_PRO.Compras
             this.xrTableCell9.TextFormatString = "{0:###,##0.00}";
             this.xrTableCell9.Weight = 1.2778518878764873D;
             // 
-            // xrLine1
+            // txtBorrador
             // 
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 126.3749F);
-            this.xrLine1.Name = "xrLine1";
-            this.xrLine1.SizeF = new System.Drawing.SizeF(229.1667F, 11.54169F);
-            // 
-            // xrLabel1
-            // 
-            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Calibri", 10F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(72.19551F, 137.9166F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(92.0343F, 22.99999F);
-            this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "Autorización";
-            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.txtBorrador.Font = new DevExpress.Drawing.DXFont("Arial", 36F);
+            this.txtBorrador.LocationFloat = new DevExpress.Utils.PointFloat(55.20833F, 9.999974F);
+            this.txtBorrador.Multiline = true;
+            this.txtBorrador.Name = "txtBorrador";
+            this.txtBorrador.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.txtBorrador.SizeF = new System.Drawing.SizeF(604.1667F, 116.3749F);
+            this.txtBorrador.StylePriority.UseFont = false;
+            this.txtBorrador.StylePriority.UseTextAlignment = false;
+            this.txtBorrador.Text = "BORRADOR";
+            this.txtBorrador.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // rptOrdenCompra
             // 
@@ -803,5 +818,6 @@ namespace JAGUAR_PRO.Compras
         private DevExpress.XtraReports.UI.XRLabel lblComentario;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.XRLine xrLine1;
+        private DevExpress.XtraReports.UI.XRLabel txtBorrador;
     }
 }
