@@ -164,7 +164,7 @@ namespace JAGUAR_PRO.Reportes
             // 
             // colProducto1
             // 
-            this.colProducto1.Caption = "N Producto";
+            this.colProducto1.Caption = "Nombre Producto";
             this.colProducto1.FieldName = "PT";
             this.colProducto1.Name = "colProducto1";
             this.colProducto1.OptionsColumn.AllowEdit = false;

@@ -118,7 +118,7 @@ namespace JAGUAR_PRO.Reportes
                 SaveFileDialog dialog = new SaveFileDialog();
                 dialog.Filter = "Excel File (.xlsx)|*.xlsx";
                 dialog.FilterIndex = 0;
-                string path="Inventario PT Ovejita";
+                string path="Inventario NORMAC";
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -128,7 +128,7 @@ namespace JAGUAR_PRO.Reportes
                     XlsxExportOptionsEx advOptions = new XlsxExportOptionsEx();
                     advOptions.AllowGrouping = DevExpress.Utils.DefaultBoolean.False;
                     advOptions.ShowTotalSummaries = DevExpress.Utils.DefaultBoolean.False;
-                    advOptions.SheetName = "Exported from Ovejita";
+                    advOptions.SheetName = "Exported from NORMAC";
 
                     grd_inventario.ExportToXlsx(path, advOptions);
                     // Open the created XLSX file with the default application.

@@ -5607,7 +5607,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(15))
+                if (UsuarioLogeado.ValidarNivelPermisos(14))
                 {
                     frmTrasladoGestionKardex frm = new frmTrasladoGestionKardex(UsuarioLogeado);
                     frm.MdiParent = this.MdiParent;
@@ -5616,7 +5616,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-15 (Traslado Directo Entre Bodegas)");
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-14 (Traslado Directo Entre Bodegas)");
                 }
             }
         }

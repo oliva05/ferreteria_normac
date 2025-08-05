@@ -30,7 +30,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         enum EstadosFactura
         {
-            Emitida=1
+             Emitida=1
             ,Pagada=2
             ,Anulada=3
             ,PagoParcial=4
@@ -464,6 +464,20 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             {
                 cmdRefresh.Focus();
             }
+        }
+
+        private void cmdEditarFactura_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Editar el tipo de pago.
+            var row = (dsFacturasGestion.HomeFacturasRow)gvFacturas.GetFocusedDataRow();
+            frmEditarFactura frm = new frmEditarFactura(row.id);
+            frm.Show();
+        }
+
+        private void cmdRevertirAnulacion_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Revertir anulacion
+
         }
     }
 }

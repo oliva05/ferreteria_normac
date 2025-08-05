@@ -179,11 +179,6 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             }
         }
 
-        private void btnGestionar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-
-        }
-
         private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
             if (e.Page == TabFacturas)

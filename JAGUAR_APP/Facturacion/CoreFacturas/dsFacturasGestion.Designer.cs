@@ -3850,7 +3850,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public HomeFacturasRow AddHomeFacturasRow(
-                        int id, 
+                        long id, 
                         string numero_documento, 
                         bool enable, 
                         int id_estado, 
@@ -3957,7 +3957,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
                 this.columnnumero_documento = new global::System.Data.DataColumn("numero_documento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnumero_documento);
@@ -10271,10 +10271,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id {
+            public long id {
                 get {
                     try {
-                        return ((int)(this[this.tableHomeFacturas.idColumn]));
+                        return ((long)(this[this.tableHomeFacturas.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'id\' de la tabla \'HomeFacturas\' es DBNull.", e);

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsMantoFacturas" targetNamespace="http://tempuri.org/dsMantoFacturas.xsd" xmlns:mstns="http://tempuri.org/dsMantoFacturas.xsd" xmlns="http://tempuri.org/dsMantoFacturas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsMantoFacturas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsMantoFacturas" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsMantoFacturas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="recibos_por_factura" msprop:Generator_RowClassName="recibos_por_facturaRow" msprop:Generator_RowEvHandlerName="recibos_por_facturaRowChangeEventHandler" msprop:Generator_RowDeletedName="recibos_por_facturaRowDeleted" msprop:Generator_RowDeletingName="recibos_por_facturaRowDeleting" msprop:Generator_RowEvArgName="recibos_por_facturaRowChangeEvent" msprop:Generator_TablePropName="recibos_por_factura" msprop:Generator_RowChangedName="recibos_por_facturaRowChanged" msprop:Generator_UserTableName="recibos_por_factura" msprop:Generator_RowChangingName="recibos_por_facturaRowChanging" msprop:Generator_TableClassName="recibos_por_facturaDataTable" msprop:Generator_TableVarName="tablerecibos_por_factura">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
+              <xs:element name="num_doc" msdata:Caption="Numero de Factura" msprop:Generator_UserColumnName="num_doc" msprop:Generator_ColumnPropNameInTable="num_docColumn" msprop:Generator_ColumnPropNameInRow="num_doc" msprop:Generator_ColumnVarNameInTable="columnnum_doc" type="xs:string" minOccurs="0" />
+              <xs:element name="valor" msdata:Caption="Valor" msprop:Generator_UserColumnName="valor" msprop:Generator_ColumnPropNameInTable="valorColumn" msprop:Generator_ColumnPropNameInRow="valor" msprop:Generator_ColumnVarNameInTable="columnvalor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="id_tipo_pago" msprop:Generator_UserColumnName="id_tipo_pago" msprop:Generator_ColumnPropNameInTable="id_tipo_pagoColumn" msprop:Generator_ColumnPropNameInRow="id_tipo_pago" msprop:Generator_ColumnVarNameInTable="columnid_tipo_pago" type="xs:int" minOccurs="0" />
+              <xs:element name="tipo_pago" msdata:Caption="Tipo de pago" msprop:Generator_UserColumnName="tipo_pago" msprop:Generator_ColumnPropNameInTable="tipo_pagoColumn" msprop:Generator_ColumnPropNameInRow="tipo_pago" msprop:Generator_ColumnVarNameInTable="columntipo_pago" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="estados_factura" msprop:Generator_RowEvHandlerName="estados_facturaRowChangeEventHandler" msprop:Generator_RowDeletedName="estados_facturaRowDeleted" msprop:Generator_RowDeletingName="estados_facturaRowDeleting" msprop:Generator_RowEvArgName="estados_facturaRowChangeEvent" msprop:Generator_TablePropName="estados_factura" msprop:Generator_RowChangedName="estados_facturaRowChanged" msprop:Generator_RowChangingName="estados_facturaRowChanging" msprop:Generator_TableClassName="estados_facturaDataTable" msprop:Generator_RowClassName="estados_facturaRow" msprop:Generator_TableVarName="tableestados_factura" msprop:Generator_UserTableName="estados_factura">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="descripcion" msdata:Caption="Descripción" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_UserColumnName="descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="seleccionar" msdata:Caption="Seleccionar" msprop:Generator_ColumnPropNameInRow="seleccionar" msprop:Generator_ColumnPropNameInTable="seleccionarColumn" msprop:Generator_ColumnVarNameInTable="columnseleccionar" msprop:Generator_UserColumnName="seleccionar" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

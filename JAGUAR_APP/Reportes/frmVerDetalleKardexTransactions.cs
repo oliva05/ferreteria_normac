@@ -1,5 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.CodeParser;
+using DevExpress.DashboardWin.Design;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
@@ -106,7 +107,7 @@ namespace JAGUAR_PRO.Reportes
                     XlsxExportOptionsEx advOptions = new XlsxExportOptionsEx();
                     advOptions.AllowGrouping = DevExpress.Utils.DefaultBoolean.False;
                     advOptions.ShowTotalSummaries = DevExpress.Utils.DefaultBoolean.False;
-                    advOptions.SheetName = "Exported from Ovejita";
+                    advOptions.SheetName = "Exported from NORMAC";
 
                     gridControl1.ExportToXlsx(path, advOptions);
                     // Open the created XLSX file with the default application.
@@ -121,7 +122,7 @@ namespace JAGUAR_PRO.Reportes
 
         private void cmdRecargar_Click(object sender, EventArgs e)
         {
-
+            LoadDatos(IdPT);
         }
     }
 }

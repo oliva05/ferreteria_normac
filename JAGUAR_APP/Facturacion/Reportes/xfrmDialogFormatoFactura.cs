@@ -18,7 +18,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
     public partial class xfrmDialogFormatoFactura : DevExpress.XtraEditors.XtraForm
     {
         Factura factura = new Factura();
-        int factura_id = 0;
+        long factura_id = 0;
         PDV PuntoVentaActual;
         UserLogin UsuarioLogeado;
 
@@ -37,7 +37,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
           , PagoParcial = 4
         }
 
-        public xfrmDialogFormatoFactura(int pFactura_id, PDV pPuntoVenta, UserLogin pUsuarioLogeado)
+        public xfrmDialogFormatoFactura(long pFactura_id, PDV pPuntoVenta, UserLogin pUsuarioLogeado)
         {
             InitializeComponent();
             factura_id = pFactura_id;

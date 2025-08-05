@@ -1222,6 +1222,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFacturasGestion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\CoreFacturas\dsMantoFacturas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMantoFacturas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\CoreFacturas\dsRegistroPagos.cs">
       <DependentUpon>dsRegistroPagos.xsd</DependentUpon>
     </Compile>
@@ -1274,6 +1279,12 @@
     </Compile>
     <Compile Include="Facturacion\CoreFacturas\frmConfirmationFactura.Designer.cs">
       <DependentUpon>frmConfirmationFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\CoreFacturas\frmEditarFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\CoreFacturas\frmEditarFactura.Designer.cs">
+      <DependentUpon>frmEditarFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\CoreFacturas\frmFactura.cs">
       <SubType>Form</SubType>
@@ -2670,6 +2681,17 @@
     </None>
     <None Include="Facturacion\CoreFacturas\dsFacturasGestion.xss">
       <DependentUpon>dsFacturasGestion.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\CoreFacturas\dsMantoFacturas.xsc">
+      <DependentUpon>dsMantoFacturas.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\CoreFacturas\dsMantoFacturas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMantoFacturas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Facturacion\CoreFacturas\dsMantoFacturas.xss">
+      <DependentUpon>dsMantoFacturas.xsd</DependentUpon>
     </None>
     <None Include="Facturacion\CoreFacturas\dsRegistroPagos.xsc">
       <DependentUpon>dsRegistroPagos.xsd</DependentUpon>
@@ -4248,6 +4270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\CoreFacturas\frmConfirmationFactura.resx">
       <DependentUpon>frmConfirmationFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\CoreFacturas\frmEditarFactura.resx">
+      <DependentUpon>frmEditarFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\CoreFacturas\frmFactura.resx">
       <DependentUpon>frmFactura.cs</DependentUpon>
