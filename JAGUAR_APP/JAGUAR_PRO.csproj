@@ -1929,6 +1929,9 @@
     <Compile Include="LogisticaJaguar\Despacho\xfrmSelectPT.Designer.cs">
       <DependentUpon>xfrmSelectPT.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\dsLogisticaJaguar.cs">
+      <DependentUpon>dsLogisticaJaguar.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\dsLogisticaJaguar.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1953,6 +1956,12 @@
     </Compile>
     <Compile Include="LogisticaJaguar\frmAddRecepcionCompraVentaUnica.Designer.cs">
       <DependentUpon>frmAddRecepcionCompraVentaUnica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\frmProveedorMainPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\frmProveedorMainPagos.Designer.cs">
+      <DependentUpon>frmProveedorMainPagos.cs</DependentUpon>
     </Compile>
     <Compile Include="LogisticaJaguar\frmRecepcionCompraVentaUnica.cs">
       <SubType>Form</SubType>
@@ -1991,6 +2000,12 @@
     </Compile>
     <Compile Include="LogisticaJaguar\Pedidos\frmPedidoHome.Designer.cs">
       <DependentUpon>frmPedidoHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\ProveedorCRUDPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\ProveedorCRUDPagos.Designer.cs">
+      <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
     </Compile>
     <Compile Include="LogisticaJaguar\xrptBarCode.cs">
       <SubType>Component</SubType>
@@ -4566,6 +4581,9 @@
     <EmbeddedResource Include="LogisticaJaguar\frmAddRecepcionCompraVentaUnica.resx">
       <DependentUpon>frmAddRecepcionCompraVentaUnica.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\frmProveedorMainPagos.resx">
+      <DependentUpon>frmProveedorMainPagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\frmRecepcionCompraVentaUnica.resx">
       <DependentUpon>frmRecepcionCompraVentaUnica.cs</DependentUpon>
     </EmbeddedResource>
@@ -4581,6 +4599,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\Pedidos\frmPedidoHome.resx">
       <DependentUpon>frmPedidoHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\ProveedorCRUDPagos.resx">
+      <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\xrptBarCode.resx">
       <DependentUpon>xrptBarCode.cs</DependentUpon>
