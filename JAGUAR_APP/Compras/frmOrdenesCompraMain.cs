@@ -134,6 +134,7 @@ namespace JAGUAR_PRO.Compras
                 Proveedor prov = new Proveedor();
                 prov.RecuperarRegistroWithRTN(frm.ItemSeleccionado.ItemCode);
                 direccion = prov.Direccion;
+                txtRtn.Text = prov.RTN;
                 cmdNuevo.Enabled = true;
             }
         }

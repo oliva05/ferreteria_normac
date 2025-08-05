@@ -236,7 +236,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         private void reposDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
-            var gridView1 = (GridView)gridControl1.FocusedView;
+            var gridView1 = (GridView)gridConfirmados.FocusedView;
             var row = (dsConfigLoteConsumo.items_confirmadosRow)gridView1.GetFocusedDataRow();
 
             try

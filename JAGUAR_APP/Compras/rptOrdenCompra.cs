@@ -28,6 +28,19 @@ namespace JAGUAR_PRO.Compras
             lblFechaVencimiento.Text = string.Format("{0:dd/MM/yyyy}", oc.Fecha_Contabilizacion.AddDays(30).ToString());
             lblComentario.Text = oc.Comentario;
             load_detalle(pIdOrdenCompraActual);
+            switch (oc.Id_Estado)
+            {
+                case 5:
+                    txtBorrador.Visible = true;
+                    break;
+
+                case 2:
+                    txtBorrador.Visible = false; 
+                    break;
+                default:
+                    txtBorrador.Visible = true;
+                    break;
+            }
 
             lblSub.Text = string.Format("{0: ###,##0.00}", oc.Subtotal);
             lblIsv.Text = string.Format("{0: ###,##0.00}", oc.Impuesto); 
