@@ -309,6 +309,7 @@
             this.navBarG_ReportesFacturacion = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbReportesFacturacionMain = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemCambioDePrecio = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarReporteVentasPorVendedor = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup7 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem20 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -362,7 +363,7 @@
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
             this.lblUsuarioLogeado = new DevExpress.XtraEditors.LabelControl();
-            this.navBarReporteVentasPorVendedor = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarCotizaciones = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -3964,6 +3965,7 @@
             this.navBarControl3.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarFacturaMain,
             this.nbPrefactura,
+            this.navBarCotizaciones,
             this.navBarItemFacturasEmitidas,
             this.NBI_Cliente,
             this.NBI_NumeracionFiscal,
@@ -4004,6 +4006,7 @@
             this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbPrefactura),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem59),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarCotizaciones),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarFacturaMain),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemFacturasEmitidas),
             new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_Cliente),
@@ -4318,6 +4321,19 @@
             this.navBarItemCambioDePrecio.Name = "navBarItemCambioDePrecio";
             this.navBarItemCambioDePrecio.Visible = false;
             this.navBarItemCambioDePrecio.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemCambioDePrecio_LinkClicked);
+            // 
+            // navBarReporteVentasPorVendedor
+            // 
+            this.navBarReporteVentasPorVendedor.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarReporteVentasPorVendedor.Appearance.Options.UseFont = true;
+            this.navBarReporteVentasPorVendedor.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarReporteVentasPorVendedor.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarReporteVentasPorVendedor.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarReporteVentasPorVendedor.AppearancePressed.Options.UseFont = true;
+            this.navBarReporteVentasPorVendedor.Caption = "Reporte de Ventas por Vendedor";
+            this.navBarReporteVentasPorVendedor.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarReporteVentasPorVendedor.ImageOptions.SmallImage")));
+            this.navBarReporteVentasPorVendedor.Name = "navBarReporteVentasPorVendedor";
+            this.navBarReporteVentasPorVendedor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarReporteVentasPorVendedor_LinkClicked);
             // 
             // navBarGroup7
             // 
@@ -5027,18 +5043,18 @@
             this.lblUsuarioLogeado.TabIndex = 35;
             this.lblUsuarioLogeado.Text = "Usuario: ";
             // 
-            // navBarReporteVentasPorVendedor
+            // navBarCotizaciones
             // 
-            this.navBarReporteVentasPorVendedor.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarReporteVentasPorVendedor.Appearance.Options.UseFont = true;
-            this.navBarReporteVentasPorVendedor.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarReporteVentasPorVendedor.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarReporteVentasPorVendedor.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarReporteVentasPorVendedor.AppearancePressed.Options.UseFont = true;
-            this.navBarReporteVentasPorVendedor.Caption = "Reporte de Ventas por Vendedor";
-            this.navBarReporteVentasPorVendedor.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem210.ImageOptions.SmallImage")));
-            this.navBarReporteVentasPorVendedor.Name = "navBarReporteVentasPorVendedor";
-            this.navBarReporteVentasPorVendedor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarReporteVentasPorVendedor_LinkClicked);
+            this.navBarCotizaciones.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarCotizaciones.Appearance.Options.UseFont = true;
+            this.navBarCotizaciones.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarCotizaciones.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarCotizaciones.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarCotizaciones.AppearancePressed.Options.UseFont = true;
+            this.navBarCotizaciones.Caption = "Cotizaciones";
+            this.navBarCotizaciones.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarCotizaciones.ImageOptions.SmallImage")));
+            this.navBarCotizaciones.Name = "navBarCotizaciones";
+            this.navBarCotizaciones.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarCotizaciones_LinkClicked);
             // 
             // frmOpciones
             // 
@@ -5418,5 +5434,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.LabelControl lblUsuarioLogeado;
         private DevExpress.XtraNavBar.NavBarItem navBarItem209;
         private DevExpress.XtraNavBar.NavBarItem navBarReporteVentasPorVendedor;
+        private DevExpress.XtraNavBar.NavBarItem navBarCotizaciones;
     }
 }

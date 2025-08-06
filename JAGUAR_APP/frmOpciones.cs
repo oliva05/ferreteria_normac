@@ -5953,6 +5953,77 @@ namespace JAGUAR_PRO
                 }
             }
         }
+
+        private void navBarCotizaciones_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+            try
+            {
+                //AFC_ConsumoReal
+                bool accesoprevio = false;
+                int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                switch (idNivel)
+                {
+                    case 1://Basic View
+                        break;
+                    case 2://Basic No Autorization
+                        accesoprevio = false;
+                        break;
+                    case 3://Medium Autorization
+                        accesoprevio = false;
+                        break;
+                    case 4://Depth With Delta
+                    case 5://Depth Without Delta
+                        accesoprevio = true;
+                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                        break;
+                    default:
+                        break;
+                }
+
+                if (!accesoprevio)
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(5))
+                    {
+                        //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
+                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #5 (Pre Facturas)");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
         //End Facturacion Usados
 
 

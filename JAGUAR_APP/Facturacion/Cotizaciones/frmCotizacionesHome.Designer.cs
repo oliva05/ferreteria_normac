@@ -29,22 +29,22 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizacionesHome));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.grdCotizaciones = new DevExpress.XtraGrid.GridControl();
             this.dsFactCotizacion1 = new JAGUAR_PRO.Facturacion.Cotizaciones.dsFactCotizacion();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -63,7 +63,6 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reposEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.reposEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSalir = new DevExpress.XtraEditors.SimpleButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnExcelAuto = new DevExpress.XtraEditors.SimpleButton();
@@ -241,9 +240,9 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             // reposPrint
             // 
             this.reposPrint.AutoHeight = false;
-            editorButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions7.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.reposPrint.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposPrint.Name = "reposPrint";
             this.reposPrint.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposPrint.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposPrint_ButtonClick);
@@ -261,9 +260,9 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             // reposEditar
             // 
             this.reposEditar.AutoHeight = false;
-            editorButtonImageOptions8.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions8.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.reposEditar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposEditar.Name = "reposEditar";
             this.reposEditar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposEditar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposEditar_ButtonClick);
@@ -271,25 +270,12 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             // reposEliminar
             // 
             this.reposEliminar.AutoHeight = false;
-            editorButtonImageOptions9.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions9.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.reposEliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposEliminar.Name = "reposEliminar";
             this.reposEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposEliminar_ButtonClick);
-            // 
-            // cmdNew
-            // 
-            this.cmdNew.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.cmdNew.Appearance.Options.UseFont = true;
-            this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdNew.ImageOptions.Image")));
-            this.cmdNew.Location = new System.Drawing.Point(3, 38);
-            this.cmdNew.Name = "cmdNew";
-            this.cmdNew.Size = new System.Drawing.Size(106, 39);
-            this.cmdNew.TabIndex = 15;
-            this.cmdNew.Text = "&Nuevo";
-            this.cmdNew.Click += new System.EventHandler(this.cmdNew_Click);
             // 
             // cmdSalir
             // 
@@ -312,19 +298,20 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(289, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(702, 23);
+            this.lblTitulo.Size = new System.Drawing.Size(670, 23);
             this.lblTitulo.TabIndex = 17;
-            this.lblTitulo.Text = "Pedidos de Cliente";
+            this.lblTitulo.Text = "Cotizaciones";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnExcelAuto
             // 
+            this.btnExcelAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExcelAuto.Appearance.BackColor = System.Drawing.Color.SeaGreen;
             this.btnExcelAuto.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnExcelAuto.Appearance.Options.UseBackColor = true;
             this.btnExcelAuto.Appearance.Options.UseFont = true;
             this.btnExcelAuto.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelAuto.ImageOptions.Image")));
-            this.btnExcelAuto.Location = new System.Drawing.Point(896, 41);
+            this.btnExcelAuto.Location = new System.Drawing.Point(1052, 41);
             this.btnExcelAuto.Name = "btnExcelAuto";
             this.btnExcelAuto.Size = new System.Drawing.Size(106, 39);
             this.btnExcelAuto.TabIndex = 112;
@@ -340,7 +327,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.cmdRefreshDisponibles.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdRefreshDisponibles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdRefreshDisponibles.ImageOptions.Image")));
             this.cmdRefreshDisponibles.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdRefreshDisponibles.Location = new System.Drawing.Point(772, 41);
+            this.cmdRefreshDisponibles.Location = new System.Drawing.Point(245, 38);
             this.cmdRefreshDisponibles.Name = "cmdRefreshDisponibles";
             this.cmdRefreshDisponibles.Size = new System.Drawing.Size(106, 39);
             this.cmdRefreshDisponibles.TabIndex = 111;
@@ -350,7 +337,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             // dtFechaHastaDisponibles
             // 
             this.dtFechaHastaDisponibles.EditValue = null;
-            this.dtFechaHastaDisponibles.Location = new System.Drawing.Point(612, 50);
+            this.dtFechaHastaDisponibles.Location = new System.Drawing.Point(97, 55);
             this.dtFechaHastaDisponibles.Name = "dtFechaHastaDisponibles";
             this.dtFechaHastaDisponibles.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtFechaHastaDisponibles.Properties.Appearance.Options.UseFont = true;
@@ -367,7 +354,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Location = new System.Drawing.Point(526, 54);
+            this.labelControl9.Location = new System.Drawing.Point(6, 58);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(80, 16);
             this.labelControl9.TabIndex = 110;
@@ -376,7 +363,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             // dtFechaDesdeDisponibles
             // 
             this.dtFechaDesdeDisponibles.EditValue = null;
-            this.dtFechaDesdeDisponibles.Location = new System.Drawing.Point(365, 50);
+            this.dtFechaDesdeDisponibles.Location = new System.Drawing.Point(97, 29);
             this.dtFechaDesdeDisponibles.Name = "dtFechaDesdeDisponibles";
             this.dtFechaDesdeDisponibles.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtFechaDesdeDisponibles.Properties.Appearance.Options.UseFont = true;
@@ -394,7 +381,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(274, 53);
+            this.labelControl8.Location = new System.Drawing.Point(6, 32);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(85, 16);
             this.labelControl8.TabIndex = 108;
@@ -413,7 +400,6 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.cmdSalir);
-            this.Controls.Add(this.cmdNew);
             this.Controls.Add(this.grdCotizaciones);
             this.Name = "frmCotizacionesHome";
             this.Text = "Lista de Pre facturas";
@@ -436,7 +422,6 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
 
         private DevExpress.XtraGrid.GridControl grdCotizaciones;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton cmdNew;
         private DevExpress.XtraEditors.SimpleButton cmdSalir;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposEditar;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposEliminar;
