@@ -29,40 +29,8 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizacionesHome));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.grdCotizaciones = new DevExpress.XtraGrid.GridControl();
             this.dsFactCotizacion1 = new JAGUAR_PRO.Facturacion.Cotizaciones.dsFactCotizacion();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcliente = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colrtn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcontacto = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltelefono = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfecha_emision = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfecha_vencimiento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coluser_creador = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.reposPrint = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.reposEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.reposEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdSalir = new DevExpress.XtraEditors.SimpleButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnExcelAuto = new DevExpress.XtraEditors.SimpleButton();
@@ -71,211 +39,40 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.dtFechaDesdeDisponibles = new DevExpress.XtraEditors.DateEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCotizaciones)).BeginInit();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha_row = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_user = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coluser_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcomentario = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDocNum = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_estado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNumDoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldireccion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcliente_nombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRTN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_pedido = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
+            this.txtAsesorVendedor = new DevExpress.XtraEditors.TextEdit();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dsFactCotizacion1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposPrint)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposEditar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaHastaDisponibles.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaHastaDisponibles.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDesdeDisponibles.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDesdeDisponibles.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAsesorVendedor.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // grdCotizaciones
-            // 
-            this.grdCotizaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdCotizaciones.DataMember = "ListaCotizaciones";
-            this.grdCotizaciones.DataSource = this.dsFactCotizacion1;
-            this.grdCotizaciones.Location = new System.Drawing.Point(3, 83);
-            this.grdCotizaciones.MainView = this.gridView1;
-            this.grdCotizaciones.Name = "grdCotizaciones";
-            this.grdCotizaciones.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.reposEditar,
-            this.reposEliminar,
-            this.reposPrint});
-            this.grdCotizaciones.Size = new System.Drawing.Size(1267, 669);
-            this.grdCotizaciones.TabIndex = 0;
-            this.grdCotizaciones.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
             // 
             // dsFactCotizacion1
             // 
             this.dsFactCotizacion1.DataSetName = "dsFactCotizacion";
             this.dsFactCotizacion1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gridView1
-            // 
-            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridView1.Appearance.Row.Options.UseFont = true;
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid,
-            this.colcliente,
-            this.colrtn,
-            this.colcontacto,
-            this.coltelefono,
-            this.colfecha_emision,
-            this.colfecha_vencimiento,
-            this.coluser_creador,
-            this.colestado,
-            this.coltotal,
-            this.gridColumn3,
-            this.gridColumn4});
-            this.gridView1.GridControl = this.grdCotizaciones;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowAutoFilterRow = true;
-            // 
-            // colid
-            // 
-            this.colid.Caption = "id";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            this.colid.OptionsColumn.AllowEdit = false;
-            this.colid.Width = 53;
-            // 
-            // colcliente
-            // 
-            this.colcliente.Caption = "Cliente";
-            this.colcliente.FieldName = "cliente";
-            this.colcliente.Name = "colcliente";
-            this.colcliente.OptionsColumn.AllowEdit = false;
-            this.colcliente.Visible = true;
-            this.colcliente.VisibleIndex = 1;
-            this.colcliente.Width = 105;
-            // 
-            // colrtn
-            // 
-            this.colrtn.Caption = "RTN";
-            this.colrtn.FieldName = "rtn";
-            this.colrtn.Name = "colrtn";
-            this.colrtn.OptionsColumn.AllowEdit = false;
-            this.colrtn.Visible = true;
-            this.colrtn.VisibleIndex = 2;
-            this.colrtn.Width = 105;
-            // 
-            // colcontacto
-            // 
-            this.colcontacto.Caption = "Contacto";
-            this.colcontacto.FieldName = "contacto";
-            this.colcontacto.Name = "colcontacto";
-            this.colcontacto.OptionsColumn.AllowEdit = false;
-            this.colcontacto.Visible = true;
-            this.colcontacto.VisibleIndex = 3;
-            this.colcontacto.Width = 105;
-            // 
-            // coltelefono
-            // 
-            this.coltelefono.Caption = "Telefono";
-            this.coltelefono.FieldName = "telefono";
-            this.coltelefono.Name = "coltelefono";
-            this.coltelefono.OptionsColumn.AllowEdit = false;
-            this.coltelefono.Visible = true;
-            this.coltelefono.VisibleIndex = 4;
-            this.coltelefono.Width = 105;
-            // 
-            // colfecha_emision
-            // 
-            this.colfecha_emision.Caption = "Fecha";
-            this.colfecha_emision.FieldName = "fecha_emision";
-            this.colfecha_emision.Name = "colfecha_emision";
-            this.colfecha_emision.OptionsColumn.AllowEdit = false;
-            this.colfecha_emision.Visible = true;
-            this.colfecha_emision.VisibleIndex = 5;
-            this.colfecha_emision.Width = 105;
-            // 
-            // colfecha_vencimiento
-            // 
-            this.colfecha_vencimiento.Caption = "F. Vencimiento";
-            this.colfecha_vencimiento.FieldName = "fecha_vencimiento";
-            this.colfecha_vencimiento.Name = "colfecha_vencimiento";
-            this.colfecha_vencimiento.OptionsColumn.AllowEdit = false;
-            this.colfecha_vencimiento.Visible = true;
-            this.colfecha_vencimiento.VisibleIndex = 6;
-            this.colfecha_vencimiento.Width = 105;
-            // 
-            // coluser_creador
-            // 
-            this.coluser_creador.Caption = "Usuario";
-            this.coluser_creador.FieldName = "user_creador";
-            this.coluser_creador.Name = "coluser_creador";
-            this.coluser_creador.OptionsColumn.AllowEdit = false;
-            this.coluser_creador.Visible = true;
-            this.coluser_creador.VisibleIndex = 7;
-            this.coluser_creador.Width = 105;
-            // 
-            // colestado
-            // 
-            this.colestado.Caption = "Estado";
-            this.colestado.FieldName = "estado";
-            this.colestado.Name = "colestado";
-            this.colestado.OptionsColumn.AllowEdit = false;
-            this.colestado.Visible = true;
-            this.colestado.VisibleIndex = 8;
-            this.colestado.Width = 105;
-            // 
-            // coltotal
-            // 
-            this.coltotal.Caption = "Monto Total";
-            this.coltotal.FieldName = "total";
-            this.coltotal.Name = "coltotal";
-            this.coltotal.OptionsColumn.AllowEdit = false;
-            this.coltotal.Visible = true;
-            this.coltotal.VisibleIndex = 9;
-            this.coltotal.Width = 105;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Imprimir";
-            this.gridColumn3.ColumnEdit = this.reposPrint;
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 10;
-            this.gridColumn3.Width = 120;
-            // 
-            // reposPrint
-            // 
-            this.reposPrint.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.reposPrint.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.reposPrint.Name = "reposPrint";
-            this.reposPrint.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.reposPrint.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposPrint_ButtonClick);
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "# Cotizacion";
-            this.gridColumn4.FieldName = "num_cotizacion";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.AllowEdit = false;
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 0;
-            this.gridColumn4.Width = 94;
-            // 
-            // reposEditar
-            // 
-            this.reposEditar.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
-            this.reposEditar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.reposEditar.Name = "reposEditar";
-            this.reposEditar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.reposEditar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposEditar_ButtonClick);
-            // 
-            // reposEliminar
-            // 
-            this.reposEliminar.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
-            this.reposEliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.reposEliminar.Name = "reposEliminar";
-            this.reposEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.reposEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposEliminar_ButtonClick);
             // 
             // cmdSalir
             // 
@@ -284,7 +81,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.cmdSalir.Appearance.Options.UseFont = true;
             this.cmdSalir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSalir.ImageOptions.Image")));
-            this.cmdSalir.Location = new System.Drawing.Point(1164, 41);
+            this.cmdSalir.Location = new System.Drawing.Point(679, 41);
             this.cmdSalir.Name = "cmdSalir";
             this.cmdSalir.Size = new System.Drawing.Size(106, 39);
             this.cmdSalir.TabIndex = 16;
@@ -296,9 +93,9 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(289, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(301, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(670, 23);
+            this.lblTitulo.Size = new System.Drawing.Size(185, 23);
             this.lblTitulo.TabIndex = 17;
             this.lblTitulo.Text = "Cotizaciones";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -311,7 +108,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.btnExcelAuto.Appearance.Options.UseBackColor = true;
             this.btnExcelAuto.Appearance.Options.UseFont = true;
             this.btnExcelAuto.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelAuto.ImageOptions.Image")));
-            this.btnExcelAuto.Location = new System.Drawing.Point(1052, 41);
+            this.btnExcelAuto.Location = new System.Drawing.Point(567, 41);
             this.btnExcelAuto.Name = "btnExcelAuto";
             this.btnExcelAuto.Size = new System.Drawing.Size(106, 39);
             this.btnExcelAuto.TabIndex = 112;
@@ -387,11 +184,190 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.labelControl8.TabIndex = 108;
             this.labelControl8.Text = "Fecha Desde:";
             // 
+            // gridControl1
+            // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.DataMember = "home_cotizaciones";
+            this.gridControl1.DataSource = this.dsFactCotizacion1;
+            this.gridControl1.Location = new System.Drawing.Point(6, 111);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(779, 338);
+            this.gridControl1.TabIndex = 113;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid,
+            this.colfecha,
+            this.colfecha_row,
+            this.colid_user,
+            this.coluser_name,
+            this.colcomentario,
+            this.colDocNum,
+            this.colid_estado,
+            this.colestado,
+            this.colNumDoc,
+            this.coldireccion,
+            this.colcliente_nombre,
+            this.colRTN,
+            this.colid_pedido,
+            this.coltotal});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            // 
+            // colid
+            // 
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
+            // colfecha
+            // 
+            this.colfecha.FieldName = "fecha";
+            this.colfecha.Name = "colfecha";
+            this.colfecha.OptionsColumn.ReadOnly = true;
+            this.colfecha.Visible = true;
+            this.colfecha.VisibleIndex = 1;
+            this.colfecha.Width = 73;
+            // 
+            // colfecha_row
+            // 
+            this.colfecha_row.FieldName = "fecha_row";
+            this.colfecha_row.Name = "colfecha_row";
+            // 
+            // colid_user
+            // 
+            this.colid_user.FieldName = "id_user";
+            this.colid_user.Name = "colid_user";
+            // 
+            // coluser_name
+            // 
+            this.coluser_name.FieldName = "user_name";
+            this.coluser_name.Name = "coluser_name";
+            this.coluser_name.OptionsColumn.ReadOnly = true;
+            this.coluser_name.Visible = true;
+            this.coluser_name.VisibleIndex = 2;
+            this.coluser_name.Width = 91;
+            // 
+            // colcomentario
+            // 
+            this.colcomentario.FieldName = "comentario";
+            this.colcomentario.Name = "colcomentario";
+            this.colcomentario.OptionsColumn.ReadOnly = true;
+            this.colcomentario.Visible = true;
+            this.colcomentario.VisibleIndex = 3;
+            this.colcomentario.Width = 144;
+            // 
+            // colDocNum
+            // 
+            this.colDocNum.FieldName = "DocNum";
+            this.colDocNum.Name = "colDocNum";
+            // 
+            // colid_estado
+            // 
+            this.colid_estado.FieldName = "id_estado";
+            this.colid_estado.Name = "colid_estado";
+            // 
+            // colestado
+            // 
+            this.colestado.FieldName = "estado";
+            this.colestado.Name = "colestado";
+            // 
+            // colNumDoc
+            // 
+            this.colNumDoc.FieldName = "NumDoc";
+            this.colNumDoc.Name = "colNumDoc";
+            this.colNumDoc.OptionsColumn.ReadOnly = true;
+            this.colNumDoc.Visible = true;
+            this.colNumDoc.VisibleIndex = 0;
+            this.colNumDoc.Width = 85;
+            // 
+            // coldireccion
+            // 
+            this.coldireccion.FieldName = "direccion ";
+            this.coldireccion.Name = "coldireccion";
+            this.coldireccion.Width = 230;
+            // 
+            // colcliente_nombre
+            // 
+            this.colcliente_nombre.FieldName = "cliente_nombre";
+            this.colcliente_nombre.Name = "colcliente_nombre";
+            this.colcliente_nombre.OptionsColumn.ReadOnly = true;
+            this.colcliente_nombre.Visible = true;
+            this.colcliente_nombre.VisibleIndex = 4;
+            this.colcliente_nombre.Width = 140;
+            // 
+            // colRTN
+            // 
+            this.colRTN.FieldName = "RTN";
+            this.colRTN.Name = "colRTN";
+            this.colRTN.OptionsColumn.ReadOnly = true;
+            this.colRTN.Visible = true;
+            this.colRTN.VisibleIndex = 5;
+            this.colRTN.Width = 111;
+            // 
+            // colid_pedido
+            // 
+            this.colid_pedido.FieldName = "id_pedido";
+            this.colid_pedido.Name = "colid_pedido";
+            // 
+            // coltotal
+            // 
+            this.coltotal.DisplayFormat.FormatString = "n2";
+            this.coltotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.coltotal.FieldName = "total";
+            this.coltotal.Name = "coltotal";
+            this.coltotal.OptionsColumn.ReadOnly = true;
+            this.coltotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "SUM={0:#,###,##0.00}")});
+            this.coltotal.Visible = true;
+            this.coltotal.VisibleIndex = 6;
+            this.coltotal.Width = 108;
+            // 
+            // cmdChangeVendedor
+            // 
+            this.cmdChangeVendedor.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.cmdChangeVendedor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdChangeVendedor.ImageOptions.Image")));
+            this.cmdChangeVendedor.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.cmdChangeVendedor.Location = new System.Drawing.Point(275, 82);
+            this.cmdChangeVendedor.Name = "cmdChangeVendedor";
+            this.cmdChangeVendedor.Size = new System.Drawing.Size(39, 24);
+            this.cmdChangeVendedor.TabIndex = 116;
+            this.cmdChangeVendedor.Click += new System.EventHandler(this.cmdChangeVendedor_Click);
+            // 
+            // txtAsesorVendedor
+            // 
+            this.txtAsesorVendedor.Location = new System.Drawing.Point(97, 83);
+            this.txtAsesorVendedor.Name = "txtAsesorVendedor";
+            this.txtAsesorVendedor.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAsesorVendedor.Properties.Appearance.Options.UseFont = true;
+            this.txtAsesorVendedor.Size = new System.Drawing.Size(176, 22);
+            this.txtAsesorVendedor.TabIndex = 115;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label10.Location = new System.Drawing.Point(21, 87);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(70, 16);
+            this.label10.TabIndex = 114;
+            this.label10.Text = "Vendedor:";
+            // 
             // frmCotizacionesHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 756);
+            this.ClientSize = new System.Drawing.Size(789, 451);
+            this.Controls.Add(this.cmdChangeVendedor);
+            this.Controls.Add(this.txtAsesorVendedor);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.btnExcelAuto);
             this.Controls.Add(this.cmdRefreshDisponibles);
             this.Controls.Add(this.dtFechaHastaDisponibles);
@@ -400,52 +376,50 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.cmdSalir);
-            this.Controls.Add(this.grdCotizaciones);
             this.Name = "frmCotizacionesHome";
             this.Text = "Lista de Pre facturas";
-            ((System.ComponentModel.ISupportInitialize)(this.grdCotizaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsFactCotizacion1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposPrint)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposEditar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reposEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaHastaDisponibles.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaHastaDisponibles.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDesdeDisponibles.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDesdeDisponibles.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAsesorVendedor.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraGrid.GridControl grdCotizaciones;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.SimpleButton cmdSalir;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposEditar;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposEliminar;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposPrint;
         private System.Windows.Forms.Label lblTitulo;
-        //private dsCotizaciones dsCotizaciones1;
-        private DevExpress.XtraGrid.Columns.GridColumn colid;
-        private DevExpress.XtraGrid.Columns.GridColumn colcliente;
-        private DevExpress.XtraGrid.Columns.GridColumn colrtn;
-        private DevExpress.XtraGrid.Columns.GridColumn colcontacto;
-        private DevExpress.XtraGrid.Columns.GridColumn coltelefono;
-        private DevExpress.XtraGrid.Columns.GridColumn colfecha_emision;
-        private DevExpress.XtraGrid.Columns.GridColumn colfecha_vencimiento;
-        private DevExpress.XtraGrid.Columns.GridColumn coluser_creador;
-        private DevExpress.XtraGrid.Columns.GridColumn colestado;
-        private DevExpress.XtraGrid.Columns.GridColumn coltotal;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraEditors.SimpleButton btnExcelAuto;
         private DevExpress.XtraEditors.SimpleButton cmdRefreshDisponibles;
         private DevExpress.XtraEditors.DateEdit dtFechaHastaDisponibles;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.DateEdit dtFechaDesdeDisponibles;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private dsFactCotizacion dsFactCotizacion1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn colfecha;
+        private DevExpress.XtraGrid.Columns.GridColumn colfecha_row;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_user;
+        private DevExpress.XtraGrid.Columns.GridColumn coluser_name;
+        private DevExpress.XtraGrid.Columns.GridColumn colcomentario;
+        private DevExpress.XtraGrid.Columns.GridColumn colDocNum;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_estado;
+        private DevExpress.XtraGrid.Columns.GridColumn colestado;
+        private DevExpress.XtraGrid.Columns.GridColumn colNumDoc;
+        private DevExpress.XtraGrid.Columns.GridColumn coldireccion;
+        private DevExpress.XtraGrid.Columns.GridColumn colcliente_nombre;
+        private DevExpress.XtraGrid.Columns.GridColumn colRTN;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_pedido;
+        private DevExpress.XtraGrid.Columns.GridColumn coltotal;
+        private DevExpress.XtraEditors.SimpleButton cmdChangeVendedor;
+        private DevExpress.XtraEditors.TextEdit txtAsesorVendedor;
+        private System.Windows.Forms.Label label10;
     }
 }

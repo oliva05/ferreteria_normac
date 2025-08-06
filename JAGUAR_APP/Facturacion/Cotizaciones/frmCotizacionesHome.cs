@@ -16,6 +16,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using DevExpress.DataAccess.ObjectBinding;
 using DevExpress.DashboardCommon;
+using JAGUAR_PRO.Utileria;
 
 namespace JAGUAR_PRO.Facturacion.Cotizaciones
 {
@@ -25,31 +26,44 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
         PDV PuntoVentaActual;
         UserLogin UsuarioLogeado;
         int PuntoVentaId;
+        Vendedor VendedorActual;
+
         public frmCotizacionesHome(UserLogin userLogin, PDV ppuntoventa)
         {
             InitializeComponent();
             UsuarioLogeado = userLogin;
             PuntoVentaActual = ppuntoventa;
-            dtFechaDesdeDisponibles.DateTime = dp.dNow().AddDays(-30);
-            dtFechaHastaDisponibles.DateTime = dp.dNow().AddDays(1);
+            DateTime FechaActual = dp.dNow();
+            dtFechaDesdeDisponibles.DateTime = new DateTime(FechaActual.Year, FechaActual.Month, FechaActual.Day, 0, 0, 0);
+            dtFechaHastaDisponibles.DateTime = new DateTime(FechaActual.Year, FechaActual.Month, FechaActual.Day, 23, 59, 0);
             LoadData();
         }
 
         private void LoadData()
         {
+            if (VendedorActual == null)
+            {
+                return;
+            }
+            if (VendedorActual.Id == 0) 
+            {
+                return;
+            }
+
             try
             {
-                string query = @"sp_cotizaciones_lista";
+                //string query = @"sp_cotizaciones_lista";
+                string query = @"sp_get_lista_cotizaciones_h";
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@fDesde", dtFechaDesdeDisponibles.DateTime);
-                cmd.Parameters.AddWithValue("@fFinal", dtFechaHastaDisponibles.DateTime);
-                cmd.Parameters.AddWithValue("@PuntoVentaID", PuntoVentaActual.ID);
+                cmd.Parameters.AddWithValue("@desde", dtFechaDesdeDisponibles.DateTime);
+                cmd.Parameters.AddWithValue("@hasta", dtFechaHastaDisponibles.DateTime);
+                cmd.Parameters.AddWithValue("@id_vendedor", VendedorActual.Id);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                dsFactCotizacion1.ListaCotizaciones.Clear();
-                adat.Fill(dsFactCotizacion1.ListaCotizaciones);
+                dsFactCotizacion1.home_cotizaciones.Clear();
+                adat.Fill(dsFactCotizacion1.home_cotizaciones);
                 conn.Close();
             }
             catch (Exception ex)
@@ -79,7 +93,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
 
         private void reposEditar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var grdvDetalle = (GridView)grdCotizaciones.FocusedView;
+            var grdvDetalle = (GridView)gridControl1.FocusedView;
             var row = (dsFactCotizacion.ListaCotizacionesRow)grdvDetalle.GetFocusedDataRow();
 
             if (row.id > 0)
@@ -95,7 +109,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
 
         private void reposEliminar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var grdvDetalle = (GridView)grdCotizaciones.FocusedView;
+            var grdvDetalle = (GridView)gridControl1.FocusedView;
             var row = (dsFactCotizacion.ListaCotizacionesRow)grdvDetalle.GetFocusedDataRow();
 
             DialogResult r = CajaDialogo.Pregunta("Desea eliminar esta Cotizacion?");
@@ -154,7 +168,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
 
         private void reposPrint_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var grdvDetalle = (GridView)grdCotizaciones.FocusedView;
+            var grdvDetalle = (GridView)gridControl1.FocusedView;
             var row = (dsFactCotizacion.ListaCotizacionesRow)grdvDetalle.GetFocusedDataRow();
 
             if(row.id > 0)
@@ -168,6 +182,22 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
                 reportPrint.ShowPreview();
             }
             
+        }
+
+        private void cmdChangeVendedor_Click(object sender, EventArgs e)
+        {
+            frmLoginVendedores frmLoginVend = new frmLoginVendedores();
+            if (frmLoginVend.ShowDialog() == DialogResult.OK)
+            {
+                txtAsesorVendedor.Text = frmLoginVend.CodigoVendedor + " - " + frmLoginVend.NombreVendedor;
+                VendedorActual = frmLoginVend.Vendedor_;
+                this.UsuarioLogeado = new UserLogin();
+                if (UsuarioLogeado.RecuperarRegistro(VendedorActual.Id))
+                {
+                    cmdRefreshDisponibles_Click(sender, e);
+                }
+            }
+            cmdRefreshDisponibles_Click(sender, e);
         }
     }
 }

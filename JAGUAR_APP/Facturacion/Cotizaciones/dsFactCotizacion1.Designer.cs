@@ -30,6 +30,8 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
         
         private vendedoresDataTable tablevendedores;
         
+        private home_cotizacionesDataTable tablehome_cotizaciones;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -66,6 +68,9 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
                 }
                 if ((ds.Tables["vendedores"] != null)) {
                     base.Tables.Add(new vendedoresDataTable(ds.Tables["vendedores"]));
+                }
+                if ((ds.Tables["home_cotizaciones"] != null)) {
+                    base.Tables.Add(new home_cotizacionesDataTable(ds.Tables["home_cotizaciones"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -112,6 +117,16 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
         public vendedoresDataTable vendedores {
             get {
                 return this.tablevendedores;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public home_cotizacionesDataTable home_cotizaciones {
+            get {
+                return this.tablehome_cotizaciones;
             }
         }
         
@@ -191,6 +206,9 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
                 if ((ds.Tables["vendedores"] != null)) {
                     base.Tables.Add(new vendedoresDataTable(ds.Tables["vendedores"]));
                 }
+                if ((ds.Tables["home_cotizaciones"] != null)) {
+                    base.Tables.Add(new home_cotizacionesDataTable(ds.Tables["home_cotizaciones"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -242,6 +260,12 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
                     this.tablevendedores.InitVars();
                 }
             }
+            this.tablehome_cotizaciones = ((home_cotizacionesDataTable)(base.Tables["home_cotizaciones"]));
+            if ((initTable == true)) {
+                if ((this.tablehome_cotizaciones != null)) {
+                    this.tablehome_cotizaciones.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +282,8 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
             base.Tables.Add(this.tabledetalle_cotizacion);
             this.tablevendedores = new vendedoresDataTable();
             base.Tables.Add(this.tablevendedores);
+            this.tablehome_cotizaciones = new home_cotizacionesDataTable();
+            base.Tables.Add(this.tablehome_cotizaciones);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -275,6 +301,12 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializevendedores() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializehome_cotizaciones() {
             return false;
         }
         
@@ -341,6 +373,9 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void vendedoresRowChangeEventHandler(object sender, vendedoresRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void home_cotizacionesRowChangeEventHandler(object sender, home_cotizacionesRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1379,6 +1414,457 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class home_cotizacionesDataTable : global::System.Data.TypedTableBase<home_cotizacionesRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columnfecha;
+            
+            private global::System.Data.DataColumn columnfecha_row;
+            
+            private global::System.Data.DataColumn columnid_user;
+            
+            private global::System.Data.DataColumn columnuser_name;
+            
+            private global::System.Data.DataColumn columncomentario;
+            
+            private global::System.Data.DataColumn columnDocNum;
+            
+            private global::System.Data.DataColumn columnid_estado;
+            
+            private global::System.Data.DataColumn columnestado;
+            
+            private global::System.Data.DataColumn columnNumDoc;
+            
+            private global::System.Data.DataColumn columndireccion_;
+            
+            private global::System.Data.DataColumn columncliente_nombre;
+            
+            private global::System.Data.DataColumn columnRTN;
+            
+            private global::System.Data.DataColumn columnid_pedido;
+            
+            private global::System.Data.DataColumn columntotal;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public home_cotizacionesDataTable() {
+                this.TableName = "home_cotizaciones";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal home_cotizacionesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected home_cotizacionesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn fechaColumn {
+                get {
+                    return this.columnfecha;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn fecha_rowColumn {
+                get {
+                    return this.columnfecha_row;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_userColumn {
+                get {
+                    return this.columnid_user;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn user_nameColumn {
+                get {
+                    return this.columnuser_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn comentarioColumn {
+                get {
+                    return this.columncomentario;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DocNumColumn {
+                get {
+                    return this.columnDocNum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_estadoColumn {
+                get {
+                    return this.columnid_estado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn estadoColumn {
+                get {
+                    return this.columnestado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NumDocColumn {
+                get {
+                    return this.columnNumDoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn direccion_Column {
+                get {
+                    return this.columndireccion_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cliente_nombreColumn {
+                get {
+                    return this.columncliente_nombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RTNColumn {
+                get {
+                    return this.columnRTN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_pedidoColumn {
+                get {
+                    return this.columnid_pedido;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn totalColumn {
+                get {
+                    return this.columntotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public home_cotizacionesRow this[int index] {
+                get {
+                    return ((home_cotizacionesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event home_cotizacionesRowChangeEventHandler home_cotizacionesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event home_cotizacionesRowChangeEventHandler home_cotizacionesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event home_cotizacionesRowChangeEventHandler home_cotizacionesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event home_cotizacionesRowChangeEventHandler home_cotizacionesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addhome_cotizacionesRow(home_cotizacionesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public home_cotizacionesRow Addhome_cotizacionesRow(long id, System.DateTime fecha, System.DateTime fecha_row, int id_user, string user_name, string comentario, int DocNum, int id_estado, string estado, string NumDoc, string direccion_, string cliente_nombre, string RTN, int id_pedido, decimal total) {
+                home_cotizacionesRow rowhome_cotizacionesRow = ((home_cotizacionesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id,
+                        fecha,
+                        fecha_row,
+                        id_user,
+                        user_name,
+                        comentario,
+                        DocNum,
+                        id_estado,
+                        estado,
+                        NumDoc,
+                        direccion_,
+                        cliente_nombre,
+                        RTN,
+                        id_pedido,
+                        total};
+                rowhome_cotizacionesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowhome_cotizacionesRow);
+                return rowhome_cotizacionesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                home_cotizacionesDataTable cln = ((home_cotizacionesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new home_cotizacionesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columnfecha = base.Columns["fecha"];
+                this.columnfecha_row = base.Columns["fecha_row"];
+                this.columnid_user = base.Columns["id_user"];
+                this.columnuser_name = base.Columns["user_name"];
+                this.columncomentario = base.Columns["comentario"];
+                this.columnDocNum = base.Columns["DocNum"];
+                this.columnid_estado = base.Columns["id_estado"];
+                this.columnestado = base.Columns["estado"];
+                this.columnNumDoc = base.Columns["NumDoc"];
+                this.columndireccion_ = base.Columns["direccion "];
+                this.columncliente_nombre = base.Columns["cliente_nombre"];
+                this.columnRTN = base.Columns["RTN"];
+                this.columnid_pedido = base.Columns["id_pedido"];
+                this.columntotal = base.Columns["total"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha);
+                this.columnfecha_row = new global::System.Data.DataColumn("fecha_row", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha_row);
+                this.columnid_user = new global::System.Data.DataColumn("id_user", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_user);
+                this.columnuser_name = new global::System.Data.DataColumn("user_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnuser_name);
+                this.columncomentario = new global::System.Data.DataColumn("comentario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncomentario);
+                this.columnDocNum = new global::System.Data.DataColumn("DocNum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDocNum);
+                this.columnid_estado = new global::System.Data.DataColumn("id_estado", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_estado);
+                this.columnestado = new global::System.Data.DataColumn("estado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnestado);
+                this.columnNumDoc = new global::System.Data.DataColumn("NumDoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumDoc);
+                this.columndireccion_ = new global::System.Data.DataColumn("direccion ", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndireccion_);
+                this.columncliente_nombre = new global::System.Data.DataColumn("cliente_nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncliente_nombre);
+                this.columnRTN = new global::System.Data.DataColumn("RTN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRTN);
+                this.columnid_pedido = new global::System.Data.DataColumn("id_pedido", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_pedido);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal);
+                this.columnfecha.Caption = "Fecha";
+                this.columnfecha_row.Caption = "Fecha Transaccion";
+                this.columnuser_name.Caption = "Vendedor";
+                this.columncomentario.Caption = "Comentario";
+                this.columnestado.Caption = "Estado";
+                this.columndireccion_.Caption = "Dirección ";
+                this.columncliente_nombre.Caption = "Cliente Nombre";
+                this.columntotal.Caption = "Total";
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public home_cotizacionesRow Newhome_cotizacionesRow() {
+                return ((home_cotizacionesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new home_cotizacionesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(home_cotizacionesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.home_cotizacionesRowChanged != null)) {
+                    this.home_cotizacionesRowChanged(this, new home_cotizacionesRowChangeEvent(((home_cotizacionesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.home_cotizacionesRowChanging != null)) {
+                    this.home_cotizacionesRowChanging(this, new home_cotizacionesRowChangeEvent(((home_cotizacionesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.home_cotizacionesRowDeleted != null)) {
+                    this.home_cotizacionesRowDeleted(this, new home_cotizacionesRowChangeEvent(((home_cotizacionesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.home_cotizacionesRowDeleting != null)) {
+                    this.home_cotizacionesRowDeleting(this, new home_cotizacionesRowChangeEvent(((home_cotizacionesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removehome_cotizacionesRow(home_cotizacionesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsFactCotizacion ds = new dsFactCotizacion();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "home_cotizacionesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ListaCotizacionesRow : global::System.Data.DataRow {
@@ -2101,6 +2587,442 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class home_cotizacionesRow : global::System.Data.DataRow {
+            
+            private home_cotizacionesDataTable tablehome_cotizaciones;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal home_cotizacionesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablehome_cotizaciones = ((home_cotizacionesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public long id {
+                get {
+                    try {
+                        return ((long)(this[this.tablehome_cotizaciones.idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime fecha {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablehome_cotizaciones.fechaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fecha\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.fechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime fecha_row {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablehome_cotizaciones.fecha_rowColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fecha_row\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.fecha_rowColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_user {
+                get {
+                    try {
+                        return ((int)(this[this.tablehome_cotizaciones.id_userColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_user\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.id_userColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string user_name {
+                get {
+                    try {
+                        return ((string)(this[this.tablehome_cotizaciones.user_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'user_name\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.user_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string comentario {
+                get {
+                    try {
+                        return ((string)(this[this.tablehome_cotizaciones.comentarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'comentario\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.comentarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int DocNum {
+                get {
+                    try {
+                        return ((int)(this[this.tablehome_cotizaciones.DocNumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DocNum\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.DocNumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_estado {
+                get {
+                    try {
+                        return ((int)(this[this.tablehome_cotizaciones.id_estadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_estado\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.id_estadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string estado {
+                get {
+                    try {
+                        return ((string)(this[this.tablehome_cotizaciones.estadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'estado\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.estadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NumDoc {
+                get {
+                    try {
+                        return ((string)(this[this.tablehome_cotizaciones.NumDocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NumDoc\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.NumDocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string direccion_ {
+                get {
+                    try {
+                        return ((string)(this[this.tablehome_cotizaciones.direccion_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'direccion \' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.direccion_Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string cliente_nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tablehome_cotizaciones.cliente_nombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cliente_nombre\' de la tabla \'home_cotizaciones\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.cliente_nombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string RTN {
+                get {
+                    try {
+                        return ((string)(this[this.tablehome_cotizaciones.RTNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'RTN\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.RTNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_pedido {
+                get {
+                    try {
+                        return ((int)(this[this.tablehome_cotizaciones.id_pedidoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_pedido\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.id_pedidoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal total {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablehome_cotizaciones.totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'total\' de la tabla \'home_cotizaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablehome_cotizaciones.totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsidNull() {
+                return this.IsNull(this.tablehome_cotizaciones.idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetidNull() {
+                this[this.tablehome_cotizaciones.idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsfechaNull() {
+                return this.IsNull(this.tablehome_cotizaciones.fechaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetfechaNull() {
+                this[this.tablehome_cotizaciones.fechaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isfecha_rowNull() {
+                return this.IsNull(this.tablehome_cotizaciones.fecha_rowColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setfecha_rowNull() {
+                this[this.tablehome_cotizaciones.fecha_rowColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_userNull() {
+                return this.IsNull(this.tablehome_cotizaciones.id_userColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_userNull() {
+                this[this.tablehome_cotizaciones.id_userColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isuser_nameNull() {
+                return this.IsNull(this.tablehome_cotizaciones.user_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setuser_nameNull() {
+                this[this.tablehome_cotizaciones.user_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscomentarioNull() {
+                return this.IsNull(this.tablehome_cotizaciones.comentarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcomentarioNull() {
+                this[this.tablehome_cotizaciones.comentarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDocNumNull() {
+                return this.IsNull(this.tablehome_cotizaciones.DocNumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDocNumNull() {
+                this[this.tablehome_cotizaciones.DocNumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_estadoNull() {
+                return this.IsNull(this.tablehome_cotizaciones.id_estadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_estadoNull() {
+                this[this.tablehome_cotizaciones.id_estadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsestadoNull() {
+                return this.IsNull(this.tablehome_cotizaciones.estadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetestadoNull() {
+                this[this.tablehome_cotizaciones.estadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNumDocNull() {
+                return this.IsNull(this.tablehome_cotizaciones.NumDocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNumDocNull() {
+                this[this.tablehome_cotizaciones.NumDocColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isdireccion_Null() {
+                return this.IsNull(this.tablehome_cotizaciones.direccion_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setdireccion_Null() {
+                this[this.tablehome_cotizaciones.direccion_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscliente_nombreNull() {
+                return this.IsNull(this.tablehome_cotizaciones.cliente_nombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcliente_nombreNull() {
+                this[this.tablehome_cotizaciones.cliente_nombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRTNNull() {
+                return this.IsNull(this.tablehome_cotizaciones.RTNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRTNNull() {
+                this[this.tablehome_cotizaciones.RTNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_pedidoNull() {
+                return this.IsNull(this.tablehome_cotizaciones.id_pedidoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_pedidoNull() {
+                this[this.tablehome_cotizaciones.id_pedidoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstotalNull() {
+                return this.IsNull(this.tablehome_cotizaciones.totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettotalNull() {
+                this[this.tablehome_cotizaciones.totalColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2188,6 +3110,40 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public vendedoresRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class home_cotizacionesRowChangeEvent : global::System.EventArgs {
+            
+            private home_cotizacionesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public home_cotizacionesRowChangeEvent(home_cotizacionesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public home_cotizacionesRow Row {
                 get {
                     return this.eventRow;
                 }
