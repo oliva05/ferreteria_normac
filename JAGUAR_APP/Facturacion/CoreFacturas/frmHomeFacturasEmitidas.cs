@@ -471,6 +471,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             //Editar el tipo de pago.
             var row = (dsFacturasGestion.HomeFacturasRow)gvFacturas.GetFocusedDataRow();
             frmEditarFactura frm = new frmEditarFactura(row.id);
+            if (this.MdiParent != null)
+            {
+                frm.MdiParent = this.MdiParent;
+            }
             frm.Show();
         }
 

@@ -28,6 +28,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         
         private estados_facturaDataTable tableestados_factura;
         
+        private tipos_de_pagoDataTable tabletipos_de_pago;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +63,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 }
                 if ((ds.Tables["estados_factura"] != null)) {
                     base.Tables.Add(new estados_facturaDataTable(ds.Tables["estados_factura"]));
+                }
+                if ((ds.Tables["tipos_de_pago"] != null)) {
+                    base.Tables.Add(new tipos_de_pagoDataTable(ds.Tables["tipos_de_pago"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -97,6 +102,16 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         public estados_facturaDataTable estados_factura {
             get {
                 return this.tableestados_factura;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public tipos_de_pagoDataTable tipos_de_pago {
+            get {
+                return this.tabletipos_de_pago;
             }
         }
         
@@ -173,6 +188,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 if ((ds.Tables["estados_factura"] != null)) {
                     base.Tables.Add(new estados_facturaDataTable(ds.Tables["estados_factura"]));
                 }
+                if ((ds.Tables["tipos_de_pago"] != null)) {
+                    base.Tables.Add(new tipos_de_pagoDataTable(ds.Tables["tipos_de_pago"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -218,6 +236,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                     this.tableestados_factura.InitVars();
                 }
             }
+            this.tabletipos_de_pago = ((tipos_de_pagoDataTable)(base.Tables["tipos_de_pago"]));
+            if ((initTable == true)) {
+                if ((this.tabletipos_de_pago != null)) {
+                    this.tabletipos_de_pago.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +256,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             base.Tables.Add(this.tablerecibos_por_factura);
             this.tableestados_factura = new estados_facturaDataTable();
             base.Tables.Add(this.tableestados_factura);
+            this.tabletipos_de_pago = new tipos_de_pagoDataTable();
+            base.Tables.Add(this.tabletipos_de_pago);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -243,6 +269,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeestados_factura() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializetipos_de_pago() {
             return false;
         }
         
@@ -307,6 +339,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void estados_facturaRowChangeEventHandler(object sender, estados_facturaRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void tipos_de_pagoRowChangeEventHandler(object sender, tipos_de_pagoRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -320,9 +355,13 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             private global::System.Data.DataColumn columnvalor;
             
-            private global::System.Data.DataColumn columnid_tipo_pago;
+            private global::System.Data.DataColumn columnid_tipo_pago_actual;
             
-            private global::System.Data.DataColumn columntipo_pago;
+            private global::System.Data.DataColumn columntipo_pago_actual;
+            
+            private global::System.Data.DataColumn columnid_tipo_pago_nuevo;
+            
+            private global::System.Data.DataColumn columntipo_pago_nuevo;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -383,17 +422,33 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_tipo_pagoColumn {
+            public global::System.Data.DataColumn id_tipo_pago_actualColumn {
                 get {
-                    return this.columnid_tipo_pago;
+                    return this.columnid_tipo_pago_actual;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn tipo_pagoColumn {
+            public global::System.Data.DataColumn tipo_pago_actualColumn {
                 get {
-                    return this.columntipo_pago;
+                    return this.columntipo_pago_actual;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_tipo_pago_nuevoColumn {
+                get {
+                    return this.columnid_tipo_pago_nuevo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tipo_pago_nuevoColumn {
+                get {
+                    return this.columntipo_pago_nuevo;
                 }
             }
             
@@ -434,14 +489,16 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public recibos_por_facturaRow Addrecibos_por_facturaRow(int id, string num_doc, decimal valor, int id_tipo_pago, string tipo_pago) {
+            public recibos_por_facturaRow Addrecibos_por_facturaRow(int id, string num_doc, decimal valor, int id_tipo_pago_actual, string tipo_pago_actual, int id_tipo_pago_nuevo, string tipo_pago_nuevo) {
                 recibos_por_facturaRow rowrecibos_por_facturaRow = ((recibos_por_facturaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         num_doc,
                         valor,
-                        id_tipo_pago,
-                        tipo_pago};
+                        id_tipo_pago_actual,
+                        tipo_pago_actual,
+                        id_tipo_pago_nuevo,
+                        tipo_pago_nuevo};
                 rowrecibos_por_facturaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrecibos_por_facturaRow);
                 return rowrecibos_por_facturaRow;
@@ -467,8 +524,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columnid = base.Columns["id"];
                 this.columnnum_doc = base.Columns["num_doc"];
                 this.columnvalor = base.Columns["valor"];
-                this.columnid_tipo_pago = base.Columns["id_tipo_pago"];
-                this.columntipo_pago = base.Columns["tipo_pago"];
+                this.columnid_tipo_pago_actual = base.Columns["id_tipo_pago_actual"];
+                this.columntipo_pago_actual = base.Columns["tipo_pago_actual"];
+                this.columnid_tipo_pago_nuevo = base.Columns["id_tipo_pago_nuevo"];
+                this.columntipo_pago_nuevo = base.Columns["tipo_pago_nuevo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -480,13 +539,18 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columnnum_doc);
                 this.columnvalor = new global::System.Data.DataColumn("valor", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvalor);
-                this.columnid_tipo_pago = new global::System.Data.DataColumn("id_tipo_pago", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_tipo_pago);
-                this.columntipo_pago = new global::System.Data.DataColumn("tipo_pago", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntipo_pago);
+                this.columnid_tipo_pago_actual = new global::System.Data.DataColumn("id_tipo_pago_actual", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_tipo_pago_actual);
+                this.columntipo_pago_actual = new global::System.Data.DataColumn("tipo_pago_actual", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo_pago_actual);
+                this.columnid_tipo_pago_nuevo = new global::System.Data.DataColumn("id_tipo_pago_nuevo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_tipo_pago_nuevo);
+                this.columntipo_pago_nuevo = new global::System.Data.DataColumn("tipo_pago_nuevo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo_pago_nuevo);
                 this.columnnum_doc.Caption = "Numero de Factura";
                 this.columnvalor.Caption = "Valor";
-                this.columntipo_pago.Caption = "Tipo de pago";
+                this.columntipo_pago_actual.Caption = "Tipo de pago Actual";
+                this.columntipo_pago_nuevo.Caption = "Tipo de pago Nuevo";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -891,6 +955,283 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class tipos_de_pagoDataTable : global::System.Data.TypedTableBase<tipos_de_pagoRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columndescripcion;
+            
+            private global::System.Data.DataColumn columnseleccionar;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tipos_de_pagoDataTable() {
+                this.TableName = "tipos_de_pago";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal tipos_de_pagoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected tipos_de_pagoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn descripcionColumn {
+                get {
+                    return this.columndescripcion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn seleccionarColumn {
+                get {
+                    return this.columnseleccionar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tipos_de_pagoRow this[int index] {
+                get {
+                    return ((tipos_de_pagoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event tipos_de_pagoRowChangeEventHandler tipos_de_pagoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event tipos_de_pagoRowChangeEventHandler tipos_de_pagoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event tipos_de_pagoRowChangeEventHandler tipos_de_pagoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event tipos_de_pagoRowChangeEventHandler tipos_de_pagoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addtipos_de_pagoRow(tipos_de_pagoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tipos_de_pagoRow Addtipos_de_pagoRow(int id, string descripcion, bool seleccionar) {
+                tipos_de_pagoRow rowtipos_de_pagoRow = ((tipos_de_pagoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id,
+                        descripcion,
+                        seleccionar};
+                rowtipos_de_pagoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtipos_de_pagoRow);
+                return rowtipos_de_pagoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                tipos_de_pagoDataTable cln = ((tipos_de_pagoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new tipos_de_pagoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columndescripcion = base.Columns["descripcion"];
+                this.columnseleccionar = base.Columns["seleccionar"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescripcion);
+                this.columnseleccionar = new global::System.Data.DataColumn("seleccionar", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnseleccionar);
+                this.columndescripcion.Caption = "Descripción";
+                this.columnseleccionar.Caption = "Seleccionar";
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tipos_de_pagoRow Newtipos_de_pagoRow() {
+                return ((tipos_de_pagoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new tipos_de_pagoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(tipos_de_pagoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.tipos_de_pagoRowChanged != null)) {
+                    this.tipos_de_pagoRowChanged(this, new tipos_de_pagoRowChangeEvent(((tipos_de_pagoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.tipos_de_pagoRowChanging != null)) {
+                    this.tipos_de_pagoRowChanging(this, new tipos_de_pagoRowChangeEvent(((tipos_de_pagoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.tipos_de_pagoRowDeleted != null)) {
+                    this.tipos_de_pagoRowDeleted(this, new tipos_de_pagoRowChangeEvent(((tipos_de_pagoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.tipos_de_pagoRowDeleting != null)) {
+                    this.tipos_de_pagoRowDeleting(this, new tipos_de_pagoRowChangeEvent(((tipos_de_pagoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removetipos_de_pagoRow(tipos_de_pagoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsMantoFacturas ds = new dsMantoFacturas();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "tipos_de_pagoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class recibos_por_facturaRow : global::System.Data.DataRow {
@@ -954,34 +1295,69 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_tipo_pago {
+            public int id_tipo_pago_actual {
                 get {
                     try {
-                        return ((int)(this[this.tablerecibos_por_factura.id_tipo_pagoColumn]));
+                        return ((int)(this[this.tablerecibos_por_factura.id_tipo_pago_actualColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_tipo_pago\' de la tabla \'recibos_por_factura\' es DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_tipo_pago_actual\' de la tabla \'recibos_por_factura\' es" +
+                                " DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablerecibos_por_factura.id_tipo_pagoColumn] = value;
+                    this[this.tablerecibos_por_factura.id_tipo_pago_actualColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string tipo_pago {
+            public string tipo_pago_actual {
                 get {
                     try {
-                        return ((string)(this[this.tablerecibos_por_factura.tipo_pagoColumn]));
+                        return ((string)(this[this.tablerecibos_por_factura.tipo_pago_actualColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipo_pago\' de la tabla \'recibos_por_factura\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipo_pago_actual\' de la tabla \'recibos_por_factura\' es DB" +
+                                "Null.", e);
                     }
                 }
                 set {
-                    this[this.tablerecibos_por_factura.tipo_pagoColumn] = value;
+                    this[this.tablerecibos_por_factura.tipo_pago_actualColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_tipo_pago_nuevo {
+                get {
+                    try {
+                        return ((int)(this[this.tablerecibos_por_factura.id_tipo_pago_nuevoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_tipo_pago_nuevo\' de la tabla \'recibos_por_factura\' es " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerecibos_por_factura.id_tipo_pago_nuevoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string tipo_pago_nuevo {
+                get {
+                    try {
+                        return ((string)(this[this.tablerecibos_por_factura.tipo_pago_nuevoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipo_pago_nuevo\' de la tabla \'recibos_por_factura\' es DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerecibos_por_factura.tipo_pago_nuevoColumn] = value;
                 }
             }
             
@@ -1023,26 +1399,50 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isid_tipo_pagoNull() {
-                return this.IsNull(this.tablerecibos_por_factura.id_tipo_pagoColumn);
+            public bool Isid_tipo_pago_actualNull() {
+                return this.IsNull(this.tablerecibos_por_factura.id_tipo_pago_actualColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setid_tipo_pagoNull() {
-                this[this.tablerecibos_por_factura.id_tipo_pagoColumn] = global::System.Convert.DBNull;
+            public void Setid_tipo_pago_actualNull() {
+                this[this.tablerecibos_por_factura.id_tipo_pago_actualColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Istipo_pagoNull() {
-                return this.IsNull(this.tablerecibos_por_factura.tipo_pagoColumn);
+            public bool Istipo_pago_actualNull() {
+                return this.IsNull(this.tablerecibos_por_factura.tipo_pago_actualColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Settipo_pagoNull() {
-                this[this.tablerecibos_por_factura.tipo_pagoColumn] = global::System.Convert.DBNull;
+            public void Settipo_pago_actualNull() {
+                this[this.tablerecibos_por_factura.tipo_pago_actualColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_tipo_pago_nuevoNull() {
+                return this.IsNull(this.tablerecibos_por_factura.id_tipo_pago_nuevoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_tipo_pago_nuevoNull() {
+                this[this.tablerecibos_por_factura.id_tipo_pago_nuevoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istipo_pago_nuevoNull() {
+                return this.IsNull(this.tablerecibos_por_factura.tipo_pago_nuevoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settipo_pago_nuevoNull() {
+                this[this.tablerecibos_por_factura.tipo_pago_nuevoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1146,6 +1546,105 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class tipos_de_pagoRow : global::System.Data.DataRow {
+            
+            private tipos_de_pagoDataTable tabletipos_de_pago;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal tipos_de_pagoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabletipos_de_pago = ((tipos_de_pagoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id {
+                get {
+                    try {
+                        return ((int)(this[this.tabletipos_de_pago.idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id\' de la tabla \'tipos_de_pago\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletipos_de_pago.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string descripcion {
+                get {
+                    try {
+                        return ((string)(this[this.tabletipos_de_pago.descripcionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'descripcion\' de la tabla \'tipos_de_pago\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletipos_de_pago.descripcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool seleccionar {
+                get {
+                    try {
+                        return ((bool)(this[this.tabletipos_de_pago.seleccionarColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'seleccionar\' de la tabla \'tipos_de_pago\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletipos_de_pago.seleccionarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsidNull() {
+                return this.IsNull(this.tabletipos_de_pago.idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetidNull() {
+                this[this.tabletipos_de_pago.idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdescripcionNull() {
+                return this.IsNull(this.tabletipos_de_pago.descripcionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdescripcionNull() {
+                this[this.tabletipos_de_pago.descripcionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsseleccionarNull() {
+                return this.IsNull(this.tabletipos_de_pago.seleccionarColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetseleccionarNull() {
+                this[this.tabletipos_de_pago.seleccionarColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1199,6 +1698,40 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public estados_facturaRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class tipos_de_pagoRowChangeEvent : global::System.EventArgs {
+            
+            private tipos_de_pagoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tipos_de_pagoRowChangeEvent(tipos_de_pagoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tipos_de_pagoRow Row {
                 get {
                     return this.eventRow;
                 }
