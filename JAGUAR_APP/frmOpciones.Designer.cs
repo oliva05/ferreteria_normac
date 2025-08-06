@@ -123,6 +123,7 @@
             this.simpleButton37 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton75 = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPageFacturacion = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.btnListaPrecios = new DevExpress.XtraEditors.SimpleButton();
             this.btnMantoPDV = new DevExpress.XtraEditors.SimpleButton();
@@ -363,7 +364,6 @@
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
             this.lblUsuarioLogeado = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -1709,6 +1709,19 @@
             this.xtraTabPageFacturacion.Size = new System.Drawing.Size(944, 495);
             this.xtraTabPageFacturacion.Text = "Mantenimiento Facturación";
             // 
+            // simpleButton10
+            // 
+            this.simpleButton10.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton10.Appearance.Options.UseFont = true;
+            this.simpleButton10.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.ImageOptions.Image")));
+            this.simpleButton10.Location = new System.Drawing.Point(753, 430);
+            this.simpleButton10.Name = "simpleButton10";
+            this.simpleButton10.Size = new System.Drawing.Size(188, 58);
+            this.simpleButton10.TabIndex = 36;
+            this.simpleButton10.Text = "Pagos";
+            this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click_1);
+            // 
             // simpleButton3
             // 
             this.simpleButton3.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2621,6 +2634,7 @@
             this.navBarItem197.AppearancePressed.Options.UseFont = true;
             this.navBarItem197.Caption = "Banda Salarial";
             this.navBarItem197.Name = "navBarItem197";
+            this.navBarItem197.Visible = false;
             this.navBarItem197.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem197_LinkClicked);
             // 
             // navBarItem198
@@ -2635,6 +2649,7 @@
             this.navBarItem198.AppearancePressed.Options.UseFont = true;
             this.navBarItem198.Caption = "Tipo Expediente";
             this.navBarItem198.Name = "navBarItem198";
+            this.navBarItem198.Visible = false;
             this.navBarItem198.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem198_LinkClicked);
             // 
             // navBarItem199
@@ -5041,19 +5056,6 @@
             this.lblUsuarioLogeado.Size = new System.Drawing.Size(376, 39);
             this.lblUsuarioLogeado.TabIndex = 35;
             this.lblUsuarioLogeado.Text = "Usuario: ";
-            // 
-            // simpleButton10
-            // 
-            this.simpleButton10.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton10.Appearance.Options.UseFont = true;
-            this.simpleButton10.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.ImageOptions.Image")));
-            this.simpleButton10.Location = new System.Drawing.Point(753, 430);
-            this.simpleButton10.Name = "simpleButton10";
-            this.simpleButton10.Size = new System.Drawing.Size(188, 58);
-            this.simpleButton10.TabIndex = 36;
-            this.simpleButton10.Text = "Pagos";
-            this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click_1);
             // 
             // frmOpciones
             // 
