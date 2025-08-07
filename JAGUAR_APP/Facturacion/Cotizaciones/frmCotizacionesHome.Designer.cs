@@ -66,6 +66,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
             this.txtAsesorVendedor = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
+            this.cmdNuevaCotizacion = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dsFactCotizacion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaHastaDisponibles.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaHastaDisponibles.Properties.CalendarTimeProperties)).BeginInit();
@@ -89,7 +90,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.cmdSalir.Appearance.Options.UseFont = true;
             this.cmdSalir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSalir.ImageOptions.Image")));
-            this.cmdSalir.Location = new System.Drawing.Point(730, 41);
+            this.cmdSalir.Location = new System.Drawing.Point(730, 67);
             this.cmdSalir.Name = "cmdSalir";
             this.cmdSalir.Size = new System.Drawing.Size(106, 39);
             this.cmdSalir.TabIndex = 16;
@@ -116,7 +117,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.btnExcelAuto.Appearance.Options.UseBackColor = true;
             this.btnExcelAuto.Appearance.Options.UseFont = true;
             this.btnExcelAuto.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelAuto.ImageOptions.Image")));
-            this.btnExcelAuto.Location = new System.Drawing.Point(618, 41);
+            this.btnExcelAuto.Location = new System.Drawing.Point(730, 22);
             this.btnExcelAuto.Name = "btnExcelAuto";
             this.btnExcelAuto.Size = new System.Drawing.Size(106, 39);
             this.btnExcelAuto.TabIndex = 112;
@@ -384,17 +385,33 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label10.Location = new System.Drawing.Point(21, 87);
+            this.label10.Location = new System.Drawing.Point(3, 87);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 16);
             this.label10.TabIndex = 114;
             this.label10.Text = "Vendedor:";
+            // 
+            // cmdNuevaCotizacion
+            // 
+            this.cmdNuevaCotizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdNuevaCotizacion.Appearance.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.cmdNuevaCotizacion.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.cmdNuevaCotizacion.Appearance.Options.UseBackColor = true;
+            this.cmdNuevaCotizacion.Appearance.Options.UseFont = true;
+            this.cmdNuevaCotizacion.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdNuevaCotizacion.ImageOptions.SvgImage")));
+            this.cmdNuevaCotizacion.Location = new System.Drawing.Point(618, 67);
+            this.cmdNuevaCotizacion.Name = "cmdNuevaCotizacion";
+            this.cmdNuevaCotizacion.Size = new System.Drawing.Size(106, 39);
+            this.cmdNuevaCotizacion.TabIndex = 117;
+            this.cmdNuevaCotizacion.Text = "Nueva";
+            this.cmdNuevaCotizacion.Click += new System.EventHandler(this.cmdNuevaCotizacion_Click);
             // 
             // frmCotizacionesHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 451);
+            this.Controls.Add(this.cmdNuevaCotizacion);
             this.Controls.Add(this.cmdChangeVendedor);
             this.Controls.Add(this.txtAsesorVendedor);
             this.Controls.Add(this.label10);
@@ -455,5 +472,6 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
         private System.Windows.Forms.Label label10;
         private DevExpress.XtraGrid.Columns.GridColumn colPreview;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdVistaPrevia;
+        private DevExpress.XtraEditors.SimpleButton cmdNuevaCotizacion;
     }
 }

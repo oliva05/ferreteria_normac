@@ -4,6 +4,7 @@ using DevExpress.DataAccess.ObjectBinding;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
+using Eatery.Ventas;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Despachos.Pedidos;
 using JAGUAR_PRO.Facturacion.Cotizaciones;
@@ -238,6 +239,12 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
 
                 printReport.ShowPreviewDialog();
             }
+        }
+
+        private void cmdNuevaCotizacion_Click(object sender, EventArgs e)
+        {
+            frmCotizacionesCRUD frm = new frmCotizacionesCRUD(this.UsuarioLogeado, this.PuntoVentaActual, VendedorActual);
+            frm.ShowDialog();
         }
     }
 }
