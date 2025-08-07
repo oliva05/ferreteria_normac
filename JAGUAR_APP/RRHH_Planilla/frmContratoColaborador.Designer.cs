@@ -486,7 +486,7 @@
             // slueTipoContrato2
             // 
             this.slueTipoContrato2.Enabled = false;
-            this.slueTipoContrato2.Location = new System.Drawing.Point(175, 224);
+            this.slueTipoContrato2.Location = new System.Drawing.Point(175, 200);
             this.slueTipoContrato2.Name = "slueTipoContrato2";
             this.slueTipoContrato2.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.slueTipoContrato2.Properties.Appearance.Options.UseFont = true;
@@ -499,6 +499,7 @@
             this.slueTipoContrato2.Properties.ValueMember = "id";
             this.slueTipoContrato2.Size = new System.Drawing.Size(202, 22);
             this.slueTipoContrato2.TabIndex = 45;
+            this.slueTipoContrato2.Visible = false;
             // 
             // gridView7
             // 
@@ -536,11 +537,12 @@
             this.labelControl25.Appearance.Options.UseFont = true;
             this.labelControl25.Appearance.Options.UseTextOptions = true;
             this.labelControl25.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl25.Location = new System.Drawing.Point(30, 231);
+            this.labelControl25.Location = new System.Drawing.Point(30, 207);
             this.labelControl25.Name = "labelControl25";
             this.labelControl25.Size = new System.Drawing.Size(73, 15);
             this.labelControl25.TabIndex = 37;
             this.labelControl25.Text = "Tipo Contrato";
+            this.labelControl25.Visible = false;
             // 
             // labelControl24
             // 
@@ -584,16 +586,17 @@
             this.labelControl23.Appearance.Options.UseFont = true;
             this.labelControl23.Appearance.Options.UseTextOptions = true;
             this.labelControl23.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl23.Location = new System.Drawing.Point(30, 203);
+            this.labelControl23.Location = new System.Drawing.Point(30, 179);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(99, 15);
             this.labelControl23.TabIndex = 31;
             this.labelControl23.Text = "Categoria Contrato";
+            this.labelControl23.Visible = false;
             // 
             // slueCategoriaContrato
             // 
             this.slueCategoriaContrato.Enabled = false;
-            this.slueCategoriaContrato.Location = new System.Drawing.Point(175, 199);
+            this.slueCategoriaContrato.Location = new System.Drawing.Point(175, 175);
             this.slueCategoriaContrato.Name = "slueCategoriaContrato";
             this.slueCategoriaContrato.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.slueCategoriaContrato.Properties.Appearance.Options.UseFont = true;
@@ -607,6 +610,7 @@
             this.slueCategoriaContrato.Properties.ValueMember = "id";
             this.slueCategoriaContrato.Size = new System.Drawing.Size(202, 22);
             this.slueCategoriaContrato.TabIndex = 5;
+            this.slueCategoriaContrato.Visible = false;
             // 
             // bshrcontracttype
             // 
@@ -762,7 +766,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(30, 176);
+            this.labelControl6.Location = new System.Drawing.Point(30, 152);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(89, 15);
             this.labelControl6.TabIndex = 9;
@@ -884,7 +888,7 @@
             // sluePlanificacion
             // 
             this.sluePlanificacion.Enabled = false;
-            this.sluePlanificacion.Location = new System.Drawing.Point(175, 145);
+            this.sluePlanificacion.Location = new System.Drawing.Point(175, 227);
             this.sluePlanificacion.Name = "sluePlanificacion";
             this.sluePlanificacion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.sluePlanificacion.Properties.Appearance.Options.UseFont = true;
@@ -897,6 +901,7 @@
             this.sluePlanificacion.Properties.ValueMember = "id";
             this.sluePlanificacion.Size = new System.Drawing.Size(202, 22);
             this.sluePlanificacion.TabIndex = 3;
+            this.sluePlanificacion.Visible = false;
             // 
             // bsrescalendar
             // 
@@ -923,7 +928,7 @@
             // sluePagoPlanificado
             // 
             this.sluePagoPlanificado.Enabled = false;
-            this.sluePagoPlanificado.Location = new System.Drawing.Point(175, 172);
+            this.sluePagoPlanificado.Location = new System.Drawing.Point(175, 148);
             this.sluePagoPlanificado.Name = "sluePagoPlanificado";
             this.sluePagoPlanificado.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.sluePagoPlanificado.Properties.Appearance.Options.UseFont = true;
@@ -966,11 +971,12 @@
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Appearance.Options.UseTextOptions = true;
             this.labelControl5.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl5.Location = new System.Drawing.Point(31, 149);
+            this.labelControl5.Location = new System.Drawing.Point(31, 231);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(124, 15);
             this.labelControl5.TabIndex = 7;
             this.labelControl5.Text = "Planificacion de trabajo";
+            this.labelControl5.Visible = false;
             // 
             // xtraTabPage2
             // 

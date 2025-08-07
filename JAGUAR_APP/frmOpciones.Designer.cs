@@ -123,6 +123,7 @@
             this.simpleButton37 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton75 = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPageFacturacion = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.btnListaPrecios = new DevExpress.XtraEditors.SimpleButton();
             this.btnMantoPDV = new DevExpress.XtraEditors.SimpleButton();
@@ -363,7 +364,6 @@
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
             this.lblUsuarioLogeado = new DevExpress.XtraEditors.LabelControl();
-            this.navBarCotizaciones = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -1697,6 +1697,7 @@
             // 
             this.xtraTabPageFacturacion.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xtraTabPageFacturacion.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPageFacturacion.Controls.Add(this.simpleButton10);
             this.xtraTabPageFacturacion.Controls.Add(this.simpleButton3);
             this.xtraTabPageFacturacion.Controls.Add(this.btnListaPrecios);
             this.xtraTabPageFacturacion.Controls.Add(this.btnMantoPDV);
@@ -1707,6 +1708,19 @@
             this.xtraTabPageFacturacion.PageVisible = false;
             this.xtraTabPageFacturacion.Size = new System.Drawing.Size(944, 495);
             this.xtraTabPageFacturacion.Text = "Mantenimiento Facturación";
+            // 
+            // simpleButton10
+            // 
+            this.simpleButton10.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton10.Appearance.Options.UseFont = true;
+            this.simpleButton10.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.ImageOptions.Image")));
+            this.simpleButton10.Location = new System.Drawing.Point(753, 430);
+            this.simpleButton10.Name = "simpleButton10";
+            this.simpleButton10.Size = new System.Drawing.Size(188, 58);
+            this.simpleButton10.TabIndex = 36;
+            this.simpleButton10.Text = "Pagos";
+            this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click_1);
             // 
             // simpleButton3
             // 
@@ -2620,6 +2634,7 @@
             this.navBarItem197.AppearancePressed.Options.UseFont = true;
             this.navBarItem197.Caption = "Banda Salarial";
             this.navBarItem197.Name = "navBarItem197";
+            this.navBarItem197.Visible = false;
             this.navBarItem197.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem197_LinkClicked);
             // 
             // navBarItem198
@@ -2634,6 +2649,7 @@
             this.navBarItem198.AppearancePressed.Options.UseFont = true;
             this.navBarItem198.Caption = "Tipo Expediente";
             this.navBarItem198.Name = "navBarItem198";
+            this.navBarItem198.Visible = false;
             this.navBarItem198.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem198_LinkClicked);
             // 
             // navBarItem199
@@ -3965,7 +3981,6 @@
             this.navBarControl3.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarFacturaMain,
             this.nbPrefactura,
-            this.navBarCotizaciones,
             this.navBarItemFacturasEmitidas,
             this.NBI_Cliente,
             this.NBI_NumeracionFiscal,
@@ -4006,7 +4021,6 @@
             this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbPrefactura),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem59),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarCotizaciones),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarFacturaMain),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemFacturasEmitidas),
             new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_Cliente),
@@ -5043,19 +5057,6 @@
             this.lblUsuarioLogeado.TabIndex = 35;
             this.lblUsuarioLogeado.Text = "Usuario: ";
             // 
-            // navBarCotizaciones
-            // 
-            this.navBarCotizaciones.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarCotizaciones.Appearance.Options.UseFont = true;
-            this.navBarCotizaciones.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarCotizaciones.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarCotizaciones.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarCotizaciones.AppearancePressed.Options.UseFont = true;
-            this.navBarCotizaciones.Caption = "Cotizaciones";
-            this.navBarCotizaciones.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarCotizaciones.ImageOptions.SmallImage")));
-            this.navBarCotizaciones.Name = "navBarCotizaciones";
-            this.navBarCotizaciones.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarCotizaciones_LinkClicked);
-            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5434,6 +5435,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraEditors.LabelControl lblUsuarioLogeado;
         private DevExpress.XtraNavBar.NavBarItem navBarItem209;
         private DevExpress.XtraNavBar.NavBarItem navBarReporteVentasPorVendedor;
-        private DevExpress.XtraNavBar.NavBarItem navBarCotizaciones;
+        private DevExpress.XtraEditors.SimpleButton simpleButton10;
     }
 }
