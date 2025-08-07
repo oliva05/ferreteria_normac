@@ -1450,6 +1450,12 @@
     <Compile Include="Facturacion\Cotizaciones\frmCotizacionesCRUD.Designer.cs">
       <DependentUpon>frmCotizacionesCRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Cotizaciones\frmVerStockPorAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Cotizaciones\frmVerStockPorAlmacen.Designer.cs">
+      <DependentUpon>frmVerStockPorAlmacen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Cotizaciones\frmSearchCotizaciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4375,6 +4381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Cotizaciones\frmCotizacionesCRUD.resx">
       <DependentUpon>frmCotizacionesCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Cotizaciones\frmVerStockPorAlmacen.resx">
+      <DependentUpon>frmVerStockPorAlmacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Cotizaciones\frmSearchCotizaciones.resx">
       <DependentUpon>frmSearchCotizaciones.cs</DependentUpon>

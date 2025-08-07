@@ -2500,17 +2500,17 @@ namespace Eatery.Ventas
                     if (row.cantidad > 0)
                     {
                         //No permitiremos facturar mas que lo que hay en inventario
-                        if(row.cantidad > row.inventario)
-                        {
-                            //row.cantidad = dp.ValidateNumberDecimal(e.OldValue);
-                            row.SetColumnError("cantidad", "No se puede facturar una cantidad mayor al inventario actual!");
-                        }
-                        else
-                        {
-                            row.ClearErrors();
-                        }
+                        //if(row.cantidad > row.inventario)
+                        //{
+                        //    //row.cantidad = dp.ValidateNumberDecimal(e.OldValue);
+                        //    row.SetColumnError("cantidad", "No se puede facturar una cantidad mayor al inventario actual!");
+                        //}
+                        //else
+                        //{
+                        //    row.ClearErrors();
+                        //}
                     }
-                    txtScanProducto.Focus();
+                    //txtScanProducto.Focus();
                     break;
                 case "descuento":
                     decimal vDescuento = dp.ValidateNumberDecimal(e.Value);
@@ -2815,10 +2815,10 @@ namespace Eatery.Ventas
             //if (TipoFacturacionActual == TipoFacturacionStock.VentaUsados)
             //    isUsados = true;
 
-            frmElejirAlmacenPedidoOutStok frm = new frmElejirAlmacenPedidoOutStok(row.id_pt, row.itemcode + " - " +
-                                                                              row.itemname, row.cantidad, ListaActual,
-                                                                              row.descuento, row.precio, row.id_presentacion,
-                                                                              row.itemcode, row.itemname, row.isv1, row.descuento_porcentaje, isUsados);
+            frmVerStockPorAlmacen frm = new frmVerStockPorAlmacen(row.id_pt, row.itemcode + " - " +
+                                                                                  row.itemname, row.cantidad, ListaActual,
+                                                                                  row.descuento, row.precio, row.id_presentacion,
+                                                                                  row.itemcode, row.itemname, row.isv1, row.descuento_porcentaje, isUsados);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 row.inventario_seleccionado = row.cantidad = AgregarDetalleInventarioSeleccionadoList(frm.ListaSeleccionAlmacen, row.id_pt);
