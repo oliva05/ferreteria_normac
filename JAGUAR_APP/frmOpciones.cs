@@ -5978,6 +5978,7 @@ namespace JAGUAR_PRO
             {
                 //AFC_ConsumoReal
                 bool accesoprevio = false;
+                bool AccesoAdmin = false;
                 int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
                 switch (idNivel)
                 {
@@ -5991,8 +5992,8 @@ namespace JAGUAR_PRO
                         break;
                     case 4://Depth With Delta
                     case 5://Depth Without Delta
-                        accesoprevio = true;
-                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
+                        AccesoAdmin = accesoprevio = true;
+                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1, AccesoAdmin);
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
@@ -6007,7 +6008,7 @@ namespace JAGUAR_PRO
                     if (UsuarioLogeado.ValidarNivelPermisos(5))
                     {
                         //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
-                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
+                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1, AccesoAdmin);
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();

@@ -2883,17 +2883,17 @@ namespace Eatery.Ventas
             }
 
             //Validar disponibilidad de Inventario si el punto de venta lo tiene configurado
-            //if (PuntoDeVentaActual.BloqueoPorFaltaStock)
-            //{
-            //    foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
-            //    {
-            //        if (row.inventario < row.cantidad)
-            //        {
-            //            SetErrorBarra("Esta intentando generar un pedido con un producto con menor existencia en Inventario!");
-            //            return;
-            //        }
-            //    }
-            //}
+            if (PuntoDeVentaActual.BloqueoPorFaltaStock)
+            {
+                foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
+                {
+                    if (row.inventario < row.cantidad)
+                    {
+                        SetErrorBarra("Esta intentando generar un pedido con un producto con menor existencia en Inventario!");
+                        return;
+                    }
+                }
+            }
 
             if (ckConfirmarPedido.Checked)
             {

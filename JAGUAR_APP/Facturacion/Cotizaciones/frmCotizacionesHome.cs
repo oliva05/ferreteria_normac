@@ -1,22 +1,24 @@
-﻿using DevExpress.XtraEditors;
+﻿using ACS.Classes;
+using DevExpress.DashboardCommon;
+using DevExpress.DataAccess.ObjectBinding;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Despachos.Pedidos;
+using JAGUAR_PRO.Facturacion.Cotizaciones;
+using JAGUAR_PRO.Facturacion.Reportes;
+using JAGUAR_PRO.Utileria;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JAGUAR_PRO.Facturacion.Cotizaciones;
-using JAGUAR_PRO.Clases;
-using System.Data.SqlClient;
-using ACS.Classes;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraReports.UI;
-using DevExpress.DataAccess.ObjectBinding;
-using DevExpress.DashboardCommon;
-using JAGUAR_PRO.Utileria;
 
 namespace JAGUAR_PRO.Facturacion.Cotizaciones
 {
@@ -27,10 +29,12 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
         UserLogin UsuarioLogeado;
         int PuntoVentaId;
         Vendedor VendedorActual;
+        bool AccesoAdmin;
 
-        public frmCotizacionesHome(UserLogin userLogin, PDV ppuntoventa)
+        public frmCotizacionesHome(UserLogin userLogin, PDV ppuntoventa, bool pAccesoAdmin)
         {
             InitializeComponent();
+            AccesoAdmin = pAccesoAdmin;
             UsuarioLogeado = userLogin;
             PuntoVentaActual = ppuntoventa;
             DateTime FechaActual = dp.dNow();
@@ -41,14 +45,34 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
 
         private void LoadData()
         {
-            if (VendedorActual == null)
+            int IdVendedor = 0;
+            if (!AccesoAdmin)
             {
-                return;
+                if (VendedorActual == null)
+                {
+                    CajaDialogo.Error("Es necesario cargar un vendedor!");
+                    return;
+                }
+                else
+                {
+                    IdVendedor = VendedorActual.Id;
+                }
             }
-            if (VendedorActual.Id == 0) 
+
+            if (!AccesoAdmin)
             {
-                return;
+                if (VendedorActual.Id == 0)
+                {
+                    CajaDialogo.Error("Es necesario cargar un vendedor!");
+                    return;
+                }
+                else
+                {
+                    IdVendedor = VendedorActual.Id;
+                }
             }
+
+            
 
             try
             {
@@ -60,7 +84,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@desde", dtFechaDesdeDisponibles.DateTime);
                 cmd.Parameters.AddWithValue("@hasta", dtFechaHastaDisponibles.DateTime);
-                cmd.Parameters.AddWithValue("@id_vendedor", VendedorActual.Id);
+                cmd.Parameters.AddWithValue("@id_vendedor", IdVendedor);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsFactCotizacion1.home_cotizaciones.Clear();
                 adat.Fill(dsFactCotizacion1.home_cotizaciones);
@@ -198,6 +222,22 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
                 }
             }
             cmdRefreshDisponibles_Click(sender, e);
+        }
+
+        private void cmdVistaPrevia_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridView = (GridView)gridControl1.FocusedView;
+            var row = (dsFactCotizacion.home_cotizacionesRow)gridView.GetFocusedDataRow();
+
+            if (!row.IsidNull())
+            {
+                rptCotizacionPreFactura report = new rptCotizacionPreFactura(row.id);
+                report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                ReportPrintTool printReport = new ReportPrintTool(report);
+                report.ShowPrintMarginsWarning = false;
+
+                printReport.ShowPreviewDialog();
+            }
         }
     }
 }

@@ -91,7 +91,8 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_get_items_by_filtro_v2", conn);
+                //SqlCommand cmd = new SqlCommand("sp_get_items_by_filtro_v2", conn);
+                SqlCommand cmd = new SqlCommand("sp_get_items_by_filtro_v3", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@filtro", filtro);
                 cmd.Parameters.AddWithValue("@TipoBusqueda", Convert.ToInt32(tipoBusquedaActual));

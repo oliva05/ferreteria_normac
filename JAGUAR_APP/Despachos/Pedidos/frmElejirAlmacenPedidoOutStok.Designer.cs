@@ -39,6 +39,7 @@
             this.colwhs_code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcomprometido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmarca = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldisponible = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dsPedidosClientesV1 = new JAGUAR_PRO.Despachos.Pedidos.dsPedidosClientesV();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblProductoName = new DevExpress.XtraEditors.LabelControl();
@@ -83,7 +84,8 @@
             this.colcantidad_seleccionada,
             this.colwhs_code,
             this.colcomprometido,
-            this.colmarca});
+            this.colmarca,
+            this.coldisponible});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
@@ -125,7 +127,7 @@
             this.colcantidad_seleccionada.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cantidad_seleccionada", "SUM={0:0.##}")});
             this.colcantidad_seleccionada.Visible = true;
-            this.colcantidad_seleccionada.VisibleIndex = 4;
+            this.colcantidad_seleccionada.VisibleIndex = 5;
             this.colcantidad_seleccionada.Width = 127;
             // 
             // colwhs_code
@@ -154,6 +156,16 @@
             this.colmarca.Name = "colmarca";
             this.colmarca.OptionsColumn.ReadOnly = true;
             this.colmarca.Width = 108;
+            // 
+            // coldisponible
+            // 
+            this.coldisponible.FieldName = "disponible";
+            this.coldisponible.Name = "coldisponible";
+            this.coldisponible.OptionsColumn.ReadOnly = true;
+            this.coldisponible.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "disponible", "SUM={0:###,##0.00}")});
+            this.coldisponible.Visible = true;
+            this.coldisponible.VisibleIndex = 4;
             // 
             // dsPedidosClientesV1
             // 
@@ -304,5 +316,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colmarca;
         private DevExpress.XtraEditors.LabelControl lblMarca;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraGrid.Columns.GridColumn coldisponible;
     }
 }

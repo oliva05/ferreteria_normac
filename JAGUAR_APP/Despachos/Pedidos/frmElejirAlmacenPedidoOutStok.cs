@@ -110,7 +110,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 row1.descuento_porcentaje = descuento_porcentaje;
                 row1.precio = precio;
                 row1.isv1 = isv1;
-                row1.cantidad = cant_inv_usados;
+                row1.cantidad = row1.disponible = cant_inv_usados;
                 //row1.cantidad = 0;
                 row1.cantidad_seleccionada = 0;
                 row1.whs_code = "BG002";
@@ -129,7 +129,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                     con.Open();
 
-                    SqlCommand cmd = new SqlCommand("[jaguar_sp_get_cantidad_inv_kardex_pt_for_elejir_stock]", con);
+                    //SqlCommand cmd = new SqlCommand("[jaguar_sp_get_cantidad_inv_kardex_pt_for_elejir_stock]", con);
+                    SqlCommand cmd = new SqlCommand("[jaguar_sp_get_cantidad_inv_kardex_pt_for_elejir_stock_v2]", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@id_pt", IdPT);
                     dsPrefacturas1.stock_por_almacen.Clear();
@@ -158,6 +159,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                         row1.precio = precio;
                         row1.isv1 = isv1;
                         row1.cantidad = 0;
+                        row1.disponible = 0;
                         row1.cantidad_seleccionada = 0;
                         row1.whs_code = null;
                         row1.id_bodega = 0;
@@ -185,11 +187,22 @@ namespace JAGUAR_PRO.Despachos.Pedidos
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
             decimal CantSeleccionada = 0;
-            
-            foreach(dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
+
+            foreach (dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
+            {
+                if(row.cantidad_seleccionada> (row.disponible))
+                {
+                    CajaDialogo.Error("No se puede seleccionar una cantidad mayor a la disponible!");
+                    return;
+                }
+            }
+
+            //Acumulamos la cantidad seleccionada.
+            foreach (dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
             {
                 CantSeleccionada += row.cantidad_seleccionada;
             }
+
 
             if(CantSeleccionada == 0)
             {
@@ -198,6 +211,8 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             }
 
             
+
+
             foreach (dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
             {
                 if (row.cantidad_seleccionada > 0)

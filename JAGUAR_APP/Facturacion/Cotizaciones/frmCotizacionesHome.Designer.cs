@@ -30,6 +30,11 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizacionesHome));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.dsFactCotizacion1 = new JAGUAR_PRO.Facturacion.Cotizaciones.dsFactCotizacion();
             this.cmdSalir = new DevExpress.XtraEditors.SimpleButton();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -56,6 +61,8 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.colRTN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_pedido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPreview = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdVistaPrevia = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdChangeVendedor = new DevExpress.XtraEditors.SimpleButton();
             this.txtAsesorVendedor = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
@@ -66,6 +73,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDesdeDisponibles.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdVistaPrevia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAsesorVendedor.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +89,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.cmdSalir.Appearance.Options.UseFont = true;
             this.cmdSalir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSalir.ImageOptions.Image")));
-            this.cmdSalir.Location = new System.Drawing.Point(679, 41);
+            this.cmdSalir.Location = new System.Drawing.Point(730, 41);
             this.cmdSalir.Name = "cmdSalir";
             this.cmdSalir.Size = new System.Drawing.Size(106, 39);
             this.cmdSalir.TabIndex = 16;
@@ -95,7 +103,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(301, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(185, 23);
+            this.lblTitulo.Size = new System.Drawing.Size(236, 23);
             this.lblTitulo.TabIndex = 17;
             this.lblTitulo.Text = "Cotizaciones";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,7 +116,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.btnExcelAuto.Appearance.Options.UseBackColor = true;
             this.btnExcelAuto.Appearance.Options.UseFont = true;
             this.btnExcelAuto.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelAuto.ImageOptions.Image")));
-            this.btnExcelAuto.Location = new System.Drawing.Point(567, 41);
+            this.btnExcelAuto.Location = new System.Drawing.Point(618, 41);
             this.btnExcelAuto.Name = "btnExcelAuto";
             this.btnExcelAuto.Size = new System.Drawing.Size(106, 39);
             this.btnExcelAuto.TabIndex = 112;
@@ -194,7 +202,9 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.gridControl1.Location = new System.Drawing.Point(6, 111);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(779, 338);
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmdVistaPrevia});
+            this.gridControl1.Size = new System.Drawing.Size(830, 338);
             this.gridControl1.TabIndex = 113;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -216,10 +226,12 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.colcliente_nombre,
             this.colRTN,
             this.colid_pedido,
-            this.coltotal});
+            this.coltotal,
+            this.colPreview});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.OptionsView.ShowFooter = true;
             // 
             // colid
             // 
@@ -233,7 +245,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.colfecha.OptionsColumn.ReadOnly = true;
             this.colfecha.Visible = true;
             this.colfecha.VisibleIndex = 1;
-            this.colfecha.Width = 73;
+            this.colfecha.Width = 70;
             // 
             // colfecha_row
             // 
@@ -252,7 +264,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.coluser_name.OptionsColumn.ReadOnly = true;
             this.coluser_name.Visible = true;
             this.coluser_name.VisibleIndex = 2;
-            this.coluser_name.Width = 91;
+            this.coluser_name.Width = 101;
             // 
             // colcomentario
             // 
@@ -261,7 +273,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.colcomentario.OptionsColumn.ReadOnly = true;
             this.colcomentario.Visible = true;
             this.colcomentario.VisibleIndex = 3;
-            this.colcomentario.Width = 144;
+            this.colcomentario.Width = 135;
             // 
             // colDocNum
             // 
@@ -285,7 +297,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.colNumDoc.OptionsColumn.ReadOnly = true;
             this.colNumDoc.Visible = true;
             this.colNumDoc.VisibleIndex = 0;
-            this.colNumDoc.Width = 85;
+            this.colNumDoc.Width = 82;
             // 
             // coldireccion
             // 
@@ -300,7 +312,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.colcliente_nombre.OptionsColumn.ReadOnly = true;
             this.colcliente_nombre.Visible = true;
             this.colcliente_nombre.VisibleIndex = 4;
-            this.colcliente_nombre.Width = 140;
+            this.colcliente_nombre.Width = 131;
             // 
             // colRTN
             // 
@@ -309,7 +321,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             this.colRTN.OptionsColumn.ReadOnly = true;
             this.colRTN.Visible = true;
             this.colRTN.VisibleIndex = 5;
-            this.colRTN.Width = 111;
+            this.colRTN.Width = 104;
             // 
             // colid_pedido
             // 
@@ -327,7 +339,26 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "SUM={0:#,###,##0.00}")});
             this.coltotal.Visible = true;
             this.coltotal.VisibleIndex = 6;
-            this.coltotal.Width = 108;
+            this.coltotal.Width = 101;
+            // 
+            // colPreview
+            // 
+            this.colPreview.Caption = "Vista Previa";
+            this.colPreview.ColumnEdit = this.cmdVistaPrevia;
+            this.colPreview.Name = "colPreview";
+            this.colPreview.Visible = true;
+            this.colPreview.VisibleIndex = 7;
+            this.colPreview.Width = 79;
+            // 
+            // cmdVistaPrevia
+            // 
+            this.cmdVistaPrevia.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.cmdVistaPrevia.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdVistaPrevia.Name = "cmdVistaPrevia";
+            this.cmdVistaPrevia.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdVistaPrevia.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdVistaPrevia_ButtonClick);
             // 
             // cmdChangeVendedor
             // 
@@ -363,7 +394,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 451);
+            this.ClientSize = new System.Drawing.Size(840, 451);
             this.Controls.Add(this.cmdChangeVendedor);
             this.Controls.Add(this.txtAsesorVendedor);
             this.Controls.Add(this.label10);
@@ -385,6 +416,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDesdeDisponibles.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdVistaPrevia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAsesorVendedor.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -421,5 +453,7 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
         private DevExpress.XtraEditors.SimpleButton cmdChangeVendedor;
         private DevExpress.XtraEditors.TextEdit txtAsesorVendedor;
         private System.Windows.Forms.Label label10;
+        private DevExpress.XtraGrid.Columns.GridColumn colPreview;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdVistaPrevia;
     }
 }
