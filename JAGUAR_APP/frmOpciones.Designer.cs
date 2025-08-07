@@ -364,6 +364,7 @@
             this.navBarItem61 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem196 = new DevExpress.XtraNavBar.NavBarItem();
             this.lblUsuarioLogeado = new DevExpress.XtraEditors.LabelControl();
+            this.navBarCotizaciones = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -1711,16 +1712,10 @@
             // 
             // simpleButton10
             // 
-            this.simpleButton10.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton10.Appearance.Options.UseFont = true;
-            this.simpleButton10.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.ImageOptions.Image")));
-            this.simpleButton10.Location = new System.Drawing.Point(753, 430);
+            this.simpleButton10.Location = new System.Drawing.Point(0, 0);
             this.simpleButton10.Name = "simpleButton10";
-            this.simpleButton10.Size = new System.Drawing.Size(188, 58);
-            this.simpleButton10.TabIndex = 36;
-            this.simpleButton10.Text = "Pagos";
-            this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click_1);
+            this.simpleButton10.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton10.TabIndex = 0;
             // 
             // simpleButton3
             // 
@@ -4000,7 +3995,8 @@
             this.navBarItem59,
             this.navBarItemDepositoBancoCaja,
             this.navFacturacionUsados,
-            this.navBarReporteVentasPorVendedor});
+            this.navBarReporteVentasPorVendedor,
+            this.navBarCotizaciones});
             this.navBarControl3.Location = new System.Drawing.Point(0, 0);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
@@ -4021,6 +4017,7 @@
             this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbPrefactura),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem59),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarCotizaciones),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarFacturaMain),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemFacturasEmitidas),
             new DevExpress.XtraNavBar.NavBarItemLink(this.NBI_Cliente),
@@ -5057,6 +5054,19 @@
             this.lblUsuarioLogeado.TabIndex = 35;
             this.lblUsuarioLogeado.Text = "Usuario: ";
             // 
+            // navBarCotizaciones
+            // 
+            this.navBarCotizaciones.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarCotizaciones.Appearance.Options.UseFont = true;
+            this.navBarCotizaciones.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarCotizaciones.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarCotizaciones.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarCotizaciones.AppearancePressed.Options.UseFont = true;
+            this.navBarCotizaciones.Caption = "Cotizaciones";
+            this.navBarCotizaciones.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarCotizaciones.ImageOptions.SmallImage")));
+            this.navBarCotizaciones.Name = "navBarCotizaciones";
+            this.navBarCotizaciones.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarCotizaciones_LinkClicked_1);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5436,5 +5446,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem209;
         private DevExpress.XtraNavBar.NavBarItem navBarReporteVentasPorVendedor;
         private DevExpress.XtraEditors.SimpleButton simpleButton10;
+        private DevExpress.XtraNavBar.NavBarItem navBarCotizaciones;
     }
 }
