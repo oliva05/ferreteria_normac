@@ -924,7 +924,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
                             cmd.Parameters.AddWithValue("@num_factura", txtNumeroFactura.Text);
                             cmd.Parameters.AddWithValue("@item_code", row.ItemCode);
-                            cmd.Parameters.AddWithValue("@id_bodega", 1);//row.id_bodega);
+                            cmd.Parameters.AddWithValue("@id_bodega", row.id_bodega);//row.id_bodega);
                             cmd.Parameters.AddWithValue("@codigo_proveedor", ProveedorActual.Jaguar_codigo);
                             cmd.Parameters.AddWithValue("@tipo_item", DBNull.Value);
                             cmd.Parameters.AddWithValue("@isv", row.isv);

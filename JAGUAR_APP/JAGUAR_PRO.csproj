@@ -901,6 +901,24 @@
     <Compile Include="Compras\rptOrdenCompra.Designer.cs">
       <DependentUpon>rptOrdenCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmCRUDAnticipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmCRUDAnticipo.Designer.cs">
+      <DependentUpon>frmCRUDAnticipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmMainAnticipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmMainAnticipos.Designer.cs">
+      <DependentUpon>frmMainAnticipos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmSelecAnticipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmSelecAnticipo.Designer.cs">
+      <DependentUpon>frmSelecAnticipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Despachos\dsTransaccionesDespacho.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4162,6 +4180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\rptOrdenCompra.resx">
       <DependentUpon>rptOrdenCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Proveedores\frmCRUDAnticipo.resx">
+      <DependentUpon>frmCRUDAnticipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Proveedores\frmMainAnticipos.resx">
+      <DependentUpon>frmMainAnticipos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\frmentregadeproductoT.resx">
       <DependentUpon>frmentregadeproductoT.cs</DependentUpon>
