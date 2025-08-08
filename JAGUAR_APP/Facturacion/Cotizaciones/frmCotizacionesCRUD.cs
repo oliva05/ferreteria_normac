@@ -2846,41 +2846,6 @@ namespace Eatery.Ventas
                 return;
             }
 
-            //Validar disponibilidad de Inventario si el punto de venta lo tiene configurado
-            if (PuntoDeVentaActual.BloqueoPorFaltaStock)
-            {
-                foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
-                {
-                    if (row.inventario < row.cantidad)
-                    {
-                        SetErrorBarra("Esta intentando generar un pedido con un producto con menor existencia en Inventario!");
-                        return;
-                    }
-                }
-            }
-
-            //if (ckConfirmarPedido.Checked)
-            //{
-            //    bool ItemSinInventario = false;
-            //    foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
-            //    {
-            //        if (row.inventario < row.cantidad)
-            //        {
-            //            ItemSinInventario = true;
-            //            break;
-            //        }
-            //    }
-
-            //    if (ItemSinInventario)
-            //    {
-            //        CajaDialogo.Error("Hay productos que No tienen suficiente invetario.\n" +
-            //                          "Debe eliminar estos productos para poder confirmar la Pre Factura!");
-            //        ckConfirmarPedido.Checked = false;
-            //        return;
-            //    }
-            //}
-
-
             //Valiadmos que se haya elejido un vendedor
             if (VendedorActual == null)
             {
@@ -2894,46 +2859,33 @@ namespace Eatery.Ventas
             }
 
             bool ImprimirFactura = false;
-            Factura facturaGenerada = null;
-
-            //Efectuar que se haga la facturacion en dos pasos, primero la factura y luego el pago
-            //if (PuntoDeVentaActual.EmisionFacturaDosPasos)
-            //{
-            //Factura factura = new Factura();
-            PedidoCliente Pedido_ = new PedidoCliente();
+            CotizacionH CotizacionH1 = new CotizacionH();
 
             if (!string.IsNullOrEmpty(txtRTN.Text))
-                Pedido_.RTN = txtRTN.Text;
+                CotizacionH1.RTN = txtRTN.Text;
 
             if (!string.IsNullOrEmpty(txtNombreCliente.Text))
-                Pedido_.ClienteNombre = txtNombreCliente.Text;
+                CotizacionH1.ClienteNombre = txtNombreCliente.Text;
 
             if (!string.IsNullOrEmpty(txtDireccion.Text))
-                Pedido_.direccion_cliente = txtDireccion.Text;
+                CotizacionH1.Direccion = txtDireccion.Text;
 
             if (ClienteFactura != null)
             {
                 if (ClienteFactura.Id > 0)
                 {
-                    Pedido_.IdCliente = ClienteFactura.Id;
-                    if (PedidoActual != null)
-                    {
-                        Pedido_.IdEmpresa = PedidoActual.IdEmpresa;
-                    }
+                    CotizacionH1.IdCliente = ClienteFactura.Id;
                 }
             }
 
-            Pedido_.FechaDocumento = dp.NowSetDateTime();
+            CotizacionH1.Fecha = dp.NowSetDateTime();
             //1   Emitida
             //2   Pagada
             //3   Anulada
-            Pedido_.IdEstado = 1;//Creado
-            Pedido_.IdUser = this.UsuarioLogeado.Id;
-            Pedido_.IdPuntoVenta = this.PuntoDeVentaActual.ID;
-            Pedido_.Enable = true;
-            int correlativoSiguiente = 0;
-            //int id_numeracion = 0;
-
+            CotizacionH1.IdEstado = 6;//Creado
+            CotizacionH1.IdUser = this.UsuarioLogeado.Id;
+            CotizacionH1.IdPuntoVenta = this.PuntoDeVentaActual.ID;
+            CotizacionH1.Enable = true;
 
             //Vamos por el detalle de lineas para el Pedido y la transaccion
             switch (TipoOperacionActual)
@@ -2958,91 +2910,63 @@ namespace Eatery.Ventas
                         {
                             //Guardamos el Header del Pedido 
                             //command.CommandText = "[dbo].[sp_set_insert_pedido_header]";
-                            command.CommandText = "[dbo].[sp_set_insert_pedido_header_v2]";
+                            command.CommandText = "[dbo].[sp_cotizacion_insert_headerV4]";
                             command.CommandType = CommandType.StoredProcedure;
-                            
-                            //command.Parameters.AddWithValue("@id_user", Pedido_.IdUser);
 
-
-                            command.Parameters.AddWithValue("@fecha_documento", Pedido_.FechaDocumento);
-
-                            if (Pedido_.IdCliente == 0)
-                                command.Parameters.AddWithValue("@id_cliente", DBNull.Value);
-                            else
-                                command.Parameters.AddWithValue("@id_cliente", Pedido_.IdCliente);
-
-                            if(Pedido_.IdEmpresa == 0)
-                                command.Parameters.AddWithValue("@id_cliente_empresa", DBNull.Value);
-                            else
-                                command.Parameters.AddWithValue("@id_cliente_empresa", Pedido_.IdEmpresa);
-
-                            if (string.IsNullOrEmpty(Pedido_.RTN))
-                                command.Parameters.AddWithValue("@RTN", DBNull.Value);
-                            else
-                                command.Parameters.AddWithValue("@RTN", Pedido_.RTN);
-
-                            command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
-                            command.Parameters.AddWithValue("@cliente_nombre", Pedido_.ClienteNombre);
-
-                            if (string.IsNullOrEmpty(Pedido_.direccion_cliente))
-                                command.Parameters.AddWithValue("@direccion", DBNull.Value);
-                            else
-                                command.Parameters.AddWithValue("@direccion", Pedido_.direccion_cliente);
-
-                            if (string.IsNullOrEmpty(txtComentario.Text))
-                                command.Parameters.AddWithValue("@comentario", DBNull.Value);
-                            else
-                                command.Parameters.AddWithValue("@comentario", txtComentario.Text);
-
-
-
-                            command.Parameters.AddWithValue("@fecha_entrega_estimada", dtFechaEntrega.DateTime);
-
+                            //command.Parameters.AddWithValue("@id_user", CotizacionH1.IdUser);
+                            int IdVendedorForInsert = 0;
                             if (VendedorActual != null)
                             {
                                 if (VendedorActual.Id > 0)
                                 {
-                                    command.Parameters.AddWithValue("@id_vendedor", VendedorActual.Id);
+                                    //command.Parameters.AddWithValue("@id_vendedor", VendedorActual.Id);
+                                    IdVendedorForInsert = VendedorActual.Id;
                                     command.Parameters.AddWithValue("@id_user", VendedorActual.Id);
                                 }
                                 else
                                 {
-                                    command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
+                                    //command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
                                     command.Parameters.AddWithValue("@id_user", DBNull.Value);
                                 }
                             }
                             else
                             {
-                                command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
+                                //command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
                                 command.Parameters.AddWithValue("@id_user", DBNull.Value);
                             }
-
-
-                            int _id_estado = 6;//Nuevo
-
-                            //if (ckConfirmarPedido.Checked)
-                            //    _id_estado = 1;//Confirmado 
-
-                            command.Parameters.AddWithValue("@id_estado", _id_estado);
-                            command.Parameters.AddWithValue("@id_termino_pago", IdTerminoPago);
-
-                            int tipo_factura = 1;
-                            //if (TipoFacturacionActual == TipoFacturacionStock.VentaNormal)
-                            //    tipo_factura = 1;
-                            //else
-                            //    tipo_factura = 2;
-                            
-                            if(tipo_factura == 0)
-                                command.Parameters.AddWithValue("@id_tipo_factura", 1);
+                            command.Parameters.AddWithValue("@fecha", CotizacionH1.Fecha);
+                            if (string.IsNullOrEmpty(txtComentario.Text))
+                                command.Parameters.AddWithValue("@comentario", DBNull.Value);
                             else
-                                command.Parameters.AddWithValue("@id_tipo_factura", tipo_factura);
+                                command.Parameters.AddWithValue("@comentario", txtComentario.Text);
+                            
+                            if (CotizacionH1.IdCliente == 0)
+                                command.Parameters.AddWithValue("@id_cliente", DBNull.Value);
+                            else
+                                command.Parameters.AddWithValue("@id_cliente", CotizacionH1.IdCliente);
 
-                            Int64 IdPedidoH = Convert.ToInt64(command.ExecuteScalar());
+                            if (string.IsNullOrEmpty(CotizacionH1.Direccion))
+                                command.Parameters.AddWithValue("@direccion", DBNull.Value);
+                            else
+                                command.Parameters.AddWithValue("@direccion", CotizacionH1.Direccion);
+
+                            command.Parameters.AddWithValue("@cliente_nombre", CotizacionH1.ClienteNombre);
+
+                            if (string.IsNullOrEmpty(CotizacionH1.RTN))
+                                command.Parameters.AddWithValue("@RTN", DBNull.Value);
+                            else
+                                command.Parameters.AddWithValue("@RTN", CotizacionH1.RTN);
+
+                            command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
+
+                            
+
+                            Int64 IdCotizacionH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
-                            Pedido_.Id = IdPedidoH;
+                            CotizacionH1.Id = IdCotizacionH;
 
                             //Posteamos lineas de la pre factura 
-                            foreach (dsVentas.detalle_factura_transaccion_invRow row in dsVentas1.detalle_factura_transaccion_inv)
+                            foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
                             {
                                 decimal descuentoLinea = 0;
                                 decimal descuentoPorcentaje = 0;
@@ -3057,28 +2981,21 @@ namespace Eatery.Ventas
 
                                 if (row.cantidad > 0)
                                 {
-                                    command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
+                                    command.CommandText = "dbo.[sp_InsertCotizacionDetalle]";
                                     command.Parameters.Clear();
                                     command.CommandType = CommandType.StoredProcedure;
-                                    command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
+                                    command.Parameters.AddWithValue("@id_h", IdCotizacionH);
                                     command.Parameters.AddWithValue("@id_pt", row.id_pt);
-                                    command.Parameters.AddWithValue("@item_code", row.item_code);
-                                    command.Parameters.AddWithValue("@descripcion", row.descripcion);
+                                    //command.Parameters.AddWithValue("@item_code", row.item_code);
                                     command.Parameters.AddWithValue("@cantidad", row.cantidad);
+                                    command.Parameters.AddWithValue("@id_presentacion_pt", row.id_presentacion);
                                     command.Parameters.AddWithValue("@precio", row.precio);
-                                    command.Parameters.AddWithValue("@descuento", descuentoLinea);
-                                    command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
-                                    command.Parameters.AddWithValue("@fecha_hora_row", Pedido_.FechaDocumento);
-                                    command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
-                                    command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
-
-                                    if (row.id_bodega == 0)
-                                        command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
-                                    else
-                                        command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
-
+                                    command.Parameters.AddWithValue("@id_user", IdVendedorForInsert);
+                                    command.Parameters.AddWithValue("@descripcion", row.itemname);
                                     command.Parameters.AddWithValue("@isv", row.isv1);
-                                    command.Parameters.AddWithValue("@descuento_porcentaje", descuentoPorcentaje);
+
+                                    command.Parameters.AddWithValue("@descuento", descuentoLinea);
+                                    //command.Parameters.AddWithValue("@descuento_porcentaje", descuentoPorcentaje);
 
                                     if (!row.IsmarcaNull())
                                     {
@@ -3095,94 +3012,13 @@ namespace Eatery.Ventas
                                     {
                                         command.Parameters.AddWithValue("@marca", DBNull.Value);
                                     }
-                                        
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }
 
-                                
-                                //if (idPedidoDetalle > 0)
-                                //{
-                                //    //Guardamos la distribucion por almacen de cada detalle de la prefactura 
-                                //    foreach (dsVentas.detalle_factura_transaccion_invRow rowA in dsVentas1.detalle_factura_transaccion_inv)
-                                //    {
-                                //        command.CommandText = "dbo.[sp_set_insert_detalle_cantidad_requerida_por_almacen_pre_factura]";
-                                //        command.Parameters.Clear();
-                                //        command.CommandType = CommandType.StoredProcedure;
-                                //        command.Parameters.AddWithValue("@id_pedido_d", idPedidoDetalle);
-                                //        command.Parameters.AddWithValue("@id_almacen", rowA.id_bodega);
-                                //        command.Parameters.AddWithValue("@cantidad", rowA.cantidad);
-                                //        command.ExecuteNonQuery();
-                                //    }
-                                //}
 
                                 TotalFactura += (row.cantidad * row.precio) - row.descuento;
                             }
-
-
-                            //if (ckGenerarCotizacion.Checked)
-                            //{
-                            //    //SqlCommand cmd = new SqlCommand("[dbo].[sp_InsertCotizacion]", con);
-                            //    command.Parameters.Clear();
-                            //    command.CommandText = "[dbo].[sp_InsertCotizacion]";
-                            //    command.CommandType = CommandType.StoredProcedure;
-                            //    command.Parameters.AddWithValue("@id_pedido", IdPedidoH);
-                            //    command.Parameters.AddWithValue("@id_user", VendedorActual.Id);
-                            //    command.ExecuteScalar();
-                            //}
-
-
-
-                            ////Vamos a postear transaccion en estado de cuenta de cliente
-                            //if (Pedido_.IdCliente > 0)
-                            //{
-                            //    command.CommandText = "dbo.[sp_set_insert_estado_cuenta_cliente_v6]";
-                            //    command.CommandType = CommandType.StoredProcedure;
-                            //    command.Parameters.Clear();
-                            //    command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
-                            //    command.Parameters.AddWithValue("@enable", 1);
-                            //    command.Parameters.AddWithValue("@credito", 0);//Abonos
-                            //    command.Parameters.AddWithValue("@debito", TotalFactura);//cargos
-                            //    command.Parameters.AddWithValue("@concepto", string.Concat("Por Pedido #", Pedido_.NumeroDocumento));
-                            //    command.Parameters.AddWithValue("@doc_date", Pedido_.FechaDocumento);
-                            //    command.Parameters.AddWithValue("@date_created", Pedido_.FechaDocumento);
-                            //    command.Parameters.AddWithValue("@id_user_created", this.UsuarioLogeado.Id);
-                            //    command.Parameters.AddWithValue("@id_cliente", Pedido_.IdCliente);
-                            //    command.ExecuteNonQuery();
-
-                            //    if (IdTerminoPago == 1)//Contado
-                            //    {
-                            //        command.CommandText = "dbo.[sp_set_insert_estado_cuenta_cliente_v7]";
-                            //        command.CommandType = CommandType.StoredProcedure;
-                            //        command.Parameters.Clear();
-                            //        command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
-                            //        command.Parameters.AddWithValue("@enable", 1);
-                            //        command.Parameters.AddWithValue("@credito", TotalFactura);//Abonos
-                            //        command.Parameters.AddWithValue("@debito", 0);//cargos
-                            //        command.Parameters.AddWithValue("@concepto", string.Concat("Pago de Pedido #", Pedido_.NumeroDocumento));
-                            //        command.Parameters.AddWithValue("@doc_date", Pedido_.FechaDocumento);
-                            //        command.Parameters.AddWithValue("@date_created", Pedido_.FechaDocumento);
-                            //        command.Parameters.AddWithValue("@id_user_created", this.UsuarioLogeado.Id);
-                            //        command.Parameters.AddWithValue("@id_cliente", Pedido_.IdCliente);
-
-                            //        if (dp.ValidateNumberInt32(gleBanco.EditValue) == 0)
-                            //            command.Parameters.AddWithValue("@id_cuenta_banco", DBNull.Value);
-                            //        else
-                            //            command.Parameters.AddWithValue("@id_cuenta_banco", Pedido_.IdCliente);
-
-                            //        if (string.IsNullOrEmpty(txtReferenciaPago.Text))
-                            //            command.Parameters.AddWithValue("@referencia", DBNull.Value);
-                            //        else
-                            //            command.Parameters.AddWithValue("@referencia", Pedido_.IdCliente);
-
-                            //        command.ExecuteNonQuery();
-                            //    }
-                            //    //else
-                            //    //{
-                            //    //    //Crédito
-
-                            //    //}
-                            //}
 
                             // Attempt to commit the transaction.
                             transaction.Commit();
@@ -3214,228 +3050,181 @@ namespace Eatery.Ventas
                     }
                     break;
                 case TipoOperacionSQL.Update:
-                    using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
-                    {
-                        connection.Open();
+                    //using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                    //{
+                    //    connection.Open();
 
-                        SqlCommand command = connection.CreateCommand();
-                        SqlTransaction transaction;
+                    //    SqlCommand command = connection.CreateCommand();
+                    //    SqlTransaction transaction;
 
-                        // Start a local transaction.
-                        transaction = connection.BeginTransaction("SampleTransaction");
+                    //    // Start a local transaction.
+                    //    transaction = connection.BeginTransaction("SampleTransaction");
 
-                        // Must assign both transaction object and connection
-                        // to Command object for a pending local transaction
-                        command.Connection = connection;
-                        command.Transaction = transaction;
+                    //    // Must assign both transaction object and connection
+                    //    // to Command object for a pending local transaction
+                    //    command.Connection = connection;
+                    //    command.Transaction = transaction;
 
-                        try
-                        {
-                            //Guardamos el Header del Pedido 
-                            command.CommandText = "[dbo].[sp_set_update_pedido_header]";
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.AddWithValue("@id_user", Pedido_.IdUser);
-                            command.Parameters.AddWithValue("@fecha_documento", Pedido_.FechaDocumento);
+                    //    try
+                    //    {
+                    //        //Guardamos el Header del Pedido 
+                    //        command.CommandText = "[dbo].[sp_set_update_pedido_header]";
+                    //        command.CommandType = CommandType.StoredProcedure;
+                    //        command.Parameters.AddWithValue("@id_user", CotizacionH1.IdUser);
+                    //        command.Parameters.AddWithValue("@fecha_documento", CotizacionH1.Fecha);
 
-                            if (Pedido_.IdCliente == 0)
-                                command.Parameters.AddWithValue("@id_cliente", DBNull.Value);
-                            else
-                                command.Parameters.AddWithValue("@id_cliente", Pedido_.IdCliente);
+                    //        if (CotizacionH1.IdCliente == 0)
+                    //            command.Parameters.AddWithValue("@id_cliente", DBNull.Value);
+                    //        else
+                    //            command.Parameters.AddWithValue("@id_cliente", CotizacionH1.IdCliente);
 
-                            if (Pedido_.IdEmpresa == 0)
-                                command.Parameters.AddWithValue("@id_cliente_empresa", DBNull.Value);
-                            else
-                                command.Parameters.AddWithValue("@id_cliente_empresa", Pedido_.IdEmpresa);
 
-                            if (string.IsNullOrEmpty(Pedido_.RTN))
-                                command.Parameters.AddWithValue("@RTN", DBNull.Value);
-                            else
-                                command.Parameters.AddWithValue("@RTN", Pedido_.RTN);
+                    //        command.Parameters.AddWithValue("@id_cliente_empresa", DBNull.Value);
 
-                            command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
-                            command.Parameters.AddWithValue("@cliente_nombre", Pedido_.ClienteNombre);
+                    //        if (string.IsNullOrEmpty(CotizacionH1.RTN))
+                    //            command.Parameters.AddWithValue("@RTN", DBNull.Value);
+                    //        else
+                    //            command.Parameters.AddWithValue("@RTN", CotizacionH1.RTN);
 
-                            if (string.IsNullOrEmpty(Pedido_.RTN))
-                                command.Parameters.AddWithValue("@direccion", DBNull.Value);
-                            else
-                                command.Parameters.AddWithValue("@direccion", Pedido_.direccion_cliente);
+                    //        command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
+                    //        command.Parameters.AddWithValue("@cliente_nombre", CotizacionH1.ClienteNombre);
 
-                            if (string.IsNullOrEmpty(txtComentario.Text))
-                                command.Parameters.AddWithValue("@comentario", DBNull.Value);
-                            else
-                                command.Parameters.AddWithValue("@comentario", txtComentario.Text);
+                    //        if (string.IsNullOrEmpty(CotizacionH1.RTN))
+                    //            command.Parameters.AddWithValue("@direccion", DBNull.Value);
+                    //        else
+                    //            command.Parameters.AddWithValue("@direccion", CotizacionH1.RTN);
+
+                    //        if (string.IsNullOrEmpty(txtComentario.Text))
+                    //            command.Parameters.AddWithValue("@comentario", DBNull.Value);
+                    //        else
+                    //            command.Parameters.AddWithValue("@comentario", txtComentario.Text);
 
 
 
-                            command.Parameters.AddWithValue("@fecha_entrega_estimada", dtFechaEntrega.DateTime);
-                            if (VendedorActual != null)
-                            {
-                                if (VendedorActual.Id > 0)
-                                    command.Parameters.AddWithValue("@id_vendedor", VendedorActual.Id);
-                                else
-                                    command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
-                            }
-                            else
-                            {
-                                command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
-                            }
+                    //        command.Parameters.AddWithValue("@fecha_entrega_estimada", dtFechaEntrega.DateTime);
+                    //        if (VendedorActual != null)
+                    //        {
+                    //            if (VendedorActual.Id > 0)
+                    //                command.Parameters.AddWithValue("@id_vendedor", VendedorActual.Id);
+                    //            else
+                    //                command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
+                    //        }
+                    //        else
+                    //        {
+                    //            command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
+                    //        }
 
-                            command.Parameters.AddWithValue("@id_h", PedidoActual.Id);
-                            command.Parameters.AddWithValue("@id_termino_pago", IdTerminoPago);
+                    //        command.Parameters.AddWithValue("@id_h", PedidoActual.Id);
+                    //        command.Parameters.AddWithValue("@id_termino_pago", IdTerminoPago);
 
-                            Int64 IdPedidoH = Convert.ToInt64(command.ExecuteScalar());
-                            decimal TotalFactura = 0;
-                            Pedido_.Id = IdPedidoH;
+                    //        Int64 IdPedidoH = Convert.ToInt64(command.ExecuteScalar());
+                    //        decimal TotalFactura = 0;
+                    //        CotizacionH1.Id = IdPedidoH;
 
 
-                            //Limpiamos las lineas de detalle
-                            command.CommandText = "dbo.[sp_set_clean_pedido_cliente_lineas]";
-                            command.Parameters.Clear();
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
-                            command.ExecuteNonQuery();
+                    //        //Limpiamos las lineas de detalle
+                    //        command.CommandText = "dbo.[sp_set_clean_pedido_cliente_lineas]";
+                    //        command.Parameters.Clear();
+                    //        command.CommandType = CommandType.StoredProcedure;
+                    //        command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
+                    //        command.ExecuteNonQuery();
 
-                            //Posteamos lineas de la pre factura 
-                            foreach (dsVentas.detalle_factura_transaccion_invRow row in dsVentas1.detalle_factura_transaccion_inv)
-                            {
-                                Int64 idPedidoDetalle = 0;
-                                if (row.cantidad > 0)
-                                {
-                                    command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
-                                    command.Parameters.Clear();
-                                    command.CommandType = CommandType.StoredProcedure;
-                                    command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
-                                    command.Parameters.AddWithValue("@id_pt", row.id_pt);
-                                    command.Parameters.AddWithValue("@item_code", row.item_code);
-                                    command.Parameters.AddWithValue("@descripcion", row.descripcion);
-                                    command.Parameters.AddWithValue("@cantidad", row.cantidad);
-                                    command.Parameters.AddWithValue("@precio", row.precio);
-                                    command.Parameters.AddWithValue("@descuento", row.descuento);
-                                    command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
-                                    command.Parameters.AddWithValue("@fecha_hora_row", Pedido_.FechaDocumento);
-                                    command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
-                                    command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
+                    //        //Posteamos lineas de la pre factura 
+                    //        foreach (dsVentas.detalle_factura_transaccion_invRow row in dsVentas1.detalle_factura_transaccion_inv)
+                    //        {
+                    //            Int64 idPedidoDetalle = 0;
+                    //            if (row.cantidad > 0)
+                    //            {
+                    //                command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
+                    //                command.Parameters.Clear();
+                    //                command.CommandType = CommandType.StoredProcedure;
+                    //                command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
+                    //                command.Parameters.AddWithValue("@id_pt", row.id_pt);
+                    //                command.Parameters.AddWithValue("@item_code", row.item_code);
+                    //                command.Parameters.AddWithValue("@descripcion", row.descripcion);
+                    //                command.Parameters.AddWithValue("@cantidad", row.cantidad);
+                    //                command.Parameters.AddWithValue("@precio", row.precio);
+                    //                command.Parameters.AddWithValue("@descuento", row.descuento);
+                    //                command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
+                    //                command.Parameters.AddWithValue("@fecha_hora_row", CotizacionH1.Fecha);
+                    //                command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                    //                command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
 
-                                    //command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
-                                    if (row.Isid_bodegaNull())
-                                    {
-                                        command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
-                                    }
-                                    else
-                                    {
-                                        if (row.id_bodega == 0)
-                                            command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
-                                        else
-                                            command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
-                                    }
+                    //                //command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                    //                if (row.Isid_bodegaNull())
+                    //                {
+                    //                    command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                    //                }
+                    //                else
+                    //                {
+                    //                    if (row.id_bodega == 0)
+                    //                        command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                    //                    else
+                    //                        command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                    //                }
                                     
 
-                                    command.Parameters.AddWithValue("@isv", row.isv1);
+                    //                command.Parameters.AddWithValue("@isv", row.isv1);
 
-                                    if(row.Isdescuento_porcentajeNull())
-                                        command.Parameters.AddWithValue("@descuento_porcentaje", 0);
-                                    else
-                                        command.Parameters.AddWithValue("@descuento_porcentaje", dp.ValidateNumberDecimal(row.descuento_porcentaje));
+                    //                if(row.Isdescuento_porcentajeNull())
+                    //                    command.Parameters.AddWithValue("@descuento_porcentaje", 0);
+                    //                else
+                    //                    command.Parameters.AddWithValue("@descuento_porcentaje", dp.ValidateNumberDecimal(row.descuento_porcentaje));
 
-                                    if (!row.IsmarcaNull())
-                                    {
-                                        if (!string.IsNullOrEmpty(row.marca))
-                                        {
-                                            command.Parameters.AddWithValue("@marca", row.marca);
-                                        }
-                                        else
-                                        {
-                                            command.Parameters.AddWithValue("@marca", DBNull.Value);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        command.Parameters.AddWithValue("@marca", DBNull.Value);
-                                    }
+                    //                if (!row.IsmarcaNull())
+                    //                {
+                    //                    if (!string.IsNullOrEmpty(row.marca))
+                    //                    {
+                    //                        command.Parameters.AddWithValue("@marca", row.marca);
+                    //                    }
+                    //                    else
+                    //                    {
+                    //                        command.Parameters.AddWithValue("@marca", DBNull.Value);
+                    //                    }
+                    //                }
+                    //                else
+                    //                {
+                    //                    command.Parameters.AddWithValue("@marca", DBNull.Value);
+                    //                }
 
-                                    idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
-                                }
+                    //                idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
+                    //            }
 
-                                TotalFactura += (row.cantidad * row.precio) - row.descuento;
-                            }
+                    //            TotalFactura += (row.cantidad * row.precio) - row.descuento;
+                    //        }
 
-                            // Attempt to commit the transaction.
-                            transaction.Commit();
+                    //        // Attempt to commit the transaction.
+                    //        transaction.Commit();
 
-                            SetInformationBarra("Pre Factura Generada con Exito!");
-                            dsVentas1.detalle_factura_transaccion_inv.Clear();
-                            ImprimirFactura = true;
-                            //facturaGenerada = Pedido_;
+                    //        SetInformationBarra("Cotización Generada con Exito!");
+                    //        dsVentas1.detalle_factura_transaccion_inv.Clear();
+                    //        ImprimirFactura = true;
+                    //        //facturaGenerada = Pedido_;
 
-                            //Limpiar Datos
-                            dsVentas1.detalle_factura_transaction.Clear();
-                            ClienteFactura = new ClienteFacturacion();
-                            //cmdConsumidorFinal_Click(sender, e);
-                            cmdNew_Click(sender, e);
+                    //        //Limpiar Datos
+                    //        dsVentas1.detalle_factura_transaction.Clear();
+                    //        ClienteFactura = new ClienteFacturacion();
+                    //        //cmdConsumidorFinal_Click(sender, e);
+                    //        cmdNew_Click(sender, e);
 
-                        }
-                        catch (Exception ex)
-                        {
-                            // Attempt to roll back the transaction.
-                            try
-                            {
-                                transaction.Rollback();
-                                CajaDialogo.Error(ex.Message);
-                            }
-                            catch (Exception ex2)
-                            {
-                                CajaDialogo.Error(ex2.Message);
-                            }
-                        }
-                    }
+                    //    }
+                    //    catch (Exception ex)
+                    //    {
+                    //        // Attempt to roll back the transaction.
+                    //        try
+                    //        {
+                    //            transaction.Rollback();
+                    //            CajaDialogo.Error(ex.Message);
+                    //        }
+                    //        catch (Exception ex2)
+                    //        {
+                    //            CajaDialogo.Error(ex2.Message);
+                    //        }
+                    //    }
+                    //}
 
                     break;
             }
-
-
-
-
-            //if (ImprimirFactura)
-            //{
-            //    //rptFactura
-            //    if (facturaGenerada != null)
-            //    {
-            //        if (facturaGenerada.RecuperarRegistro(facturaGenerada.Id))
-            //        {
-            //            if (!string.IsNullOrEmpty(facturaGenerada.NumeroDocumento))
-            //            {
-            //                if (facturaGenerada.Id > 0)
-            //                {
-            //                    if (facturaGenerada.RecuperarRegistro(facturaGenerada.Id))
-            //                    {
-            //                        switch (PuntoDeVentaActual.IdFormatoFactura)
-            //                        {
-            //                            case 1://3.5 pulg. cinta
-            //                                rptFactura report = new rptFactura(facturaGenerada, rptFactura.TipoCopia.Blanco) { ShowPrintMarginsWarning = false };
-            //                                report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
-            //                                ReportPrintTool printReport = new ReportPrintTool(report);
-            //                                //printReport.ShowPreviewDialog();
-            //                                printReport.PrinterSettings.Copies = Convert.ToInt16(PuntoDeVentaActual.Cantidad_copiasFactura);
-            //                                printReport.Print();
-            //                                facturaGenerada.UpdatePrintCount(facturaGenerada.Id);
-            //                                break;
-            //                            case 2://8x11.5 pulg. Carta
-            //                            default:
-            //                                rptFacturaLetterSize reportLetter = new rptFacturaLetterSize(facturaGenerada, rptFacturaLetterSize.TipoCopia.Blanco) { ShowPrintMarginsWarning = false };
-            //                                reportLetter.PrintingSystem.Document.AutoFitToPagesWidth = 1;
-            //                                ReportPrintTool printReportLetter = new ReportPrintTool(reportLetter);
-            //                                //printReport.ShowPreviewDialog();
-            //                                printReportLetter.PrinterSettings.Copies = Convert.ToInt16(PuntoDeVentaActual.Cantidad_copiasFactura);
-            //                                printReportLetter.Print();
-            //                                facturaGenerada.UpdatePrintCount(facturaGenerada.Id);
-            //                                break;
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //        }
-            //    }
-            //}//if (ImprimirFactura)
         }
 
         private void gleTipoPago_EditValueChanged(object sender, EventArgs e)
