@@ -359,6 +359,7 @@
             // 
             // txtMontoPagar
             // 
+            this.txtMontoPagar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtMontoPagar.Location = new System.Drawing.Point(534, 104);
             this.txtMontoPagar.Name = "txtMontoPagar";
             this.txtMontoPagar.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
@@ -384,6 +385,7 @@
             // 
             // grdTipoPago
             // 
+            this.grdTipoPago.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.grdTipoPago.Location = new System.Drawing.Point(534, 66);
             this.grdTipoPago.Name = "grdTipoPago";
             this.grdTipoPago.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
@@ -439,6 +441,7 @@
             // 
             // txtObs
             // 
+            this.txtObs.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtObs.Location = new System.Drawing.Point(534, 140);
             this.txtObs.Name = "txtObs";
             this.txtObs.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);

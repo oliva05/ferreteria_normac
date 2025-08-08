@@ -36,7 +36,8 @@ namespace JAGUAR_PRO.Compras
         public enum TipoOperacion
         {
             New = 1,
-            Update = 2
+            Update = 2,
+            View = 3
         }
 
         public frmOrdenesCompraMain(UserLogin pUserLog, TipoOperacion ptipo, PDV pPuntoDeVentaActual)
@@ -67,6 +68,61 @@ namespace JAGUAR_PRO.Compras
             ValidarAccesosSegunUsuario();
    
 
+        }
+
+        public frmOrdenesCompraMain(UserLogin pUserLog, TipoOperacion ptipo, PDV pPuntoDeVentaActual, int pIdOrdenCompra)
+        {
+            InitializeComponent();
+            UsuarioLogueado = pUserLog;
+            this.PuntoDeVentaActual = pPuntoDeVentaActual;
+            PuntoVentaID = PuntoDeVentaActual.ID;
+            LoadSucursales();
+            grdSucursales.EditValue = PuntoVentaID;
+            tipooperacion = ptipo;
+            IdOrdenCompraActual = pIdOrdenCompra;
+
+            switch (tipooperacion)
+            {
+                case TipoOperacion.New:
+
+                    txtUsuarioCreador.Text = UsuarioLogueado.Nombre;
+                    //GetSigID();
+                    txtEstado.Text = "Nueva";
+                    cmdNuevo.Enabled = false;
+                    break;
+                case TipoOperacion.Update:
+                    break;
+
+                case TipoOperacion.View:
+                    CargarInfoOrden(IdOrdenCompraActual);
+                    FuncionSoloVista();
+                    break;
+                default:
+                    break;
+            }
+
+            ValidarAccesosSegunUsuario();
+
+
+        }
+
+        private void FuncionSoloVista()
+        {
+            cmdNuevo.Enabled = false;
+            cmdAnterior.Enabled = false;
+            cmdSiguiente.Enabled = false;
+            cmdBuscar.Enabled = false;
+            cmdGuardar.Enabled = false;
+            cmdAddDetalle.Enabled = false;
+            txtCodProv.Enabled = false;
+            txtComentarios.ReadOnly = true;
+            grdvDetalle.OptionsBehavior.Editable = false;
+            grdvDetalle.OptionsBehavior.ReadOnly = true;
+            grdvDetalle.OptionsMenu.EnableColumnMenu = false;
+
+            dtFechaContabilizacion.Enabled = false;
+            dtFechaContabilizacion.Enabled = false;
+            grdSucursales.Enabled = false;
         }
 
         private void ValidarAccesosSegunUsuario()

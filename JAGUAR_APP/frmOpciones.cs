@@ -19,6 +19,7 @@ using JAGUAR_PRO.AlmacenesExterno.Salida_Almacen;
 using JAGUAR_PRO.BancosYTitulares;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
+using JAGUAR_PRO.Contabilidad.Proveedores;
 using JAGUAR_PRO.Despachos;
 using JAGUAR_PRO.Despachos.Pedidos;
 using JAGUAR_PRO.Facturacion.Configuraciones;
@@ -6209,7 +6210,7 @@ namespace JAGUAR_PRO
                     case 4://Depth With Delta
                     case 5://Depth Without Delta
                         accesoprevio = AccesoAdmin = true;
-                        frmProveedorMainPagos frm = new frmProveedorMainPagos(this.UsuarioLogeado, puntoVenta1);
+                        frmMainAnticipos frm = new frmMainAnticipos(this.UsuarioLogeado, puntoVenta1);
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
@@ -6223,7 +6224,7 @@ namespace JAGUAR_PRO
                 {
                     if (UsuarioLogeado.ValidarNivelPermisos(30))
                     {
-                        frmProveedorMainPagos frm = new frmProveedorMainPagos(this.UsuarioLogeado, puntoVenta1);
+                        frmMainAnticipos frm = new frmMainAnticipos(this.UsuarioLogeado, puntoVenta1);
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();

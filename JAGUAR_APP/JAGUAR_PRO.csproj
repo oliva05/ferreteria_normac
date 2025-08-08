@@ -901,6 +901,11 @@
     <Compile Include="Compras\rptOrdenCompra.Designer.cs">
       <DependentUpon>rptOrdenCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contabilidad\Proveedores\dsAnticipo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAnticipo.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Contabilidad\Proveedores\frmCRUDAnticipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2626,6 +2631,17 @@
     </None>
     <None Include="Compras\dsCompras.xss">
       <DependentUpon>dsCompras.xsd</DependentUpon>
+    </None>
+    <None Include="Contabilidad\Proveedores\dsAnticipo.xsc">
+      <DependentUpon>dsAnticipo.xsd</DependentUpon>
+    </None>
+    <None Include="Contabilidad\Proveedores\dsAnticipo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAnticipo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Contabilidad\Proveedores\dsAnticipo.xss">
+      <DependentUpon>dsAnticipo.xsd</DependentUpon>
     </None>
     <None Include="Despachos\dsTransaccionesDespacho.xsc">
       <DependentUpon>dsTransaccionesDespacho.xsd</DependentUpon>

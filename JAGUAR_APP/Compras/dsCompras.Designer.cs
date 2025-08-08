@@ -1597,6 +1597,8 @@ namespace JAGUAR_PRO.Compras {
             
             private global::System.Data.DataColumn columndocnum;
             
+            private global::System.Data.DataColumn columntotal;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public orden_compraDataTable() {
@@ -1720,6 +1722,14 @@ namespace JAGUAR_PRO.Compras {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn totalColumn {
+                get {
+                    return this.columntotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1755,7 +1765,7 @@ namespace JAGUAR_PRO.Compras {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public orden_compraRow Addorden_compraRow(int id, string code_prov, string proveedor, System.DateTime fecha_registro, System.DateTime fecha_contabilizacion, string comentario, int id_user_cre, string usuario, int id_estado, string estado, string docnum) {
+            public orden_compraRow Addorden_compraRow(int id, string code_prov, string proveedor, System.DateTime fecha_registro, System.DateTime fecha_contabilizacion, string comentario, int id_user_cre, string usuario, int id_estado, string estado, string docnum, decimal total) {
                 orden_compraRow roworden_compraRow = ((orden_compraRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -1768,7 +1778,8 @@ namespace JAGUAR_PRO.Compras {
                         usuario,
                         id_estado,
                         estado,
-                        docnum};
+                        docnum,
+                        total};
                 roworden_compraRow.ItemArray = columnValuesArray;
                 this.Rows.Add(roworden_compraRow);
                 return roworden_compraRow;
@@ -1802,6 +1813,7 @@ namespace JAGUAR_PRO.Compras {
                 this.columnid_estado = base.Columns["id_estado"];
                 this.columnestado = base.Columns["estado"];
                 this.columndocnum = base.Columns["docnum"];
+                this.columntotal = base.Columns["total"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1829,6 +1841,8 @@ namespace JAGUAR_PRO.Compras {
                 base.Columns.Add(this.columnestado);
                 this.columndocnum = new global::System.Data.DataColumn("docnum", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndocnum);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4677,6 +4691,22 @@ namespace JAGUAR_PRO.Compras {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal total {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableorden_compra.totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'total\' de la tabla \'orden_compra\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableorden_compra.totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tableorden_compra.idColumn);
             }
@@ -4805,6 +4835,18 @@ namespace JAGUAR_PRO.Compras {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetdocnumNull() {
                 this[this.tableorden_compra.docnumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstotalNull() {
+                return this.IsNull(this.tableorden_compra.totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettotalNull() {
+                this[this.tableorden_compra.totalColumn] = global::System.Convert.DBNull;
             }
         }
         

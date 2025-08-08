@@ -23,11 +23,12 @@ namespace JAGUAR_PRO.Compras
         UserLogin UsuarioLogueado;
         public int IdOrdenesSeleccionado = 0;
         int PuntoVentaID;
-
+        int IdProveedor;
         public enum FiltroOrdenesCompra
         {
             Todas = 1,
-            Abiertas = 2
+            Abiertas = 2,
+            DisponiblesAncitipos = 3
         }
 
         public enum TipoDoc
@@ -86,6 +87,35 @@ namespace JAGUAR_PRO.Compras
             //}
         }
 
+
+        public frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra pfiltro, PDV pPuntoVentaActual, UserLogin pUserLogin, frmSearchOrdenesC.TipoDoc pTipoDoc, int pIdProveedor)
+        {
+            InitializeComponent();
+            TipoDocumento = pTipoDoc;
+            Filtro = pfiltro;
+            UsuarioLogueado = pUserLogin;
+            this.PuntoVentaActual = pPuntoVentaActual;
+
+            PuntoVentaID = PuntoVentaActual.ID;
+            LoadSucursales();
+            grdSucursales.EditValue = PuntoVentaID;
+            IdProveedor = pIdProveedor;
+            switch (TipoDocumento)
+            {
+                case TipoDoc.OrdenCompra:
+                    navigationFrame1.SelectedPage = navPOrdenCompra;
+                    LoadDatabyProveedor();
+                    break;
+                case TipoDoc.SolicitudCompra:
+                    navigationFrame1.SelectedPage = navPSolicitudes;
+                    LoadDataSolicitudes();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
         private void LoadSucursales()
         {
             try
@@ -106,12 +136,44 @@ namespace JAGUAR_PRO.Compras
             }
         }
 
+        private void LoadDatabyProveedor()
+        {
+
+            try
+            {
+                string query = @"sp_get_ordenes_compra_openV2_byIdProveedor";
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                switch (Filtro)
+                {
+                    case FiltroOrdenesCompra.DisponiblesAncitipos:
+                        cmd.Parameters.AddWithValue("@filtro", 3);
+                        break;
+
+                    default:
+                        break;
+                }
+                cmd.Parameters.AddWithValue("@PuntoVentaActual", PuntoVentaID);
+                cmd.Parameters.AddWithValue("@idProv", IdProveedor);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsCompras1.orden_compra.Clear();
+                adat.Fill(dsCompras1.orden_compra);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
         private void LoadData()
         {
 
             try
             {
-                string query = @"sp_get_ordenes_compra_open";
+                string query = @"[sp_get_ordenes_compra_openV3]";
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -124,6 +186,10 @@ namespace JAGUAR_PRO.Compras
 
                     case FiltroOrdenesCompra.Abiertas:
                         cmd.Parameters.AddWithValue("@filtro", 2);
+                        break;
+
+                    case FiltroOrdenesCompra.DisponiblesAncitipos:
+                        cmd.Parameters.AddWithValue("@filtro", 3);
                         break;
 
                     default:

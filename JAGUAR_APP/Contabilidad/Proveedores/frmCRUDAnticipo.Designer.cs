@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCRUDAnticipo));
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.lueProveedor = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.jAGUARProveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsMantenimiento1 = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,15 +47,13 @@
             this.txtDocOC = new DevExpress.XtraEditors.TextEdit();
             this.btnSelecOC = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.dsMantenimiento1 = new JAGUAR_PRO.Mantenimientos.dsMantenimiento();
-            this.jAGUARProveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lueProveedor.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jAGUARProveedorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimiento1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMonto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoComentario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDocOC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimiento1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jAGUARProveedorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl6
@@ -89,6 +89,16 @@
             this.lueProveedor.Size = new System.Drawing.Size(327, 24);
             this.lueProveedor.TabIndex = 30;
             this.lueProveedor.EditValueChanged += new System.EventHandler(this.lueProveedor_EditValueChanged);
+            // 
+            // jAGUARProveedorBindingSource
+            // 
+            this.jAGUARProveedorBindingSource.DataMember = "JAGUAR_Proveedor";
+            this.jAGUARProveedorBindingSource.DataSource = this.dsMantenimiento1;
+            // 
+            // dsMantenimiento1
+            // 
+            this.dsMantenimiento1.DataSetName = "dsMantenimiento";
+            this.dsMantenimiento1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // searchLookUpEdit1View
             // 
@@ -147,6 +157,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(139, 42);
             this.simpleButton1.TabIndex = 33;
             this.simpleButton1.Text = "Cancelar";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // cmdNew
             // 
@@ -161,6 +172,7 @@
             this.cmdNew.Size = new System.Drawing.Size(139, 42);
             this.cmdNew.TabIndex = 32;
             this.cmdNew.Text = "Guardar";
+            this.cmdNew.Click += new System.EventHandler(this.cmdNew_Click);
             // 
             // txtMonto
             // 
@@ -176,7 +188,8 @@
             this.txtMonto.Properties.Appearance.Options.UseTextOptions = true;
             this.txtMonto.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtMonto.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtMonto.Properties.MaskSettings.Set("mask", "d");
+            this.txtMonto.Properties.MaskSettings.Set("mask", "n");
+            this.txtMonto.Properties.UseMaskAsDisplayFormat = true;
             this.txtMonto.Size = new System.Drawing.Size(160, 24);
             this.txtMonto.TabIndex = 34;
             this.txtMonto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMonto_KeyDown);
@@ -205,12 +218,16 @@
             // 
             this.memoComentario.Location = new System.Drawing.Point(149, 159);
             this.memoComentario.Name = "memoComentario";
+            this.memoComentario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.memoComentario.Properties.Appearance.Options.UseFont = true;
             this.memoComentario.Size = new System.Drawing.Size(267, 92);
             this.memoComentario.TabIndex = 37;
+            this.memoComentario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.memoComentario_KeyDown);
             // 
             // txtDocOC
             // 
             this.txtDocOC.EditValue = "";
+            this.txtDocOC.Enabled = false;
             this.txtDocOC.Location = new System.Drawing.Point(149, 121);
             this.txtDocOC.Name = "txtDocOC";
             this.txtDocOC.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
@@ -227,7 +244,7 @@
             this.btnSelecOC.Appearance.Options.UseBackColor = true;
             this.btnSelecOC.Appearance.Options.UseFont = true;
             this.btnSelecOC.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.btnSelecOC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.btnSelecOC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSelecOC.ImageOptions.Image")));
             this.btnSelecOC.Location = new System.Drawing.Point(315, 116);
             this.btnSelecOC.Name = "btnSelecOC";
             this.btnSelecOC.Size = new System.Drawing.Size(105, 31);
@@ -244,16 +261,6 @@
             this.labelControl2.Size = new System.Drawing.Size(167, 17);
             this.labelControl2.TabIndex = 40;
             this.labelControl2.Text = "Comentario:__________________";
-            // 
-            // dsMantenimiento1
-            // 
-            this.dsMantenimiento1.DataSetName = "dsMantenimiento";
-            this.dsMantenimiento1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // jAGUARProveedorBindingSource
-            // 
-            this.jAGUARProveedorBindingSource.DataMember = "JAGUAR_Proveedor";
-            this.jAGUARProveedorBindingSource.DataSource = this.dsMantenimiento1;
             // 
             // frmCRUDAnticipo
             // 
@@ -275,12 +282,12 @@
             this.Name = "frmCRUDAnticipo";
             this.Text = "Anticipo";
             ((System.ComponentModel.ISupportInitialize)(this.lueProveedor.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jAGUARProveedorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimiento1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMonto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoComentario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDocOC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMantenimiento1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jAGUARProveedorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
