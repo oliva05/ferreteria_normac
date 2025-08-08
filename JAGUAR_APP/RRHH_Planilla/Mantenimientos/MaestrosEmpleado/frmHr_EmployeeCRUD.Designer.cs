@@ -576,7 +576,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Enabled = false;
-            this.txtCorreo.Location = new System.Drawing.Point(143, 325);
+            this.txtCorreo.Location = new System.Drawing.Point(143, 312);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.txtCorreo.Properties.Appearance.Options.UseFont = true;
@@ -587,7 +587,7 @@
             // 
             this.labelControl64.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl64.Appearance.Options.UseFont = true;
-            this.labelControl64.Location = new System.Drawing.Point(10, 328);
+            this.labelControl64.Location = new System.Drawing.Point(10, 315);
             this.labelControl64.Name = "labelControl64";
             this.labelControl64.Size = new System.Drawing.Size(119, 15);
             this.labelControl64.TabIndex = 78;
@@ -595,7 +595,7 @@
             // 
             // tggIsManager
             // 
-            this.tggIsManager.Location = new System.Drawing.Point(143, 299);
+            this.tggIsManager.Location = new System.Drawing.Point(143, 286);
             this.tggIsManager.Name = "tggIsManager";
             this.tggIsManager.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.tggIsManager.Properties.Appearance.Options.UseFont = true;
@@ -608,7 +608,7 @@
             // 
             this.labelControl30.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl30.Appearance.Options.UseFont = true;
-            this.labelControl30.Location = new System.Drawing.Point(10, 301);
+            this.labelControl30.Location = new System.Drawing.Point(10, 288);
             this.labelControl30.Name = "labelControl30";
             this.labelControl30.Size = new System.Drawing.Size(100, 15);
             this.labelControl30.TabIndex = 29;
@@ -617,7 +617,7 @@
             // gleResponsable
             // 
             this.gleResponsable.Enabled = false;
-            this.gleResponsable.Location = new System.Drawing.Point(143, 265);
+            this.gleResponsable.Location = new System.Drawing.Point(143, 252);
             this.gleResponsable.Name = "gleResponsable";
             this.gleResponsable.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.gleResponsable.Properties.Appearance.Options.UseFont = true;
@@ -713,7 +713,7 @@
             // gleProfesion
             // 
             this.gleProfesion.Enabled = false;
-            this.gleProfesion.Location = new System.Drawing.Point(143, 236);
+            this.gleProfesion.Location = new System.Drawing.Point(143, 223);
             this.gleProfesion.Name = "gleProfesion";
             this.gleProfesion.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.gleProfesion.Properties.Appearance.Options.UseFont = true;
@@ -758,7 +758,7 @@
             // glePuestosDeTrabajo
             // 
             this.glePuestosDeTrabajo.Enabled = false;
-            this.glePuestosDeTrabajo.Location = new System.Drawing.Point(143, 206);
+            this.glePuestosDeTrabajo.Location = new System.Drawing.Point(143, 193);
             this.glePuestosDeTrabajo.Name = "glePuestosDeTrabajo";
             this.glePuestosDeTrabajo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.glePuestosDeTrabajo.Properties.Appearance.Options.UseFont = true;
@@ -804,7 +804,7 @@
             // gleDepartamentos
             // 
             this.gleDepartamentos.Enabled = false;
-            this.gleDepartamentos.Location = new System.Drawing.Point(143, 175);
+            this.gleDepartamentos.Location = new System.Drawing.Point(143, 162);
             this.gleDepartamentos.Name = "gleDepartamentos";
             this.gleDepartamentos.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.gleDepartamentos.Properties.Appearance.Options.UseFont = true;
@@ -863,6 +863,7 @@
             this.gleTelefonosCompany.Properties.ValueMember = "id";
             this.gleTelefonosCompany.Size = new System.Drawing.Size(246, 22);
             this.gleTelefonosCompany.TabIndex = 21;
+            this.gleTelefonosCompany.Visible = false;
             // 
             // bsTelefonosCompany
             // 
@@ -985,7 +986,7 @@
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(10, 268);
+            this.labelControl10.Location = new System.Drawing.Point(10, 255);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(66, 15);
             this.labelControl10.TabIndex = 12;
@@ -1006,7 +1007,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(10, 239);
+            this.labelControl6.Location = new System.Drawing.Point(10, 226);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(50, 15);
             this.labelControl6.TabIndex = 10;
@@ -1016,7 +1017,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(10, 209);
+            this.labelControl7.Location = new System.Drawing.Point(10, 196);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(92, 15);
             this.labelControl7.TabIndex = 9;
@@ -1026,7 +1027,7 @@
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(10, 178);
+            this.labelControl8.Location = new System.Drawing.Point(10, 165);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(77, 15);
             this.labelControl8.TabIndex = 8;
@@ -1036,7 +1037,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(8, 140);
+            this.labelControl5.Location = new System.Drawing.Point(8, 127);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(164, 21);
             this.labelControl5.TabIndex = 7;
@@ -1051,6 +1052,7 @@
             this.labelControl4.Size = new System.Drawing.Size(106, 15);
             this.labelControl4.TabIndex = 6;
             this.labelControl4.Text = "Teléfono del trabajo";
+            this.labelControl4.Visible = false;
             // 
             // labelControl3
             // 
@@ -2485,7 +2487,7 @@
             // 
             // glueTipoContrato
             // 
-            this.glueTipoContrato.Location = new System.Drawing.Point(132, 174);
+            this.glueTipoContrato.Location = new System.Drawing.Point(132, 228);
             this.glueTipoContrato.Name = "glueTipoContrato";
             this.glueTipoContrato.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.glueTipoContrato.Properties.Appearance.Options.UseFont = true;
@@ -2499,6 +2501,7 @@
             this.glueTipoContrato.Properties.ValueMember = "id";
             this.glueTipoContrato.Size = new System.Drawing.Size(246, 22);
             this.glueTipoContrato.TabIndex = 46;
+            this.glueTipoContrato.Visible = false;
             // 
             // bsContratotipocontrato
             // 
@@ -2536,11 +2539,12 @@
             // 
             this.labelControl63.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl63.Appearance.Options.UseFont = true;
-            this.labelControl63.Location = new System.Drawing.Point(5, 177);
+            this.labelControl63.Location = new System.Drawing.Point(5, 231);
             this.labelControl63.Name = "labelControl63";
             this.labelControl63.Size = new System.Drawing.Size(73, 15);
             this.labelControl63.TabIndex = 45;
             this.labelControl63.Text = "Tipo Contrato";
+            this.labelControl63.Visible = false;
             // 
             // cmdCopiarClipBoardAccountEmployeeNumber
             // 
@@ -2549,7 +2553,7 @@
             this.cmdCopiarClipBoardAccountEmployeeNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdCopiarClipBoardAccountEmployeeNumber.Image = global::JAGUAR_PRO.Properties.Resources.copy_24x24;
             this.cmdCopiarClipBoardAccountEmployeeNumber.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdCopiarClipBoardAccountEmployeeNumber.Location = new System.Drawing.Point(384, 142);
+            this.cmdCopiarClipBoardAccountEmployeeNumber.Location = new System.Drawing.Point(384, 116);
             this.cmdCopiarClipBoardAccountEmployeeNumber.Name = "cmdCopiarClipBoardAccountEmployeeNumber";
             this.cmdCopiarClipBoardAccountEmployeeNumber.Size = new System.Drawing.Size(75, 29);
             this.cmdCopiarClipBoardAccountEmployeeNumber.TabIndex = 44;
@@ -2560,7 +2564,7 @@
             // 
             // tggRecibeDepreciacionVehicular
             // 
-            this.tggRecibeDepreciacionVehicular.Location = new System.Drawing.Point(132, 202);
+            this.tggRecibeDepreciacionVehicular.Location = new System.Drawing.Point(132, 148);
             this.tggRecibeDepreciacionVehicular.Name = "tggRecibeDepreciacionVehicular";
             this.tggRecibeDepreciacionVehicular.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.tggRecibeDepreciacionVehicular.Properties.Appearance.Options.UseFont = true;
@@ -2572,7 +2576,7 @@
             // 
             // gleTipoTurno
             // 
-            this.gleTipoTurno.Location = new System.Drawing.Point(132, 36);
+            this.gleTipoTurno.Location = new System.Drawing.Point(711, 59);
             this.gleTipoTurno.Name = "gleTipoTurno";
             this.gleTipoTurno.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.gleTipoTurno.Properties.Appearance.Options.UseFont = true;
@@ -2586,6 +2590,7 @@
             this.gleTipoTurno.Properties.ValueMember = "id";
             this.gleTipoTurno.Size = new System.Drawing.Size(246, 22);
             this.gleTipoTurno.TabIndex = 42;
+            this.gleTipoTurno.Visible = false;
             // 
             // bstiposTurnos
             // 
@@ -2616,7 +2621,7 @@
             // 
             // gleVehiculo
             // 
-            this.gleVehiculo.Location = new System.Drawing.Point(132, 226);
+            this.gleVehiculo.Location = new System.Drawing.Point(132, 174);
             this.gleVehiculo.Name = "gleVehiculo";
             this.gleVehiculo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.gleVehiculo.Properties.Appearance.Options.UseFont = true;
@@ -2661,7 +2666,7 @@
             // 
             // txtNumeroCuentaEmpleado
             // 
-            this.txtNumeroCuentaEmpleado.Location = new System.Drawing.Point(132, 146);
+            this.txtNumeroCuentaEmpleado.Location = new System.Drawing.Point(132, 120);
             this.txtNumeroCuentaEmpleado.Name = "txtNumeroCuentaEmpleado";
             this.txtNumeroCuentaEmpleado.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.txtNumeroCuentaEmpleado.Properties.Appearance.Options.UseFont = true;
@@ -2670,7 +2675,7 @@
             // 
             // gleBanco
             // 
-            this.gleBanco.Location = new System.Drawing.Point(132, 118);
+            this.gleBanco.Location = new System.Drawing.Point(132, 92);
             this.gleBanco.Name = "gleBanco";
             this.gleBanco.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.gleBanco.Properties.Appearance.Options.UseFont = true;
@@ -2714,7 +2719,7 @@
             // 
             // gleTipoPago
             // 
-            this.gleTipoPago.Location = new System.Drawing.Point(132, 90);
+            this.gleTipoPago.Location = new System.Drawing.Point(132, 64);
             this.gleTipoPago.Name = "gleTipoPago";
             this.gleTipoPago.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.gleTipoPago.Properties.Appearance.Options.UseFont = true;
@@ -2758,7 +2763,7 @@
             // 
             // tggMarcaAsistencia
             // 
-            this.tggMarcaAsistencia.Location = new System.Drawing.Point(132, 64);
+            this.tggMarcaAsistencia.Location = new System.Drawing.Point(132, 38);
             this.tggMarcaAsistencia.Name = "tggMarcaAsistencia";
             this.tggMarcaAsistencia.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.tggMarcaAsistencia.Properties.Appearance.Options.UseFont = true;
@@ -2771,7 +2776,7 @@
             // 
             this.labelControl53.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl53.Appearance.Options.UseFont = true;
-            this.labelControl53.Location = new System.Drawing.Point(4, 229);
+            this.labelControl53.Location = new System.Drawing.Point(4, 177);
             this.labelControl53.Name = "labelControl53";
             this.labelControl53.Size = new System.Drawing.Size(98, 15);
             this.labelControl53.TabIndex = 35;
@@ -2782,7 +2787,7 @@
             // 
             this.labelControl52.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl52.Appearance.Options.UseFont = true;
-            this.labelControl52.Location = new System.Drawing.Point(5, 204);
+            this.labelControl52.Location = new System.Drawing.Point(5, 150);
             this.labelControl52.Name = "labelControl52";
             this.labelControl52.Size = new System.Drawing.Size(121, 15);
             this.labelControl52.TabIndex = 34;
@@ -2793,7 +2798,7 @@
             // 
             this.labelControl51.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl51.Appearance.Options.UseFont = true;
-            this.labelControl51.Location = new System.Drawing.Point(5, 121);
+            this.labelControl51.Location = new System.Drawing.Point(5, 95);
             this.labelControl51.Name = "labelControl51";
             this.labelControl51.Size = new System.Drawing.Size(33, 15);
             this.labelControl51.TabIndex = 33;
@@ -2803,7 +2808,7 @@
             // 
             this.labelControl50.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl50.Appearance.Options.UseFont = true;
-            this.labelControl50.Location = new System.Drawing.Point(5, 149);
+            this.labelControl50.Location = new System.Drawing.Point(5, 123);
             this.labelControl50.Name = "labelControl50";
             this.labelControl50.Size = new System.Drawing.Size(99, 15);
             this.labelControl50.TabIndex = 32;
@@ -2813,7 +2818,7 @@
             // 
             this.labelControl49.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl49.Appearance.Options.UseFont = true;
-            this.labelControl49.Location = new System.Drawing.Point(5, 93);
+            this.labelControl49.Location = new System.Drawing.Point(5, 67);
             this.labelControl49.Name = "labelControl49";
             this.labelControl49.Size = new System.Drawing.Size(70, 15);
             this.labelControl49.TabIndex = 31;
@@ -2823,7 +2828,7 @@
             // 
             this.labelControl48.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl48.Appearance.Options.UseFont = true;
-            this.labelControl48.Location = new System.Drawing.Point(3, 66);
+            this.labelControl48.Location = new System.Drawing.Point(3, 40);
             this.labelControl48.Name = "labelControl48";
             this.labelControl48.Size = new System.Drawing.Size(87, 15);
             this.labelControl48.TabIndex = 30;
@@ -2833,11 +2838,12 @@
             // 
             this.labelControl46.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl46.Appearance.Options.UseFont = true;
-            this.labelControl46.Location = new System.Drawing.Point(5, 39);
+            this.labelControl46.Location = new System.Drawing.Point(584, 62);
             this.labelControl46.Name = "labelControl46";
             this.labelControl46.Size = new System.Drawing.Size(75, 15);
             this.labelControl46.TabIndex = 28;
             this.labelControl46.Text = "Tipo de Turno";
+            this.labelControl46.Visible = false;
             // 
             // labelControl47
             // 
@@ -2858,6 +2864,7 @@
             this.xtraTabPage5.Controls.Add(this.btnAddExpediente);
             this.xtraTabPage5.Controls.Add(this.gcExpediente);
             this.xtraTabPage5.Name = "xtraTabPage5";
+            this.xtraTabPage5.PageVisible = false;
             this.xtraTabPage5.Size = new System.Drawing.Size(1193, 527);
             this.xtraTabPage5.Text = "Expedientes";
             // 

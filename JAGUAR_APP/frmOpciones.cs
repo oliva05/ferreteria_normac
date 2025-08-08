@@ -5607,7 +5607,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(15))
+                if (UsuarioLogeado.ValidarNivelPermisos(14))
                 {
                     frmTrasladoGestionKardex frm = new frmTrasladoGestionKardex(UsuarioLogeado);
                     frm.MdiParent = this.MdiParent;
@@ -5616,7 +5616,7 @@ namespace JAGUAR_PRO
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-15 (Traslado Directo Entre Bodegas)");
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-14 (Traslado Directo Entre Bodegas)");
                 }
             }
         }
@@ -5951,6 +5951,293 @@ namespace JAGUAR_PRO
                 {
                     CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #27 (Reporte de ventas por vendedor)");
                 }
+            }
+        }
+
+        private void navBarCotizaciones_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+            try
+            {
+                //AFC_ConsumoReal
+                bool accesoprevio = false;
+                bool AccesoAdmin = false;
+                int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                switch (idNivel)
+                {
+                    case 1://Basic View
+                        break;
+                    case 2://Basic No Autorization
+                        accesoprevio = false;
+                        break;
+                    case 3://Medium Autorization
+                        accesoprevio = false;
+                        break;
+                    case 4://Depth With Delta
+                    case 5://Depth Without Delta
+                        AccesoAdmin = accesoprevio = true;
+                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1, AccesoAdmin);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                        break;
+                    default:
+                        break;
+                }
+
+                if (!accesoprevio)
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(5))
+                    {
+                        //frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1);
+                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1, AccesoAdmin);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #5 (Pre Facturas)");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void navBarCotizaciones_LinkClicked_1(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+            try
+            {
+                //AFC_ConsumoReal
+                bool accesoprevio = false;
+                bool AccesoAdmin = false;
+                int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                switch (idNivel)
+                {
+                    case 1://Basic View
+                        break;
+                    case 2://Basic No Autorization
+                        accesoprevio = false;
+                        break;
+                    case 3://Medium Autorization
+                        accesoprevio = false;
+                        break;
+                    case 4://Depth With Delta
+                    case 5://Depth Without Delta
+                        accesoprevio = AccesoAdmin = true;
+                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1, AccesoAdmin);
+                        //frmHomePedidosClientes frm = new frmHomePedidosClientes(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                        break;
+                    default:
+                        break;
+                }
+
+                if (!accesoprevio)
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(28))
+                    {
+                        frmCotizacionesHome frm = new frmCotizacionesHome(this.UsuarioLogeado, puntoVenta1, AccesoAdmin);
+                        //frmHomePedidosClientes frm = new frmHomePedidosClientes(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #28 (Cotizaciones)");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void navBarItem252_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+            try
+            {
+                //AFC_ConsumoReal
+                bool accesoprevio = false;
+                bool AccesoAdmin = false;
+                int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                switch (idNivel)
+                {
+                    case 1://Basic View
+                        break;
+                    case 2://Basic No Autorization
+                        accesoprevio = false;
+                        break;
+                    case 3://Medium Autorization
+                        accesoprevio = false;
+                        break;
+                    case 4://Depth With Delta
+                    case 5://Depth Without Delta
+                        accesoprevio = AccesoAdmin = true;
+                        frmProveedorMainPagos frm = new frmProveedorMainPagos(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                        break;
+                    default:
+                        break;
+                }
+
+                if (!accesoprevio)
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(29))
+                    {
+                        frmProveedorMainPagos frm = new frmProveedorMainPagos(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #28 (Cotizaciones)");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void navBarItem253_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+            try
+            {
+                //AFC_ConsumoReal
+                bool accesoprevio = false;
+                bool AccesoAdmin = false;
+                int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                switch (idNivel)
+                {
+                    case 1://Basic View
+                        break;
+                    case 2://Basic No Autorization
+                        accesoprevio = false;
+                        break;
+                    case 3://Medium Autorization
+                        accesoprevio = false;
+                        break;
+                    case 4://Depth With Delta
+                    case 5://Depth Without Delta
+                        accesoprevio = AccesoAdmin = true;
+                        frmProveedorMainPagos frm = new frmProveedorMainPagos(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                        break;
+                    default:
+                        break;
+                }
+
+                if (!accesoprevio)
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(30))
+                    {
+                        frmProveedorMainPagos frm = new frmProveedorMainPagos(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #28 (Cotizaciones)");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
         //End Facturacion Usados

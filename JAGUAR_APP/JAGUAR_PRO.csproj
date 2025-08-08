@@ -901,6 +901,24 @@
     <Compile Include="Compras\rptOrdenCompra.Designer.cs">
       <DependentUpon>rptOrdenCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmCRUDAnticipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmCRUDAnticipo.Designer.cs">
+      <DependentUpon>frmCRUDAnticipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmMainAnticipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmMainAnticipos.Designer.cs">
+      <DependentUpon>frmMainAnticipos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmSelecAnticipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\frmSelecAnticipo.Designer.cs">
+      <DependentUpon>frmSelecAnticipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Despachos\dsTransaccionesDespacho.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1222,6 +1240,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFacturasGestion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\CoreFacturas\dsMantoFacturas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMantoFacturas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\CoreFacturas\dsRegistroPagos.cs">
       <DependentUpon>dsRegistroPagos.xsd</DependentUpon>
     </Compile>
@@ -1274,6 +1297,18 @@
     </Compile>
     <Compile Include="Facturacion\CoreFacturas\frmConfirmationFactura.Designer.cs">
       <DependentUpon>frmConfirmationFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\CoreFacturas\frmEditarFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\CoreFacturas\frmEditarFactura.Designer.cs">
+      <DependentUpon>frmEditarFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\CoreFacturas\frmElejirTipoPagoEditFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\CoreFacturas\frmElejirTipoPagoEditFactura.Designer.cs">
+      <DependentUpon>frmElejirTipoPagoEditFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\CoreFacturas\frmFactura.cs">
       <SubType>Form</SubType>
@@ -1426,6 +1461,18 @@
     </Compile>
     <Compile Include="Despachos\Pedidos\frmSearchPedidos.Designer.cs">
       <DependentUpon>frmSearchPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Cotizaciones\frmCotizacionesCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Cotizaciones\frmCotizacionesCRUD.Designer.cs">
+      <DependentUpon>frmCotizacionesCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Cotizaciones\frmVerStockPorAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Cotizaciones\frmVerStockPorAlmacen.Designer.cs">
+      <DependentUpon>frmVerStockPorAlmacen.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\Cotizaciones\frmSearchCotizaciones.cs">
       <SubType>Form</SubType>
@@ -1918,6 +1965,9 @@
     <Compile Include="LogisticaJaguar\Despacho\xfrmSelectPT.Designer.cs">
       <DependentUpon>xfrmSelectPT.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\dsLogisticaJaguar.cs">
+      <DependentUpon>dsLogisticaJaguar.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\dsLogisticaJaguar.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1942,6 +1992,12 @@
     </Compile>
     <Compile Include="LogisticaJaguar\frmAddRecepcionCompraVentaUnica.Designer.cs">
       <DependentUpon>frmAddRecepcionCompraVentaUnica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\frmProveedorMainPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\frmProveedorMainPagos.Designer.cs">
+      <DependentUpon>frmProveedorMainPagos.cs</DependentUpon>
     </Compile>
     <Compile Include="LogisticaJaguar\frmRecepcionCompraVentaUnica.cs">
       <SubType>Form</SubType>
@@ -1980,6 +2036,12 @@
     </Compile>
     <Compile Include="LogisticaJaguar\Pedidos\frmPedidoHome.Designer.cs">
       <DependentUpon>frmPedidoHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\ProveedorCRUDPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\ProveedorCRUDPagos.Designer.cs">
+      <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
     </Compile>
     <Compile Include="LogisticaJaguar\xrptBarCode.cs">
       <SubType>Component</SubType>
@@ -2670,6 +2732,17 @@
     </None>
     <None Include="Facturacion\CoreFacturas\dsFacturasGestion.xss">
       <DependentUpon>dsFacturasGestion.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\CoreFacturas\dsMantoFacturas.xsc">
+      <DependentUpon>dsMantoFacturas.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\CoreFacturas\dsMantoFacturas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMantoFacturas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Facturacion\CoreFacturas\dsMantoFacturas.xss">
+      <DependentUpon>dsMantoFacturas.xsd</DependentUpon>
     </None>
     <None Include="Facturacion\CoreFacturas\dsRegistroPagos.xsc">
       <DependentUpon>dsRegistroPagos.xsd</DependentUpon>
@@ -4108,6 +4181,12 @@
     <EmbeddedResource Include="Compras\rptOrdenCompra.resx">
       <DependentUpon>rptOrdenCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Proveedores\frmCRUDAnticipo.resx">
+      <DependentUpon>frmCRUDAnticipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Proveedores\frmMainAnticipos.resx">
+      <DependentUpon>frmMainAnticipos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Despachos\frmentregadeproductoT.resx">
       <DependentUpon>frmentregadeproductoT.cs</DependentUpon>
     </EmbeddedResource>
@@ -4249,6 +4328,12 @@
     <EmbeddedResource Include="Facturacion\CoreFacturas\frmConfirmationFactura.resx">
       <DependentUpon>frmConfirmationFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\CoreFacturas\frmEditarFactura.resx">
+      <DependentUpon>frmEditarFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\CoreFacturas\frmElejirTipoPagoEditFactura.resx">
+      <DependentUpon>frmElejirTipoPagoEditFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\CoreFacturas\frmFactura.resx">
       <DependentUpon>frmFactura.cs</DependentUpon>
     </EmbeddedResource>
@@ -4317,6 +4402,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\Pedidos\frmSearchPedidos.resx">
       <DependentUpon>frmSearchPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Cotizaciones\frmCotizacionesCRUD.resx">
+      <DependentUpon>frmCotizacionesCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Cotizaciones\frmVerStockPorAlmacen.resx">
+      <DependentUpon>frmVerStockPorAlmacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Cotizaciones\frmSearchCotizaciones.resx">
       <DependentUpon>frmSearchCotizaciones.cs</DependentUpon>
@@ -4541,6 +4632,9 @@
     <EmbeddedResource Include="LogisticaJaguar\frmAddRecepcionCompraVentaUnica.resx">
       <DependentUpon>frmAddRecepcionCompraVentaUnica.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\frmProveedorMainPagos.resx">
+      <DependentUpon>frmProveedorMainPagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\frmRecepcionCompraVentaUnica.resx">
       <DependentUpon>frmRecepcionCompraVentaUnica.cs</DependentUpon>
     </EmbeddedResource>
@@ -4556,6 +4650,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\Pedidos\frmPedidoHome.resx">
       <DependentUpon>frmPedidoHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\ProveedorCRUDPagos.resx">
+      <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\xrptBarCode.resx">
       <DependentUpon>xrptBarCode.cs</DependentUpon>

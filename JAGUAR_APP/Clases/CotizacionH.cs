@@ -61,7 +61,11 @@ public class CotizacionH
                         Comentario = reader["comentario"] as string;
                         DocNum = reader.GetInt32(reader.GetOrdinal("DocNum"));
                         IdEstado = reader["id_estado"] as int?;
-                        IdCliente = reader.GetInt32(reader.GetOrdinal("id_cliente"));
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("id_cliente")))
+                            IdCliente = reader.GetInt32(reader.GetOrdinal("id_cliente"));
+
+
                         NumDoc = reader["NumDoc"] as string;
                         FechaEntregaEstimada = reader["fecha_entrega_estimada"] as DateTime?;
                         Direccion = reader["direccion"] as string;

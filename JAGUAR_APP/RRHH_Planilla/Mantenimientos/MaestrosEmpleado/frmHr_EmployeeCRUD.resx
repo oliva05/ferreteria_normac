@@ -257,18 +257,18 @@
   </data>
   <data name="editorButtonImageOptions6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        VfPN+YDfrthAQRSTXbkAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="dsCapacitacion1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -281,6 +281,6 @@
     <value>499, 97</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>113</value>
+    <value>162</value>
   </metadata>
 </root>

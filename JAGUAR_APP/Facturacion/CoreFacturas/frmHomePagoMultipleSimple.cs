@@ -969,6 +969,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private void ImprimirY_Pagar()
         {
             //Postear el  recibo y sus lineas
+            
 
             if (ClienteActual == null)
             {
@@ -1000,6 +1001,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 return;
             }
 
+            DialogResult r = CajaDialogo.Pregunta("Esta seguro de continuar con esta transacción?");
+            if (r != DialogResult.Yes)
+                return;
 
             Int64 IdReciboH_Inserted = 0;
             DataOperations dp = new DataOperations();
@@ -1073,10 +1077,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                                 else
                                     command.Parameters.AddWithValue("@id_cliente", ClienteActual.Id);
 
+
                                 if (string.IsNullOrEmpty(txtReferencia.Text))
                                     command.Parameters.AddWithValue("@referencia", DBNull.Value);
                                 else
                                     command.Parameters.AddWithValue("@referencia", txtReferencia.Text);
+
 
                                 if (row.id_tipo_pago == 0)
                                     command.Parameters.AddWithValue("@id_tipo_pago", DBNull.Value);

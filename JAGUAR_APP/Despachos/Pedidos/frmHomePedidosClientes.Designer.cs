@@ -577,7 +577,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.cmdChangeVendedor.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.cmdChangeVendedor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdChangeVendedor.ImageOptions.Image")));
             this.cmdChangeVendedor.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdChangeVendedor.Location = new System.Drawing.Point(251, 51);
+            this.cmdChangeVendedor.Location = new System.Drawing.Point(250, 54);
             this.cmdChangeVendedor.Name = "cmdChangeVendedor";
             this.cmdChangeVendedor.Size = new System.Drawing.Size(39, 24);
             this.cmdChangeVendedor.TabIndex = 112;
@@ -585,7 +585,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             // txtAsesorVendedor
             // 
-            this.txtAsesorVendedor.Location = new System.Drawing.Point(73, 52);
+            this.txtAsesorVendedor.Location = new System.Drawing.Point(72, 55);
             this.txtAsesorVendedor.Name = "txtAsesorVendedor";
             this.txtAsesorVendedor.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAsesorVendedor.Properties.Appearance.Options.UseFont = true;
@@ -597,7 +597,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(5, 55);
+            this.label10.Location = new System.Drawing.Point(4, 58);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 15);
             this.label10.TabIndex = 110;
@@ -610,7 +610,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             this.simpleButton2.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.simpleButton2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(292, 50);
+            this.simpleButton2.Location = new System.Drawing.Point(291, 53);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(164, 25);
             this.simpleButton2.TabIndex = 113;

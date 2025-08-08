@@ -52,11 +52,12 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmarca = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colinvDisponible = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtDesc = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.colinvDisponible = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -226,7 +227,8 @@
             this.gridColumn6,
             this.colid,
             this.colmarca,
-            this.colinvDisponible});
+            this.colinvDisponible,
+            this.colprecio});
             this.gridView2.CustomizationFormBounds = new System.Drawing.Rectangle(553, 343, 259, 287);
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
@@ -302,6 +304,15 @@
             this.colmarca.VisibleIndex = 4;
             this.colmarca.Width = 109;
             // 
+            // colinvDisponible
+            // 
+            this.colinvDisponible.Caption = "Inv. Total";
+            this.colinvDisponible.FieldName = "invDisponible";
+            this.colinvDisponible.Name = "colinvDisponible";
+            this.colinvDisponible.OptionsColumn.AllowEdit = false;
+            this.colinvDisponible.Visible = true;
+            this.colinvDisponible.VisibleIndex = 5;
+            // 
             // txtDesc
             // 
             this.txtDesc.Location = new System.Drawing.Point(77, 41);
@@ -345,14 +356,13 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // colinvDisponible
+            // colprecio
             // 
-            this.colinvDisponible.Caption = "Inv. Total";
-            this.colinvDisponible.FieldName = "invDisponible";
-            this.colinvDisponible.Name = "colinvDisponible";
-            this.colinvDisponible.OptionsColumn.AllowEdit = false;
-            this.colinvDisponible.Visible = true;
-            this.colinvDisponible.VisibleIndex = 5;
+            this.colprecio.FieldName = "precio";
+            this.colprecio.Name = "colprecio";
+            this.colprecio.OptionsColumn.ReadOnly = true;
+            this.colprecio.Visible = true;
+            this.colprecio.VisibleIndex = 6;
             // 
             // frmSearchItems
             // 
@@ -409,5 +419,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraGrid.Columns.GridColumn colinvDisponible;
+        private DevExpress.XtraGrid.Columns.GridColumn colprecio;
     }
 }

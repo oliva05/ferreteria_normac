@@ -1157,6 +1157,8 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
             
             private global::System.Data.DataColumn columninvDisponible;
             
+            private global::System.Data.DataColumn columnprecio;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public search_ptDataTable() {
@@ -1256,6 +1258,14 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn precioColumn {
+                get {
+                    return this.columnprecio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1291,7 +1301,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public search_ptRow Addsearch_ptRow(int id, string descripcion, string code, string code_interno, string code_referencia, bool Seleccionado, string marca, decimal invDisponible) {
+            public search_ptRow Addsearch_ptRow(int id, string descripcion, string code, string code_interno, string code_referencia, bool Seleccionado, string marca, decimal invDisponible, decimal precio) {
                 search_ptRow rowsearch_ptRow = ((search_ptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -1301,7 +1311,8 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
                         code_referencia,
                         Seleccionado,
                         marca,
-                        invDisponible};
+                        invDisponible,
+                        precio};
                 rowsearch_ptRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsearch_ptRow);
                 return rowsearch_ptRow;
@@ -1332,6 +1343,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
                 this.columnSeleccionado = base.Columns["Seleccionado"];
                 this.columnmarca = base.Columns["marca"];
                 this.columninvDisponible = base.Columns["invDisponible"];
+                this.columnprecio = base.Columns["precio"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1353,7 +1365,10 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
                 base.Columns.Add(this.columnmarca);
                 this.columninvDisponible = new global::System.Data.DataColumn("invDisponible", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninvDisponible);
+                this.columnprecio = new global::System.Data.DataColumn("precio", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprecio);
                 this.columnSeleccionado.DefaultValue = ((bool)(false));
+                this.columnprecio.Caption = "Precio";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2503,6 +2518,22 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal precio {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesearch_pt.precioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'precio\' de la tabla \'search_pt\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesearch_pt.precioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tablesearch_pt.idColumn);
             }
@@ -2595,6 +2626,18 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetinvDisponibleNull() {
                 this[this.tablesearch_pt.invDisponibleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsprecioNull() {
+                return this.IsNull(this.tablesearch_pt.precioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetprecioNull() {
+                this[this.tablesearch_pt.precioColumn] = global::System.Convert.DBNull;
             }
         }
         
