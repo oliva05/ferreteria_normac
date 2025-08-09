@@ -4031,6 +4031,23 @@ namespace JAGUAR_PRO
 
         private void nbRequest_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
 
             bool accesoprevio = false;
             int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
@@ -4042,14 +4059,14 @@ namespace JAGUAR_PRO
                     break;
                 case 3://Medium Autorization
                     accesoprevio = true;
-                    frmHomeSolicitudesAutorizacion frm2 = new frmHomeSolicitudesAutorizacion(UsuarioLogeado);
+                    frmHomeSolicitudesAutorizacion frm2 = new frmHomeSolicitudesAutorizacion(UsuarioLogeado, puntoVenta1);
                     frm2.MdiParent = this.MdiParent;
                     frm2.Show();
                     break;
                 case 4://Depth With Delta
                 case 5://Depth Without Delta
                     accesoprevio = true;
-                    frmHomeSolicitudesAutorizacion frm = new frmHomeSolicitudesAutorizacion(UsuarioLogeado);
+                    frmHomeSolicitudesAutorizacion frm = new frmHomeSolicitudesAutorizacion(UsuarioLogeado, puntoVenta1);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                     break;
@@ -4061,7 +4078,7 @@ namespace JAGUAR_PRO
             {
                 if (UsuarioLogeado.ValidarNivelPermisos(16))
                 {
-                    frmHomeSolicitudesAutorizacion frm = new frmHomeSolicitudesAutorizacion(UsuarioLogeado);
+                    frmHomeSolicitudesAutorizacion frm = new frmHomeSolicitudesAutorizacion(UsuarioLogeado, puntoVenta1);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
                 }

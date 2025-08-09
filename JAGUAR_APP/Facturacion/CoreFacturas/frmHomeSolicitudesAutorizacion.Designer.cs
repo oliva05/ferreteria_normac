@@ -50,6 +50,11 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsFacturasGestion1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsFacturasGestion();
             this.grd_data = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -99,6 +104,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.colimpuesto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsubtotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reposVerOC = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.TabFacturas = new DevExpress.XtraTab.XtraTabPage();
@@ -148,6 +155,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             ((System.ComponentModel.ISupportInitialize)(this.grdOrdenesCompras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposGestionarOC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposVerOC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.TabFacturas.SuspendLayout();
@@ -467,7 +475,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.grdOrdenesCompras.MainView = this.gridView2;
             this.grdOrdenesCompras.Name = "grdOrdenesCompras";
             this.grdOrdenesCompras.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.reposGestionarOC});
+            this.reposGestionarOC,
+            this.reposVerOC});
             this.grdOrdenesCompras.Size = new System.Drawing.Size(1183, 409);
             this.grdOrdenesCompras.TabIndex = 1;
             this.grdOrdenesCompras.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -493,7 +502,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.colproveedor,
             this.colimpuesto,
             this.colsubtotal,
-            this.coltotal});
+            this.coltotal,
+            this.gridColumn6});
             this.gridView2.GridControl = this.grdOrdenesCompras;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowAutoFilterRow = true;
@@ -514,7 +524,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.gridColumn5.OptionsFilter.AllowFilter = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 1;
-            this.gridColumn5.Width = 91;
+            this.gridColumn5.Width = 86;
             // 
             // colcode_prov
             // 
@@ -523,7 +533,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.colcode_prov.Name = "colcode_prov";
             this.colcode_prov.Visible = true;
             this.colcode_prov.VisibleIndex = 2;
-            this.colcode_prov.Width = 88;
+            this.colcode_prov.Width = 83;
             // 
             // gridColumn8
             // 
@@ -541,7 +551,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.gridColumn9.OptionsFilter.AllowFilter = false;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 4;
-            this.gridColumn9.Width = 114;
+            this.gridColumn9.Width = 107;
             // 
             // gridColumn10
             // 
@@ -559,7 +569,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.gridColumn12.OptionsFilter.AllowFilter = false;
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 6;
-            this.gridColumn12.Width = 111;
+            this.gridColumn12.Width = 154;
             // 
             // gridColumn13
             // 
@@ -570,7 +580,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.gridColumn13.OptionsFilter.AllowFilter = false;
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 0;
-            this.gridColumn13.Width = 101;
+            this.gridColumn13.Width = 95;
             // 
             // colid_user_cre
             // 
@@ -594,7 +604,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.gridColumn15.OptionsFilter.AllowFilter = false;
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 5;
-            this.gridColumn15.Width = 92;
+            this.gridColumn15.Width = 86;
             // 
             // gridColumn16
             // 
@@ -612,7 +622,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.gridColumn17.OptionsFilter.AllowFilter = false;
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 7;
-            this.gridColumn17.Width = 99;
+            this.gridColumn17.Width = 83;
             // 
             // gridColumn18
             // 
@@ -621,8 +631,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.OptionsFilter.AllowFilter = false;
             this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 11;
-            this.gridColumn18.Width = 118;
+            this.gridColumn18.VisibleIndex = 12;
+            this.gridColumn18.Width = 88;
             // 
             // reposGestionarOC
             // 
@@ -642,7 +652,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.colproveedor.OptionsColumn.ReadOnly = true;
             this.colproveedor.Visible = true;
             this.colproveedor.VisibleIndex = 3;
-            this.colproveedor.Width = 112;
+            this.colproveedor.Width = 105;
             // 
             // colimpuesto
             // 
@@ -654,7 +664,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.colimpuesto.OptionsColumn.ReadOnly = true;
             this.colimpuesto.Visible = true;
             this.colimpuesto.VisibleIndex = 8;
-            this.colimpuesto.Width = 66;
+            this.colimpuesto.Width = 55;
             // 
             // colsubtotal
             // 
@@ -666,7 +676,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.colsubtotal.OptionsColumn.ReadOnly = true;
             this.colsubtotal.Visible = true;
             this.colsubtotal.VisibleIndex = 9;
-            this.colsubtotal.Width = 68;
+            this.colsubtotal.Width = 57;
             // 
             // coltotal
             // 
@@ -678,7 +688,26 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.coltotal.OptionsColumn.ReadOnly = true;
             this.coltotal.Visible = true;
             this.coltotal.VisibleIndex = 10;
-            this.coltotal.Width = 88;
+            this.coltotal.Width = 73;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Ver OC";
+            this.gridColumn6.ColumnEdit = this.reposVerOC;
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 11;
+            this.gridColumn6.Width = 84;
+            // 
+            // reposVerOC
+            // 
+            this.reposVerOC.AutoHeight = false;
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            this.reposVerOC.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.reposVerOC.Name = "reposVerOC";
+            this.reposVerOC.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.reposVerOC.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposVerOC_ButtonClick);
             // 
             // gridControl2
             // 
@@ -823,9 +852,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // repositoryItemGestion
             // 
             this.repositoryItemGestion.AutoHeight = false;
-            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.gestionar_16X16;
+            editorButtonImageOptions4.Image = global::JAGUAR_PRO.Properties.Resources.gestionar_16X16;
             this.repositoryItemGestion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemGestion.Name = "repositoryItemGestion";
             this.repositoryItemGestion.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemGestion.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemGestion_ButtonClick);
@@ -1009,9 +1038,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // repositoryItemButtonEdit2
             // 
             this.repositoryItemButtonEdit2.AutoHeight = false;
-            editorButtonImageOptions4.Image = global::JAGUAR_PRO.Properties.Resources.gestionar_16X16;
+            editorButtonImageOptions5.Image = global::JAGUAR_PRO.Properties.Resources.gestionar_16X16;
             this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -1085,6 +1114,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             ((System.ComponentModel.ISupportInitialize)(this.grdOrdenesCompras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposGestionarOC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposVerOC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.TabFacturas.ResumeLayout(false);
@@ -1190,5 +1220,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private DevExpress.XtraGrid.Columns.GridColumn colestado1;
         private DevExpress.XtraGrid.Columns.GridColumn colidestado;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposVerOC;
     }
 }

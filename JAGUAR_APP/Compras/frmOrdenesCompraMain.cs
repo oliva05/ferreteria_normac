@@ -95,6 +95,8 @@ namespace JAGUAR_PRO.Compras
 
                 case TipoOperacion.View:
                     CargarInfoOrden(IdOrdenCompraActual);
+
+                    
                     FuncionSoloVista();
                     break;
                 default:

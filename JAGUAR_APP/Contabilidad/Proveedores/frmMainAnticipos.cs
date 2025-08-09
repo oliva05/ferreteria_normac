@@ -171,5 +171,53 @@ namespace JAGUAR_PRO.Contabilidad.Proveedores
             }
             
         }
+
+        private void cmdVerDetalle_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdAnticipo.FocusedView;
+            var row = (dsAnticipo.list_anticipoRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                switch (row.estado_id)
+                {
+                    case 1://creado
+
+                        frmSearchOrdenesC frm = new frmSearchOrdenesC(frmSearchOrdenesC.FiltroOrdenesCompra.DisponiblesAncitipos, PuntoVentaActual, UsuarioLogeado, frmSearchOrdenesC.TipoDoc.OrdenCompra, row.proveedor_id);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            if (frm.IdOrdenesSeleccionado > 0)
+                            {
+                                try
+                                {
+                                    SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                                    conn.Open();
+                                    SqlCommand cmd = new SqlCommand("sp_anticipo_ligarOC", conn);
+                                    cmd.CommandType = CommandType.StoredProcedure;
+                                    cmd.Parameters.AddWithValue("@anticipo_id", row.id);
+                                    cmd.Parameters.AddWithValue("@orden_compra_id", frm.IdOrdenesSeleccionado);
+                                    cmd.Parameters.AddWithValue("@usuario_id", UsuarioLogeado.Id);
+                                    cmd.ExecuteNonQuery();
+                                    CajaDialogo.Information("Anticipo ligado a Orden de Compra!");
+                                    LoadAnticipos();
+                                }
+                                catch (Exception ex)
+                                {
+                                    CajaDialogo.Error(ex.Message);
+                                }
+                            }
+
+                        }
+
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("No se ha seleccionado ningun anticipo!");
+            }
+        }
     }
 }

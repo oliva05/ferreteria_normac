@@ -23,6 +23,8 @@ namespace JAGUAR_PRO.Contabilidad.Proveedores
         PDV PuntoVentaActual;
         int IdOrdenCompra = 0;
         DataOperations dp = new DataOperations();
+
+    
         public frmCRUDAnticipo(UserLogin userLogin, PDV pDV)
         {
             InitializeComponent();
@@ -138,7 +140,7 @@ namespace JAGUAR_PRO.Contabilidad.Proveedores
                 cmd.Parameters.AddWithValue("@proveedor_id",Convert.ToInt32(lueProveedor.EditValue));
                 cmd.Parameters.AddWithValue("@monto_total", Convert.ToDecimal(txtMonto.EditValue));
                 if (string.IsNullOrEmpty(txtDocOC.Text))
-                    cmd.Parameters.AddWithValue("@orden_compra_id",DBNull.Value);
+                    cmd.Parameters.AddWithValue("@orden_compra_id",0);
                 else
                     cmd.Parameters.AddWithValue("@orden_compra_id", IdOrdenCompra);
                 cmd.Parameters.AddWithValue("@descripcion",memoComentario.Text.Trim());
