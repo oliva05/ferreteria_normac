@@ -1,6 +1,8 @@
 ﻿using ACS.Classes;
+using DevExpress.DashboardWin.Design;
 using DevExpress.XtraSpreadsheet.Model;
 using DevExpress.XtraSpreadsheet.Mouse;
+using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -145,6 +147,41 @@ namespace JAGUAR_PRO.Clases
         {
             //ConnectionString = pConnectionString;
             //this.Fecha = fecha;
+        }
+
+        public decimal GetUltimoCosto(int pIdPT)
+        {
+            DataOperations dp = new DataOperations();
+            SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+            decimal resultado = 0;
+
+            using (SqlCommand cmd = new SqlCommand("[dbo].[sp_get_utlmo_costo_pt]", cnx))
+            {
+                try
+                {
+                    cnx.Open();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@id_pt", System.Data.SqlDbType.Int).Value = pIdPT;
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        resultado = dp.ValidateNumberDecimal(dr.GetDecimal(0));
+                    }
+                    dr.Close();
+                }
+                catch (Exception ex)
+                {
+                    CajaDialogo.Error("Error al intentar recuperar el ultimo costo del producto! error: "+ ex.Message);
+                }
+            }
+            
+            if (resultado <= 0)
+            {
+                resultado = 0;
+            }
+
+            return resultado;
         }
 
         public bool Recuperar_productoByBarCode(string pBarCode)

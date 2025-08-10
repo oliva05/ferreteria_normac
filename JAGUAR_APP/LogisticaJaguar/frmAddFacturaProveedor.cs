@@ -425,6 +425,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                     ProductoTerminado pt = new ProductoTerminado();
                     row1.id_bodega = pt.GetAlmacenDefault(Convert.ToInt32(item["id"]));
+                    row1.ultimo_costo = pt.GetUltimoCosto(row1.id_mp);
                     //row1.id_bodega = 3;
                     dsLogisticaJaguar1.detalle_recepcion_fact.Adddetalle_recepcion_factRow(row1);
                     dsLogisticaJaguar1.AcceptChanges();
@@ -704,6 +705,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     }
                     break;
             }
+            dsLogisticaJaguar1.AcceptChanges();
         }
 
         private void cmdGuardar_Click(object sender, EventArgs e)
