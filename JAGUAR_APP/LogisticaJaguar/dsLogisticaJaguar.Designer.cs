@@ -1547,8 +1547,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             private global::System.Data.DataColumn columnutilidad_lps;
             
-            private global::System.Data.DataColumn columnultimo_costo;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_recepcion_factDataTable() {
@@ -1752,14 +1750,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ultimo_costoColumn {
-                get {
-                    return this.columnultimo_costo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1816,8 +1806,7 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         string eliminar, 
                         decimal porcentaje_utilidad, 
                         decimal precio_venta, 
-                        decimal utilidad_lps, 
-                        decimal ultimo_costo) {
+                        decimal utilidad_lps) {
                 detalle_recepcion_factRow rowdetalle_recepcion_factRow = ((detalle_recepcion_factRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         cantidad,
@@ -1840,8 +1829,7 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         eliminar,
                         porcentaje_utilidad,
                         precio_venta,
-                        utilidad_lps,
-                        ultimo_costo};
+                        utilidad_lps};
                 rowdetalle_recepcion_factRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_recepcion_factRow);
                 return rowdetalle_recepcion_factRow;
@@ -1885,7 +1873,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 this.columnporcentaje_utilidad = base.Columns["porcentaje_utilidad"];
                 this.columnprecio_venta = base.Columns["precio_venta"];
                 this.columnutilidad_lps = base.Columns["utilidad_lps"];
-                this.columnultimo_costo = base.Columns["ultimo_costo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1933,8 +1920,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 base.Columns.Add(this.columnprecio_venta);
                 this.columnutilidad_lps = new global::System.Data.DataColumn("utilidad_lps", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnutilidad_lps);
-                this.columnultimo_costo = new global::System.Data.DataColumn("ultimo_costo", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnultimo_costo);
                 this.columncantidad.Caption = "Cantidad Factura";
                 this.columnid_ud_medida_prv.Caption = "U. medida Factura";
                 this.columnid_ud_medida_prv.DefaultValue = ((int)(1));
@@ -1949,7 +1934,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 this.columnporcentaje_utilidad.Caption = "% Utilidad";
                 this.columnprecio_venta.Caption = "Precio Venta";
                 this.columnutilidad_lps.Caption = "Utilidad Lps";
-                this.columnultimo_costo.Caption = "Último Costo";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8543,23 +8527,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal ultimo_costo {
-                get {
-                    try {
-                        return ((decimal)(this[this.tabledetalle_recepcion_fact.ultimo_costoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ultimo_costo\' de la tabla \'detalle_recepcion_fact\' es DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledetalle_recepcion_fact.ultimo_costoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IscantidadNull() {
                 return this.IsNull(this.tabledetalle_recepcion_fact.cantidadColumn);
             }
@@ -8808,18 +8775,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setutilidad_lpsNull() {
                 this[this.tabledetalle_recepcion_fact.utilidad_lpsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isultimo_costoNull() {
-                return this.IsNull(this.tabledetalle_recepcion_fact.ultimo_costoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setultimo_costoNull() {
-                this[this.tabledetalle_recepcion_fact.ultimo_costoColumn] = global::System.Convert.DBNull;
             }
         }
         
