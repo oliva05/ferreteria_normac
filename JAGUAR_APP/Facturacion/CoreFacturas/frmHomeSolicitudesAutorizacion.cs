@@ -5,6 +5,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraRichEdit.Commands.Internal;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
+using JAGUAR_PRO.Contabilidad.Proveedores;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.TransaccionesPT;
 using System;
@@ -23,11 +24,13 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
     public partial class frmHomeSolicitudesAutorizacion : DevExpress.XtraEditors.XtraForm
     {
         UserLogin usuarioLogeado = new UserLogin();
-        public frmHomeSolicitudesAutorizacion(UserLogin userLog)
+        PDV PuntoVentaActual = new PDV();
+        public frmHomeSolicitudesAutorizacion(UserLogin userLog, PDV pDV)
         {
             InitializeComponent();
             LoadData(false);
             usuarioLogeado = userLog;
+            PuntoVentaActual = pDV;
             xtraTabControl1.SelectedTabPage = TabFacturas;
         }
 
@@ -372,6 +375,18 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     return;
                 }
 
+            }
+        }
+
+        private void reposVerOC_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdOrdenesCompras.FocusedView;
+            var row = (dsFacturasGestion.ordenesCompraAutoRow)gridview.GetFocusedDataRow();
+
+            if (row.id > 0)
+            {
+                frmOrdenesCompraMain frm = new frmOrdenesCompraMain(usuarioLogeado, frmOrdenesCompraMain.TipoOperacion.View, PuntoVentaActual, row.id);
+                frm.ShowDialog();
             }
         }
     }

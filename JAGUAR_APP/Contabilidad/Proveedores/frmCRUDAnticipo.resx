@@ -123,6 +123,9 @@
   <metadata name="dsMantenimiento1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="dsMantenimiento1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="simpleButton1.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -178,20 +181,17 @@
         RUcypj0V+zv+n0tkhE5V0cmYGqJCFPosOiEzpx8h//P6D1Wcml8FEabCAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="simpleButton2.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSelecOC.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAXdEVYdFRpdGxlAFNlbGVjdFBpdm90VGFibGU7BDwM4gAAAZhJREFUOE+dks1LAkEchsfQLh2i
-        v6Lu/imCIIuCgYSGxpa5qShli0IRixa5EfQBHrSyLBDSSBIJoZQuKQVCBV26RGLYoY9f/KZ1E2xFWniY
-        2dn3fZhhhxBCVPPhTJSPZKEXMIsdPpIlAEDw6ZsTjuHj8wtem+9dwQxmpY4sUPsW0zQQzj9Snp7f5Hk7
-        mMGs1JEFmpnQUc8CzEodWdA/zafoRyx2AzOYlTq/gqnAQccOWmTOyhDdTNERM5jFDpZlATubVBRMeQWo
-        N5ogbiQhvn8CmO0QTPj3FAUO1wIVIMtrCXC4xU6B3berKLBNBmn5qvpAx6WVGFhZXmwXaMa9O4r3wGIP
-        0GL+8gYK5Vs6DwlbuL4q34MxV2zd5knAX5itflo6LVYgV6xAofQjwXX5JuIxCCEDhJBBQshQO0aLhxaw
-        iBxmioBrRotH2xKoJIkajyPJZAxmjgr8QRHSuRKUr+8gJGyDwcyNUIHVHe8KCvQmJ6LVm5y1wkUFzktV
-        fL/vVUDqjSZFx7DDOoatMaPci45hOSpo/Y7/8g2nvpFY+5hN+gAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABd0RVh0VGl0
+        bGUAU2VsZWN0UGl2b3RUYWJsZTsEPAziAAABmElEQVQ4T52SzUsCQRyGx9AuHaK/ou7+KYIgi4KBhIbG
+        lrmpKGWLQhGLFrkR9AEetLIsENJIEgmhlC4pBUIFXbpEYtihj1/8pnUTbEVaeJjZ2fd9mGGHEEJU8+FM
+        lI9koRcwix0+kiUAQPDpmxOO4ePzC16b713BDGaljixQ+xbTNBDOP1Kent/keTuYwazUkQWamdBRzwLM
+        Sh1Z0D/Np+hHLHYDM5iVOr+CqcBBxw5aZM7KEN1M0REzmMUOlmUBO5tUFEx5Bag3miBuJCG+fwKY7RBM
+        +PcUBQ7XAhUgy2sJcLjFToHdt6sosE0Gafmq+kDHpZUYWFlebBdoxr07ivfAYg/QYv7yBgrlWzoPCVu4
+        virfgzFXbN3mScBfmK1+WjotViBXrECh9CPBdfkm4jEIIQOEkEFCyFA7RouHFrCIHGaKgGtGi0fbEqgk
+        iRqPI8lkDGaOCvxBEdK5EpSv7yAkbIPBzI1QgdUd7woK9CYnotWbnLXCRQXOS1V8v+9VQOqNJkXHsMM6
+        hq0xo9yLjmE5Kmj9jv/yDae+kVj7mE36AAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="dsMantenimiento1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

@@ -4202,7 +4202,6 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem252),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem253)});
             this.navBarGroup21.Name = "navBarGroup21";
-            this.navBarGroup21.Visible = false;
             // 
             // navBarItem252
             // 
