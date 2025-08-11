@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -31,14 +32,17 @@ namespace JAGUAR_PRO.Facturacion.Deposito
         UserLogin UsuarioLogeado;
         PDV PuntoVenta;
         TipoOperacion Operacion;
+        DepositoBanco DepositoActual;
        
-        public frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion pOperacion, UserLogin userLogin, PDV ppdv)
+        public frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion pOperacion, UserLogin userLogin, PDV ppdv, int pIdDeposito)
         {
             InitializeComponent();
+            DepositoActual = new DepositoBanco();
             UsuarioLogeado = userLogin;
             PuntoVenta = ppdv;
             Operacion = pOperacion;
             GetBancos();
+            
             //txtValorEnCaja.EditValue = 0.00;//
             if (Operacion == TipoOperacion.Nuevo)
             {
@@ -46,7 +50,17 @@ namespace JAGUAR_PRO.Facturacion.Deposito
             }
             else if (Operacion == TipoOperacion.Editar)
             {
-                
+                if (DepositoActual.RecuperarRegistros(pIdDeposito)) 
+                {
+                    gleBancoDeposito.EditValue = DepositoActual.IdBanco;
+                    gleCuentaBanco.EditValue = DepositoActual.IdCuenta;
+                    txtValorTransferencia.Text = string.Format("{0:###,##0.00}", DepositoActual.Total);
+                    txtReferencia.Text = DepositoActual.NumTransaccion;
+                    lblNumeroDeposito.Text = DepositoActual.DepositoN;
+                    txtComentario.Text = DepositoActual.Obs;
+                    lblEnable.Visible = tggEnable.Visible = true;
+                    tggEnable.IsOn = DepositoActual.Enable;
+                }
             }
         }
 
@@ -147,20 +161,49 @@ namespace JAGUAR_PRO.Facturacion.Deposito
                 transaction = conn.BeginTransaction("Transaction Order");
 
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "sp_facturacion_deposito_insert";
                 cmd.Connection = conn;
                 cmd.Transaction = transaction;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@num_transaccion",txtReferencia.Text.Trim());
-                cmd.Parameters.AddWithValue("@fecha", dp.Now());
-                cmd.Parameters.AddWithValue("@id_banco", gleBancoDeposito.EditValue);
-                cmd.Parameters.AddWithValue("@cuenta_banco", gleCuentaBanco.Text.Trim());
-                cmd.Parameters.AddWithValue("@total",txtValorTransferencia.EditValue);
-                cmd.Parameters.AddWithValue("@obs",txtObs.Text);
-                cmd.Parameters.AddWithValue("@created_user_id",UsuarioLogeado.Id);
-                cmd.Parameters.AddWithValue("@created_date", dp.Now());
-                cmd.Parameters.AddWithValue("@puntoVentaId",PuntoVenta.ID);
-                IdInserted = Convert.ToInt32(cmd.ExecuteScalar());
+
+                switch (Operacion)
+                {
+                    case TipoOperacion.Nuevo:
+                        cmd.CommandText = "[dbo].[sp_facturacion_deposito_insert_v2]";
+                        cmd.Parameters.AddWithValue("@num_transaccion", txtReferencia.Text.Trim());
+                        cmd.Parameters.AddWithValue("@fecha", dp.Now());
+                        cmd.Parameters.AddWithValue("@id_banco", gleBancoDeposito.EditValue);
+                        cmd.Parameters.AddWithValue("@cuenta_banco", gleCuentaBanco.Text.Trim());
+                        cmd.Parameters.AddWithValue("@total", txtValorTransferencia.EditValue);
+                        cmd.Parameters.AddWithValue("@obs", txtComentario.Text);
+                        cmd.Parameters.AddWithValue("@created_user_id", UsuarioLogeado.Id);
+                        cmd.Parameters.AddWithValue("@created_date", dp.Now());
+                        cmd.Parameters.AddWithValue("@puntoVentaId", PuntoVenta.ID);
+                        cmd.Parameters.AddWithValue("@id_cuenta", gleCuentaBanco.EditValue);
+
+
+                        IdInserted = Convert.ToInt32(cmd.ExecuteScalar());
+                        break;
+                    case TipoOperacion.Editar:
+                        cmd.CommandText = "[dbo].[sp_facturacion_deposito_update]";
+                        cmd.Parameters.AddWithValue("@id", this.DepositoActual.Id);
+                        cmd.Parameters.AddWithValue("@num_transaccion", txtReferencia.Text.Trim());
+                        cmd.Parameters.AddWithValue("@fecha", dp.Now());
+                        cmd.Parameters.AddWithValue("@enable", tggEnable.IsOn);
+                        cmd.Parameters.AddWithValue("@id_banco", gleBancoDeposito.EditValue);
+                        cmd.Parameters.AddWithValue("@cuenta_banco", gleCuentaBanco.Text.Trim());
+                        cmd.Parameters.AddWithValue("@total", txtValorTransferencia.EditValue);
+                        cmd.Parameters.AddWithValue("@obs", txtComentario.Text);
+                        cmd.Parameters.AddWithValue("@modified_user_id", UsuarioLogeado.Id);
+                        cmd.Parameters.AddWithValue("@modified_date", dp.Now());
+                        //cmd.Parameters.AddWithValue("@puntoVentaId", PuntoVenta.ID);
+                        cmd.Parameters.AddWithValue("@id_cuenta", gleCuentaBanco.EditValue);
+                        cmd.ExecuteNonQuery();
+                        IdInserted = DepositoActual.Id;
+                        break;
+                }
+                
+                
+
                 transaction.Commit();
                 Guardar = true;
             }

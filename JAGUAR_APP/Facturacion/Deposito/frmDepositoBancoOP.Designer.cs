@@ -53,8 +53,12 @@
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.txtValorTransferencia = new DevExpress.XtraEditors.CalcEdit();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
-            this.txtObs = new DevExpress.XtraEditors.MemoEdit();
+            this.txtComentario = new DevExpress.XtraEditors.MemoEdit();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblNumeroDeposito = new System.Windows.Forms.Label();
+            this.lblEnable = new System.Windows.Forms.Label();
+            this.tggEnable = new DevExpress.XtraEditors.ToggleSwitch();
             ((System.ComponentModel.ISupportInitialize)(this.gleCuentaBanco.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).BeginInit();
@@ -64,12 +68,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorTransferencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtObs.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tggEnable.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gleCuentaBanco
             // 
-            this.gleCuentaBanco.Location = new System.Drawing.Point(212, 108);
+            this.gleCuentaBanco.Location = new System.Drawing.Point(213, 106);
             this.gleCuentaBanco.Name = "gleCuentaBanco";
             this.gleCuentaBanco.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.gleCuentaBanco.Properties.Appearance.Options.UseFont = true;
@@ -129,7 +134,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(39, 115);
+            this.label31.Location = new System.Drawing.Point(40, 113);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(64, 21);
             this.label31.TabIndex = 64;
@@ -137,7 +142,7 @@
             // 
             // gleBancoDeposito
             // 
-            this.gleBancoDeposito.Location = new System.Drawing.Point(212, 63);
+            this.gleBancoDeposito.Location = new System.Drawing.Point(213, 72);
             this.gleBancoDeposito.Name = "gleBancoDeposito";
             this.gleBancoDeposito.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.gleBancoDeposito.Properties.Appearance.Options.UseFont = true;
@@ -185,7 +190,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(39, 70);
+            this.label30.Location = new System.Drawing.Point(40, 79);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(57, 21);
             this.label30.TabIndex = 62;
@@ -196,7 +201,7 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(340, 24);
+            this.label15.Location = new System.Drawing.Point(340, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(169, 25);
             this.label15.TabIndex = 66;
@@ -206,7 +211,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(492, 70);
+            this.label12.Location = new System.Drawing.Point(40, 214);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(74, 21);
             this.label12.TabIndex = 68;
@@ -215,7 +220,7 @@
             // txtReferencia
             // 
             this.txtReferencia.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.txtReferencia.Location = new System.Drawing.Point(212, 205);
+            this.txtReferencia.Location = new System.Drawing.Point(213, 174);
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(195, 29);
             this.txtReferencia.TabIndex = 23;
@@ -225,7 +230,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(39, 213);
+            this.label17.Location = new System.Drawing.Point(40, 182);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(137, 21);
             this.label17.TabIndex = 70;
@@ -235,7 +240,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(39, 159);
+            this.label13.Location = new System.Drawing.Point(40, 147);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(146, 21);
             this.label13.TabIndex = 69;
@@ -277,7 +282,7 @@
             // 
             // txtValorTransferencia
             // 
-            this.txtValorTransferencia.Location = new System.Drawing.Point(212, 152);
+            this.txtValorTransferencia.Location = new System.Drawing.Point(213, 140);
             this.txtValorTransferencia.Name = "txtValorTransferencia";
             this.txtValorTransferencia.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.txtValorTransferencia.Properties.Appearance.Options.UseFont = true;
@@ -293,43 +298,90 @@
             // radioGroup1
             // 
             this.radioGroup1.EditValue = 1;
-            this.radioGroup1.Location = new System.Drawing.Point(616, 70);
+            this.radioGroup1.Location = new System.Drawing.Point(213, 209);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioGroup1.Properties.Appearance.Options.UseFont = true;
             this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "3.5 pulg. cinta"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "8x11.5 pulg. Carta", false)});
-            this.radioGroup1.Size = new System.Drawing.Size(205, 61);
+            this.radioGroup1.Size = new System.Drawing.Size(195, 61);
             this.radioGroup1.TabIndex = 77;
             this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
             // 
-            // txtObs
+            // txtComentario
             // 
-            this.txtObs.Location = new System.Drawing.Point(616, 157);
-            this.txtObs.Name = "txtObs";
-            this.txtObs.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.txtObs.Properties.Appearance.Options.UseFont = true;
-            this.txtObs.Size = new System.Drawing.Size(205, 117);
-            this.txtObs.TabIndex = 79;
+            this.txtComentario.Location = new System.Drawing.Point(575, 78);
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.txtComentario.Properties.Appearance.Options.UseFont = true;
+            this.txtComentario.Size = new System.Drawing.Size(275, 117);
+            this.txtComentario.TabIndex = 79;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(492, 159);
+            this.label2.Location = new System.Drawing.Point(443, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 21);
             this.label2.TabIndex = 80;
             this.label2.Text = "Comentario";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(40, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 21);
+            this.label1.TabIndex = 81;
+            this.label1.Text = "Depósito No.";
+            // 
+            // lblNumeroDeposito
+            // 
+            this.lblNumeroDeposito.AutoSize = true;
+            this.lblNumeroDeposito.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroDeposito.Location = new System.Drawing.Point(209, 47);
+            this.lblNumeroDeposito.Name = "lblNumeroDeposito";
+            this.lblNumeroDeposito.Size = new System.Drawing.Size(0, 21);
+            this.lblNumeroDeposito.TabIndex = 82;
+            // 
+            // lblEnable
+            // 
+            this.lblEnable.AutoSize = true;
+            this.lblEnable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblEnable.Location = new System.Drawing.Point(443, 209);
+            this.lblEnable.Name = "lblEnable";
+            this.lblEnable.Size = new System.Drawing.Size(136, 21);
+            this.lblEnable.TabIndex = 83;
+            this.lblEnable.Text = "Depósito Activo:";
+            this.lblEnable.Visible = false;
+            // 
+            // tggEnable
+            // 
+            this.tggEnable.EditValue = true;
+            this.tggEnable.Location = new System.Drawing.Point(585, 209);
+            this.tggEnable.Name = "tggEnable";
+            this.tggEnable.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tggEnable.Properties.Appearance.Options.UseFont = true;
+            this.tggEnable.Properties.OffText = "No";
+            this.tggEnable.Properties.OnText = "Si";
+            this.tggEnable.Size = new System.Drawing.Size(95, 24);
+            this.tggEnable.TabIndex = 84;
+            this.tggEnable.Visible = false;
             // 
             // frmDepositoBancoOP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 342);
+            this.Controls.Add(this.tggEnable);
+            this.Controls.Add(this.lblEnable);
+            this.Controls.Add(this.lblNumeroDeposito);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtObs);
+            this.Controls.Add(this.txtComentario);
             this.Controls.Add(this.radioGroup1);
             this.Controls.Add(this.txtValorTransferencia);
             this.Controls.Add(this.cmdCerrar);
@@ -353,7 +405,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorTransferencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtObs.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tggEnable.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,8 +436,12 @@
         private System.Windows.Forms.BindingSource bancoslistBindingSource;
         private DevExpress.XtraEditors.CalcEdit txtValorTransferencia;
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
-        private DevExpress.XtraEditors.MemoEdit txtObs;
+        private DevExpress.XtraEditors.MemoEdit txtComentario;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraGrid.Columns.GridColumn colmoneda;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNumeroDeposito;
+        private System.Windows.Forms.Label lblEnable;
+        private DevExpress.XtraEditors.ToggleSwitch tggEnable;
     }
 }

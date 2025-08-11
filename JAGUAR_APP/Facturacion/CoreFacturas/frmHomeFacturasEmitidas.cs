@@ -57,12 +57,52 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
             gvFacturas.OptionsMenu.EnableColumnMenu = false;
 
+
             //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
             if (this.PuntoDeVentaActual.PermiteAnulacionConAutorizacion || this.PuntoDeVentaActual.PermiteReimpresionFacturaConAutorizacion)
                 gvFacturas.Columns["autorizacion"].Visible = true; 
             else
                 gvFacturas.Columns["autorizacion"].Visible = false;
 
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
+            {
+                case 1://Basic View
+                    accesoprevio = false;
+                    gvFacturas.Columns["editar_factura"].Visible = false;
+                    break;
+                case 2://Basic No Autorization
+                    gvFacturas.Columns["editar_factura"].Visible = false;
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    gvFacturas.Columns["editar_factura"].Visible = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    gvFacturas.OptionsMenu.EnableColumnMenu = true;
+                    break;
+                default:
+                    gvFacturas.Columns["editar_factura"].Visible = false;
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(31))
+                {
+                    gvFacturas.Columns["editar_factura"].Visible = true;
+                }
+                else
+                {
+                    gvFacturas.Columns["editar_factura"].Visible = false;
+                }
+            }
+            
         }
 
         private void Loadfacturas()
