@@ -38,19 +38,29 @@
             this.coldescripcion1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.grdDetalleFacturas = new DevExpress.XtraGrid.GridControl();
-            this.grdvDetalleFacturas = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfactura = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfecha_factura = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfecha_registro = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colobservacion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocNum = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colmonto_factura = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colmonto_pagado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colmonto_pendiente = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colmonto_a_pagar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colseleccionar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdvDetalleFacturas = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colid = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colDocNum = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colfactura = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colcai = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colfecha_factura = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colfecha_registro = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colobservacion = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colmonto_factura = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colmonto_pagado = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandAnticipos = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colanticipo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colmonto_anticipo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colaplicarAnticipo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colmontoAnticipoAplicado = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colmonto_pendiente = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colmonto_a_pagar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colseleccionar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.coltieneAnticipo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colid_anticipo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.cmdClose = new DevExpress.XtraEditors.DropDownButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -65,6 +75,7 @@
             this.txtObs = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtMontoDisponible = new DevExpress.XtraEditors.TextEdit();
+            this.chkTotalDeuda = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grdProveedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoreslistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsLogisticaJaguar1)).BeginInit();
@@ -78,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkAll.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMontoDisponible.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkTotalDeuda.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grdProveedor
@@ -161,9 +173,14 @@
             // 
             // grdvDetalleFacturas
             // 
-            this.grdvDetalleFacturas.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdvDetalleFacturas.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.grdvDetalleFacturas.Appearance.HeaderPanel.Options.UseFont = true;
-            this.grdvDetalleFacturas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.grdvDetalleFacturas.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand2,
+            this.gridBand3,
+            this.bandAnticipos,
+            this.gridBand4});
+            this.grdvDetalleFacturas.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.colid,
             this.colcai,
             this.colfactura,
@@ -175,30 +192,55 @@
             this.colmonto_pagado,
             this.colmonto_pendiente,
             this.colmonto_a_pagar,
-            this.colseleccionar});
+            this.colseleccionar,
+            this.colanticipo,
+            this.colmonto_anticipo,
+            this.coltieneAnticipo,
+            this.colmontoAnticipoAplicado,
+            this.colid_anticipo,
+            this.colaplicarAnticipo});
             this.grdvDetalleFacturas.GridControl = this.grdDetalleFacturas;
             this.grdvDetalleFacturas.Name = "grdvDetalleFacturas";
             this.grdvDetalleFacturas.OptionsView.ShowFooter = true;
             this.grdvDetalleFacturas.OptionsView.ShowGroupPanel = false;
-            this.grdvDetalleFacturas.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grdvDetalleFacturas_CellValueChanged);
-            this.grdvDetalleFacturas.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grdvDetalleFacturas_CellValueChanging);
-            this.grdvDetalleFacturas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdvDetalleFacturas_KeyDown);
+            this.grdvDetalleFacturas.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.grdvDetalleFacturas_RowCellStyle);
+            this.grdvDetalleFacturas.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grdvDetalleFacturas_CellValueChanged_1);
+            this.grdvDetalleFacturas.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grdvDetalleFacturas_CellValueChanging_1);
+            this.grdvDetalleFacturas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdvDetalleFacturas_KeyDown_1);
+            // 
+            // gridBand2
+            // 
+            this.gridBand2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.gridBand2.AppearanceHeader.Options.UseFont = true;
+            this.gridBand2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand2.Caption = "Informacion de Facturas";
+            this.gridBand2.Columns.Add(this.colid);
+            this.gridBand2.Columns.Add(this.colDocNum);
+            this.gridBand2.Columns.Add(this.colfactura);
+            this.gridBand2.Columns.Add(this.colcai);
+            this.gridBand2.Columns.Add(this.colfecha_factura);
+            this.gridBand2.Columns.Add(this.colfecha_registro);
+            this.gridBand2.Columns.Add(this.colobservacion);
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.VisibleIndex = 0;
+            this.gridBand2.Width = 511;
             // 
             // colid
             // 
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
             this.colid.OptionsColumn.ReadOnly = true;
+            this.colid.Width = 66;
             // 
-            // colcai
+            // colDocNum
             // 
-            this.colcai.Caption = "CAI";
-            this.colcai.FieldName = "cai";
-            this.colcai.Name = "colcai";
-            this.colcai.OptionsColumn.ReadOnly = true;
-            this.colcai.Visible = true;
-            this.colcai.VisibleIndex = 2;
-            this.colcai.Width = 125;
+            this.colDocNum.Caption = "# Doc.";
+            this.colDocNum.FieldName = "DocNum";
+            this.colDocNum.Name = "colDocNum";
+            this.colDocNum.OptionsColumn.ReadOnly = true;
+            this.colDocNum.Visible = true;
+            this.colDocNum.Width = 45;
             // 
             // colfactura
             // 
@@ -207,18 +249,25 @@
             this.colfactura.Name = "colfactura";
             this.colfactura.OptionsColumn.ReadOnly = true;
             this.colfactura.Visible = true;
-            this.colfactura.VisibleIndex = 1;
-            this.colfactura.Width = 152;
+            this.colfactura.Width = 125;
+            // 
+            // colcai
+            // 
+            this.colcai.Caption = "CAI";
+            this.colcai.FieldName = "cai";
+            this.colcai.Name = "colcai";
+            this.colcai.OptionsColumn.ReadOnly = true;
+            this.colcai.Visible = true;
+            this.colcai.Width = 110;
             // 
             // colfecha_factura
             // 
-            this.colfecha_factura.Caption = "Fecha Factura";
+            this.colfecha_factura.Caption = "F. Factura";
             this.colfecha_factura.FieldName = "fecha_factura";
             this.colfecha_factura.Name = "colfecha_factura";
             this.colfecha_factura.OptionsColumn.ReadOnly = true;
             this.colfecha_factura.Visible = true;
-            this.colfecha_factura.VisibleIndex = 3;
-            this.colfecha_factura.Width = 99;
+            this.colfecha_factura.Width = 74;
             // 
             // colfecha_registro
             // 
@@ -226,9 +275,7 @@
             this.colfecha_registro.FieldName = "fecha_registro";
             this.colfecha_registro.Name = "colfecha_registro";
             this.colfecha_registro.OptionsColumn.ReadOnly = true;
-            this.colfecha_registro.Visible = true;
-            this.colfecha_registro.VisibleIndex = 4;
-            this.colfecha_registro.Width = 97;
+            this.colfecha_registro.Width = 91;
             // 
             // colobservacion
             // 
@@ -236,18 +283,20 @@
             this.colobservacion.FieldName = "observacion";
             this.colobservacion.Name = "colobservacion";
             this.colobservacion.Visible = true;
-            this.colobservacion.VisibleIndex = 5;
-            this.colobservacion.Width = 145;
+            this.colobservacion.Width = 157;
             // 
-            // colDocNum
+            // gridBand3
             // 
-            this.colDocNum.Caption = "# Documento";
-            this.colDocNum.FieldName = "DocNum";
-            this.colDocNum.Name = "colDocNum";
-            this.colDocNum.OptionsColumn.ReadOnly = true;
-            this.colDocNum.Visible = true;
-            this.colDocNum.VisibleIndex = 0;
-            this.colDocNum.Width = 91;
+            this.gridBand3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.gridBand3.AppearanceHeader.Options.UseFont = true;
+            this.gridBand3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand3.Caption = "Montos de Facturas";
+            this.gridBand3.Columns.Add(this.colmonto_factura);
+            this.gridBand3.Columns.Add(this.colmonto_pagado);
+            this.gridBand3.Name = "gridBand3";
+            this.gridBand3.VisibleIndex = 1;
+            this.gridBand3.Width = 212;
             // 
             // colmonto_factura
             // 
@@ -258,10 +307,9 @@
             this.colmonto_factura.Name = "colmonto_factura";
             this.colmonto_factura.OptionsColumn.ReadOnly = true;
             this.colmonto_factura.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "monto_factura", "SUM={0:#,###,##0.00}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "monto_factura", "={0:#,###,##0.00}")});
             this.colmonto_factura.Visible = true;
-            this.colmonto_factura.VisibleIndex = 6;
-            this.colmonto_factura.Width = 100;
+            this.colmonto_factura.Width = 104;
             // 
             // colmonto_pagado
             // 
@@ -272,10 +320,74 @@
             this.colmonto_pagado.Name = "colmonto_pagado";
             this.colmonto_pagado.OptionsColumn.ReadOnly = true;
             this.colmonto_pagado.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "monto_pagado", "SUM={0:#,###,##0.00}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "monto_pagado", "={0:#,###,##0.00}")});
             this.colmonto_pagado.Visible = true;
-            this.colmonto_pagado.VisibleIndex = 7;
-            this.colmonto_pagado.Width = 100;
+            this.colmonto_pagado.Width = 108;
+            // 
+            // bandAnticipos
+            // 
+            this.bandAnticipos.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bandAnticipos.AppearanceHeader.Options.UseFont = true;
+            this.bandAnticipos.AppearanceHeader.Options.UseTextOptions = true;
+            this.bandAnticipos.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bandAnticipos.Caption = "Anticipos";
+            this.bandAnticipos.Columns.Add(this.colanticipo);
+            this.bandAnticipos.Columns.Add(this.colmonto_anticipo);
+            this.bandAnticipos.Columns.Add(this.colaplicarAnticipo);
+            this.bandAnticipos.Columns.Add(this.colmontoAnticipoAplicado);
+            this.bandAnticipos.Name = "bandAnticipos";
+            this.bandAnticipos.VisibleIndex = 2;
+            this.bandAnticipos.Width = 381;
+            // 
+            // colanticipo
+            // 
+            this.colanticipo.Caption = "Anticipo Disponible";
+            this.colanticipo.FieldName = "tieneAnticipo";
+            this.colanticipo.Name = "colanticipo";
+            this.colanticipo.OptionsColumn.ReadOnly = true;
+            this.colanticipo.Visible = true;
+            this.colanticipo.Width = 129;
+            // 
+            // colmonto_anticipo
+            // 
+            this.colmonto_anticipo.Caption = "Monto Disponible";
+            this.colmonto_anticipo.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.colmonto_anticipo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colmonto_anticipo.FieldName = "monto_anticipo";
+            this.colmonto_anticipo.Name = "colmonto_anticipo";
+            this.colmonto_anticipo.OptionsColumn.ReadOnly = true;
+            this.colmonto_anticipo.Visible = true;
+            this.colmonto_anticipo.Width = 131;
+            // 
+            // colaplicarAnticipo
+            // 
+            this.colaplicarAnticipo.AppearanceCell.Options.HighPriority = true;
+            this.colaplicarAnticipo.Caption = "Aplicar";
+            this.colaplicarAnticipo.FieldName = "aplicarAnticipo";
+            this.colaplicarAnticipo.Name = "colaplicarAnticipo";
+            this.colaplicarAnticipo.Width = 74;
+            // 
+            // colmontoAnticipoAplicado
+            // 
+            this.colmontoAnticipoAplicado.AppearanceCell.Options.HighPriority = true;
+            this.colmontoAnticipoAplicado.Caption = "Monto por Aplicar";
+            this.colmontoAnticipoAplicado.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.colmontoAnticipoAplicado.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colmontoAnticipoAplicado.FieldName = "montoAnticipoAplicado";
+            this.colmontoAnticipoAplicado.Name = "colmontoAnticipoAplicado";
+            this.colmontoAnticipoAplicado.Visible = true;
+            this.colmontoAnticipoAplicado.Width = 121;
+            // 
+            // gridBand4
+            // 
+            this.gridBand4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.gridBand4.AppearanceHeader.Options.UseFont = true;
+            this.gridBand4.Columns.Add(this.colmonto_pendiente);
+            this.gridBand4.Columns.Add(this.colmonto_a_pagar);
+            this.gridBand4.Columns.Add(this.colseleccionar);
+            this.gridBand4.Name = "gridBand4";
+            this.gridBand4.VisibleIndex = 3;
+            this.gridBand4.Width = 339;
             // 
             // colmonto_pendiente
             // 
@@ -286,14 +398,14 @@
             this.colmonto_pendiente.Name = "colmonto_pendiente";
             this.colmonto_pendiente.OptionsColumn.ReadOnly = true;
             this.colmonto_pendiente.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "monto_pendiente", "SUM={0:#,###,##0.00}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "monto_pendiente", "={0:#,###,##0.00}")});
             this.colmonto_pendiente.Visible = true;
-            this.colmonto_pendiente.VisibleIndex = 8;
-            this.colmonto_pendiente.Width = 117;
+            this.colmonto_pendiente.Width = 126;
             // 
             // colmonto_a_pagar
             // 
             this.colmonto_a_pagar.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.colmonto_a_pagar.AppearanceCell.Options.HighPriority = true;
             this.colmonto_a_pagar.AppearanceCell.Options.UseBackColor = true;
             this.colmonto_a_pagar.Caption = "Por Pagar";
             this.colmonto_a_pagar.DisplayFormat.FormatString = "{0:#,###,##0.00}";
@@ -301,19 +413,31 @@
             this.colmonto_a_pagar.FieldName = "monto_a_pagar";
             this.colmonto_a_pagar.Name = "colmonto_a_pagar";
             this.colmonto_a_pagar.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "monto_a_pagar", "SUM={0:#,###,##0.00}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "monto_a_pagar", "={0:#,###,##0.00}")});
             this.colmonto_a_pagar.Visible = true;
-            this.colmonto_a_pagar.VisibleIndex = 9;
-            this.colmonto_a_pagar.Width = 112;
+            this.colmonto_a_pagar.Width = 90;
             // 
             // colseleccionar
             // 
+            this.colseleccionar.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.colseleccionar.AppearanceCell.Options.HighPriority = true;
+            this.colseleccionar.AppearanceCell.Options.UseBackColor = true;
             this.colseleccionar.Caption = "Seleccionar";
             this.colseleccionar.FieldName = "seleccionar";
             this.colseleccionar.Name = "colseleccionar";
             this.colseleccionar.Visible = true;
-            this.colseleccionar.VisibleIndex = 10;
-            this.colseleccionar.Width = 130;
+            this.colseleccionar.Width = 123;
+            // 
+            // coltieneAnticipo
+            // 
+            this.coltieneAnticipo.FieldName = "tieneAnticipo";
+            this.coltieneAnticipo.Name = "coltieneAnticipo";
+            this.coltieneAnticipo.Visible = true;
+            // 
+            // colid_anticipo
+            // 
+            this.colid_anticipo.FieldName = "id_anticipo";
+            this.colid_anticipo.Name = "colid_anticipo";
             // 
             // cmdGuardar
             // 
@@ -364,6 +488,8 @@
             this.txtMontoPagar.Name = "txtMontoPagar";
             this.txtMontoPagar.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtMontoPagar.Properties.Appearance.Options.UseFont = true;
+            this.txtMontoPagar.Properties.EditFormat.FormatString = "{0:#,###,##0.00}";
+            this.txtMontoPagar.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtMontoPagar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtMontoPagar.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
             this.txtMontoPagar.Properties.MaskSettings.Set("mask", "n3");
@@ -477,11 +603,24 @@
             this.txtMontoDisponible.TabIndex = 107;
             this.txtMontoDisponible.Visible = false;
             // 
+            // chkTotalDeuda
+            // 
+            this.chkTotalDeuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkTotalDeuda.Location = new System.Drawing.Point(787, 105);
+            this.chkTotalDeuda.Name = "chkTotalDeuda";
+            this.chkTotalDeuda.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.chkTotalDeuda.Properties.Appearance.Options.UseFont = true;
+            this.chkTotalDeuda.Properties.Caption = "Selec. Total Deuda";
+            this.chkTotalDeuda.Size = new System.Drawing.Size(156, 24);
+            this.chkTotalDeuda.TabIndex = 108;
+            this.chkTotalDeuda.Visible = false;
+            // 
             // ProveedorCRUDPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1476, 740);
+            this.Controls.Add(this.chkTotalDeuda);
             this.Controls.Add(this.txtMontoDisponible);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.txtObs);
@@ -509,6 +648,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkAll.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMontoDisponible.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkTotalDeuda.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -522,23 +662,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraGrid.GridControl grdDetalleFacturas;
-        private DevExpress.XtraGrid.Views.Grid.GridView grdvDetalleFacturas;
         private dsLogisticaJaguar dsLogisticaJaguar1;
         private DevExpress.XtraEditors.SimpleButton cmdGuardar;
         private DevExpress.XtraEditors.DropDownButton cmdClose;
         private System.Windows.Forms.BindingSource proveedoreslistBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colid;
-        private DevExpress.XtraGrid.Columns.GridColumn colcai;
-        private DevExpress.XtraGrid.Columns.GridColumn colfactura;
-        private DevExpress.XtraGrid.Columns.GridColumn colfecha_factura;
-        private DevExpress.XtraGrid.Columns.GridColumn colfecha_registro;
-        private DevExpress.XtraGrid.Columns.GridColumn colobservacion;
-        private DevExpress.XtraGrid.Columns.GridColumn colDocNum;
-        private DevExpress.XtraGrid.Columns.GridColumn colmonto_factura;
-        private DevExpress.XtraGrid.Columns.GridColumn colmonto_pagado;
-        private DevExpress.XtraGrid.Columns.GridColumn colmonto_pendiente;
-        private DevExpress.XtraGrid.Columns.GridColumn colmonto_a_pagar;
-        private DevExpress.XtraGrid.Columns.GridColumn colseleccionar;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtMontoPagar;
         private DevExpress.XtraEditors.LabelControl labelControl2;
@@ -551,5 +678,29 @@
         private DevExpress.XtraEditors.MemoEdit txtObs;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit txtMontoDisponible;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grdvDetalleFacturas;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colid;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colDocNum;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colfactura;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colcai;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colfecha_factura;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colfecha_registro;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colobservacion;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colmonto_factura;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colmonto_pagado;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colanticipo;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colmonto_anticipo;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colmonto_pendiente;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colmonto_a_pagar;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colseleccionar;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coltieneAnticipo;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colmontoAnticipoAplicado;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandAnticipos;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colaplicarAnticipo;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colid_anticipo;
+        private DevExpress.XtraEditors.CheckEdit chkTotalDeuda;
     }
 }
