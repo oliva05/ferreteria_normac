@@ -161,6 +161,7 @@
               <xs:element name="abono" msdata:Caption="Abono/Pago" msprop:Generator_ColumnPropNameInTable="abonoColumn" msprop:Generator_ColumnPropNameInRow="abono" msprop:Generator_UserColumnName="abono" msprop:Generator_ColumnVarNameInTable="columnabono" type="xs:decimal" minOccurs="0" />
               <xs:element name="id_termino_pago" msprop:Generator_ColumnPropNameInTable="id_termino_pagoColumn" msprop:Generator_ColumnPropNameInRow="id_termino_pago" msprop:Generator_UserColumnName="id_termino_pago" msprop:Generator_ColumnVarNameInTable="columnid_termino_pago" type="xs:int" minOccurs="0" />
               <xs:element name="termino_pago_name" msdata:Caption="Término Pago" msprop:Generator_ColumnPropNameInTable="termino_pago_nameColumn" msprop:Generator_ColumnPropNameInRow="termino_pago_name" msprop:Generator_UserColumnName="termino_pago_name" msprop:Generator_ColumnVarNameInTable="columntermino_pago_name" type="xs:string" minOccurs="0" />
+              <xs:element name="editar_factura" msprop:Generator_ColumnPropNameInRow="editar_factura" msprop:Generator_ColumnPropNameInTable="editar_facturaColumn" msprop:Generator_ColumnVarNameInTable="columneditar_factura" msprop:Generator_UserColumnName="editar_factura" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -300,9 +301,9 @@
               <xs:element name="creadopor" msprop:Generator_ColumnPropNameInTable="creadoporColumn" msprop:Generator_ColumnPropNameInRow="creadopor" msprop:Generator_UserColumnName="creadopor" msprop:Generator_ColumnVarNameInTable="columncreadopor" type="xs:string" minOccurs="0" />
               <xs:element name="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_UserColumnName="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" type="xs:dateTime" minOccurs="0" />
               <xs:element name="comentario" msprop:Generator_ColumnPropNameInTable="comentarioColumn" msprop:Generator_ColumnPropNameInRow="comentario" msprop:Generator_UserColumnName="comentario" msprop:Generator_ColumnVarNameInTable="columncomentario" type="xs:string" minOccurs="0" />
-              <xs:element name="autorizadopor" msprop:Generator_UserColumnName="autorizadopor" msprop:Generator_ColumnPropNameInTable="autorizadoporColumn" msprop:Generator_ColumnPropNameInRow="autorizadopor" msprop:Generator_ColumnVarNameInTable="columnautorizadopor" type="xs:string" minOccurs="0" />
-              <xs:element name="estado" msprop:Generator_UserColumnName="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnVarNameInTable="columnestado" type="xs:string" minOccurs="0" />
-              <xs:element name="idestado" msprop:Generator_UserColumnName="idestado" msprop:Generator_ColumnPropNameInTable="idestadoColumn" msprop:Generator_ColumnPropNameInRow="idestado" msprop:Generator_ColumnVarNameInTable="columnidestado" type="xs:int" minOccurs="0" />
+              <xs:element name="autorizadopor" msprop:Generator_ColumnPropNameInTable="autorizadoporColumn" msprop:Generator_ColumnPropNameInRow="autorizadopor" msprop:Generator_UserColumnName="autorizadopor" msprop:Generator_ColumnVarNameInTable="columnautorizadopor" type="xs:string" minOccurs="0" />
+              <xs:element name="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_UserColumnName="estado" msprop:Generator_ColumnVarNameInTable="columnestado" type="xs:string" minOccurs="0" />
+              <xs:element name="idestado" msprop:Generator_ColumnPropNameInTable="idestadoColumn" msprop:Generator_ColumnPropNameInRow="idestado" msprop:Generator_UserColumnName="idestado" msprop:Generator_ColumnVarNameInTable="columnidestado" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

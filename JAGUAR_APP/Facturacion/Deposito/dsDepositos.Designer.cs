@@ -301,6 +301,8 @@ namespace JAGUAR_PRO.Facturacion.Deposito {
             
             private global::System.Data.DataColumn columnmoid_el;
             
+            private global::System.Data.DataColumn columneditar;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public lista_depositosDataTable() {
@@ -424,6 +426,14 @@ namespace JAGUAR_PRO.Facturacion.Deposito {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn editarColumn {
+                get {
+                    return this.columneditar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,7 +469,7 @@ namespace JAGUAR_PRO.Facturacion.Deposito {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public lista_depositosRow Addlista_depositosRow(int id, string num_transaccion, string deposito_n, System.DateTime fecha, string banco, decimal total, string obs, string creado_por, System.DateTime creado_el, string modi_por, System.DateTime moid_el) {
+            public lista_depositosRow Addlista_depositosRow(int id, string num_transaccion, string deposito_n, System.DateTime fecha, string banco, decimal total, string obs, string creado_por, System.DateTime creado_el, string modi_por, System.DateTime moid_el, string editar) {
                 lista_depositosRow rowlista_depositosRow = ((lista_depositosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -472,7 +482,8 @@ namespace JAGUAR_PRO.Facturacion.Deposito {
                         creado_por,
                         creado_el,
                         modi_por,
-                        moid_el};
+                        moid_el,
+                        editar};
                 rowlista_depositosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlista_depositosRow);
                 return rowlista_depositosRow;
@@ -506,6 +517,7 @@ namespace JAGUAR_PRO.Facturacion.Deposito {
                 this.columncreado_el = base.Columns["creado_el"];
                 this.columnmodi_por = base.Columns["modi_por"];
                 this.columnmoid_el = base.Columns["moid_el"];
+                this.columneditar = base.Columns["editar"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -533,6 +545,9 @@ namespace JAGUAR_PRO.Facturacion.Deposito {
                 base.Columns.Add(this.columnmodi_por);
                 this.columnmoid_el = new global::System.Data.DataColumn("moid_el", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmoid_el);
+                this.columneditar = new global::System.Data.DataColumn("editar", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columneditar);
+                this.columneditar.Caption = "Editar";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -852,6 +867,22 @@ namespace JAGUAR_PRO.Facturacion.Deposito {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string editar {
+                get {
+                    try {
+                        return ((string)(this[this.tablelista_depositos.editarColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'editar\' de la tabla \'lista_depositos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelista_depositos.editarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tablelista_depositos.idColumn);
             }
@@ -980,6 +1011,18 @@ namespace JAGUAR_PRO.Facturacion.Deposito {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setmoid_elNull() {
                 this[this.tablelista_depositos.moid_elColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IseditarNull() {
+                return this.IsNull(this.tablelista_depositos.editarColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SeteditarNull() {
+                this[this.tablelista_depositos.editarColumn] = global::System.Convert.DBNull;
             }
         }
         

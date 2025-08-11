@@ -47,6 +47,8 @@ namespace JAGUAR_PRO.Clases
         public DateTime CreadoEl { get => creadoEl; set => creadoEl = value; }
         public int ModiPor { get => modiPor; set => modiPor = value; }
         public DateTime MoidEl { get => moidEl; set => moidEl = value; }
+        public int IdCuenta { get; set; }
+        public bool Enable { get; set; }
         public bool Recuperado { get => recuperado; set => recuperado = value; }
 
         public bool RecuperarRegistros(int id)
@@ -78,6 +80,13 @@ namespace JAGUAR_PRO.Clases
                     ModiPor = reader.IsDBNull(11) ? 0 : reader.GetInt32(11);
                     MoidEl = reader.IsDBNull(12) ? DateTime.MinValue : reader.GetDateTime(12);
                     NumCuenta = reader.IsDBNull(13) ? string.Empty : reader.GetString(13);
+                    
+                    //Id cuenta
+                    if (!reader.IsDBNull(reader.GetOrdinal("id_cuenta")))
+                        IdCuenta = reader.GetInt32(14);
+
+                    Enable = reader.GetBoolean(15);
+
                     Recuperado = true;
                 }
             }

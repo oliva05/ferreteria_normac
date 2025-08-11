@@ -33,16 +33,65 @@ namespace JAGUAR_PRO.Facturacion.Deposito
             Equipo = equipo;        
             
             dp = new DataOperations();
-            dtDesde.EditValue = dp.Now().AddDays(-30);
+            dtDesde.EditValue = dp.Now().AddDays(-1);
             dtHasta.EditValue = dp.Now().AddDays(1);
 
             LoaData();
 
+            
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
+            {
+                case 1://Basic View
+                    accesoprevio = false;
+                    gridView1.Columns["editar"].Visible = false;
+                    gridView1.OptionsMenu.EnableColumnMenu = false;
+                    break;
+                case 2://Basic No Autorization
+                    gridView1.Columns["editar"].Visible = false;
+                    gridView1.OptionsMenu.EnableColumnMenu = false;
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    gridView1.Columns["editar"].Visible = false;
+                    gridView1.OptionsMenu.EnableColumnMenu = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    gridView1.OptionsMenu.EnableColumnMenu = true;
+                    lblEnable.Visible = tggEnable.Visible = true;
+                    break;
+                default:
+                    gridView1.Columns["editar"].Visible = false;
+                    gridView1.OptionsMenu.EnableColumnMenu = false;
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(32))
+                {
+                    //gridView1.Columns["editar"].Visible = true;
+                }
+                else
+                {
+                    gridView1.Columns["editar"].Visible = false;
+                    gridView1.OptionsMenu.EnableColumnMenu = false;
+                }
+            }
         }
 
         private void LoaData()
         {
             string query = @"sp_get_listad_depositos";
+
+            if(tggEnable.Visible)
+                query = @"[sp_get_listad_depositos_v2]";
+
             try
             {
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -53,6 +102,10 @@ namespace JAGUAR_PRO.Facturacion.Deposito
                 cmd.Parameters.AddWithValue("@hasta", dtHasta.DateTime);
                 cmd.Parameters.AddWithValue("@puntoVentaId", PuntoVenta.ID);
                 cmd.Parameters.AddWithValue("@completado", 1);
+
+                if (tggEnable.Visible)
+                    cmd.Parameters.AddWithValue("@enable", tggEnable.IsOn);
+
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 dsDepositos1.lista_depositos.Clear();
                 da.Fill(dsDepositos1.lista_depositos);
@@ -87,7 +140,7 @@ namespace JAGUAR_PRO.Facturacion.Deposito
 
         private void cmdPagar_Click(object sender, EventArgs e)
         {
-            frmDepositoBancoOP frm = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Nuevo, UsuarioLogeado, PuntoVenta);
+            frmDepositoBancoOP frm = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Nuevo, UsuarioLogeado, PuntoVenta,0);
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
@@ -106,6 +159,19 @@ namespace JAGUAR_PRO.Facturacion.Deposito
                 printReport.ShowPreviewDialog();
             }
 
+        }
+
+        private void cmdEditar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gv = (GridView)gridControl1.FocusedView;
+            var row = (dsDepositos.lista_depositosRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            frmDepositoBancoOP frm = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Editar, UsuarioLogeado, PuntoVenta,row.id);
+            frm.MdiParent = this.MdiParent;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                LoaData();
+            }
         }
     }
 }

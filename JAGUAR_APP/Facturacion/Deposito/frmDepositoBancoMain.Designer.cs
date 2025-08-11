@@ -39,6 +39,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsDepositos1 = new JAGUAR_PRO.Facturacion.Deposito.dsDepositos();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -56,6 +61,8 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reposPrint = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coleditar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.reposEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdExportToExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
@@ -66,15 +73,19 @@
             this.cmdRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.cmdPagar = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.tggEnable = new DevExpress.XtraEditors.ToggleSwitch();
+            this.lblEnable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDepositos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposPrint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tggEnable.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -89,7 +100,8 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.reposPrint,
-            this.reposEdit});
+            this.reposEdit,
+            this.cmdEditar});
             this.gridControl1.Size = new System.Drawing.Size(1087, 432);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -115,7 +127,8 @@
             this.colmodi_por,
             this.colmoid_el,
             this.gridColumn1,
-            this.gridColumn2});
+            this.gridColumn2,
+            this.coleditar});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -243,12 +256,30 @@
             this.gridColumn2.Caption = "gridColumn2";
             this.gridColumn2.Name = "gridColumn2";
             // 
+            // coleditar
+            // 
+            this.coleditar.ColumnEdit = this.cmdEditar;
+            this.coleditar.FieldName = "editar";
+            this.coleditar.Name = "coleditar";
+            this.coleditar.Visible = true;
+            this.coleditar.VisibleIndex = 8;
+            // 
+            // cmdEditar
+            // 
+            this.cmdEditar.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.cmdEditar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdEditar.Name = "cmdEditar";
+            this.cmdEditar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdEditar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEditar_ButtonClick);
+            // 
             // reposEdit
             // 
             this.reposEdit.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.reposEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposEdit.Name = "reposEdit";
             this.reposEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -385,11 +416,37 @@
             this.labelControl1.TabIndex = 76;
             this.labelControl1.Text = "Depositos Generados";
             // 
+            // tggEnable
+            // 
+            this.tggEnable.EditValue = true;
+            this.tggEnable.Location = new System.Drawing.Point(730, 58);
+            this.tggEnable.Name = "tggEnable";
+            this.tggEnable.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tggEnable.Properties.Appearance.Options.UseFont = true;
+            this.tggEnable.Properties.OffText = "No";
+            this.tggEnable.Properties.OnText = "Si";
+            this.tggEnable.Size = new System.Drawing.Size(95, 24);
+            this.tggEnable.TabIndex = 86;
+            this.tggEnable.Visible = false;
+            // 
+            // lblEnable
+            // 
+            this.lblEnable.AutoSize = true;
+            this.lblEnable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblEnable.Location = new System.Drawing.Point(514, 58);
+            this.lblEnable.Name = "lblEnable";
+            this.lblEnable.Size = new System.Drawing.Size(210, 21);
+            this.lblEnable.TabIndex = 85;
+            this.lblEnable.Text = "Ver Depósitos Cancelados:";
+            this.lblEnable.Visible = false;
+            // 
             // frmDepositoBancoMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1091, 524);
+            this.Controls.Add(this.tggEnable);
+            this.Controls.Add(this.lblEnable);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdPagar);
             this.Controls.Add(this.dtHasta);
@@ -406,11 +463,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsDepositos1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposPrint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tggEnable.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,5 +504,9 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposPrint;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit reposEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn coleditar;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdEditar;
+        private DevExpress.XtraEditors.ToggleSwitch tggEnable;
+        private System.Windows.Forms.Label lblEnable;
     }
 }

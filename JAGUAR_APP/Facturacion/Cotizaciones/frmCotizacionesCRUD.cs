@@ -2607,7 +2607,7 @@ namespace Eatery.Ventas
                     {
                         if (dsVentas1.detalle_factura_transaction.Rows.Count > 0)
                         {
-                            cmdElejirAlmacen_ButtonClick(cmdElejirAlmacen, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen.Buttons[0]));
+                            //cmdElejirAlmacen_ButtonClick(cmdElejirAlmacen, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen.Buttons[0]));
                         }
                     }
 
@@ -3482,23 +3482,23 @@ namespace Eatery.Ventas
 
         private void gridView1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                var gv = (GridView)gridControl1.FocusedView;
-                var row = (dsVentas.detalle_factura_transactionRow)gv.GetDataRow(gv.FocusedRowHandle);
-                //var cell = 
-                DevExpress.XtraGrid.Columns.GridColumn focusedColumn = gv.FocusedColumn;
-                switch (focusedColumn.FieldName) 
-                {
-                    case "cantidad":
-                        //DevExpress.XtraEditors.Controls.ButtonPressedEventArgs event_ = new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen);
-                        //cmdElejirAlmacen_ButtonClick(sender, new );
-                        ElejirAlmacen();
-                        break;
-                    default:
-                        break;
-                }
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    var gv = (GridView)gridControl1.FocusedView;
+            //    var row = (dsVentas.detalle_factura_transactionRow)gv.GetDataRow(gv.FocusedRowHandle);
+            //    //var cell = 
+            //    DevExpress.XtraGrid.Columns.GridColumn focusedColumn = gv.FocusedColumn;
+            //    switch (focusedColumn.FieldName) 
+            //    {
+            //        case "cantidad":
+            //            //DevExpress.XtraEditors.Controls.ButtonPressedEventArgs event_ = new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen);
+            //            //cmdElejirAlmacen_ButtonClick(sender, new );
+            //            ElejirAlmacen();
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //}
         }
 
         private void cmdSalir2_Click(object sender, EventArgs e)
