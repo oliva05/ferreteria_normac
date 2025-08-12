@@ -625,14 +625,24 @@ namespace Eatery.Ventas
 
                 Factura factura = new Factura();
                 
-                if (!string.IsNullOrEmpty(txtRTN.Text))
+                if (string.IsNullOrEmpty(txtRTN.Text))
+                    factura.RTN = "N/D";
+                else
                     factura.RTN = txtRTN.Text;
 
-                if (!string.IsNullOrEmpty(txtNombreCliente.Text))
+
+                if (string.IsNullOrEmpty(txtNombreCliente.Text))
+                    factura.ClienteNombre = "Consumidor Final";
+                else
                     factura.ClienteNombre = txtNombreCliente.Text;
 
-                if (!string.IsNullOrEmpty(txtDireccion.Text))
+
+                if (string.IsNullOrEmpty(txtDireccion.Text))
+                    factura.direccion_cliente = "N/D";
+                else
                     factura.direccion_cliente = txtDireccion.Text;
+
+
                 
                 if (ClienteFactura != null)
                         if(ClienteFactura.Id>0)
