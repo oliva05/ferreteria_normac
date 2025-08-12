@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsRecuento" targetNamespace="http://tempuri.org/dsRecuento.xsd" xmlns:mstns="http://tempuri.org/dsRecuento.xsd" xmlns="http://tempuri.org/dsRecuento.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsRecuento" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsRecuento" msprop:Generator_DataSetName="dsRecuento">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="load_recuentos" msprop:Generator_RowEvHandlerName="load_recuentosRowChangeEventHandler" msprop:Generator_RowDeletedName="load_recuentosRowDeleted" msprop:Generator_RowDeletingName="load_recuentosRowDeleting" msprop:Generator_RowEvArgName="load_recuentosRowChangeEvent" msprop:Generator_TablePropName="load_recuentos" msprop:Generator_RowChangedName="load_recuentosRowChanged" msprop:Generator_RowChangingName="load_recuentosRowChanging" msprop:Generator_TableClassName="load_recuentosDataTable" msprop:Generator_RowClassName="load_recuentosRow" msprop:Generator_TableVarName="tableload_recuentos" msprop:Generator_UserTableName="load_recuentos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_recuento" msprop:Generator_ColumnPropNameInRow="id_recuento" msprop:Generator_ColumnPropNameInTable="id_recuentoColumn" msprop:Generator_ColumnVarNameInTable="columnid_recuento" msprop:Generator_UserColumnName="id_recuento" type="xs:int" minOccurs="0" />
+              <xs:element name="fecha_creacion" msprop:Generator_ColumnPropNameInRow="fecha_creacion" msprop:Generator_ColumnPropNameInTable="fecha_creacionColumn" msprop:Generator_ColumnVarNameInTable="columnfecha_creacion" msprop:Generator_UserColumnName="fecha_creacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="usuario_creador" msprop:Generator_ColumnPropNameInRow="usuario_creador" msprop:Generator_ColumnPropNameInTable="usuario_creadorColumn" msprop:Generator_ColumnVarNameInTable="columnusuario_creador" msprop:Generator_UserColumnName="usuario_creador" type="xs:int" minOccurs="0" />
+              <xs:element name="usuario_aprobador" msprop:Generator_ColumnPropNameInRow="usuario_aprobador" msprop:Generator_ColumnPropNameInTable="usuario_aprobadorColumn" msprop:Generator_ColumnVarNameInTable="columnusuario_aprobador" msprop:Generator_UserColumnName="usuario_aprobador" type="xs:int" minOccurs="0" />
+              <xs:element name="fecha_aprobacion" msprop:Generator_ColumnPropNameInRow="fecha_aprobacion" msprop:Generator_ColumnPropNameInTable="fecha_aprobacionColumn" msprop:Generator_ColumnVarNameInTable="columnfecha_aprobacion" msprop:Generator_UserColumnName="fecha_aprobacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="estado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_UserColumnName="estado" type="xs:string" minOccurs="0" />
+              <xs:element name="usuario_creadorName" msprop:Generator_ColumnPropNameInRow="usuario_creadorName" msprop:Generator_ColumnPropNameInTable="usuario_creadorNameColumn" msprop:Generator_ColumnVarNameInTable="columnusuario_creadorName" msprop:Generator_UserColumnName="usuario_creadorName" type="xs:string" minOccurs="0" />
+              <xs:element name="usuario_aprobadorName" msprop:Generator_ColumnPropNameInRow="usuario_aprobadorName" msprop:Generator_ColumnPropNameInTable="usuario_aprobadorNameColumn" msprop:Generator_ColumnVarNameInTable="columnusuario_aprobadorName" msprop:Generator_UserColumnName="usuario_aprobadorName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
