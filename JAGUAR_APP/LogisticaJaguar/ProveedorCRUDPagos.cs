@@ -1,9 +1,11 @@
 ﻿using ACS.Classes;
 using DevExpress.Charts.Native;
+using DevExpress.Utils.About;
 using DevExpress.XtraBars.Painters;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraRichEdit.Commands.Internal;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace JAGUAR_PRO.LogisticaJaguar
 {
@@ -24,6 +27,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
         decimal MontoOrigen = 0;
         DataOperations dp = new DataOperations();
         PDV PuntoVentaActual;
+        Dictionary<int, decimal> saldoPorAnticipo = new Dictionary<int, decimal>();
         public ProveedorCRUDPagos(UserLogin userLogin, PDV puntoVentaActual)
         {
             InitializeComponent();
@@ -34,6 +38,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
             LoadProveedoresList();
             grdvDetalleFacturas.OptionsMenu.EnableColumnMenu = true;
             PuntoVentaActual = puntoVentaActual;
+            txtMontoPagar.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+            txtMontoPagar.Properties.Mask.EditMask = "n2";
+            txtMontoPagar.Properties.Mask.UseMaskAsDisplayFormat = true;
             //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
 
 
@@ -66,7 +73,60 @@ namespace JAGUAR_PRO.LogisticaJaguar
         {
             if ((int)grdProveedor.EditValue > 0)
             {
+                //Vamos a Limpiar Controles
+                chkAll.Checked = false;
+                txtMontoPagar.EditValue = 0;
+                txtObs.Text = string.Empty;
+
+
                 GetFacturasByIdProv();
+
+                //Obtener anticipos
+                saldoPorAnticipo.Clear();
+
+                foreach (dsLogisticaJaguar.detalle_facturaRow item in dsLogisticaJaguar1.detalle_factura)
+                {
+                    if (item.id_anticipo > 0)
+                    {
+                        int id = item.id_anticipo;
+                        decimal saldo = item.monto_anticipo;
+
+                        if (!saldoPorAnticipo.ContainsKey(id))
+                            saldoPorAnticipo[id] = saldo;
+                    }
+                }
+
+                foreach (var kvp in saldoPorAnticipo.ToList())
+                {
+                    foreach (dsLogisticaJaguar.detalle_facturaRow item in dsLogisticaJaguar1.detalle_factura)
+                    {
+                        if (item.id_anticipo == kvp.Key)
+                        {
+                            
+                            if (kvp.Value <= item.monto_pendiente)
+                            {
+                                item.montoAnticipoAplicado = kvp.Value;
+                                saldoPorAnticipo[kvp.Key] = 0;
+                                item.aplicarAnticipo = true;
+                                item.monto_pendiente = item.monto_pendiente - item.montoAnticipoAplicado;
+                            }
+                            else if (kvp.Value > item.monto_pendiente)
+                            {
+                                item.montoAnticipoAplicado = item.monto_pendiente;
+                                saldoPorAnticipo[kvp.Key] = kvp.Value - item.montoAnticipoAplicado;
+                                item.aplicarAnticipo = true;
+                                item.monto_pendiente = item.monto_pendiente - item.montoAnticipoAplicado;
+                            }
+                            else if (kvp.Value == 0)
+                            {
+                                item.aplicarAnticipo = false;
+                            }
+                            
+                        }
+                    }
+                }
+
+
                 txtMontoPagar.Focus();
             }
         }
@@ -87,6 +147,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 adat.Fill(dsLogisticaJaguar1.detalle_factura);
 
                 con.Close();
+
+
+
 
                 grdTipoPago.Focus();
             }
@@ -156,6 +219,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 return;
             }
 
+            
+
 
             string errorMensaje = string.Empty;
             decimal TotalEntrega = 0;
@@ -195,6 +260,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 return;
             }
 
+
+     
+
             SqlTransaction transaction = null;
 
             SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -232,9 +300,12 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         cmd.Parameters.AddWithValue("@id_factura", row.id);
                         cmd.Parameters.AddWithValue("@monto_pagado", row.monto_a_pagar);
                         cmd.Parameters.AddWithValue("@observaciones", row.observacion);
+                        cmd.Parameters.AddWithValue("@monto_anticipo", row.montoAnticipoAplicado);
+                        cmd.Parameters.AddWithValue("@anticipo_id", row.id_anticipo);
+                        cmd.Parameters.AddWithValue("@usuario_aplico", UsuarioLogeado.Id);
                         cmd.ExecuteNonQuery();
+
                     }
-                    
                 }
 
                 transaction.Commit();
@@ -303,7 +374,77 @@ namespace JAGUAR_PRO.LogisticaJaguar
             txtMontoDisponible.Text = MontoOrigen.ToString("N2");   
         }
 
-        private void grdvDetalleFacturas_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+
+        private void chkAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAll.Checked)
+            {
+                decimal MontoTotal = Convert.ToDecimal(txtMontoPagar.EditValue);
+                foreach (dsLogisticaJaguar.detalle_facturaRow item in dsLogisticaJaguar1.detalle_factura)
+                {
+                    if(MontoTotal > 0)
+                    {
+                        item.seleccionar = true;
+                        if (MontoTotal > item.monto_pendiente)
+                        {
+                            item.monto_a_pagar = item.monto_pendiente;
+                            MontoTotal -= item.monto_pendiente;
+                        }
+                        else
+                        {
+                            item.monto_a_pagar = MontoTotal;
+                            MontoTotal -= item.monto_a_pagar;
+                        }
+                    }
+                    RecalculoMontoOrgien();
+                }
+            }
+            else
+            {
+                foreach (dsLogisticaJaguar.detalle_facturaRow item in dsLogisticaJaguar1.detalle_factura)
+                {
+                    item.seleccionar = false;
+                    item.monto_a_pagar = 0;
+                    item.observacion = string.Empty;
+                    RecalculoMontoOrgien();
+                }
+            }
+        }
+
+
+        private void grdvDetalleFacturas_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+           
+        }
+
+        private void grdvDetalleFacturas_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true; // evitar comportamiento por defecto
+
+                // Obtener la fila actual
+                int currentRow = grdvDetalleFacturas.FocusedRowHandle;
+
+                // Obtener siguiente fila visible
+                int nextRow = grdvDetalleFacturas.GetNextVisibleRow(currentRow);
+
+                if (nextRow >= 0)
+                {
+                    // Establecer el foco en la siguiente fila
+                    grdvDetalleFacturas.FocusedRowHandle = nextRow;
+
+                    // Establecer el foco en la columna deseada
+                    grdvDetalleFacturas.FocusedColumn = grdvDetalleFacturas.Columns["monto_a_pagar"]; // nombre exacto de la columna
+
+                    // Activar edición
+                    grdvDetalleFacturas.ShowEditor();
+                }
+
+            }
+        }
+
+        private void grdvDetalleFacturas_CellValueChanged_1(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             var gridview = (GridView)grdDetalleFacturas.FocusedView;
             var row = (dsLogisticaJaguar.detalle_facturaRow)gridview.GetFocusedDataRow();
@@ -333,8 +474,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
                                     row.monto_a_pagar = row.monto_pendiente;
                                     row.seleccionar = true;
                                 }
-
-
                             }
                             else
                             {
@@ -345,8 +484,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                         }
 
-
-
                         break;
 
                     default:
@@ -355,9 +492,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             }
         }
 
-      
-
-        private void grdvDetalleFacturas_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        private void grdvDetalleFacturas_CellValueChanging_1(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             var gridview = (GridView)grdDetalleFacturas.FocusedView;
             var row = (dsLogisticaJaguar.detalle_facturaRow)gridview.GetFocusedDataRow();
@@ -378,12 +513,12 @@ namespace JAGUAR_PRO.LogisticaJaguar
                                     if (MontoOrigen >= row.monto_pendiente)
                                     {
                                         row.monto_a_pagar = row.monto_pendiente;
-                                        
+
                                     }
                                     else
                                     {
                                         row.monto_a_pagar = MontoOrigen;
-                                        
+
                                     }
                                 }
                                 else
@@ -437,73 +572,10 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         }
 
 
-                            break;
+                        break;
 
                     default:
                         break;
-                }
-            }
-        }
-
-        private void grdvDetalleFacturas_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.Handled = true; // evitar comportamiento por defecto
-
-                // Obtener la fila actual
-                int currentRow = grdvDetalleFacturas.FocusedRowHandle;
-
-                // Obtener siguiente fila visible
-                int nextRow = grdvDetalleFacturas.GetNextVisibleRow(currentRow);
-
-                if (nextRow >= 0)
-                {
-                    // Establecer el foco en la siguiente fila
-                    grdvDetalleFacturas.FocusedRowHandle = nextRow;
-
-                    // Establecer el foco en la columna deseada
-                    grdvDetalleFacturas.FocusedColumn = grdvDetalleFacturas.Columns["monto_a_pagar"]; // nombre exacto de la columna
-
-                    // Activar edición
-                    grdvDetalleFacturas.ShowEditor();
-                }
-
-            }
-        }
-
-        private void chkAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkAll.Checked)
-            {
-                decimal MontoTotal = Convert.ToDecimal(txtMontoPagar.EditValue);
-                foreach (dsLogisticaJaguar.detalle_facturaRow item in dsLogisticaJaguar1.detalle_factura)
-                {
-                    if(MontoTotal > 0)
-                    {
-                        item.seleccionar = true;
-                        if (MontoTotal > item.monto_pendiente)
-                        {
-                            item.monto_a_pagar = item.monto_pendiente;
-                            MontoTotal -= item.monto_pendiente;
-                        }
-                        else
-                        {
-                            item.monto_a_pagar = MontoTotal;
-                            MontoTotal -= item.monto_a_pagar;
-                        }
-                    }
-                    RecalculoMontoOrgien();
-                }
-            }
-            else
-            {
-                foreach (dsLogisticaJaguar.detalle_facturaRow item in dsLogisticaJaguar1.detalle_factura)
-                {
-                    item.seleccionar = false;
-                    item.monto_a_pagar = 0;
-                    item.observacion = string.Empty;
-                    RecalculoMontoOrgien();
                 }
             }
         }

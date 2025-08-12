@@ -2048,6 +2048,18 @@
     <Compile Include="LogisticaJaguar\ProveedorCRUDPagos.Designer.cs">
       <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioDetalle.Designer.cs">
+      <DependentUpon>frmRecuentoInventarioDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioHome.Designer.cs">
+      <DependentUpon>frmRecuentoInventarioHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\xrptBarCode.cs">
       <SubType>Component</SubType>
     </Compile>
