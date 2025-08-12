@@ -161,7 +161,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 con.Open();
 
                 //SqlCommand cmd = new SqlCommand("[dbo].[sp_get_home_facturacion_punto_venta_print_version]", con);
-                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_home_facturacion_punto_venta_print_version_v3]", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_home_facturacion_punto_venta_print_version_v4]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idCierreDia", pIdCierre);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);

@@ -1,11 +1,13 @@
-﻿using System;
-using System.Drawing;
+﻿using ACS.Classes;
+using DevExpress.CodeParser;
+using DevExpress.XtraReports.UI;
+using JAGUAR_PRO.Clases;
+using System;
 using System.Collections;
 using System.ComponentModel;
-using DevExpress.XtraReports.UI;
-using ACS.Classes;
-using JAGUAR_PRO.Clases;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Globalization;
 
 namespace JAGUAR_PRO.Facturacion.Reportes 
 {
@@ -44,7 +46,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             lblCorreo.Text = Factura1.Correo_PDV;
             lblDireccion.Text = Factura1.DireccionPDV;
             lblTelefono.Text = "Teléfonos: " + Factura1.Telefono_PDV;
-            lblFechaEmision.Text = string.Format("{0:dd/MM/yyyy}", Factura1.FechaDocumento);
+            //lblFechaEmision.Text = string.Format("{0:dd/MM/yyyy hh:mm:ss tt}", Factura1.FechaRow);
+            lblFechaEmision.Text = Factura1.FechaRow.ToString("dd/MM/yyyy hh:mm:ss tt", new CultureInfo("en-US"));
             lblNumeroFactura.Text = Factura1.NumeroDocumento;
             lblNombreComercial.Text = Factura1.NombreComercial_PDV;
             lblCliente.Text = Factura1.ClienteNombre;
