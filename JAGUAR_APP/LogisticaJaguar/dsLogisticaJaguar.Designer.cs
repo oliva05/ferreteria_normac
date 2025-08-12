@@ -1547,8 +1547,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             private global::System.Data.DataColumn columnutilidad_lps;
             
-            private global::System.Data.DataColumn columnultimo_costo;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_recepcion_factDataTable() {
@@ -1752,14 +1750,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ultimo_costoColumn {
-                get {
-                    return this.columnultimo_costo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1816,8 +1806,7 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         string eliminar, 
                         decimal porcentaje_utilidad, 
                         decimal precio_venta, 
-                        decimal utilidad_lps, 
-                        decimal ultimo_costo) {
+                        decimal utilidad_lps) {
                 detalle_recepcion_factRow rowdetalle_recepcion_factRow = ((detalle_recepcion_factRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         cantidad,
@@ -1840,8 +1829,7 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         eliminar,
                         porcentaje_utilidad,
                         precio_venta,
-                        utilidad_lps,
-                        ultimo_costo};
+                        utilidad_lps};
                 rowdetalle_recepcion_factRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_recepcion_factRow);
                 return rowdetalle_recepcion_factRow;
@@ -1885,7 +1873,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 this.columnporcentaje_utilidad = base.Columns["porcentaje_utilidad"];
                 this.columnprecio_venta = base.Columns["precio_venta"];
                 this.columnutilidad_lps = base.Columns["utilidad_lps"];
-                this.columnultimo_costo = base.Columns["ultimo_costo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1933,8 +1920,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 base.Columns.Add(this.columnprecio_venta);
                 this.columnutilidad_lps = new global::System.Data.DataColumn("utilidad_lps", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnutilidad_lps);
-                this.columnultimo_costo = new global::System.Data.DataColumn("ultimo_costo", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnultimo_costo);
                 this.columncantidad.Caption = "Cantidad Factura";
                 this.columnid_ud_medida_prv.Caption = "U. medida Factura";
                 this.columnid_ud_medida_prv.DefaultValue = ((int)(1));
@@ -1949,7 +1934,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 this.columnporcentaje_utilidad.Caption = "% Utilidad";
                 this.columnprecio_venta.Caption = "Precio Venta";
                 this.columnutilidad_lps.Caption = "Utilidad Lps";
-                this.columnultimo_costo.Caption = "Último Costo";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6784,9 +6768,15 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             private global::System.Data.DataColumn columnseleccionar;
             
-            private global::System.Data.DataColumn columnanticipo;
-            
             private global::System.Data.DataColumn columnmonto_anticipo;
+            
+            private global::System.Data.DataColumn columnid_anticipo;
+            
+            private global::System.Data.DataColumn columnaplicarAnticipo;
+            
+            private global::System.Data.DataColumn columntieneAnticipo;
+            
+            private global::System.Data.DataColumn columnmontoAnticipoAplicado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -6919,17 +6909,41 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn anticipoColumn {
+            public global::System.Data.DataColumn monto_anticipoColumn {
                 get {
-                    return this.columnanticipo;
+                    return this.columnmonto_anticipo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn monto_anticipoColumn {
+            public global::System.Data.DataColumn id_anticipoColumn {
                 get {
-                    return this.columnmonto_anticipo;
+                    return this.columnid_anticipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn aplicarAnticipoColumn {
+                get {
+                    return this.columnaplicarAnticipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tieneAnticipoColumn {
+                get {
+                    return this.columntieneAnticipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn montoAnticipoAplicadoColumn {
+                get {
+                    return this.columnmontoAnticipoAplicado;
                 }
             }
             
@@ -6970,7 +6984,24 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public detalle_facturaRow Adddetalle_facturaRow(int id, string cai, string factura, System.DateTime fecha_factura, System.DateTime fecha_registro, string observacion, string DocNum, decimal monto_factura, decimal monto_pagado, decimal monto_pendiente, decimal monto_a_pagar, bool seleccionar, bool anticipo, decimal monto_anticipo) {
+            public detalle_facturaRow Adddetalle_facturaRow(
+                        int id, 
+                        string cai, 
+                        string factura, 
+                        System.DateTime fecha_factura, 
+                        System.DateTime fecha_registro, 
+                        string observacion, 
+                        string DocNum, 
+                        decimal monto_factura, 
+                        decimal monto_pagado, 
+                        decimal monto_pendiente, 
+                        decimal monto_a_pagar, 
+                        bool seleccionar, 
+                        decimal monto_anticipo, 
+                        int id_anticipo, 
+                        bool aplicarAnticipo, 
+                        string tieneAnticipo, 
+                        decimal montoAnticipoAplicado) {
                 detalle_facturaRow rowdetalle_facturaRow = ((detalle_facturaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -6985,8 +7016,11 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                         monto_pendiente,
                         monto_a_pagar,
                         seleccionar,
-                        anticipo,
-                        monto_anticipo};
+                        monto_anticipo,
+                        id_anticipo,
+                        aplicarAnticipo,
+                        tieneAnticipo,
+                        montoAnticipoAplicado};
                 rowdetalle_facturaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_facturaRow);
                 return rowdetalle_facturaRow;
@@ -7021,8 +7055,11 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 this.columnmonto_pendiente = base.Columns["monto_pendiente"];
                 this.columnmonto_a_pagar = base.Columns["monto_a_pagar"];
                 this.columnseleccionar = base.Columns["seleccionar"];
-                this.columnanticipo = base.Columns["anticipo"];
                 this.columnmonto_anticipo = base.Columns["monto_anticipo"];
+                this.columnid_anticipo = base.Columns["id_anticipo"];
+                this.columnaplicarAnticipo = base.Columns["aplicarAnticipo"];
+                this.columntieneAnticipo = base.Columns["tieneAnticipo"];
+                this.columnmontoAnticipoAplicado = base.Columns["montoAnticipoAplicado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7052,14 +7089,21 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 base.Columns.Add(this.columnmonto_a_pagar);
                 this.columnseleccionar = new global::System.Data.DataColumn("seleccionar", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnseleccionar);
-                this.columnanticipo = new global::System.Data.DataColumn("anticipo", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnanticipo);
                 this.columnmonto_anticipo = new global::System.Data.DataColumn("monto_anticipo", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmonto_anticipo);
+                this.columnid_anticipo = new global::System.Data.DataColumn("id_anticipo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_anticipo);
+                this.columnaplicarAnticipo = new global::System.Data.DataColumn("aplicarAnticipo", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaplicarAnticipo);
+                this.columntieneAnticipo = new global::System.Data.DataColumn("tieneAnticipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntieneAnticipo);
+                this.columnmontoAnticipoAplicado = new global::System.Data.DataColumn("montoAnticipoAplicado", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmontoAnticipoAplicado);
                 this.columnmonto_a_pagar.DefaultValue = ((decimal)(0m));
                 this.columnseleccionar.DefaultValue = ((bool)(false));
-                this.columnanticipo.DefaultValue = ((bool)(false));
                 this.columnmonto_anticipo.DefaultValue = ((decimal)(0m));
+                this.columnaplicarAnticipo.DefaultValue = ((bool)(false));
+                this.columnmontoAnticipoAplicado.DefaultValue = ((decimal)(0m));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8483,23 +8527,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal ultimo_costo {
-                get {
-                    try {
-                        return ((decimal)(this[this.tabledetalle_recepcion_fact.ultimo_costoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ultimo_costo\' de la tabla \'detalle_recepcion_fact\' es DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledetalle_recepcion_fact.ultimo_costoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IscantidadNull() {
                 return this.IsNull(this.tabledetalle_recepcion_fact.cantidadColumn);
             }
@@ -8748,18 +8775,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setutilidad_lpsNull() {
                 this[this.tabledetalle_recepcion_fact.utilidad_lpsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isultimo_costoNull() {
-                return this.IsNull(this.tabledetalle_recepcion_fact.ultimo_costoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setultimo_costoNull() {
-                this[this.tabledetalle_recepcion_fact.ultimo_costoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -12382,22 +12397,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool anticipo {
-                get {
-                    try {
-                        return ((bool)(this[this.tabledetalle_factura.anticipoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'anticipo\' de la tabla \'detalle_factura\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledetalle_factura.anticipoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal monto_anticipo {
                 get {
                     try {
@@ -12409,6 +12408,72 @@ namespace JAGUAR_PRO.LogisticaJaguar {
                 }
                 set {
                     this[this.tabledetalle_factura.monto_anticipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_anticipo {
+                get {
+                    try {
+                        return ((int)(this[this.tabledetalle_factura.id_anticipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_anticipo\' de la tabla \'detalle_factura\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_factura.id_anticipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool aplicarAnticipo {
+                get {
+                    try {
+                        return ((bool)(this[this.tabledetalle_factura.aplicarAnticipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'aplicarAnticipo\' de la tabla \'detalle_factura\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_factura.aplicarAnticipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string tieneAnticipo {
+                get {
+                    try {
+                        return ((string)(this[this.tabledetalle_factura.tieneAnticipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tieneAnticipo\' de la tabla \'detalle_factura\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_factura.tieneAnticipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal montoAnticipoAplicado {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledetalle_factura.montoAnticipoAplicadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'montoAnticipoAplicado\' de la tabla \'detalle_factura\' es D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_factura.montoAnticipoAplicadoColumn] = value;
                 }
             }
             
@@ -12558,18 +12623,6 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsanticipoNull() {
-                return this.IsNull(this.tabledetalle_factura.anticipoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetanticipoNull() {
-                this[this.tabledetalle_factura.anticipoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Ismonto_anticipoNull() {
                 return this.IsNull(this.tabledetalle_factura.monto_anticipoColumn);
             }
@@ -12578,6 +12631,54 @@ namespace JAGUAR_PRO.LogisticaJaguar {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setmonto_anticipoNull() {
                 this[this.tabledetalle_factura.monto_anticipoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_anticipoNull() {
+                return this.IsNull(this.tabledetalle_factura.id_anticipoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_anticipoNull() {
+                this[this.tabledetalle_factura.id_anticipoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsaplicarAnticipoNull() {
+                return this.IsNull(this.tabledetalle_factura.aplicarAnticipoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetaplicarAnticipoNull() {
+                this[this.tabledetalle_factura.aplicarAnticipoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstieneAnticipoNull() {
+                return this.IsNull(this.tabledetalle_factura.tieneAnticipoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettieneAnticipoNull() {
+                this[this.tabledetalle_factura.tieneAnticipoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsmontoAnticipoAplicadoNull() {
+                return this.IsNull(this.tabledetalle_factura.montoAnticipoAplicadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetmontoAnticipoAplicadoNull() {
+                this[this.tabledetalle_factura.montoAnticipoAplicadoColumn] = global::System.Convert.DBNull;
             }
         }
         
