@@ -1,4 +1,11 @@
-﻿using System;
+﻿using ACS.Classes;
+using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
+using JAGUAR_PRO.LogisticaJaguar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,12 +15,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ACS.Classes;
-using DevExpress.Utils;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using JAGUAR_PRO.Clases;
-using JAGUAR_PRO.LogisticaJaguar;
 
 namespace JAGUAR_PRO.Mantenimientos.Comisiones
 {
@@ -341,6 +342,64 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void UpdateComisionDetalleEnable(int pId, bool pEnable)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_set_enable_comiciones_detalle]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", pId);
+                cmd.Parameters.AddWithValue("@enable", pEnable);
+                cmd.ExecuteNonQuery();
+                
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void btnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Button Click delete row in comisiones detalle.
+            DialogResult r = MessageBox.Show("¿Desea Eliminar esta linea?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r != DialogResult.Yes)
+                return;
+            
+            var gridView1 = (GridView)gcComisiones.FocusedView;
+            var row = (dsComisiones.detalle_comisionesRow)gridView1.GetFocusedDataRow();
+
+            try
+            {
+                //Nueva funcion de elminar 
+                int idRow = row.id; // ID que quieres eliminar
+
+                // Buscar las filas que coincidan con el ID
+                DataRow[] filas = dsComisiones1.detalle_comisiones.Select($"id = {idRow}");
+
+                // Eliminar cada fila encontrada
+                foreach (DataRow fila in filas)
+                {
+                    dsComisiones1.detalle_comisiones.Rows.Remove(fila);
+                }
+
+                UpdateComisionDetalleEnable(idRow, false);
+
+                //Eliminamos el registro padre 
+                //gridView1.DeleteRow(gridView1.FocusedRowHandle);
+                dsComisiones1.AcceptChanges();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
             }
         }
     }
