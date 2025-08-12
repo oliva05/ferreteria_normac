@@ -286,8 +286,6 @@
             this.gridColumn2.Caption = "Desactivar";
             this.gridColumn2.ColumnEdit = this.reposDesactivar;
             this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 7;
             // 
             // reposDesactivar
             // 
