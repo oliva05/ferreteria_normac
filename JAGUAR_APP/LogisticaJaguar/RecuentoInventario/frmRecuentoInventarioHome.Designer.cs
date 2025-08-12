@@ -45,7 +45,16 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.grdRecuento = new DevExpress.XtraGrid.GridControl();
+            this.dsRecuento1 = new JAGUAR_PRO.LogisticaJaguar.RecuentoInventario.dsRecuento();
             this.grdvRecuento = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid_recuento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha_creacion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colusuario_creador = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colusuario_aprobador = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha_aprobacion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colusuario_creadorName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colusuario_aprobadorName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdPrintFromGrid = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdVer_Editar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdVerDetalle = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -57,16 +66,10 @@
             this.btnAgregar = new DevExpress.XtraEditors.SimpleButton();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dsRecuento1 = new JAGUAR_PRO.LogisticaJaguar.RecuentoInventario.dsRecuento();
-            this.colid_recuento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfecha_creacion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colusuario_creador = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colusuario_aprobador = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfecha_aprobacion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colusuario_creadorName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colusuario_aprobadorName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldocnum = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colusuario_creador1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdRecuento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsRecuento1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdvRecuento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdPrintFromGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdVer_Editar)).BeginInit();
@@ -75,7 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsRecuento1)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRecuento
@@ -97,6 +99,11 @@
             this.grdRecuento.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdvRecuento});
             // 
+            // dsRecuento1
+            // 
+            this.dsRecuento1.DataSetName = "dsRecuento";
+            this.dsRecuento1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // grdvRecuento
             // 
             this.grdvRecuento.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -107,12 +114,76 @@
             this.colfecha_aprobacion,
             this.colestado,
             this.colusuario_creadorName,
-            this.colusuario_aprobadorName});
+            this.colusuario_aprobadorName,
+            this.coldocnum,
+            this.colusuario_creador1});
             this.grdvRecuento.GridControl = this.grdRecuento;
             this.grdvRecuento.Name = "grdvRecuento";
             this.grdvRecuento.OptionsView.ShowAutoFilterRow = true;
             this.grdvRecuento.OptionsView.ShowFooter = true;
             this.grdvRecuento.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid_recuento
+            // 
+            this.colid_recuento.FieldName = "id_recuento";
+            this.colid_recuento.Name = "colid_recuento";
+            this.colid_recuento.OptionsColumn.AllowEdit = false;
+            // 
+            // colfecha_creacion
+            // 
+            this.colfecha_creacion.FieldName = "fecha_creacion";
+            this.colfecha_creacion.Name = "colfecha_creacion";
+            this.colfecha_creacion.OptionsColumn.AllowEdit = false;
+            this.colfecha_creacion.Visible = true;
+            this.colfecha_creacion.VisibleIndex = 1;
+            // 
+            // colusuario_creador
+            // 
+            this.colusuario_creador.FieldName = "fecha_creacion";
+            this.colusuario_creador.Name = "colusuario_creador";
+            this.colusuario_creador.OptionsColumn.AllowEdit = false;
+            this.colusuario_creador.Visible = true;
+            this.colusuario_creador.VisibleIndex = 2;
+            // 
+            // colusuario_aprobador
+            // 
+            this.colusuario_aprobador.FieldName = "usuario_aprobador";
+            this.colusuario_aprobador.Name = "colusuario_aprobador";
+            this.colusuario_aprobador.OptionsColumn.AllowEdit = false;
+            this.colusuario_aprobador.Visible = true;
+            this.colusuario_aprobador.VisibleIndex = 3;
+            // 
+            // colfecha_aprobacion
+            // 
+            this.colfecha_aprobacion.FieldName = "fecha_aprobacion";
+            this.colfecha_aprobacion.Name = "colfecha_aprobacion";
+            this.colfecha_aprobacion.OptionsColumn.AllowEdit = false;
+            this.colfecha_aprobacion.Visible = true;
+            this.colfecha_aprobacion.VisibleIndex = 4;
+            // 
+            // colestado
+            // 
+            this.colestado.FieldName = "estado";
+            this.colestado.Name = "colestado";
+            this.colestado.OptionsColumn.AllowEdit = false;
+            this.colestado.Visible = true;
+            this.colestado.VisibleIndex = 5;
+            // 
+            // colusuario_creadorName
+            // 
+            this.colusuario_creadorName.FieldName = "usuario_creadorName";
+            this.colusuario_creadorName.Name = "colusuario_creadorName";
+            this.colusuario_creadorName.OptionsColumn.AllowEdit = false;
+            this.colusuario_creadorName.Visible = true;
+            this.colusuario_creadorName.VisibleIndex = 6;
+            // 
+            // colusuario_aprobadorName
+            // 
+            this.colusuario_aprobadorName.FieldName = "usuario_aprobadorName";
+            this.colusuario_aprobadorName.Name = "colusuario_aprobadorName";
+            this.colusuario_aprobadorName.OptionsColumn.AllowEdit = false;
+            this.colusuario_aprobadorName.Visible = true;
+            this.colusuario_aprobadorName.VisibleIndex = 7;
             // 
             // cmdPrintFromGrid
             // 
@@ -228,6 +299,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(142, 47);
             this.btnAgregar.TabIndex = 111;
             this.btnAgregar.Text = "Crear Recuento";
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnAtras
             // 
@@ -257,72 +329,19 @@
             this.labelControl1.TabIndex = 112;
             this.labelControl1.Text = "Recuento de Inventario";
             // 
-            // dsRecuento1
+            // coldocnum
             // 
-            this.dsRecuento1.DataSetName = "dsRecuento";
-            this.dsRecuento1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.coldocnum.FieldName = "docnum";
+            this.coldocnum.Name = "coldocnum";
+            this.coldocnum.Visible = true;
+            this.coldocnum.VisibleIndex = 0;
             // 
-            // colid_recuento
+            // colusuario_creador1
             // 
-            this.colid_recuento.FieldName = "id_recuento";
-            this.colid_recuento.Name = "colid_recuento";
-            this.colid_recuento.OptionsColumn.AllowEdit = false;
-            // 
-            // colfecha_creacion
-            // 
-            this.colfecha_creacion.FieldName = "fecha_creacion";
-            this.colfecha_creacion.Name = "colfecha_creacion";
-            this.colfecha_creacion.OptionsColumn.AllowEdit = false;
-            this.colfecha_creacion.Visible = true;
-            this.colfecha_creacion.VisibleIndex = 0;
-            // 
-            // colusuario_creador
-            // 
-            this.colusuario_creador.FieldName = "fecha_creacion";
-            this.colusuario_creador.Name = "colusuario_creador";
-            this.colusuario_creador.OptionsColumn.AllowEdit = false;
-            this.colusuario_creador.Visible = true;
-            this.colusuario_creador.VisibleIndex = 1;
-            // 
-            // colusuario_aprobador
-            // 
-            this.colusuario_aprobador.FieldName = "usuario_aprobador";
-            this.colusuario_aprobador.Name = "colusuario_aprobador";
-            this.colusuario_aprobador.OptionsColumn.AllowEdit = false;
-            this.colusuario_aprobador.Visible = true;
-            this.colusuario_aprobador.VisibleIndex = 2;
-            // 
-            // colfecha_aprobacion
-            // 
-            this.colfecha_aprobacion.FieldName = "fecha_aprobacion";
-            this.colfecha_aprobacion.Name = "colfecha_aprobacion";
-            this.colfecha_aprobacion.OptionsColumn.AllowEdit = false;
-            this.colfecha_aprobacion.Visible = true;
-            this.colfecha_aprobacion.VisibleIndex = 3;
-            // 
-            // colestado
-            // 
-            this.colestado.FieldName = "estado";
-            this.colestado.Name = "colestado";
-            this.colestado.OptionsColumn.AllowEdit = false;
-            this.colestado.Visible = true;
-            this.colestado.VisibleIndex = 4;
-            // 
-            // colusuario_creadorName
-            // 
-            this.colusuario_creadorName.FieldName = "usuario_creadorName";
-            this.colusuario_creadorName.Name = "colusuario_creadorName";
-            this.colusuario_creadorName.OptionsColumn.AllowEdit = false;
-            this.colusuario_creadorName.Visible = true;
-            this.colusuario_creadorName.VisibleIndex = 5;
-            // 
-            // colusuario_aprobadorName
-            // 
-            this.colusuario_aprobadorName.FieldName = "usuario_aprobadorName";
-            this.colusuario_aprobadorName.Name = "colusuario_aprobadorName";
-            this.colusuario_aprobadorName.OptionsColumn.AllowEdit = false;
-            this.colusuario_aprobadorName.Visible = true;
-            this.colusuario_aprobadorName.VisibleIndex = 6;
+            this.colusuario_creador1.FieldName = "usuario_creador";
+            this.colusuario_creador1.Name = "colusuario_creador1";
+            this.colusuario_creador1.Visible = true;
+            this.colusuario_creador1.VisibleIndex = 8;
             // 
             // frmRecuentoInventarioHome
             // 
@@ -341,6 +360,7 @@
             this.Name = "frmRecuentoInventarioHome";
             this.Text = "frmRecuentoInventarioHome";
             ((System.ComponentModel.ISupportInitialize)(this.grdRecuento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsRecuento1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdvRecuento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdPrintFromGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdVer_Editar)).EndInit();
@@ -349,7 +369,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsRecuento1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,5 +398,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colestado;
         private DevExpress.XtraGrid.Columns.GridColumn colusuario_creadorName;
         private DevExpress.XtraGrid.Columns.GridColumn colusuario_aprobadorName;
+        private DevExpress.XtraGrid.Columns.GridColumn coldocnum;
+        private DevExpress.XtraGrid.Columns.GridColumn colusuario_creador1;
     }
 }

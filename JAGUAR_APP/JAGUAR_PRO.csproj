@@ -4713,6 +4713,9 @@
     <EmbeddedResource Include="LogisticaJaguar\ProveedorCRUDPagos.resx">
       <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioDetalle.resx">
+      <DependentUpon>frmRecuentoInventarioDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioHome.resx">
       <DependentUpon>frmRecuentoInventarioHome.cs</DependentUpon>
     </EmbeddedResource>
