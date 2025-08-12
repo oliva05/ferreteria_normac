@@ -137,7 +137,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                     }
                     
                 }
-                lblTotalIngresos.Text = string.Format("{0:L ###,##0.00}", Total);
+                lblTotalIngresos.Text = 
+                lblTotalGeneral.Text = string.Format("{0:L ###,##0.00}", Total);
+
                 lblTotalVerificado.Text = string.Format("{0:L ###,##0.00}", TotalContado);
                 lblTotalDepositoCaja.Text = string.Format("{0:L ###,##0.00}", TotalDespoitos);
                 lblDiferencia_Total.Text = string.Format("{0:L ###,##0.00}", TotalDiferencias);

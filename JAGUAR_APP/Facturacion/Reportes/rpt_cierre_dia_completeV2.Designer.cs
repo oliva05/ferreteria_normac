@@ -96,7 +96,7 @@
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotalGeneral = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel30 = new DevExpress.XtraReports.UI.XRLabel();
@@ -848,7 +848,7 @@
             this.xrLabel13,
             this.xrLabel12,
             this.xrLabel11,
-            this.xrLabel9});
+            this.lblTotalGeneral});
             this.GroupFooter1.HeightF = 19.24983F;
             this.GroupFooter1.Name = "GroupFooter1";
             // 
@@ -871,6 +871,7 @@
             this.xrLabel17.Text = "xrLabel9";
             this.xrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel17.TextFormatString = "{0:L ###,##0.00}";
+            this.xrLabel17.Visible = false;
             // 
             // xrLabel14
             // 
@@ -878,16 +879,17 @@
             this.xrLabel14.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "")});
             this.xrLabel14.Font = new DevExpress.Drawing.DXFont("Consolas", 7.5F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(412.609F, 0F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(388.3571F, 0F);
             this.xrLabel14.Multiline = true;
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel14.SizeF = new System.Drawing.SizeF(98.52667F, 19.24983F);
+            this.xrLabel14.SizeF = new System.Drawing.SizeF(122.7786F, 19.24983F);
             this.xrLabel14.StylePriority.UseBorders = false;
             this.xrLabel14.StylePriority.UseFont = false;
             this.xrLabel14.StylePriority.UseTextAlignment = false;
             this.xrLabel14.Text = "Totales";
             this.xrLabel14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrLabel14.Visible = false;
             // 
             // xrLabel13
             // 
@@ -908,6 +910,7 @@
             this.xrLabel13.Text = "xrLabel9";
             this.xrLabel13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel13.TextFormatString = "{0:L ###,##0.00}";
+            this.xrLabel13.Visible = false;
             // 
             // xrLabel12
             // 
@@ -928,6 +931,7 @@
             this.xrLabel12.Text = "xrLabel9";
             this.xrLabel12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel12.TextFormatString = "{0:L ###,##0.00}";
+            this.xrLabel12.Visible = false;
             // 
             // xrLabel11
             // 
@@ -948,26 +952,26 @@
             this.xrLabel11.Text = "xrLabel9";
             this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel11.TextFormatString = "{0:L ###,##0.00}";
+            this.xrLabel11.Visible = false;
             // 
-            // xrLabel9
+            // lblTotalGeneral
             // 
-            this.xrLabel9.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sum([banco]+[efectivo]+[tarjeta]+[cheque])\n\n")});
-            this.xrLabel9.Font = new DevExpress.Drawing.DXFont("Consolas", 7.5F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(511.1357F, 0F);
-            this.xrLabel9.Multiline = true;
-            this.xrLabel9.Name = "xrLabel9";
-            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(100.1063F, 19.24983F);
-            this.xrLabel9.StylePriority.UseBorders = false;
-            this.xrLabel9.StylePriority.UseFont = false;
-            this.xrLabel9.StylePriority.UseTextAlignment = false;
+            this.lblTotalGeneral.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lblTotalGeneral.Font = new DevExpress.Drawing.DXFont("Consolas", 7.5F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblTotalGeneral.LocationFloat = new DevExpress.Utils.PointFloat(511.1357F, 0F);
+            this.lblTotalGeneral.Multiline = true;
+            this.lblTotalGeneral.Name = "lblTotalGeneral";
+            this.lblTotalGeneral.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTotalGeneral.SizeF = new System.Drawing.SizeF(100.1063F, 19.24983F);
+            this.lblTotalGeneral.StylePriority.UseBorders = false;
+            this.lblTotalGeneral.StylePriority.UseFont = false;
+            this.lblTotalGeneral.StylePriority.UseTextAlignment = false;
             xrSummary5.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrLabel9.Summary = xrSummary5;
-            this.xrLabel9.Text = "xrLabel9";
-            this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrLabel9.TextFormatString = "{0:L ###,##0.00}";
+            this.lblTotalGeneral.Summary = xrSummary5;
+            this.lblTotalGeneral.Text = "00.00";
+            this.lblTotalGeneral.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.lblTotalGeneral.TextFormatString = "{0:L ###,##0.00}";
+            this.lblTotalGeneral.Visible = false;
             // 
             // ReportHeader
             // 
@@ -1411,7 +1415,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel13;
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.XRLabel xrLabel11;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel9;
+        private DevExpress.XtraReports.UI.XRLabel lblTotalGeneral;
         private DevExpress.XtraReports.UI.XRLabel xrLabel15;
         private DevExpress.XtraReports.UI.XRLabel lblFechaCierre;
         private DevExpress.XtraReports.UI.XRLabel xrLabel21;

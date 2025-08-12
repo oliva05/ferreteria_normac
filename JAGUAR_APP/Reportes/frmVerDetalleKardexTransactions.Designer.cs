@@ -62,6 +62,7 @@ namespace JAGUAR_PRO.Reportes
             this.lblInventario = new DevExpress.XtraEditors.LabelControl();
             this.lblAlmacen = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.colusuario_aprueba_ajuste = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsKardexReportes1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -147,7 +148,8 @@ namespace JAGUAR_PRO.Reportes
             this.colFechaDoc,
             this.colEntrada,
             this.colSalida,
-            this.colsaldo});
+            this.colsaldo,
+            this.colusuario_aprueba_ajuste});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -169,7 +171,7 @@ namespace JAGUAR_PRO.Reportes
             this.colfecha_reg.OptionsColumn.ReadOnly = true;
             this.colfecha_reg.Visible = true;
             this.colfecha_reg.VisibleIndex = 0;
-            this.colfecha_reg.Width = 104;
+            this.colfecha_reg.Width = 97;
             // 
             // colNumDocumento
             // 
@@ -178,7 +180,7 @@ namespace JAGUAR_PRO.Reportes
             this.colNumDocumento.OptionsColumn.ReadOnly = true;
             this.colNumDocumento.Visible = true;
             this.colNumDocumento.VisibleIndex = 2;
-            this.colNumDocumento.Width = 95;
+            this.colNumDocumento.Width = 88;
             // 
             // colid_tipo_transaccion
             // 
@@ -194,7 +196,7 @@ namespace JAGUAR_PRO.Reportes
             this.colTipo.OptionsColumn.ReadOnly = true;
             this.colTipo.Visible = true;
             this.colTipo.VisibleIndex = 1;
-            this.colTipo.Width = 94;
+            this.colTipo.Width = 88;
             // 
             // colenable
             // 
@@ -209,7 +211,7 @@ namespace JAGUAR_PRO.Reportes
             this.colenable_descripcion.OptionsColumn.ReadOnly = true;
             this.colenable_descripcion.Visible = true;
             this.colenable_descripcion.VisibleIndex = 3;
-            this.colenable_descripcion.Width = 102;
+            this.colenable_descripcion.Width = 95;
             // 
             // colid_pt
             // 
@@ -224,7 +226,6 @@ namespace JAGUAR_PRO.Reportes
             this.colItemCode.OptionsColumn.ReadOnly = true;
             this.colItemCode.Visible = true;
             this.colItemCode.VisibleIndex = 4;
-            this.colItemCode.Width = 81;
             // 
             // colItemName
             // 
@@ -233,7 +234,7 @@ namespace JAGUAR_PRO.Reportes
             this.colItemName.OptionsColumn.ReadOnly = true;
             this.colItemName.Visible = true;
             this.colItemName.VisibleIndex = 5;
-            this.colItemName.Width = 165;
+            this.colItemName.Width = 154;
             // 
             // colid_usuario
             // 
@@ -248,7 +249,7 @@ namespace JAGUAR_PRO.Reportes
             this.colUsuario.OptionsColumn.ReadOnly = true;
             this.colUsuario.Visible = true;
             this.colUsuario.VisibleIndex = 6;
-            this.colUsuario.Width = 100;
+            this.colUsuario.Width = 93;
             // 
             // colFechaDoc
             // 
@@ -256,8 +257,8 @@ namespace JAGUAR_PRO.Reportes
             this.colFechaDoc.Name = "colFechaDoc";
             this.colFechaDoc.OptionsColumn.ReadOnly = true;
             this.colFechaDoc.Visible = true;
-            this.colFechaDoc.VisibleIndex = 7;
-            this.colFechaDoc.Width = 76;
+            this.colFechaDoc.VisibleIndex = 8;
+            this.colFechaDoc.Width = 67;
             // 
             // colEntrada
             // 
@@ -269,8 +270,8 @@ namespace JAGUAR_PRO.Reportes
             this.colEntrada.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Entrada", "SUM={0:n0}")});
             this.colEntrada.Visible = true;
-            this.colEntrada.VisibleIndex = 8;
-            this.colEntrada.Width = 90;
+            this.colEntrada.VisibleIndex = 9;
+            this.colEntrada.Width = 80;
             // 
             // colSalida
             // 
@@ -282,8 +283,8 @@ namespace JAGUAR_PRO.Reportes
             this.colSalida.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Salida", "SUM={0:n0}")});
             this.colSalida.Visible = true;
-            this.colSalida.VisibleIndex = 9;
-            this.colSalida.Width = 100;
+            this.colSalida.VisibleIndex = 10;
+            this.colSalida.Width = 88;
             // 
             // colsaldo
             // 
@@ -291,8 +292,8 @@ namespace JAGUAR_PRO.Reportes
             this.colsaldo.Name = "colsaldo";
             this.colsaldo.OptionsColumn.ReadOnly = true;
             this.colsaldo.Visible = true;
-            this.colsaldo.VisibleIndex = 10;
-            this.colsaldo.Width = 94;
+            this.colsaldo.VisibleIndex = 11;
+            this.colsaldo.Width = 91;
             // 
             // labelControl1
             // 
@@ -367,6 +368,15 @@ namespace JAGUAR_PRO.Reportes
             this.labelControl5.TabIndex = 17;
             this.labelControl5.Text = "Almacen:";
             // 
+            // colusuario_aprueba_ajuste
+            // 
+            this.colusuario_aprueba_ajuste.FieldName = "usuario_aprueba_ajuste";
+            this.colusuario_aprueba_ajuste.Name = "colusuario_aprueba_ajuste";
+            this.colusuario_aprueba_ajuste.OptionsColumn.ReadOnly = true;
+            this.colusuario_aprueba_ajuste.Visible = true;
+            this.colusuario_aprueba_ajuste.VisibleIndex = 7;
+            this.colusuario_aprueba_ajuste.Width = 85;
+            // 
             // frmVerDetalleKardexTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,5 +434,6 @@ namespace JAGUAR_PRO.Reportes
         private LabelControl lblAlmacen;
         private LabelControl labelControl5;
         private DevExpress.XtraGrid.Columns.GridColumn colNumDocumento;
+        private DevExpress.XtraGrid.Columns.GridColumn colusuario_aprueba_ajuste;
     }
 }
