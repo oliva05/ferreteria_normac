@@ -55,7 +55,8 @@ namespace JAGUAR_PRO.Clases
                     TipoPlanId = dr.GetInt32(8);
                     TipoPlanName = dr.GetString(9);
                     UserName = dr.GetString(10);
-                    Porcentaje = dr.GetDecimal(11);
+                    Recuperado = true;
+                    //Porcentaje = dr.GetDecimal(11);
                     dr.Close();
 
                 }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCRUDComisionesDetalle));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -99,7 +99,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(250, 13);
+            this.labelControl3.Location = new System.Drawing.Point(211, 12);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(261, 25);
             this.labelControl3.TabIndex = 23;
@@ -111,7 +111,7 @@
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Location = new System.Drawing.Point(578, 77);
+            this.simpleButton2.Location = new System.Drawing.Point(578, 67);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(96, 29);
             this.simpleButton2.TabIndex = 22;
@@ -124,7 +124,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseBackColor = true;
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(477, 77);
+            this.btnSave.Location = new System.Drawing.Point(477, 67);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 29);
             this.btnSave.TabIndex = 10;
@@ -158,12 +158,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gcComisiones.DataMember = "detalle_comisiones";
             this.gcComisiones.DataSource = this.dsComisiones1;
-            this.gcComisiones.Location = new System.Drawing.Point(0, 293);
+            this.gcComisiones.Location = new System.Drawing.Point(0, 249);
             this.gcComisiones.MainView = this.gvComisiones;
             this.gcComisiones.Name = "gcComisiones";
             this.gcComisiones.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnDelete});
-            this.gcComisiones.Size = new System.Drawing.Size(688, 256);
+            this.gcComisiones.Size = new System.Drawing.Size(705, 300);
             this.gcComisiones.TabIndex = 8;
             this.gcComisiones.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvComisiones});
@@ -213,7 +213,7 @@
             this.colpiso.Name = "colpiso";
             this.colpiso.Visible = true;
             this.colpiso.VisibleIndex = 0;
-            this.colpiso.Width = 77;
+            this.colpiso.Width = 100;
             // 
             // coltecho
             // 
@@ -224,7 +224,7 @@
             this.coltecho.Name = "coltecho";
             this.coltecho.Visible = true;
             this.coltecho.VisibleIndex = 1;
-            this.coltecho.Width = 77;
+            this.coltecho.Width = 110;
             // 
             // colporcentaje
             // 
@@ -235,7 +235,7 @@
             this.colporcentaje.Name = "colporcentaje";
             this.colporcentaje.Visible = true;
             this.colporcentaje.VisibleIndex = 2;
-            this.colporcentaje.Width = 77;
+            this.colporcentaje.Width = 67;
             // 
             // colporcentaje_lps
             // 
@@ -247,7 +247,7 @@
             this.colporcentaje_lps.OptionsColumn.ReadOnly = true;
             this.colporcentaje_lps.Visible = true;
             this.colporcentaje_lps.VisibleIndex = 3;
-            this.colporcentaje_lps.Width = 77;
+            this.colporcentaje_lps.Width = 78;
             // 
             // colbonificacion_extra
             // 
@@ -258,7 +258,7 @@
             this.colbonificacion_extra.Name = "colbonificacion_extra";
             this.colbonificacion_extra.Visible = true;
             this.colbonificacion_extra.VisibleIndex = 4;
-            this.colbonificacion_extra.Width = 77;
+            this.colbonificacion_extra.Width = 85;
             // 
             // coltotal_pago
             // 
@@ -270,7 +270,7 @@
             this.coltotal_pago.OptionsColumn.ReadOnly = true;
             this.coltotal_pago.Visible = true;
             this.coltotal_pago.VisibleIndex = 5;
-            this.coltotal_pago.Width = 108;
+            this.coltotal_pago.Width = 82;
             // 
             // gridColumn1
             // 
@@ -279,21 +279,21 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 7;
-            this.gridColumn1.Width = 72;
+            this.gridColumn1.Width = 43;
             // 
             // btnDelete
             // 
             this.btnDelete.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.btnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDelete_ButtonClick);
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "Con Limite Techo";
+            this.gridColumn2.Caption = "Sin Limite Techo";
             this.gridColumn2.FieldName = "limite_techo";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
@@ -445,7 +445,7 @@
             // txtInicioComision
             // 
             this.txtInicioComision.EditValue = "";
-            this.txtInicioComision.Location = new System.Drawing.Point(141, 253);
+            this.txtInicioComision.Location = new System.Drawing.Point(359, 70);
             this.txtInicioComision.Name = "txtInicioComision";
             this.txtInicioComision.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtInicioComision.Properties.Appearance.Options.UseFont = true;
@@ -456,6 +456,7 @@
             this.txtInicioComision.Properties.UseMaskAsDisplayFormat = true;
             this.txtInicioComision.Size = new System.Drawing.Size(100, 24);
             this.txtInicioComision.TabIndex = 7;
+            this.txtInicioComision.Visible = false;
             // 
             // labelControl7
             // 
@@ -464,17 +465,18 @@
             this.labelControl7.Appearance.Options.UseTextOptions = true;
             this.labelControl7.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl7.LineVisible = true;
-            this.labelControl7.Location = new System.Drawing.Point(51, 256);
+            this.labelControl7.Location = new System.Drawing.Point(269, 73);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(77, 17);
             this.labelControl7.TabIndex = 126;
             this.labelControl7.Text = "% Comision:";
+            this.labelControl7.Visible = false;
             // 
             // frmCRUDComisionesDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 548);
+            this.ClientSize = new System.Drawing.Size(703, 548);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.txtInicioComision);
             this.Controls.Add(this.txtAnio);

@@ -44,15 +44,18 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                     break;
                 case TipoOperacion.Editar:
                     Clases.Comisiones comisiones = new Clases.Comisiones();
-                    comisiones.RecuperarRegistrosComisionesById(IdComision);
-                    txtAnio.Text = comisiones.Anio.ToString();
-                    dtDesde.DateTime = comisiones.FechaInicio.Date;
-                    dtHasta.DateTime = comisiones.FechaFin.Date;
-                    gridLookUpEdit1.EditValue = comisiones.TipoPlanId;
-                    txtDescripcion.Text = comisiones.Descripcion;
-                    txtInicioComision.EditValue = comisiones.Porcentaje;
+                    if (comisiones.RecuperarRegistrosComisionesById(IdComision))
+                    {
+                        txtAnio.Text = comisiones.Anio.ToString();
+                        dtDesde.DateTime = comisiones.FechaInicio.Date;
+                        dtHasta.DateTime = comisiones.FechaFin.Date;
+                        gridLookUpEdit1.EditValue = comisiones.TipoPlanId;
+                        txtDescripcion.Text = comisiones.Descripcion;
+                        //txtInicioComision.EditValue = comisiones.Porcentaje;
 
-                    CargarDetalle();
+                        CargarDetalle();
+                    }
+                    
                     break;
                 default:
                     break;
@@ -121,6 +124,7 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                 CajaDialogo.Error("La fecha de inicio no puede ser mayor o igual a la fecha de fin.");
                 return;
             }
+
             bool Guardar = false;
             SqlTransaction transaction = null;
 
@@ -145,8 +149,7 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                         cmd.Parameters.AddWithValue("@descripcion",txtDescripcion.Text);
                         cmd.Parameters.AddWithValue("@user_id",UsuarioLogeado.Id);
                         cmd.Parameters.AddWithValue("@tipo_plan",gridLookUpEdit1.EditValue);
-                        cmd.Parameters.AddWithValue("@inicio_comision",txtInicioComision.EditValue);
-                        //cmd.Parameters.AddWithValue("", Istraslado ? Convert.ToDecimal(row.id_traslado) : 0);
+                        //cmd.Parameters.AddWithValue("@inicio_comision",txtInicioComision.EditValue);
 
                         int id_header= Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -201,18 +204,28 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                         cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
                         cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
                         cmd.Parameters.AddWithValue("@tipo_plan", gridLookUpEdit1.EditValue);
-                        cmd.Parameters.AddWithValue("@inicio_comision", txtInicioComision.EditValue);
-                        //cmd.Parameters.AddWithValue("", Istraslado ? Convert.ToDecimal(row.id_traslado) : 0);
+                        //cmd.Parameters.AddWithValue("@inicio_comision", txtInicioComision.EditValue);
 
                         cmd.ExecuteNonQuery();
 
                         foreach (dsComisiones.detalle_comisionesRow row in dsComisiones1.detalle_comisiones.Rows)
                         {
                             cmd.Parameters.Clear();
-                            cmd.CommandText = "[sp_comisiones_update_d]";
                             cmd.Connection = conn;
                             cmd.Transaction = transaction;
                             cmd.CommandType = CommandType.StoredProcedure;
+
+                            //cmd.CommandText = "[sp_comisiones_update_d]";
+                            if (row.id == 0)
+                            {
+                                cmd.CommandText = "[sp_comisiones_insert_d]";
+                            }
+                            else
+                            {
+                                cmd.CommandText = "[sp_comisiones_update_detalle]";
+                                cmd.Parameters.AddWithValue("@id", row.id);
+                            }
+
                             cmd.Parameters.AddWithValue("@id_header", IdComision);
                             cmd.Parameters.AddWithValue("@piso", row.piso);
                             cmd.Parameters.AddWithValue("@techo", row.techo);
@@ -261,13 +274,13 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
             var gridview = (GridView)gcComisiones.FocusedView;
             var row = (dsComisiones.detalle_comisionesRow)gridview.GetFocusedDataRow();
 
-            decimal InicioComision = Convert.ToDecimal(txtInicioComision.EditValue);
+            //decimal InicioComision = Convert.ToDecimal(txtInicioComision.EditValue);
 
-            if (InicioComision == 0)
-            {
-                CajaDialogo.Error("Debe indicar un monto minimo de comision!");
-                return;
-            }
+            //if (InicioComision == 0)
+            //{
+            //    CajaDialogo.Error("Debe indicar un monto minimo de comision!");
+            //    return;
+            //}
 
             switch (e.Column.FieldName)
             {
@@ -275,68 +288,59 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
 
                     if (row.limite_techo)
                     {
+                        //Monto lps
                         row.porcentaje_lps = row.piso * (row.porcentaje / 100);
-                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
                     }
                     else
                     {
-                        if (row.techo < InicioComision)
-                        {
-                            row.porcentaje = 0;
-                            row.porcentaje_lps = 0;
-                            row.bonificacion_extra = 0;
-                            row.total_pago = 0;
-                        }
-                        else
-                        {
-
-                            row.porcentaje_lps = row.techo * (row.porcentaje / 100);
-                            row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
-
-                        }
+                        //Monto Lps
+                        row.porcentaje_lps = row.techo * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
                     }
-                   
-
                     break;
 
                 case "techo":
-                    if (row.techo < InicioComision)
+                    if (row.limite_techo)
                     {
-                        row.porcentaje = 0;
-                        row.porcentaje_lps = 0;
-                        row.bonificacion_extra = 0;
-                        row.total_pago = 0;
+                        //Monto Lps
+                        row.porcentaje_lps = row.piso * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
                     }
                     else
                     {
+                        //Monto Lps
                         row.porcentaje_lps = row.techo * (row.porcentaje / 100);
-                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
                     }
-
                     break;
 
                 case "bonificacion_extra":
-                    if (row.techo < InicioComision)
+                    if (row.limite_techo)
                     {
-                        row.porcentaje = 0;
-                        row.porcentaje_lps = 0;
-                        row.bonificacion_extra = 0;
-                        row.total_pago = 0;
+                        //Monto Lps
+                        row.porcentaje_lps = row.piso * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
                     }
                     else
                     {
+                        //Monto Lps
                         row.porcentaje_lps = row.techo * (row.porcentaje / 100);
                         row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
                     }
                     break;
 
                 case "limite_techo":
-
-                    bool TieneLimiteMaximo = Convert.ToBoolean(e.Value);
-                    if (TieneLimiteMaximo)
+                    if (row.limite_techo)
                     {
-                        row.techo = 0;// DBNull.Value;
+                        //Monto Lps
                         row.porcentaje_lps = row.piso * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
+                    }
+                    else
+                    {
+                        //Monto Lps
+                        row.porcentaje_lps = row.techo * (row.porcentaje / 100);
                         row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
                     }
                     break;
