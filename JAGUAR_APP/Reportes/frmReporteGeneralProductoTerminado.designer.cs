@@ -378,11 +378,11 @@ namespace JAGUAR_PRO.Reportes
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(718, 36);
+            this.labelControl1.Location = new System.Drawing.Point(707, 24);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(118, 17);
+            this.labelControl1.Size = new System.Drawing.Size(129, 34);
             this.labelControl1.TabIndex = 9;
-            this.labelControl1.Text = "Ver con INV en cero";
+            this.labelControl1.Text = "Ver inventario en cero\r\no negativos\r\n";
             // 
             // cmdAgregarAjuste_
             // 

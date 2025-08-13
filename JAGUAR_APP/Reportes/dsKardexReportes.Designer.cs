@@ -311,6 +311,8 @@ namespace JAGUAR_PRO.Reportes {
             
             private global::System.Data.DataColumn columnNumDocumento;
             
+            private global::System.Data.DataColumn columnusuario_aprueba_ajuste;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_transacciones_kardexDataTable() {
@@ -474,6 +476,14 @@ namespace JAGUAR_PRO.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn usuario_aprueba_ajusteColumn {
+                get {
+                    return this.columnusuario_aprueba_ajuste;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -525,7 +535,8 @@ namespace JAGUAR_PRO.Reportes {
                         decimal Entrada, 
                         decimal Salida, 
                         decimal saldo, 
-                        string NumDocumento) {
+                        string NumDocumento, 
+                        string usuario_aprueba_ajuste) {
                 detalle_transacciones_kardexRow rowdetalle_transacciones_kardexRow = ((detalle_transacciones_kardexRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -543,7 +554,8 @@ namespace JAGUAR_PRO.Reportes {
                         Entrada,
                         Salida,
                         saldo,
-                        NumDocumento};
+                        NumDocumento,
+                        usuario_aprueba_ajuste};
                 rowdetalle_transacciones_kardexRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_transacciones_kardexRow);
                 return rowdetalle_transacciones_kardexRow;
@@ -582,6 +594,7 @@ namespace JAGUAR_PRO.Reportes {
                 this.columnSalida = base.Columns["Salida"];
                 this.columnsaldo = base.Columns["saldo"];
                 this.columnNumDocumento = base.Columns["NumDocumento"];
+                this.columnusuario_aprueba_ajuste = base.Columns["usuario_aprueba_ajuste"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -619,8 +632,11 @@ namespace JAGUAR_PRO.Reportes {
                 base.Columns.Add(this.columnsaldo);
                 this.columnNumDocumento = new global::System.Data.DataColumn("NumDocumento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumDocumento);
+                this.columnusuario_aprueba_ajuste = new global::System.Data.DataColumn("usuario_aprueba_ajuste", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusuario_aprueba_ajuste);
                 this.columnenable_descripcion.Caption = "Estado descripcion";
                 this.columnsaldo.Caption = "Saldo Inventario";
+                this.columnusuario_aprueba_ajuste.Caption = "Usuario Aprobó Ajuste";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1035,6 +1051,23 @@ namespace JAGUAR_PRO.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string usuario_aprueba_ajuste {
+                get {
+                    try {
+                        return ((string)(this[this.tabledetalle_transacciones_kardex.usuario_aprueba_ajusteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'usuario_aprueba_ajuste\' de la tabla \'detalle_transaccione" +
+                                "s_kardex\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_transacciones_kardex.usuario_aprueba_ajusteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tabledetalle_transacciones_kardex.idColumn);
             }
@@ -1223,6 +1256,18 @@ namespace JAGUAR_PRO.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetNumDocumentoNull() {
                 this[this.tabledetalle_transacciones_kardex.NumDocumentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isusuario_aprueba_ajusteNull() {
+                return this.IsNull(this.tabledetalle_transacciones_kardex.usuario_aprueba_ajusteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setusuario_aprueba_ajusteNull() {
+                this[this.tabledetalle_transacciones_kardex.usuario_aprueba_ajusteColumn] = global::System.Convert.DBNull;
             }
         }
         
