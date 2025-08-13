@@ -12,6 +12,9 @@ using System.Windows.Forms;
 using JAGUAR_PRO.RecuentoInventario;
 using DevExpress.Xpo;
 using ACS.Classes;
+using System.Data.SqlClient;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraExport.Helpers;
 
 namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 {
@@ -19,14 +22,22 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
     {
         UserLogin UsuarioLogeado;
         PDV PuntoVentaActual;
-
+        DataOperations dp = new DataOperations();   
         public frmRecuentoInventarioHome(UserLogin userLogin, PDV pDV)
         {
             InitializeComponent();
             UsuarioLogeado = userLogin;
             PuntoVentaActual = pDV;
-
+            dtDesde.DateTime = dp.dNow().AddDays(-7);
+            dtHasta.DateTime = dp.dNow();
             LoadData();
+
+
+            //Permiso de Gestion de Aprobacion de Recuento de Inventario
+            grdvRecuento.OptionsMenu.EnableColumnMenu = true;
+            //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+            grdvRecuento.Columns["gestion"].Visible = false;
+            //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el datasets
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -42,11 +53,185 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
         {
             try
             {
-
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_recuento_load", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@desde", dtDesde.DateTime);
+                cmd.Parameters.AddWithValue("@hasta", dtHasta.DateTime);
+                cmd.Parameters.AddWithValue("@id_punto_venta", PuntoVentaActual.ID);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                dsRecuento1.load_recuentos.Clear();
+                da.Fill(dsRecuento1.load_recuentos);
+                conn.Close();
             }
             catch (Exception ex)
             {
                 CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cmdCargar_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void reposCancelar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdRecuento.FocusedView;
+            var row = (dsRecuento.load_recuentosRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                bool Permitir = false;
+
+                switch (row.estado)
+                {
+                    case "PENDIENTE":
+                        Permitir = true;
+                        break;
+
+                    case "APROBADO":
+                        Permitir = false;
+                        break;
+                    case "CANCELADO":
+                        Permitir = false;
+                        break;
+                    case "COMPLETADO":
+                        Permitir = false;
+                        break;
+                    case "RECHAZADO":
+                        Permitir = false;
+                        break;
+
+                    default:
+
+                        break;
+                }
+
+                if (Permitir)
+                {
+                    if (CajaDialogo.Pregunta("¿Está seguro de cancelar el recuento?") == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                            conn.Open();
+                            SqlCommand cmd = new SqlCommand("sp_recuento_cancelar", conn);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id_recuento", row.id_recuento);
+                            cmd.Parameters.AddWithValue("@usuario_cancelacion", UsuarioLogeado.Id);
+                            cmd.Parameters.AddWithValue("@punto_venta_id", PuntoVentaActual.ID);
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            CajaDialogo.Error(ex.Message);
+                        }
+                    }
+                }
+
+                
+
+            }
+        }
+
+        private void reposRealizarConteo_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdRecuento.FocusedView;
+            var row = (dsRecuento.load_recuentosRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                bool Permitir = false;
+
+                switch (row.estado)
+                {
+                    case "PENDIENTE":
+                        Permitir = true;
+                        break;
+
+                    case "APROBADO":
+                        Permitir = false;
+                        break;
+                    case "CANCELADO":
+                        Permitir = false;
+                        break;
+                    case "COMPLETADO":
+                        Permitir = false;
+                        break;
+                    case "RECHAZADO":
+                        Permitir = false;
+                        break;
+
+                    default:
+
+                        break;
+                }
+
+                if (Permitir)
+                {
+                    frmRecuentoInventarioConteo frm = new frmRecuentoInventarioConteo(UsuarioLogeado, PuntoVentaActual, row.id_recuento, row.docnum, row.fecha_creacion, frmRecuentoInventarioConteo.AccionesRecuento.Conteo);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadData();
+                    }
+                }
+
+
+
+            }
+        }
+
+        private void reposAprobacion_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdRecuento.FocusedView;
+            var row = (dsRecuento.load_recuentosRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                bool Permitir = false;
+
+                switch (row.estado)
+                {
+                    case "PENDIENTE":
+                        Permitir = true;
+                        break;
+
+                    case "APROBADO":
+                        Permitir = false;
+                        break;
+                    case "CANCELADO":
+                        Permitir = false;
+                        break;
+                    case "COMPLETADO":
+                        Permitir = false;
+                        break;
+                    case "RECHAZADO":
+                        Permitir = false;
+                        break;
+
+                    default:
+
+                        break;
+                }
+
+                if (Permitir)
+                {
+                    frmRecuentoInventarioConteo frm = new frmRecuentoInventarioConteo(UsuarioLogeado, PuntoVentaActual, row.id_recuento, row.docnum, row.fecha_creacion, frmRecuentoInventarioConteo.AccionesRecuento.RevisionAprobacion);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadData();
+                    }
+                }
+
+
+
             }
         }
     }

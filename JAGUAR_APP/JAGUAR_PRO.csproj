@@ -2059,6 +2059,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsRecuento.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioConteo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioConteo.Designer.cs">
+      <DependentUpon>frmRecuentoInventarioConteo.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4712,6 +4718,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\ProveedorCRUDPagos.resx">
       <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioConteo.resx">
+      <DependentUpon>frmRecuentoInventarioConteo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioDetalle.resx">
       <DependentUpon>frmRecuentoInventarioDetalle.cs</DependentUpon>

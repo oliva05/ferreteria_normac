@@ -36,6 +36,7 @@ using JAGUAR_PRO.JaguarProduccion;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.LogisticaJaguar.Despacho;
 using JAGUAR_PRO.LogisticaJaguar.Pedidos;
+using JAGUAR_PRO.LogisticaJaguar.RecuentoInventario;
 using JAGUAR_PRO.Mantenimientos;
 using JAGUAR_PRO.Mantenimientos.Clientes;
 using JAGUAR_PRO.Mantenimientos.Comisiones;
@@ -6259,7 +6260,7 @@ namespace JAGUAR_PRO
             }
         }
 
-        private void navBarItemComisiones_LinkClicked(object sender, NavBarLinkEventArgs e)
+        private void navBarItem254_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
             string HostName = Dns.GetHostName();
             FacturacionEquipo EquipoActual = new FacturacionEquipo();
@@ -6280,46 +6281,58 @@ namespace JAGUAR_PRO
             }
 
 
-            bool accesoprevio = false;
-            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
-            switch (idNivel)                                                      //11 = Jaguar
+            try
             {
-                case 1://Basic View
-                    break;
-                case 2://Basic No Autorization
-                    accesoprevio = false;
-                    break;
-                case 3://Medium Autorization
-                    accesoprevio = false;
-                    break;
-                case 4://Depth With Delta
-                case 5://Depth Without Delta
-                    accesoprevio = true;
+                //AFC_ConsumoReal
+                bool accesoprevio = false;
+                bool AccesoAdmin = false;
+                int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                switch (idNivel)
+                {
+                    case 1://Basic View
+                        break;
+                    case 2://Basic No Autorization
+                        accesoprevio = false;
+                        break;
+                    case 3://Medium Autorization
+                        accesoprevio = false;
+                        break;
+                    case 4://Depth With Delta
+                    case 5://Depth Without Delta
+                        accesoprevio = AccesoAdmin = true;
+                        frmRecuentoInventarioHome frm = new frmRecuentoInventarioHome(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                        break;
+                    default:
+                        break;
+                }
 
-                    //frmResumenVentasVendedoresPorFecha frm = new frmResumenVentasVendedoresPorFecha(UsuarioLogeado);
-                    frmCalculoDeComisionesPorVentasVendedoresPorFecha frm = new frmCalculoDeComisionesPorVentasVendedoresPorFecha(UsuarioLogeado);
-                    frm.MdiParent = this.MdiParent;
-                    frm.Show();
-                    break;
-                default:
-                    break;
+                if (!accesoprevio)
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(33))
+                    {
+                        frmRecuentoInventarioHome frm = new frmRecuentoInventarioHome(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #33 (Recuento de Inventario)");
+                    }
+                }
             }
-
-            if (!accesoprevio)
+            catch (Exception ex)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(35))
-                {
-                    //frmResumenVentasVendedoresPorFecha frm = new frmResumenVentasVendedoresPorFecha(UsuarioLogeado);
-                    frmCalculoDeComisionesPorVentasVendedoresPorFecha frm = new frmCalculoDeComisionesPorVentasVendedoresPorFecha(UsuarioLogeado);
-                    frm.MdiParent = this.MdiParent;
-                    frm.Show();
-                }
-                else
-                {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #35 (Calculo de comisiones)");
-                }
+                CajaDialogo.Error(ex.Message);
             }
+            
         }
+        //End Facturacion Usados
 
 
 
