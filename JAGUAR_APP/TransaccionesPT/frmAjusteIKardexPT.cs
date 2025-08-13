@@ -270,7 +270,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             }
             if (!string.IsNullOrEmpty(dtFechaDocumento.Text))
             {
-                if (dtFechaDocumento.DateTime.Year <= 2020)
+                if (dtFechaDocumento.DateTime.Year <= 2024)
                 {
                     CajaDialogo.Error("Es necesario ingresar una fecha de documento valida!");
                     return;
