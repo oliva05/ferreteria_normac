@@ -265,7 +265,7 @@
             this.cmdCargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCargar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCargar.ImageOptions.Image")));
             this.cmdCargar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdCargar.Location = new System.Drawing.Point(221, 40);
+            this.cmdCargar.Location = new System.Drawing.Point(269, 40);
             this.cmdCargar.Name = "cmdCargar";
             this.cmdCargar.Size = new System.Drawing.Size(92, 34);
             this.cmdCargar.TabIndex = 112;
@@ -285,11 +285,12 @@
             this.dtHasta.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
             this.dtHasta.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtHasta.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtHasta.Properties.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm tt";
             this.dtHasta.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtHasta.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dtHasta.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtHasta.Size = new System.Drawing.Size(128, 22);
+            this.dtHasta.Properties.MaskSettings.Set("mask", "g");
+            this.dtHasta.Size = new System.Drawing.Size(176, 22);
             this.dtHasta.TabIndex = 111;
             // 
             // labelControl3
@@ -316,11 +317,12 @@
             this.dtDesde.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
             this.dtDesde.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtDesde.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtDesde.Properties.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm tt";
             this.dtDesde.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDesde.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dtDesde.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtDesde.Size = new System.Drawing.Size(128, 22);
+            this.dtDesde.Properties.MaskSettings.Set("mask", "g");
+            this.dtDesde.Size = new System.Drawing.Size(176, 22);
             this.dtDesde.TabIndex = 109;
             // 
             // labelControl5
@@ -355,9 +357,9 @@
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(2, 3);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(229, 20);
+            this.labelControl1.Size = new System.Drawing.Size(250, 20);
             this.labelControl1.TabIndex = 113;
-            this.labelControl1.Text = "Resumen de ventas por vendedor";
+            this.labelControl1.Text = "Cálculo de comisiones por Vendedor";
             // 
             // cmdExportToExcel
             // 
@@ -389,7 +391,7 @@
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.gridControl1);
             this.Name = "frmCalculoDeComisionesPorVentasVendedoresPorFecha";
-            this.Text = "Resumen de Ventas por Vendedor";
+            this.Text = "Cálculo de comisiones por Vendedor";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesDeVenta1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
