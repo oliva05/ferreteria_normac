@@ -507,6 +507,7 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemComisiones = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -4905,7 +4906,8 @@
             this.navBarItemDepositoBancoCaja,
             this.navFacturacionUsados,
             this.navBarReporteVentasPorVendedor,
-            this.navBarCotizaciones});
+            this.navBarCotizaciones,
+            this.navBarItemComisiones});
             this.navBarControl3.Location = new System.Drawing.Point(0, 0);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
@@ -5225,7 +5227,8 @@
             this.navBarG_ReportesFacturacion.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbReportesFacturacionMain),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCambioDePrecio),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarReporteVentasPorVendedor)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarReporteVentasPorVendedor),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemComisiones)});
             this.navBarG_ReportesFacturacion.Name = "navBarG_ReportesFacturacion";
             // 
             // nbReportesFacturacionMain
@@ -7074,6 +7077,19 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
+            // navBarItemComisiones
+            // 
+            this.navBarItemComisiones.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemComisiones.Appearance.Options.UseFont = true;
+            this.navBarItemComisiones.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemComisiones.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItemComisiones.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItemComisiones.AppearancePressed.Options.UseFont = true;
+            this.navBarItemComisiones.Caption = "Calculo de Comisiones";
+            this.navBarItemComisiones.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem254.ImageOptions.SmallImage")));
+            this.navBarItemComisiones.Name = "navBarItemComisiones";
+            this.navBarItemComisiones.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemComisiones_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7601,5 +7617,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem348;
         private DevExpress.XtraNavBar.NavBarItem navBarItem349;
         private DevExpress.XtraNavBar.NavBarItem navBarItem350;
+        private DevExpress.XtraNavBar.NavBarItem navBarItemComisiones;
     }
 }

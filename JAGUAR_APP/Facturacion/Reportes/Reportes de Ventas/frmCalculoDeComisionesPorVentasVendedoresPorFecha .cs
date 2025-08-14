@@ -53,8 +53,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas
                 cmd.Parameters.AddWithValue("@fecha_hasta", dtHasta.DateTime);
 
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                dsReportesDeVenta1.resumen_ventas_vendedoers.Clear();
-                adat.Fill(dsReportesDeVenta1.resumen_ventas_vendedoers);
+                dsReportesDeVenta1.calculo_comisiones_vendedores.Clear();
+                adat.Fill(dsReportesDeVenta1.calculo_comisiones_vendedores);
 
                 con.Close();
             }
