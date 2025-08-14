@@ -890,12 +890,10 @@ namespace Eatery.Ventas
                     else
                         factura.RTN = txtRTN.Text;
 
-
                     if (string.IsNullOrEmpty(txtNombreCliente.Text))
                         factura.ClienteNombre = "Consumidor Final";
                     else
                         factura.ClienteNombre = txtNombreCliente.Text;
-
 
                     if (string.IsNullOrEmpty(txtDireccion.Text))
                         factura.direccion_cliente = "N/D";
