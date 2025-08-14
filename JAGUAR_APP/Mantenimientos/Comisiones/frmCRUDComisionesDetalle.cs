@@ -1,11 +1,14 @@
 ﻿using ACS.Classes;
+using DevExpress.CodeParser;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DocumentFormat.OpenXml.Wordprocessing;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.LogisticaJaguar;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,18 +47,43 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                     break;
                 case TipoOperacion.Editar:
                     Clases.Comisiones comisiones = new Clases.Comisiones();
-                    comisiones.RecuperarRegistrosComisionesById(IdComision);
-                    txtAnio.Text = comisiones.Anio.ToString();
-                    dtDesde.DateTime = comisiones.FechaInicio.Date;
-                    dtHasta.DateTime = comisiones.FechaFin.Date;
-                    gridLookUpEdit1.EditValue = comisiones.TipoPlanId;
-                    txtDescripcion.Text = comisiones.Descripcion;
-                    txtInicioComision.EditValue = comisiones.Porcentaje;
+                    if (comisiones.RecuperarRegistrosComisionesById(IdComision))
+                    {
+                        txtAnio.Text = comisiones.Anio.ToString();
+                        dtDesde.DateTime = comisiones.FechaInicio.Date;
+                        dtHasta.DateTime = comisiones.FechaFin.Date;
+                        gridLookUpEdit1.EditValue = comisiones.TipoPlanId;
+                        txtDescripcion.Text = comisiones.Descripcion;
+                        //txtInicioComision.EditValue = comisiones.Porcentaje;
 
-                    CargarDetalle();
+                        CargarDetalle();
+                        CargarListaVendedores(IdComision);
+                    }
+                    
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void CargarListaVendedores(int pIdComision)
+        {
+            try
+            {
+                string query = @"sp_get_detalle_vendedores_config_comision_H";
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_h", pIdComision);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsComisiones1.vendedores.Clear();
+                adat.Fill(dsComisiones1.vendedores);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
 
@@ -121,6 +149,7 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                 CajaDialogo.Error("La fecha de inicio no puede ser mayor o igual a la fecha de fin.");
                 return;
             }
+
             bool Guardar = false;
             SqlTransaction transaction = null;
 
@@ -145,8 +174,7 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                         cmd.Parameters.AddWithValue("@descripcion",txtDescripcion.Text);
                         cmd.Parameters.AddWithValue("@user_id",UsuarioLogeado.Id);
                         cmd.Parameters.AddWithValue("@tipo_plan",gridLookUpEdit1.EditValue);
-                        cmd.Parameters.AddWithValue("@inicio_comision",txtInicioComision.EditValue);
-                        //cmd.Parameters.AddWithValue("", Istraslado ? Convert.ToDecimal(row.id_traslado) : 0);
+                        //cmd.Parameters.AddWithValue("@inicio_comision",txtInicioComision.EditValue);
 
                         int id_header= Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -164,6 +192,18 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                             cmd.Parameters.AddWithValue("@porcentaje_lps", row.porcentaje_lps);
                             cmd.Parameters.AddWithValue("@bonificacion_extra", row.bonificacion_extra);
                             cmd.Parameters.AddWithValue("@tiene_limite_techo", row.limite_techo);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        foreach (dsComisiones.vendedoresRow row in dsComisiones1.vendedores.Rows)
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.CommandText = "sp_set_insert_vendedores_for_comisiones";
+                            cmd.Connection = conn;
+                            cmd.Transaction = transaction;
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id_h", id_header);
+                            cmd.Parameters.AddWithValue("@id_vendedor", row.id);
                             cmd.ExecuteNonQuery();
                         }
 
@@ -201,18 +241,28 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                         cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
                         cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
                         cmd.Parameters.AddWithValue("@tipo_plan", gridLookUpEdit1.EditValue);
-                        cmd.Parameters.AddWithValue("@inicio_comision", txtInicioComision.EditValue);
-                        //cmd.Parameters.AddWithValue("", Istraslado ? Convert.ToDecimal(row.id_traslado) : 0);
+                        //cmd.Parameters.AddWithValue("@inicio_comision", txtInicioComision.EditValue);
 
                         cmd.ExecuteNonQuery();
 
                         foreach (dsComisiones.detalle_comisionesRow row in dsComisiones1.detalle_comisiones.Rows)
                         {
                             cmd.Parameters.Clear();
-                            cmd.CommandText = "[sp_comisiones_update_d]";
                             cmd.Connection = conn;
                             cmd.Transaction = transaction;
                             cmd.CommandType = CommandType.StoredProcedure;
+
+                            //cmd.CommandText = "[sp_comisiones_update_d]";
+                            if (row.id == 0)
+                            {
+                                cmd.CommandText = "[sp_comisiones_insert_d]";
+                            }
+                            else
+                            {
+                                cmd.CommandText = "[sp_comisiones_update_detalle]";
+                                cmd.Parameters.AddWithValue("@id", row.id);
+                            }
+
                             cmd.Parameters.AddWithValue("@id_header", IdComision);
                             cmd.Parameters.AddWithValue("@piso", row.piso);
                             cmd.Parameters.AddWithValue("@techo", row.techo);
@@ -220,6 +270,18 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
                             cmd.Parameters.AddWithValue("@porcentaje_lps", row.porcentaje_lps);
                             cmd.Parameters.AddWithValue("@bonificacion_extra", row.bonificacion_extra);
                             cmd.Parameters.AddWithValue("@tiene_limite_techo", row.limite_techo);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        foreach (dsComisiones.vendedoresRow row in dsComisiones1.vendedores.Rows)
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.CommandText = "sp_set_insert_vendedores_for_comisiones";
+                            cmd.Connection = conn;
+                            cmd.Transaction = transaction;
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id_h", IdComision);
+                            cmd.Parameters.AddWithValue("@id_vendedor", row.id_vendedor);
                             cmd.ExecuteNonQuery();
                         }
 
@@ -253,6 +315,7 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -261,13 +324,13 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
             var gridview = (GridView)gcComisiones.FocusedView;
             var row = (dsComisiones.detalle_comisionesRow)gridview.GetFocusedDataRow();
 
-            decimal InicioComision = Convert.ToDecimal(txtInicioComision.EditValue);
+            //decimal InicioComision = Convert.ToDecimal(txtInicioComision.EditValue);
 
-            if (InicioComision == 0)
-            {
-                CajaDialogo.Error("Debe indicar un monto minimo de comision!");
-                return;
-            }
+            //if (InicioComision == 0)
+            //{
+            //    CajaDialogo.Error("Debe indicar un monto minimo de comision!");
+            //    return;
+            //}
 
             switch (e.Column.FieldName)
             {
@@ -275,68 +338,59 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
 
                     if (row.limite_techo)
                     {
+                        //Monto lps
                         row.porcentaje_lps = row.piso * (row.porcentaje / 100);
-                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
                     }
                     else
                     {
-                        if (row.techo < InicioComision)
-                        {
-                            row.porcentaje = 0;
-                            row.porcentaje_lps = 0;
-                            row.bonificacion_extra = 0;
-                            row.total_pago = 0;
-                        }
-                        else
-                        {
-
-                            row.porcentaje_lps = row.techo * (row.porcentaje / 100);
-                            row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
-
-                        }
+                        //Monto Lps
+                        row.porcentaje_lps = row.techo * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
                     }
-                   
-
                     break;
 
                 case "techo":
-                    if (row.techo < InicioComision)
+                    if (row.limite_techo)
                     {
-                        row.porcentaje = 0;
-                        row.porcentaje_lps = 0;
-                        row.bonificacion_extra = 0;
-                        row.total_pago = 0;
+                        //Monto Lps
+                        row.porcentaje_lps = row.piso * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
                     }
                     else
                     {
+                        //Monto Lps
                         row.porcentaje_lps = row.techo * (row.porcentaje / 100);
-                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
                     }
-
                     break;
 
                 case "bonificacion_extra":
-                    if (row.techo < InicioComision)
+                    if (row.limite_techo)
                     {
-                        row.porcentaje = 0;
-                        row.porcentaje_lps = 0;
-                        row.bonificacion_extra = 0;
-                        row.total_pago = 0;
+                        //Monto Lps
+                        row.porcentaje_lps = row.piso * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
                     }
                     else
                     {
+                        //Monto Lps
                         row.porcentaje_lps = row.techo * (row.porcentaje / 100);
                         row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
                     }
                     break;
 
                 case "limite_techo":
-
-                    bool TieneLimiteMaximo = Convert.ToBoolean(e.Value);
-                    if (TieneLimiteMaximo)
+                    if (row.limite_techo)
                     {
-                        row.techo = 0;// DBNull.Value;
+                        //Monto Lps
                         row.porcentaje_lps = row.piso * (row.porcentaje / 100);
+                        row.total_pago = row.porcentaje_lps + row.bonificacion_extra;//Premio
+                    }
+                    else
+                    {
+                        //Monto Lps
+                        row.porcentaje_lps = row.techo * (row.porcentaje / 100);
                         row.total_pago = row.porcentaje_lps + row.bonificacion_extra;
                     }
                     break;
@@ -400,6 +454,109 @@ namespace JAGUAR_PRO.Mantenimientos.Comisiones
             catch (Exception ec)
             {
                 CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void cmdEliminar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+            DialogResult r = CajaDialogo.Pregunta("Confirma que desea eliminar este vendedor?");
+            if (r != System.Windows.Forms.DialogResult.Yes)
+                return;
+
+            var gv = (GridView)gridControlVendedores.FocusedView;
+            var row = (dsComisiones.vendedoresRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            if (!row.IsidNull())
+            {
+                if (row.id > 0)
+                {
+                    //Borramos de la base de datos
+                    try
+                    {
+                        DataOperations dp = new DataOperations();
+                        SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                        con.Open();
+
+                        SqlCommand cmd = new SqlCommand("[dbo].[sp_set_update_vendedor_for_comisiones]", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id", row.id);
+                        cmd.Parameters.AddWithValue("@enable", 0);
+                        cmd.ExecuteNonQuery();
+
+                        con.Close();
+
+                        int idAEliminar = row.id; // ID que quieres eliminar
+
+                        // Buscar las filas que coincidan con el ID
+                        DataRow[] filas_ = dsComisiones1.vendedores.Select($"id = {idAEliminar}");
+
+                        // Eliminar cada fila encontrada
+                        foreach (DataRow fila in filas_)
+                        {
+                            dsComisiones1.vendedores.Rows.Remove(fila);
+                        }
+                    }
+                    catch (Exception ec)
+                    {
+                        CajaDialogo.Error(ec.Message);
+                    }
+                }
+                else
+                {
+                    //Eliminamos unicamente en memoria
+                    //Si la primary key es string
+                    if (!row.IsnombreNull())
+                    {
+                        string idAEliminarS = row.nombre;
+                        DataRow[] filas = dsComisiones1.vendedores.Select($"nombre = '{idAEliminarS}'");
+
+                        foreach (DataRow fila in filas)
+                        {
+                            dsComisiones1.vendedores.Rows.Remove(fila);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                //Eliminamos unicamente en memoria
+                //Si la primary key es string
+                if (!row.IsnombreNull())
+                {
+                    string idAEliminarS = row.nombre;
+                    DataRow[] filas = dsComisiones1.vendedores.Select($"nombre = '{idAEliminarS}'");
+
+                    foreach (DataRow fila in filas)
+                    {
+                        dsComisiones1.vendedores.Rows.Remove(fila);
+                    }
+                }
+            }
+
+                
+
+        }
+
+        private void cmdAgregarVendedor_Click(object sender, EventArgs e)
+        {
+            ArrayList ListaVendedoresActual = new ArrayList();
+            foreach(dsComisiones.vendedoresRow row  in dsComisiones1.vendedores)
+            {
+                ListaVendedoresActual.Add(row.id_vendedor);
+            }
+
+            frmListaVendedores frm = new frmListaVendedores(IdComision, ListaVendedoresActual);
+            if(frm.ShowDialog() == DialogResult.OK)
+            {
+                dsComisiones.vendedoresRow row1 = dsComisiones1.vendedores.NewvendedoresRow();
+                row1.id = 0;
+                row1.id_vendedor = frm.ItemSeleccionado.id;
+                row1.codigo = frm.ItemSeleccionado.ItemCode;
+                row1.nombre = frm.ItemSeleccionado.ItemName;
+
+                dsComisiones1.vendedores.AddvendedoresRow(row1);
+                dsComisiones1.AcceptChanges();
             }
         }
     }
