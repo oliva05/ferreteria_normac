@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCalculoDeComisionesPorVentasVendedoresPorFecha));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsReportesDeVenta1 = new JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas.dsReportesDeVenta();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -43,6 +43,15 @@
             this.colventas = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colver_detalle = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdVerDetalle = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colcomision = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_rango = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colporcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colpremio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colrangof = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colrangoi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion_tipo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_tipo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdCargar = new DevExpress.XtraEditors.SimpleButton();
             this.dtHasta = new DevExpress.XtraEditors.DateEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -51,13 +60,6 @@
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmdExportToExcel = new DevExpress.XtraEditors.SimpleButton();
-            this.colcomision = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid_rango = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colporcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpremio = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colrangof = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colrangoi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesDeVenta1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -75,12 +77,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "calculo_comisiones_vendedores";
             this.gridControl1.DataSource = this.dsReportesDeVenta1;
-            this.gridControl1.Location = new System.Drawing.Point(2, 84);
+            this.gridControl1.Location = new System.Drawing.Point(2, 78);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdVerDetalle});
-            this.gridControl1.Size = new System.Drawing.Size(923, 396);
+            this.gridControl1.Size = new System.Drawing.Size(945, 516);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -104,12 +106,19 @@
             this.colpremio,
             this.colrangof,
             this.colrangoi,
-            this.coltotal});
+            this.coltotal,
+            this.coldescripcion_tipo,
+            this.colid_tipo});
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupCount = 1;
+            this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ventas", null, "(Ventas Total: SUM={0:n2})"),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", null, "(Total a pagar: SUM={0:n2})")});
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowFooter = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.coldescripcion_tipo, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colid
             // 
@@ -153,19 +162,101 @@
             this.colver_detalle.ColumnEdit = this.cmdVerDetalle;
             this.colver_detalle.FieldName = "ver_detalle";
             this.colver_detalle.Name = "colver_detalle";
-            this.colver_detalle.Visible = true;
-            this.colver_detalle.VisibleIndex = 9;
             this.colver_detalle.Width = 71;
             // 
             // cmdVerDetalle
             // 
             this.cmdVerDetalle.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.cmdVerDetalle.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdVerDetalle.Name = "cmdVerDetalle";
             this.cmdVerDetalle.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdVerDetalle.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdVerDetalle_ButtonClick);
+            // 
+            // colcomision
+            // 
+            this.colcomision.DisplayFormat.FormatString = "n2";
+            this.colcomision.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colcomision.FieldName = "comision";
+            this.colcomision.Name = "colcomision";
+            this.colcomision.OptionsColumn.ReadOnly = true;
+            this.colcomision.Visible = true;
+            this.colcomision.VisibleIndex = 4;
+            this.colcomision.Width = 94;
+            // 
+            // colid_rango
+            // 
+            this.colid_rango.FieldName = "id_rango";
+            this.colid_rango.Name = "colid_rango";
+            this.colid_rango.OptionsColumn.ReadOnly = true;
+            // 
+            // colporcentaje
+            // 
+            this.colporcentaje.DisplayFormat.FormatString = "n2";
+            this.colporcentaje.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colporcentaje.FieldName = "porcentaje";
+            this.colporcentaje.Name = "colporcentaje";
+            this.colporcentaje.OptionsColumn.ReadOnly = true;
+            this.colporcentaje.Visible = true;
+            this.colporcentaje.VisibleIndex = 3;
+            this.colporcentaje.Width = 64;
+            // 
+            // colpremio
+            // 
+            this.colpremio.DisplayFormat.FormatString = "n2";
+            this.colpremio.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colpremio.FieldName = "premio";
+            this.colpremio.Name = "colpremio";
+            this.colpremio.OptionsColumn.ReadOnly = true;
+            this.colpremio.Visible = true;
+            this.colpremio.VisibleIndex = 5;
+            this.colpremio.Width = 94;
+            // 
+            // colrangof
+            // 
+            this.colrangof.DisplayFormat.FormatString = "n2";
+            this.colrangof.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colrangof.FieldName = "rangof";
+            this.colrangof.Name = "colrangof";
+            this.colrangof.OptionsColumn.ReadOnly = true;
+            this.colrangof.Width = 83;
+            // 
+            // colrangoi
+            // 
+            this.colrangoi.DisplayFormat.FormatString = "n2";
+            this.colrangoi.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colrangoi.FieldName = "rangoi";
+            this.colrangoi.Name = "colrangoi";
+            this.colrangoi.OptionsColumn.ReadOnly = true;
+            this.colrangoi.Width = 76;
+            // 
+            // coltotal
+            // 
+            this.coltotal.DisplayFormat.FormatString = "n2";
+            this.coltotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.coltotal.FieldName = "total";
+            this.coltotal.Name = "coltotal";
+            this.coltotal.OptionsColumn.ReadOnly = true;
+            this.coltotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "SUM={0:0.00}")});
+            this.coltotal.Visible = true;
+            this.coltotal.VisibleIndex = 6;
+            this.coltotal.Width = 92;
+            // 
+            // coldescripcion_tipo
+            // 
+            this.coldescripcion_tipo.FieldName = "descripcion_tipo";
+            this.coldescripcion_tipo.Name = "coldescripcion_tipo";
+            this.coldescripcion_tipo.OptionsColumn.ReadOnly = true;
+            this.coldescripcion_tipo.Visible = true;
+            this.coldescripcion_tipo.VisibleIndex = 0;
+            // 
+            // colid_tipo
+            // 
+            this.colid_tipo.FieldName = "id_tipo";
+            this.colid_tipo.Name = "colid_tipo";
+            this.colid_tipo.OptionsColumn.ReadOnly = true;
             // 
             // cmdCargar
             // 
@@ -174,7 +265,7 @@
             this.cmdCargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdCargar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCargar.ImageOptions.Image")));
             this.cmdCargar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdCargar.Location = new System.Drawing.Point(221, 45);
+            this.cmdCargar.Location = new System.Drawing.Point(221, 40);
             this.cmdCargar.Name = "cmdCargar";
             this.cmdCargar.Size = new System.Drawing.Size(92, 34);
             this.cmdCargar.TabIndex = 112;
@@ -184,7 +275,7 @@
             // dtHasta
             // 
             this.dtHasta.EditValue = null;
-            this.dtHasta.Location = new System.Drawing.Point(88, 57);
+            this.dtHasta.Location = new System.Drawing.Point(88, 52);
             this.dtHasta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtHasta.Name = "dtHasta";
             this.dtHasta.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -205,7 +296,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(6, 62);
+            this.labelControl3.Location = new System.Drawing.Point(6, 57);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(67, 15);
@@ -215,7 +306,7 @@
             // dtDesde
             // 
             this.dtDesde.EditValue = null;
-            this.dtDesde.Location = new System.Drawing.Point(88, 34);
+            this.dtDesde.Location = new System.Drawing.Point(88, 29);
             this.dtDesde.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtDesde.Name = "dtDesde";
             this.dtDesde.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -236,7 +327,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(6, 39);
+            this.labelControl5.Location = new System.Drawing.Point(6, 34);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(69, 15);
@@ -251,7 +342,7 @@
             this.btnAtras.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAtras.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.ImageOptions.Image")));
             this.btnAtras.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAtras.Location = new System.Drawing.Point(833, 45);
+            this.btnAtras.Location = new System.Drawing.Point(855, 40);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(92, 34);
             this.btnAtras.TabIndex = 107;
@@ -262,7 +353,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(2, 8);
+            this.labelControl1.Location = new System.Drawing.Point(2, 3);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(229, 20);
             this.labelControl1.TabIndex = 113;
@@ -276,92 +367,18 @@
             this.cmdExportToExcel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdExportToExcel.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.Excel_2_icon32px1;
             this.cmdExportToExcel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.cmdExportToExcel.Location = new System.Drawing.Point(735, 45);
+            this.cmdExportToExcel.Location = new System.Drawing.Point(757, 40);
             this.cmdExportToExcel.Name = "cmdExportToExcel";
             this.cmdExportToExcel.Size = new System.Drawing.Size(92, 34);
             this.cmdExportToExcel.TabIndex = 118;
             this.cmdExportToExcel.Text = "Exportar";
             this.cmdExportToExcel.Click += new System.EventHandler(this.cmdExportToExcel_Click);
             // 
-            // colcomision
-            // 
-            this.colcomision.DisplayFormat.FormatString = "n2";
-            this.colcomision.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colcomision.FieldName = "comision";
-            this.colcomision.Name = "colcomision";
-            this.colcomision.OptionsColumn.ReadOnly = true;
-            this.colcomision.Visible = true;
-            this.colcomision.VisibleIndex = 6;
-            this.colcomision.Width = 94;
-            // 
-            // colid_rango
-            // 
-            this.colid_rango.FieldName = "id_rango";
-            this.colid_rango.Name = "colid_rango";
-            this.colid_rango.OptionsColumn.ReadOnly = true;
-            // 
-            // colporcentaje
-            // 
-            this.colporcentaje.DisplayFormat.FormatString = "n2";
-            this.colporcentaje.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colporcentaje.FieldName = "porcentaje";
-            this.colporcentaje.Name = "colporcentaje";
-            this.colporcentaje.OptionsColumn.ReadOnly = true;
-            this.colporcentaje.Visible = true;
-            this.colporcentaje.VisibleIndex = 5;
-            this.colporcentaje.Width = 64;
-            // 
-            // colpremio
-            // 
-            this.colpremio.DisplayFormat.FormatString = "n2";
-            this.colpremio.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colpremio.FieldName = "premio";
-            this.colpremio.Name = "colpremio";
-            this.colpremio.OptionsColumn.ReadOnly = true;
-            this.colpremio.Visible = true;
-            this.colpremio.VisibleIndex = 7;
-            this.colpremio.Width = 94;
-            // 
-            // colrangof
-            // 
-            this.colrangof.DisplayFormat.FormatString = "n2";
-            this.colrangof.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colrangof.FieldName = "rangof";
-            this.colrangof.Name = "colrangof";
-            this.colrangof.OptionsColumn.ReadOnly = true;
-            this.colrangof.Visible = true;
-            this.colrangof.VisibleIndex = 4;
-            this.colrangof.Width = 83;
-            // 
-            // colrangoi
-            // 
-            this.colrangoi.DisplayFormat.FormatString = "n2";
-            this.colrangoi.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colrangoi.FieldName = "rangoi";
-            this.colrangoi.Name = "colrangoi";
-            this.colrangoi.OptionsColumn.ReadOnly = true;
-            this.colrangoi.Visible = true;
-            this.colrangoi.VisibleIndex = 3;
-            this.colrangoi.Width = 76;
-            // 
-            // coltotal
-            // 
-            this.coltotal.DisplayFormat.FormatString = "n2";
-            this.coltotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.coltotal.FieldName = "total";
-            this.coltotal.Name = "coltotal";
-            this.coltotal.OptionsColumn.ReadOnly = true;
-            this.coltotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "SUM={0:0.##}")});
-            this.coltotal.Visible = true;
-            this.coltotal.VisibleIndex = 8;
-            this.coltotal.Width = 92;
-            // 
             // frmCalculoDeComisionesPorVentasVendedoresPorFecha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 480);
+            this.ClientSize = new System.Drawing.Size(950, 594);
             this.Controls.Add(this.cmdExportToExcel);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdCargar);
@@ -412,5 +429,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colrangof;
         private DevExpress.XtraGrid.Columns.GridColumn colrangoi;
         private DevExpress.XtraGrid.Columns.GridColumn coltotal;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion_tipo;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_tipo;
     }
 }

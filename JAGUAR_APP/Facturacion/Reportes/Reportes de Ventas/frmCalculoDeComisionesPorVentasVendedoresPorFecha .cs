@@ -57,6 +57,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas
                 adat.Fill(dsReportesDeVenta1.calculo_comisiones_vendedores);
 
                 con.Close();
+                gridView1.ExpandAllGroups();
             }
             catch (Exception ec)
             {
