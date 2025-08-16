@@ -778,6 +778,7 @@
     <Compile Include="Clases\ProductoUsado.cs" />
     <Compile Include="Clases\ReciboH.cs" />
     <Compile Include="Clases\Notas_CreditoDebito.cs" />
+    <Compile Include="Clases\RecuentoInventario.cs" />
     <Compile Include="Clases\RegistroPago.cs" />
     <Compile Include="Clases\RequisaTraslado.cs" />
     <Compile Include="Clases\SolicitudAjustes.cs" />

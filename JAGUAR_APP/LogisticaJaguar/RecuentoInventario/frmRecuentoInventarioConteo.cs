@@ -41,6 +41,9 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             txtRecuento.Text = pDocNum;  
             dtFechaConta.DateTime = fecha_contabilizacion;
             Accion = frmAccion;
+            Clases.RecuentoInventario recuento = new Clases.RecuentoInventario();
+            recuento.RecuperarRegistros(IdRecuento);
+            gleAlmacen.EditValue = recuento.IdBodega; // Cargar el almacen del recuento
 
             grdvConteo.OptionsMenu.EnableColumnMenu = false;
             switch (Accion)
@@ -139,6 +142,10 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 dsRecuento1.conteo_recuento.Clear();
                 da.Fill(dsRecuento1.conteo_recuento);
                 conn.Close();
+
+                grdvConteo.FocusedRowHandle = 0; // Mover el foco a la primera fila después de cargar los datos
+                grdvConteo.FocusedColumn = grdvConteo.Columns["conteo_fisico"]; // Enfocar la columna de conteo_fisico
+                grdvConteo.ShowEditor(); // Mostrar el editor para que el usuario pueda ingresar datos directamente
 
             }
             catch (Exception ex)
@@ -313,6 +320,27 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
            
 
+        }
+
+        private void grdvConteo_KeyDown(object sender, KeyEventArgs e)
+        {
+            var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true; //Evitamos Comportamiento por defecto
+
+                int rowHandle = view.FocusedRowHandle;
+                var col = view.FocusedColumn;
+
+                // mueve el foco a la fila siguiente, misma columna
+                if (rowHandle < view.RowCount - 1)
+                {
+                    view.FocusedRowHandle = rowHandle + 1;
+                    view.FocusedColumn = col;
+                    view.ShowEditor();
+                }
+            }
         }
     }
 }

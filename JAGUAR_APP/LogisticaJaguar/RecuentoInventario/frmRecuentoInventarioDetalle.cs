@@ -3,6 +3,7 @@ using DevExpress.Charts.Native;
 using DevExpress.Pdf.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraSplashScreen;
 using DocumentFormat.OpenXml.Wordprocessing;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.RecuentoInventario;
@@ -142,6 +143,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 return;
             }
 
+            SplashScreenManager.ShowDefaultWaitForm("Procesando", "Guardando recuento...");
+
             SqlTransaction transaction = null;
 
             SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -157,11 +160,11 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 cmd.Connection = conn;
                 cmd.Transaction = transaction;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@usuario_creador",UsuarioLogeado.Id);
+                cmd.Parameters.AddWithValue("@usuario_creador", UsuarioLogeado.Id);
                 cmd.Parameters.AddWithValue("@puntoVentaId", PuntoVentaActual.ID);
                 cmd.Parameters.AddWithValue("@fecha_recuento", Convert.ToDateTime(dtFechaDocumento.EditValue));
                 cmd.Parameters.AddWithValue("@idBodega", Convert.ToInt32(gleAlmacen.EditValue));
-                 
+
                 int id_header = Convert.ToInt32(cmd.ExecuteScalar());
 
                 foreach (dsRecuento.productos_conteoRow row in dsRecuento1.productos_conteo.Rows)
@@ -172,7 +175,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     cmd.Transaction = transaction;
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@id_recuento", id_header);
-                    cmd.Parameters.AddWithValue("@id_pt",row.id_pt);
+                    cmd.Parameters.AddWithValue("@id_pt", row.id_pt);
                     cmd.Parameters.AddWithValue("@cantidad_sistema", Convert.ToDecimal(row.existencia));
                     cmd.Parameters.AddWithValue("@id_bodega", Convert.ToInt32(row.id_bodega));
                     cmd.ExecuteNonQuery();
@@ -188,6 +191,12 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 transaction.Rollback();
                 CajaDialogo.Error(ec.Message);
                 Guardar = false;
+            }
+            finally 
+            {
+                conn.Close();
+                if (SplashScreenManager.Default != null && SplashScreenManager.Default.IsSplashFormVisible)
+                    SplashScreenManager.CloseDefaultWaitForm();
             }
 
             if (Guardar)

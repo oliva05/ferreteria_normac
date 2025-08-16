@@ -198,6 +198,7 @@
             this.grdvConteo.Name = "grdvConteo";
             this.grdvConteo.OptionsView.ShowAutoFilterRow = true;
             this.grdvConteo.OptionsView.ShowGroupPanel = false;
+            this.grdvConteo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdvConteo_KeyDown);
             // 
             // colid_detalle_recuento
             // 
@@ -320,6 +321,7 @@
             // 
             // gleAlmacen
             // 
+            this.gleAlmacen.Enabled = false;
             this.gleAlmacen.Location = new System.Drawing.Point(120, 81);
             this.gleAlmacen.Name = "gleAlmacen";
             this.gleAlmacen.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -489,7 +491,7 @@
             this.btnCompletar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnCompletar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnCompletar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCompletar.ImageOptions.Image")));
-            this.btnCompletar.Location = new System.Drawing.Point(1048, 12);
+            this.btnCompletar.Location = new System.Drawing.Point(1119, 72);
             this.btnCompletar.Name = "btnCompletar";
             this.btnCompletar.Size = new System.Drawing.Size(121, 47);
             this.btnCompletar.TabIndex = 198;

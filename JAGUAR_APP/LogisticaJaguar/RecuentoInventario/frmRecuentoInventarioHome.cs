@@ -125,7 +125,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
                 switch (row.estado)
                 {
-                    case "PENDIENTE":
+                    case "CREADO":
                         Permitir = true;
                         break;
 
@@ -187,7 +187,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
                 switch (row.estado)
                 {
-                    case "PENDIENTE":
+                    case "CREADO":
                         Permitir = true;
                         break;
 
@@ -234,7 +234,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
                 switch (row.estado)
                 {
-                    case "PENDIENTE":
+                    case "CREADO":
                         Permitir = true;
                         break;
 
