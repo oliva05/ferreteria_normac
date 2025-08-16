@@ -404,6 +404,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             private global::System.Data.DataColumn columnpuntoVentaName;
             
+            private global::System.Data.DataColumn columnbodega;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public load_recuentosDataTable() {
@@ -519,6 +521,14 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bodegaColumn {
+                get {
+                    return this.columnbodega;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -554,7 +564,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public load_recuentosRow Addload_recuentosRow(int id_recuento, System.DateTime fecha_creacion, int usuario_creador, int usuario_aprobador, System.DateTime fecha_aprobacion, string estado, string usuario_creadorName, string usuario_aprobadorName, string docnum, string puntoVentaName) {
+            public load_recuentosRow Addload_recuentosRow(int id_recuento, System.DateTime fecha_creacion, int usuario_creador, int usuario_aprobador, System.DateTime fecha_aprobacion, string estado, string usuario_creadorName, string usuario_aprobadorName, string docnum, string puntoVentaName, string bodega) {
                 load_recuentosRow rowload_recuentosRow = ((load_recuentosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_recuento,
@@ -566,7 +576,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                         usuario_creadorName,
                         usuario_aprobadorName,
                         docnum,
-                        puntoVentaName};
+                        puntoVentaName,
+                        bodega};
                 rowload_recuentosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowload_recuentosRow);
                 return rowload_recuentosRow;
@@ -599,6 +610,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 this.columnusuario_aprobadorName = base.Columns["usuario_aprobadorName"];
                 this.columndocnum = base.Columns["docnum"];
                 this.columnpuntoVentaName = base.Columns["puntoVentaName"];
+                this.columnbodega = base.Columns["bodega"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -624,6 +636,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 base.Columns.Add(this.columndocnum);
                 this.columnpuntoVentaName = new global::System.Data.DataColumn("puntoVentaName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpuntoVentaName);
+                this.columnbodega = new global::System.Data.DataColumn("bodega", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbodega);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1444,6 +1458,10 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             private global::System.Data.DataColumn columnconteo_completado;
             
+            private global::System.Data.DataColumn columntipo_ajuste;
+            
+            private global::System.Data.DataColumn columncantidad_ajuste;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public conteo_recuentoDataTable() {
@@ -1567,6 +1585,22 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tipo_ajusteColumn {
+                get {
+                    return this.columntipo_ajuste;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cantidad_ajusteColumn {
+                get {
+                    return this.columncantidad_ajuste;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1602,7 +1636,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public conteo_recuentoRow Addconteo_recuentoRow(int id_detalle_recuento, int id_recuento, int id_pt, string pt, string code_pt, string code_referencia, decimal cantidad_sistema, int id_bodega, string bodega, decimal conteo_fisico, bool conteo_completado) {
+            public conteo_recuentoRow Addconteo_recuentoRow(int id_detalle_recuento, int id_recuento, int id_pt, string pt, string code_pt, string code_referencia, decimal cantidad_sistema, int id_bodega, string bodega, decimal conteo_fisico, bool conteo_completado, string tipo_ajuste, decimal cantidad_ajuste) {
                 conteo_recuentoRow rowconteo_recuentoRow = ((conteo_recuentoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_detalle_recuento,
@@ -1615,7 +1649,9 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                         id_bodega,
                         bodega,
                         conteo_fisico,
-                        conteo_completado};
+                        conteo_completado,
+                        tipo_ajuste,
+                        cantidad_ajuste};
                 rowconteo_recuentoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowconteo_recuentoRow);
                 return rowconteo_recuentoRow;
@@ -1649,6 +1685,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 this.columnbodega = base.Columns["bodega"];
                 this.columnconteo_fisico = base.Columns["conteo_fisico"];
                 this.columnconteo_completado = base.Columns["conteo_completado"];
+                this.columntipo_ajuste = base.Columns["tipo_ajuste"];
+                this.columncantidad_ajuste = base.Columns["cantidad_ajuste"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1676,8 +1714,13 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 base.Columns.Add(this.columnconteo_fisico);
                 this.columnconteo_completado = new global::System.Data.DataColumn("conteo_completado", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnconteo_completado);
+                this.columntipo_ajuste = new global::System.Data.DataColumn("tipo_ajuste", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo_ajuste);
+                this.columncantidad_ajuste = new global::System.Data.DataColumn("cantidad_ajuste", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncantidad_ajuste);
                 this.columnconteo_fisico.DefaultValue = ((decimal)(0m));
                 this.columnconteo_completado.DefaultValue = ((bool)(false));
+                this.columncantidad_ajuste.DefaultValue = ((decimal)(0m));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1984,6 +2027,22 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string bodega {
+                get {
+                    try {
+                        return ((string)(this[this.tableload_recuentos.bodegaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'bodega\' de la tabla \'load_recuentos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableload_recuentos.bodegaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_recuentoNull() {
                 return this.IsNull(this.tableload_recuentos.id_recuentoColumn);
             }
@@ -2100,6 +2159,18 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetpuntoVentaNameNull() {
                 this[this.tableload_recuentos.puntoVentaNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsbodegaNull() {
+                return this.IsNull(this.tableload_recuentos.bodegaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetbodegaNull() {
+                this[this.tableload_recuentos.bodegaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2722,6 +2793,39 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string tipo_ajuste {
+                get {
+                    try {
+                        return ((string)(this[this.tableconteo_recuento.tipo_ajusteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipo_ajuste\' de la tabla \'conteo_recuento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableconteo_recuento.tipo_ajusteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cantidad_ajuste {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableconteo_recuento.cantidad_ajusteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cantidad_ajuste\' de la tabla \'conteo_recuento\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableconteo_recuento.cantidad_ajusteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_detalle_recuentoNull() {
                 return this.IsNull(this.tableconteo_recuento.id_detalle_recuentoColumn);
             }
@@ -2850,6 +2954,30 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setconteo_completadoNull() {
                 this[this.tableconteo_recuento.conteo_completadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istipo_ajusteNull() {
+                return this.IsNull(this.tableconteo_recuento.tipo_ajusteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settipo_ajusteNull() {
+                this[this.tableconteo_recuento.tipo_ajusteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscantidad_ajusteNull() {
+                return this.IsNull(this.tableconteo_recuento.cantidad_ajusteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcantidad_ajusteNull() {
+                this[this.tableconteo_recuento.cantidad_ajusteColumn] = global::System.Convert.DBNull;
             }
         }
         

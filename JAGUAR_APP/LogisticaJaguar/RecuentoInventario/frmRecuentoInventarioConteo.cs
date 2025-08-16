@@ -2,6 +2,7 @@
 using DevExpress.DashboardWin.Commands;
 using DevExpress.XtraEditors;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Compras;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,33 +42,54 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             dtFechaConta.DateTime = fecha_contabilizacion;
             Accion = frmAccion;
 
-            //switch (Accion)
-            //{
-            //    case AccionesRecuento.Conteo:
-            //        gridView1.OptionsMenu.EnableColumnMenu = true;
-            //        //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+            grdvConteo.OptionsMenu.EnableColumnMenu = false;
+            switch (Accion)
+            {
+                case AccionesRecuento.Conteo:
+                    cmdGuardar.Visible = true;
+                    grdvConteo.Columns["tipo_ajuste"].Visible = false;
+                    grdvConteo.Columns["cantidad_ajuste"].Visible = false; // Oculto el costo, ya que no se debe modificar en conteo
 
+                    break;
+                case AccionesRecuento.RevisionAprobacion:
+                    cmdGuardar.Visible = false;
+                    gleAlmacen.Visible = false;
 
-            //        gridView1.Columns["costo"].Visible = true;
-            //        //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el datasets
+                    LoadConteoByIdRecuento();
 
-            //        break;
-            //    case AccionesRecuento.RevisionAprobacion:
-            //        gridView1.OptionsMenu.EnableColumnMenu = true;
-            //        //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
+                    //gridView1.Columns["costo"].Visible = true;
 
-
-            //        gridView1.Columns["costo"].Visible = true;
-            //        //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el datasets
-
-            //        break;
-            //    default:
-            //        break;
-            //}
+                    break;
+                default:
+                    break;
+            }
 
 
             //Aqui debo pensar si, bloqueo por equipo, si es de mega bodegon solo pueda seleccionar eso.
 
+        }
+
+        private void LoadConteoByIdRecuento()
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_recuento_get_recuento_by_conteo", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idRecuento", IdRecuento);
+                cmd.Parameters.AddWithValue("@idBodega", 0);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                dsRecuento1.conteo_recuento.Clear();
+                da.Fill(dsRecuento1.conteo_recuento);
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
         }
 
         private void LoadAlmacenes()
@@ -110,8 +133,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("sp_recuento_get_recuento_by_conteo", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idRecuento", id_bodega);
-                cmd.Parameters.AddWithValue("@idBodega", IdRecuento);
+                cmd.Parameters.AddWithValue("@idRecuento", IdRecuento);
+                cmd.Parameters.AddWithValue("@idBodega", id_bodega);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 dsRecuento1.conteo_recuento.Clear();
                 da.Fill(dsRecuento1.conteo_recuento);
@@ -144,8 +167,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             }
 
             SqlTransaction transaction = null;
-
-            SqlConnection conn = new SqlConnection(dp.ConnectionStringERP);
+            DataOperations dp = new DataOperations();
+            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
             bool Guardar = false;
 
             try
@@ -200,26 +223,95 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
         private void btnCompletar_Click(object sender, EventArgs e)
         {
-            DialogResult r = CajaDialogo.Pregunta("Desea completar el conteo?\nUna vez completado no se podra modificar.");
-            if (r == DialogResult.Yes)
+            DataOperations dp = new DataOperations();
+            switch (Accion)
             {
-                try
-                {
-                    DataOperations dp = new DataOperations();
-                    SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_recuento_completar_conteo", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_recuento", IdRecuento);
-                    cmd.Parameters.AddWithValue("@usuario", UsuarioLogeado.Id);
-                    cmd.Parameters.AddWithValue("@id_bodega", Convert.ToInt32(gleAlmacen.EditValue));
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    CajaDialogo.Error(ex.Message);
-                }
+                case AccionesRecuento.Conteo:
+
+                    DialogResult r = CajaDialogo.Pregunta("Desea completar el conteo?\nUna vez completado no se podra modificar.");
+                    if (r == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            
+                            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                            conn.Open();
+                            SqlCommand cmd = new SqlCommand("sp_recuento_completar_conteo", conn);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id_recuento", IdRecuento);
+                            cmd.Parameters.AddWithValue("@usuario", UsuarioLogeado.Id);
+                            cmd.Parameters.AddWithValue("@id_bodega", Convert.ToInt32(gleAlmacen.EditValue));
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            CajaDialogo.Error(ex.Message);
+                        }
+
+                    }
+
+                    break;
+                case AccionesRecuento.RevisionAprobacion:
+                    //Esto afectara el KARDEX CUIDADOOOOOOOOO!
+
+                    frmOCompraAutorizacion frm = new frmOCompraAutorizacion();
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        SqlTransaction transaction = null;
+
+                        SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                        bool Guardar = false;
+
+                        try
+                        {
+                            conn.Open();
+                            transaction = conn.BeginTransaction("Transaction Order");
+
+                            SqlCommand cmd = conn.CreateCommand();
+                            cmd.CommandText = "";
+                            cmd.Connection = conn;
+                            cmd.Transaction = transaction;
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("", IdRecuento);
+                            cmd.Parameters.AddWithValue("", frm.Respuesta);
+                            cmd.Parameters.AddWithValue("", frm.Respuesta);
+                            cmd.ExecuteNonQuery();
+
+                            //foreach (dsRecuento.conteo_recuentoRow row in dsRecuento1.conteo_recuento.Rows)
+                            //{
+                            //    cmd.Parameters.Clear();
+                            //    cmd.CommandText = "";
+                            //    cmd.Connection = conn;
+                            //    cmd.Transaction = transaction;
+                            //    cmd.CommandType = CommandType.StoredProcedure;
+                            //    cmd.Parameters.AddWithValue("",);
+                            //    cmd.ExecuteNonQuery();
+                            //}
+
+                            transaction.Commit();
+                            Guardar = true;
+
+                        }
+                        catch (Exception ec)
+                        {
+                            transaction.Rollback();
+                            CajaDialogo.Error(ec.Message);
+                            Guardar = false;
+                        }
+
+                        if (Guardar)
+                        {
+
+                        }
+                    }
+
+
+                        break;
+                default:
+                    break;
             }
+
+           
 
         }
     }

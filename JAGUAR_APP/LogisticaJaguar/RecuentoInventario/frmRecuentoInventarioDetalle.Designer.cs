@@ -218,7 +218,7 @@
             this.grdSelectProductos.Location = new System.Drawing.Point(3, 166);
             this.grdSelectProductos.MainView = this.grdvSelectProductos;
             this.grdSelectProductos.Name = "grdSelectProductos";
-            this.grdSelectProductos.Size = new System.Drawing.Size(577, 546);
+            this.grdSelectProductos.Size = new System.Drawing.Size(584, 546);
             this.grdSelectProductos.TabIndex = 181;
             this.grdSelectProductos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdvSelectProductos});
@@ -426,15 +426,15 @@
             // 
             this.btnRight.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRight.ImageOptions.Image")));
             this.btnRight.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnRight.Location = new System.Drawing.Point(584, 293);
+            this.btnRight.Location = new System.Drawing.Point(593, 293);
             this.btnRight.Name = "btnRight";
-            this.btnRight.Size = new System.Drawing.Size(75, 36);
+            this.btnRight.Size = new System.Drawing.Size(66, 36);
             this.btnRight.TabIndex = 183;
             this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
             // chkAll
             // 
-            this.chkAll.Location = new System.Drawing.Point(471, 139);
+            this.chkAll.Location = new System.Drawing.Point(482, 139);
             this.chkAll.Name = "chkAll";
             this.chkAll.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAll.Properties.Appearance.Options.UseFont = true;

@@ -43,6 +43,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             if (id_bodega != 0)
             {
                 LoadInvAlmacenes(id_bodega);
+                dsRecuento1.productos_conteo.Clear(); // Limpiar el DataTable antes de cargar nuevos datos
             }
         }
         private void LoadAlmacenes()
@@ -159,6 +160,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 cmd.Parameters.AddWithValue("@usuario_creador",UsuarioLogeado.Id);
                 cmd.Parameters.AddWithValue("@puntoVentaId", PuntoVentaActual.ID);
                 cmd.Parameters.AddWithValue("@fecha_recuento", Convert.ToDateTime(dtFechaDocumento.EditValue));
+                cmd.Parameters.AddWithValue("@idBodega", Convert.ToInt32(gleAlmacen.EditValue));
                  
                 int id_header = Convert.ToInt32(cmd.ExecuteScalar());
 

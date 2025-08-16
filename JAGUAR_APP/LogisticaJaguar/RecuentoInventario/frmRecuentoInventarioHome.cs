@@ -32,12 +32,45 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             dtHasta.DateTime = dp.dNow();
             LoadData();
 
+            try
+            {
+                //AFC_ConsumoReal
+                bool accesoprevio = false;
+                int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                switch (idNivel)
+                {
+                    case 1://Basic View
+                    case 2://Basic No Autorization
+                    case 3://Medium Autorization
+                        accesoprevio = false;
+                        grdvRecuento.Columns["gestion"].Visible = false;
+                        break;
+                    case 4://Depth With Delta
+                    case 5://Depth Without Delta
+                        accesoprevio = true;
+                        grdvRecuento.Columns["gestion"].Visible = true;
+                        break;
+                    default:
+                        break;
+                }
+
+                if (!accesoprevio)
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(34))
+                    {
+                        grdvRecuento.Columns["gestion"].Visible = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+
 
             //Permiso de Gestion de Aprobacion de Recuento de Inventario
-            grdvRecuento.OptionsMenu.EnableColumnMenu = true;
-            //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
-            grdvRecuento.Columns["gestion"].Visible = false;
-            //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el datasets
+            grdvRecuento.OptionsMenu.EnableColumnMenu = false;
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -128,6 +161,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                             cmd.Parameters.AddWithValue("@usuario_cancelacion", UsuarioLogeado.Id);
                             cmd.Parameters.AddWithValue("@punto_venta_id", PuntoVentaActual.ID);
                             cmd.ExecuteNonQuery();
+
+                            LoadData();
                         }
                         catch (Exception ex)
                         {

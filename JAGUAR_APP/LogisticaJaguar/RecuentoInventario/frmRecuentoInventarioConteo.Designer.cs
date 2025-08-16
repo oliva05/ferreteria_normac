@@ -39,8 +39,21 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.grdConteo = new DevExpress.XtraGrid.GridControl();
-            this.grdvConteo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dsRecuento1 = new JAGUAR_PRO.LogisticaJaguar.RecuentoInventario.dsRecuento();
+            this.grdvConteo = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid_detalle_recuento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_recuento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colpt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcode_pt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcode_referencia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcantidad_sistema = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid_bodega = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colbodega = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colconteo_fisico = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colconteo_completado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltipo_ajuste = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcantidad_ajuste = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gleAlmacen = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bodegasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsRecepcionMP = new JAGUAR_PRO.LogisticaJaguar.dsRecepcionMP();
@@ -57,22 +70,11 @@
             this.dtFechaConta = new DevExpress.XtraEditors.DateEdit();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
-            this.colid_detalle_recuento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid_recuento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid_pt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcode_pt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcode_referencia = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcantidad_sistema = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid_bodega = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colbodega = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colconteo_fisico = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colconteo_completado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnCompletar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdConteo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdvConteo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecuento1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdvConteo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleAlmacen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecepcionMP)).BeginInit();
@@ -167,6 +169,11 @@
             this.grdConteo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdvConteo});
             // 
+            // dsRecuento1
+            // 
+            this.dsRecuento1.DataSetName = "dsRecuento";
+            this.dsRecuento1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // grdvConteo
             // 
             this.grdvConteo.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -184,16 +191,132 @@
             this.colid_bodega,
             this.colbodega,
             this.colconteo_fisico,
-            this.colconteo_completado});
+            this.colconteo_completado,
+            this.coltipo_ajuste,
+            this.colcantidad_ajuste});
             this.grdvConteo.GridControl = this.grdConteo;
             this.grdvConteo.Name = "grdvConteo";
             this.grdvConteo.OptionsView.ShowAutoFilterRow = true;
             this.grdvConteo.OptionsView.ShowGroupPanel = false;
             // 
-            // dsRecuento1
+            // colid_detalle_recuento
             // 
-            this.dsRecuento1.DataSetName = "dsRecuento";
-            this.dsRecuento1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.colid_detalle_recuento.FieldName = "id_detalle_recuento";
+            this.colid_detalle_recuento.Name = "colid_detalle_recuento";
+            this.colid_detalle_recuento.OptionsColumn.AllowEdit = false;
+            // 
+            // colid_recuento
+            // 
+            this.colid_recuento.FieldName = "id_recuento";
+            this.colid_recuento.Name = "colid_recuento";
+            this.colid_recuento.OptionsColumn.AllowEdit = false;
+            // 
+            // colid_pt
+            // 
+            this.colid_pt.FieldName = "id_pt";
+            this.colid_pt.Name = "colid_pt";
+            this.colid_pt.OptionsColumn.AllowEdit = false;
+            // 
+            // colpt
+            // 
+            this.colpt.Caption = "Producto";
+            this.colpt.FieldName = "pt";
+            this.colpt.Name = "colpt";
+            this.colpt.OptionsColumn.AllowEdit = false;
+            this.colpt.Visible = true;
+            this.colpt.VisibleIndex = 1;
+            this.colpt.Width = 212;
+            // 
+            // colcode_pt
+            // 
+            this.colcode_pt.Caption = "Cod. PT";
+            this.colcode_pt.FieldName = "code_pt";
+            this.colcode_pt.Name = "colcode_pt";
+            this.colcode_pt.OptionsColumn.AllowEdit = false;
+            this.colcode_pt.Visible = true;
+            this.colcode_pt.VisibleIndex = 0;
+            this.colcode_pt.Width = 91;
+            // 
+            // colcode_referencia
+            // 
+            this.colcode_referencia.Caption = "Cod. Referencia";
+            this.colcode_referencia.FieldName = "code_referencia";
+            this.colcode_referencia.Name = "colcode_referencia";
+            this.colcode_referencia.OptionsColumn.AllowEdit = false;
+            this.colcode_referencia.Visible = true;
+            this.colcode_referencia.VisibleIndex = 2;
+            this.colcode_referencia.Width = 139;
+            // 
+            // colcantidad_sistema
+            // 
+            this.colcantidad_sistema.Caption = "Cantidad Sistema";
+            this.colcantidad_sistema.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.colcantidad_sistema.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colcantidad_sistema.FieldName = "cantidad_sistema";
+            this.colcantidad_sistema.Name = "colcantidad_sistema";
+            this.colcantidad_sistema.OptionsColumn.AllowEdit = false;
+            this.colcantidad_sistema.Visible = true;
+            this.colcantidad_sistema.VisibleIndex = 3;
+            this.colcantidad_sistema.Width = 139;
+            // 
+            // colid_bodega
+            // 
+            this.colid_bodega.FieldName = "id_bodega";
+            this.colid_bodega.Name = "colid_bodega";
+            this.colid_bodega.OptionsColumn.AllowEdit = false;
+            // 
+            // colbodega
+            // 
+            this.colbodega.Caption = "Almacen";
+            this.colbodega.FieldName = "bodega";
+            this.colbodega.Name = "colbodega";
+            this.colbodega.OptionsColumn.AllowEdit = false;
+            this.colbodega.Visible = true;
+            this.colbodega.VisibleIndex = 4;
+            this.colbodega.Width = 169;
+            // 
+            // colconteo_fisico
+            // 
+            this.colconteo_fisico.Caption = "Conteo Fisico";
+            this.colconteo_fisico.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.colconteo_fisico.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colconteo_fisico.FieldName = "conteo_fisico";
+            this.colconteo_fisico.Name = "colconteo_fisico";
+            this.colconteo_fisico.Visible = true;
+            this.colconteo_fisico.VisibleIndex = 5;
+            this.colconteo_fisico.Width = 131;
+            // 
+            // colconteo_completado
+            // 
+            this.colconteo_completado.Caption = "Conteo Completado";
+            this.colconteo_completado.FieldName = "conteo_completado";
+            this.colconteo_completado.Name = "colconteo_completado";
+            this.colconteo_completado.OptionsColumn.AllowEdit = false;
+            this.colconteo_completado.Visible = true;
+            this.colconteo_completado.VisibleIndex = 6;
+            this.colconteo_completado.Width = 131;
+            // 
+            // coltipo_ajuste
+            // 
+            this.coltipo_ajuste.Caption = "Tipo de Ajuste";
+            this.coltipo_ajuste.FieldName = "tipo_ajuste";
+            this.coltipo_ajuste.Name = "coltipo_ajuste";
+            this.coltipo_ajuste.OptionsColumn.AllowEdit = false;
+            this.coltipo_ajuste.Visible = true;
+            this.coltipo_ajuste.VisibleIndex = 7;
+            this.coltipo_ajuste.Width = 130;
+            // 
+            // colcantidad_ajuste
+            // 
+            this.colcantidad_ajuste.Caption = "Cantidad del Ajuste";
+            this.colcantidad_ajuste.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.colcantidad_ajuste.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colcantidad_ajuste.FieldName = "cantidad_ajuste";
+            this.colcantidad_ajuste.Name = "colcantidad_ajuste";
+            this.colcantidad_ajuste.OptionsColumn.AllowEdit = false;
+            this.colcantidad_ajuste.Visible = true;
+            this.colcantidad_ajuste.VisibleIndex = 8;
+            this.colcantidad_ajuste.Width = 147;
             // 
             // gleAlmacen
             // 
@@ -357,92 +480,6 @@
             this.cmdGuardar.Text = "Guardar Avance";
             this.cmdGuardar.Click += new System.EventHandler(this.cmdGuardar_Click);
             // 
-            // colid_detalle_recuento
-            // 
-            this.colid_detalle_recuento.FieldName = "id_detalle_recuento";
-            this.colid_detalle_recuento.Name = "colid_detalle_recuento";
-            this.colid_detalle_recuento.OptionsColumn.AllowEdit = false;
-            // 
-            // colid_recuento
-            // 
-            this.colid_recuento.FieldName = "id_recuento";
-            this.colid_recuento.Name = "colid_recuento";
-            this.colid_recuento.OptionsColumn.AllowEdit = false;
-            // 
-            // colid_pt
-            // 
-            this.colid_pt.FieldName = "id_pt";
-            this.colid_pt.Name = "colid_pt";
-            this.colid_pt.OptionsColumn.AllowEdit = false;
-            // 
-            // colpt
-            // 
-            this.colpt.Caption = "Producto";
-            this.colpt.FieldName = "pt";
-            this.colpt.Name = "colpt";
-            this.colpt.OptionsColumn.AllowEdit = false;
-            this.colpt.Visible = true;
-            this.colpt.VisibleIndex = 0;
-            // 
-            // colcode_pt
-            // 
-            this.colcode_pt.Caption = "Cod. PT";
-            this.colcode_pt.FieldName = "code_pt";
-            this.colcode_pt.Name = "colcode_pt";
-            this.colcode_pt.OptionsColumn.AllowEdit = false;
-            this.colcode_pt.Visible = true;
-            this.colcode_pt.VisibleIndex = 1;
-            // 
-            // colcode_referencia
-            // 
-            this.colcode_referencia.Caption = "Cod. Referencia";
-            this.colcode_referencia.FieldName = "code_referencia";
-            this.colcode_referencia.Name = "colcode_referencia";
-            this.colcode_referencia.OptionsColumn.AllowEdit = false;
-            this.colcode_referencia.Visible = true;
-            this.colcode_referencia.VisibleIndex = 2;
-            // 
-            // colcantidad_sistema
-            // 
-            this.colcantidad_sistema.Caption = "Cantidad Sistema";
-            this.colcantidad_sistema.FieldName = "cantidad_sistema";
-            this.colcantidad_sistema.Name = "colcantidad_sistema";
-            this.colcantidad_sistema.OptionsColumn.AllowEdit = false;
-            this.colcantidad_sistema.Visible = true;
-            this.colcantidad_sistema.VisibleIndex = 3;
-            // 
-            // colid_bodega
-            // 
-            this.colid_bodega.FieldName = "id_bodega";
-            this.colid_bodega.Name = "colid_bodega";
-            this.colid_bodega.OptionsColumn.AllowEdit = false;
-            // 
-            // colbodega
-            // 
-            this.colbodega.Caption = "Almacen";
-            this.colbodega.FieldName = "bodega";
-            this.colbodega.Name = "colbodega";
-            this.colbodega.OptionsColumn.AllowEdit = false;
-            this.colbodega.Visible = true;
-            this.colbodega.VisibleIndex = 4;
-            // 
-            // colconteo_fisico
-            // 
-            this.colconteo_fisico.Caption = "Conteo Fisico";
-            this.colconteo_fisico.FieldName = "conteo_fisico";
-            this.colconteo_fisico.Name = "colconteo_fisico";
-            this.colconteo_fisico.Visible = true;
-            this.colconteo_fisico.VisibleIndex = 5;
-            // 
-            // colconteo_completado
-            // 
-            this.colconteo_completado.Caption = "Conteo Completado";
-            this.colconteo_completado.FieldName = "conteo_completado";
-            this.colconteo_completado.Name = "colconteo_completado";
-            this.colconteo_completado.OptionsColumn.AllowEdit = false;
-            this.colconteo_completado.Visible = true;
-            this.colconteo_completado.VisibleIndex = 6;
-            // 
             // btnCompletar
             // 
             this.btnCompletar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -451,10 +488,10 @@
             this.btnCompletar.Appearance.Options.UseTextOptions = true;
             this.btnCompletar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnCompletar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnCompletar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnCompletar.Location = new System.Drawing.Point(1103, 77);
+            this.btnCompletar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCompletar.ImageOptions.Image")));
+            this.btnCompletar.Location = new System.Drawing.Point(1048, 12);
             this.btnCompletar.Name = "btnCompletar";
-            this.btnCompletar.Size = new System.Drawing.Size(174, 35);
+            this.btnCompletar.Size = new System.Drawing.Size(121, 47);
             this.btnCompletar.TabIndex = 198;
             this.btnCompletar.Text = "Completar Conteo";
             this.btnCompletar.Click += new System.EventHandler(this.btnCompletar_Click);
@@ -464,7 +501,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1316, 817);
-            this.Controls.Add(this.btnCompletar);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.cmdGuardar);
             this.Controls.Add(this.dtFechaConta);
@@ -476,6 +512,7 @@
             this.Controls.Add(this.gleAlmacen);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.grdConteo);
+            this.Controls.Add(this.btnCompletar);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -484,8 +521,8 @@
             this.Text = "frmRecuentoInventarioConteo";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdConteo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdvConteo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecuento1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdvConteo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleAlmacen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecepcionMP)).EndInit();
@@ -540,5 +577,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colconteo_fisico;
         private DevExpress.XtraGrid.Columns.GridColumn colconteo_completado;
         private DevExpress.XtraEditors.SimpleButton btnCompletar;
+        private DevExpress.XtraGrid.Columns.GridColumn coltipo_ajuste;
+        private DevExpress.XtraGrid.Columns.GridColumn colcantidad_ajuste;
     }
 }
