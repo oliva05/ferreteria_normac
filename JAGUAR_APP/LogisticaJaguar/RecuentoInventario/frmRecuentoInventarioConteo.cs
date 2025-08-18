@@ -28,7 +28,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
         public enum AccionesRecuento
         {
             Conteo = 1,
-            RevisionAprobacion = 2
+            RevisionAprobacion = 2,
+            Vista = 3
         }
 
         AccionesRecuento Accion;
@@ -77,6 +78,14 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     LoadConteoByIdRecuento();
 
                     //gridView1.Columns["costo"].Visible = true;
+                    break;
+
+                case AccionesRecuento.Vista:
+                    dtFechaConta.Enabled = false;
+                    cmdGuardar.Visible = false;
+                    btnCompletar.Visible = false;
+                    grdvConteo.OptionsBehavior.Editable = false;
+ 
 
                     break;
                 default:
