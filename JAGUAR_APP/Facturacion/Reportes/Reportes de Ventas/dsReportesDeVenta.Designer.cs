@@ -28,6 +28,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
         
         private detalle_facturasDataTable tabledetalle_facturas;
         
+        private calculo_comisiones_vendedoresDataTable tablecalculo_comisiones_vendedores;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +63,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
                 }
                 if ((ds.Tables["detalle_facturas"] != null)) {
                     base.Tables.Add(new detalle_facturasDataTable(ds.Tables["detalle_facturas"]));
+                }
+                if ((ds.Tables["calculo_comisiones_vendedores"] != null)) {
+                    base.Tables.Add(new calculo_comisiones_vendedoresDataTable(ds.Tables["calculo_comisiones_vendedores"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -97,6 +102,16 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
         public detalle_facturasDataTable detalle_facturas {
             get {
                 return this.tabledetalle_facturas;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public calculo_comisiones_vendedoresDataTable calculo_comisiones_vendedores {
+            get {
+                return this.tablecalculo_comisiones_vendedores;
             }
         }
         
@@ -173,6 +188,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
                 if ((ds.Tables["detalle_facturas"] != null)) {
                     base.Tables.Add(new detalle_facturasDataTable(ds.Tables["detalle_facturas"]));
                 }
+                if ((ds.Tables["calculo_comisiones_vendedores"] != null)) {
+                    base.Tables.Add(new calculo_comisiones_vendedoresDataTable(ds.Tables["calculo_comisiones_vendedores"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -218,6 +236,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
                     this.tabledetalle_facturas.InitVars();
                 }
             }
+            this.tablecalculo_comisiones_vendedores = ((calculo_comisiones_vendedoresDataTable)(base.Tables["calculo_comisiones_vendedores"]));
+            if ((initTable == true)) {
+                if ((this.tablecalculo_comisiones_vendedores != null)) {
+                    this.tablecalculo_comisiones_vendedores.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +256,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
             base.Tables.Add(this.tableresumen_ventas_vendedoers);
             this.tabledetalle_facturas = new detalle_facturasDataTable();
             base.Tables.Add(this.tabledetalle_facturas);
+            this.tablecalculo_comisiones_vendedores = new calculo_comisiones_vendedoresDataTable();
+            base.Tables.Add(this.tablecalculo_comisiones_vendedores);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -243,6 +269,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializedetalle_facturas() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializecalculo_comisiones_vendedores() {
             return false;
         }
         
@@ -306,6 +338,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void detalle_facturasRowChangeEventHandler(object sender, detalle_facturasRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void calculo_comisiones_vendedoresRowChangeEventHandler(object sender, calculo_comisiones_vendedoresRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -993,6 +1028,446 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class calculo_comisiones_vendedoresDataTable : global::System.Data.TypedTableBase<calculo_comisiones_vendedoresRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columncodigo_vendedor;
+            
+            private global::System.Data.DataColumn columnnombre;
+            
+            private global::System.Data.DataColumn columnventas;
+            
+            private global::System.Data.DataColumn columnver_detalle;
+            
+            private global::System.Data.DataColumn columnrangoi;
+            
+            private global::System.Data.DataColumn columnrangof;
+            
+            private global::System.Data.DataColumn columncomision;
+            
+            private global::System.Data.DataColumn columnpremio;
+            
+            private global::System.Data.DataColumn columntotal;
+            
+            private global::System.Data.DataColumn columnporcentaje;
+            
+            private global::System.Data.DataColumn columnid_rango;
+            
+            private global::System.Data.DataColumn columnid_tipo;
+            
+            private global::System.Data.DataColumn columndescripcion_tipo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public calculo_comisiones_vendedoresDataTable() {
+                this.TableName = "calculo_comisiones_vendedores";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal calculo_comisiones_vendedoresDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected calculo_comisiones_vendedoresDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn codigo_vendedorColumn {
+                get {
+                    return this.columncodigo_vendedor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn nombreColumn {
+                get {
+                    return this.columnnombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ventasColumn {
+                get {
+                    return this.columnventas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ver_detalleColumn {
+                get {
+                    return this.columnver_detalle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn rangoiColumn {
+                get {
+                    return this.columnrangoi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn rangofColumn {
+                get {
+                    return this.columnrangof;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn comisionColumn {
+                get {
+                    return this.columncomision;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn premioColumn {
+                get {
+                    return this.columnpremio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn totalColumn {
+                get {
+                    return this.columntotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn porcentajeColumn {
+                get {
+                    return this.columnporcentaje;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_rangoColumn {
+                get {
+                    return this.columnid_rango;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_tipoColumn {
+                get {
+                    return this.columnid_tipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn descripcion_tipoColumn {
+                get {
+                    return this.columndescripcion_tipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public calculo_comisiones_vendedoresRow this[int index] {
+                get {
+                    return ((calculo_comisiones_vendedoresRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event calculo_comisiones_vendedoresRowChangeEventHandler calculo_comisiones_vendedoresRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event calculo_comisiones_vendedoresRowChangeEventHandler calculo_comisiones_vendedoresRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event calculo_comisiones_vendedoresRowChangeEventHandler calculo_comisiones_vendedoresRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event calculo_comisiones_vendedoresRowChangeEventHandler calculo_comisiones_vendedoresRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addcalculo_comisiones_vendedoresRow(calculo_comisiones_vendedoresRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public calculo_comisiones_vendedoresRow Addcalculo_comisiones_vendedoresRow(int id, string codigo_vendedor, string nombre, decimal ventas, string ver_detalle, decimal rangoi, decimal rangof, decimal comision, decimal premio, decimal total, decimal porcentaje, int id_rango, int id_tipo, string descripcion_tipo) {
+                calculo_comisiones_vendedoresRow rowcalculo_comisiones_vendedoresRow = ((calculo_comisiones_vendedoresRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id,
+                        codigo_vendedor,
+                        nombre,
+                        ventas,
+                        ver_detalle,
+                        rangoi,
+                        rangof,
+                        comision,
+                        premio,
+                        total,
+                        porcentaje,
+                        id_rango,
+                        id_tipo,
+                        descripcion_tipo};
+                rowcalculo_comisiones_vendedoresRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcalculo_comisiones_vendedoresRow);
+                return rowcalculo_comisiones_vendedoresRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                calculo_comisiones_vendedoresDataTable cln = ((calculo_comisiones_vendedoresDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new calculo_comisiones_vendedoresDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columncodigo_vendedor = base.Columns["codigo_vendedor"];
+                this.columnnombre = base.Columns["nombre"];
+                this.columnventas = base.Columns["ventas"];
+                this.columnver_detalle = base.Columns["ver_detalle"];
+                this.columnrangoi = base.Columns["rangoi"];
+                this.columnrangof = base.Columns["rangof"];
+                this.columncomision = base.Columns["comision"];
+                this.columnpremio = base.Columns["premio"];
+                this.columntotal = base.Columns["total"];
+                this.columnporcentaje = base.Columns["porcentaje"];
+                this.columnid_rango = base.Columns["id_rango"];
+                this.columnid_tipo = base.Columns["id_tipo"];
+                this.columndescripcion_tipo = base.Columns["descripcion_tipo"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columncodigo_vendedor = new global::System.Data.DataColumn("codigo_vendedor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodigo_vendedor);
+                this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombre);
+                this.columnventas = new global::System.Data.DataColumn("ventas", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnventas);
+                this.columnver_detalle = new global::System.Data.DataColumn("ver_detalle", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnver_detalle);
+                this.columnrangoi = new global::System.Data.DataColumn("rangoi", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrangoi);
+                this.columnrangof = new global::System.Data.DataColumn("rangof", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrangof);
+                this.columncomision = new global::System.Data.DataColumn("comision", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncomision);
+                this.columnpremio = new global::System.Data.DataColumn("premio", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpremio);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal);
+                this.columnporcentaje = new global::System.Data.DataColumn("porcentaje", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnporcentaje);
+                this.columnid_rango = new global::System.Data.DataColumn("id_rango", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_rango);
+                this.columnid_tipo = new global::System.Data.DataColumn("id_tipo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_tipo);
+                this.columndescripcion_tipo = new global::System.Data.DataColumn("descripcion_tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescripcion_tipo);
+                this.columncodigo_vendedor.Caption = "Código";
+                this.columnnombre.Caption = "Nombre";
+                this.columnventas.Caption = "Ventas Total";
+                this.columnver_detalle.Caption = "Ver Detalle Ventas";
+                this.columnrangoi.Caption = "Rango Inicial";
+                this.columnrangof.Caption = "Rango Final";
+                this.columncomision.Caption = "Comisión L";
+                this.columnpremio.Caption = "Premio";
+                this.columntotal.Caption = "Total";
+                this.columnporcentaje.Caption = "Porcentaje";
+                this.columndescripcion_tipo.Caption = "Tipo";
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public calculo_comisiones_vendedoresRow Newcalculo_comisiones_vendedoresRow() {
+                return ((calculo_comisiones_vendedoresRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new calculo_comisiones_vendedoresRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(calculo_comisiones_vendedoresRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.calculo_comisiones_vendedoresRowChanged != null)) {
+                    this.calculo_comisiones_vendedoresRowChanged(this, new calculo_comisiones_vendedoresRowChangeEvent(((calculo_comisiones_vendedoresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.calculo_comisiones_vendedoresRowChanging != null)) {
+                    this.calculo_comisiones_vendedoresRowChanging(this, new calculo_comisiones_vendedoresRowChangeEvent(((calculo_comisiones_vendedoresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.calculo_comisiones_vendedoresRowDeleted != null)) {
+                    this.calculo_comisiones_vendedoresRowDeleted(this, new calculo_comisiones_vendedoresRowChangeEvent(((calculo_comisiones_vendedoresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.calculo_comisiones_vendedoresRowDeleting != null)) {
+                    this.calculo_comisiones_vendedoresRowDeleting(this, new calculo_comisiones_vendedoresRowChangeEvent(((calculo_comisiones_vendedoresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removecalculo_comisiones_vendedoresRow(calculo_comisiones_vendedoresRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsReportesDeVenta ds = new dsReportesDeVenta();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "calculo_comisiones_vendedoresDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class resumen_ventas_vendedoersRow : global::System.Data.DataRow {
@@ -1452,6 +1927,427 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class calculo_comisiones_vendedoresRow : global::System.Data.DataRow {
+            
+            private calculo_comisiones_vendedoresDataTable tablecalculo_comisiones_vendedores;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal calculo_comisiones_vendedoresRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablecalculo_comisiones_vendedores = ((calculo_comisiones_vendedoresDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id {
+                get {
+                    try {
+                        return ((int)(this[this.tablecalculo_comisiones_vendedores.idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id\' de la tabla \'calculo_comisiones_vendedores\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string codigo_vendedor {
+                get {
+                    try {
+                        return ((string)(this[this.tablecalculo_comisiones_vendedores.codigo_vendedorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codigo_vendedor\' de la tabla \'calculo_comisiones_vendedor" +
+                                "es\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.codigo_vendedorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tablecalculo_comisiones_vendedores.nombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nombre\' de la tabla \'calculo_comisiones_vendedores\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.nombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ventas {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablecalculo_comisiones_vendedores.ventasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ventas\' de la tabla \'calculo_comisiones_vendedores\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.ventasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ver_detalle {
+                get {
+                    try {
+                        return ((string)(this[this.tablecalculo_comisiones_vendedores.ver_detalleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ver_detalle\' de la tabla \'calculo_comisiones_vendedores\' " +
+                                "es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.ver_detalleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal rangoi {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablecalculo_comisiones_vendedores.rangoiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'rangoi\' de la tabla \'calculo_comisiones_vendedores\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.rangoiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal rangof {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablecalculo_comisiones_vendedores.rangofColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'rangof\' de la tabla \'calculo_comisiones_vendedores\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.rangofColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal comision {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablecalculo_comisiones_vendedores.comisionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'comision\' de la tabla \'calculo_comisiones_vendedores\' es " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.comisionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal premio {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablecalculo_comisiones_vendedores.premioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'premio\' de la tabla \'calculo_comisiones_vendedores\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.premioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal total {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablecalculo_comisiones_vendedores.totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'total\' de la tabla \'calculo_comisiones_vendedores\' es DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal porcentaje {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablecalculo_comisiones_vendedores.porcentajeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'porcentaje\' de la tabla \'calculo_comisiones_vendedores\' e" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.porcentajeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_rango {
+                get {
+                    try {
+                        return ((int)(this[this.tablecalculo_comisiones_vendedores.id_rangoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_rango\' de la tabla \'calculo_comisiones_vendedores\' es " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.id_rangoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_tipo {
+                get {
+                    try {
+                        return ((int)(this[this.tablecalculo_comisiones_vendedores.id_tipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_tipo\' de la tabla \'calculo_comisiones_vendedores\' es D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.id_tipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string descripcion_tipo {
+                get {
+                    try {
+                        return ((string)(this[this.tablecalculo_comisiones_vendedores.descripcion_tipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'descripcion_tipo\' de la tabla \'calculo_comisiones_vendedo" +
+                                "res\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecalculo_comisiones_vendedores.descripcion_tipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsidNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetidNull() {
+                this[this.tablecalculo_comisiones_vendedores.idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscodigo_vendedorNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.codigo_vendedorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcodigo_vendedorNull() {
+                this[this.tablecalculo_comisiones_vendedores.codigo_vendedorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsnombreNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.nombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetnombreNull() {
+                this[this.tablecalculo_comisiones_vendedores.nombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsventasNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.ventasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetventasNull() {
+                this[this.tablecalculo_comisiones_vendedores.ventasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isver_detalleNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.ver_detalleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setver_detalleNull() {
+                this[this.tablecalculo_comisiones_vendedores.ver_detalleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsrangoiNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.rangoiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetrangoiNull() {
+                this[this.tablecalculo_comisiones_vendedores.rangoiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsrangofNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.rangofColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetrangofNull() {
+                this[this.tablecalculo_comisiones_vendedores.rangofColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscomisionNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.comisionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcomisionNull() {
+                this[this.tablecalculo_comisiones_vendedores.comisionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IspremioNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.premioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetpremioNull() {
+                this[this.tablecalculo_comisiones_vendedores.premioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstotalNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettotalNull() {
+                this[this.tablecalculo_comisiones_vendedores.totalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsporcentajeNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.porcentajeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetporcentajeNull() {
+                this[this.tablecalculo_comisiones_vendedores.porcentajeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_rangoNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.id_rangoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_rangoNull() {
+                this[this.tablecalculo_comisiones_vendedores.id_rangoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_tipoNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.id_tipoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_tipoNull() {
+                this[this.tablecalculo_comisiones_vendedores.id_tipoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isdescripcion_tipoNull() {
+                return this.IsNull(this.tablecalculo_comisiones_vendedores.descripcion_tipoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setdescripcion_tipoNull() {
+                this[this.tablecalculo_comisiones_vendedores.descripcion_tipoColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1505,6 +2401,40 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_facturasRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class calculo_comisiones_vendedoresRowChangeEvent : global::System.EventArgs {
+            
+            private calculo_comisiones_vendedoresRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public calculo_comisiones_vendedoresRowChangeEvent(calculo_comisiones_vendedoresRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public calculo_comisiones_vendedoresRow Row {
                 get {
                     return this.eventRow;
                 }

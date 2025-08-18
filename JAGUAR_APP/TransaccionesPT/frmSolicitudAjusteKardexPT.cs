@@ -85,7 +85,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_get_detalle_solicitud_ajuste_inventario",conn);
+                SqlCommand cmd = new SqlCommand("[sp_get_detalle_solicitud_ajuste_inventarioV2]", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IdSOlicitud", IdSOlicitud);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);

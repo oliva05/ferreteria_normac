@@ -36,6 +36,7 @@ using JAGUAR_PRO.JaguarProduccion;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.LogisticaJaguar.Despacho;
 using JAGUAR_PRO.LogisticaJaguar.Pedidos;
+using JAGUAR_PRO.LogisticaJaguar.RecuentoInventario;
 using JAGUAR_PRO.Mantenimientos;
 using JAGUAR_PRO.Mantenimientos.Clientes;
 using JAGUAR_PRO.Mantenimientos.Comisiones;
@@ -6257,6 +6258,79 @@ namespace JAGUAR_PRO
             {
                 CajaDialogo.Error(ex.Message);
             }
+        }
+
+        private void navBarItem254_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+
+            try
+            {
+                //AFC_ConsumoReal
+                bool accesoprevio = false;
+                bool AccesoAdmin = false;
+                int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                switch (idNivel)
+                {
+                    case 1://Basic View
+                        break;
+                    case 2://Basic No Autorization
+                        accesoprevio = false;
+                        break;
+                    case 3://Medium Autorization
+                        accesoprevio = false;
+                        break;
+                    case 4://Depth With Delta
+                    case 5://Depth Without Delta
+                        accesoprevio = AccesoAdmin = true;
+                        frmRecuentoInventarioHome frm = new frmRecuentoInventarioHome(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                        break;
+                    default:
+                        break;
+                }
+
+                if (!accesoprevio)
+                {
+                    if (UsuarioLogeado.ValidarNivelPermisos(33))
+                    {
+                        frmRecuentoInventarioHome frm = new frmRecuentoInventarioHome(this.UsuarioLogeado, puntoVenta1);
+                        frm.MdiParent = this.MdiParent;
+                        frm.StartPosition = FormStartPosition.CenterScreen;
+                        frm.Show();
+                        frm.BringToFront();
+                    }
+                    else
+                    {
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #33 (Recuento de Inventario)");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+            
         }
         //End Facturacion Usados
 

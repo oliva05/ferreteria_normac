@@ -130,7 +130,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosContrato
                     }
                 }
 
-                    switch (transaccionActual)
+                switch (transaccionActual)
                 {   
                     case tipo_transaccion.Nuevo:
 

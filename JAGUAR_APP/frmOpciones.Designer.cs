@@ -55,6 +55,7 @@
             this.navBarItem60 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarIteSoliTraslado = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem153 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem254 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem21 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup19 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -633,7 +634,8 @@
             this.navBarItem153,
             this.navBarItem154,
             this.navBarItem208,
-            this.navBarItem209});
+            this.navBarItem209,
+            this.navBarItem254});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -890,7 +892,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem60),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarIteSoliTraslado),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem153)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem153),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem254)});
             this.navBarGroup8.Name = "navBarGroup8";
             // 
             // navBarItem14
@@ -969,6 +972,22 @@
             this.navBarItem153.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.checklist32px;
             this.navBarItem153.Name = "navBarItem153";
             this.navBarItem153.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem153_LinkClicked);
+            // 
+            // navBarItem254
+            // 
+            this.navBarItem254.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem254.Appearance.Options.UseFont = true;
+            this.navBarItem254.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem254.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem254.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem254.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem254.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem254.AppearancePressed.Options.UseFont = true;
+            this.navBarItem254.Caption = "Recuento de Inventario";
+            this.navBarItem254.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.rec_inventory;
+            this.navBarItem254.Name = "navBarItem254";
+            this.navBarItem254.Visible = false;
+            this.navBarItem254.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem254_LinkClicked);
             // 
             // navBarGroup9
             // 
@@ -7601,5 +7620,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem348;
         private DevExpress.XtraNavBar.NavBarItem navBarItem349;
         private DevExpress.XtraNavBar.NavBarItem navBarItem350;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem254;
     }
 }

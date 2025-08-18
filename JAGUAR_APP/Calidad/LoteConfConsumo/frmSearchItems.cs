@@ -56,6 +56,31 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+
+            if (tipoBusquedaActual == TipoBusqueda.Ninguna)
+            {
+                if (!string.IsNullOrEmpty(txtCodComb.Text))
+                {
+                    tipoBusquedaActual = TipoBusqueda.PorCodCombinado;
+                }
+                else if (!string.IsNullOrEmpty(txtCodRefe.Text) || !string.IsNullOrWhiteSpace(txtCodRefe.Text))
+                {
+                    tipoBusquedaActual = TipoBusqueda.PorCodReferencia;
+                }
+                else if (!string.IsNullOrEmpty(txtMarca.Text))
+                {
+                    tipoBusquedaActual = TipoBusqueda.PorMarca;
+                }
+                else if (!string.IsNullOrEmpty(txtDesc.Text) || !string.IsNullOrWhiteSpace(txtDesc.Text))
+                {
+                    tipoBusquedaActual = TipoBusqueda.PorDescripcion;
+                }
+                else if (!string.IsNullOrEmpty(txtCode.Text))
+                {
+                    tipoBusquedaActual = TipoBusqueda.PorCodigoPT;
+                }
+            }
+
             switch (tipoBusquedaActual)
             {
                 case TipoBusqueda.Ninguna:
@@ -97,7 +122,8 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
                 cmd.Parameters.AddWithValue("@filtro", filtro);
                 cmd.Parameters.AddWithValue("@TipoBusqueda", Convert.ToInt32(tipoBusquedaActual));
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                dsConfigLoteConsumo1.search_pt.Clear(); 
+                dsConfigLoteConsumo1.search_pt.Clear();
+                dsConfigLoteConsumo1.search_pt.AcceptChanges(); // fuerza sincronización
                 adat.Fill(dsConfigLoteConsumo1.search_pt);
                 conn.Close();
 
@@ -144,25 +170,24 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
 
         private void txtCode_TextChanged(object sender, EventArgs e)
         {
-            tipoBusquedaActual = TipoBusqueda.PorCodigoPT;
+           
             txtDesc.Text = txtCodRefe.Text = txtCodComb.Text = txtMarca.Text = string.Empty;
         }
 
         private void txtDesc_TextChanged(object sender, EventArgs e)
         {
-            tipoBusquedaActual = TipoBusqueda.PorDescripcion;
             txtCode.Text = txtCodComb.Text = txtCodRefe.Text = txtMarca.Text = string.Empty;
         }
 
         private void txtCodRefe_TextChanged(object sender, EventArgs e)
         {
-            tipoBusquedaActual = TipoBusqueda.PorCodReferencia;
+        
             txtCode.Text = txtDesc.Text = txtCodComb.Text = txtMarca.Text = string.Empty;
         }
 
         private void txtCodComb_TextChanged(object sender, EventArgs e)
         {
-            tipoBusquedaActual = TipoBusqueda.PorCodCombinado;
+         
             txtCode.Text = txtDesc.Text = txtCodRefe.Text = txtMarca.Text=string.Empty;
         }
 
@@ -204,6 +229,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             if (e.KeyCode == Keys.Enter)
             {
+                tipoBusquedaActual = TipoBusqueda.PorDescripcion;
                 simpleButton2_Click(new object(), new EventArgs());
             }
         }
@@ -212,6 +238,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             if (e.KeyCode == Keys.Enter)
             {
+                tipoBusquedaActual = TipoBusqueda.PorCodigoPT;
                 simpleButton2_Click(new object(), new EventArgs());
             }
         }
@@ -220,6 +247,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             if (e.KeyCode == Keys.Enter)
             {
+                tipoBusquedaActual = TipoBusqueda.PorCodReferencia;
                 simpleButton2_Click(new object(), new EventArgs());
             }
         }
@@ -228,6 +256,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             if (e.KeyCode == Keys.Enter)
             {
+                tipoBusquedaActual = TipoBusqueda.PorCodReferencia;
                 simpleButton2_Click(new object(), new EventArgs());
             }
         }
@@ -241,13 +270,14 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             if (e.KeyCode == Keys.Enter)
             {
+                tipoBusquedaActual = TipoBusqueda.PorMarca;
                 simpleButton2_Click(new object(), new EventArgs());
             }
         }
 
         private void txtMarca_TextChanged(object sender, EventArgs e)
         {
-            tipoBusquedaActual = TipoBusqueda.PorMarca;
+           
             txtCode.Text = txtDesc.Text = txtCodRefe.Text = txtCodComb.Text = string.Empty;
         }
     }

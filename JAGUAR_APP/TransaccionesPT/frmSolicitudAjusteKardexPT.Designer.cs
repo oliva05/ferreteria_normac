@@ -287,7 +287,6 @@
             // coltipo_op
             // 
             this.coltipo_op.Caption = "Movimiento";
-            this.coltipo_op.ColumnEdit = this.repositoryItemComboBox1;
             this.coltipo_op.FieldName = "tipo_op";
             this.coltipo_op.Name = "coltipo_op";
             this.coltipo_op.Visible = true;

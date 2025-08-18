@@ -778,6 +778,7 @@
     <Compile Include="Clases\ProductoUsado.cs" />
     <Compile Include="Clases\ReciboH.cs" />
     <Compile Include="Clases\Notas_CreditoDebito.cs" />
+    <Compile Include="Clases\RecuentoInventario.cs" />
     <Compile Include="Clases\RegistroPago.cs" />
     <Compile Include="Clases\RequisaTraslado.cs" />
     <Compile Include="Clases\SolicitudAjustes.cs" />
@@ -1699,6 +1700,12 @@
     <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmDetalleFacturasVentas_vendedor.Designer.cs">
       <DependentUpon>frmDetalleFacturasVentas_vendedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmCalculoDeComisionesPorVentasVendedoresPorFecha .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmCalculoDeComisionesPorVentasVendedoresPorFecha .Designer.cs">
+      <DependentUpon>frmCalculoDeComisionesPorVentasVendedoresPorFecha .cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmResumenVentasVendedoresPorFecha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2047,6 +2054,17 @@
     </Compile>
     <Compile Include="LogisticaJaguar\ProveedorCRUDPagos.Designer.cs">
       <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\dsRecuento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRecuento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioConteo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioConteo.Designer.cs">
+      <DependentUpon>frmRecuentoInventarioConteo.cs</DependentUpon>
     </Compile>
     <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioDetalle.cs">
       <SubType>Form</SubType>
@@ -2988,6 +3006,17 @@
     </None>
     <None Include="LogisticaJaguar\Pedidos\dsPedidos_PRD.xss">
       <DependentUpon>dsPedidos_PRD.xsd</DependentUpon>
+    </None>
+    <None Include="LogisticaJaguar\RecuentoInventario\dsRecuento.xsc">
+      <DependentUpon>dsRecuento.xsd</DependentUpon>
+    </None>
+    <None Include="LogisticaJaguar\RecuentoInventario\dsRecuento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRecuento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LogisticaJaguar\RecuentoInventario\dsRecuento.xss">
+      <DependentUpon>dsRecuento.xsd</DependentUpon>
     </None>
     <None Include="Mantenimientos\Comisiones\dsComisiones.xsc">
       <DependentUpon>dsComisiones.xsd</DependentUpon>
@@ -4533,6 +4562,9 @@
     <EmbeddedResource Include="Facturacion\Reportes\Reportes de Ventas\frmDetalleFacturasVentas_vendedor.resx">
       <DependentUpon>frmDetalleFacturasVentas_vendedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Reportes\Reportes de Ventas\frmCalculoDeComisionesPorVentasVendedoresPorFecha .resx">
+      <DependentUpon>frmCalculoDeComisionesPorVentasVendedoresPorFecha .cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\Reportes de Ventas\frmResumenVentasVendedoresPorFecha.resx">
       <DependentUpon>frmResumenVentasVendedoresPorFecha.cs</DependentUpon>
     </EmbeddedResource>
@@ -4687,6 +4719,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\ProveedorCRUDPagos.resx">
       <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioConteo.resx">
+      <DependentUpon>frmRecuentoInventarioConteo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioDetalle.resx">
+      <DependentUpon>frmRecuentoInventarioDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioHome.resx">
+      <DependentUpon>frmRecuentoInventarioHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\xrptBarCode.resx">
       <DependentUpon>xrptBarCode.cs</DependentUpon>
@@ -4904,6 +4945,7 @@
     <EmbeddedResource Include="Micro\frmOpcionesMicro.resx">
       <DependentUpon>frmOpcionesMicro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -5656,6 +5698,7 @@
     <Content Include="jaguar.ico" />
     <Content Include="normac_ico_.ico" />
     <None Include="Resources\Ionic-Ionicons-Add-circle-sharp.32.png" />
+    <None Include="Resources\rec_inventory.png" />
     <Content Include="WhatsApp Image 2025-03-01 at 11.15.59 AM.ico" />
     <None Include="Resources\xml_24x24.png" />
     <None Include="Resources\_click_24X24.png" />
