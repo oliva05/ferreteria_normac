@@ -23,6 +23,7 @@ namespace JAGUAR_PRO.Clases
         public int PuntoVentaId { get; set; } //7
         public int IdBodega { get; set; }    //8
         public string Bodega { get; set; }   //9
+        public int EstadoId { get; set; } //10
         public bool Recuperado { get; set; }
 
 
@@ -50,7 +51,7 @@ namespace JAGUAR_PRO.Clases
                     PuntoVentaId = dr.GetInt32(7);
                     IdBodega = dr.GetInt32(8);
                     Bodega = dr.IsDBNull(9) ? "" : dr.GetString(9);
-     
+                    EstadoId = dr.GetInt32(10);
                 }
                 dr.Close();
 

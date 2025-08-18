@@ -1,6 +1,8 @@
 ﻿using ACS.Classes;
 using DevExpress.DashboardWin.Commands;
 using DevExpress.XtraEditors;
+using DevExpress.XtraRichEdit.Commands.Internal;
+using DevExpress.XtraSplashScreen;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using System;
@@ -53,10 +55,24 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     grdvConteo.Columns["tipo_ajuste"].Visible = false;
                     grdvConteo.Columns["cantidad_ajuste"].Visible = false; // Oculto el costo, ya que no se debe modificar en conteo
 
+                    switch (recuento.EstadoId)
+                    {
+                        case 6://pendiente de aprobacion
+
+                            grdvConteo.OptionsBehavior.Editable = false;
+                            grdvConteo.OptionsBehavior.ReadOnly = true;
+
+                            break;
+
+
+                        default:
+                            break;
+                    }
+
                     break;
                 case AccionesRecuento.RevisionAprobacion:
-                    cmdGuardar.Visible = false;
-                    gleAlmacen.Visible = false;
+                    cmdGuardar.Enabled = false;
+                    
 
                     LoadConteoByIdRecuento();
 
@@ -159,7 +175,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             this.Close();
         }
 
-        private void cmdGuardar_Click(object sender, EventArgs e)
+        private async void cmdGuardar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(gleAlmacen.Text))
             {
@@ -173,63 +189,146 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 return;
             }
 
-            SqlTransaction transaction = null;
-            DataOperations dp = new DataOperations();
-            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+            SplashScreenManager.ShowDefaultWaitForm("Guardando", "Por favor espere....");
+
             bool Guardar = false;
 
-            try
+            await Task.Run(() =>
             {
-                conn.Open();
-                transaction = conn.BeginTransaction("Transaction Order");
+                Guardar = GuardarConteo();
+            });
 
-                foreach (dsRecuento.conteo_recuentoRow row in dsRecuento1.conteo_recuento.Rows)
-                {
-                    using (SqlCommand cmd = conn.CreateCommand())
-                    {
-                        cmd.Connection = conn;
-                        cmd.Transaction = transaction;
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.CommandText = "sp_recuento_insert_update_conteo";
-                        cmd.Parameters.AddWithValue("@id_recuento", IdRecuento);
-                        cmd.Parameters.AddWithValue("@id_detalle", row.id_detalle_recuento);
-                        cmd.Parameters.AddWithValue("@cantidad_contada", Convert.ToDecimal(row.conteo_fisico));
-                        cmd.Parameters.AddWithValue("@usuario", UsuarioLogeado.Id);
-                        cmd.Parameters.AddWithValue("@fecha_contabilizacion", dtFechaConta.DateTime);
-
-                        cmd.ExecuteNonQuery();   
-
-                    }
-                }
-                transaction.Commit();
-                Guardar = true;
-            }
-            catch (Exception ex)
-            {
-                if (transaction != null)
-                    transaction.Rollback();
-
-                CajaDialogo.Error(ex.Message);
-                Guardar = false;
-            }
-            finally
-            {
-                conn.Close();
-            }
+            SplashScreenManager.CloseDefaultWaitForm();
 
             if (Guardar)
             {
-                CajaDialogo.Information("Avance guardado con exito!");
+                CajaDialogo.Information("Avance guardado con éxito!");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
 
             
+
+
+            #region Codigo normal funcional 
+
+            //SqlTransaction transaction = null;
+            //DataOperations dp = new DataOperations();
+            //SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+            //bool Guardar = false;
+
+            //SplashScreenManager.ShowDefaultWaitForm("Guardando","Por favor espere....");
+            //try
+            //{
+            //    conn.Open();
+            //    transaction = conn.BeginTransaction("Transaction Order");
+
+            //    foreach (dsRecuento.conteo_recuentoRow row in dsRecuento1.conteo_recuento.Rows)
+            //    {
+            //        using (SqlCommand cmd = conn.CreateCommand())
+            //        {
+            //            cmd.Connection = conn;
+            //            cmd.Transaction = transaction;
+            //            cmd.CommandType = CommandType.StoredProcedure;
+
+            //            cmd.CommandText = "sp_recuento_insert_update_conteo";
+            //            cmd.Parameters.AddWithValue("@id_recuento", IdRecuento);
+            //            cmd.Parameters.AddWithValue("@id_detalle", row.id_detalle_recuento);
+            //            cmd.Parameters.AddWithValue("@cantidad_contada", Convert.ToDecimal(row.conteo_fisico));
+            //            cmd.Parameters.AddWithValue("@usuario", UsuarioLogeado.Id);
+            //            cmd.Parameters.AddWithValue("@fecha_contabilizacion", dtFechaConta.DateTime);
+
+            //            cmd.ExecuteNonQuery();   
+
+            //        }
+            //    }
+            //    transaction.Commit();
+            //    Guardar = true;
+            //}
+            //catch (Exception ex)
+            //{
+            //    if (transaction != null)
+            //        transaction.Rollback();
+
+            //    CajaDialogo.Error(ex.Message);
+            //    Guardar = false;
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //    SplashScreenManager.CloseDefaultWaitForm();
+            //}
+
+            //if (Guardar)
+            //{
+            //    CajaDialogo.Information("Avance guardado con exito!");
+            //    this.DialogResult = DialogResult.OK;
+            //    this.Close();
+            //}
+
+            #endregion
+        }
+
+        private bool GuardarConteo()
+        {
+            DataOperations dp = new DataOperations();
+            using (SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+            {
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+
+                try
+                {
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("id_recuento", typeof(int));
+                    dt.Columns.Add("id_detalle", typeof(int));
+                    dt.Columns.Add("cantidad_contada", typeof(decimal));
+                    dt.Columns.Add("usuario", typeof(int));
+                    dt.Columns.Add("fecha_contabilizacion", typeof(DateTime));
+
+                    foreach (dsRecuento.conteo_recuentoRow row in dsRecuento1.conteo_recuento.Rows) 
+                    {
+                        dt.Rows.Add(
+                            IdRecuento,
+                            row.id_detalle_recuento,
+                            Convert.ToDecimal(row.conteo_fisico),
+                            UsuarioLogeado.Id,
+                            dtFechaConta.DateTime
+                            );
+                    }
+
+                    //using (SqlBulkCopy bulk = new SqlBulkCopy(conn, SqlBulkCopyOptions.Default, transaction))
+                    //{
+                    //    bulk.DestinationTableName = "dbo.Tmp_Recuento";
+                    //    bulk.WriteToServer(dt);
+                    //}
+
+                    using (SqlCommand cmd = new SqlCommand("sp_recuento_insert_update_conteo_bulk", conn, transaction))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        SqlParameter tvpParam = cmd.Parameters.AddWithValue("@RecuentoData", dt);
+                        tvpParam.SqlDbType = SqlDbType.Structured;
+                        tvpParam.TypeName = "dbo.RecuentoTableType"; // nombre del tipo definido en SQL
+
+                        cmd.CommandTimeout = 300;
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    CajaDialogo.Error(ex.Message);
+                    return false;
+                }
+            }
         }
 
         private void btnCompletar_Click(object sender, EventArgs e)
         {
+            bool Guardar = false;
             DataOperations dp = new DataOperations();
             switch (Accion)
             {
@@ -249,10 +348,19 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                             cmd.Parameters.AddWithValue("@usuario", UsuarioLogeado.Id);
                             cmd.Parameters.AddWithValue("@id_bodega", Convert.ToInt32(gleAlmacen.EditValue));
                             cmd.ExecuteNonQuery();
+                            Guardar = true;
                         }
                         catch (Exception ex)
                         {
                             CajaDialogo.Error(ex.Message);
+                            Guardar = false;
+                        }
+
+                        if (Guardar)
+                        {
+                            CajaDialogo.Information("Conteo Completado!\nEnviado a Aprobacion");
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
                         }
 
                     }
@@ -267,7 +375,6 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                         SqlTransaction transaction = null;
 
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                        bool Guardar = false;
 
                         try
                         {
@@ -275,25 +382,17 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                             transaction = conn.BeginTransaction("Transaction Order");
 
                             SqlCommand cmd = conn.CreateCommand();
-                            cmd.CommandText = "";
+                            cmd.CommandText = "sp_aprobacion_recuento_inventario";
                             cmd.Connection = conn;
                             cmd.Transaction = transaction;
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("", IdRecuento);
-                            cmd.Parameters.AddWithValue("", frm.Respuesta);
-                            cmd.Parameters.AddWithValue("", frm.Respuesta);
+                            cmd.Parameters.AddWithValue("@id_recuento", IdRecuento);
+                            cmd.Parameters.AddWithValue("@Respuesta", frm.Respuesta);
+                            cmd.Parameters.AddWithValue("@id_usuario",UsuarioLogeado.Id);
+                            cmd.Parameters.AddWithValue("@fecha_contabilizacion", dtFechaConta.DateTime);
+                            cmd.Parameters.AddWithValue("@id_bodega", Convert.ToInt32(gleAlmacen.EditValue));
+                            cmd.Parameters.AddWithValue("@doc_num", txtRecuento.Text.ToString());
                             cmd.ExecuteNonQuery();
-
-                            //foreach (dsRecuento.conteo_recuentoRow row in dsRecuento1.conteo_recuento.Rows)
-                            //{
-                            //    cmd.Parameters.Clear();
-                            //    cmd.CommandText = "";
-                            //    cmd.Connection = conn;
-                            //    cmd.Transaction = transaction;
-                            //    cmd.CommandType = CommandType.StoredProcedure;
-                            //    cmd.Parameters.AddWithValue("",);
-                            //    cmd.ExecuteNonQuery();
-                            //}
 
                             transaction.Commit();
                             Guardar = true;
@@ -308,7 +407,21 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
                         if (Guardar)
                         {
-
+                            switch (frm.Respuesta)
+                            {
+                                case 1:
+                                    CajaDialogo.Information("Recuento Aprobado!\nSe han realizado los ajustes en el inventario.");
+                                    this.DialogResult = DialogResult.OK;
+                                    this.Close();
+                                    break;
+                                case 2:
+                                    CajaDialogo.Information("Recuento Rechazado!");
+                                    this.DialogResult = DialogResult.OK;
+                                    this.Close();
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     }
 

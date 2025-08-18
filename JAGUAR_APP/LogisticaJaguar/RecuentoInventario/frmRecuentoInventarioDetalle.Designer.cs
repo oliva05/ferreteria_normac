@@ -90,6 +90,7 @@
             // dtFechaDocumento
             // 
             this.dtFechaDocumento.EditValue = null;
+            this.dtFechaDocumento.Enabled = false;
             this.dtFechaDocumento.Location = new System.Drawing.Point(178, 32);
             this.dtFechaDocumento.Name = "dtFechaDocumento";
             this.dtFechaDocumento.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);

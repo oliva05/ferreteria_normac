@@ -29,7 +29,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             UsuarioLogeado = userLogin;
             PuntoVentaActual = pDV;
             dtDesde.DateTime = dp.dNow().AddDays(-7);
-            dtHasta.DateTime = dp.dNow();
+            dtHasta.DateTime = dp.dNow().Date.AddDays(1).AddSeconds(-1);
             LoadData();
 
             try
@@ -123,23 +123,27 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             {
                 bool Permitir = false;
 
-                switch (row.estado)
+                switch (row.estadoId)
                 {
-                    case "CREADO":
+                    case 1://creado
                         Permitir = true;
                         break;
 
-                    case "APROBADO":
+                    case 2://aprobado
                         Permitir = false;
                         break;
-                    case "CANCELADO":
+                    case 3://cancelado
                         Permitir = false;
                         break;
-                    case "COMPLETADO":
+                    case 4://completado
                         Permitir = false;
                         break;
-                    case "RECHAZADO":
+                    case 5://rechazo
                         Permitir = false;
+                        break;
+
+                    case 6://pendiente de aprobacion
+                        Permitir = true;
                         break;
 
                     default:
@@ -185,22 +189,26 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             {
                 bool Permitir = false;
 
-                switch (row.estado)
+                switch (row.estadoId)
                 {
-                    case "CREADO":
+                    case 1://creado
                         Permitir = true;
                         break;
 
-                    case "APROBADO":
+                    case 2://aprobado
                         Permitir = false;
                         break;
-                    case "CANCELADO":
+                    case 3://cancelado
                         Permitir = false;
                         break;
-                    case "COMPLETADO":
+                    case 4://completado
                         Permitir = false;
                         break;
-                    case "RECHAZADO":
+                    case 5://rechazo
+                        Permitir = false;
+                        break;
+
+                    case 6://pendiente de aprobacion
                         Permitir = false;
                         break;
 
@@ -232,23 +240,27 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             {
                 bool Permitir = false;
 
-                switch (row.estado)
+                switch (row.estadoId)
                 {
-                    case "CREADO":
+                    case 1://creado
                         Permitir = true;
                         break;
 
-                    case "APROBADO":
+                    case 2://aprobado
                         Permitir = false;
                         break;
-                    case "CANCELADO":
+                    case 3://cancelado
                         Permitir = false;
                         break;
-                    case "COMPLETADO":
+                    case 4://completado
                         Permitir = false;
                         break;
-                    case "RECHAZADO":
+                    case 5://rechazo
                         Permitir = false;
+                        break;
+
+                    case 6://pendiente de aprobacion
+                        Permitir = true;
                         break;
 
                     default:

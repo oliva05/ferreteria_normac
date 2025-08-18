@@ -25,7 +25,8 @@
               <xs:element name="usuario_aprobadorName" msprop:Generator_ColumnPropNameInTable="usuario_aprobadorNameColumn" msprop:Generator_ColumnPropNameInRow="usuario_aprobadorName" msprop:Generator_UserColumnName="usuario_aprobadorName" msprop:Generator_ColumnVarNameInTable="columnusuario_aprobadorName" type="xs:string" minOccurs="0" />
               <xs:element name="docnum" msprop:Generator_ColumnPropNameInTable="docnumColumn" msprop:Generator_ColumnPropNameInRow="docnum" msprop:Generator_UserColumnName="docnum" msprop:Generator_ColumnVarNameInTable="columndocnum" type="xs:string" minOccurs="0" />
               <xs:element name="puntoVentaName" msprop:Generator_ColumnPropNameInTable="puntoVentaNameColumn" msprop:Generator_ColumnPropNameInRow="puntoVentaName" msprop:Generator_UserColumnName="puntoVentaName" msprop:Generator_ColumnVarNameInTable="columnpuntoVentaName" type="xs:string" minOccurs="0" />
-              <xs:element name="bodega" msprop:Generator_ColumnPropNameInRow="bodega" msprop:Generator_ColumnPropNameInTable="bodegaColumn" msprop:Generator_ColumnVarNameInTable="columnbodega" msprop:Generator_UserColumnName="bodega" type="xs:string" minOccurs="0" />
+              <xs:element name="bodega" msprop:Generator_UserColumnName="bodega" msprop:Generator_ColumnPropNameInTable="bodegaColumn" msprop:Generator_ColumnPropNameInRow="bodega" msprop:Generator_ColumnVarNameInTable="columnbodega" type="xs:string" minOccurs="0" />
+              <xs:element name="estadoId" msprop:Generator_ColumnPropNameInRow="estadoId" msprop:Generator_ColumnPropNameInTable="estadoIdColumn" msprop:Generator_ColumnVarNameInTable="columnestadoId" msprop:Generator_UserColumnName="estadoId" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -69,8 +70,8 @@
               <xs:element name="bodega" msprop:Generator_ColumnPropNameInTable="bodegaColumn" msprop:Generator_ColumnPropNameInRow="bodega" msprop:Generator_UserColumnName="bodega" msprop:Generator_ColumnVarNameInTable="columnbodega" type="xs:string" minOccurs="0" />
               <xs:element name="conteo_fisico" msprop:Generator_ColumnPropNameInTable="conteo_fisicoColumn" msprop:Generator_ColumnPropNameInRow="conteo_fisico" msprop:Generator_UserColumnName="conteo_fisico" msprop:Generator_ColumnVarNameInTable="columnconteo_fisico" type="xs:decimal" default="0" minOccurs="0" />
               <xs:element name="conteo_completado" msprop:Generator_ColumnPropNameInTable="conteo_completadoColumn" msprop:Generator_ColumnPropNameInRow="conteo_completado" msprop:Generator_UserColumnName="conteo_completado" msprop:Generator_ColumnVarNameInTable="columnconteo_completado" type="xs:boolean" default="false" minOccurs="0" />
-              <xs:element name="tipo_ajuste" msprop:Generator_UserColumnName="tipo_ajuste" msprop:Generator_ColumnPropNameInTable="tipo_ajusteColumn" msprop:Generator_ColumnPropNameInRow="tipo_ajuste" msprop:Generator_ColumnVarNameInTable="columntipo_ajuste" type="xs:string" minOccurs="0" />
-              <xs:element name="cantidad_ajuste" msprop:Generator_UserColumnName="cantidad_ajuste" msprop:Generator_ColumnPropNameInTable="cantidad_ajusteColumn" msprop:Generator_ColumnPropNameInRow="cantidad_ajuste" msprop:Generator_ColumnVarNameInTable="columncantidad_ajuste" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="tipo_ajuste" msprop:Generator_ColumnPropNameInTable="tipo_ajusteColumn" msprop:Generator_ColumnPropNameInRow="tipo_ajuste" msprop:Generator_UserColumnName="tipo_ajuste" msprop:Generator_ColumnVarNameInTable="columntipo_ajuste" type="xs:string" minOccurs="0" />
+              <xs:element name="cantidad_ajuste" msprop:Generator_ColumnPropNameInTable="cantidad_ajusteColumn" msprop:Generator_ColumnPropNameInRow="cantidad_ajuste" msprop:Generator_UserColumnName="cantidad_ajuste" msprop:Generator_ColumnVarNameInTable="columncantidad_ajuste" type="xs:decimal" default="0" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

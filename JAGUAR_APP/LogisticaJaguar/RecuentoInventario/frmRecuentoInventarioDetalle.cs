@@ -145,6 +145,20 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
             SplashScreenManager.ShowDefaultWaitForm("Procesando", "Guardando recuento...");
 
+            DataTable dtDetalle = new DataTable();
+            dtDetalle.Columns.Add("id_pt", typeof(int));
+            dtDetalle.Columns.Add("cantidad_sistema", typeof(decimal));
+            dtDetalle.Columns.Add("id_bodega", typeof(int));
+
+            foreach (dsRecuento.productos_conteoRow row in dsRecuento1.productos_conteo.Rows)
+            {
+                dtDetalle.Rows.Add(row.id_pt,
+                                   Convert.ToDecimal(row.existencia),
+                                   Convert.ToInt32(gleAlmacen.EditValue)
+                    );
+
+            }
+
             SqlTransaction transaction = null;
 
             SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -167,21 +181,18 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
                 int id_header = Convert.ToInt32(cmd.ExecuteScalar());
 
-                foreach (dsRecuento.productos_conteoRow row in dsRecuento1.productos_conteo.Rows)
-                {
-                    cmd.Parameters.Clear();
-                    cmd.CommandText = "sp_recuento_insert_detalle";
-                    cmd.Connection = conn;
-                    cmd.Transaction = transaction;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_recuento", id_header);
-                    cmd.Parameters.AddWithValue("@id_pt", row.id_pt);
-                    cmd.Parameters.AddWithValue("@cantidad_sistema", Convert.ToDecimal(row.existencia));
-                    cmd.Parameters.AddWithValue("@id_bodega", Convert.ToInt32(row.id_bodega));
-                    cmd.ExecuteNonQuery();
-                }
+                SqlCommand cmdDetalle = conn.CreateCommand();
+                cmdDetalle.CommandText = "[sp_recuento_insert_detalle]";
+                cmdDetalle.Connection = conn;
+                cmdDetalle.Transaction = transaction;
+                cmdDetalle.CommandType = CommandType.StoredProcedure;
+                cmdDetalle.Parameters.AddWithValue("@id_recuento", id_header);
+                
+                SqlParameter tvpParam = cmdDetalle.Parameters.AddWithValue("@Detalles", dtDetalle);
+                tvpParam.SqlDbType = SqlDbType.Structured;
+                tvpParam.TypeName = "dbo.RecuentoDetalleType";
 
-
+                cmdDetalle.ExecuteNonQuery();
                 transaction.Commit();
                 Guardar = true;
 

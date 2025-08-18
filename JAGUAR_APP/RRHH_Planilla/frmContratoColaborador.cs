@@ -463,11 +463,12 @@ namespace JAGUAR_PRO.RRHH_Planilla
 
                 dsColaborador1.payment_history.Clear();
 
-                using (SqlDataAdapter da = new SqlDataAdapter("dbo.uspGetHistoricoAumentoByCodeV2", cnx))
+                using (SqlDataAdapter da = new SqlDataAdapter("[dbo].[uspGetHistoricoAumentoByCodeV3]", cnx))
                 {
                     cnx.Open();
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    da.SelectCommand.Parameters.Add("@barcode", SqlDbType.VarChar).Value = codigoEmpleado;
+                    //da.SelectCommand.Parameters.Add("@barcode", SqlDbType.VarChar).Value = codigoEmpleado;
+                    da.SelectCommand.Parameters.AddWithValue("@employee_id", empleadoId);
                     da.Fill(dsColaborador1.payment_history);
                     cnx.Close();
                 }
@@ -799,11 +800,11 @@ namespace JAGUAR_PRO.RRHH_Planilla
                     return;
                 }
 
-                if (sluePlanificacion.EditValue==null)
-                {
-                    CajaDialogo.Error("Debe de seleccionar una opcion de planificación de trabajo");
-                    return;
-                }
+                //if (sluePlanificacion.EditValue==null)
+                //{
+                //    CajaDialogo.Error("Debe de seleccionar una opcion de planificación de trabajo");
+                //    return;
+                //}
 
                 if (sluePagoPlanificado.EditValue == null)
                 {
@@ -1156,7 +1157,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
 
             if (frm.ShowDialog()== DialogResult.OK)
             {
-                CargarHistoricoAumentos();
+                CargarAccionDelPersonal();
             }
         }
 

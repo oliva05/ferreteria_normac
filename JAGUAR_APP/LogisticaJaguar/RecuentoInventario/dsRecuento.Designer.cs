@@ -406,6 +406,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             private global::System.Data.DataColumn columnbodega;
             
+            private global::System.Data.DataColumn columnestadoId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public load_recuentosDataTable() {
@@ -529,6 +531,14 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn estadoIdColumn {
+                get {
+                    return this.columnestadoId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -564,7 +574,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public load_recuentosRow Addload_recuentosRow(int id_recuento, System.DateTime fecha_creacion, int usuario_creador, int usuario_aprobador, System.DateTime fecha_aprobacion, string estado, string usuario_creadorName, string usuario_aprobadorName, string docnum, string puntoVentaName, string bodega) {
+            public load_recuentosRow Addload_recuentosRow(int id_recuento, System.DateTime fecha_creacion, int usuario_creador, int usuario_aprobador, System.DateTime fecha_aprobacion, string estado, string usuario_creadorName, string usuario_aprobadorName, string docnum, string puntoVentaName, string bodega, int estadoId) {
                 load_recuentosRow rowload_recuentosRow = ((load_recuentosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_recuento,
@@ -577,7 +587,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                         usuario_aprobadorName,
                         docnum,
                         puntoVentaName,
-                        bodega};
+                        bodega,
+                        estadoId};
                 rowload_recuentosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowload_recuentosRow);
                 return rowload_recuentosRow;
@@ -611,6 +622,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 this.columndocnum = base.Columns["docnum"];
                 this.columnpuntoVentaName = base.Columns["puntoVentaName"];
                 this.columnbodega = base.Columns["bodega"];
+                this.columnestadoId = base.Columns["estadoId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -638,6 +650,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 base.Columns.Add(this.columnpuntoVentaName);
                 this.columnbodega = new global::System.Data.DataColumn("bodega", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbodega);
+                this.columnestadoId = new global::System.Data.DataColumn("estadoId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnestadoId);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2043,6 +2057,22 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int estadoId {
+                get {
+                    try {
+                        return ((int)(this[this.tableload_recuentos.estadoIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'estadoId\' de la tabla \'load_recuentos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableload_recuentos.estadoIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_recuentoNull() {
                 return this.IsNull(this.tableload_recuentos.id_recuentoColumn);
             }
@@ -2171,6 +2201,18 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetbodegaNull() {
                 this[this.tableload_recuentos.bodegaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsestadoIdNull() {
+                return this.IsNull(this.tableload_recuentos.estadoIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetestadoIdNull() {
+                this[this.tableload_recuentos.estadoIdColumn] = global::System.Convert.DBNull;
             }
         }
         

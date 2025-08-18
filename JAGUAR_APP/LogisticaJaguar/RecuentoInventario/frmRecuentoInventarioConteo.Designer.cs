@@ -159,6 +159,9 @@
             // 
             // grdConteo
             // 
+            this.grdConteo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdConteo.DataMember = "conteo_recuento";
             this.grdConteo.DataSource = this.dsRecuento1;
             this.grdConteo.Location = new System.Drawing.Point(0, 125);
@@ -295,7 +298,7 @@
             this.colconteo_completado.OptionsColumn.AllowEdit = false;
             this.colconteo_completado.Visible = true;
             this.colconteo_completado.VisibleIndex = 6;
-            this.colconteo_completado.Width = 131;
+            this.colconteo_completado.Width = 140;
             // 
             // coltipo_ajuste
             // 
@@ -305,7 +308,7 @@
             this.coltipo_ajuste.OptionsColumn.AllowEdit = false;
             this.coltipo_ajuste.Visible = true;
             this.coltipo_ajuste.VisibleIndex = 7;
-            this.coltipo_ajuste.Width = 130;
+            this.coltipo_ajuste.Width = 125;
             // 
             // colcantidad_ajuste
             // 
@@ -317,7 +320,7 @@
             this.colcantidad_ajuste.OptionsColumn.AllowEdit = false;
             this.colcantidad_ajuste.Visible = true;
             this.colcantidad_ajuste.VisibleIndex = 8;
-            this.colcantidad_ajuste.Width = 147;
+            this.colcantidad_ajuste.Width = 143;
             // 
             // gleAlmacen
             // 

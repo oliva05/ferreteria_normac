@@ -78,6 +78,7 @@
             this.reposRealizarConteo = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reposAprobacion = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colbodega = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdPrintFromGrid = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdVer_Editar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdVerDetalle = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -89,7 +90,6 @@
             this.btnAgregar = new DevExpress.XtraEditors.SimpleButton();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.colbodega = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdRecuento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecuento1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdvRecuento)).BeginInit();
@@ -169,7 +169,7 @@
             this.colfecha_creacion.OptionsColumn.AllowEdit = false;
             this.colfecha_creacion.Visible = true;
             this.colfecha_creacion.VisibleIndex = 3;
-            this.colfecha_creacion.Width = 162;
+            this.colfecha_creacion.Width = 151;
             // 
             // colusuario_creador
             // 
@@ -191,7 +191,7 @@
             this.colfecha_aprobacion.OptionsColumn.AllowEdit = false;
             this.colfecha_aprobacion.Visible = true;
             this.colfecha_aprobacion.VisibleIndex = 6;
-            this.colfecha_aprobacion.Width = 162;
+            this.colfecha_aprobacion.Width = 151;
             // 
             // colestado
             // 
@@ -201,7 +201,7 @@
             this.colestado.OptionsColumn.AllowEdit = false;
             this.colestado.Visible = true;
             this.colestado.VisibleIndex = 4;
-            this.colestado.Width = 162;
+            this.colestado.Width = 151;
             // 
             // colusuario_creadorName
             // 
@@ -211,7 +211,7 @@
             this.colusuario_creadorName.OptionsColumn.AllowEdit = false;
             this.colusuario_creadorName.Visible = true;
             this.colusuario_creadorName.VisibleIndex = 1;
-            this.colusuario_creadorName.Width = 166;
+            this.colusuario_creadorName.Width = 132;
             // 
             // colusuario_aprobadorName
             // 
@@ -221,7 +221,7 @@
             this.colusuario_aprobadorName.OptionsColumn.AllowEdit = false;
             this.colusuario_aprobadorName.Visible = true;
             this.colusuario_aprobadorName.VisibleIndex = 5;
-            this.colusuario_aprobadorName.Width = 162;
+            this.colusuario_aprobadorName.Width = 151;
             // 
             // coldocnum
             // 
@@ -246,7 +246,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 9;
-            this.gridColumn1.Width = 123;
+            this.gridColumn1.Width = 127;
             // 
             // reposCancelar
             // 
@@ -265,7 +265,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 7;
-            this.gridColumn2.Width = 145;
+            this.gridColumn2.Width = 136;
             // 
             // reposRealizarConteo
             // 
@@ -285,7 +285,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 8;
-            this.gridColumn3.Width = 139;
+            this.gridColumn3.Width = 130;
             // 
             // reposAprobacion
             // 
@@ -296,6 +296,16 @@
             this.reposAprobacion.Name = "reposAprobacion";
             this.reposAprobacion.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposAprobacion.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposAprobacion_ButtonClick);
+            // 
+            // colbodega
+            // 
+            this.colbodega.Caption = "Bodega";
+            this.colbodega.FieldName = "bodega";
+            this.colbodega.Name = "colbodega";
+            this.colbodega.OptionsColumn.AllowEdit = false;
+            this.colbodega.Visible = true;
+            this.colbodega.VisibleIndex = 2;
+            this.colbodega.Width = 188;
             // 
             // cmdPrintFromGrid
             // 
@@ -442,16 +452,6 @@
             this.labelControl1.Size = new System.Drawing.Size(297, 34);
             this.labelControl1.TabIndex = 112;
             this.labelControl1.Text = "Recuento de Inventario";
-            // 
-            // colbodega
-            // 
-            this.colbodega.Caption = "Bodega";
-            this.colbodega.FieldName = "bodega";
-            this.colbodega.Name = "colbodega";
-            this.colbodega.OptionsColumn.AllowEdit = false;
-            this.colbodega.Visible = true;
-            this.colbodega.VisibleIndex = 2;
-            this.colbodega.Width = 96;
             // 
             // frmRecuentoInventarioHome
             // 
