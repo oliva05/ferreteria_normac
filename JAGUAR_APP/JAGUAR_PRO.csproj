@@ -5698,6 +5698,7 @@
     <Content Include="jaguar.ico" />
     <Content Include="normac_ico_.ico" />
     <None Include="Resources\Ionic-Ionicons-Add-circle-sharp.32.png" />
+    <None Include="Resources\rec_inventory.png" />
     <Content Include="WhatsApp Image 2025-03-01 at 11.15.59 AM.ico" />
     <None Include="Resources\xml_24x24.png" />
     <None Include="Resources\_click_24X24.png" />

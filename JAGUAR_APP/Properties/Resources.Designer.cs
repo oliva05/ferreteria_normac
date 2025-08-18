@@ -2583,6 +2583,16 @@ namespace JAGUAR_PRO.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rec_inventory {
+            get {
+                object obj = ResourceManager.GetObject("rec_inventory", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap recepcion_compra_x32 {
             get {
                 object obj = ResourceManager.GetObject("recepcion_compra_x32", resourceCulture);
