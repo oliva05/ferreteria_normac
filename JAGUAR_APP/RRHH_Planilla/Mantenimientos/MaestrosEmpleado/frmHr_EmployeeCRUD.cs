@@ -2196,15 +2196,24 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                             cnx.Close();
                         }
 
-                        frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
-
+                        var frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
+                        frm.OnCerrarConActualizacion += LoadContratos;
                         frm.ShowDialog();
+                        //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
+                        //if (frm.ShowDialog() == DialogResult.OK)
+                        //{
+                        //    LoadContratos();
+                        //}
+
                     }
                 }
                 else
                 {
-                    frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
+                    var frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
+                    frm.OnCerrarConActualizacion += LoadContratos;
                     frm.ShowDialog();
+                    //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
+                    //frm.Show();
                 }
             }
             catch (Exception ex)
@@ -2219,7 +2228,10 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             var row = (dsColaborador.contract_historicalRow)gridview.GetFocusedDataRow();
 
             //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Barcode, UsuarioLogeado, EmpleadoActual.Id);
-            frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
+            //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
+            //frm.ShowDialog();
+            var frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
+            frm.OnCerrarConActualizacion += LoadContratos;
             frm.ShowDialog();
         }
 

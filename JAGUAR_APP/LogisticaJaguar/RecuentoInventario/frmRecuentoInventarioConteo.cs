@@ -1,6 +1,8 @@
 ﻿using ACS.Classes;
+using DevExpress.Charts.Native;
 using DevExpress.DashboardWin.Commands;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraRichEdit.Commands.Internal;
 using DevExpress.XtraSplashScreen;
 using JAGUAR_PRO.Clases;
@@ -61,7 +63,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                         case 6://pendiente de aprobacion
 
                             grdvConteo.OptionsBehavior.Editable = false;
-                            grdvConteo.OptionsBehavior.ReadOnly = true;
+                            //grdvConteo.OptionsBehavior.ReadOnly = true;
 
                             break;
 
@@ -84,7 +86,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     dtFechaConta.Enabled = false;
                     cmdGuardar.Visible = false;
                     btnCompletar.Visible = false;
-                    grdvConteo.OptionsBehavior.Editable = false;
+                    
  
 
                     break;
@@ -338,6 +340,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
         private void btnCompletar_Click(object sender, EventArgs e)
         {
             bool Guardar = false;
+            bool ActualizarConteo = false;
             DataOperations dp = new DataOperations();
             switch (Accion)
             {
@@ -381,6 +384,15 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     frmOCompraAutorizacion frm = new frmOCompraAutorizacion();
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
+
+                        ActualizarConteo = GuardarConteo();
+
+                        if (!ActualizarConteo)
+                        {
+                            CajaDialogo.Error("Ocurrio un Error al actualizar el conteo, no se puede completar la aprobacion.");
+                            return;
+                        }
+
                         SqlTransaction transaction = null;
 
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -461,6 +473,26 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     view.FocusedRowHandle = rowHandle + 1;
                     view.FocusedColumn = col;
                     view.ShowEditor();
+                }
+            }
+        }
+
+        private void grdvConteo_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            var gridview = (GridView)grdConteo.FocusedView;
+            var row = (dsRecuento.conteo_recuentoRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                if (row.conteo_fisico == row.cantidad_sistema)
+                {
+                    row.tipo_ajuste = "Sin Ajuste";
+                    row.cantidad_ajuste = 0;
+                }
+                else
+                {
+                    row.cantidad_ajuste= Math.Abs(row.conteo_fisico - row.cantidad_sistema);
+                    row.tipo_ajuste = row.conteo_fisico > row.cantidad_sistema ? "Entrada" : "Salida";
                 }
             }
         }

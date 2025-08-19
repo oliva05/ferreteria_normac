@@ -201,6 +201,7 @@
             this.grdvConteo.Name = "grdvConteo";
             this.grdvConteo.OptionsView.ShowAutoFilterRow = true;
             this.grdvConteo.OptionsView.ShowGroupPanel = false;
+            this.grdvConteo.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grdvConteo_CellValueChanged);
             this.grdvConteo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdvConteo_KeyDown);
             // 
             // colid_detalle_recuento

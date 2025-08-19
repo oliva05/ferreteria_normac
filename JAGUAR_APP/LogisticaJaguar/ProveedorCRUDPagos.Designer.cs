@@ -64,7 +64,6 @@
             this.cmdGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.cmdClose = new DevExpress.XtraEditors.DropDownButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtMontoPagar = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.grdTipoPago = new DevExpress.XtraEditors.GridLookUpEdit();
             this.tipopagosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -76,13 +75,13 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtMontoDisponible = new DevExpress.XtraEditors.TextEdit();
             this.chkTotalDeuda = new DevExpress.XtraEditors.CheckEdit();
+            this.txtMontoPagar = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grdProveedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoreslistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsLogisticaJaguar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetalleFacturas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdvDetalleFacturas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMontoPagar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTipoPago.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipopagosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -90,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtObs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMontoDisponible.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkTotalDeuda.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMontoPagar.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grdProveedor
@@ -481,23 +481,6 @@
             this.labelControl1.TabIndex = 100;
             this.labelControl1.Text = "Monto a Pagar";
             // 
-            // txtMontoPagar
-            // 
-            this.txtMontoPagar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtMontoPagar.Location = new System.Drawing.Point(622, 104);
-            this.txtMontoPagar.Name = "txtMontoPagar";
-            this.txtMontoPagar.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.txtMontoPagar.Properties.Appearance.Options.UseFont = true;
-            this.txtMontoPagar.Properties.EditFormat.FormatString = "{0:#,###,##0.00}";
-            this.txtMontoPagar.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtMontoPagar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtMontoPagar.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.txtMontoPagar.Properties.MaskSettings.Set("mask", "n3");
-            this.txtMontoPagar.Properties.UseMaskAsDisplayFormat = true;
-            this.txtMontoPagar.Size = new System.Drawing.Size(159, 26);
-            this.txtMontoPagar.TabIndex = 101;
-            this.txtMontoPagar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMontoPagar_KeyDown);
-            // 
             // labelControl2
             // 
             this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -615,11 +598,33 @@
             this.chkTotalDeuda.TabIndex = 108;
             this.chkTotalDeuda.Visible = false;
             // 
+            // txtMontoPagar
+            // 
+            this.txtMontoPagar.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtMontoPagar.Location = new System.Drawing.Point(622, 103);
+            this.txtMontoPagar.Name = "txtMontoPagar";
+            this.txtMontoPagar.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtMontoPagar.Properties.Appearance.Options.UseFont = true;
+            this.txtMontoPagar.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtMontoPagar.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.txtMontoPagar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtMontoPagar.Properties.MaskSettings.Set("mask", "n");
+            this.txtMontoPagar.Properties.UseMaskAsDisplayFormat = true;
+            this.txtMontoPagar.Size = new System.Drawing.Size(160, 26);
+            this.txtMontoPagar.TabIndex = 109;
+            this.txtMontoPagar.EditValueChanged += new System.EventHandler(this.txtMontoPagar_EditValueChanged);
+            this.txtMontoPagar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMontoPagar_KeyDown_1);
+            // 
             // ProveedorCRUDPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1476, 740);
+            this.Controls.Add(this.txtMontoPagar);
             this.Controls.Add(this.chkTotalDeuda);
             this.Controls.Add(this.txtMontoDisponible);
             this.Controls.Add(this.labelControl3);
@@ -627,7 +632,6 @@
             this.Controls.Add(this.chkAll);
             this.Controls.Add(this.grdTipoPago);
             this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.txtMontoPagar);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdClose);
             this.Controls.Add(this.cmdGuardar);
@@ -641,7 +645,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetalleFacturas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdvDetalleFacturas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMontoPagar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTipoPago.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipopagosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -649,6 +652,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtObs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMontoDisponible.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkTotalDeuda.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMontoPagar.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -667,7 +671,6 @@
         private DevExpress.XtraEditors.DropDownButton cmdClose;
         private System.Windows.Forms.BindingSource proveedoreslistBindingSource;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit txtMontoPagar;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.GridLookUpEdit grdTipoPago;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -702,5 +705,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colid_anticipo;
         private DevExpress.XtraEditors.CheckEdit chkTotalDeuda;
+        private DevExpress.XtraEditors.TextEdit txtMontoPagar;
     }
 }

@@ -750,6 +750,7 @@
     <Compile Include="Clases\InputBox.cs" />
     <Compile Include="Clases\Marcas.cs" />
     <Compile Include="Clases\OrdenesCompra.cs" />
+    <Compile Include="Clases\PagoProveedores.cs" />
     <Compile Include="Clases\PedidoCliente.cs" />
     <Compile Include="Clases\Planilla\Conceptos.cs" />
     <Compile Include="Clases\Planilla\EmpleadoAsignacion.cs" />
@@ -924,6 +925,12 @@
     </Compile>
     <Compile Include="Contabilidad\Proveedores\frmSelecAnticipo.Designer.cs">
       <DependentUpon>frmSelecAnticipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\rptPagoProveedores.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\rptPagoProveedores.Designer.cs">
+      <DependentUpon>rptPagoProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Despachos\dsTransaccionesDespacho.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -4249,6 +4256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\Proveedores\frmMainAnticipos.resx">
       <DependentUpon>frmMainAnticipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Proveedores\rptPagoProveedores.resx">
+      <DependentUpon>rptPagoProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\frmentregadeproductoT.resx">
       <DependentUpon>frmentregadeproductoT.cs</DependentUpon>
