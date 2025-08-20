@@ -407,5 +407,32 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 printReport.ShowPreviewDialog();
             }
         }
+
+        private void cmdPrint_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            
+            var gv = (GridView)gridControl1.FocusedView;
+            var row = (dsFacturasGestion.SolicitudAutorizacionRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            if (row.estado_id == 2)
+            {
+                Factura factura1 = new Factura();
+                if (factura1.RecuperarRegistro(row.factura_id_H))
+                {
+                    rptFacturaAnuladaLetterSize report = new rptFacturaAnuladaLetterSize(factura1, rptFacturaAnuladaLetterSize.TipoCopia.Blanco);
+                    report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                    ReportPrintTool printReport = new ReportPrintTool(report);
+                    printReport.ShowPreviewDialog();
+                }
+                else
+                {
+                    CajaDialogo.Error("No se pudo encontrar esta factura!");
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Esta factura no esta anulada!");
+            }
+        }
     }
 }
