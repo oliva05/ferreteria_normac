@@ -204,46 +204,49 @@ namespace Eatery.Ventas
 
                 PedidoRecuperado = Pedido1;
 
-                if (ClienteFactura.RecuperarRegistro(Pedido1.IdCliente))
+                if (!string.IsNullOrEmpty(Pedido1.ClienteNombre))
+                    txtNombreCliente.Text = Pedido1.ClienteNombre;
+                else
+                    txtNombreCliente.Text = ClienteFactura.NombreCliente;
+
+                if (!string.IsNullOrEmpty(Pedido1.direccion_cliente))
+                    txtDireccion.Text = Pedido1.direccion_cliente;
+                else
+                    txtDireccion.Text = ClienteFactura.Direccion;
+
+                if (!string.IsNullOrEmpty(Pedido1.RTN))
+                    txtRTN.Text = Pedido1.RTN;
+                else
+                    txtRTN.Text = "";
+
+                CargarDetalleCotizacion(pIdPedido);
+
+                //Poner todas las columnas como ReadOnly = true
+                foreach (GridColumn column in gridView1.Columns)
                 {
-                    //ClienteEmpresa clienteEmpresa1 = new ClienteEmpresa();
-                    //if (clienteEmpresa1.RecuperarEmpresaRTNCliente(ClienteFactura.Id, Pedido1.RTN))
-                    //{
-                    //    txtNombreCliente.Text = clienteEmpresa1.NombreLargo;
-                    //    txtRTN.Text = clienteEmpresa1.RTN;
-                    //    txtDireccion.Text = clienteEmpresa1.Direccion;
-                    //}
-                    //else
-                    //{
-                        if (!string.IsNullOrEmpty(Pedido1.ClienteNombre))
-                            txtNombreCliente.Text = Pedido1.ClienteNombre;
-                        else
-                            txtNombreCliente.Text = ClienteFactura.NombreCliente;
-                        
-                        if (!string.IsNullOrEmpty(Pedido1.direccion_cliente))
-                            txtDireccion.Text = Pedido1.direccion_cliente;
-                        else
-                            txtDireccion.Text = ClienteFactura.Direccion;
-
-                        if (!string.IsNullOrEmpty(Pedido1.RTN))
-                            txtRTN.Text = Pedido1.RTN;
-                        else
-                            txtRTN.Text = "";
-                    //}
-
-                    CargarDetalleCotizacion(pIdPedido);
-
-                    //Poner todas las columnas como ReadOnly = true
-                    foreach (GridColumn column in gridView1.Columns)
-                    {
-                        column.OptionsColumn.ReadOnly = true;
-                    }
-                    gridView1.OptionsMenu.EnableColumnMenu = false;
-                    //Habilita o deshabilita que el user pueda manipular
-                    //el menu haciendo clic derecho sobre el header de una columna,
-                    //para elegir columnas, ordenar, etc
-
+                    column.OptionsColumn.ReadOnly = true;
                 }
+                gridView1.OptionsMenu.EnableColumnMenu = false;
+                //if (ClienteFactura.RecuperarRegistro(Pedido1.IdCliente))
+                //{
+                //    //ClienteEmpresa clienteEmpresa1 = new ClienteEmpresa();
+                //    //if (clienteEmpresa1.RecuperarEmpresaRTNCliente(ClienteFactura.Id, Pedido1.RTN))
+                //    //{
+                //    //    txtNombreCliente.Text = clienteEmpresa1.NombreLargo;
+                //    //    txtRTN.Text = clienteEmpresa1.RTN;
+                //    //    txtDireccion.Text = clienteEmpresa1.Direccion;
+                //    //}
+                //    //else
+                //    //{
+                        
+                //    //}
+
+                    
+                //    //Habilita o deshabilita que el user pueda manipular
+                //    //el menu haciendo clic derecho sobre el header de una columna,
+                //    //para elegir columnas, ordenar, etc
+
+                //}
             }
         }
 
@@ -1549,7 +1552,7 @@ namespace Eatery.Ventas
         private void cmdNew_Click(object sender, EventArgs e)
         {
             panelNotificacion.BackColor = Color.White;
-            txtRTN.Text = txtNombreCliente.Text = lblMensaje.Text = "";
+            txtRTN.Text = txtNombreCliente.Text = txtDireccion.Text = lblMensaje.Text = "";
             txtTotal.Text = "0.00";
             dsVentas1.detalle_factura_transaction.Clear();
             ClienteFactura = new ClienteFacturacion();
@@ -2052,10 +2055,10 @@ namespace Eatery.Ventas
         {
             txtNombreCliente.Text = "Consumidor Final";
             txtRTN.Text =  
-            txtDireccion.Text = string.Empty;
+            txtDireccion.Text = "N/D";
 
-            txtDireccion.Properties.NullText = 
-            txtRTN.Properties.NullText = "No Aplica";
+            //txtDireccion.Properties.NullText = 
+            //txtRTN.Properties.NullText = "No Aplica";
 
             ClienteFactura = new ClienteFacturacion();
             ClienteFactura.Recuperado = false;

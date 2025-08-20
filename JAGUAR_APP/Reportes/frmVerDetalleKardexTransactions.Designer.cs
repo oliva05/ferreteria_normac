@@ -33,6 +33,11 @@ namespace JAGUAR_PRO.Reportes
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVerDetalleKardexTransactions));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.cmdRecargar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
@@ -55,6 +60,7 @@ namespace JAGUAR_PRO.Reportes
             this.colEntrada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSalida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsaldo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colusuario_aprueba_ajuste = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -62,10 +68,12 @@ namespace JAGUAR_PRO.Reportes
             this.lblInventario = new DevExpress.XtraEditors.LabelControl();
             this.lblAlmacen = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.colusuario_aprueba_ajuste = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPrint = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdImprimir = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsKardexReportes1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdImprimir)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdRecargar
@@ -120,6 +128,8 @@ namespace JAGUAR_PRO.Reportes
             this.gridControl1.Location = new System.Drawing.Point(3, 94);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmdImprimir});
             this.gridControl1.Size = new System.Drawing.Size(1128, 421);
             this.gridControl1.TabIndex = 11;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -149,7 +159,8 @@ namespace JAGUAR_PRO.Reportes
             this.colEntrada,
             this.colSalida,
             this.colsaldo,
-            this.colusuario_aprueba_ajuste});
+            this.colusuario_aprueba_ajuste,
+            this.colPrint});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -295,6 +306,15 @@ namespace JAGUAR_PRO.Reportes
             this.colsaldo.VisibleIndex = 11;
             this.colsaldo.Width = 91;
             // 
+            // colusuario_aprueba_ajuste
+            // 
+            this.colusuario_aprueba_ajuste.FieldName = "usuario_aprueba_ajuste";
+            this.colusuario_aprueba_ajuste.Name = "colusuario_aprueba_ajuste";
+            this.colusuario_aprueba_ajuste.OptionsColumn.ReadOnly = true;
+            this.colusuario_aprueba_ajuste.Visible = true;
+            this.colusuario_aprueba_ajuste.VisibleIndex = 7;
+            this.colusuario_aprueba_ajuste.Width = 85;
+            // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -368,14 +388,23 @@ namespace JAGUAR_PRO.Reportes
             this.labelControl5.TabIndex = 17;
             this.labelControl5.Text = "Almacen:";
             // 
-            // colusuario_aprueba_ajuste
+            // colPrint
             // 
-            this.colusuario_aprueba_ajuste.FieldName = "usuario_aprueba_ajuste";
-            this.colusuario_aprueba_ajuste.Name = "colusuario_aprueba_ajuste";
-            this.colusuario_aprueba_ajuste.OptionsColumn.ReadOnly = true;
-            this.colusuario_aprueba_ajuste.Visible = true;
-            this.colusuario_aprueba_ajuste.VisibleIndex = 7;
-            this.colusuario_aprueba_ajuste.Width = 85;
+            this.colPrint.Caption = "Imprimir";
+            this.colPrint.ColumnEdit = this.cmdImprimir;
+            this.colPrint.Name = "colPrint";
+            this.colPrint.Visible = true;
+            this.colPrint.VisibleIndex = 12;
+            // 
+            // cmdImprimir
+            // 
+            this.cmdImprimir.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.cmdImprimir.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdImprimir.Name = "cmdImprimir";
+            this.cmdImprimir.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdImprimir.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdImprimir_ButtonClick);
             // 
             // frmVerDetalleKardexTransactions
             // 
@@ -398,6 +427,7 @@ namespace JAGUAR_PRO.Reportes
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsKardexReportes1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdImprimir)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,5 +465,7 @@ namespace JAGUAR_PRO.Reportes
         private LabelControl labelControl5;
         private DevExpress.XtraGrid.Columns.GridColumn colNumDocumento;
         private DevExpress.XtraGrid.Columns.GridColumn colusuario_aprueba_ajuste;
+        private DevExpress.XtraGrid.Columns.GridColumn colPrint;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdImprimir;
     }
 }

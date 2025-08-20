@@ -748,6 +748,7 @@
     <Compile Include="Clases\Factura_SolicitudAutorizacion.cs" />
     <Compile Include="Clases\HrConfIsrAjusteSaldos.cs" />
     <Compile Include="Clases\InputBox.cs" />
+    <Compile Include="Clases\KardexPT.cs" />
     <Compile Include="Clases\Marcas.cs" />
     <Compile Include="Clases\OrdenesCompra.cs" />
     <Compile Include="Clases\PagoProveedores.cs" />
@@ -3975,6 +3976,11 @@
     <Compile Include="TransaccionesMP\frmLotePorMP.designer.cs">
       <DependentUpon>frmLotePorMP.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransaccionesPT\dsReportesKardex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReportesKardex.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TransaccionesPT\frmCambiarEstadoDoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4058,6 +4064,18 @@
     </Compile>
     <Compile Include="TransaccionesPT\frmTrasladoKardexPT.Designer.cs">
       <DependentUpon>frmTrasladoKardexPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransaccionesPT\rptAjusteDeInventarioMultiple.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\rptAjusteDeInventarioMultiple.Designer.cs">
+      <DependentUpon>rptAjusteDeInventarioMultiple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransaccionesPT\rptAjusteDeInventario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TransaccionesPT\rptAjusteDeInventario.Designer.cs">
+      <DependentUpon>rptAjusteDeInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="TransaccionesPT\xrptTraslado.cs">
       <SubType>Component</SubType>
@@ -5376,6 +5394,12 @@
     <EmbeddedResource Include="TransaccionesPT\frmTrasladoKardexPT.resx">
       <DependentUpon>frmTrasladoKardexPT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\rptAjusteDeInventarioMultiple.resx">
+      <DependentUpon>rptAjusteDeInventarioMultiple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransaccionesPT\rptAjusteDeInventario.resx">
+      <DependentUpon>rptAjusteDeInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TransaccionesPT\xrptTraslado.resx">
       <DependentUpon>xrptTraslado.cs</DependentUpon>
     </EmbeddedResource>
@@ -5707,6 +5731,17 @@
     </None>
     <None Include="TransaccionesMP\dsTarima.xss">
       <DependentUpon>dsTarima.xsd</DependentUpon>
+    </None>
+    <None Include="TransaccionesPT\dsReportesKardex.xsc">
+      <DependentUpon>dsReportesKardex.xsd</DependentUpon>
+    </None>
+    <None Include="TransaccionesPT\dsReportesKardex.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReportesKardex.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TransaccionesPT\dsReportesKardex.xss">
+      <DependentUpon>dsReportesKardex.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
