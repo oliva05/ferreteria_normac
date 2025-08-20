@@ -414,6 +414,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                                 case 3:
                                     row.TipoPagoName = "Depósito Bancario";
                                     break;
+                                case 4:
+                                    row.TipoPagoName = "Cheque";
+                                    break;
                             }
 
 

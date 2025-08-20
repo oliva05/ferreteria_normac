@@ -25,12 +25,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes
 
         public TipoCopia TipoCopiaActual = TipoCopia.Blanco;
 
-        public rptAjusteDeInventarioMultiple(Int64 pIdKardexPT_row)
+        public rptAjusteDeInventarioMultiple(Int32 pIdKardexPT_row)
         {
             InitializeComponent();
-            KardexPT kardex1 = new KardexPT();
+            SolicitudAjustes Solicitud1 = new SolicitudAjustes();
 
-            if (kardex1.RecuperarRegistro(pIdKardexPT_row))
+            if (Solicitud1.RecuperarRegistros(pIdKardexPT_row))
             {
                 PDV PuntoVenta1 = new PDV();
                 if (PuntoVenta1.RecuperaRegistro(1))
@@ -39,37 +39,31 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                     lblCompanyName.Text = PuntoVenta1.Nombre;
                 }
 
-                if (kardex1.Entrada > 0)
-                {
-                    lblTipoTransaccionEntrada_Salida.Text = "Entrada de Mercancías";
-                }
-                else
-                {
-                    lblTipoTransaccionEntrada_Salida.Text = "Salida de Mercancías";
-                }
 
-                lblFechaEmision.Text = kardex1.FechaReg.ToString("dd/MM/yyyy hh:mm:ss tt", new CultureInfo("en-US"));
-                lblNumeroDocumento.Text = kardex1.NumDocumento;
-                lblTipoTransaccionMovimiento.Text = kardex1.TipoTransaccionName;
-                lblEstado.Text = kardex1.EnableDescripcion;
-                lblUsuario.Text = kardex1.Usuario;
+                lblTipoTransaccionEntrada_Salida.Text = "Solicitud de Ajuste de Inventario";
 
-                if (kardex1.UsuarioApruebaAjuste != "N/D")
+                lblFechaEmision.Text = Solicitud1.FechaSolicitada.ToString("dd/MM/yyyy hh:mm:ss tt", new CultureInfo("en-US"));
+                lblNumeroDocumento.Text = Solicitud1.DocNum;
+                //lblTipoTransaccionMovimiento.Text = Solicitud1.;
+                lblEstado.Text = Solicitud1.EstadoName;
+                lblUsuario.Text = Solicitud1.nameUsuarioSolicitante;
+
+                if (Solicitud1.UsuarioAprobadorName != "N/D")
                 {
-                    lblUsuarioAprobador.Text = kardex1.UsuarioApruebaAjuste;
+                    lblUsuarioAprobador.Text = Solicitud1.UsuarioAprobadorName;
                     lblUsuarioAprobador.Visible = lblUsuarioAprobadorLabel.Visible = true;
                 }
 
-                txtComentario.Text = kardex1.Razon_motivo;
-                lblAlmacen.Text = string.Concat(kardex1.CodigoAlmacen, " ", kardex1.DescripcionAlmacen);
+                txtComentario.Text = Solicitud1.Comentario;
+                //lblAlmacen.Text = string.Concat(Solicitud1.CodigoAlmacen, " ", Solicitud1.DescripcionAlmacen);
 
                 //lblCantidad.Text = string.Format("{0:###,##0.00}", Cantidad);
-                //lblProductoDescripcionItemName.Text = kardex1.ItemName;
-                //lblItemCode.Text = kardex1.ItemCode;
+                //lblProductoDescripcionItemName.Text = Solicitud1.ItemName;
+                //lblItemCode.Text = Solicitud1.ItemCode;
 
                 //lblEntradaSalida.Text  = string.Format("{0:###,##0.00}", Cantidad);
-                //lblPrecio.Text = string.Format("{0:###,##0.00}", kardex1.Precio);
-                //lblTotal.Text = string.Format("{0:###,##0.00}", Math.Round(kardex1.Precio * Cantidad),2);
+                //lblPrecio.Text = string.Format("{0:###,##0.00}", Solicitud1.Precio);
+                //lblTotal.Text = string.Format("{0:###,##0.00}", Math.Round(Solicitud1.Precio * Cantidad),2);
                 CargarDetalle(pIdKardexPT_row);
             }
             

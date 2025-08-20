@@ -1732,6 +1732,12 @@
     <Compile Include="Facturacion\Reportes\rptFactura.Designer.cs">
       <DependentUpon>rptFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Reportes\rptFacturaAnuladaLetterSize.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\rptFacturaAnuladaLetterSize.Designer.cs">
+      <DependentUpon>rptFacturaAnuladaLetterSize.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Reportes\rptFact_RecibosAbonosLetterSize.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -4610,6 +4616,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\rptFactura.resx">
       <DependentUpon>rptFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Reportes\rptFacturaAnuladaLetterSize.resx">
+      <DependentUpon>rptFacturaAnuladaLetterSize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\rptNotasCD.resx">
       <DependentUpon>rptNotasCD.cs</DependentUpon>
