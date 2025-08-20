@@ -11,7 +11,7 @@ public class CotizacionH
     public long Id { get; set; }
     public DateTime? Fecha { get; set; }
     public DateTime? FechaRow { get; set; }
-    public int? IdUser { get; set; }
+    public int IdUser { get; set; }
     public bool? Enable { get; set; }
     public string Comentario { get; set; }
     public int DocNum { get; set; }
@@ -56,7 +56,10 @@ public class CotizacionH
                         Id = reader.GetInt64(reader.GetOrdinal("id"));
                         Fecha = reader["fecha"] as DateTime?;
                         FechaRow = reader["fecha_row"] as DateTime?;
-                        IdUser = reader["id_user"] as int?;
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("id_user")))
+                            IdUser = reader.GetInt32(reader.GetOrdinal("id_user"));
+
                         Enable = reader["enable"] as bool?;
                         Comentario = reader["comentario"] as string;
                         DocNum = reader.GetInt32(reader.GetOrdinal("DocNum"));
