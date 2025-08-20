@@ -1,7 +1,10 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
+using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Contabilidad.Proveedores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -153,6 +156,17 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
             }
 
+        }
+
+        private void cmdPrintFromGrid_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridView = (GridView)grdPagos.FocusedView;
+            var row = (dsLogisticaJaguar.pagosRow)gridView.GetFocusedDataRow();
+
+            rptPagoProveedores compra = new rptPagoProveedores(row.id_pago);
+            compra.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+            ReportPrintTool printOrden = new DevExpress.XtraReports.UI.ReportPrintTool(compra);
+            printOrden.ShowPreview();
         }
     }
 }

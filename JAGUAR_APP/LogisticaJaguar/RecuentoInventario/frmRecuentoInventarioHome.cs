@@ -15,6 +15,7 @@ using ACS.Classes;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraExport.Helpers;
+using DevExpress.XtraReports.UI;
 
 namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 {
@@ -22,7 +23,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
     {
         UserLogin UsuarioLogeado;
         PDV PuntoVentaActual;
-        DataOperations dp = new DataOperations();   
+        DataOperations dp = new DataOperations();
         public frmRecuentoInventarioHome(UserLogin userLogin, PDV pDV)
         {
             InitializeComponent();
@@ -175,7 +176,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     }
                 }
 
-                
+
 
             }
         }
@@ -280,6 +281,105 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
 
             }
+        }
+
+        private void cmdVerDetalle_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdRecuento.FocusedView;
+            var row = (dsRecuento.load_recuentosRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                bool Permitir = false;
+
+                switch (row.estadoId)
+                {
+                    case 1://creado
+                        Permitir = false;
+                        break;
+
+                    case 2://aprobado
+                        Permitir = false;
+                        break;
+                    case 3://cancelado
+                        Permitir = false;
+                        break;
+                    case 4://completado
+                        Permitir = true;
+                        break;
+                    case 5://rechazo
+                        Permitir = false;
+                        break;
+
+                    case 6://pendiente de aprobacion
+                        Permitir = false;
+                        break;
+
+                    default:
+
+                        break;
+                }
+
+                if (Permitir)
+                {
+                    frmRecuentoInventarioConteo frm = new frmRecuentoInventarioConteo(UsuarioLogeado, PuntoVentaActual, row.id_recuento, row.docnum, row.fecha_creacion, frmRecuentoInventarioConteo.AccionesRecuento.Vista);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadData();
+                    }
+                }
+
+
+            }
+        }
+
+        private void cmdPrintFromGrid_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridView = (GridView)grdRecuento.FocusedView;
+            var row = (dsRecuento.load_recuentosRow)gridView.GetFocusedDataRow();
+
+            if (row != null)
+            {
+               
+                    bool Permitir = false;
+
+                    switch (row.estadoId)
+                    {
+                        case 1://creado
+                            Permitir = false;
+                            break;
+
+                        case 2://aprobado
+                            Permitir = false;
+                            break;
+                        case 3://cancelado
+                            Permitir = false;
+                            break;
+                        case 4://completado
+                            Permitir = true;
+                            break;
+                        case 5://rechazo
+                            Permitir = false;
+                            break;
+
+                        case 6://pendiente de aprobacion
+                            Permitir = false;
+                            break;
+
+                        default:
+
+                            break;
+                    }
+
+                    if (Permitir)
+                    {
+                        rptRecuentoInventario compra = new rptRecuentoInventario(row.id_recuento);
+                        compra.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                        ReportPrintTool printOrden = new DevExpress.XtraReports.UI.ReportPrintTool(compra);
+                        printOrden.ShowPreview();
+                    }
+            }
+            
         }
     }
 }

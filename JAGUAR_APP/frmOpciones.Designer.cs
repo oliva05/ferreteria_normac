@@ -986,7 +986,6 @@
             this.navBarItem254.Caption = "Recuento de Inventario";
             this.navBarItem254.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.rec_inventory;
             this.navBarItem254.Name = "navBarItem254";
-            this.navBarItem254.Visible = false;
             this.navBarItem254.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem254_LinkClicked);
             // 
             // navBarGroup9
