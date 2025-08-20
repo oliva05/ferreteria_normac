@@ -32,6 +32,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
         
         private conteo_recuentoDataTable tableconteo_recuento;
         
+        private rpt_detalle_recuentoDataTable tablerpt_detalle_recuento;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -71,6 +73,9 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 }
                 if ((ds.Tables["conteo_recuento"] != null)) {
                     base.Tables.Add(new conteo_recuentoDataTable(ds.Tables["conteo_recuento"]));
+                }
+                if ((ds.Tables["rpt_detalle_recuento"] != null)) {
+                    base.Tables.Add(new rpt_detalle_recuentoDataTable(ds.Tables["rpt_detalle_recuento"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -127,6 +132,16 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
         public conteo_recuentoDataTable conteo_recuento {
             get {
                 return this.tableconteo_recuento;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public rpt_detalle_recuentoDataTable rpt_detalle_recuento {
+            get {
+                return this.tablerpt_detalle_recuento;
             }
         }
         
@@ -209,6 +224,9 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 if ((ds.Tables["conteo_recuento"] != null)) {
                     base.Tables.Add(new conteo_recuentoDataTable(ds.Tables["conteo_recuento"]));
                 }
+                if ((ds.Tables["rpt_detalle_recuento"] != null)) {
+                    base.Tables.Add(new rpt_detalle_recuentoDataTable(ds.Tables["rpt_detalle_recuento"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -266,6 +284,12 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                     this.tableconteo_recuento.InitVars();
                 }
             }
+            this.tablerpt_detalle_recuento = ((rpt_detalle_recuentoDataTable)(base.Tables["rpt_detalle_recuento"]));
+            if ((initTable == true)) {
+                if ((this.tablerpt_detalle_recuento != null)) {
+                    this.tablerpt_detalle_recuento.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -284,6 +308,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             base.Tables.Add(this.tableproductos_conteo);
             this.tableconteo_recuento = new conteo_recuentoDataTable();
             base.Tables.Add(this.tableconteo_recuento);
+            this.tablerpt_detalle_recuento = new rpt_detalle_recuentoDataTable();
+            base.Tables.Add(this.tablerpt_detalle_recuento);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -307,6 +333,12 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeconteo_recuento() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializerpt_detalle_recuento() {
             return false;
         }
         
@@ -376,6 +408,9 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void conteo_recuentoRowChangeEventHandler(object sender, conteo_recuentoRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void rpt_detalle_recuentoRowChangeEventHandler(object sender, rpt_detalle_recuentoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1862,6 +1897,323 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class rpt_detalle_recuentoDataTable : global::System.Data.TypedTableBase<rpt_detalle_recuentoRow> {
+            
+            private global::System.Data.DataColumn columncode_pt;
+            
+            private global::System.Data.DataColumn columnproducto;
+            
+            private global::System.Data.DataColumn columncantidad_sistema;
+            
+            private global::System.Data.DataColumn columnconteo_fisica;
+            
+            private global::System.Data.DataColumn columntipo_ajuste;
+            
+            private global::System.Data.DataColumn columncantidad_ajustada;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public rpt_detalle_recuentoDataTable() {
+                this.TableName = "rpt_detalle_recuento";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal rpt_detalle_recuentoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected rpt_detalle_recuentoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn code_ptColumn {
+                get {
+                    return this.columncode_pt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn productoColumn {
+                get {
+                    return this.columnproducto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cantidad_sistemaColumn {
+                get {
+                    return this.columncantidad_sistema;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn conteo_fisicaColumn {
+                get {
+                    return this.columnconteo_fisica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tipo_ajusteColumn {
+                get {
+                    return this.columntipo_ajuste;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cantidad_ajustadaColumn {
+                get {
+                    return this.columncantidad_ajustada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public rpt_detalle_recuentoRow this[int index] {
+                get {
+                    return ((rpt_detalle_recuentoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event rpt_detalle_recuentoRowChangeEventHandler rpt_detalle_recuentoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event rpt_detalle_recuentoRowChangeEventHandler rpt_detalle_recuentoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event rpt_detalle_recuentoRowChangeEventHandler rpt_detalle_recuentoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event rpt_detalle_recuentoRowChangeEventHandler rpt_detalle_recuentoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addrpt_detalle_recuentoRow(rpt_detalle_recuentoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public rpt_detalle_recuentoRow Addrpt_detalle_recuentoRow(string code_pt, string producto, decimal cantidad_sistema, decimal conteo_fisica, string tipo_ajuste, decimal cantidad_ajustada) {
+                rpt_detalle_recuentoRow rowrpt_detalle_recuentoRow = ((rpt_detalle_recuentoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        code_pt,
+                        producto,
+                        cantidad_sistema,
+                        conteo_fisica,
+                        tipo_ajuste,
+                        cantidad_ajustada};
+                rowrpt_detalle_recuentoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowrpt_detalle_recuentoRow);
+                return rowrpt_detalle_recuentoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                rpt_detalle_recuentoDataTable cln = ((rpt_detalle_recuentoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new rpt_detalle_recuentoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columncode_pt = base.Columns["code_pt"];
+                this.columnproducto = base.Columns["producto"];
+                this.columncantidad_sistema = base.Columns["cantidad_sistema"];
+                this.columnconteo_fisica = base.Columns["conteo_fisica"];
+                this.columntipo_ajuste = base.Columns["tipo_ajuste"];
+                this.columncantidad_ajustada = base.Columns["cantidad_ajustada"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columncode_pt = new global::System.Data.DataColumn("code_pt", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncode_pt);
+                this.columnproducto = new global::System.Data.DataColumn("producto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproducto);
+                this.columncantidad_sistema = new global::System.Data.DataColumn("cantidad_sistema", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncantidad_sistema);
+                this.columnconteo_fisica = new global::System.Data.DataColumn("conteo_fisica", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnconteo_fisica);
+                this.columntipo_ajuste = new global::System.Data.DataColumn("tipo_ajuste", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo_ajuste);
+                this.columncantidad_ajustada = new global::System.Data.DataColumn("cantidad_ajustada", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncantidad_ajustada);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public rpt_detalle_recuentoRow Newrpt_detalle_recuentoRow() {
+                return ((rpt_detalle_recuentoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new rpt_detalle_recuentoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(rpt_detalle_recuentoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.rpt_detalle_recuentoRowChanged != null)) {
+                    this.rpt_detalle_recuentoRowChanged(this, new rpt_detalle_recuentoRowChangeEvent(((rpt_detalle_recuentoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.rpt_detalle_recuentoRowChanging != null)) {
+                    this.rpt_detalle_recuentoRowChanging(this, new rpt_detalle_recuentoRowChangeEvent(((rpt_detalle_recuentoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.rpt_detalle_recuentoRowDeleted != null)) {
+                    this.rpt_detalle_recuentoRowDeleted(this, new rpt_detalle_recuentoRowChangeEvent(((rpt_detalle_recuentoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.rpt_detalle_recuentoRowDeleting != null)) {
+                    this.rpt_detalle_recuentoRowDeleting(this, new rpt_detalle_recuentoRowChangeEvent(((rpt_detalle_recuentoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removerpt_detalle_recuentoRow(rpt_detalle_recuentoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsRecuento ds = new dsRecuento();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "rpt_detalle_recuentoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class load_recuentosRow : global::System.Data.DataRow {
@@ -3024,6 +3376,193 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class rpt_detalle_recuentoRow : global::System.Data.DataRow {
+            
+            private rpt_detalle_recuentoDataTable tablerpt_detalle_recuento;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal rpt_detalle_recuentoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablerpt_detalle_recuento = ((rpt_detalle_recuentoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string code_pt {
+                get {
+                    try {
+                        return ((string)(this[this.tablerpt_detalle_recuento.code_ptColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'code_pt\' de la tabla \'rpt_detalle_recuento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerpt_detalle_recuento.code_ptColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string producto {
+                get {
+                    try {
+                        return ((string)(this[this.tablerpt_detalle_recuento.productoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'producto\' de la tabla \'rpt_detalle_recuento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerpt_detalle_recuento.productoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cantidad_sistema {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablerpt_detalle_recuento.cantidad_sistemaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cantidad_sistema\' de la tabla \'rpt_detalle_recuento\' es D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerpt_detalle_recuento.cantidad_sistemaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal conteo_fisica {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablerpt_detalle_recuento.conteo_fisicaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'conteo_fisica\' de la tabla \'rpt_detalle_recuento\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablerpt_detalle_recuento.conteo_fisicaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string tipo_ajuste {
+                get {
+                    try {
+                        return ((string)(this[this.tablerpt_detalle_recuento.tipo_ajusteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipo_ajuste\' de la tabla \'rpt_detalle_recuento\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablerpt_detalle_recuento.tipo_ajusteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cantidad_ajustada {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablerpt_detalle_recuento.cantidad_ajustadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cantidad_ajustada\' de la tabla \'rpt_detalle_recuento\' es " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerpt_detalle_recuento.cantidad_ajustadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscode_ptNull() {
+                return this.IsNull(this.tablerpt_detalle_recuento.code_ptColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcode_ptNull() {
+                this[this.tablerpt_detalle_recuento.code_ptColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsproductoNull() {
+                return this.IsNull(this.tablerpt_detalle_recuento.productoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetproductoNull() {
+                this[this.tablerpt_detalle_recuento.productoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscantidad_sistemaNull() {
+                return this.IsNull(this.tablerpt_detalle_recuento.cantidad_sistemaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcantidad_sistemaNull() {
+                this[this.tablerpt_detalle_recuento.cantidad_sistemaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isconteo_fisicaNull() {
+                return this.IsNull(this.tablerpt_detalle_recuento.conteo_fisicaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setconteo_fisicaNull() {
+                this[this.tablerpt_detalle_recuento.conteo_fisicaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istipo_ajusteNull() {
+                return this.IsNull(this.tablerpt_detalle_recuento.tipo_ajusteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settipo_ajusteNull() {
+                this[this.tablerpt_detalle_recuento.tipo_ajusteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscantidad_ajustadaNull() {
+                return this.IsNull(this.tablerpt_detalle_recuento.cantidad_ajustadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcantidad_ajustadaNull() {
+                this[this.tablerpt_detalle_recuento.cantidad_ajustadaColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3145,6 +3684,40 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public conteo_recuentoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class rpt_detalle_recuentoRowChangeEvent : global::System.EventArgs {
+            
+            private rpt_detalle_recuentoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public rpt_detalle_recuentoRowChangeEvent(rpt_detalle_recuentoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public rpt_detalle_recuentoRow Row {
                 get {
                     return this.eventRow;
                 }

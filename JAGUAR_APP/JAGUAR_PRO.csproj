@@ -2062,6 +2062,9 @@
     <Compile Include="LogisticaJaguar\ProveedorCRUDPagos.Designer.cs">
       <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\dsRecuento.cs">
+      <DependentUpon>dsRecuento.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\RecuentoInventario\dsRecuento.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2084,6 +2087,12 @@
     </Compile>
     <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioHome.Designer.cs">
       <DependentUpon>frmRecuentoInventarioHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\rptRecuentoInventario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\rptRecuentoInventario.Designer.cs">
+      <DependentUpon>rptRecuentoInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="LogisticaJaguar\xrptBarCode.cs">
       <SubType>Component</SubType>
@@ -4738,6 +4747,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioHome.resx">
       <DependentUpon>frmRecuentoInventarioHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\rptRecuentoInventario.resx">
+      <DependentUpon>rptRecuentoInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\xrptBarCode.resx">
       <DependentUpon>xrptBarCode.cs</DependentUpon>

@@ -24,6 +24,8 @@ namespace JAGUAR_PRO.Clases
         public int IdBodega { get; set; }    //8
         public string Bodega { get; set; }   //9
         public int EstadoId { get; set; } //10
+        public string UsuarioCreadorNombre { get; set; } //11
+        public string UsuarioAprobadorNombre { get; set; } //12
         public bool Recuperado { get; set; }
 
 
@@ -52,6 +54,9 @@ namespace JAGUAR_PRO.Clases
                     IdBodega = dr.GetInt32(8);
                     Bodega = dr.IsDBNull(9) ? "" : dr.GetString(9);
                     EstadoId = dr.GetInt32(10);
+                    UsuarioCreadorNombre = dr.IsDBNull(11) ? "" : dr.GetString(11);
+                    UsuarioAprobadorNombre = dr.IsDBNull(12) ? "" : dr.GetString(12);
+                    Recuperado = true;
                 }
                 dr.Close();
 

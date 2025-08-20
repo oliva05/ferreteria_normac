@@ -15,6 +15,7 @@ using ACS.Classes;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraExport.Helpers;
+using DevExpress.XtraReports.UI;
 
 namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 {
@@ -330,6 +331,55 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
 
             }
+        }
+
+        private void cmdPrintFromGrid_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridView = (GridView)grdRecuento.FocusedView;
+            var row = (dsRecuento.load_recuentosRow)gridView.GetFocusedDataRow();
+
+            if (row != null)
+            {
+               
+                    bool Permitir = false;
+
+                    switch (row.estadoId)
+                    {
+                        case 1://creado
+                            Permitir = false;
+                            break;
+
+                        case 2://aprobado
+                            Permitir = false;
+                            break;
+                        case 3://cancelado
+                            Permitir = false;
+                            break;
+                        case 4://completado
+                            Permitir = true;
+                            break;
+                        case 5://rechazo
+                            Permitir = false;
+                            break;
+
+                        case 6://pendiente de aprobacion
+                            Permitir = false;
+                            break;
+
+                        default:
+
+                            break;
+                    }
+
+                    if (Permitir)
+                    {
+                        rptRecuentoInventario compra = new rptRecuentoInventario(row.id_recuento);
+                        compra.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                        ReportPrintTool printOrden = new DevExpress.XtraReports.UI.ReportPrintTool(compra);
+                        printOrden.ShowPreview();
+                    }
+            }
+            
         }
     }
 }
