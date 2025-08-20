@@ -1555,7 +1555,7 @@ namespace Eatery.Ventas
         private void cmdNew_Click(object sender, EventArgs e)
         {
             panelNotificacion.BackColor = Color.White;
-            txtRTN.Text = txtNombreCliente.Text = lblMensaje.Text = "";
+            txtRTN.Text = txtDireccion.Text = txtNombreCliente.Text = lblMensaje.Text = "";
             txtTotal.Text = "0.00";
             dsVentas1.detalle_factura_transaction.Clear();
             dsVentas1.detalle_factura_transaccion_inv.Clear();
@@ -1579,9 +1579,9 @@ namespace Eatery.Ventas
 
             gleEstados.EditValue = 6;//Nuevo
             txtNombreCliente.Text = "Consumidor Final";
-            txtRTN.Text = string.Empty;
-            txtRTN.Properties.NullValuePrompt =
-            txtDireccion.Properties.NullValuePrompt = "No Aplica";
+            //txtRTN.Text = string.Empty;
+            //txtRTN.Properties.NullValuePrompt =
+            //txtDireccion.Properties.NullValuePrompt = "No Aplica";
                         
             if (TipoFacturacionActual == TipoFacturacionStock.VentaUsados)
             {

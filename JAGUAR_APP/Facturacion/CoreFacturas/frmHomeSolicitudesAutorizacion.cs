@@ -2,10 +2,13 @@
 using DevExpress.DashboardWin.Commands;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 using DevExpress.XtraRichEdit.Commands.Internal;
+using DevExpress.XtraSpreadsheet.Import.Xls;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.Contabilidad.Proveedores;
+using JAGUAR_PRO.Facturacion.Reportes;
 using JAGUAR_PRO.LogisticaJaguar;
 using JAGUAR_PRO.TransaccionesPT;
 using System;
@@ -387,6 +390,21 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             {
                 frmOrdenesCompraMain frm = new frmOrdenesCompraMain(usuarioLogeado, frmOrdenesCompraMain.TipoOperacion.View, PuntoVentaActual, row.id);
                 frm.ShowDialog();
+            }
+        }
+
+        private void cmdImprimir_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //rptAjusteDeInventarioMultiple
+            var gv = (GridView)gridControl1.FocusedView;
+            var row = (dsFacturasGestion.AjusteInventarioAutorizacionRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            if (row.idestado > 0)
+            {
+                rptAjusteDeInventarioMultiple report = new rptAjusteDeInventarioMultiple(row.id);
+                report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                ReportPrintTool printReport = new ReportPrintTool(report);
+                printReport.ShowPreviewDialog();
             }
         }
     }

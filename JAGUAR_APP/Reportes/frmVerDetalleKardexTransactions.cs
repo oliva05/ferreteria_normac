@@ -4,6 +4,10 @@ using DevExpress.DashboardWin.Design;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraSpreadsheet.Import.Xls;
+using JAGUAR_PRO.Compras;
+using JAGUAR_PRO.Facturacion.Reportes;
 using JAGUAR_PRO.Mantenimientos.Modelos;
 using JAGUAR_PRO.Requisiciones.Reportes;
 using System;
@@ -123,6 +127,19 @@ namespace JAGUAR_PRO.Reportes
         private void cmdRecargar_Click(object sender, EventArgs e)
         {
             LoadDatos(IdPT);
+        }
+
+        private void cmdImprimir_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gv = (GridView)gridControl1.FocusedView;
+            var row = (dsKardexReportes.detalle_transacciones_kardexRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+
+            rptAjusteDeInventario report = new rptAjusteDeInventario(row.id);
+            //RPT_OrdenCompra report = new RPT_OrdenCompra(num) { DataSource = dsCompras1, ShowPrintMarginsWarning = false };
+            report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+            ReportPrintTool printReport = new ReportPrintTool(report);
+            printReport.ShowPreviewDialog();
         }
     }
 }
