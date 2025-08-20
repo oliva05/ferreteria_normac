@@ -317,7 +317,7 @@ namespace JAGUAR_PRO.TransaccionesPT
             {
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("dbo.[usp_InsertAjusteManual_Kardex_PT_V5]", conn);
+                SqlCommand cmd = new SqlCommand("dbo.[usp_InsertAjusteManual_Kardex_PT_V6]", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_pt", Convert.ToDecimal(Id_PT));
                 cmd.Parameters.AddWithValue("@id_Usuario", UsuarioLogeado.Id);
@@ -348,6 +348,11 @@ namespace JAGUAR_PRO.TransaccionesPT
                     cmd.Parameters.AddWithValue("@id_almacen", DBNull.Value);
                 else
                     cmd.Parameters.AddWithValue("@id_almacen", id_bodega);
+
+                if(!string.IsNullOrEmpty(txtComentarioJustificacion.Text))
+                    cmd.Parameters.AddWithValue("@razon_motivo", txtComentarioJustificacion.Text);
+                else
+                    cmd.Parameters.AddWithValue("@razon_motivo", DBNull.Value);
 
                 cmd.ExecuteNonQuery();
                 conn.Close();
