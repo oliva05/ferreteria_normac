@@ -56,22 +56,22 @@ namespace JAGUAR_PRO.Clases
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("sp_gets_pago_proveedores_class", conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idPagoProveedor", pIdPagoProveedor);
+                cmd.Parameters.AddWithValue("@idPago", pIdPagoProveedor);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    IdPagoProveedor = Convert.ToInt32(dr["[id_pago]"]);
-                    FechaPago = Convert.ToDateTime(dr["[fecha_pago]]"]);
-                    IdProveedor = Convert.ToInt32(dr["[id_proveedor]"]);
+                    IdPagoProveedor = Convert.ToInt32(dr.GetOrdinal("id_pago"));
+                    FechaPago = Convert.ToDateTime(dr["fecha_pago"]);
+                    IdProveedor = Convert.ToInt32(dr["id_proveedor"]);
                     NombreProveedor = dr["proveedor"].ToString();
-                    MontoPago = Convert.ToDecimal(dr["[total_pagado]"]);
+                    MontoPago = Convert.ToDecimal(dr["total_pagado"]);
                     IdMetodoPago = Convert.ToInt32(dr["idmetodo"]);
                     MetodoPago = dr["metodo_pago"].ToString();
-                    Observacion = dr["[observaciones]"].ToString();
-                    DocNum = dr["[docnum]"].ToString();
-                    PuntoVentaId = Convert.ToInt32(dr["[puntoVenta]"]);
-                    Enable = Convert.ToBoolean(dr["[enable]"]);
-                    IdUsuario = Convert.ToInt32(dr["[id_usuario]"]);
+                    Observacion = dr["observaciones"].ToString();
+                    DocNum = dr["docnum"].ToString();
+                    PuntoVentaId = Convert.ToInt32(dr["puntoVenta"]);
+                    Enable = Convert.ToBoolean(dr["enable"]);
+                    IdUsuario = Convert.ToInt32(dr["id_usuario"]);
                     UsuarioNombre = dr["usuario"].ToString();
                     Rtn = dr["RTN"].ToString();
                     dr.Close();

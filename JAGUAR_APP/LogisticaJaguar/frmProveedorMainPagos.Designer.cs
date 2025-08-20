@@ -75,6 +75,7 @@
             this.TabFacturas = new DevExpress.XtraTab.XtraTabPage();
             this.grdFacturas = new DevExpress.XtraGrid.GridControl();
             this.grdvFacturas = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).BeginInit();
@@ -260,7 +261,8 @@
             this.coltotal_pagado,
             this.colobservaciones,
             this.colid_usuario,
-            this.colusuario});
+            this.colusuario,
+            this.gridColumn1});
             this.grdvPagos.GridControl = this.grdPagos;
             this.grdvPagos.Name = "grdvPagos";
             this.grdvPagos.OptionsView.ShowAutoFilterRow = true;
@@ -370,6 +372,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdPrintFromGrid.Name = "cmdPrintFromGrid";
             this.cmdPrintFromGrid.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdPrintFromGrid.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdPrintFromGrid_ButtonClick);
             // 
             // cmdVer_Editar
             // 
@@ -444,6 +447,14 @@
             this.grdvFacturas.GridControl = this.grdFacturas;
             this.grdvFacturas.Name = "grdvFacturas";
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Imprimir";
+            this.gridColumn1.ColumnEdit = this.cmdPrintFromGrid;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 7;
+            // 
             // frmProveedorMainPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -514,5 +525,6 @@
         private DevExpress.XtraGrid.GridControl grdFacturas;
         private DevExpress.XtraGrid.Views.Grid.GridView grdvFacturas;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdVerDetalle;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

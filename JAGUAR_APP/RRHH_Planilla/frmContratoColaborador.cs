@@ -866,7 +866,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                         cmd.Parameters.AddWithValue("@employee_id", empleado.Id);
                         cmd.Parameters.AddWithValue("@department_id", empleado.DepartmentId);
                         if (slueCategoriaContrato.EditValue == null)
-                            cmd.Parameters.AddWithValue("@categoria_contrato_id", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@categoria_contrato_id", 1);
                         else
                             cmd.Parameters.AddWithValue("@categoria_contrato_id", slueCategoriaContrato.EditValue);
                         cmd.Parameters.AddWithValue("@job_id", empleado.JobId == 0 ? DBNull.Value : (object) empleado.JobId);
@@ -918,7 +918,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                         cmd2.Parameters.AddWithValue("@name", empleado.Barcode);
                         cmd2.Parameters.AddWithValue("@employee_id", empleado.Id);
                         cmd2.Parameters.AddWithValue("@department_id", empleado.DepartmentId);
-                        cmd2.Parameters.AddWithValue("@categoria_contrato_id", slueCategoriaContrato.EditValue==null ? DBNull.Value : slueCategoriaContrato.EditValue);
+                        cmd2.Parameters.AddWithValue("@categoria_contrato_id", slueCategoriaContrato.EditValue==null ? 1 : slueCategoriaContrato.EditValue);
                         cmd2.Parameters.AddWithValue("@job_id", empleado.JobId == 0 ? DBNull.Value : (object)empleado.JobId);
                         cmd2.Parameters.AddWithValue("@date_start", deFechaInicio.EditValue);
                         cmd2.Parameters.AddWithValue("@date_end", deFin.EditValue == null ? DBNull.Value : deFin.EditValue);

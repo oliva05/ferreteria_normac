@@ -1,8 +1,10 @@
-﻿using DevExpress.XtraReports.UI;
+﻿using ACS.Classes;
+using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
 using System;
 using System.Collections;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Drawing;
 
 namespace JAGUAR_PRO.Contabilidad.Proveedores
@@ -38,8 +40,33 @@ namespace JAGUAR_PRO.Contabilidad.Proveedores
                     lblCompanyName.Text = puntoVentaActual.Nombre;
                 }
 
+                GetDetalleReporte(pIdPago);
+
             }
         }
 
+        private void GetDetalleReporte(int pIdPago)
+        {
+            try
+            {
+                string query = @"sp_get_pago_rpt";
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idPago", pIdPago);
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsLogisticaJaguar1.rpt_detalle_pago.Clear();
+                adat.Fill(dsLogisticaJaguar1.rpt_detalle_pago);
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                CajaDialogo.Error(ex.Message);
+            }
+        }
     }
 }
