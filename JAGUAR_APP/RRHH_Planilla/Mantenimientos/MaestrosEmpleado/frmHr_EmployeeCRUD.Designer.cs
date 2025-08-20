@@ -510,6 +510,7 @@
             this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPhoto.TabIndex = 3;
             this.pbPhoto.TabStop = false;
+            this.pbPhoto.Visible = false;
             // 
             // lblCodigo
             // 
@@ -3600,6 +3601,7 @@
             this.btnCambiarImagen.Text = "Cambiar Imagen";
             this.btnCambiarImagen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCambiarImagen.UseVisualStyleBackColor = true;
+            this.btnCambiarImagen.Visible = false;
             this.btnCambiarImagen.Click += new System.EventHandler(this.btnCambiarImagen_Click);
             // 
             // openFileDialog1

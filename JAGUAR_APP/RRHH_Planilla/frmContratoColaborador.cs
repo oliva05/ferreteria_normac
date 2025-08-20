@@ -6,6 +6,7 @@ using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraRichEdit.Commands.Internal;
 using DocumentFormat.OpenXml.Office.Word;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Clases.Colaborador;
@@ -52,6 +53,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
         DetalleContrato contratoActual = new DetalleContrato();
         int IdEmpleado;
         DataOperations dp;
+        public event Action OnCerrarConActualizacion;
 
         //public frmContratoColaborador(string employeeCode, UserLogin usuarioP, int pIdEmpleado)
         //{
@@ -306,6 +308,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                 lblPuesto.Text = empleado.Puesto;
             }
 
+            CargarEstadosContratos();
 
             if (contratoActual.RecuperarRegistroPorEmpleadoId(IdEmpleado, contratoId))
             {
@@ -344,6 +347,21 @@ namespace JAGUAR_PRO.RRHH_Planilla
                     btnAddContratoHistorico.Enabled = false;
                     btnAddAumento.Enabled = false;
                     grdEstados.EditValue = false;
+                    btnEditContract.Enabled = false;
+
+                    deFechaInicio.EditValue = contratoActual.StartDate;
+                    deFin.EditValue = contratoActual.EndDate;
+                    sluePlanificacion.EditValue = contratoActual.PlanificacionTrabajoId;
+                    sluePagoPlanificado.EditValue = contratoActual.PagoPlanificadoId;
+                    txtAniosAnt.Text = contratoActual.AniosAntiguedad.ToString();
+                    txtMesesAnt.Text = contratoActual.MesesAntiguedad.ToString();
+                    txtNote.Text = contratoActual.Nota.ToString();
+                    txtSalario.EditValue = contratoActual.Wage;
+                    tsPermisoEstudio.EditValue = contratoActual.StudyPermit;
+                    slueCategoriaContrato.EditValue = contratoActual.ContractTypeId;
+                    slueTipoContrato2.EditValue = contratoActual.TipoContrato;
+                    txtDescripcionPermiso.Text = contratoActual.DescripcionPermiso;
+                    grdEstados.EditValue = contratoActual.EstadoId;
                 }
 
                 CambiarMascaraMoneda(contratoActual.Moneda);
@@ -357,12 +375,17 @@ namespace JAGUAR_PRO.RRHH_Planilla
 
                 CargarAccionDelPersonal();
                 CargarBeneficiosDeducciones();
-                
+
 
 
             }
-            CargarEstadosContratos();
-            txtDescripcionPermiso.Enabled = false;
+            else
+            {
+                grdEstados.EditValue = 2;
+            }
+
+
+                txtDescripcionPermiso.Enabled = false;
         }
 
         private void CargarEstadosContratos()
@@ -393,6 +416,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
 
         private void cmdCerrar_Click(object sender, EventArgs e)
         {
+            OnCerrarConActualizacion?.Invoke();
             this.Close();
         }
 
@@ -463,11 +487,12 @@ namespace JAGUAR_PRO.RRHH_Planilla
 
                 dsColaborador1.payment_history.Clear();
 
-                using (SqlDataAdapter da = new SqlDataAdapter("dbo.uspGetHistoricoAumentoByCodeV2", cnx))
+                using (SqlDataAdapter da = new SqlDataAdapter("[dbo].[uspGetHistoricoAumentoByCodeV3]", cnx))
                 {
                     cnx.Open();
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    da.SelectCommand.Parameters.Add("@barcode", SqlDbType.VarChar).Value = codigoEmpleado;
+                    //da.SelectCommand.Parameters.Add("@barcode", SqlDbType.VarChar).Value = codigoEmpleado;
+                    da.SelectCommand.Parameters.AddWithValue("@employee_id", empleadoId);
                     da.Fill(dsColaborador1.payment_history);
                     cnx.Close();
                 }
@@ -799,11 +824,11 @@ namespace JAGUAR_PRO.RRHH_Planilla
                     return;
                 }
 
-                if (sluePlanificacion.EditValue==null)
-                {
-                    CajaDialogo.Error("Debe de seleccionar una opcion de planificación de trabajo");
-                    return;
-                }
+                //if (sluePlanificacion.EditValue==null)
+                //{
+                //    CajaDialogo.Error("Debe de seleccionar una opcion de planificación de trabajo");
+                //    return;
+                //}
 
                 if (sluePagoPlanificado.EditValue == null)
                 {
@@ -811,17 +836,17 @@ namespace JAGUAR_PRO.RRHH_Planilla
                     return;
                 }
 
-                if (slueCategoriaContrato.EditValue == null)
-                {
-                    CajaDialogo.Error("Debe de seleccionar una opcion de tipo de contrato");
-                    return;
-                }
+                //if (slueCategoriaContrato.EditValue == null)
+                //{
+                //    CajaDialogo.Error("Debe de seleccionar una opcion de tipo de contrato");
+                //    return;
+                //}
 
-                if (slueTipoContrato2.EditValue == null)
-                {
-                    CajaDialogo.Error("Debe de seleccionar un tipo de contrato");
-                    return;
-                }
+                //if (slueTipoContrato2.EditValue == null)
+                //{
+                //    CajaDialogo.Error("Debe de seleccionar un tipo de contrato");
+                //    return;
+                //}
 
 
                 DataOperations dp = new DataOperations();
@@ -841,14 +866,14 @@ namespace JAGUAR_PRO.RRHH_Planilla
                         cmd.Parameters.AddWithValue("@employee_id", empleado.Id);
                         cmd.Parameters.AddWithValue("@department_id", empleado.DepartmentId);
                         if (slueCategoriaContrato.EditValue == null)
-                            cmd.Parameters.AddWithValue("@categoria_contrato_id", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@categoria_contrato_id", 1);
                         else
                             cmd.Parameters.AddWithValue("@categoria_contrato_id", slueCategoriaContrato.EditValue);
-                        cmd.Parameters.AddWithValue("@job_id", empleado.JobId);
+                        cmd.Parameters.AddWithValue("@job_id", empleado.JobId == 0 ? DBNull.Value : (object) empleado.JobId);
                         cmd.Parameters.AddWithValue("@date_start", deFechaInicio.EditValue);
                         cmd.Parameters.AddWithValue("@date_end", deFin.EditValue == null ? DBNull.Value : deFin.EditValue);
                         cmd.Parameters.AddWithValue("@trial_date_end", dePeriodoPrueba.EditValue== null ? DBNull.Value : dePeriodoPrueba.EditValue);
-                        cmd.Parameters.AddWithValue("@resource_calendar_id", sluePlanificacion.EditValue);
+                        cmd.Parameters.AddWithValue("@resource_calendar_id", sluePlanificacion.EditValue == null ? 1 : sluePlanificacion.EditValue);
                         cmd.Parameters.AddWithValue("@wage", txtSalario.EditValue);
                         cmd.Parameters.AddWithValue("@notes", txtNote.Text);
                         cmd.Parameters.AddWithValue("@company_id", 1);
@@ -860,7 +885,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                         cmd.Parameters.AddWithValue("@permit_number_of_days", 0);
                         cmd.Parameters.AddWithValue("@descripcion_permiso", txtDescripcionPermiso.EditValue == null ? string.Empty : txtDescripcionPermiso.Text);
                         cmd.Parameters.AddWithValue("@state_id", 1);
-                        cmd.Parameters.AddWithValue("@tipo_contrato", slueTipoContrato2.EditValue==null ? DBNull.Value : slueTipoContrato2.EditValue);
+                        cmd.Parameters.AddWithValue("@tipo_contrato", slueTipoContrato2.EditValue==null ? 1 : slueTipoContrato2.EditValue);
 
                         contratoId = Convert.ToInt32(cmd.ExecuteNonQuery());
 
@@ -893,12 +918,12 @@ namespace JAGUAR_PRO.RRHH_Planilla
                         cmd2.Parameters.AddWithValue("@name", empleado.Barcode);
                         cmd2.Parameters.AddWithValue("@employee_id", empleado.Id);
                         cmd2.Parameters.AddWithValue("@department_id", empleado.DepartmentId);
-                        cmd2.Parameters.AddWithValue("@categoria_contrato_id", slueCategoriaContrato.EditValue==null ? DBNull.Value : slueCategoriaContrato.EditValue);
-                        cmd2.Parameters.AddWithValue("@job_id", empleado.JobId);
+                        cmd2.Parameters.AddWithValue("@categoria_contrato_id", slueCategoriaContrato.EditValue==null ? 1 : slueCategoriaContrato.EditValue);
+                        cmd2.Parameters.AddWithValue("@job_id", empleado.JobId == 0 ? DBNull.Value : (object)empleado.JobId);
                         cmd2.Parameters.AddWithValue("@date_start", deFechaInicio.EditValue);
                         cmd2.Parameters.AddWithValue("@date_end", deFin.EditValue == null ? DBNull.Value : deFin.EditValue);
                         cmd2.Parameters.AddWithValue("@trial_date_end", dePeriodoPrueba.EditValue == null ? DBNull.Value : dePeriodoPrueba.EditValue);
-                        cmd2.Parameters.AddWithValue("@resource_calendar_id", sluePlanificacion.EditValue);
+                        cmd2.Parameters.AddWithValue("@resource_calendar_id", sluePlanificacion.EditValue == null ? 1 : sluePlanificacion.EditValue);
                         cmd2.Parameters.AddWithValue("@wage", txtSalario.EditValue);
                         cmd2.Parameters.AddWithValue("@notes", txtNote.Text);
                         cmd2.Parameters.AddWithValue("@company_id", 1);
@@ -911,7 +936,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                         cmd2.Parameters.AddWithValue("@descripcion_permiso", txtDescripcionPermiso.EditValue == null ? string.Empty : txtDescripcionPermiso.Text);
                         cmd2.Parameters.AddWithValue("@state_id", 1);
                         cmd2.Parameters.AddWithValue("@id", contratoActual.ID);
-                        cmd2.Parameters.AddWithValue("@tipo_contrato", slueTipoContrato2.EditValue == null ? DBNull.Value : slueTipoContrato2.EditValue);
+                        cmd2.Parameters.AddWithValue("@tipo_contrato", slueTipoContrato2.EditValue == null ? 1 : slueTipoContrato2.EditValue);
                         cmd2.Parameters.AddWithValue("@estado", grdEstados.EditValue);
 
                         cmd2.ExecuteNonQuery();
@@ -1156,7 +1181,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
 
             if (frm.ShowDialog()== DialogResult.OK)
             {
-                CargarHistoricoAumentos();
+                CargarAccionDelPersonal();
             }
         }
 

@@ -32,15 +32,19 @@ namespace JAGUAR_PRO.LogisticaJaguar
         {
             InitializeComponent();
             UsuarioLogeado = userLogin;
-            txtMontoPagar.Properties.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            //txtMontoPagar.Properties.DisplayFormat.FormatString = "{0:#,###,##0.00}";
             GetTipoPago();
             grdTipoPago.EditValue = 3;
             LoadProveedoresList();
             grdvDetalleFacturas.OptionsMenu.EnableColumnMenu = true;
             PuntoVentaActual = puntoVentaActual;
-            txtMontoPagar.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            txtMontoPagar.Properties.Mask.EditMask = "n2";
+            
             txtMontoPagar.Properties.Mask.UseMaskAsDisplayFormat = true;
+            txtMontoPagar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            txtMontoPagar.Properties.DisplayFormat.FormatString = "n4";
+            txtMontoPagar.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            txtMontoPagar.Properties.EditFormat.FormatString = "n4";
+            txtMontoPagar.Properties.Mask.Culture = System.Globalization.CultureInfo.InvariantCulture;
             //Habilita o deshabilita que el user pueda manipular el menu haciendo clic derecho sobre el header de una columna, para elegir columnas, ordenar, etc
 
 
@@ -577,6 +581,23 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     default:
                         break;
                 }
+            }
+        }
+
+        private void txtMontoPagar_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtObs.Focus();
+                MontoOrigen = Convert.ToDecimal(txtMontoPagar.EditValue);
+            }
+        }
+
+        private void txtMontoPagar_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToDecimal(txtMontoPagar.EditValue) > 0)
+            {
+                MontoOrigen = Convert.ToDecimal(txtMontoPagar.EditValue);
             }
         }
     }

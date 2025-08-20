@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>\\WIN-1U114J6T1NI\JAGUAR_PRO\</PublishUrl>
+    <PublishUrl>\\192.168.21.50\JAGUAR_PROIP\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -751,6 +751,7 @@
     <Compile Include="Clases\KardexPT.cs" />
     <Compile Include="Clases\Marcas.cs" />
     <Compile Include="Clases\OrdenesCompra.cs" />
+    <Compile Include="Clases\PagoProveedores.cs" />
     <Compile Include="Clases\PedidoCliente.cs" />
     <Compile Include="Clases\Planilla\Conceptos.cs" />
     <Compile Include="Clases\Planilla\EmpleadoAsignacion.cs" />
@@ -779,6 +780,7 @@
     <Compile Include="Clases\ProductoUsado.cs" />
     <Compile Include="Clases\ReciboH.cs" />
     <Compile Include="Clases\Notas_CreditoDebito.cs" />
+    <Compile Include="Clases\RecuentoInventario.cs" />
     <Compile Include="Clases\RegistroPago.cs" />
     <Compile Include="Clases\RequisaTraslado.cs" />
     <Compile Include="Clases\SolicitudAjustes.cs" />
@@ -924,6 +926,12 @@
     </Compile>
     <Compile Include="Contabilidad\Proveedores\frmSelecAnticipo.Designer.cs">
       <DependentUpon>frmSelecAnticipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\rptPagoProveedores.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Proveedores\rptPagoProveedores.Designer.cs">
+      <DependentUpon>rptPagoProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Despachos\dsTransaccionesDespacho.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2055,6 +2063,20 @@
     <Compile Include="LogisticaJaguar\ProveedorCRUDPagos.Designer.cs">
       <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\dsRecuento.cs">
+      <DependentUpon>dsRecuento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\dsRecuento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRecuento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioConteo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioConteo.Designer.cs">
+      <DependentUpon>frmRecuentoInventarioConteo.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2066,6 +2088,12 @@
     </Compile>
     <Compile Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioHome.Designer.cs">
       <DependentUpon>frmRecuentoInventarioHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\rptRecuentoInventario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\RecuentoInventario\rptRecuentoInventario.Designer.cs">
+      <DependentUpon>rptRecuentoInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="LogisticaJaguar\xrptBarCode.cs">
       <SubType>Component</SubType>
@@ -2995,6 +3023,17 @@
     </None>
     <None Include="LogisticaJaguar\Pedidos\dsPedidos_PRD.xss">
       <DependentUpon>dsPedidos_PRD.xsd</DependentUpon>
+    </None>
+    <None Include="LogisticaJaguar\RecuentoInventario\dsRecuento.xsc">
+      <DependentUpon>dsRecuento.xsd</DependentUpon>
+    </None>
+    <None Include="LogisticaJaguar\RecuentoInventario\dsRecuento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRecuento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LogisticaJaguar\RecuentoInventario\dsRecuento.xss">
+      <DependentUpon>dsRecuento.xsd</DependentUpon>
     </None>
     <None Include="Mantenimientos\Comisiones\dsComisiones.xsc">
       <DependentUpon>dsComisiones.xsd</DependentUpon>
@@ -4245,6 +4284,9 @@
     <EmbeddedResource Include="Contabilidad\Proveedores\frmMainAnticipos.resx">
       <DependentUpon>frmMainAnticipos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Proveedores\rptPagoProveedores.resx">
+      <DependentUpon>rptPagoProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Despachos\frmentregadeproductoT.resx">
       <DependentUpon>frmentregadeproductoT.cs</DependentUpon>
     </EmbeddedResource>
@@ -4714,6 +4756,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\ProveedorCRUDPagos.resx">
       <DependentUpon>ProveedorCRUDPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioConteo.resx">
+      <DependentUpon>frmRecuentoInventarioConteo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioDetalle.resx">
+      <DependentUpon>frmRecuentoInventarioDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\frmRecuentoInventarioHome.resx">
+      <DependentUpon>frmRecuentoInventarioHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\RecuentoInventario\rptRecuentoInventario.resx">
+      <DependentUpon>rptRecuentoInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\xrptBarCode.resx">
       <DependentUpon>xrptBarCode.cs</DependentUpon>
@@ -5701,6 +5755,7 @@
     <Content Include="jaguar.ico" />
     <Content Include="normac_ico_.ico" />
     <None Include="Resources\Ionic-Ionicons-Add-circle-sharp.32.png" />
+    <None Include="Resources\rec_inventory.png" />
     <Content Include="WhatsApp Image 2025-03-01 at 11.15.59 AM.ico" />
     <None Include="Resources\xml_24x24.png" />
     <None Include="Resources\_click_24X24.png" />

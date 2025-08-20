@@ -88,13 +88,9 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             if (e.KeyCode == Keys.Enter)
             {
+                tipoBusquedaActual = TipoBusqueda.PorCodigoPT;
                 btnBuscare_Click(new object(), new EventArgs());
             }
-        }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void BusquedaProductos(string filtro)
@@ -121,7 +117,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
 
         private void txtCode_TextChanged(object sender, EventArgs e)
         {
-            tipoBusquedaActual = TipoBusqueda.PorCodigoPT;
+            //tipoBusquedaActual = TipoBusqueda.PorCodigoPT;
             txtDesc.Text = txtCodRefe.Text = txtCodComb.Text = txtMarca.Text = string.Empty;
         }
 
@@ -129,13 +125,14 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             if (e.KeyCode == Keys.Enter)
             {
+                tipoBusquedaActual = TipoBusqueda.PorDescripcion;
                 btnBuscare_Click(new object(), new EventArgs());
             }
         }
 
         private void txtDesc_TextChanged(object sender, EventArgs e)
         {
-            tipoBusquedaActual = TipoBusqueda.PorDescripcion;
+            //tipoBusquedaActual = TipoBusqueda.PorDescripcion;
             txtCode.Text = txtCodComb.Text = txtCodRefe.Text = txtMarca.Text = string.Empty;
         }
 
@@ -144,13 +141,14 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
 
             if (e.KeyCode == Keys.Enter)
             {
+                tipoBusquedaActual = TipoBusqueda.PorCodReferencia;
                 btnBuscare_Click(new object(), new EventArgs());
             }
         }
 
         private void txtCodRefe_TextChanged(object sender, EventArgs e)
         {
-            tipoBusquedaActual = TipoBusqueda.PorCodReferencia;
+            //tipoBusquedaActual = TipoBusqueda.PorCodReferencia;
             txtCode.Text = txtDesc.Text = txtCodComb.Text = txtMarca.Text = string.Empty;
         }
 
@@ -158,13 +156,14 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             if (e.KeyCode == Keys.Enter)
             {
+                tipoBusquedaActual = TipoBusqueda.PorCodCombinado;
                 btnBuscare_Click(new object(), new EventArgs());
             }
         }
 
         private void txtCodComb_TextChanged(object sender, EventArgs e)
         {
-            tipoBusquedaActual = TipoBusqueda.PorCodCombinado;
+            //tipoBusquedaActual = TipoBusqueda.PorCodCombinado;
             txtCode.Text = txtDesc.Text = txtCodRefe.Text = txtMarca.Text = string.Empty;
         }
 
@@ -172,18 +171,43 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             if (e.KeyCode == Keys.Enter)
             {
+                tipoBusquedaActual = TipoBusqueda.PorMarca;
                 btnBuscare_Click(new object(), new EventArgs());
             }
         }
 
         private void txtMarca_TextChanged(object sender, EventArgs e)
         {
-            tipoBusquedaActual = TipoBusqueda.PorMarca;
+            //tipoBusquedaActual = TipoBusqueda.PorMarca;
             txtCode.Text = txtDesc.Text = txtCodRefe.Text = txtCodComb.Text = string.Empty;
         }
 
         private void btnBuscare_Click(object sender, EventArgs e)
         {
+            if (tipoBusquedaActual == TipoBusqueda.Ninguna)
+            {
+                if (!string.IsNullOrEmpty(txtCodComb.Text))
+                {
+                    tipoBusquedaActual = TipoBusqueda.PorCodCombinado;
+                }
+                else if (!string.IsNullOrEmpty(txtCodRefe.Text))
+                {
+                    tipoBusquedaActual = TipoBusqueda.PorCodReferencia;
+                }
+                else if (!string.IsNullOrEmpty(txtMarca.Text))
+                {
+                    tipoBusquedaActual = TipoBusqueda.PorMarca;
+                }
+                else if (!string.IsNullOrEmpty(txtDesc.Text) || !string.IsNullOrWhiteSpace(txtDesc.Text))
+                {
+                    tipoBusquedaActual = TipoBusqueda.PorDescripcion;
+                }
+                else if (!string.IsNullOrEmpty(txtCode.Text))
+                {
+                    tipoBusquedaActual = TipoBusqueda.PorCodigoPT;
+                }
+            }
+
             switch (tipoBusquedaActual)
             {
                 case TipoBusqueda.Ninguna:

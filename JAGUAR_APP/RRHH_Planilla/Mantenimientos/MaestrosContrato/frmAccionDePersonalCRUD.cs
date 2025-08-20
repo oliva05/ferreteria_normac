@@ -130,7 +130,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosContrato
                     }
                 }
 
-                    switch (transaccionActual)
+                switch (transaccionActual)
                 {   
                     case tipo_transaccion.Nuevo:
 
@@ -158,7 +158,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosContrato
                                 cmd.Parameters.AddWithValue("@salario_anterior", DBNull.Value);
                                 cmd.Parameters.AddWithValue("@salario_nuevo", DBNull.Value);
 
-                                cmd.Parameters.AddWithValue("@job_id_anterior", empleado.JobId);
+                                cmd.Parameters.AddWithValue("@job_id_anterior", empleado.JobId == null ? DBNull.Value : (object) empleado.JobId);
                                 cmd.Parameters.AddWithValue("@job_id_nuevo", sluePuesto.EditValue);
                             }
 

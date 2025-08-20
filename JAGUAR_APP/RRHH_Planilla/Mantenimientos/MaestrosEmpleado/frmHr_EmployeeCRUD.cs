@@ -117,10 +117,10 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     LoadCapacitacionesProgramadas((int)EstadoCapacitaciones.Programada);
 
                     SetControlesEnable_orDisable(false);//Deshabiltamos
-                    if (!string.IsNullOrEmpty(GetUrlPhoto(EmpleadoActual.Id)))
-                    {
-                        ShowImageFromFtp(GetUrlPhoto(EmpleadoActual.Id));
-                    }
+                    //if (!string.IsNullOrEmpty(GetUrlPhoto(EmpleadoActual.Id)))
+                    //{
+                    //    ShowImageFromFtp(GetUrlPhoto(EmpleadoActual.Id));
+                    //}
                     
                     break;
                 case TipoTransaccion.View:
@@ -1233,23 +1233,23 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
                         command.ExecuteNonQuery();
 
-                       if (transaccion_foto_perfil)
-                        {
-                            file_name_employee = DateTime.Now.ToString("ddMMyyyyHHmmss") + Path.GetExtension(file_name_employee);
-                            SqlCommand cmd = new SqlCommand("dbo.uspSaveFileRRHH_employee", connection);
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Transaction = transaccionEmployee;
+                       //if (transaccion_foto_perfil)
+                       // {
+                       //     file_name_employee = DateTime.Now.ToString("ddMMyyyyHHmmss") + Path.GetExtension(file_name_employee);
+                       //     SqlCommand cmd = new SqlCommand("dbo.uspSaveFileRRHH_employee", connection);
+                       //     cmd.CommandType = CommandType.StoredProcedure;
+                       //     cmd.Transaction = transaccionEmployee;
 
-                            cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_Normac_Empleados + file_name_employee;
-                            cmd.Parameters.Add("@file_name", SqlDbType.VarChar).Value = file_name_employee;
-                            cmd.Parameters.Add("@id_employee", SqlDbType.Int).Value = EmpleadoActual.Id;
-                            cmd.Parameters.Add("@code_employee", SqlDbType.VarChar).Value = EmpleadoActual.Barcode;
-                            cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = UsuarioLogeado.Id;
+                       //     cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_Normac_Empleados + file_name_employee;
+                       //     cmd.Parameters.Add("@file_name", SqlDbType.VarChar).Value = file_name_employee;
+                       //     cmd.Parameters.Add("@id_employee", SqlDbType.Int).Value = EmpleadoActual.Id;
+                       //     cmd.Parameters.Add("@code_employee", SqlDbType.VarChar).Value = EmpleadoActual.Barcode;
+                       //     cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = UsuarioLogeado.Id;
 
-                            cmd.ExecuteNonQuery();
+                       //     cmd.ExecuteNonQuery();
 
-                            Upload(path_employee_file, file_name_employee);
-                        }
+                       //     Upload(path_employee_file, file_name_employee);
+                       // }
 
 
                         CajaDialogo.InformationAuto();
@@ -1608,23 +1608,23 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                         if (transaccion_foto_perfil)
                         {
                             
-                            if (ftp.ValidateConnectionV2())
-                            {
-                                file_name_employee = DateTime.Now.ToString("ddMMyyyyHHmmss") + Path.GetExtension(file_name_employee);
-                                SqlCommand cmd = new SqlCommand("dbo.uspSaveFileRRHH_employee", connection);
-                                cmd.CommandType = CommandType.StoredProcedure;
-                                cmd.Transaction = transaccionEmployee;
+                            //if (ftp.ValidateConnectionV2())
+                            //{
+                            //    file_name_employee = DateTime.Now.ToString("ddMMyyyyHHmmss") + Path.GetExtension(file_name_employee);
+                            //    SqlCommand cmd = new SqlCommand("dbo.uspSaveFileRRHH_employee", connection);
+                            //    cmd.CommandType = CommandType.StoredProcedure;
+                            //    cmd.Transaction = transaccionEmployee;
 
-                                cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_Normac_Empleados + file_name_employee;
-                                cmd.Parameters.Add("@file_name", SqlDbType.VarChar).Value = file_name_employee;
-                                cmd.Parameters.Add("@id_employee", SqlDbType.Int).Value = EmpleadoActual.Id;
-                                cmd.Parameters.Add("@code_employee", SqlDbType.VarChar).Value = string.IsNullOrEmpty(EmpleadoActual.Barcode) ? string.Empty : EmpleadoActual.Barcode;
-                                cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = UsuarioLogeado.Id;
+                            //    cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_Normac_Empleados + file_name_employee;
+                            //    cmd.Parameters.Add("@file_name", SqlDbType.VarChar).Value = file_name_employee;
+                            //    cmd.Parameters.Add("@id_employee", SqlDbType.Int).Value = EmpleadoActual.Id;
+                            //    cmd.Parameters.Add("@code_employee", SqlDbType.VarChar).Value = string.IsNullOrEmpty(EmpleadoActual.Barcode) ? string.Empty : EmpleadoActual.Barcode;
+                            //    cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = UsuarioLogeado.Id;
 
-                                cmd.ExecuteNonQuery();
+                            //    cmd.ExecuteNonQuery();
 
-                                Upload(path_employee_file, file_name_employee);
-                            }
+                            //    Upload(path_employee_file, file_name_employee);
+                            //}
                             
                         }
 
@@ -2196,15 +2196,24 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                             cnx.Close();
                         }
 
-                        frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
-
+                        var frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
+                        frm.OnCerrarConActualizacion += LoadContratos;
                         frm.ShowDialog();
+                        //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
+                        //if (frm.ShowDialog() == DialogResult.OK)
+                        //{
+                        //    LoadContratos();
+                        //}
+
                     }
                 }
                 else
                 {
-                    frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
+                    var frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
+                    frm.OnCerrarConActualizacion += LoadContratos;
                     frm.ShowDialog();
+                    //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, EmpleadoActual.Id);
+                    //frm.Show();
                 }
             }
             catch (Exception ex)
@@ -2219,7 +2228,10 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             var row = (dsColaborador.contract_historicalRow)gridview.GetFocusedDataRow();
 
             //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Barcode, UsuarioLogeado, EmpleadoActual.Id);
-            frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
+            //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
+            //frm.ShowDialog();
+            var frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
+            frm.OnCerrarConActualizacion += LoadContratos;
             frm.ShowDialog();
         }
 
