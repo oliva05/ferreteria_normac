@@ -18,9 +18,11 @@ namespace JAGUAR_PRO.Clases
         public int? UsuarioSolicitante { get; set; }
         public DateTime FechaSolicitada { get; set; }
         public int? IdEstado { get; set; }
+        public string EstadoName { get; set; }
         public bool? Enable { get; set; }
         public string DocNum { get; set; }
         public int? UsuarioAprobador { get; set; }
+        public string UsuarioAprobadorName { get; set; }
         public bool Recuperado { get; set; }
         public string nameUsuarioSolicitante { get; set; }
 
@@ -52,7 +54,9 @@ namespace JAGUAR_PRO.Clases
                             DocNum = reader.GetString(reader.GetOrdinal("docnum"));
                             UsuarioAprobador = reader.IsDBNull(reader.GetOrdinal("usuario_aprobador")) ? 0 : reader.GetOrdinal("usuario_aprobador");
                             nameUsuarioSolicitante = reader.GetString(reader.GetOrdinal("nameUsuarioSolicitante"));
-
+                            EstadoName = reader.GetString(reader.GetOrdinal("estado_descripcion"));
+                            UsuarioAprobadorName = reader.GetString(reader.GetOrdinal("usuario_aprobador_name"));
+                            Recuperado = true;
                             reader.Close();
                         }
                     }conn.Close();

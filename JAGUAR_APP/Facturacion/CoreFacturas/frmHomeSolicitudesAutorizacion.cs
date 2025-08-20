@@ -396,7 +396,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private void cmdImprimir_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             //rptAjusteDeInventarioMultiple
-            var gv = (GridView)gridControl1.FocusedView;
+            var gv = (GridView)gridControl3.FocusedView;
             var row = (dsFacturasGestion.AjusteInventarioAutorizacionRow)gv.GetDataRow(gv.FocusedRowHandle);
 
             if (row.idestado > 0)
