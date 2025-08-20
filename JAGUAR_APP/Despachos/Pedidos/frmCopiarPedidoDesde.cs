@@ -18,6 +18,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
     public partial class frmCopiarPedidoDesde : DevExpress.XtraEditors.XtraForm
     {
         public int IdPedido;
+        public int IdCotizacion;
         public frmCopiarPedidoDesde()
         {
             InitializeComponent();
@@ -29,7 +30,10 @@ namespace JAGUAR_PRO.Despachos.Pedidos
             var gridView = (GridView)gridControl1.FocusedView;
             var row = (dsPedidosBusquedas.cotizacionesRow)gridView.GetFocusedDataRow();
 
-            IdPedido = row.id_pedido;
+            if(!row.Isid_pedidoNull())
+                IdPedido = row.id_pedido;
+
+            IdCotizacion = row.id;
             this.DialogResult = DialogResult.OK;
             this.Close  ();
         }
