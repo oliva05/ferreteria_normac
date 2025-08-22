@@ -324,8 +324,10 @@ namespace JAGUAR_PRO.RRHH_Planilla
                     deFin.EditValue = contratoActual.EndDate;
                     sluePlanificacion.EditValue = contratoActual.PlanificacionTrabajoId;
                     sluePagoPlanificado.EditValue = contratoActual.PagoPlanificadoId;
-                    txtAniosAnt.Text = contratoActual.AniosAntiguedad.ToString();
-                    txtMesesAnt.Text = contratoActual.MesesAntiguedad.ToString();
+                    //txtAniosAnt.Text = contratoActual.AniosAntiguedad.ToString();
+                    //txtMesesAnt.Text = contratoActual.MesesAntiguedad.ToString();
+                    txtAniosAnt.Text = GetEdadAnios(deFechaInicio.DateTime).ToString();
+                    txtMesesAnt.Text = GetEdadMeses(deFechaInicio.DateTime).ToString();
                     txtNote.Text = contratoActual.Nota.ToString();
                     txtSalario.EditValue = contratoActual.Wage;
                     tsPermisoEstudio.EditValue = contratoActual.StudyPermit;
@@ -353,8 +355,10 @@ namespace JAGUAR_PRO.RRHH_Planilla
                     deFin.EditValue = contratoActual.EndDate;
                     sluePlanificacion.EditValue = contratoActual.PlanificacionTrabajoId;
                     sluePagoPlanificado.EditValue = contratoActual.PagoPlanificadoId;
-                    txtAniosAnt.Text = contratoActual.AniosAntiguedad.ToString();
-                    txtMesesAnt.Text = contratoActual.MesesAntiguedad.ToString();
+                    //txtAniosAnt.Text = contratoActual.AniosAntiguedad.ToString();
+                    //txtMesesAnt.Text = contratoActual.MesesAntiguedad.ToString();
+                    txtAniosAnt.Text = GetEdadAnios(deFechaInicio.DateTime).ToString();
+                    txtMesesAnt.Text = GetEdadMeses(deFechaInicio.DateTime).ToString();
                     txtNote.Text = contratoActual.Nota.ToString();
                     txtSalario.EditValue = contratoActual.Wage;
                     tsPermisoEstudio.EditValue = contratoActual.StudyPermit;
@@ -386,6 +390,50 @@ namespace JAGUAR_PRO.RRHH_Planilla
 
 
                 txtDescripcionPermiso.Enabled = false;
+        }
+
+        private int GetEdadAnios(DateTime pFechaNacimiento)
+        {
+
+            DateTime fechaNacimiento = pFechaNacimiento;
+
+
+            DateTime now = dp.Now();
+            int edad = DateTime.Today.Year - fechaNacimiento.Year;
+
+            if (now < fechaNacimiento.AddYears(edad))
+                --edad;
+
+            return edad;
+        }
+
+        private int GetEdadMeses(DateTime pFechaNacimiento)
+        {
+
+            DateTime fechaNacimiento = pFechaNacimiento;
+            int EdadMeses = 0;
+
+            DateTime now = dp.Now();
+            int edad = DateTime.Today.Year - fechaNacimiento.Year;
+
+            if (now < fechaNacimiento.AddYears(edad))
+            {
+                EdadMeses = fechaNacimiento.AddYears(edad).Month - now.Month;
+                int dif = Math.Abs((fechaNacimiento.AddYears(edad).Month - now.Month) + 12 * (fechaNacimiento.AddYears(edad).Year - now.Year));
+                if (dif == 0)
+                    EdadMeses = 11;
+                else
+                    EdadMeses = 12 - dif;
+            }
+            else
+            {
+                EdadMeses = now.Month - fechaNacimiento.AddYears(edad).Month;
+                if (now.Day < fechaNacimiento.AddYears(edad).Day)
+                    --EdadMeses;
+            }
+
+
+            return EdadMeses;
         }
 
         private void CargarEstadosContratos()
@@ -1028,8 +1076,10 @@ namespace JAGUAR_PRO.RRHH_Planilla
             deFin.EditValue = contratoActual.EndDate;
             sluePlanificacion.EditValue = contratoActual.PlanificacionTrabajoId;
             sluePagoPlanificado.EditValue = contratoActual.PagoPlanificadoId;
-            txtAniosAnt.Text = contratoActual.AniosAntiguedad.ToString();
-            txtMesesAnt.Text = contratoActual.MesesAntiguedad.ToString();
+            //txtAniosAnt.Text = contratoActual.AniosAntiguedad.ToString();
+            //txtMesesAnt.Text = contratoActual.MesesAntiguedad.ToString();
+            txtAniosAnt.Text = GetEdadAnios(deFechaInicio.DateTime).ToString();
+            txtMesesAnt.Text = GetEdadMeses(deFechaInicio.DateTime).ToString();
             txtNote.Text = contratoActual.Nota.ToString();
             lblEstadoContrato.Text = "Estado de Contrato: " + contratoActual.Estado;
             txtSalario.EditValue = contratoActual.Wage;
@@ -1039,23 +1089,25 @@ namespace JAGUAR_PRO.RRHH_Planilla
 
         private void deFechaInicio_EditValueChanged(object sender, EventArgs e)
         {
-            txtAniosAnt.EditValue = (int)((DateTime.Now - deFechaInicio.DateTime).TotalDays / 365.25);
+            //txtAniosAnt.EditValue = (int)((DateTime.Now - deFechaInicio.DateTime).TotalDays / 365.25);
 
-            // Calcular la diferencia en años y meses
-            int aniosDiferencia = DateTime.Now.Year - deFechaInicio.DateTime.Year;
-            int mesesDiferencia = DateTime.Now.Month - deFechaInicio.DateTime.Month;
+            //// Calcular la diferencia en años y meses
+            //int aniosDiferencia = DateTime.Now.Year - deFechaInicio.DateTime.Year;
+            //int mesesDiferencia = DateTime.Now.Month - deFechaInicio.DateTime.Month;
 
-            // Combinar los años y meses en una sola cantidad de meses
-            int totalMeses = (aniosDiferencia * 12) + mesesDiferencia;
+            //// Combinar los años y meses en una sola cantidad de meses
+            //int totalMeses = (aniosDiferencia * 12) + mesesDiferencia;
 
-            // Ajustar si el día del mes de fechaFin es menor que el día del mes de fechaInicio
-            if (DateTime.Now.Day < deFechaInicio.DateTime.Day)
-            {
-                totalMeses--;
-            }
+            //// Ajustar si el día del mes de fechaFin es menor que el día del mes de fechaInicio
+            //if (DateTime.Now.Day < deFechaInicio.DateTime.Day)
+            //{
+            //    totalMeses--;
+            //}
 
-            txtMesesAnt.EditValue=totalMeses;
-            dePeriodoPrueba.EditValue = deFechaInicio.DateTime.AddDays(60);
+            //txtMesesAnt.EditValue=totalMeses;
+            //dePeriodoPrueba.EditValue = deFechaInicio.DateTime.AddDays(60);
+            txtAniosAnt.Text = GetEdadAnios(deFechaInicio.DateTime).ToString();
+            txtMesesAnt.Text = GetEdadMeses(deFechaInicio.DateTime).ToString();
         }
 
       

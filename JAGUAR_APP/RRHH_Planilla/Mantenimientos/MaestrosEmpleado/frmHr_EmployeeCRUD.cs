@@ -2290,5 +2290,18 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 e.Handled = true; // bloquea la tecla
             }
         }
+
+        private void cmdViewContrato__ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)gcContratoHistorico.FocusedView;
+            var row = (dsColaborador.contract_historicalRow)gridview.GetFocusedDataRow();
+
+            //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Barcode, UsuarioLogeado, EmpleadoActual.Id);
+            //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
+            //frm.ShowDialog();
+            var frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
+            frm.OnCerrarConActualizacion += LoadContratos;
+            frm.ShowDialog();
+        }
     }
 }
