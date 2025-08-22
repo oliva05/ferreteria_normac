@@ -755,13 +755,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // 
             this.gridControl3.DataMember = "AjusteInventarioAutorizacion";
             this.gridControl3.DataSource = this.dsFacturasGestion1;
-            this.gridControl3.Location = new System.Drawing.Point(0, 53);
+            this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl3.Location = new System.Drawing.Point(0, 0);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
             this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemGestion,
             this.cmdImprimir});
-            this.gridControl3.Size = new System.Drawing.Size(1183, 356);
+            this.gridControl3.Size = new System.Drawing.Size(1183, 409);
             this.gridControl3.TabIndex = 2;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
