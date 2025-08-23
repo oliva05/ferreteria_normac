@@ -897,25 +897,26 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
          SqlTransaction transaccionEmployee = null;
         public void CallUpdateEmployeeStoredProcedure()
         {
-            try
-            {
+            
 
-            if (string.IsNullOrEmpty(txtEmployeeNameNombre.Text))
-            {
-                CajaDialogo.Error("No puede actualizar un empleado dejando el nombre en blanco!");
-                return;
-            }
-
-            DialogResult r = CajaDialogo.Pregunta("Confirma la actualización del empleado: " + txtEmployeeNameNombre.Text + "?");
-            if (r != DialogResult.Yes)
-                return;
-
-            // Nombre del stored procedure
-            string storedProcedureName = "[dbo].[UpdateEmployeeCRUD_V3]";
-
-                using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                if (string.IsNullOrEmpty(txtEmployeeNameNombre.Text))
                 {
-                    using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
+                    CajaDialogo.Error("No puede actualizar un empleado dejando el nombre en blanco!");
+                    return;
+                }
+
+                DialogResult r = CajaDialogo.Pregunta("Confirma la actualización del empleado: " + txtEmployeeNameNombre.Text + "?");
+                if (r != DialogResult.Yes)
+                    return;
+
+                // Nombre del stored procedure
+                string storedProcedureName = "[dbo].[UpdateEmployeeCRUD_V3]";
+
+            using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+            {
+                using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
+                {
+                    try
                     {
                         // Abrir la conexión y ejecutar el procedimiento almacenado
                         connection.Open();
@@ -1229,41 +1230,43 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                         }
 
                         command.Parameters.AddWithValue("@paga_por_dependientes", tsPagaDependientes.EditValue);
-                        command.Parameters.AddWithValue("@id_tipo_contrato", glueTipoContrato.EditValue== null ? 1: glueTipoContrato.EditValue);
+                        command.Parameters.AddWithValue("@id_tipo_contrato", glueTipoContrato.EditValue == null ? 1 : glueTipoContrato.EditValue);
 
                         command.ExecuteNonQuery();
 
-                       //if (transaccion_foto_perfil)
-                       // {
-                       //     file_name_employee = DateTime.Now.ToString("ddMMyyyyHHmmss") + Path.GetExtension(file_name_employee);
-                       //     SqlCommand cmd = new SqlCommand("dbo.uspSaveFileRRHH_employee", connection);
-                       //     cmd.CommandType = CommandType.StoredProcedure;
-                       //     cmd.Transaction = transaccionEmployee;
+                        //if (transaccion_foto_perfil)
+                        // {
+                        //     file_name_employee = DateTime.Now.ToString("ddMMyyyyHHmmss") + Path.GetExtension(file_name_employee);
+                        //     SqlCommand cmd = new SqlCommand("dbo.uspSaveFileRRHH_employee", connection);
+                        //     cmd.CommandType = CommandType.StoredProcedure;
+                        //     cmd.Transaction = transaccionEmployee;
 
-                       //     cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_Normac_Empleados + file_name_employee;
-                       //     cmd.Parameters.Add("@file_name", SqlDbType.VarChar).Value = file_name_employee;
-                       //     cmd.Parameters.Add("@id_employee", SqlDbType.Int).Value = EmpleadoActual.Id;
-                       //     cmd.Parameters.Add("@code_employee", SqlDbType.VarChar).Value = EmpleadoActual.Barcode;
-                       //     cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = UsuarioLogeado.Id;
+                        //     cmd.Parameters.Add("@path", SqlDbType.VarChar).Value = dp.FTP_Normac_Empleados + file_name_employee;
+                        //     cmd.Parameters.Add("@file_name", SqlDbType.VarChar).Value = file_name_employee;
+                        //     cmd.Parameters.Add("@id_employee", SqlDbType.Int).Value = EmpleadoActual.Id;
+                        //     cmd.Parameters.Add("@code_employee", SqlDbType.VarChar).Value = EmpleadoActual.Barcode;
+                        //     cmd.Parameters.Add("@user_id", SqlDbType.Int).Value = UsuarioLogeado.Id;
 
-                       //     cmd.ExecuteNonQuery();
+                        //     cmd.ExecuteNonQuery();
 
-                       //     Upload(path_employee_file, file_name_employee);
-                       // }
+                        //     Upload(path_employee_file, file_name_employee);
+                        // }
 
 
                         CajaDialogo.InformationAuto();
                         transaccionEmployee.Commit();
                         this.DialogResult = DialogResult.OK;
                         this.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        CajaDialogo.Error(ex.Message);
+                        transaccionEmployee.Rollback();
+                    }
                 }
             }
-            }
-            catch (Exception ex)
-            {
-                CajaDialogo.Error(ex.Message);
-                transaccionEmployee.Rollback();
-            }
+           
         }
 
         public void CallInsertEmployeeStoredProcedure()
@@ -2238,6 +2241,67 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
         private void cmdAgregarNuevo_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtEstatura_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                txtPeso.Focus();
+            }
+        }
+
+        private void txtPeso_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtTallaCamisa.Focus();
+            }
+        }
+
+        private void txtTallaCamisa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtTallaPantalon.Focus();
+            }
+        }
+
+        private void txtTallaPantalon_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtTallaZapatos.Focus();
+            }
+        }
+
+        private void txtEstatura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // bloquea la tecla
+            }
+        }
+
+        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // bloquea la tecla
+            }
+        }
+
+        private void cmdViewContrato__ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)gcContratoHistorico.FocusedView;
+            var row = (dsColaborador.contract_historicalRow)gridview.GetFocusedDataRow();
+
+            //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Barcode, UsuarioLogeado, EmpleadoActual.Id);
+            //frmContratoColaborador frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
+            //frm.ShowDialog();
+            var frm = new frmContratoColaborador(EmpleadoActual.Id, UsuarioLogeado, row.id);
+            frm.OnCerrarConActualizacion += LoadContratos;
+            frm.ShowDialog();
         }
     }
 }
