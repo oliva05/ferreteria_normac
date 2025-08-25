@@ -54,6 +54,8 @@
             this.colconteo_completado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo_ajuste = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidad_ajuste = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colprecio_venta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colimpacto_econo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gleAlmacen = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bodegasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsRecepcionMP = new JAGUAR_PRO.LogisticaJaguar.dsRecepcionMP();
@@ -118,7 +120,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1316, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1403, 0);
             // 
             // barDockControlBottom
             // 
@@ -126,7 +128,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 799);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1316, 18);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1403, 18);
             // 
             // barDockControlLeft
             // 
@@ -140,7 +142,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1316, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1403, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 799);
             // 
@@ -167,7 +169,7 @@
             this.grdConteo.Location = new System.Drawing.Point(0, 125);
             this.grdConteo.MainView = this.grdvConteo;
             this.grdConteo.Name = "grdConteo";
-            this.grdConteo.Size = new System.Drawing.Size(1316, 674);
+            this.grdConteo.Size = new System.Drawing.Size(1403, 674);
             this.grdConteo.TabIndex = 4;
             this.grdConteo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdvConteo});
@@ -196,7 +198,9 @@
             this.colconteo_fisico,
             this.colconteo_completado,
             this.coltipo_ajuste,
-            this.colcantidad_ajuste});
+            this.colcantidad_ajuste,
+            this.colprecio_venta,
+            this.colimpacto_econo});
             this.grdvConteo.GridControl = this.grdConteo;
             this.grdvConteo.Name = "grdvConteo";
             this.grdvConteo.OptionsView.ShowAutoFilterRow = true;
@@ -230,7 +234,7 @@
             this.colpt.OptionsColumn.AllowEdit = false;
             this.colpt.Visible = true;
             this.colpt.VisibleIndex = 1;
-            this.colpt.Width = 212;
+            this.colpt.Width = 203;
             // 
             // colcode_pt
             // 
@@ -240,7 +244,7 @@
             this.colcode_pt.OptionsColumn.AllowEdit = false;
             this.colcode_pt.Visible = true;
             this.colcode_pt.VisibleIndex = 0;
-            this.colcode_pt.Width = 91;
+            this.colcode_pt.Width = 68;
             // 
             // colcode_referencia
             // 
@@ -250,11 +254,11 @@
             this.colcode_referencia.OptionsColumn.AllowEdit = false;
             this.colcode_referencia.Visible = true;
             this.colcode_referencia.VisibleIndex = 2;
-            this.colcode_referencia.Width = 139;
+            this.colcode_referencia.Width = 121;
             // 
             // colcantidad_sistema
             // 
-            this.colcantidad_sistema.Caption = "Cantidad Sistema";
+            this.colcantidad_sistema.Caption = "Kardex";
             this.colcantidad_sistema.DisplayFormat.FormatString = "{0:#,###,##0.00}";
             this.colcantidad_sistema.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colcantidad_sistema.FieldName = "cantidad_sistema";
@@ -262,7 +266,7 @@
             this.colcantidad_sistema.OptionsColumn.AllowEdit = false;
             this.colcantidad_sistema.Visible = true;
             this.colcantidad_sistema.VisibleIndex = 3;
-            this.colcantidad_sistema.Width = 139;
+            this.colcantidad_sistema.Width = 89;
             // 
             // colid_bodega
             // 
@@ -278,7 +282,7 @@
             this.colbodega.OptionsColumn.AllowEdit = false;
             this.colbodega.Visible = true;
             this.colbodega.VisibleIndex = 4;
-            this.colbodega.Width = 169;
+            this.colbodega.Width = 164;
             // 
             // colconteo_fisico
             // 
@@ -289,17 +293,17 @@
             this.colconteo_fisico.Name = "colconteo_fisico";
             this.colconteo_fisico.Visible = true;
             this.colconteo_fisico.VisibleIndex = 5;
-            this.colconteo_fisico.Width = 131;
+            this.colconteo_fisico.Width = 103;
             // 
             // colconteo_completado
             // 
-            this.colconteo_completado.Caption = "Conteo Completado";
+            this.colconteo_completado.Caption = "Completado";
             this.colconteo_completado.FieldName = "conteo_completado";
             this.colconteo_completado.Name = "colconteo_completado";
             this.colconteo_completado.OptionsColumn.AllowEdit = false;
             this.colconteo_completado.Visible = true;
             this.colconteo_completado.VisibleIndex = 6;
-            this.colconteo_completado.Width = 140;
+            this.colconteo_completado.Width = 98;
             // 
             // coltipo_ajuste
             // 
@@ -309,7 +313,7 @@
             this.coltipo_ajuste.OptionsColumn.AllowEdit = false;
             this.coltipo_ajuste.Visible = true;
             this.coltipo_ajuste.VisibleIndex = 7;
-            this.coltipo_ajuste.Width = 125;
+            this.coltipo_ajuste.Width = 119;
             // 
             // colcantidad_ajuste
             // 
@@ -321,7 +325,31 @@
             this.colcantidad_ajuste.OptionsColumn.AllowEdit = false;
             this.colcantidad_ajuste.Visible = true;
             this.colcantidad_ajuste.VisibleIndex = 8;
-            this.colcantidad_ajuste.Width = 143;
+            this.colcantidad_ajuste.Width = 144;
+            // 
+            // colprecio_venta
+            // 
+            this.colprecio_venta.Caption = "Precio Venta";
+            this.colprecio_venta.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.colprecio_venta.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colprecio_venta.FieldName = "precio_venta";
+            this.colprecio_venta.Name = "colprecio_venta";
+            this.colprecio_venta.OptionsColumn.AllowEdit = false;
+            this.colprecio_venta.Visible = true;
+            this.colprecio_venta.VisibleIndex = 9;
+            this.colprecio_venta.Width = 113;
+            // 
+            // colimpacto_econo
+            // 
+            this.colimpacto_econo.Caption = "Impacto Economico";
+            this.colimpacto_econo.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.colimpacto_econo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colimpacto_econo.FieldName = "impacto_economico";
+            this.colimpacto_econo.Name = "colimpacto_econo";
+            this.colimpacto_econo.OptionsColumn.AllowEdit = false;
+            this.colimpacto_econo.Visible = true;
+            this.colimpacto_econo.VisibleIndex = 10;
+            this.colimpacto_econo.Width = 147;
             // 
             // gleAlmacen
             // 
@@ -463,7 +491,7 @@
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.Location = new System.Drawing.Point(1200, 12);
+            this.btnClose.Location = new System.Drawing.Point(1287, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(104, 47);
             this.btnClose.TabIndex = 193;
@@ -479,7 +507,7 @@
             this.cmdGuardar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.cmdGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGuardar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdGuardar.ImageOptions.SvgImage")));
-            this.cmdGuardar.Location = new System.Drawing.Point(1065, 12);
+            this.cmdGuardar.Location = new System.Drawing.Point(1152, 12);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(104, 47);
             this.cmdGuardar.TabIndex = 192;
@@ -495,7 +523,7 @@
             this.btnCompletar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnCompletar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnCompletar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCompletar.ImageOptions.Image")));
-            this.btnCompletar.Location = new System.Drawing.Point(1119, 72);
+            this.btnCompletar.Location = new System.Drawing.Point(1206, 72);
             this.btnCompletar.Name = "btnCompletar";
             this.btnCompletar.Size = new System.Drawing.Size(121, 47);
             this.btnCompletar.TabIndex = 198;
@@ -506,7 +534,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1316, 817);
+            this.ClientSize = new System.Drawing.Size(1403, 817);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.cmdGuardar);
             this.Controls.Add(this.dtFechaConta);
@@ -585,5 +613,7 @@
         private DevExpress.XtraEditors.SimpleButton btnCompletar;
         private DevExpress.XtraGrid.Columns.GridColumn coltipo_ajuste;
         private DevExpress.XtraGrid.Columns.GridColumn colcantidad_ajuste;
+        private DevExpress.XtraGrid.Columns.GridColumn colprecio_venta;
+        private DevExpress.XtraGrid.Columns.GridColumn colimpacto_econo;
     }
 }

@@ -39,9 +39,42 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 }
 
                 GetDetalleRecuento(PidRecuento);
+                GetResumenTotal(PidRecuento);
 
             }
 
+        }
+
+        private void GetResumenTotal(int PidRecuento)
+        {
+            try
+            {
+                string query = @"sp_rpt_get_resumen_total";
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idRecuento", PidRecuento);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    xrTableTotal.Text = string.Format("{0:N2}", dr["impacto_total"]);
+                    xrTablePerdidas.Text = string.Format("{0:N2}", dr["total_perdidas"]);
+                    xrTableGanancias.Text = string.Format("{0:N2}", dr["total_ganancias"]);
+                    dr.Close();
+                }
+                conn.Close();
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                CajaDialogo.Error(ex.Message);
+            }
         }
 
         private void GetDetalleRecuento( int PidRecuento)
@@ -59,6 +92,9 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 dsRecuento1.rpt_detalle_recuento.Clear();
                 adat.Fill(dsRecuento1.rpt_detalle_recuento);
                 conn.Close();
+
+
+                
 
             }
             catch (Exception ex)
