@@ -52,6 +52,7 @@
             this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemKardexPT = new DevExpress.XtraNavBar.NavBarItem();
+            this.nBarConsultarAjusteInventario = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem60 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarIteSoliTraslado = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem153 = new DevExpress.XtraNavBar.NavBarItem();
@@ -635,7 +636,8 @@
             this.navBarItem154,
             this.navBarItem208,
             this.navBarItem209,
-            this.navBarItem254});
+            this.navBarItem254,
+            this.nBarConsultarAjusteInventario});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 338;
@@ -890,6 +892,7 @@
             this.navBarGroup8.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemKardexPT),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nBarConsultarAjusteInventario),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem60),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarIteSoliTraslado),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem153),
@@ -926,6 +929,20 @@
             this.navBarItemKardexPT.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.ready_stock;
             this.navBarItemKardexPT.Name = "navBarItemKardexPT";
             this.navBarItemKardexPT.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemKardexPT_LinkClicked);
+            // 
+            // nBarConsultarAjusteInventario
+            // 
+            this.nBarConsultarAjusteInventario.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nBarConsultarAjusteInventario.Appearance.Options.UseFont = true;
+            this.nBarConsultarAjusteInventario.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nBarConsultarAjusteInventario.AppearanceHotTracked.Options.UseFont = true;
+            this.nBarConsultarAjusteInventario.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nBarConsultarAjusteInventario.AppearancePressed.Options.UseFont = true;
+            this.nBarConsultarAjusteInventario.Caption = "Consultar Transacción Inventario";
+            this.nBarConsultarAjusteInventario.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("nBarConsultarAjusteInventario.ImageOptions.LargeImage")));
+            this.nBarConsultarAjusteInventario.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("nBarConsultarAjusteInventario.ImageOptions.SmallImage")));
+            this.nBarConsultarAjusteInventario.Name = "nBarConsultarAjusteInventario";
+            this.nBarConsultarAjusteInventario.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nBarConsultarAjusteInventario_LinkPressed);
             // 
             // navBarItem60
             // 
@@ -7620,5 +7637,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem349;
         private DevExpress.XtraNavBar.NavBarItem navBarItem350;
         private DevExpress.XtraNavBar.NavBarItem navBarItem254;
+        private DevExpress.XtraNavBar.NavBarItem nBarConsultarAjusteInventario;
     }
 }

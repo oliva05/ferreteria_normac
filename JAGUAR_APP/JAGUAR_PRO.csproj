@@ -3275,6 +3275,12 @@
     <Compile Include="Reportes\frmtarimasporbodega.Designer.cs">
       <DependentUpon>frmtarimasporbodega.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmVerDetalleKardexTransactionsConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmVerDetalleKardexTransactionsConsulta.Designer.cs">
+      <DependentUpon>frmVerDetalleKardexTransactionsConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmVerDetalleKardexTransactions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5072,6 +5078,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmtarimasporbodega.resx">
       <DependentUpon>frmtarimasporbodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmVerDetalleKardexTransactionsConsulta.resx">
+      <DependentUpon>frmVerDetalleKardexTransactionsConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmVerDetalleKardexTransactions.resx">
       <DependentUpon>frmVerDetalleKardexTransactions.cs</DependentUpon>

@@ -1,0 +1,204 @@
+﻿using ACS.Classes;
+using DevExpress.CodeParser;
+using DevExpress.DashboardWin.Design;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraSpreadsheet.Import.Xls;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Compras;
+using JAGUAR_PRO.Facturacion.Reportes;
+using JAGUAR_PRO.Mantenimientos.Modelos;
+using JAGUAR_PRO.Requisiciones.Reportes;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace JAGUAR_PRO.Reportes
+{
+    public partial class frmVerDetalleKardexTransactionsConsulta : DevExpress.XtraEditors.XtraForm
+    {
+        int IdPT;
+        string NamePT;
+        decimal InvActual;
+        int IdAlmacen;
+        UserLogin UsuarioLogeado;
+
+        public frmVerDetalleKardexTransactionsConsulta(int pIdPT, string pName, decimal pInv)
+        {
+            InitializeComponent();
+            NamePT = pName;
+            InvActual = pInv;
+            IdPT = pIdPT;
+            
+            //lblItemName.Text = pName;
+            //lblInventario.Text = string.Format("{0:###,##0}", pInv);
+
+            //LoadDatos(pIdPT);
+        }
+
+        public frmVerDetalleKardexTransactionsConsulta(UserLogin pUsuarioLogeado)
+        {
+            InitializeComponent();
+            UsuarioLogeado = pUsuarioLogeado;
+            //NamePT = pName;
+            //InvActual = pInv;
+            //IdPT = pIdPT;
+
+            //lblItemName.Text = pName;
+            //lblInventario.Text = string.Format("{0:###,##0}", pInv);
+
+            //LoadDatos(pIdPT);
+        }
+
+        public frmVerDetalleKardexTransactionsConsulta(int pIdPT, string pName, decimal pInv, int pIdAlmacen)
+        {
+            InitializeComponent();
+            NamePT = pName;
+            InvActual = pInv;
+            IdPT = pIdPT;
+            IdAlmacen = pIdAlmacen;
+
+            //lblItemName.Text = pName;
+            //lblInventario.Text = string.Format("{0:###,##0}", pInv);
+
+            //Bodega bod1 = new Bodega();
+            //if (bod1.RecuperarRegistro(IdAlmacen))
+            //{
+            //    lblAlmacen.Text = bod1.CodigoBodega + " - " + bod1.Descripcion;
+            //}
+
+            //LoadDatos(pIdPT);
+        }
+
+        private void LoadDatos()
+        {
+            if (string.IsNullOrEmpty(txtCodigoTransaccion.Text))
+            {
+                CajaDialogo.Error("Es necesario ingresar el codigo de transacción que desea buscar!");
+                return;
+            }
+
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("dbo.[sp_get_detalle_transacciones_kardex_pt_from_id_transaccion]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@code_transaccion", txtCodigoTransaccion.Text);
+                //cmd.Parameters.AddWithValue("@id_pt", IdPT);
+
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                dsKardexReportes1.detalle_transacciones_kardex.Clear();
+                adat.Fill(dsKardexReportes1.detalle_transacciones_kardex);
+                errorProvider1.Clear();
+
+                if (dsKardexReportes1.detalle_transacciones_kardex.Count > 0)
+                {
+                    //foreach(dsKardexReportes.detalle_transacciones_kardexRow row in dsKardexReportes1.detalle_transacciones_kardex)
+                    //{
+                    //    KardexPT kardex1 = new KardexPT();
+                    //    if (!row.IsidNull())
+                    //    {
+                    //        if (kardex1.RecuperarRegistro(row.id))
+                    //        {
+                    //            lblItemName.Text = NamePT = kardex1.ItemName;
+                    //            InvActual = kardex1.InventarioActual;
+                    //            IdPT = kardex1.IdPT;
+
+                    //            lblInventario.Text = string.Format("{0:###,##0}", InvActual);
+                    //            int IdTransacccionKardex = kardex1.Id;
+                    //            break;
+                    //        }
+                    //    }
+                    //}
+                }
+                else
+                {
+                    errorProvider1.SetError(txtCodigoTransaccion, "No se encontraron resultados!");
+                }
+
+                    con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+            
+            
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.Filter = "Excel File (.xlsx)|*.xlsx";
+                dialog.FilterIndex = 0;
+                string path = "Detalle Transacciones Kardex PT Ovejita";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    path = dialog.FileName;
+                    //Customize export options
+                    (gridControl1.MainView as GridView).OptionsPrint.PrintHeader = true;
+                    XlsxExportOptionsEx advOptions = new XlsxExportOptionsEx();
+                    advOptions.AllowGrouping = DevExpress.Utils.DefaultBoolean.False;
+                    advOptions.ShowTotalSummaries = DevExpress.Utils.DefaultBoolean.False;
+                    advOptions.SheetName = "Exported from NORMAC";
+
+                    gridControl1.ExportToXlsx(path, advOptions);
+                    // Open the created XLSX file with the default application.
+                    Process.Start(path);
+                }
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void cmdRecargar_Click(object sender, EventArgs e)
+        {
+            LoadDatos();
+        }
+
+        private void cmdImprimir_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gv = (GridView)gridControl1.FocusedView;
+            var row = (dsKardexReportes.detalle_transacciones_kardexRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+
+            rptAjusteDeInventario report = new rptAjusteDeInventario(row.id);
+            //RPT_OrdenCompra report = new RPT_OrdenCompra(num) { DataSource = dsCompras1, ShowPrintMarginsWarning = false };
+            report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+            ReportPrintTool printReport = new ReportPrintTool(report);
+            printReport.ShowPreviewDialog();
+        }
+
+        private void textEdit1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                LoadDatos();
+            }
+        }
+    }
+}
