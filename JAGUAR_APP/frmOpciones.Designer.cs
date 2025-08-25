@@ -52,6 +52,7 @@
             this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemKardexPT = new DevExpress.XtraNavBar.NavBarItem();
+            this.nBarConsultarAjusteInventario = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem60 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarIteSoliTraslado = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem153 = new DevExpress.XtraNavBar.NavBarItem();
@@ -508,7 +509,6 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
-            this.nBarConsultarAjusteInventario = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -929,6 +929,20 @@
             this.navBarItemKardexPT.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.ready_stock;
             this.navBarItemKardexPT.Name = "navBarItemKardexPT";
             this.navBarItemKardexPT.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemKardexPT_LinkClicked);
+            // 
+            // nBarConsultarAjusteInventario
+            // 
+            this.nBarConsultarAjusteInventario.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nBarConsultarAjusteInventario.Appearance.Options.UseFont = true;
+            this.nBarConsultarAjusteInventario.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nBarConsultarAjusteInventario.AppearanceHotTracked.Options.UseFont = true;
+            this.nBarConsultarAjusteInventario.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nBarConsultarAjusteInventario.AppearancePressed.Options.UseFont = true;
+            this.nBarConsultarAjusteInventario.Caption = "Consultar Transacción Inventario";
+            this.nBarConsultarAjusteInventario.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("nBarConsultarAjusteInventario.ImageOptions.LargeImage")));
+            this.nBarConsultarAjusteInventario.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("nBarConsultarAjusteInventario.ImageOptions.SmallImage")));
+            this.nBarConsultarAjusteInventario.Name = "nBarConsultarAjusteInventario";
+            this.nBarConsultarAjusteInventario.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nBarConsultarAjusteInventario_LinkPressed);
             // 
             // navBarItem60
             // 
@@ -7094,20 +7108,6 @@
             this.navBarItem350.Caption = "Requisa de Traslado";
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
-            // 
-            // nBarConsultarAjusteInventario
-            // 
-            this.nBarConsultarAjusteInventario.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nBarConsultarAjusteInventario.Appearance.Options.UseFont = true;
-            this.nBarConsultarAjusteInventario.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nBarConsultarAjusteInventario.AppearanceHotTracked.Options.UseFont = true;
-            this.nBarConsultarAjusteInventario.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nBarConsultarAjusteInventario.AppearancePressed.Options.UseFont = true;
-            this.nBarConsultarAjusteInventario.Caption = "Consutar Transacción Inventario";
-            this.nBarConsultarAjusteInventario.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem255.ImageOptions.LargeImage")));
-            this.nBarConsultarAjusteInventario.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem255.ImageOptions.SmallImage")));
-            this.nBarConsultarAjusteInventario.Name = "nBarConsultarAjusteInventario";
-            this.nBarConsultarAjusteInventario.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nBarConsultarAjusteInventario_LinkPressed);
             // 
             // frmOpciones
             // 

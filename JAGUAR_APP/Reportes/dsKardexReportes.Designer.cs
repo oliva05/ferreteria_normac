@@ -313,6 +313,10 @@ namespace JAGUAR_PRO.Reportes {
             
             private global::System.Data.DataColumn columnusuario_aprueba_ajuste;
             
+            private global::System.Data.DataColumn columnalmacen_codigo;
+            
+            private global::System.Data.DataColumn columnalmacen_nombre;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_transacciones_kardexDataTable() {
@@ -484,6 +488,22 @@ namespace JAGUAR_PRO.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn almacen_codigoColumn {
+                get {
+                    return this.columnalmacen_codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn almacen_nombreColumn {
+                get {
+                    return this.columnalmacen_nombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -536,7 +556,9 @@ namespace JAGUAR_PRO.Reportes {
                         decimal Salida, 
                         decimal saldo, 
                         string NumDocumento, 
-                        string usuario_aprueba_ajuste) {
+                        string usuario_aprueba_ajuste, 
+                        string almacen_codigo, 
+                        string almacen_nombre) {
                 detalle_transacciones_kardexRow rowdetalle_transacciones_kardexRow = ((detalle_transacciones_kardexRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -555,7 +577,9 @@ namespace JAGUAR_PRO.Reportes {
                         Salida,
                         saldo,
                         NumDocumento,
-                        usuario_aprueba_ajuste};
+                        usuario_aprueba_ajuste,
+                        almacen_codigo,
+                        almacen_nombre};
                 rowdetalle_transacciones_kardexRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_transacciones_kardexRow);
                 return rowdetalle_transacciones_kardexRow;
@@ -595,6 +619,8 @@ namespace JAGUAR_PRO.Reportes {
                 this.columnsaldo = base.Columns["saldo"];
                 this.columnNumDocumento = base.Columns["NumDocumento"];
                 this.columnusuario_aprueba_ajuste = base.Columns["usuario_aprueba_ajuste"];
+                this.columnalmacen_codigo = base.Columns["almacen_codigo"];
+                this.columnalmacen_nombre = base.Columns["almacen_nombre"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -634,9 +660,15 @@ namespace JAGUAR_PRO.Reportes {
                 base.Columns.Add(this.columnNumDocumento);
                 this.columnusuario_aprueba_ajuste = new global::System.Data.DataColumn("usuario_aprueba_ajuste", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusuario_aprueba_ajuste);
+                this.columnalmacen_codigo = new global::System.Data.DataColumn("almacen_codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnalmacen_codigo);
+                this.columnalmacen_nombre = new global::System.Data.DataColumn("almacen_nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnalmacen_nombre);
                 this.columnenable_descripcion.Caption = "Estado descripcion";
                 this.columnsaldo.Caption = "Saldo Inventario";
                 this.columnusuario_aprueba_ajuste.Caption = "Usuario Aprobó Ajuste";
+                this.columnalmacen_codigo.Caption = "Código Almacén";
+                this.columnalmacen_nombre.Caption = "Nombre Almacén";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1068,6 +1100,40 @@ namespace JAGUAR_PRO.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string almacen_codigo {
+                get {
+                    try {
+                        return ((string)(this[this.tabledetalle_transacciones_kardex.almacen_codigoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'almacen_codigo\' de la tabla \'detalle_transacciones_kardex" +
+                                "\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_transacciones_kardex.almacen_codigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string almacen_nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tabledetalle_transacciones_kardex.almacen_nombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'almacen_nombre\' de la tabla \'detalle_transacciones_kardex" +
+                                "\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_transacciones_kardex.almacen_nombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tabledetalle_transacciones_kardex.idColumn);
             }
@@ -1268,6 +1334,30 @@ namespace JAGUAR_PRO.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setusuario_aprueba_ajusteNull() {
                 this[this.tabledetalle_transacciones_kardex.usuario_aprueba_ajusteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isalmacen_codigoNull() {
+                return this.IsNull(this.tabledetalle_transacciones_kardex.almacen_codigoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setalmacen_codigoNull() {
+                this[this.tabledetalle_transacciones_kardex.almacen_codigoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isalmacen_nombreNull() {
+                return this.IsNull(this.tabledetalle_transacciones_kardex.almacen_nombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setalmacen_nombreNull() {
+                this[this.tabledetalle_transacciones_kardex.almacen_nombreColumn] = global::System.Convert.DBNull;
             }
         }
         

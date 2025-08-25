@@ -21,6 +21,7 @@ namespace JAGUAR_PRO.Clases
         public int IdPT { get; set; }
         public string ItemCode { get; set; }
         public string ItemName { get; set; }
+        public decimal InventarioActual { get; set; }
         public int IdUsuario { get; set; }
         public string Usuario { get; set; }
         public DateTime FechaDoc { get; set; }
@@ -73,6 +74,44 @@ namespace JAGUAR_PRO.Clases
                             DescripcionAlmacen = reader["descripcion_almacen"]?.ToString();
                             Razon_motivo = reader["razon_motivo"]?.ToString();
                             Precio = Convert.ToDecimal(reader["precio"]);
+                            return true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Aquí podrías registrar el error si deseas
+                CajaDialogo.Error($"Error al cargar KardexPT: {ex.Message}");
+            }
+
+            return false;
+        }
+
+
+
+        public bool RecuperarRegistro(string pCodigoTransaccionAjusteManual)
+        {
+            DataOperations dp = new DataOperations();
+            string query = @"dbo.[sp_get_movimiento_kardex_ajuste_manual]";
+
+            try
+            {
+                using (var conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                using (var cmd = new SqlCommand(query, conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigo_transaccion", pCodigoTransaccionAjusteManual);
+                    conn.Open();
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Id = reader.GetInt32(reader.GetOrdinal("id"));
+                            IdPT = reader.GetInt32(reader.GetOrdinal("id_pt"));
+                            ItemCode = reader["ItemCode"]?.ToString();
+                            ItemName = reader["ItemName"]?.ToString();
+                            InventarioActual = reader.GetDecimal(reader.GetOrdinal("inventario_actual"));
                             return true;
                         }
                     }

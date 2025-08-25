@@ -6372,7 +6372,7 @@ namespace JAGUAR_PRO
                     case 4://Depth With Delta
                     case 5://Depth Without Delta
                         accesoprevio = AccesoAdmin = true;
-                        frmRecuentoInventarioHome frm = new frmRecuentoInventarioHome(this.UsuarioLogeado, puntoVenta1);
+                        frmVerDetalleKardexTransactionsConsulta frm = new frmVerDetalleKardexTransactionsConsulta(this.UsuarioLogeado);
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
@@ -6384,9 +6384,9 @@ namespace JAGUAR_PRO
 
                 if (!accesoprevio)
                 {
-                    if (UsuarioLogeado.ValidarNivelPermisos(33))
+                    if (UsuarioLogeado.ValidarNivelPermisos(36))
                     {
-                        frmRecuentoInventarioHome frm = new frmRecuentoInventarioHome(this.UsuarioLogeado, puntoVenta1);
+                        frmVerDetalleKardexTransactionsConsulta frm = new frmVerDetalleKardexTransactionsConsulta(this.UsuarioLogeado);
                         frm.MdiParent = this.MdiParent;
                         frm.StartPosition = FormStartPosition.CenterScreen;
                         frm.Show();
@@ -6394,7 +6394,7 @@ namespace JAGUAR_PRO
                     }
                     else
                     {
-                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #34 (Consulta de Ajustes de Inventario)");
+                        CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #36 (Consulta de Ajustes de Inventario)");
                     }
                 }
             }
