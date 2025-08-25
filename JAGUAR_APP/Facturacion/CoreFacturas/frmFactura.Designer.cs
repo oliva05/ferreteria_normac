@@ -53,6 +53,7 @@ namespace Eatery.Ventas
             this.dsVentas1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsVentas();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.cmdExonerarFactura = new DevExpress.XtraEditors.SimpleButton();
             this.txtComentario = new DevExpress.XtraEditors.MemoEdit();
             this.label5 = new System.Windows.Forms.Label();
             this.rdPorCobrar = new System.Windows.Forms.RadioButton();
@@ -200,7 +201,7 @@ namespace Eatery.Ventas
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdNew.ImageOptions.Image")));
-            this.cmdNew.Location = new System.Drawing.Point(261, 539);
+            this.cmdNew.Location = new System.Drawing.Point(513, 539);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(246, 38);
             this.cmdNew.TabIndex = 14;
@@ -270,6 +271,8 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
+            this.navigationPage1.Caption = "navigationPage1";
+            this.navigationPage1.Controls.Add(this.cmdExonerarFactura);
             this.navigationPage1.Controls.Add(this.txtComentario);
             this.navigationPage1.Controls.Add(this.label5);
             this.navigationPage1.Controls.Add(this.rdPorCobrar);
@@ -301,6 +304,20 @@ namespace Eatery.Ventas
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(1086, 617);
             this.navigationPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.navigationPage1_Paint);
+            // 
+            // cmdExonerarFactura
+            // 
+            this.cmdExonerarFactura.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cmdExonerarFactura.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdExonerarFactura.Appearance.Options.UseFont = true;
+            this.cmdExonerarFactura.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdExonerarFactura.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdExonerarFactura.ImageOptions.Image")));
+            this.cmdExonerarFactura.Location = new System.Drawing.Point(261, 539);
+            this.cmdExonerarFactura.Name = "cmdExonerarFactura";
+            this.cmdExonerarFactura.Size = new System.Drawing.Size(246, 38);
+            this.cmdExonerarFactura.TabIndex = 60;
+            this.cmdExonerarFactura.Text = "Exonerar Factura";
+            this.cmdExonerarFactura.Click += new System.EventHandler(this.cmdExonerarFactura_Click);
             // 
             // txtComentario
             // 
@@ -710,5 +727,6 @@ namespace Eatery.Ventas
         private System.Windows.Forms.RadioButton rdPorCobrar;
         private DevExpress.XtraEditors.MemoEdit txtComentario;
         private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.SimpleButton cmdExonerarFactura;
     }
 }

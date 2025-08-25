@@ -853,7 +853,7 @@ namespace Eatery.Ventas
         public void SetErrorBarra(string msj)
         {
             lblMensaje.Text = msj;
-            panelNotificacion.BackColor = Color.Red;
+            panelNotificacion.BackColor = Color.FromArgb(232, 134, 114);// Color.Red;
             timerLimpiarMensaje.Enabled = true;
             timerLimpiarMensaje.Start();
         }
@@ -3034,16 +3034,26 @@ namespace Eatery.Ventas
             if (!string.IsNullOrEmpty(txtDireccion.Text))
                 Pedido_.direccion_cliente = txtDireccion.Text;
 
+            int IdClientePreFactura = 0;
             if (ClienteFactura != null)
             {
                 if (ClienteFactura.Id > 0)
                 {
+                    IdClientePreFactura = 
                     Pedido_.IdCliente = ClienteFactura.Id;
                     if (PedidoActual != null)
                     {
                         Pedido_.IdEmpresa = PedidoActual.IdEmpresa;
                     }
                 }
+            }
+
+
+            if(rdCredito.Checked && IdClientePreFactura == 0)
+            {
+                //CajaDialogo.Error("Para una Pre Factura al Crédito, es necesario buscar el codigo de cliente!");
+                SetErrorBarra("Para una Pre Factura al Crédito es necesario buscar el código de cliente!");
+                return;
             }
 
             Pedido_.FechaDocumento = dp.NowSetDateTime();
