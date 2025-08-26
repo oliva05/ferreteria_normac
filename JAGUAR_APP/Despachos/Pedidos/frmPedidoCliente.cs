@@ -3044,9 +3044,11 @@ namespace Eatery.Ventas
                     if (PedidoActual != null)
                     {
                         Pedido_.IdEmpresa = PedidoActual.IdEmpresa;
+                        Pedido_.IdCliente = PedidoActual.IdCliente;
                     }
                 }
             }
+
 
 
             if(rdCredito.Checked && IdClientePreFactura == 0)

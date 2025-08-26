@@ -52,7 +52,24 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             lblNombreComercial.Text = Factura1.NombreComercial_PDV;
             lblCliente.Text = Factura1.ClienteNombre;
             lblClienteRTN.Text = Factura1.RTN;
-            
+
+
+            if (Factura1.OC_Exonerada == "N/D")
+                txtOC_Exonerada.Text = "";
+            else 
+                txtOC_Exonerada.Text = Factura1.OC_Exonerada;
+
+            if (Factura1.Constancia_exo == "N/D")
+                txtCorrelativoEXO.Text = "";
+            else
+                txtCorrelativoEXO.Text = Factura1.Constancia_exo;
+
+            if (Factura1.RegistroSAG == "N/D")
+                txtRegistroSAG.Text = "";
+            else
+                txtRegistroSAG.Text = Factura1.RegistroSAG;
+
+
             if (Factura1.descuentoTotalFactura > 0)
             {
                 lblUstedSeAhorro.Visible = true;
