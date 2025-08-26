@@ -91,7 +91,7 @@
               <xs:element name="create_uid" msprop:Generator_ColumnPropNameInTable="create_uidColumn" msprop:Generator_ColumnPropNameInRow="create_uid" msprop:Generator_UserColumnName="create_uid" msprop:Generator_ColumnVarNameInTable="columncreate_uid" type="xs:string" minOccurs="0" />
               <xs:element name="usuario_creacion" msprop:Generator_ColumnPropNameInTable="usuario_creacionColumn" msprop:Generator_ColumnPropNameInRow="usuario_creacion" msprop:Generator_UserColumnName="usuario_creacion" msprop:Generator_ColumnVarNameInTable="columnusuario_creacion" type="xs:string" minOccurs="0" />
               <xs:element name="moneda" msprop:Generator_ColumnPropNameInTable="monedaColumn" msprop:Generator_ColumnPropNameInRow="moneda" msprop:Generator_UserColumnName="moneda" msprop:Generator_ColumnVarNameInTable="columnmoneda" type="xs:string" minOccurs="0" />
-              <xs:element name="concat_" msprop:Generator_UserColumnName="concat_" msprop:Generator_ColumnPropNameInTable="concat_Column" msprop:Generator_ColumnPropNameInRow="concat_" msprop:Generator_ColumnVarNameInTable="columnconcat_" type="xs:string" minOccurs="0" />
+              <xs:element name="concat_" msprop:Generator_ColumnPropNameInTable="concat_Column" msprop:Generator_ColumnPropNameInRow="concat_" msprop:Generator_UserColumnName="concat_" msprop:Generator_ColumnVarNameInTable="columnconcat_" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -327,7 +327,7 @@
               <xs:element name="department_id" msprop:Generator_ColumnPropNameInTable="department_idColumn" msprop:Generator_ColumnPropNameInRow="department_id" msprop:Generator_UserColumnName="department_id" msprop:Generator_ColumnVarNameInTable="columndepartment_id" type="xs:int" minOccurs="0" />
               <xs:element name="analytic_type" msprop:Generator_ColumnPropNameInTable="analytic_typeColumn" msprop:Generator_ColumnPropNameInRow="analytic_type" msprop:Generator_UserColumnName="analytic_type" msprop:Generator_ColumnVarNameInTable="columnanalytic_type" type="xs:string" minOccurs="0" />
               <xs:element name="account_name_code" msprop:Generator_ColumnPropNameInTable="account_name_codeColumn" msprop:Generator_ColumnPropNameInRow="account_name_code" msprop:Generator_UserColumnName="account_name_code" msprop:Generator_ColumnVarNameInTable="columnaccount_name_code" type="xs:string" minOccurs="0" />
-              <xs:element name="counterpart_id" msprop:Generator_ColumnPropNameInRow="counterpart_id" msprop:Generator_ColumnPropNameInTable="counterpart_idColumn" msprop:Generator_ColumnVarNameInTable="columncounterpart_id" msprop:Generator_UserColumnName="counterpart_id" type="xs:int" minOccurs="0" />
+              <xs:element name="counterpart_id" msprop:Generator_ColumnPropNameInTable="counterpart_idColumn" msprop:Generator_ColumnPropNameInRow="counterpart_id" msprop:Generator_UserColumnName="counterpart_id" msprop:Generator_ColumnVarNameInTable="columncounterpart_id" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -399,6 +399,34 @@
               <xs:element name="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:string" minOccurs="0" />
               <xs:element name="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname" type="xs:string" minOccurs="0" />
               <xs:element name="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnVarNameInTable="columncode" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="hr_ihss" msprop:Generator_RowClassName="hr_ihssRow" msprop:Generator_RowEvHandlerName="hr_ihssRowChangeEventHandler" msprop:Generator_RowDeletedName="hr_ihssRowDeleted" msprop:Generator_RowDeletingName="hr_ihssRowDeleting" msprop:Generator_RowEvArgName="hr_ihssRowChangeEvent" msprop:Generator_TablePropName="hr_ihss" msprop:Generator_RowChangedName="hr_ihssRowChanged" msprop:Generator_UserTableName="hr_ihss" msprop:Generator_RowChangingName="hr_ihssRowChanging" msprop:Generator_TableClassName="hr_ihssDataTable" msprop:Generator_TableVarName="tablehr_ihss">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
+              <xs:element name="anio" msprop:Generator_UserColumnName="anio" msprop:Generator_ColumnPropNameInTable="anioColumn" msprop:Generator_ColumnPropNameInRow="anio" msprop:Generator_ColumnVarNameInTable="columnanio" type="xs:int" minOccurs="0" />
+              <xs:element name="user_id" msprop:Generator_UserColumnName="user_id" msprop:Generator_ColumnPropNameInTable="user_idColumn" msprop:Generator_ColumnPropNameInRow="user_id" msprop:Generator_ColumnVarNameInTable="columnuser_id" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_UserColumnName="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="activo" msprop:Generator_UserColumnName="activo" msprop:Generator_ColumnPropNameInTable="activoColumn" msprop:Generator_ColumnPropNameInRow="activo" msprop:Generator_ColumnVarNameInTable="columnactivo" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="hr_ihss_detalle" msprop:Generator_RowEvHandlerName="hr_ihss_detalleRowChangeEventHandler" msprop:Generator_RowDeletedName="hr_ihss_detalleRowDeleted" msprop:Generator_RowDeletingName="hr_ihss_detalleRowDeleting" msprop:Generator_RowEvArgName="hr_ihss_detalleRowChangeEvent" msprop:Generator_TablePropName="hr_ihss_detalle" msprop:Generator_RowChangedName="hr_ihss_detalleRowChanged" msprop:Generator_RowChangingName="hr_ihss_detalleRowChanging" msprop:Generator_TableClassName="hr_ihss_detalleDataTable" msprop:Generator_RowClassName="hr_ihss_detalleRow" msprop:Generator_TableVarName="tablehr_ihss_detalle" msprop:Generator_UserTableName="hr_ihss_detalle">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="year" msprop:Generator_ColumnPropNameInRow="year" msprop:Generator_ColumnPropNameInTable="yearColumn" msprop:Generator_ColumnVarNameInTable="columnyear" msprop:Generator_UserColumnName="year" type="xs:int" minOccurs="0" />
+              <xs:element name="techo_ivm" msprop:Generator_ColumnPropNameInRow="techo_ivm" msprop:Generator_ColumnPropNameInTable="techo_ivmColumn" msprop:Generator_ColumnVarNameInTable="columntecho_ivm" msprop:Generator_UserColumnName="techo_ivm" type="xs:decimal" minOccurs="0" />
+              <xs:element name="techo_em" msprop:Generator_ColumnPropNameInRow="techo_em" msprop:Generator_ColumnPropNameInTable="techo_emColumn" msprop:Generator_ColumnVarNameInTable="columntecho_em" msprop:Generator_UserColumnName="techo_em" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_UserColumnName="tipo" type="xs:string" minOccurs="0" />
+              <xs:element name="techo_rp" msprop:Generator_ColumnPropNameInRow="techo_rp" msprop:Generator_ColumnPropNameInTable="techo_rpColumn" msprop:Generator_ColumnVarNameInTable="columntecho_rp" msprop:Generator_UserColumnName="techo_rp" type="xs:decimal" minOccurs="0" />
+              <xs:element name="porcentaje_ivm" msprop:Generator_ColumnPropNameInRow="porcentaje_ivm" msprop:Generator_ColumnPropNameInTable="porcentaje_ivmColumn" msprop:Generator_ColumnVarNameInTable="columnporcentaje_ivm" msprop:Generator_UserColumnName="porcentaje_ivm" type="xs:decimal" minOccurs="0" />
+              <xs:element name="porcentaje_em" msprop:Generator_ColumnPropNameInRow="porcentaje_em" msprop:Generator_ColumnPropNameInTable="porcentaje_emColumn" msprop:Generator_ColumnVarNameInTable="columnporcentaje_em" msprop:Generator_UserColumnName="porcentaje_em" type="xs:decimal" minOccurs="0" />
+              <xs:element name="porcentaje_rp" msprop:Generator_ColumnPropNameInRow="porcentaje_rp" msprop:Generator_ColumnPropNameInTable="porcentaje_rpColumn" msprop:Generator_ColumnVarNameInTable="columnporcentaje_rp" msprop:Generator_UserColumnName="porcentaje_rp" type="xs:decimal" minOccurs="0" />
+              <xs:element name="porcentaje_afp" msprop:Generator_ColumnPropNameInRow="porcentaje_afp" msprop:Generator_ColumnPropNameInTable="porcentaje_afpColumn" msprop:Generator_ColumnVarNameInTable="columnporcentaje_afp" msprop:Generator_UserColumnName="porcentaje_afp" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
