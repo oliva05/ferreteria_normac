@@ -665,6 +665,7 @@ namespace Eatery.Ventas
                     factura.Enable = true;
                     factura.NumOrdenCompra = "";
                     factura.IdTerminoPago = IdTerminoPago;
+                
                     int correlativoSiguiente = 0;
                     //int id_numeracion = 0;
 
@@ -701,7 +702,7 @@ namespace Eatery.Ventas
                         //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v4]";
                         //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v5]";
                         //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v7]";
-                        command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v10]";
+                        command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v14]";
 
                         command.CommandType = CommandType.StoredProcedure;
                         //command.Parameters.AddWithValue("@numero_documento", factura.NumeroDocumento);
@@ -2360,7 +2361,34 @@ namespace Eatery.Ventas
             //frmAutorizacionSingle frm = new frmAutorizacionSingle();
             if (frm.ShowDialog() == DialogResult.OK)
             {
+                //this.dsVentas1.detalle_factura_transaction.Clear();
+                foreach(dsVentas.detalle_factura_transactionRow rowH in dsVentas1.detalle_factura_transaction)
+                {
+                    foreach (dsVentas.detalle_factura_transactionRow row in frm.dsVentas1.detalle_factura_transaction)
+                    {
+                        if(rowH.id_pt == row.id_pt)
+                        {
+                            rowH.isv1 = row.isv1;
+                            rowH.isv2 = row.isv2;
+                            rowH.isv3 = row.isv3;
 
+                            rowH.total_linea = rowH.cantidad * (rowH.precio - rowH.descuento);
+                            break;
+                        }
+                    }
+                }
+                CalcularTotalFactura();
+
+                lblConstanciaExo.Visible = lblRegistroExo.Visible = lblOrdenCompraExo.Visible = true;
+                lblConstanciaExoValue.Visible = lblRegistroExoValue.Visible = lblOrdenCompaExoValue.Visible = true;
+                lblConstanciaExoValue.Text = frm.txtConstancia.Text;
+                lblRegistroExoValue.Text = frm.txtRegistroSAG.Text;
+                lblOrdenCompaExoValue.Text = frm.txtOrdenCompra.Text;
+            }
+            else
+            {
+                lblConstanciaExo.Visible = lblRegistroExo.Visible = lblOrdenCompraExo.Visible = false;
+                lblConstanciaExoValue.Visible = lblRegistroExoValue.Visible = lblOrdenCompaExoValue.Visible = false;
             }
         }
     }

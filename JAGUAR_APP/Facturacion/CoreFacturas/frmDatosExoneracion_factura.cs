@@ -1,6 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Accesos.AutorizacionSingle;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
@@ -97,7 +98,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void cmdAplicarExoneracion_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            var gv = (GridView)gridControl1.FocusedView;
+            var row = (dsVentas.detalle_factura_transactionRow)gv.GetDataRow(gv.FocusedRowHandle);
 
+            row.isv1 = 0;
+            row.isv2 = 0;
+            row.isv3 = 0;
+
+            row.total_linea = row.cantidad * (row.precio - row.descuento);
         }
 
         private void cmdAplicarExoneracionTodaLaFactura_Click(object sender, EventArgs e)
@@ -114,6 +122,29 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void btnConfirmarAutorizacionDirecta_Click(object sender, EventArgs e)
         {
+            int contador = 0;
+            if (!string.IsNullOrEmpty(txtOrdenCompra.Text))
+            {
+                contador++;
+            }
+
+            if (!string.IsNullOrEmpty(txtConstancia.Text))
+            {
+                contador++;
+            }
+
+            if (!string.IsNullOrEmpty(txtRegistroSAG.Text))
+            {
+                contador++;
+            }
+
+            if(contador == 0)
+            {
+                CajaDialogo.Error("Es necesario ingresar al menos un dato para exonerar, Orden de compra, constancia o registro de exonerado!");
+                txtOrdenCompra.Focus();
+                return;
+            }
+
             bool accesoprevio = false;
             bool AccesoAdmin = false;
             int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
@@ -146,12 +177,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     UpdatePedido();
                 }
             }
-            
         }
 
         private void UpdatePedido()
         {
-            
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btnCancelarAutorizacionDirecta_Click(object sender, EventArgs e)
