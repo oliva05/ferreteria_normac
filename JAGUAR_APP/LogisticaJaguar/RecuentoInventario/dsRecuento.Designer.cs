@@ -1511,6 +1511,10 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             private global::System.Data.DataColumn columncantidad_ajuste;
             
+            private global::System.Data.DataColumn columnprecio_venta;
+            
+            private global::System.Data.DataColumn columnimpacto_economico;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public conteo_recuentoDataTable() {
@@ -1650,6 +1654,22 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn precio_ventaColumn {
+                get {
+                    return this.columnprecio_venta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn impacto_economicoColumn {
+                get {
+                    return this.columnimpacto_economico;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1685,7 +1705,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public conteo_recuentoRow Addconteo_recuentoRow(int id_detalle_recuento, int id_recuento, int id_pt, string pt, string code_pt, string code_referencia, decimal cantidad_sistema, int id_bodega, string bodega, decimal conteo_fisico, bool conteo_completado, string tipo_ajuste, decimal cantidad_ajuste) {
+            public conteo_recuentoRow Addconteo_recuentoRow(int id_detalle_recuento, int id_recuento, int id_pt, string pt, string code_pt, string code_referencia, decimal cantidad_sistema, int id_bodega, string bodega, decimal conteo_fisico, bool conteo_completado, string tipo_ajuste, decimal cantidad_ajuste, decimal precio_venta, decimal impacto_economico) {
                 conteo_recuentoRow rowconteo_recuentoRow = ((conteo_recuentoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_detalle_recuento,
@@ -1700,7 +1720,9 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                         conteo_fisico,
                         conteo_completado,
                         tipo_ajuste,
-                        cantidad_ajuste};
+                        cantidad_ajuste,
+                        precio_venta,
+                        impacto_economico};
                 rowconteo_recuentoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowconteo_recuentoRow);
                 return rowconteo_recuentoRow;
@@ -1736,6 +1758,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 this.columnconteo_completado = base.Columns["conteo_completado"];
                 this.columntipo_ajuste = base.Columns["tipo_ajuste"];
                 this.columncantidad_ajuste = base.Columns["cantidad_ajuste"];
+                this.columnprecio_venta = base.Columns["precio_venta"];
+                this.columnimpacto_economico = base.Columns["impacto_economico"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1767,6 +1791,10 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 base.Columns.Add(this.columntipo_ajuste);
                 this.columncantidad_ajuste = new global::System.Data.DataColumn("cantidad_ajuste", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncantidad_ajuste);
+                this.columnprecio_venta = new global::System.Data.DataColumn("precio_venta", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprecio_venta);
+                this.columnimpacto_economico = new global::System.Data.DataColumn("impacto_economico", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimpacto_economico);
                 this.columnconteo_fisico.DefaultValue = ((decimal)(0m));
                 this.columnconteo_completado.DefaultValue = ((bool)(false));
                 this.columncantidad_ajuste.DefaultValue = ((decimal)(0m));
@@ -1915,6 +1943,10 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             private global::System.Data.DataColumn columncantidad_ajustada;
             
+            private global::System.Data.DataColumn columnprecio_venta;
+            
+            private global::System.Data.DataColumn columnimpacto_economico;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public rpt_detalle_recuentoDataTable() {
@@ -1998,6 +2030,22 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn precio_ventaColumn {
+                get {
+                    return this.columnprecio_venta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn impacto_economicoColumn {
+                get {
+                    return this.columnimpacto_economico;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2033,7 +2081,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public rpt_detalle_recuentoRow Addrpt_detalle_recuentoRow(string code_pt, string producto, decimal cantidad_sistema, decimal conteo_fisica, string tipo_ajuste, decimal cantidad_ajustada) {
+            public rpt_detalle_recuentoRow Addrpt_detalle_recuentoRow(string code_pt, string producto, decimal cantidad_sistema, decimal conteo_fisica, string tipo_ajuste, decimal cantidad_ajustada, decimal precio_venta, decimal impacto_economico) {
                 rpt_detalle_recuentoRow rowrpt_detalle_recuentoRow = ((rpt_detalle_recuentoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code_pt,
@@ -2041,7 +2089,9 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                         cantidad_sistema,
                         conteo_fisica,
                         tipo_ajuste,
-                        cantidad_ajustada};
+                        cantidad_ajustada,
+                        precio_venta,
+                        impacto_economico};
                 rowrpt_detalle_recuentoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrpt_detalle_recuentoRow);
                 return rowrpt_detalle_recuentoRow;
@@ -2070,6 +2120,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 this.columnconteo_fisica = base.Columns["conteo_fisica"];
                 this.columntipo_ajuste = base.Columns["tipo_ajuste"];
                 this.columncantidad_ajustada = base.Columns["cantidad_ajustada"];
+                this.columnprecio_venta = base.Columns["precio_venta"];
+                this.columnimpacto_economico = base.Columns["impacto_economico"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2087,6 +2139,10 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 base.Columns.Add(this.columntipo_ajuste);
                 this.columncantidad_ajustada = new global::System.Data.DataColumn("cantidad_ajustada", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncantidad_ajustada);
+                this.columnprecio_venta = new global::System.Data.DataColumn("precio_venta", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprecio_venta);
+                this.columnimpacto_economico = new global::System.Data.DataColumn("impacto_economico", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimpacto_economico);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3220,6 +3276,39 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal precio_venta {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableconteo_recuento.precio_ventaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'precio_venta\' de la tabla \'conteo_recuento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableconteo_recuento.precio_ventaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal impacto_economico {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableconteo_recuento.impacto_economicoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'impacto_economico\' de la tabla \'conteo_recuento\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableconteo_recuento.impacto_economicoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_detalle_recuentoNull() {
                 return this.IsNull(this.tableconteo_recuento.id_detalle_recuentoColumn);
             }
@@ -3373,6 +3462,30 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             public void Setcantidad_ajusteNull() {
                 this[this.tableconteo_recuento.cantidad_ajusteColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isprecio_ventaNull() {
+                return this.IsNull(this.tableconteo_recuento.precio_ventaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setprecio_ventaNull() {
+                this[this.tableconteo_recuento.precio_ventaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isimpacto_economicoNull() {
+                return this.IsNull(this.tableconteo_recuento.impacto_economicoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setimpacto_economicoNull() {
+                this[this.tableconteo_recuento.impacto_economicoColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -3491,6 +3604,40 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal precio_venta {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablerpt_detalle_recuento.precio_ventaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'precio_venta\' de la tabla \'rpt_detalle_recuento\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablerpt_detalle_recuento.precio_ventaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal impacto_economico {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablerpt_detalle_recuento.impacto_economicoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'impacto_economico\' de la tabla \'rpt_detalle_recuento\' es " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerpt_detalle_recuento.impacto_economicoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Iscode_ptNull() {
                 return this.IsNull(this.tablerpt_detalle_recuento.code_ptColumn);
             }
@@ -3559,6 +3706,30 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setcantidad_ajustadaNull() {
                 this[this.tablerpt_detalle_recuento.cantidad_ajustadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isprecio_ventaNull() {
+                return this.IsNull(this.tablerpt_detalle_recuento.precio_ventaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setprecio_ventaNull() {
+                this[this.tablerpt_detalle_recuento.precio_ventaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isimpacto_economicoNull() {
+                return this.IsNull(this.tablerpt_detalle_recuento.impacto_economicoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setimpacto_economicoNull() {
+                this[this.tablerpt_detalle_recuento.impacto_economicoColumn] = global::System.Convert.DBNull;
             }
         }
         

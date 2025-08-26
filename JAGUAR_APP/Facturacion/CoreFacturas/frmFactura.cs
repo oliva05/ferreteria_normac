@@ -6,6 +6,7 @@ using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
+using JAGUAR_PRO.Accesos.AutorizacionSingle;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.Facturacion.Cotizaciones;
@@ -113,8 +114,6 @@ namespace Eatery.Ventas
             //    cmdIngresarAdmin.Visible = SaltarLogin.Visible = simpleButton2.Visible = SaltarLoginPRD.Visible = true;
             //}
         }
-
-
 
         public frmFactura(UserLogin pUser, PDV pPuntoDeVentaActual, FacturacionEquipo pEquipoActual, int pIdPedido)
         {
@@ -2352,6 +2351,16 @@ namespace Eatery.Ventas
                 rdPorCobrar.CheckedChanged += new EventHandler(rdPorCobrar_CheckedChanged);
                 rdContado.CheckedChanged += new EventHandler(rdContado_CheckedChanged);
                 rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
+            }
+        }
+
+        private void cmdExonerarFactura_Click(object sender, EventArgs e)
+        {
+            frmDatosExoneracion_factura frm = new frmDatosExoneracion_factura(this.UsuarioLogeado, this.PedidoRecuperado.Id);
+            //frmAutorizacionSingle frm = new frmAutorizacionSingle();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+
             }
         }
     }

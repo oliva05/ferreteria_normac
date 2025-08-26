@@ -57,7 +57,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     cmdGuardar.Visible = true;
                     grdvConteo.Columns["tipo_ajuste"].Visible = false;
                     grdvConteo.Columns["cantidad_ajuste"].Visible = false; // Oculto el costo, ya que no se debe modificar en conteo
-
+                    grdvConteo.Columns["precio_venta"].Visible = false;
+                    grdvConteo.Columns["impacto_economico"].Visible = false;
                     switch (recuento.EstadoId)
                     {
                         case 6://pendiente de aprobacion
@@ -75,7 +76,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     break;
                 case AccionesRecuento.RevisionAprobacion:
                     cmdGuardar.Enabled = false;
-                    
+                    grdvConteo.Columns["precio_venta"].Visible = false;
+                    grdvConteo.Columns["impacto_economico"].Visible = false;
 
                     LoadConteoByIdRecuento();
 
@@ -86,8 +88,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     dtFechaConta.Enabled = false;
                     cmdGuardar.Visible = false;
                     btnCompletar.Visible = false;
-                    
- 
+                    grdvConteo.OptionsBehavior.Editable = false;
+
 
                     break;
                 default:

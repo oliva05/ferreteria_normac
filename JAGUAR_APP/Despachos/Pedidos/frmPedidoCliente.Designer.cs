@@ -248,7 +248,7 @@ namespace Eatery.Ventas
             // 
             // timerLimpiarMensaje
             // 
-            this.timerLimpiarMensaje.Interval = 4000;
+            this.timerLimpiarMensaje.Interval = 6000;
             this.timerLimpiarMensaje.Tick += new System.EventHandler(this.timerLimpiarMensaje_Tick);
             // 
             // lblfecha

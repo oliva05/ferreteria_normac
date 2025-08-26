@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
+using JAGUAR_PRO.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,25 +48,6 @@ namespace JAGUAR_PRO.Facturacion.Reportes
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            //if (factura.RecuperarRegistro(factura_id))
-            //{
-            //    if (factura.CantidadImpresionesFactura == 0)
-            //    {
-            //        rptFactura report = new rptFactura(factura, rptFactura.TipoCopia.Blanco);
-
-            //        using (ReportPrintTool printTool = new ReportPrintTool(report))
-            //        {
-            //            // Send the report to the default printer.
-            //            factura.UpdatePrintCount(factura_id);
-            //            printTool.ShowPreviewDialog();
-            //        }
-            //    }
-            //    else
-            //    {
-            //        CajaDialogo.Error("Esta factura ya se imprimió! Para una reimpresión debe solicitar una autorización!");
-            //    }
-            //}
-            //this.Close();
             TipoInformeActual = TipoInforme.TipoCinta3_pulg;
             if (factura.RecuperarRegistro(factura_id))
             {
@@ -77,54 +59,79 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                     }
                     else
                     {
-                        DialogResult r = CajaDialogo.Pregunta("Esta factura ya se imprimió! Desea solicitar una reimpresión por autorización?");
-                        if (r == DialogResult.Yes)
+                        bool accesoprevio = false;
+                        bool AccesoAdmin = false;
+                        int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                        switch (idNivel)
                         {
-                            try
+                            case 1://Basic View
+                                break;
+                            case 2://Basic No Autorization
+                                accesoprevio = false;
+                                break;
+                            case 3://Medium Autorization
+                                accesoprevio = false;
+                                break;
+                            case 4://Depth With Delta
+                            case 5://Depth Without Delta
+                                accesoprevio = AccesoAdmin = true;
+                                Reimpresion();
+                                break;
+                            default:
+                                break;
+                        }
+
+                        if (!accesoprevio)
+                        {
+                            DialogResult r = CajaDialogo.Pregunta("Esta factura ya se imprimió! Desea solicitar una reimpresión por autorización?");
+                            if (r == DialogResult.Yes)
                             {
-                                //var row = (dsFacturasGestion.HomeFacturasRow)gvFacturas.GetFocusedDataRow();
-                                Factura_SolicitudAutorizacion solicitud = new Factura_SolicitudAutorizacion();
-                                solicitud.Facturas_seleccionadas = new List<FacturasSeleccionada>();
-                                solicitud.Clientes_Seleccionados = new List<int>();
-
-                                if (factura.IdEstado == (int)EstadosFactura.Anulada)
+                                try
                                 {
-                                    CajaDialogo.Error("No se puede proceder con facturas que estan anuladas");
-                                    return;
-                                }
+                                    //var row = (dsFacturasGestion.HomeFacturasRow)gvFacturas.GetFocusedDataRow();
+                                    Factura_SolicitudAutorizacion solicitud = new Factura_SolicitudAutorizacion();
+                                    solicitud.Facturas_seleccionadas = new List<FacturasSeleccionada>();
+                                    solicitud.Clientes_Seleccionados = new List<int>();
 
-                                solicitud.Facturas_seleccionadas.Add(new FacturasSeleccionada()
-                                {
-                                    FacturaId = factura.Id,
-                                    NumeroFactura = factura.NumeroDocumento,
-                                    Monto = factura.TotalFactura,
-                                    PuntoVenda_Id = this.PuntoVentaActual.ID,
-                                    PuntoVenta = this.PuntoVentaActual.Nombre
-                                });
-                                //solicitud.Facturas_seleccionadas.Add(item.id);
-                                DataOperations dp = new DataOperations();
-                                solicitud.Clientes_Seleccionados.Add(dp.ValidateNumberInt32(factura.IdCliente));
-                                solicitud.UsuarioSolicita_Id = UsuarioLogeado.Id;
-                                solicitud.FacturaId = factura.Id;
-                                solicitud.PuntoDeVenta_Id = this.PuntoVentaActual.ID;
-                                solicitud.ClienteId = dp.ValidateNumberInt32(factura.IdCliente);
-                                solicitud.Cliente = factura.ClienteNombre;
-                                solicitud.Cliente_RTN = factura.RTN;
-                                //xfrmDialogAutorizacion authorize = new xfrmDialogAutorizacion(solicitud, this.PuntoDeVentaActual);
-                                frmNavigationPageAutorizacion authorize = new frmNavigationPageAutorizacion(solicitud, this.PuntoVentaActual);
-
-                                if (authorize.ShowDialog() == DialogResult.OK)
-                                {
-                                    if (authorize.tipoAutorizacionActual == frmNavigationPageAutorizacion.TipoAutorizacion.Reimpresion && authorize.autorizacion_directa == true)
+                                    if (factura.IdEstado == (int)EstadosFactura.Anulada)
                                     {
-                                        //row.EstadoName = "Anulada";
-                                        Reimpresion();
+                                        CajaDialogo.Error("No se puede proceder con facturas que estan anuladas");
+                                        return;
+                                    }
+
+                                    solicitud.Facturas_seleccionadas.Add(new FacturasSeleccionada()
+                                    {
+                                        FacturaId = factura.Id,
+                                        NumeroFactura = factura.NumeroDocumento,
+                                        Monto = factura.TotalFactura,
+                                        PuntoVenda_Id = this.PuntoVentaActual.ID,
+                                        PuntoVenta = this.PuntoVentaActual.Nombre
+                                    });
+                                    //solicitud.Facturas_seleccionadas.Add(item.id);
+                                    DataOperations dp = new DataOperations();
+                                    solicitud.Clientes_Seleccionados.Add(dp.ValidateNumberInt32(factura.IdCliente));
+                                    solicitud.UsuarioSolicita_Id = UsuarioLogeado.Id;
+                                    solicitud.FacturaId = factura.Id;
+                                    solicitud.PuntoDeVenta_Id = this.PuntoVentaActual.ID;
+                                    solicitud.ClienteId = dp.ValidateNumberInt32(factura.IdCliente);
+                                    solicitud.Cliente = factura.ClienteNombre;
+                                    solicitud.Cliente_RTN = factura.RTN;
+                                    //xfrmDialogAutorizacion authorize = new xfrmDialogAutorizacion(solicitud, this.PuntoDeVentaActual);
+                                    frmNavigationPageAutorizacion authorize = new frmNavigationPageAutorizacion(solicitud, this.PuntoVentaActual);
+
+                                    if (authorize.ShowDialog() == DialogResult.OK)
+                                    {
+                                        if (authorize.tipoAutorizacionActual == frmNavigationPageAutorizacion.TipoAutorizacion.Reimpresion && authorize.autorizacion_directa == true)
+                                        {
+                                            //row.EstadoName = "Anulada";
+                                            Reimpresion();
+                                        }
                                     }
                                 }
-                            }
-                            catch (Exception ex)
-                            {
-                                CajaDialogo.Error(ex.Message);
+                                catch (Exception ex)
+                                {
+                                    CajaDialogo.Error(ex.Message);
+                                }
                             }
                         }
                     }
