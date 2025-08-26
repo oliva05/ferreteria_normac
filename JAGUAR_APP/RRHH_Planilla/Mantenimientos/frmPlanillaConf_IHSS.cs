@@ -1,6 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.Office.Utils;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
 using JAGUAR_PRO.Accesos.AccesosUsuarios;
 using JAGUAR_PRO.Clases;
 using System;
@@ -55,6 +56,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                 default:
                     break;
             }
+            reposComboTipo.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
         }
 
         private void GetRegistros()
@@ -95,7 +97,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
             int Patrono = 0;
             int Trabajador = 0;
 
-            foreach (dsMantenimientoPlanilla.hr_ihss_detalleRow row in dsMantenimientoPlanilla1.hr_ihss_detalle.Row)
+            foreach (dsMantenimientoPlanilla.hr_ihss_detalleRow row in dsMantenimientoPlanilla1.hr_ihss_detalle.Rows)
             {
                 if (row.tipo == "Trabajadores")
                     Trabajador += 1;

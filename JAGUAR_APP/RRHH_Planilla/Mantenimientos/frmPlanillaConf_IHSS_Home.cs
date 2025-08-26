@@ -60,7 +60,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                 }
             }
 
-            if (Bloquear)
+            if (!Bloquear)
             {
                 try
                 {

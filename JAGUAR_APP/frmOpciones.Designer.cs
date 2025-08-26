@@ -509,6 +509,7 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem255 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -2681,7 +2682,8 @@
             this.navBarItem205,
             this.navBarItem206,
             this.navBarItem207,
-            this.navBarItem155});
+            this.navBarItem155,
+            this.navBarItem255});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 338;
@@ -2855,7 +2857,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem204),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem205),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem206),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem207)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem207),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem255)});
             this.navBarGroup17.Name = "navBarGroup17";
             // 
             // navBarItem200
@@ -7109,6 +7112,20 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
+            // navBarItem255
+            // 
+            this.navBarItem255.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem255.Appearance.Options.UseFont = true;
+            this.navBarItem255.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem255.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem255.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem255.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem255.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem255.AppearancePressed.Options.UseFont = true;
+            this.navBarItem255.Caption = "Configuración IHSS";
+            this.navBarItem255.Name = "navBarItem255";
+            this.navBarItem255.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem255_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7638,5 +7655,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem350;
         private DevExpress.XtraNavBar.NavBarItem navBarItem254;
         private DevExpress.XtraNavBar.NavBarItem nBarConsultarAjusteInventario;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem255;
     }
 }
