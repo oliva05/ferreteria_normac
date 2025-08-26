@@ -24,6 +24,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
         {
             InitializeComponent();
             UsuarioLogeado = userLogin;
+            toggleSwitch1.IsOn = false;
             CargarDatos();
         }
 
@@ -156,6 +157,22 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
         private void cmdCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDetalle_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdIHSS.FocusedView;
+            var row = (dsMantenimientoPlanilla.hr_ihssRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                frmPlanillaConf_IHSS frm = new frmPlanillaConf_IHSS(frmPlanillaConf_IHSS.TipoTransaccionPlanilla.Vista, UsuarioLogeado, row.id, row.anio);
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    CargarDatos();
+                }
+            }
         }
     }
 }

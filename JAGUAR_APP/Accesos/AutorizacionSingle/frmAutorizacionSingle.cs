@@ -51,12 +51,19 @@ namespace JAGUAR_PRO.Accesos.AutorizacionSingle
 
         private void btnConfirmarAutorizacionDirecta_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtUsuario.Text)) 
+            {
+                CajaDialogo.Error("Es necesario ingresar un usuario que autorice!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtClave.Text))
+            {
+                CajaDialogo.Error("Es necesario ingresar la contraseña!");
+                return;
+            }
+
             var usuario = ValidateUserInfo(txtUsuario.Text, txtClave.Text);
-            DataOperations dp = new DataOperations();
-
-            SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-
-
             if (usuario.GrupoUsuario.GrupoUsuarioActivo == GrupoUser.GrupoUsuario.Administradores && contraseniaCorrecta == true)
             {
                 this.DialogResult = DialogResult.OK;

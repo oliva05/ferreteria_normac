@@ -51,6 +51,15 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                     break;
 
                 case TipoTransaccionPlanilla.Vista:
+
+                    btnSave.Visible = false;
+                    txtAnio.EditValue = pyear;
+                    txtAnio.Enabled = false;
+
+                    //TODO EL GRID SOLO DE LECTURA
+                    grdvConfigIHSS.OptionsBehavior.Editable = false;
+                    grdvConfigIHSS.OptionsBehavior.ReadOnly = true;
+                    GetRegistros();
                     break;
 
                 default:
@@ -182,7 +191,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                         transaction = conn.BeginTransaction("Transaction Order");
 
                         SqlCommand cmd = conn.CreateCommand();
-                        cmd.CommandText = "sp_insert_ihss_h";
+                        cmd.CommandText = "[sp_update_ihss_h]";
                         cmd.Connection = conn;
                         cmd.Transaction = transaction;
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -210,6 +219,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                             cmd.Parameters.AddWithValue("@porcentaje_rp", row.porcentaje_rp);
                             cmd.Parameters.AddWithValue("@porcentaje_afp", row.porcentaje_afp);
                             cmd.Parameters.AddWithValue("@id_h", IdHeader);
+                            cmd.Parameters.AddWithValue("@id_d", row.id);
                             cmd.ExecuteNonQuery();
                         }
 

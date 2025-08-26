@@ -619,14 +619,14 @@ namespace Eatery.Ventas
 
             //Efectuar que se haga la facturacion en dos pasos, primero la factura y luego el pago
             //if (PuntoDeVentaActual.EmisionFacturaDosPasos)
-            if(rdCredito.Checked || rdPorCobrar.Checked)
+            if (rdCredito.Checked || rdPorCobrar.Checked)
             {
                 DialogResult r = CajaDialogo.Pregunta("Esta seguro de generar esta factura?");
                 if (r != DialogResult.Yes)
                     return;
 
                 Factura factura = new Factura();
-                
+
                 if (string.IsNullOrEmpty(txtRTN.Text))
                     factura.RTN = "N/D";
                 else
@@ -645,39 +645,41 @@ namespace Eatery.Ventas
                     factura.direccion_cliente = txtDireccion.Text;
 
 
-                
-                if (ClienteFactura != null)
-                        if(ClienteFactura.Id>0)
-                            factura.IdCliente = ClienteFactura.Id;
 
-                    factura.FechaDocumento = dp.NowSetDateTime();
+                //if (ClienteFactura != null)
+                //    if (ClienteFactura.Id > 0)
+                //        factura.IdCliente = ClienteFactura.Id;
+                factura.IdCliente = ProIdCliente;
 
-                    if (this.VendedorActual != null)
-                        factura.IdVendedor = this.VendedorActual.Id;
+                factura.FechaDocumento = dp.NowSetDateTime();
 
-                    //1   Emitida
-                    //2   Pagada
-                    //3   Anulada
-                    factura.IdEstado = 1;
-                    factura.CantidadImpresionesFactura = 0;
-                    factura.IdUser = this.UsuarioLogeado.Id;
-                    factura.IdPuntoVenta = this.PuntoDeVentaActual.ID;
-                    factura.Enable = true;
-                    factura.NumOrdenCompra = "";
-                    factura.IdTerminoPago = IdTerminoPago;
-                    int correlativoSiguiente = 0;
-                    //int id_numeracion = 0;
+                if (this.VendedorActual != null)
+                    factura.IdVendedor = this.VendedorActual.Id;
 
-                    factura.descuentoTotalFactura = factura.subtotalFactura = 
-                    factura.ISV1 = factura.ISV2 = 0;
+                //1   Emitida
+                //2   Pagada
+                //3   Anulada
+                factura.IdEstado = 1;
+                factura.CantidadImpresionesFactura = 0;
+                factura.IdUser = this.UsuarioLogeado.Id;
+                factura.IdPuntoVenta = this.PuntoDeVentaActual.ID;
+                factura.Enable = true;
+                factura.NumOrdenCompra = "";
+                factura.IdTerminoPago = IdTerminoPago;
 
-                    foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
-                    {
-                        factura.subtotalFactura += dp.ValidateNumberDecimal((row.cantidad * row.precio));
-                        factura.descuentoTotalFactura += dp.ValidateNumberDecimal(row.descuento);
-                        factura.ISV1 += dp.ValidateNumberDecimal(row.isv1);
-                        factura.ISV2 += dp.ValidateNumberDecimal(row.isv2);
-                    }
+                int correlativoSiguiente = 0;
+                //int id_numeracion = 0;
+
+                factura.descuentoTotalFactura = factura.subtotalFactura =
+                factura.ISV1 = factura.ISV2 = 0;
+
+                foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
+                {
+                    factura.subtotalFactura += dp.ValidateNumberDecimal((row.cantidad * row.precio));
+                    factura.descuentoTotalFactura += dp.ValidateNumberDecimal(row.descuento);
+                    factura.ISV1 += dp.ValidateNumberDecimal(row.isv1);
+                    factura.ISV2 += dp.ValidateNumberDecimal(row.isv2);
+                }
 
                 //Vamos por el detalle de lineas para la factura y la transaccion
                 using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
@@ -701,7 +703,7 @@ namespace Eatery.Ventas
                         //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v4]";
                         //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v5]";
                         //command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v7]";
-                        command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v10]";
+                        command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v14]";
 
                         command.CommandType = CommandType.StoredProcedure;
                         //command.Parameters.AddWithValue("@numero_documento", factura.NumeroDocumento);
@@ -762,6 +764,22 @@ namespace Eatery.Ventas
                             command.Parameters.AddWithValue("@id_vendedor", DBNull.Value);
                         else
                             command.Parameters.AddWithValue("@id_vendedor", factura.IdVendedor);
+
+                        if(string.IsNullOrEmpty(lblOrdenCompaExoValue.Text))
+                            command.Parameters.AddWithValue("@oc_exonerada", DBNull.Value);
+                        else
+                            command.Parameters.AddWithValue("@oc_exonerada", lblOrdenCompaExoValue.Text);
+
+
+                        if (string.IsNullOrEmpty(lblConstanciaExo.Text))
+                            command.Parameters.AddWithValue("@constancia_exonerada", DBNull.Value);
+                        else
+                            command.Parameters.AddWithValue("@constancia_exonerada", lblConstanciaExoValue.Text);
+
+                        if (string.IsNullOrEmpty(lblConstanciaExo.Text))
+                            command.Parameters.AddWithValue("@registro_sag_exonerada", DBNull.Value);
+                        else
+                            command.Parameters.AddWithValue("@registro_sag_exonerada", lblRegistroExoValue.Text);
 
                         Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                         decimal TotalFactura = 0;
@@ -847,6 +865,7 @@ namespace Eatery.Ventas
                         ClienteFactura = new ClienteFacturacion();
                         cmdConsumidorFinal_Click(sender, e);
                         txtVendedor.Text = txtTotal.Text = "";
+                    
                     }
                     catch (Exception ex)
                     {
@@ -870,7 +889,7 @@ namespace Eatery.Ventas
 
                 decimal ValorTotalFactura = dp.ValidateNumberDecimal(txtTotal.Text);
                 Int64 IdReciboH_Inserted = 0;
-                
+
                 frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, ValorTotalFactura, this.PuntoDeVentaActual,
                                                         PedidoRecuperado.SubTotal, PedidoRecuperado.ISV);
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -968,7 +987,7 @@ namespace Eatery.Ventas
                         try
                         {
                             //Guardamos el Header de la factura 
-                            command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v13]";
+                            command.CommandText = "[dbo].[sp_set_insert_factura_header_punto_venta_v15]";
                             command.CommandType = CommandType.StoredProcedure;
                             //command.Parameters.AddWithValue("@numero_documento", factura.NumeroDocumento);
                             command.Parameters.AddWithValue("@enable", 1);
@@ -1021,6 +1040,22 @@ namespace Eatery.Ventas
 
                             command.Parameters.AddWithValue("@monto_recibido", factura.monto_entregado);
                             command.Parameters.AddWithValue("@cambio", factura.cambio);
+
+
+                            if (string.IsNullOrEmpty(lblOrdenCompaExoValue.Text))
+                                command.Parameters.AddWithValue("@oc_exonerada", DBNull.Value);
+                            else
+                                command.Parameters.AddWithValue("@oc_exonerada", lblOrdenCompaExoValue.Text);
+
+                            if (string.IsNullOrEmpty(lblConstanciaExo.Text))
+                                command.Parameters.AddWithValue("@constancia_exonerada", DBNull.Value);
+                            else
+                                command.Parameters.AddWithValue("@constancia_exonerada", lblConstanciaExoValue.Text);
+
+                            if (string.IsNullOrEmpty(lblConstanciaExo.Text))
+                                command.Parameters.AddWithValue("@registro_sag_exonerada", DBNull.Value);
+                            else
+                                command.Parameters.AddWithValue("@registro_sag_exonerada", lblRegistroExoValue.Text);
 
                             Int64 IdFacturaH = Convert.ToInt64(command.ExecuteScalar());
                             decimal TotalFactura = 0;
@@ -1157,7 +1192,7 @@ namespace Eatery.Ventas
                                 else
                                     command.Parameters.AddWithValue("@emisor_cheque", registroPago.id_banco);
 
-                                if (registroPago.id_cuenta==0)
+                                if (registroPago.id_cuenta == 0)
                                     command.Parameters.AddWithValue("@id_cuenta", DBNull.Value);
                                 else
                                     command.Parameters.AddWithValue("@id_cuenta", registroPago.id_cuenta);
@@ -1245,6 +1280,8 @@ namespace Eatery.Ventas
                                             printReport.PrinterSettings.Copies = Convert.ToInt16(PuntoDeVentaActual.Cantidad_copiasFactura);
                                             printReport.Print();
                                             facturaGenerada.UpdatePrintCount(facturaGenerada.Id);
+                                            this.DialogResult = DialogResult.OK;
+                                            this.Close();
                                             break;
                                         case 2://8x11.5 pulg. Carta
                                         default:
@@ -1255,6 +1292,8 @@ namespace Eatery.Ventas
                                             printReportLetter.PrinterSettings.Copies = Convert.ToInt16(PuntoDeVentaActual.Cantidad_copiasFactura);
                                             printReportLetter.Print();
                                             facturaGenerada.UpdatePrintCount(facturaGenerada.Id);
+                                            this.DialogResult = DialogResult.OK;
+                                            this.Close();
                                             break;
                                     }
                                 }
@@ -2360,7 +2399,34 @@ namespace Eatery.Ventas
             //frmAutorizacionSingle frm = new frmAutorizacionSingle();
             if (frm.ShowDialog() == DialogResult.OK)
             {
+                //this.dsVentas1.detalle_factura_transaction.Clear();
+                foreach(dsVentas.detalle_factura_transactionRow rowH in dsVentas1.detalle_factura_transaction)
+                {
+                    foreach (dsVentas.detalle_factura_transactionRow row in frm.dsVentas1.detalle_factura_transaction)
+                    {
+                        if(rowH.id_pt == row.id_pt)
+                        {
+                            rowH.isv1 = row.isv1;
+                            rowH.isv2 = row.isv2;
+                            rowH.isv3 = row.isv3;
 
+                            rowH.total_linea = rowH.cantidad * (rowH.precio - rowH.descuento);
+                            break;
+                        }
+                    }
+                }
+                CalcularTotalFactura();
+
+                lblConstanciaExo.Visible = lblRegistroExo.Visible = lblOrdenCompraExo.Visible = true;
+                lblConstanciaExoValue.Visible = lblRegistroExoValue.Visible = lblOrdenCompaExoValue.Visible = true;
+                lblConstanciaExoValue.Text = frm.txtConstancia.Text;
+                lblRegistroExoValue.Text = frm.txtRegistroSAG.Text;
+                lblOrdenCompaExoValue.Text = frm.txtOrdenCompra.Text;
+            }
+            else
+            {
+                lblConstanciaExo.Visible = lblRegistroExo.Visible = lblOrdenCompraExo.Visible = false;
+                lblConstanciaExoValue.Visible = lblRegistroExoValue.Visible = lblOrdenCompaExoValue.Visible = false;
             }
         }
     }

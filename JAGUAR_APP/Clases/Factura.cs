@@ -27,6 +27,9 @@ namespace JAGUAR_PRO.Clases
         public int IdNumeracionFiscal { get; set; }
         public string ClienteNombre { get; set; }
         public string ValorLetras { get; set; }
+        public string OC_Exonerada { get; set; }
+        public string Constancia_exo { get; set; }
+        public string RegistroSAG { get; set; }
         public string CAI { get; set; }
         public string FechaLimite { get; set; }
         public string RangoAutorizado { get; set; }
@@ -148,6 +151,16 @@ namespace JAGUAR_PRO.Clases
                         monto_entregado = Convert.ToDecimal(reader["monto_entregado"]);
                         cambio = Convert.ToDecimal(reader["cambio"]);
                         ValorLetras = valorEnLetras.Convertir((subtotalFactura - descuentoTotalFactura + ISV1 + ISV2).ToString(),true);
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("oc_exonerada")))
+                            OC_Exonerada = reader["oc_exonerada"].ToString();
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("constancia_exo")))
+                            Constancia_exo = reader["constancia_exo"].ToString();
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("registro_sag")))
+                            RegistroSAG = reader["registro_sag"].ToString();
+
                         RecuperaDatosPDVFromFactura(IdPuntoVenta);
                         Recuperado = true;
                     }

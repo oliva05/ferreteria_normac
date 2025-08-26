@@ -334,7 +334,6 @@
             this.txtRegistroSAG.Name = "txtRegistroSAG";
             this.txtRegistroSAG.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRegistroSAG.Properties.Appearance.Options.UseFont = true;
-            this.txtRegistroSAG.Properties.NullValuePrompt = "Direcci del Cliente";
             this.txtRegistroSAG.Size = new System.Drawing.Size(230, 24);
             this.txtRegistroSAG.TabIndex = 48;
             // 
@@ -344,7 +343,6 @@
             this.txtConstancia.Name = "txtConstancia";
             this.txtConstancia.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConstancia.Properties.Appearance.Options.UseFont = true;
-            this.txtConstancia.Properties.NullValuePrompt = "Nombre del Cliente";
             this.txtConstancia.Size = new System.Drawing.Size(230, 24);
             this.txtConstancia.TabIndex = 46;
             // 
@@ -364,7 +362,6 @@
             this.txtOrdenCompra.Name = "txtOrdenCompra";
             this.txtOrdenCompra.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOrdenCompra.Properties.Appearance.Options.UseFont = true;
-            this.txtOrdenCompra.Properties.NullValuePrompt = "Nombre del Cliente";
             this.txtOrdenCompra.Size = new System.Drawing.Size(230, 24);
             this.txtOrdenCompra.TabIndex = 43;
             // 
@@ -494,17 +491,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit txtNombreCliente;
-        private DevExpress.XtraEditors.TextEdit txtRegistroSAG;
-        private DevExpress.XtraEditors.TextEdit txtConstancia;
         private System.Windows.Forms.Label label6;
-        private DevExpress.XtraEditors.TextEdit txtOrdenCompra;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
-        private dsVentas dsVentas1;
         private DevExpress.XtraEditors.SimpleButton cmdAplicarExoneracionTodaLaFactura;
         private DevExpress.XtraEditors.SimpleButton btnCancelarAutorizacionDirecta;
         private DevExpress.XtraEditors.SimpleButton btnConfirmarAutorizacionDirecta;
         private DevExpress.XtraGrid.Columns.GridColumn grCol_AplicarExo;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdAplicarExoneracion;
+        public DevExpress.XtraEditors.TextEdit txtRegistroSAG;
+        public DevExpress.XtraEditors.TextEdit txtConstancia;
+        public DevExpress.XtraEditors.TextEdit txtOrdenCompra;
+        public dsVentas dsVentas1;
     }
 }

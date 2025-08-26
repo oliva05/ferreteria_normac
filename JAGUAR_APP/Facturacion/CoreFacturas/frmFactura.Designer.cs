@@ -53,6 +53,12 @@ namespace Eatery.Ventas
             this.dsVentas1 = new JAGUAR_PRO.Facturacion.CoreFacturas.dsVentas();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.lblRegistroExoValue = new System.Windows.Forms.Label();
+            this.lblConstanciaExoValue = new System.Windows.Forms.Label();
+            this.lblOrdenCompaExoValue = new System.Windows.Forms.Label();
+            this.lblRegistroExo = new System.Windows.Forms.Label();
+            this.lblConstanciaExo = new System.Windows.Forms.Label();
+            this.lblOrdenCompraExo = new System.Windows.Forms.Label();
             this.cmdExonerarFactura = new DevExpress.XtraEditors.SimpleButton();
             this.txtComentario = new DevExpress.XtraEditors.MemoEdit();
             this.label5 = new System.Windows.Forms.Label();
@@ -271,7 +277,12 @@ namespace Eatery.Ventas
             // 
             // navigationPage1
             // 
-            this.navigationPage1.Caption = "navigationPage1";
+            this.navigationPage1.Controls.Add(this.lblRegistroExoValue);
+            this.navigationPage1.Controls.Add(this.lblConstanciaExoValue);
+            this.navigationPage1.Controls.Add(this.lblOrdenCompaExoValue);
+            this.navigationPage1.Controls.Add(this.lblRegistroExo);
+            this.navigationPage1.Controls.Add(this.lblConstanciaExo);
+            this.navigationPage1.Controls.Add(this.lblOrdenCompraExo);
             this.navigationPage1.Controls.Add(this.cmdExonerarFactura);
             this.navigationPage1.Controls.Add(this.txtComentario);
             this.navigationPage1.Controls.Add(this.label5);
@@ -304,6 +315,75 @@ namespace Eatery.Ventas
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(1086, 617);
             this.navigationPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.navigationPage1_Paint);
+            // 
+            // lblRegistroExoValue
+            // 
+            this.lblRegistroExoValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblRegistroExoValue.AutoSize = true;
+            this.lblRegistroExoValue.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.lblRegistroExoValue.Location = new System.Drawing.Point(734, 517);
+            this.lblRegistroExoValue.Name = "lblRegistroExoValue";
+            this.lblRegistroExoValue.Size = new System.Drawing.Size(0, 17);
+            this.lblRegistroExoValue.TabIndex = 66;
+            this.lblRegistroExoValue.Visible = false;
+            // 
+            // lblConstanciaExoValue
+            // 
+            this.lblConstanciaExoValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblConstanciaExoValue.AutoSize = true;
+            this.lblConstanciaExoValue.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.lblConstanciaExoValue.Location = new System.Drawing.Point(734, 496);
+            this.lblConstanciaExoValue.Name = "lblConstanciaExoValue";
+            this.lblConstanciaExoValue.Size = new System.Drawing.Size(0, 17);
+            this.lblConstanciaExoValue.TabIndex = 65;
+            this.lblConstanciaExoValue.Visible = false;
+            // 
+            // lblOrdenCompaExoValue
+            // 
+            this.lblOrdenCompaExoValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblOrdenCompaExoValue.AutoSize = true;
+            this.lblOrdenCompaExoValue.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.lblOrdenCompaExoValue.Location = new System.Drawing.Point(734, 475);
+            this.lblOrdenCompaExoValue.Name = "lblOrdenCompaExoValue";
+            this.lblOrdenCompaExoValue.Size = new System.Drawing.Size(0, 17);
+            this.lblOrdenCompaExoValue.TabIndex = 64;
+            this.lblOrdenCompaExoValue.Visible = false;
+            // 
+            // lblRegistroExo
+            // 
+            this.lblRegistroExo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblRegistroExo.AutoSize = true;
+            this.lblRegistroExo.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.lblRegistroExo.Location = new System.Drawing.Point(400, 517);
+            this.lblRegistroExo.Name = "lblRegistroExo";
+            this.lblRegistroExo.Size = new System.Drawing.Size(242, 17);
+            this.lblRegistroExo.TabIndex = 63;
+            this.lblRegistroExo.Text = "No. Identificativo del registro de la SAG:";
+            this.lblRegistroExo.Visible = false;
+            // 
+            // lblConstanciaExo
+            // 
+            this.lblConstanciaExo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblConstanciaExo.AutoSize = true;
+            this.lblConstanciaExo.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.lblConstanciaExo.Location = new System.Drawing.Point(400, 496);
+            this.lblConstanciaExo.Name = "lblConstanciaExo";
+            this.lblConstanciaExo.Size = new System.Drawing.Size(320, 17);
+            this.lblConstanciaExo.TabIndex = 62;
+            this.lblConstanciaExo.Text = "No. Correlativo de constancia de registro exonerado:";
+            this.lblConstanciaExo.Visible = false;
+            // 
+            // lblOrdenCompraExo
+            // 
+            this.lblOrdenCompraExo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblOrdenCompraExo.AutoSize = true;
+            this.lblOrdenCompraExo.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.lblOrdenCompraExo.Location = new System.Drawing.Point(400, 475);
+            this.lblOrdenCompraExo.Name = "lblOrdenCompraExo";
+            this.lblOrdenCompraExo.Size = new System.Drawing.Size(268, 17);
+            this.lblOrdenCompraExo.TabIndex = 61;
+            this.lblOrdenCompraExo.Text = "No. Correlativo de orden de compra exenta:";
+            this.lblOrdenCompraExo.Visible = false;
             // 
             // cmdExonerarFactura
             // 
@@ -728,5 +808,11 @@ namespace Eatery.Ventas
         private DevExpress.XtraEditors.MemoEdit txtComentario;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.SimpleButton cmdExonerarFactura;
+        private System.Windows.Forms.Label lblOrdenCompraExo;
+        private System.Windows.Forms.Label lblConstanciaExo;
+        private System.Windows.Forms.Label lblRegistroExo;
+        private System.Windows.Forms.Label lblRegistroExoValue;
+        private System.Windows.Forms.Label lblConstanciaExoValue;
+        private System.Windows.Forms.Label lblOrdenCompaExoValue;
     }
 }

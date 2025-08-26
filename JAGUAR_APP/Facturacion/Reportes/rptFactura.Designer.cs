@@ -81,10 +81,10 @@
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel51 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel52 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel49 = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtRegistroSAG = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtCorrelativoEXO = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel50 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel48 = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtOC_Exonerada = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel53 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel42 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblISV15 = new DevExpress.XtraReports.UI.XRLabel();
@@ -769,10 +769,10 @@
             this.xrLabel4,
             this.xrLabel3,
             this.xrLabel51,
-            this.xrLabel52,
-            this.xrLabel49,
+            this.txtRegistroSAG,
+            this.txtCorrelativoEXO,
             this.xrLabel50,
-            this.xrLabel48,
+            this.txtOC_Exonerada,
             this.xrLabel53,
             this.xrLabel42,
             this.lblISV15,
@@ -911,41 +911,41 @@
             this.xrLabel51.Text = "No. identificativo del registro de la SAG";
             this.xrLabel51.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
-            // xrLabel52
+            // txtRegistroSAG
             // 
-            this.xrLabel52.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
-            this.xrLabel52.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel52.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            this.txtRegistroSAG.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
+            this.txtRegistroSAG.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.txtRegistroSAG.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "TextAlignment", "Iif(, \'MiddleRight\', ?)"),
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Visible", "Iif(, True, ?)")});
-            this.xrLabel52.Font = new DevExpress.Drawing.DXFont("Courier New", 6.55F);
-            this.xrLabel52.LocationFloat = new DevExpress.Utils.PointFloat(182.291F, 433.7278F);
-            this.xrLabel52.Name = "xrLabel52";
-            this.xrLabel52.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel52.SizeF = new System.Drawing.SizeF(76.03433F, 23.66669F);
-            this.xrLabel52.StylePriority.UseBorderDashStyle = false;
-            this.xrLabel52.StylePriority.UseBorders = false;
-            this.xrLabel52.StylePriority.UseFont = false;
-            this.xrLabel52.StylePriority.UseTextAlignment = false;
-            this.xrLabel52.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.txtRegistroSAG.Font = new DevExpress.Drawing.DXFont("Courier New", 6.55F);
+            this.txtRegistroSAG.LocationFloat = new DevExpress.Utils.PointFloat(182.291F, 433.7278F);
+            this.txtRegistroSAG.Name = "txtRegistroSAG";
+            this.txtRegistroSAG.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.txtRegistroSAG.SizeF = new System.Drawing.SizeF(76.03433F, 23.66669F);
+            this.txtRegistroSAG.StylePriority.UseBorderDashStyle = false;
+            this.txtRegistroSAG.StylePriority.UseBorders = false;
+            this.txtRegistroSAG.StylePriority.UseFont = false;
+            this.txtRegistroSAG.StylePriority.UseTextAlignment = false;
+            this.txtRegistroSAG.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
-            // xrLabel49
+            // txtCorrelativoEXO
             // 
-            this.xrLabel49.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
-            this.xrLabel49.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel49.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            this.txtCorrelativoEXO.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
+            this.txtCorrelativoEXO.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.txtCorrelativoEXO.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "TextAlignment", "Iif(, \'MiddleRight\', ?)"),
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Visible", "Iif(, True, ?)")});
-            this.xrLabel49.Font = new DevExpress.Drawing.DXFont("Courier New", 6.55F);
-            this.xrLabel49.LocationFloat = new DevExpress.Utils.PointFloat(182.2911F, 410.5601F);
-            this.xrLabel49.Name = "xrLabel49";
-            this.xrLabel49.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel49.SizeF = new System.Drawing.SizeF(76.03427F, 23.16763F);
-            this.xrLabel49.StylePriority.UseBorderDashStyle = false;
-            this.xrLabel49.StylePriority.UseBorders = false;
-            this.xrLabel49.StylePriority.UseFont = false;
-            this.xrLabel49.StylePriority.UseTextAlignment = false;
-            this.xrLabel49.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.txtCorrelativoEXO.Font = new DevExpress.Drawing.DXFont("Courier New", 6.55F);
+            this.txtCorrelativoEXO.LocationFloat = new DevExpress.Utils.PointFloat(182.2911F, 410.5601F);
+            this.txtCorrelativoEXO.Name = "txtCorrelativoEXO";
+            this.txtCorrelativoEXO.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.txtCorrelativoEXO.SizeF = new System.Drawing.SizeF(76.03427F, 23.16763F);
+            this.txtCorrelativoEXO.StylePriority.UseBorderDashStyle = false;
+            this.txtCorrelativoEXO.StylePriority.UseBorders = false;
+            this.txtCorrelativoEXO.StylePriority.UseFont = false;
+            this.txtCorrelativoEXO.StylePriority.UseTextAlignment = false;
+            this.txtCorrelativoEXO.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel50
             // 
@@ -968,24 +968,24 @@
             this.xrLabel50.Text = "No. Correlativo de constancia de registro exonerado";
             this.xrLabel50.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
-            // xrLabel48
+            // txtOC_Exonerada
             // 
-            this.xrLabel48.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
-            this.xrLabel48.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
+            this.txtOC_Exonerada.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
+            this.txtOC_Exonerada.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel48.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            this.txtOC_Exonerada.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "TextAlignment", "Iif(, \'MiddleRight\', ?)"),
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Visible", "Iif(, True, ?)")});
-            this.xrLabel48.Font = new DevExpress.Drawing.DXFont("Courier New", 6.55F);
-            this.xrLabel48.LocationFloat = new DevExpress.Utils.PointFloat(182.2913F, 385.8518F);
-            this.xrLabel48.Name = "xrLabel48";
-            this.xrLabel48.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel48.SizeF = new System.Drawing.SizeF(76.03407F, 24.70825F);
-            this.xrLabel48.StylePriority.UseBorderDashStyle = false;
-            this.xrLabel48.StylePriority.UseBorders = false;
-            this.xrLabel48.StylePriority.UseFont = false;
-            this.xrLabel48.StylePriority.UseTextAlignment = false;
-            this.xrLabel48.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.txtOC_Exonerada.Font = new DevExpress.Drawing.DXFont("Courier New", 6.55F);
+            this.txtOC_Exonerada.LocationFloat = new DevExpress.Utils.PointFloat(182.2913F, 385.8518F);
+            this.txtOC_Exonerada.Name = "txtOC_Exonerada";
+            this.txtOC_Exonerada.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.txtOC_Exonerada.SizeF = new System.Drawing.SizeF(76.03407F, 24.70825F);
+            this.txtOC_Exonerada.StylePriority.UseBorderDashStyle = false;
+            this.txtOC_Exonerada.StylePriority.UseBorders = false;
+            this.txtOC_Exonerada.StylePriority.UseFont = false;
+            this.txtOC_Exonerada.StylePriority.UseTextAlignment = false;
+            this.txtOC_Exonerada.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel53
             // 
@@ -1482,10 +1482,10 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel27;
         private DevExpress.XtraReports.UI.XRLabel xrLabel22;
         private DevExpress.XtraReports.UI.XRLabel xrLabel51;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel52;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel49;
+        private DevExpress.XtraReports.UI.XRLabel txtRegistroSAG;
+        private DevExpress.XtraReports.UI.XRLabel txtCorrelativoEXO;
         private DevExpress.XtraReports.UI.XRLabel xrLabel50;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel48;
+        private DevExpress.XtraReports.UI.XRLabel txtOC_Exonerada;
         private DevExpress.XtraReports.UI.XRLabel xrLabel53;
         private CoreFacturas.dsFacturasGestion dsFacturasGestion1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
