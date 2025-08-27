@@ -21,6 +21,7 @@ namespace JAGUAR_PRO.Clases
         public DateTime fecha { get; set; }
         public string descripcion { get; set; }
         public int id_bodega_entrega { get; set; }
+        public bool SeEntregaEnBodega { get; set; }
         public bool Recuperado { get; set; }
 
 
@@ -33,7 +34,7 @@ namespace JAGUAR_PRO.Clases
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("sp_get_equipo_punto_venta_from_services_tag_or_name", con);
+                SqlCommand cmd = new SqlCommand("sp_get_equipo_punto_venta_from_services_tag_or_nameV2", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name_pc", pPC_Name);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -47,6 +48,7 @@ namespace JAGUAR_PRO.Clases
                     fecha = dr.GetDateTime(5);
                     descripcion = dr.GetString(6);
                     id_bodega_entrega = dr.GetInt32(7);
+                    SeEntregaEnBodega = dr.GetBoolean(8);
                     Recuperado = true;
                 }
                 dr.Close();

@@ -29,6 +29,17 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             UsuarioLogueado = userLogin;
             IdHeader = idh;
             LoadData();
+
+            if (IdBodega == 3)
+            {
+                gridView1.Columns["entrega"].Visible = true;
+        
+            }
+            else
+            {
+                gridView1.Columns["entrega"].Visible = false;
+            
+            }
         }
 
         private void LoadData()
@@ -36,7 +47,8 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             try
             {
                 dp = new DataOperations();
-                string query = @"sp_get_detalle_pedidos";
+                //string query = @"sp_get_detalle_pedidos";
+                string query = @"[dbo].[sp_get_detalle_pedidosV2]";
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);

@@ -25,15 +25,17 @@ namespace JAGUAR_PRO.Facturacion.Entrega
         DataOperations dp = new DataOperations();
         int IdBodega;
         int IdH;
+        bool SeEntregaEnBodega;
 
         PDV PuntoVentaActual;
-        public frmEntregaGestion(UserLogin userLogin, int idH, int idBodega, PDV puntoventa)
+        public frmEntregaGestion(UserLogin userLogin, int idH, int idBodega, PDV puntoventa, bool seEntregaEnBodega)
         {
             InitializeComponent();
             UsuarioLogeado = userLogin;
             PuntoVentaActual = puntoventa;
             IdBodega = idBodega;
             IdH = idH;
+            SeEntregaEnBodega = seEntregaEnBodega;
 
             Bodega bodegas = new Bodega();
             if (bodegas.RecuperarRegistro(IdBodega))
@@ -62,7 +64,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
             }
 
-            
+            SeEntregaEnBodega = seEntregaEnBodega;
         }
 
         private void LoadDataDetalle()
@@ -70,12 +72,14 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             try
             {
                 string query = @"[sp_get_rows_from_pedido_entrega]";
+                //string query = @"[sp_get_rows_from_pedido_entregaV2]";
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_h", IdH);
                 cmd.Parameters.AddWithValue("@IdBodega", IdBodega);
+                //cmd.Parameters.AddWithValue("@SeEntregaEnBodega", SeEntregaEnBodega);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsEntregaPedidos1.detalle_entrega_gestion.Clear();
                 adat.Fill(dsEntregaPedidos1.detalle_entrega_gestion);
