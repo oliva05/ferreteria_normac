@@ -58,7 +58,7 @@
             this.txtPrecioVenta.Properties.MaxLength = 100;
             this.txtPrecioVenta.Properties.NullText = "0";
             this.txtPrecioVenta.Properties.UseMaskAsDisplayFormat = true;
-            this.txtPrecioVenta.Size = new System.Drawing.Size(134, 22);
+            this.txtPrecioVenta.Size = new System.Drawing.Size(155, 22);
             this.txtPrecioVenta.TabIndex = 105;
             this.txtPrecioVenta.EditValueChanged += new System.EventHandler(this.txtPrecioVenta_EditValueChanged);
             // 

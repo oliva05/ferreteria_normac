@@ -340,7 +340,7 @@
             0,
             0,
             0});
-            this.spinUd.Location = new System.Drawing.Point(368, 30);
+            this.spinUd.Location = new System.Drawing.Point(368, 34);
             this.spinUd.Name = "spinUd";
             this.spinUd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -412,7 +412,7 @@
             // txtMargGanancia
             // 
             this.txtMargGanancia.EditValue = "0.00";
-            this.txtMargGanancia.Location = new System.Drawing.Point(135, 88);
+            this.txtMargGanancia.Location = new System.Drawing.Point(135, 90);
             this.txtMargGanancia.Name = "txtMargGanancia";
             this.txtMargGanancia.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMargGanancia.Properties.Appearance.Options.UseFont = true;
@@ -432,7 +432,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(35, 92);
+            this.labelControl5.Location = new System.Drawing.Point(35, 94);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(128, 15);
             this.labelControl5.TabIndex = 81;
