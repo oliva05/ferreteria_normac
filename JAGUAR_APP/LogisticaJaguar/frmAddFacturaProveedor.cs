@@ -768,7 +768,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 //{
                     if (row.cantidad == 0 || row.id_ud_medida_prv == 0 ||
                         row.cantidad_ingreso == 0 || row.id_ud_medida_jaguar == 0 ||
-                        row.id_mp == 0 || row.total_fila == 0)
+                        row.id_mp == 0 || row.total_fila == 0 || row.id_bodega == 0)
                     {
                         Problemas = true;
                         fila = row.num_linea;

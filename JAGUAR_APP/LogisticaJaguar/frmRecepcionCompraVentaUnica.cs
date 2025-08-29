@@ -112,8 +112,102 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
             if (row != null)
             {
+                ProductoUsado ptu = new ProductoUsado();
+                ptu.Id = row.id;
+                ptu.Descripcion = row.descripcion;
+                ptu.Costo = row.costo;
+                ptu.Margen = row.margen;
+                ptu.PrecioVenta = row.precio_venta;
 
+                frmRecepcionCompraVentaUnicaEdit frm = new frmRecepcionCompraVentaUnicaEdit(UsuarioLogeado, ptu);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    //Cargar de Nuevo a la linea!
+                    bool Guardar = false;
+                    try
+                    {
+                        SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("sp_update_pt_usado", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@descripcion", frm.ProductoUsado.Descripcion);
+                        cmd.Parameters.AddWithValue("@costo", Convert.ToDecimal(frm.ProductoUsado.Costo));
+                        cmd.Parameters.AddWithValue("@margen", Convert.ToDecimal(frm.ProductoUsado.Margen));
+                        cmd.Parameters.AddWithValue("@precio_venta", Convert.ToDecimal(frm.ProductoUsado.PrecioVenta));
+                        cmd.Parameters.AddWithValue("@idUsado", row.id);
+                        cmd.ExecuteNonQuery();
+                        Guardar = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        CajaDialogo.Error(ex.Message);
+                    }
+
+                    if(Guardar)
+                    {
+                        row.descripcion = frm.ProductoUsado.Descripcion;
+                        row.costo = Convert.ToDecimal(frm.ProductoUsado.Costo);
+                        row.margen = Convert.ToDecimal(frm.ProductoUsado.Margen);
+                        row.precio_venta = Convert.ToDecimal(frm.ProductoUsado.PrecioVenta);
+                    }
+
+                }
             }
+        }
+
+        private void repostDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            DialogResult r = CajaDialogo.Pregunta("Desea eliminar este producto usado.");
+            if (r != System.Windows.Forms.DialogResult.Yes)
+                return;
+
+            var gridview = (GridView)grd.FocusedView;
+            var row = (dsProductoTerminado.ingreso_pt_venta_unicaRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                try
+                {
+                    //Antes de Eliminar debo validar si no esta en Pedido!
+                    //if (ExisteEnPREFACTURA(row.id))
+                    //{
+                    //    CajaDialogo.Error("No se puede Eliminar\nEl Producto Usado esta en PreFactura!");
+                    //    return;
+                    //}
+
+                    try
+                    {
+                        SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("sp_eliminar_pt_usado", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@idUsado", row.id);
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                        LoadaData();
+                    }
+                    catch (Exception ex)
+                    {
+                        CajaDialogo.Error(ex.Message);
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    CajaDialogo.Error(ex.Message);
+                }
+            }
+
+        }
+
+        private bool ExisteEnPREFACTURA(int id)
+        {
+            bool Existe = true;
+
+
+
+            return Existe;
         }
     }
 }
