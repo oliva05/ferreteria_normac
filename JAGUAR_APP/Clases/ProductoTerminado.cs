@@ -292,6 +292,114 @@ namespace JAGUAR_PRO.Clases
             return Recuperado;
         }
 
+        public bool Recuperar_productoByBarCodeUsados(string pCodePT)
+        {
+            try
+            {//Recupera las caracteristicas 
+                string sql = @"[dbo].[sp_get_datos_maestros_pt_v7_usados]";
+                DataOperations dp = new DataOperations();
+
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CodePT", pCodePT);
+                SqlDataReader dl = cmd.ExecuteReader();
+                if (dl.Read())
+                {
+
+                    Id = dl.GetInt32(0);
+                    if (Id > 0)
+                    {
+                        enable = dl.GetBoolean(1);
+                        id_user_created = dl.GetInt32(2);
+                        usuario_nombre = dl.GetString(3);
+                        id_presentacion = dl.GetInt32(4);
+                        Presentacion_name = dl.GetString(5);
+                        id_estado = dl.GetInt32(6);
+                        Descripcion = dl.GetString(7);
+                        code = dl.GetString(8);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("fecha")))
+                            fecha = dl.GetDateTime(9);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("tipo_id")))
+                            tipo_id = dl.GetInt32(10);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("tipo_descripcion")))
+                            TipoDescripcion = dl.GetString(11);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("estado_descripcion")))
+                            EstadoDescripcion = dl.GetString(12);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("costo_mo_por_arroba")))
+                            CostoDeMO_porArrobaBit = dl.GetBoolean(13);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("costo_por_arroba")))
+                            CostoPorArroba = dl.GetDecimal(14);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("id_tipo_facturacion")))
+                            tipo_facturacion_id = dl.GetInt32(15);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("id_tipo_buffet")))
+                            tipo_buffet_id = dl.GetInt32(16);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("id_tipo_facturacion_prd")))
+                            id_tipo_facturacion_prd = dl.GetInt32(17);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("tipo_facturacion_prd")))
+                            TipoFacturacion_prd_name = dl.GetString(18);
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("id_clase")))
+                            _id_clase = dl.GetInt32(19);
+                        else
+                            _id_clase = 0;
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("id_isv_aplicable")))
+                            _id_isv_aplicable = dl.GetInt32(20);
+                        else
+                            _id_isv_aplicable = 0;
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("id_subClase")))
+                            Id_sub_clase = dl.GetInt32(21);
+                        else
+                            Id_sub_clase = 0;
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("code_interno")))
+                            Code_interno = dl.GetString(22);
+                        else
+                            Code_interno = "N/D";
+
+                        if (!dl.IsDBNull(dl.GetOrdinal("marca")))
+                            MarcaName = dl.GetString(31);
+                        else
+                            MarcaName = " ";
+
+                        //if (!dl.IsDBNull(dl.GetOrdinal("id_almacen_estandar")))
+                        //    Id_Almacen_standard = dl.GetInt32(23);
+                        //else
+                        //    Id_Almacen_standard = 0;
+                        Codig_Referencia = dl.IsDBNull(29) ? "" : dl.GetString(29);
+                        Recuperado = true;
+                        //Recuperar_Latas_and_bolsas(Id);
+
+                        CantInventarioKardex = Recuperar_Cant_Inv_Actual_by_PT(Id);
+                    }
+                    else
+                    {
+                        Recuperado = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Recuperado = false;
+                MessageBox.Show(ex.Message);
+            }
+            return Recuperado;
+        }
+
         public bool Recuperar_producto(int IdProd)
         {
             try

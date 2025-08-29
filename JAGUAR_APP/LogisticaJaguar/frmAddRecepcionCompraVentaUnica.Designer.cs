@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -213,9 +213,9 @@
             // reposDelete
             // 
             this.reposDelete.AutoHeight = false;
-            editorButtonImageOptions6.Image = global::JAGUAR_PRO.Properties.Resources.po_delete_24;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.po_delete_24;
             this.reposDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposDelete.Name = "reposDelete";
             this.reposDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposDelete_ButtonClick);
@@ -232,7 +232,7 @@
             this.btnSelecItemCode.Name = "btnSelecItemCode";
             this.btnSelecItemCode.Size = new System.Drawing.Size(117, 34);
             this.btnSelecItemCode.TabIndex = 10;
-            this.btnSelecItemCode.Text = "Codigo";
+            this.btnSelecItemCode.Text = "Buscar Codigo";
             this.btnSelecItemCode.Click += new System.EventHandler(this.btnSelecItemCode_Click);
             // 
             // labelControl3
@@ -241,7 +241,7 @@
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(10, 46);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(87, 15);
+            this.labelControl3.Size = new System.Drawing.Size(86, 15);
             this.labelControl3.TabIndex = 73;
             this.labelControl3.Text = "Cod. PT_________";
             // 
@@ -396,6 +396,7 @@
             this.txtPrecioVenta.Properties.NullText = "0";
             this.txtPrecioVenta.Size = new System.Drawing.Size(107, 22);
             this.txtPrecioVenta.TabIndex = 82;
+            this.txtPrecioVenta.EditValueChanged += new System.EventHandler(this.txtPrecioVenta_EditValueChanged);
             this.txtPrecioVenta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPrecioVenta_KeyDown);
             // 
             // labelControl6
@@ -410,7 +411,7 @@
             // 
             // txtMargGanancia
             // 
-            this.txtMargGanancia.EditValue = "0";
+            this.txtMargGanancia.EditValue = "0.00";
             this.txtMargGanancia.Location = new System.Drawing.Point(135, 88);
             this.txtMargGanancia.Name = "txtMargGanancia";
             this.txtMargGanancia.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -421,10 +422,10 @@
             this.txtMargGanancia.Properties.MaskSettings.Set("mask", "P");
             this.txtMargGanancia.Properties.MaxLength = 100;
             this.txtMargGanancia.Properties.NullText = "0";
+            this.txtMargGanancia.Properties.UseMaskAsDisplayFormat = true;
             this.txtMargGanancia.Size = new System.Drawing.Size(128, 22);
             this.txtMargGanancia.TabIndex = 13;
             this.txtMargGanancia.EditValueChanged += new System.EventHandler(this.txtMargGanancia_EditValueChanged);
-            this.txtMargGanancia.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.txtMargGanancia_EditValueChanging);
             this.txtMargGanancia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMargGanancia_KeyDown);
             // 
             // labelControl5
