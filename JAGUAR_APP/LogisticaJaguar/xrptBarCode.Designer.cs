@@ -83,6 +83,7 @@
             this.PageHeight = 1000;
             this.PageWidth = 288;
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
+            this.RollPaper = true;
             this.Version = "23.2";
             xrWatermark1.Id = "Watermark1";
             this.Watermarks.Add(xrWatermark1);
