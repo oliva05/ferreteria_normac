@@ -29,6 +29,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
         int IdBodega;
         int PDVId;
         PDV puntoVenta1;
+        bool SeEntregaEnBodega;
         public frmEntrega(UserLogin pUserLogin, PDV puntoVenta)
         {
             InitializeComponent();
@@ -65,6 +66,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 {
                     txtEquipoBodega.Text = bodegas.Descripcion;
                     IdBodega = bodegas.Id;
+                    SeEntregaEnBodega = EquipoActual.SeEntregaEnBodega;
                 }
 
             }
@@ -84,13 +86,14 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             {
                 dp = new DataOperations();
                 string query = @"sp_get_pedidos_h_list_abiertas";
+
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_bodega", idBodega);
                 cmd.Parameters.AddWithValue("@idPuntoVenta", PuntoVentaId);
-                //cmd.Parameters.AddWithValue("@DocCerrados", tggIncluirDocCerrados.IsOn);
+                //cmd.Parameters.AddWithValue("@SeEntregaEnBodega", SeEntregaEnBodega);
                 //cmd.Parameters.AddWithValue("@dtDesde", dtDesde.DateTime);
                 //cmd.Parameters.AddWithValue("@dtHasta", dtHasta.DateTime);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
@@ -188,7 +191,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
                 if (Permitir)
                 {
-                    frmEntregaGestion frm = new frmEntregaGestion(UsuarioLogeado, row.id, IdBodega, puntoVenta1);
+                    frmEntregaGestion frm = new frmEntregaGestion(UsuarioLogeado, row.id, IdBodega, puntoVenta1,SeEntregaEnBodega);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         LoadData(IdBodega, PDVId);
@@ -362,7 +365,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
                 if (Permitir)
                 {
-                    frmEntregaGestion frm = new frmEntregaGestion(UsuarioLogeado, row.id, IdBodega, puntoVenta1);
+                    frmEntregaGestion frm = new frmEntregaGestion(UsuarioLogeado, row.id, IdBodega, puntoVenta1,SeEntregaEnBodega);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         LoadDataParcialmenteEntregado(IdBodega, PDVId);

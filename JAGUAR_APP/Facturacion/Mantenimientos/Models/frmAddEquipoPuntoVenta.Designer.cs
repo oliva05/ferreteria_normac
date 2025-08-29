@@ -63,6 +63,8 @@
             this.coldescripcion1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion_corta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colwhs_equivalente = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.toggleEntegaBodega = new DevExpress.XtraEditors.ToggleSwitch();
+            this.lblEntregaBodega = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreEquipo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.glePuntoVenta.Properties)).BeginInit();
@@ -78,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bodegasentregaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsCRUDS_Facturacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleEntegaBodega.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -117,7 +120,7 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(221, 258);
+            this.simpleButton1.Location = new System.Drawing.Point(213, 290);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(119, 47);
             this.simpleButton1.TabIndex = 6;
@@ -132,7 +135,7 @@
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.cmdNew.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
-            this.cmdNew.Location = new System.Drawing.Point(83, 258);
+            this.cmdNew.Location = new System.Drawing.Point(75, 290);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(119, 47);
             this.cmdNew.TabIndex = 5;
@@ -336,6 +339,7 @@
             this.grdBodega.Properties.ValueMember = "id";
             this.grdBodega.Size = new System.Drawing.Size(225, 22);
             this.grdBodega.TabIndex = 29;
+            this.grdBodega.EditValueChanged += new System.EventHandler(this.grdBodega_EditValueChanged);
             // 
             // bodegasentregaBindingSource
             // 
@@ -384,11 +388,34 @@
             this.colwhs_equivalente.FieldName = "whs_equivalente";
             this.colwhs_equivalente.Name = "colwhs_equivalente";
             // 
+            // toggleEntegaBodega
+            // 
+            this.toggleEntegaBodega.Location = new System.Drawing.Point(177, 253);
+            this.toggleEntegaBodega.Name = "toggleEntegaBodega";
+            this.toggleEntegaBodega.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toggleEntegaBodega.Properties.Appearance.Options.UseFont = true;
+            this.toggleEntegaBodega.Properties.OffText = "No";
+            this.toggleEntegaBodega.Properties.OnText = "Si";
+            this.toggleEntegaBodega.Size = new System.Drawing.Size(115, 22);
+            this.toggleEntegaBodega.TabIndex = 72;
+            // 
+            // lblEntregaBodega
+            // 
+            this.lblEntregaBodega.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntregaBodega.Appearance.Options.UseFont = true;
+            this.lblEntregaBodega.Location = new System.Drawing.Point(44, 260);
+            this.lblEntregaBodega.Name = "lblEntregaBodega";
+            this.lblEntregaBodega.Size = new System.Drawing.Size(249, 15);
+            this.lblEntregaBodega.TabIndex = 71;
+            this.lblEntregaBodega.Text = "Se Entrega en Bodega___________________________";
+            // 
             // frmAddEquipoPuntoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 317);
+            this.ClientSize = new System.Drawing.Size(425, 354);
+            this.Controls.Add(this.toggleEntegaBodega);
+            this.Controls.Add(this.lblEntregaBodega);
             this.Controls.Add(this.grdBodega);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.gleUsuarioAsignado);
@@ -424,6 +451,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bodegasentregaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsCRUDS_Facturacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleEntegaBodega.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -464,5 +492,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion1;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion_corta;
         private DevExpress.XtraGrid.Columns.GridColumn colwhs_equivalente;
+        private DevExpress.XtraEditors.ToggleSwitch toggleEntegaBodega;
+        private DevExpress.XtraEditors.LabelControl lblEntregaBodega;
     }
 }

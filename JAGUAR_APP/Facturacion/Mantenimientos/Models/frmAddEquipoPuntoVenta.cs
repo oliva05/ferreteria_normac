@@ -58,7 +58,7 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos.Models
                         gleUsuarioAsignado.EditValue = equipo.IdUserAsigned;
                         txtNombreEquipo.Enabled = false;
                         grdBodega.EditValue = equipo.IdBodegaEntrega;
-
+                        toggleEntegaBodega.IsOn = equipo.SeEntregaBodega;
                     }
                     break;
             }
@@ -170,11 +170,12 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos.Models
             equipo.Fecha = dp.NowSetDateTime();
             equipo.IdBodegaEntrega = Convert.ToInt32(grdBodega.EditValue);
 
-            if(!string.IsNullOrEmpty(txtDescripcionEquipo.Text))
+            if (!string.IsNullOrEmpty(txtDescripcionEquipo.Text))
                 equipo.Descripcion = txtDescripcionEquipo.Text;
 
             equipo.IdUserAsigned = dp.ValidateNumberInt32(gleUsuarioAsignado.EditValue);
             equipo.Usuario_Asignado = gleUsuarioAsignado.Text;
+            equipo.SeEntregaBodega = toggleEntegaBodega.IsOn;
 
             switch (TipoTransaccionActual)
             {
@@ -194,6 +195,18 @@ namespace JAGUAR_PRO.Facturacion.Mantenimientos.Models
             this.Close();
         }
 
-      
+        private void grdBodega_EditValueChanged(object sender, EventArgs e)
+        {
+            if ((int)grdBodega.EditValue == 3)
+            {
+                lblEntregaBodega.Visible = true;
+                toggleEntegaBodega.Visible = true;
+            }
+            else
+            {
+                lblEntregaBodega.Visible = false;
+                toggleEntegaBodega.Visible = false;
+            }
+        }
     }
 }

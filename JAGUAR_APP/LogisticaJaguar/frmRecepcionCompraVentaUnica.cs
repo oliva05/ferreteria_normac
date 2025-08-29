@@ -104,5 +104,16 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 printTool.ShowPreviewDialog();
             }
         }
+
+        private void cmdVer_Editar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grd.FocusedView;
+            var row = (dsProductoTerminado.ingreso_pt_venta_unicaRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+
+            }
+        }
     }
 }

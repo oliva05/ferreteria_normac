@@ -2043,6 +2043,12 @@
     <Compile Include="LogisticaJaguar\frmRecepcionCompraVentaUnica.Designer.cs">
       <DependentUpon>frmRecepcionCompraVentaUnica.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\frmRecepcionCompraVentaUnicaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogisticaJaguar\frmRecepcionCompraVentaUnicaEdit.Designer.cs">
+      <DependentUpon>frmRecepcionCompraVentaUnicaEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\frmRecepcionFacturaProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4785,6 +4791,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\frmRecepcionCompraVentaUnica.resx">
       <DependentUpon>frmRecepcionCompraVentaUnica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogisticaJaguar\frmRecepcionCompraVentaUnicaEdit.resx">
+      <DependentUpon>frmRecepcionCompraVentaUnicaEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogisticaJaguar\frmRecepcionFacturaProveedor.resx">
       <DependentUpon>frmRecepcionFacturaProveedor.cs</DependentUpon>

@@ -42,6 +42,7 @@
             this.colcode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcode_referencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colentrega = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -93,7 +94,8 @@
             this.colid_bodega,
             this.colcode,
             this.colcode_referencia,
-            this.coldescripcion});
+            this.coldescripcion,
+            this.colentrega});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowViewCaption = true;
@@ -118,8 +120,8 @@
             this.colcantidad.Name = "colcantidad";
             this.colcantidad.OptionsColumn.AllowEdit = false;
             this.colcantidad.Visible = true;
-            this.colcantidad.VisibleIndex = 4;
-            this.colcantidad.Width = 86;
+            this.colcantidad.VisibleIndex = 5;
+            this.colcantidad.Width = 80;
             // 
             // colid_h
             // 
@@ -136,8 +138,8 @@
             this.colprecio.Name = "colprecio";
             this.colprecio.OptionsColumn.AllowEdit = false;
             this.colprecio.Visible = true;
-            this.colprecio.VisibleIndex = 5;
-            this.colprecio.Width = 95;
+            this.colprecio.VisibleIndex = 6;
+            this.colprecio.Width = 126;
             // 
             // colid_estado
             // 
@@ -153,7 +155,7 @@
             this.colbodega.OptionsColumn.AllowEdit = false;
             this.colbodega.Visible = true;
             this.colbodega.VisibleIndex = 3;
-            this.colbodega.Width = 153;
+            this.colbodega.Width = 179;
             // 
             // colid_bodega
             // 
@@ -166,10 +168,10 @@
             this.colcode.Caption = "Codigo";
             this.colcode.FieldName = "code";
             this.colcode.Name = "colcode";
-            this.colcode.OptionsColumn.AllowEdit = false;
+            this.colcode.OptionsColumn.ReadOnly = true;
             this.colcode.Visible = true;
             this.colcode.VisibleIndex = 0;
-            this.colcode.Width = 67;
+            this.colcode.Width = 55;
             // 
             // colcode_referencia
             // 
@@ -179,7 +181,7 @@
             this.colcode_referencia.OptionsColumn.AllowEdit = false;
             this.colcode_referencia.Visible = true;
             this.colcode_referencia.VisibleIndex = 1;
-            this.colcode_referencia.Width = 149;
+            this.colcode_referencia.Width = 133;
             // 
             // coldescripcion
             // 
@@ -189,7 +191,17 @@
             this.coldescripcion.OptionsColumn.AllowEdit = false;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 2;
-            this.coldescripcion.Width = 357;
+            this.coldescripcion.Width = 360;
+            // 
+            // colentrega
+            // 
+            this.colentrega.Caption = "Se Entrega en";
+            this.colentrega.FieldName = "entrega";
+            this.colentrega.Name = "colentrega";
+            this.colentrega.OptionsColumn.ReadOnly = true;
+            this.colentrega.Visible = true;
+            this.colentrega.VisibleIndex = 4;
+            this.colentrega.Width = 167;
             // 
             // gridControl2
             // 
@@ -366,5 +378,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn colentrega;
     }
 }
