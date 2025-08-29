@@ -3,6 +3,7 @@ using DevExpress.DashboardCommon.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
+using DocumentFormat.OpenXml.Wordprocessing;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
 using LOSA.Calidad.LoteConfConsumo;
@@ -23,6 +24,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
     {
         int ContadorVuelta = 0;
         bool isUpdating = false; // bandera global en el formulario
+        bool isUpdatingGrid = false;
         UserLogin UsuarioLogeado;
         public frmAddRecepcionCompraVentaUnica(UserLogin pUser)
         {
@@ -430,6 +432,45 @@ namespace JAGUAR_PRO.LogisticaJaguar
             }
 
             isUpdating = false;
+        }
+
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (isUpdatingGrid) return;
+
+            isUpdatingGrid = true;
+
+            var gridView1 = (GridView)gridControl1.FocusedView;
+            var row = (dsProductoTerminado.pt_venta_unicaRow)gridView1.GetFocusedDataRow();
+
+            if (row == null) return;
+
+            decimal costo = Convert.ToDecimal(row.costo);
+            decimal margen = Convert.ToDecimal(row.margen);
+            decimal precioVenta = Convert.ToDecimal(row.precio_venta);
+
+            if (e.Column.FieldName == "margen")
+            {
+                // Calcular precio de venta desde margen (markup sobre costo)
+                decimal nuevoPrecio = costo * (1 + margen / 100);
+                row.precio_venta = nuevoPrecio;
+            }
+            else
+            {
+                if (costo > 0)
+                {
+                    // Calcular margen desde precio (markup sobre costo)
+                    decimal ganancia = precioVenta - costo;
+                    decimal nuevoMargen = (ganancia / costo) * 100;
+                    row.margen = nuevoMargen;
+                }
+                else
+                {
+                    row.margen = 0;
+                }
+            }
+
+            isUpdatingGrid = false;
         }
     }
 }
