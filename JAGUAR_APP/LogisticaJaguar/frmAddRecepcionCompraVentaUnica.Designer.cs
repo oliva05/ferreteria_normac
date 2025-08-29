@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -123,6 +123,7 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowViewCaption = true;
             this.gridView1.ViewCaption = "Detalle de Productos";
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             // 
             // colid
             // 
@@ -137,7 +138,7 @@
             this.coldescripcion.Name = "coldescripcion";
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 0;
-            this.coldescripcion.Width = 158;
+            this.coldescripcion.Width = 218;
             // 
             // colitemcode
             // 
@@ -147,7 +148,7 @@
             this.colitemcode.OptionsColumn.ReadOnly = true;
             this.colitemcode.Visible = true;
             this.colitemcode.VisibleIndex = 1;
-            this.colitemcode.Width = 64;
+            this.colitemcode.Width = 88;
             // 
             // colcosto
             // 
@@ -156,11 +157,11 @@
             this.colcosto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colcosto.FieldName = "costo";
             this.colcosto.Name = "colcosto";
-            this.colcosto.OptionsColumn.ReadOnly = true;
             this.colcosto.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "costo", "{0:#,###,##0.00} Lps")});
             this.colcosto.Visible = true;
             this.colcosto.VisibleIndex = 2;
+            this.colcosto.Width = 103;
             // 
             // colmargen
             // 
@@ -169,9 +170,9 @@
             this.colmargen.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colmargen.FieldName = "margen";
             this.colmargen.Name = "colmargen";
-            this.colmargen.OptionsColumn.ReadOnly = true;
             this.colmargen.Visible = true;
             this.colmargen.VisibleIndex = 3;
+            this.colmargen.Width = 103;
             // 
             // colprecio_venta
             // 
@@ -180,11 +181,11 @@
             this.colprecio_venta.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colprecio_venta.FieldName = "precio_venta";
             this.colprecio_venta.Name = "colprecio_venta";
-            this.colprecio_venta.OptionsColumn.ReadOnly = true;
             this.colprecio_venta.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "precio_venta", "{0:#,###,##0.00} Lps")});
             this.colprecio_venta.Visible = true;
             this.colprecio_venta.VisibleIndex = 4;
+            this.colprecio_venta.Width = 114;
             // 
             // colbarcode
             // 
@@ -194,6 +195,7 @@
             this.colbarcode.OptionsColumn.ReadOnly = true;
             this.colbarcode.Visible = true;
             this.colbarcode.VisibleIndex = 5;
+            this.colbarcode.Width = 148;
             // 
             // colcorrelativo
             // 
@@ -208,14 +210,14 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 6;
-            this.gridColumn1.Width = 146;
+            this.gridColumn1.Width = 156;
             // 
             // reposDelete
             // 
             this.reposDelete.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.po_delete_24;
+            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.po_delete_24;
             this.reposDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposDelete.Name = "reposDelete";
             this.reposDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposDelete_ButtonClick);
