@@ -39,6 +39,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.grd = new DevExpress.XtraGrid.GridControl();
             this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -66,6 +71,8 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.btnAgregar = new DevExpress.XtraEditors.SimpleButton();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repostDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -75,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repostDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // grd
@@ -89,7 +97,8 @@
             this.grd.Name = "grd";
             this.grd.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdPrintFromGrid,
-            this.cmdVer_Editar});
+            this.cmdVer_Editar,
+            this.repostDelete});
             this.grd.Size = new System.Drawing.Size(1379, 461);
             this.grd.TabIndex = 38;
             this.grd.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -115,7 +124,8 @@
             this.coluser_id,
             this.colusuario,
             this.gridColumn1,
-            this.gridColumn2});
+            this.gridColumn2,
+            this.gridColumn3});
             this.gridView1.GridControl = this.grd;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -237,8 +247,11 @@
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "gridColumn2";
+            this.gridColumn2.Caption = "Editar";
+            this.gridColumn2.ColumnEdit = this.cmdVer_Editar;
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 9;
             // 
             // cmdVer_Editar
             // 
@@ -381,6 +394,24 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Eliminar";
+            this.gridColumn3.ColumnEdit = this.repostDelete;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 10;
+            // 
+            // repostDelete
+            // 
+            this.repostDelete.AutoHeight = false;
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            this.repostDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repostDelete.Name = "repostDelete";
+            this.repostDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repostDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repostDelete_ButtonClick);
+            // 
             // frmRecepcionCompraVentaUnica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,6 +438,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repostDelete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,5 +473,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colusuario;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repostDelete;
     }
 }
