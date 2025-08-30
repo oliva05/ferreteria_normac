@@ -2081,7 +2081,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public rpt_detalle_recuentoRow Addrpt_detalle_recuentoRow(string code_pt, string producto, decimal cantidad_sistema, decimal conteo_fisica, string tipo_ajuste, decimal cantidad_ajustada, decimal precio_venta, decimal impacto_economico) {
+            public rpt_detalle_recuentoRow Addrpt_detalle_recuentoRow(string code_pt, string producto, decimal cantidad_sistema, decimal conteo_fisica, string tipo_ajuste, decimal cantidad_ajustada, decimal precio_venta, string impacto_economico) {
                 rpt_detalle_recuentoRow rowrpt_detalle_recuentoRow = ((rpt_detalle_recuentoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code_pt,
@@ -2141,7 +2141,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
                 base.Columns.Add(this.columncantidad_ajustada);
                 this.columnprecio_venta = new global::System.Data.DataColumn("precio_venta", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprecio_venta);
-                this.columnimpacto_economico = new global::System.Data.DataColumn("impacto_economico", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnimpacto_economico = new global::System.Data.DataColumn("impacto_economico", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpacto_economico);
             }
             
@@ -3621,10 +3621,10 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal impacto_economico {
+            public string impacto_economico {
                 get {
                     try {
-                        return ((decimal)(this[this.tablerpt_detalle_recuento.impacto_economicoColumn]));
+                        return ((string)(this[this.tablerpt_detalle_recuento.impacto_economicoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'impacto_economico\' de la tabla \'rpt_detalle_recuento\' es " +

@@ -356,14 +356,22 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                             Permitir = false;
                             break;
                         case 4://completado
-                            Permitir = true;
-                            break;
+                            rptRecuentoInventario compra = new rptRecuentoInventario(row.id_recuento, rptRecuentoInventario.TipoVista.Completado);
+                            compra.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                            ReportPrintTool printOrden = new DevExpress.XtraReports.UI.ReportPrintTool(compra);
+                            printOrden.ShowPreview();
+                        break;
                         case 5://rechazo
                             Permitir = false;
                             break;
 
                         case 6://pendiente de aprobacion
-                            Permitir = false;
+
+                            rptRecuentoInventario rptcompra = new rptRecuentoInventario(row.id_recuento, rptRecuentoInventario.TipoVista.PendienteAprobacion);
+                            rptcompra.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                            ReportPrintTool printOrden1 = new DevExpress.XtraReports.UI.ReportPrintTool(rptcompra);
+                            printOrden1.ShowPreview();
+                        Permitir = true;
                             break;
 
                         default:
@@ -371,13 +379,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                             break;
                     }
 
-                    if (Permitir)
-                    {
-                        rptRecuentoInventario compra = new rptRecuentoInventario(row.id_recuento);
-                        compra.PrintingSystem.Document.AutoFitToPagesWidth = 1;
-                        ReportPrintTool printOrden = new DevExpress.XtraReports.UI.ReportPrintTool(compra);
-                        printOrden.ShowPreview();
-                    }
+                   
             }
             
         }
