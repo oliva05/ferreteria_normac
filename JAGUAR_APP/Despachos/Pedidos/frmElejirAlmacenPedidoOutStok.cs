@@ -117,6 +117,7 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                 row1.id_bodega = 2;
                 row1.bodega_name = "ALMACEN DE USADOS";
                 row1.comprometido = 0;
+                
                 dsPrefacturas1.stock_por_almacen.Addstock_por_almacenRow(row1);
                 dsPrefacturas1.AcceptChanges();
 
@@ -136,6 +137,13 @@ namespace JAGUAR_PRO.Despachos.Pedidos
                     dsPrefacturas1.stock_por_almacen.Clear();
                     SqlDataAdapter adat = new SqlDataAdapter(cmd);
                     adat.Fill(dsPrefacturas1.stock_por_almacen);
+
+                    cmd = new SqlCommand("[jaguar_sp_get_cantidad_inv_kardex_pt_for_elejir_stock_negativos]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                    dsPrefacturas1.stock_por_almacenNegativos.Clear();
+                    adat = new SqlDataAdapter(cmd);
+                    adat.Fill(dsPrefacturas1.stock_por_almacenNegativos);
 
                     foreach (dsPrefacturas.stock_por_almacenRow row in dsPrefacturas1.stock_por_almacen.Rows)
                     {

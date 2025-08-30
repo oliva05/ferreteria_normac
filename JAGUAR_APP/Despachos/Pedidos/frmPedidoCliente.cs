@@ -2377,6 +2377,7 @@ namespace Eatery.Ventas
                         rowF.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacionUsados(pt1.Id, this.PuntoDeVentaActual.ID);
 
 
+                        //rowF.id_pt_usado = pt1.Id;
                         rowF.cantidad = rowF.cantidad + 1;
                         rowF.codigo_referencia = "N/D";
                         rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
