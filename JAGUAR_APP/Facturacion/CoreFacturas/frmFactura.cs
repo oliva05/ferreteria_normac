@@ -2240,7 +2240,7 @@ namespace Eatery.Ventas
             {
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("[sp_get_pedido_detalle_for_factura_final_with_inv]", conn);
+                SqlCommand cmd = new SqlCommand("[sp_get_pedido_detalle_for_factura_final_with_inv_v2]", conn);
                 cmd.CommandType = CommandType.StoredProcedure; ;
                 cmd.Parameters.AddWithValue("@id_h", pIdCotizacion);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
