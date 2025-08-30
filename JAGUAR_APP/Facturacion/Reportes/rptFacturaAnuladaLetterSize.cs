@@ -55,17 +55,19 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             lblTermino.Text = Factura1.TerminoPagoName;
             txtVendedor.Text = Factura1.Vendedor;
 
-            if(Factura1.monto_entregado > 0)
+            lblRazonMotivo.Text = Factura1.RazonAnulacion;
+
+            if (Factura1.monto_entregado > 0)
             {
-                lblTotalPagado.Text = string.Format("{0: ###,##0.00}", Factura1.monto_entregado);
-                lblCambio.Text = string.Format("{0: ###,##0.00}", Factura1.cambio);
+                //lblTotalPagado.Text = string.Format("{0: ###,##0.00}", Factura1.monto_entregado);
+                //lblCambio.Text = string.Format("{0: ###,##0.00}", Factura1.cambio);
             }
             else
             {
-                lblTotalPagado.Visible = false;
-                lblCambio.Visible = false;
+                //lblTotalPagado.Visible = false;
+                //lblCambio.Visible = false;
                 xrLabel4.Visible = false;
-                xrLabel16.Visible = false;
+                //xrLabel16.Visible = false;
             }
 
 

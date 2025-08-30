@@ -737,6 +737,19 @@ namespace JAGUAR_PRO.Facturacion.Reportes
         {
             //Imprimir nuevo formato de las factura anulada
 
+            var gv = (GridView)gridControl5.FocusedView;
+            var row = (dsContabilidad.FacturasNulasRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            Factura factura1 = new Factura();
+            if (factura1.RecuperarRegistro(row.id))
+            {
+                rptFacturaAnuladaLetterSize report = new rptFacturaAnuladaLetterSize(factura1, rptFacturaAnuladaLetterSize.TipoCopia.Blanco);
+                //RPT_OrdenCompra report = new RPT_OrdenCompra(num) { DataSource = dsCompras1, ShowPrintMarginsWarning = false };
+                report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                ReportPrintTool printReport = new ReportPrintTool(report);
+                printReport.ShowPreviewDialog();
+            }
+            
         }
 
         private void gleCajero_EditValueChanged(object sender, EventArgs e)
