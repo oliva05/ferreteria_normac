@@ -55,6 +55,7 @@ namespace JAGUAR_PRO.Clases
         public int IdVendedor {  get; set; }
         public decimal monto_entregado { get; set; }
         public decimal   cambio { get; set; }
+        public string RazonAnulacion { get; set; }
 
         #region DatosPDV
         public int PDV_ID { get; set; }
@@ -160,6 +161,9 @@ namespace JAGUAR_PRO.Clases
 
                         if (!reader.IsDBNull(reader.GetOrdinal("registro_sag")))
                             RegistroSAG = reader["registro_sag"].ToString();
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("razon_anulacion")))
+                            RazonAnulacion = reader["razon_anulacion"].ToString();
 
                         RecuperaDatosPDVFromFactura(IdPuntoVenta);
                         Recuperado = true;
