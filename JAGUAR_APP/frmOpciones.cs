@@ -6456,6 +6456,64 @@ namespace JAGUAR_PRO
                 CajaDialogo.Error(ex.Message);
             }
         }
+
+        private void navBarItem256_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este Equipo de Nombre: " + HostName + " no esta Configurado en ningun Punto de Venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este Equipo de Nombre: " + HostName + " no esta Configurado en ningun Punto de Venta!");
+                return;
+            }
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    break;
+                case 3://Medium Autorization
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmEntrega mtx = new frmEntrega(UsuarioLogeado, puntoVenta1);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(13))
+                {
+                    frmEntrega mtx = new frmEntrega(UsuarioLogeado, puntoVenta1);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-13 (Lista de Entrega)");
+                }
+            }
+        }
         //End Facturacion Usados
 
 
