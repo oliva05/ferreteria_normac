@@ -901,7 +901,7 @@
             this.lblRazonMotivo.StylePriority.UseBorders = false;
             this.lblRazonMotivo.StylePriority.UseFont = false;
             this.lblRazonMotivo.StylePriority.UseTextAlignment = false;
-            this.lblRazonMotivo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.lblRazonMotivo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrLabel3
             // 
