@@ -66,7 +66,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             {
                 //lblTotalPagado.Visible = false;
                 //lblCambio.Visible = false;
-                xrLabel4.Visible = false;
+                //xrLabel4.Visible = false;
                 //xrLabel16.Visible = false;
             }
 
