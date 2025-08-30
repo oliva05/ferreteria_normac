@@ -92,8 +92,8 @@
               <xs:element name="id_presentacion" msprop:Generator_ColumnPropNameInTable="id_presentacionColumn" msprop:Generator_ColumnPropNameInRow="id_presentacion" msprop:Generator_UserColumnName="id_presentacion" msprop:Generator_ColumnVarNameInTable="columnid_presentacion" type="xs:int" minOccurs="0" />
               <xs:element name="codigo_referencia" msdata:Caption="Codigo Ref" msprop:Generator_ColumnPropNameInTable="codigo_referenciaColumn" msprop:Generator_ColumnPropNameInRow="codigo_referencia" msprop:Generator_UserColumnName="codigo_referencia" msprop:Generator_ColumnVarNameInTable="columncodigo_referencia" type="xs:string" minOccurs="0" />
               <xs:element name="marca" msdata:Caption="Marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_UserColumnName="marca" msprop:Generator_ColumnVarNameInTable="columnmarca" type="xs:string" minOccurs="0" />
-              <xs:element name="delete" msprop:Generator_UserColumnName="delete" msprop:Generator_ColumnPropNameInTable="deleteColumn" msprop:Generator_ColumnPropNameInRow="delete" msprop:Generator_ColumnVarNameInTable="columndelete" type="xs:string" minOccurs="0" />
-              <xs:element name="id_bodega" msprop:Generator_ColumnPropNameInRow="id_bodega" msprop:Generator_ColumnPropNameInTable="id_bodegaColumn" msprop:Generator_ColumnVarNameInTable="columnid_bodega" msprop:Generator_UserColumnName="id_bodega" type="xs:int" minOccurs="0" />
+              <xs:element name="delete" msprop:Generator_ColumnPropNameInTable="deleteColumn" msprop:Generator_ColumnPropNameInRow="delete" msprop:Generator_UserColumnName="delete" msprop:Generator_ColumnVarNameInTable="columndelete" type="xs:string" minOccurs="0" />
+              <xs:element name="id_bodega" msprop:Generator_ColumnPropNameInTable="id_bodegaColumn" msprop:Generator_ColumnPropNameInRow="id_bodega" msprop:Generator_UserColumnName="id_bodega" msprop:Generator_ColumnVarNameInTable="columnid_bodega" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
