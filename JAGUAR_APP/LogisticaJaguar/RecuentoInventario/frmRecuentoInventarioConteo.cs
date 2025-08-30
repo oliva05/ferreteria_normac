@@ -353,7 +353,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     {
                         try
                         {
-                            
+                            GuardarConteo();
+
                             SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                             conn.Open();
                             SqlCommand cmd = new SqlCommand("sp_recuento_completar_conteo", conn);

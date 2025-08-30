@@ -3,6 +3,7 @@ using DevExpress.Charts.Native;
 using DevExpress.Pdf.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraExport.Helpers;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraSplashScreen;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -294,7 +295,13 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 dr[6] = pt.Codig_Referencia;//code_refe
                 dsRecuento1.productos_conteo.Rows.Add(dr);
                 dsRecuento1.productos_conteo.AcceptChanges();
-            
+
+                grdvSelectProductos.ActiveFilter.Clear();
+                grdvSelectProductos.FocusedRowHandle = GridControl.AutoFilterRowHandle;
+                grdvSelectProductos.FocusedColumn = grdvSelectProductos.VisibleColumns[0];
+                grdvSelectProductos.ShowEditor();
+                grdvSelectProductos.FocusedColumn = grdvSelectProductos.Columns["code_pt"];
+
             }
 
         }

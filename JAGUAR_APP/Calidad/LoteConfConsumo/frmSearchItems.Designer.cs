@@ -53,11 +53,11 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmarca = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colinvDisponible = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtDesc = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -215,6 +215,7 @@
             this.gridControl1.TabIndex = 21;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
+            this.gridControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridControl1_KeyDown);
             // 
             // gridView2
             // 
@@ -313,6 +314,14 @@
             this.colinvDisponible.Visible = true;
             this.colinvDisponible.VisibleIndex = 5;
             // 
+            // colprecio
+            // 
+            this.colprecio.FieldName = "precio";
+            this.colprecio.Name = "colprecio";
+            this.colprecio.OptionsColumn.ReadOnly = true;
+            this.colprecio.Visible = true;
+            this.colprecio.VisibleIndex = 6;
+            // 
             // txtDesc
             // 
             this.txtDesc.Location = new System.Drawing.Point(77, 41);
@@ -355,14 +364,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // colprecio
-            // 
-            this.colprecio.FieldName = "precio";
-            this.colprecio.Name = "colprecio";
-            this.colprecio.OptionsColumn.ReadOnly = true;
-            this.colprecio.Visible = true;
-            this.colprecio.VisibleIndex = 6;
             // 
             // frmSearchItems
             // 

@@ -240,6 +240,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
             {
                 tipoBusquedaActual = TipoBusqueda.PorCodigoPT;
                 simpleButton2_Click(new object(), new EventArgs());
+                gridControl1.Focus();
             }
         }
 
@@ -279,6 +280,39 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
            
             txtCode.Text = txtDesc.Text = txtCodRefe.Text = txtCodComb.Text = string.Empty;
+        }
+
+        private void gridControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (gridView2.RowCount == 1 )
+                {
+                    var gridView = (GridView)gridControl1.FocusedView;
+                    var row = (dsConfigLoteConsumo.search_ptRow)gridView.GetFocusedDataRow();
+
+                    ItemSeleccionado.id = Convert.ToInt32(row.id);
+                    ItemSeleccionado.ItemCode = row.code;
+                    ItemSeleccionado.ItemName = row.descripcion;
+
+                    if (!row.IsmarcaNull())
+                    {
+                        if (!string.IsNullOrEmpty(row.marca))
+                            ItemSeleccionado.Marca = row.marca;
+                        else
+                            ItemSeleccionado.Marca = "---";
+                    }
+                    else
+                    {
+                        ItemSeleccionado.Marca = "---";
+                    }
+
+                    row.Seleccionado = true;
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
         }
     }
 }
