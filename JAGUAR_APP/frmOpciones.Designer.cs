@@ -198,6 +198,7 @@
             this.navBarItem205 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem206 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem207 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem255 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup18 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem155 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem75 = new DevExpress.XtraNavBar.NavBarItem();
@@ -509,7 +510,8 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem255 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup23 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem256 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -2973,6 +2975,20 @@
             this.navBarItem207.Name = "navBarItem207";
             this.navBarItem207.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem207_LinkClicked);
             // 
+            // navBarItem255
+            // 
+            this.navBarItem255.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem255.Appearance.Options.UseFont = true;
+            this.navBarItem255.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem255.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem255.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem255.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem255.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem255.AppearancePressed.Options.UseFont = true;
+            this.navBarItem255.Caption = "Configuración IHSS";
+            this.navBarItem255.Name = "navBarItem255";
+            this.navBarItem255.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem255_LinkClicked);
+            // 
             // navBarGroup18
             // 
             this.navBarGroup18.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
@@ -4919,7 +4935,8 @@
             this.navBarGroup10,
             this.navBarGroup11,
             this.navBarG_ReportesFacturacion,
-            this.navBarGroup7});
+            this.navBarGroup7,
+            this.navBarGroup23});
             this.navBarControl3.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarFacturaMain,
             this.nbPrefactura,
@@ -4943,7 +4960,8 @@
             this.navBarItemDepositoBancoCaja,
             this.navFacturacionUsados,
             this.navBarReporteVentasPorVendedor,
-            this.navBarCotizaciones});
+            this.navBarCotizaciones,
+            this.navBarItem256});
             this.navBarControl3.Location = new System.Drawing.Point(0, 0);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
@@ -4960,7 +4978,6 @@
             this.navBarGroup10.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navBarGroup10.Appearance.Options.UseFont = true;
             this.navBarGroup10.Caption = "Ventas";
-            this.navBarGroup10.Expanded = true;
             this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbPrefactura),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem59),
@@ -5234,7 +5251,6 @@
             this.navBarGroup11.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
             this.navBarGroup11.Appearance.Options.UseFont = true;
             this.navBarGroup11.Caption = "Inventario";
-            this.navBarGroup11.Expanded = true;
             this.navBarGroup11.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbKardexFacturacion)});
             this.navBarGroup11.Name = "navBarGroup11";
@@ -7112,19 +7128,26 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
-            // navBarItem255
+            // navBarGroup23
             // 
-            this.navBarItem255.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem255.Appearance.Options.UseFont = true;
-            this.navBarItem255.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem255.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem255.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem255.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem255.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem255.AppearancePressed.Options.UseFont = true;
-            this.navBarItem255.Caption = "Configuración IHSS";
-            this.navBarItem255.Name = "navBarItem255";
-            this.navBarItem255.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem255_LinkClicked);
+            this.navBarGroup23.Caption = "navBarGroup23";
+            this.navBarGroup23.Expanded = true;
+            this.navBarGroup23.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem256)});
+            this.navBarGroup23.Name = "navBarGroup23";
+            // 
+            // navBarItem256
+            // 
+            this.navBarItem256.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem256.Appearance.Options.UseFont = true;
+            this.navBarItem256.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem256.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem256.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem256.AppearancePressed.Options.UseFont = true;
+            this.navBarItem256.Caption = "Lista de Entrega / Picking";
+            this.navBarItem256.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.boxPT32px;
+            this.navBarItem256.Name = "navBarItem256";
+            this.navBarItem256.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem256_LinkClicked);
             // 
             // frmOpciones
             // 
@@ -7656,5 +7679,7 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem254;
         private DevExpress.XtraNavBar.NavBarItem nBarConsultarAjusteInventario;
         private DevExpress.XtraNavBar.NavBarItem navBarItem255;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup23;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem256;
     }
 }
