@@ -34,7 +34,7 @@
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrTotalLps = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
@@ -110,7 +110,7 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel2,
+            this.xrTotalLps,
             this.xrLabel21,
             this.xrLabel16,
             this.xrLabel20,
@@ -135,27 +135,27 @@
             this.ReportHeader.HeightF = 229.2997F;
             this.ReportHeader.Name = "ReportHeader";
             // 
-            // xrLabel2
+            // xrTotalLps
             // 
-            this.xrLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(194)))), ((int)(((byte)(252)))));
-            this.xrLabel2.BorderColor = System.Drawing.Color.White;
-            this.xrLabel2.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
-            this.xrLabel2.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Consolas", 8.75F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel2.ForeColor = System.Drawing.Color.White;
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(697.2085F, 206.2997F);
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(87.7915F, 23.00002F);
-            this.xrLabel2.StylePriority.UseBackColor = false;
-            this.xrLabel2.StylePriority.UseBorderColor = false;
-            this.xrLabel2.StylePriority.UseBorderDashStyle = false;
-            this.xrLabel2.StylePriority.UseBorders = false;
-            this.xrLabel2.StylePriority.UseFont = false;
-            this.xrLabel2.StylePriority.UseForeColor = false;
-            this.xrLabel2.StylePriority.UseTextAlignment = false;
-            this.xrLabel2.Text = "Total Lps";
-            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTotalLps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(194)))), ((int)(((byte)(252)))));
+            this.xrTotalLps.BorderColor = System.Drawing.Color.White;
+            this.xrTotalLps.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
+            this.xrTotalLps.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrTotalLps.Font = new DevExpress.Drawing.DXFont("Consolas", 8.75F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrTotalLps.ForeColor = System.Drawing.Color.White;
+            this.xrTotalLps.LocationFloat = new DevExpress.Utils.PointFloat(697.2085F, 206.2997F);
+            this.xrTotalLps.Name = "xrTotalLps";
+            this.xrTotalLps.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrTotalLps.SizeF = new System.Drawing.SizeF(87.7915F, 23.00002F);
+            this.xrTotalLps.StylePriority.UseBackColor = false;
+            this.xrTotalLps.StylePriority.UseBorderColor = false;
+            this.xrTotalLps.StylePriority.UseBorderDashStyle = false;
+            this.xrTotalLps.StylePriority.UseBorders = false;
+            this.xrTotalLps.StylePriority.UseFont = false;
+            this.xrTotalLps.StylePriority.UseForeColor = false;
+            this.xrTotalLps.StylePriority.UseTextAlignment = false;
+            this.xrTotalLps.Text = "Total Lps";
+            this.xrTotalLps.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel21
             // 
@@ -971,7 +971,7 @@
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow5;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableTotal;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
+        private DevExpress.XtraReports.UI.XRLabel xrTotalLps;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
     }
 }

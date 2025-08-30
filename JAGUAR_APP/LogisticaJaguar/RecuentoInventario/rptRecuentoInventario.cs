@@ -11,9 +11,17 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 {
     public partial class rptRecuentoInventario : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptRecuentoInventario(int PidRecuento)
+        bool IsComplete = false;
+        public enum TipoVista
+        {
+            PendienteAprobacion = 1,
+            Completado = 2
+        }
+        TipoVista tipoVista;
+        public rptRecuentoInventario(int PidRecuento, rptRecuentoInventario.TipoVista tipo)
         {
             InitializeComponent();
+            tipoVista = tipo;
 
             Clases.RecuentoInventario recuento = new Clases.RecuentoInventario();
             if (recuento.RecuperarRegistros(PidRecuento))
@@ -38,8 +46,26 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     lblCompanyName.Text = PuntoVenta1.Nombre;
                 }
 
-                GetDetalleRecuento(PidRecuento);
+                
                 GetResumenTotal(PidRecuento);
+
+                switch (tipoVista)
+                {
+                    case TipoVista.PendienteAprobacion:
+                        xrTable2.Visible = false;
+                        xrTotalLps.Text = "Re Chequeo";
+                        GetDetalleRecuento(PidRecuento, IsComplete = false);
+                        break;
+
+                    case TipoVista.Completado:
+                        xrTable2.Visible = true;
+                        GetDetalleRecuento(PidRecuento, IsComplete = true);
+                        break;
+
+                    default:
+
+                        break;
+                }
 
             }
 
@@ -77,17 +103,18 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             }
         }
 
-        private void GetDetalleRecuento( int PidRecuento)
+        private void GetDetalleRecuento(int PidRecuento, bool pIsComplete)
         {
             try
             {
-                string query = @"sp_rpt_get_recuento_inventario";
+                string query = @"[sp_rpt_get_recuento_inventarioV2]";
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idRecuento", PidRecuento);
+                cmd.Parameters.AddWithValue("@IsComplete", pIsComplete);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsRecuento1.rpt_detalle_recuento.Clear();
                 adat.Fill(dsRecuento1.rpt_detalle_recuento);

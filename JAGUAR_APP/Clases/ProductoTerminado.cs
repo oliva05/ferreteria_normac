@@ -1059,6 +1059,33 @@ namespace JAGUAR_PRO.Clases
 
             return Id_Almacen_standard;
         }
+
+        public decimal GetExistenciaByAlmacen(int pIdpt, int pidAlmacen)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT dbo.ft_get_inventario_kardex_pt_for_production_v2(@IdPT,@IdAlmacen)", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@IdPT", pIdpt);
+                cmd.Parameters.AddWithValue("@IdAlmacen", pidAlmacen);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    CantInventarioKardex = dr.GetDecimal(0);
+                    dr.Close();
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+
+            return CantInventarioKardex;
+        }
     }
 
 }

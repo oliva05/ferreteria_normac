@@ -72,8 +72,8 @@
               <xs:element name="conteo_completado" msprop:Generator_ColumnPropNameInTable="conteo_completadoColumn" msprop:Generator_ColumnPropNameInRow="conteo_completado" msprop:Generator_UserColumnName="conteo_completado" msprop:Generator_ColumnVarNameInTable="columnconteo_completado" type="xs:boolean" default="false" minOccurs="0" />
               <xs:element name="tipo_ajuste" msprop:Generator_ColumnPropNameInTable="tipo_ajusteColumn" msprop:Generator_ColumnPropNameInRow="tipo_ajuste" msprop:Generator_UserColumnName="tipo_ajuste" msprop:Generator_ColumnVarNameInTable="columntipo_ajuste" type="xs:string" minOccurs="0" />
               <xs:element name="cantidad_ajuste" msprop:Generator_ColumnPropNameInTable="cantidad_ajusteColumn" msprop:Generator_ColumnPropNameInRow="cantidad_ajuste" msprop:Generator_UserColumnName="cantidad_ajuste" msprop:Generator_ColumnVarNameInTable="columncantidad_ajuste" type="xs:decimal" default="0" minOccurs="0" />
-              <xs:element name="precio_venta" msprop:Generator_UserColumnName="precio_venta" msprop:Generator_ColumnPropNameInTable="precio_ventaColumn" msprop:Generator_ColumnPropNameInRow="precio_venta" msprop:Generator_ColumnVarNameInTable="columnprecio_venta" type="xs:decimal" minOccurs="0" />
-              <xs:element name="impacto_economico" msprop:Generator_UserColumnName="impacto_economico" msprop:Generator_ColumnPropNameInTable="impacto_economicoColumn" msprop:Generator_ColumnPropNameInRow="impacto_economico" msprop:Generator_ColumnVarNameInTable="columnimpacto_economico" type="xs:decimal" minOccurs="0" />
+              <xs:element name="precio_venta" msprop:Generator_ColumnPropNameInTable="precio_ventaColumn" msprop:Generator_ColumnPropNameInRow="precio_venta" msprop:Generator_UserColumnName="precio_venta" msprop:Generator_ColumnVarNameInTable="columnprecio_venta" type="xs:decimal" minOccurs="0" />
+              <xs:element name="impacto_economico" msprop:Generator_ColumnPropNameInTable="impacto_economicoColumn" msprop:Generator_ColumnPropNameInRow="impacto_economico" msprop:Generator_UserColumnName="impacto_economico" msprop:Generator_ColumnVarNameInTable="columnimpacto_economico" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -87,7 +87,7 @@
               <xs:element name="tipo_ajuste" msprop:Generator_ColumnPropNameInTable="tipo_ajusteColumn" msprop:Generator_ColumnPropNameInRow="tipo_ajuste" msprop:Generator_UserColumnName="tipo_ajuste" msprop:Generator_ColumnVarNameInTable="columntipo_ajuste" type="xs:string" minOccurs="0" />
               <xs:element name="cantidad_ajustada" msprop:Generator_ColumnPropNameInTable="cantidad_ajustadaColumn" msprop:Generator_ColumnPropNameInRow="cantidad_ajustada" msprop:Generator_UserColumnName="cantidad_ajustada" msprop:Generator_ColumnVarNameInTable="columncantidad_ajustada" type="xs:decimal" minOccurs="0" />
               <xs:element name="precio_venta" msprop:Generator_ColumnPropNameInTable="precio_ventaColumn" msprop:Generator_ColumnPropNameInRow="precio_venta" msprop:Generator_UserColumnName="precio_venta" msprop:Generator_ColumnVarNameInTable="columnprecio_venta" type="xs:decimal" minOccurs="0" />
-              <xs:element name="impacto_economico" msprop:Generator_ColumnPropNameInTable="impacto_economicoColumn" msprop:Generator_ColumnPropNameInRow="impacto_economico" msprop:Generator_UserColumnName="impacto_economico" msprop:Generator_ColumnVarNameInTable="columnimpacto_economico" type="xs:decimal" minOccurs="0" />
+              <xs:element name="impacto_economico" msprop:Generator_ColumnPropNameInTable="impacto_economicoColumn" msprop:Generator_ColumnPropNameInRow="impacto_economico" msprop:Generator_UserColumnName="impacto_economico" msprop:Generator_ColumnVarNameInTable="columnimpacto_economico" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -2,9 +2,11 @@
 using DevExpress.Charts.Native;
 using DevExpress.Pdf.Native;
 using DevExpress.XtraEditors;
+using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraSplashScreen;
 using DocumentFormat.OpenXml.Wordprocessing;
+using JAGUAR_PRO.Calidad.LoteConfConsumo;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.RecuentoInventario;
 using JAGUAR_PRO.TransaccionesPT;
@@ -25,6 +27,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
     {
         UserLogin UsuarioLogeado;
         PDV PuntoVentaActual;
+        bool hayUnicoRegistro = false;
         DataOperations dp = new DataOperations();
         public frmRecuentoInventarioDetalle(UserLogin userLogin,PDV puntoVentaActual)
         {
@@ -44,6 +47,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             if (id_bodega != 0)
             {
                 LoadInvAlmacenes(id_bodega);
+                btnAddPT.Enabled = true;
                 dsRecuento1.productos_conteo.Clear(); // Limpiar el DataTable antes de cargar nuevos datos
             }
         }
@@ -266,6 +270,66 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             catch (Exception ec)
             {
                 CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void btnAddPT_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(gleAlmacen.Text))
+                return;
+
+
+            frmSearchItems frm = new frmSearchItems();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                DataRow dr = dsRecuento1.productos_conteo.NewRow();
+                dr[0] = frm.ItemSeleccionado.id;
+                dr[1] = frm.ItemSeleccionado.ItemName;
+                dr[2] = Convert.ToInt32(gleAlmacen.EditValue);
+                dr[3] = Convert.ToString(gleAlmacen.Text);
+                ProductoTerminado pt = new ProductoTerminado();
+                pt.Recuperar_producto(frm.ItemSeleccionado.id);
+                dr[4] = pt.GetExistenciaByAlmacen(frm.ItemSeleccionado.id, Convert.ToInt32(gleAlmacen.EditValue));//Existencia
+                dr[5] = frm.ItemSeleccionado.ItemCode;//code_pt
+                dr[6] = pt.Codig_Referencia;//code_refe
+                dsRecuento1.productos_conteo.Rows.Add(dr);
+                dsRecuento1.productos_conteo.AcceptChanges();
+            
+            }
+
+        }
+
+        private void grdvSelectProductos_ColumnFilterChanged(object sender, EventArgs e)
+        {
+            
+            if (grdvSelectProductos.RowCount == 1)
+            {
+                hayUnicoRegistro = true;
+            }
+            else
+            {
+                hayUnicoRegistro = false;
+            }
+
+
+
+        }
+
+        private void grdSelectProductos_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+            if (e.KeyCode == Keys.Enter && hayUnicoRegistro)
+            {
+                int rowHanle = grdvSelectProductos.GetVisibleRowHandle(0);
+                if (rowHanle >= 0) 
+                {
+                    grdvSelectProductos.SetRowCellValue(rowHanle, "seleccion", true);
+                }
+
+                //btnRight.PerformClick();
+                btnRight_Click(sender, e);
+
+                e.Handled = true; // Evitar comportamiento por defecto
             }
         }
     }

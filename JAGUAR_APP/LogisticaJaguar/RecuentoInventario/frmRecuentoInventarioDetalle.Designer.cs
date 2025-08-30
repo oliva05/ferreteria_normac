@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecuentoInventarioDetalle));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             this.dtFechaDocumento = new DevExpress.XtraEditors.DateEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
@@ -71,6 +71,7 @@
             this.chkAll = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtUsuario = new DevExpress.XtraEditors.TextEdit();
+            this.btnAddPT = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaDocumento.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gleAlmacen.Properties)).BeginInit();
@@ -223,6 +224,7 @@
             this.grdSelectProductos.TabIndex = 181;
             this.grdSelectProductos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdvSelectProductos});
+            this.grdSelectProductos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdSelectProductos_KeyDown);
             // 
             // dsRecuento1
             // 
@@ -245,6 +247,7 @@
             this.grdvSelectProductos.OptionsView.ShowGroupPanel = false;
             this.grdvSelectProductos.OptionsView.ShowViewCaption = true;
             this.grdvSelectProductos.ViewCaption = "Seleccion de Productos";
+            this.grdvSelectProductos.ColumnFilterChanged += new System.EventHandler(this.grdvSelectProductos_ColumnFilterChanged);
             // 
             // colid_pt
             // 
@@ -416,9 +419,9 @@
             // reposDelete
             // 
             this.reposDelete.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
             this.reposDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposDelete.Name = "reposDelete";
             this.reposDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposDelete_ButtonClick);
@@ -464,11 +467,27 @@
             this.txtUsuario.Size = new System.Drawing.Size(184, 26);
             this.txtUsuario.TabIndex = 186;
             // 
+            // btnAddPT
+            // 
+            this.btnAddPT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddPT.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPT.Appearance.Options.UseFont = true;
+            this.btnAddPT.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnAddPT.Enabled = false;
+            this.btnAddPT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnAddPT.Location = new System.Drawing.Point(1235, 124);
+            this.btnAddPT.Name = "btnAddPT";
+            this.btnAddPT.Size = new System.Drawing.Size(89, 35);
+            this.btnAddPT.TabIndex = 187;
+            this.btnAddPT.Text = "Agregar";
+            this.btnAddPT.Click += new System.EventHandler(this.btnAddPT_Click);
+            // 
             // frmRecuentoInventarioDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 713);
+            this.Controls.Add(this.btnAddPT);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.chkAll);
@@ -540,5 +559,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colseleccion;
         private DevExpress.XtraGrid.Columns.GridColumn colcode_pt1;
         private DevExpress.XtraGrid.Columns.GridColumn colcode_refe1;
+        private DevExpress.XtraEditors.SimpleButton btnAddPT;
     }
 }
