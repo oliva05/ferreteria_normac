@@ -3,6 +3,7 @@ using DevExpress.DashboardCommon.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
+using DocumentFormat.OpenXml.Wordprocessing;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Mantenimientos.ProductoTerminado;
 using LOSA.Calidad.LoteConfConsumo;
@@ -22,6 +23,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
     public partial class frmAddRecepcionCompraVentaUnica : DevExpress.XtraEditors.XtraForm
     {
         int ContadorVuelta = 0;
+        bool isUpdating = false; // bandera global en el formulario
+        bool isUpdatingGrid = false;
         UserLogin UsuarioLogeado;
         public frmAddRecepcionCompraVentaUnica(UserLogin pUser)
         {
@@ -46,6 +49,14 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void btnAddLote_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(txtCodigoPT.Text))
+            {
+                CajaDialogo.Error("Debe seleccionar codigo padre!");
+                btnSelecItemCode.Focus();
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtDescripcion.Text))
             {
                 CajaDialogo.Error("Debe indicar una descripcion!");
@@ -83,7 +94,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     {
                         int Contador = Convert.ToInt32(spinUd.EditValue);
                         int correlativo = pt.IdSiguiente;
-                        pt.Recuperar_productoByBarCode(txtCodigoPT.Text.Trim());
+                        pt.Recuperar_productoByBarCodeUsados(txtCodigoPT.Text.Trim());
 
 
                         while (Contador > 0)
@@ -97,7 +108,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             dr[5] = txtPrecioVenta.EditValue;
                             dr[6] = txtCodigoPT.Text + "B" + "00" + correlativo.ToString();
                             dr[7] = correlativo.ToString();
-                            dr[8] = pt.Id_Almacen_standard;
+                            dr[8] = pt.Id_Almacen_standard == 0 ? 2 : pt.Id_Almacen_standard;
                             dr[9] = pt.Id;
                             dsProductoTerminado1.pt_venta_unica.Rows.Add(dr);
                             dsProductoTerminado1.pt_venta_unica.AcceptChanges();
@@ -178,39 +189,40 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void txtMargGanancia_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            //try
-            //{
-            //    decimal PrecioVenta = 0;
-            //    decimal MontoMargen = 0;
-            //    decimal Costo = Convert.ToDecimal(txtCosto.EditValue);
-            //    decimal Margen = Convert.ToDecimal(txtMargGanancia.EditValue);
-
-            //    MontoMargen = Costo*(Margen / 100);
-
-            //    txtPrecioVenta.EditValue = MontoMargen + Costo;
-
-            //}
-            //catch (Exception)
-            //{ }
+          
         }
 
         private void txtMargGanancia_EditValueChanged(object sender, EventArgs e)
         {
-            try
+            if (isUpdating) return; // evita bucle
+            isUpdating = true;
+
+            if (decimal.TryParse(Convert.ToString(txtCosto.EditValue), out decimal costo) &&
+                decimal.TryParse(Convert.ToString(txtMargGanancia.EditValue), out decimal margen))
             {
-                decimal PrecioVenta = 0;
-                decimal MontoMargen = 0;
-                decimal Costo = Convert.ToDecimal(txtCosto.EditValue);
-                decimal Margen = Convert.ToDecimal(txtMargGanancia.EditValue);
-
-                MontoMargen = Costo * (Margen / 100);
-
-                PrecioVenta = MontoMargen + Costo;
-
-                txtPrecioVenta.EditValue = PrecioVenta;
+                // Aquí margen es el porcentaje de utilidad (markup sobre costo)
+                decimal precioVenta = costo * (1 + margen / 100);
+                txtPrecioVenta.EditValue = precioVenta;
             }
-            catch (Exception)
-            { }
+
+            isUpdating = false;
+
+        }
+
+        private void CalcularPrecioVenta()
+        {
+            if (txtPrecioVenta == null || txtCosto == null || txtMargGanancia == null) return;
+
+            txtPrecioVenta.EditValueChanged -= txtPrecioVenta_EditValueChanged;
+
+            if (decimal.TryParse(Convert.ToString(txtCosto.EditValue), out decimal costo) &&
+                decimal.TryParse(Convert.ToString(txtMargGanancia.EditValue), out decimal utilidad))
+            {
+                decimal precio = costo * (1 + utilidad / 100);
+                txtPrecioVenta.EditValue = precio;
+            }
+
+            txtPrecioVenta.EditValueChanged += txtPrecioVenta_EditValueChanged;
         }
 
         private void reposDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -232,6 +244,28 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
+            bool error = false;
+            foreach (dsProductoTerminado.pt_venta_unicaRow item in dsProductoTerminado1.pt_venta_unica)
+            {
+                if (string.IsNullOrEmpty(item.descripcion))
+                {
+                    CajaDialogo.Error("Debe colocar un nombre, no puede quedar vacio!");
+                    error = true;
+                    break;
+                }
+
+                if (string.IsNullOrEmpty(item.costo.ToString()) || item.costo <= 0)
+                {
+                    CajaDialogo.Error("Debe agregar un Costo valido!");
+                    error = true;
+                    break;
+                }
+            }
+
+            if (error)
+                return;
+
+
             SqlTransaction transaction = null;
             DataOperations dp = new DataOperations();
             SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -374,6 +408,69 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private void frmAddRecepcionCompraVentaUnica_Shown(object sender, EventArgs e)
         {
             btnSelecItemCode.Focus();
+        }
+
+        private void txtPrecioVenta_EditValueChanged(object sender, EventArgs e)
+        {
+            if (isUpdating) return; // evita bucle
+            isUpdating = true;
+
+            if (decimal.TryParse(Convert.ToString(txtCosto.EditValue), out decimal costo) &&
+                decimal.TryParse(Convert.ToString(txtPrecioVenta.EditValue), out decimal precioVenta))
+            {
+                if (costo > 0)
+                {
+                    // Aquí margen se calcula en base a precio (margen real)
+                    decimal ganancia = precioVenta - costo;
+                    decimal margen = (ganancia / costo) * 100; // markup sobre costo
+                    txtMargGanancia.EditValue = margen;
+                }
+                else
+                {
+                    txtMargGanancia.EditValue = 0;
+                }
+            }
+
+            isUpdating = false;
+        }
+
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (isUpdatingGrid) return;
+
+            isUpdatingGrid = true;
+
+            var gridView1 = (GridView)gridControl1.FocusedView;
+            var row = (dsProductoTerminado.pt_venta_unicaRow)gridView1.GetFocusedDataRow();
+
+            if (row == null) return;
+
+            decimal costo = Convert.ToDecimal(row.costo);
+            decimal margen = Convert.ToDecimal(row.margen);
+            decimal precioVenta = Convert.ToDecimal(row.precio_venta);
+
+            if (e.Column.FieldName == "margen")
+            {
+                // Calcular precio de venta desde margen (markup sobre costo)
+                decimal nuevoPrecio = costo * (1 + margen / 100);
+                row.precio_venta = nuevoPrecio;
+            }
+            else
+            {
+                if (costo > 0)
+                {
+                    // Calcular margen desde precio (markup sobre costo)
+                    decimal ganancia = precioVenta - costo;
+                    decimal nuevoMargen = (ganancia / costo) * 100;
+                    row.margen = nuevoMargen;
+                }
+                else
+                {
+                    row.margen = 0;
+                }
+            }
+
+            isUpdatingGrid = false;
         }
     }
 }

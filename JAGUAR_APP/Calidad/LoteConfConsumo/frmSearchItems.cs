@@ -256,7 +256,7 @@ namespace JAGUAR_PRO.Calidad.LoteConfConsumo
         {
             if (e.KeyCode == Keys.Enter)
             {
-                tipoBusquedaActual = TipoBusqueda.PorCodReferencia;
+                tipoBusquedaActual = TipoBusqueda.PorCodCombinado;
                 simpleButton2_Click(new object(), new EventArgs());
             }
         }
