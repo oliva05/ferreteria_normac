@@ -336,6 +336,7 @@ namespace Eatery.Ventas
             this.ckEscaner.Properties.Caption = "Escáner";
             this.ckEscaner.Size = new System.Drawing.Size(77, 23);
             this.ckEscaner.TabIndex = 66;
+            this.ckEscaner.CheckedChanged += new System.EventHandler(this.ckEscaner_CheckedChanged);
             // 
             // label10
             // 

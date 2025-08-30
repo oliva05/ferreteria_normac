@@ -144,7 +144,7 @@ namespace Eatery.Ventas
             if (TipoFacturacionActual == TipoFacturacionStock.VentaUsados)
             {
                 lblScanProducto.Visible =
-                txtScanProducto.Visible =
+                txtScanProducto.Visible = true;
                 cmdCopiarDesde.Visible =
                 ckGenerarCotizacion.Visible = false;
             }
@@ -2355,6 +2355,211 @@ namespace Eatery.Ventas
                 }
             }
         }
+        private void AgregarProductoUsadoA_Prefactura(int pIdPT, string pItemCode, string pItemName,
+                                                 decimal pCantidad, bool AddDistribucionAlmacen,
+                                                 decimal pDescuentoPorcentaje, ProductoUsado pProductoUsado
+                                                 , string pMarca)
+        {
+            ProductoUsado pt1;
+            if (pProductoUsado == null)
+                pt1 = new ProductoUsado();
+            else
+                pt1 = pProductoUsado;
+
+
+            if (!pt1.Recuperado)
+                pt1.RecuperarRegistro(pIdPT);
+
+
+            if (pt1.Id > 0)
+            {
+
+                decimal valor_total = 0;
+
+                bool AgregarNuevo = true;
+                foreach (dsVentas.detalle_factura_transactionRow rowF in dsVentas1.detalle_factura_transaction)
+                {
+                    if (rowF.id_pt == pIdPT)
+                    {
+                        //Sumar cantidad nada mas
+
+                        rowF.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacionUsados(pt1.Id, this.PuntoDeVentaActual.ID);
+
+
+                        rowF.cantidad = rowF.cantidad + 1;
+                        rowF.codigo_referencia = pt1.Barcode;
+                        rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
+                        rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
+                        rowF.total_linea = ((rowF.cantidad * rowF.precio) - rowF.descuento) + rowF.isv1 + rowF.isv2 + rowF.isv3;
+                        AgregarNuevo = false;
+                    }
+                    //valor_total += (rowF.total_linea + rowF.isv1);
+                    valor_total += rowF.total_linea;
+                    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
+                }
+
+                if (AgregarNuevo)
+                {
+                    dsVentas.detalle_factura_transactionRow row1 = dsVentas1.detalle_factura_transaction.Newdetalle_factura_transactionRow();
+                    row1.id_pt = pIdPT;
+                    row1.cantidad = pCantidad;
+                    row1.descuento =
+                    row1.descuento_porcentaje = 0;
+                    row1.codigo_referencia = pt1.Barcode;
+                    row1.marca = "N/D";
+                    row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+                    //row1.id_presentacion = pt1.Id_presentacion;
+
+
+                    if (row1.precio == 0)
+                    {
+                        SetErrorBarra("Este producto no tiene definido un precio. Por favor valide Lista de Precios!");
+                        return;
+                    }
+
+
+                    row1.itemcode = pItemCode;
+                    row1.itemname = pItemName;
+                    decimal invTotal = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacionUsados(pt1.Id, this.PuntoDeVentaActual.ID);
+
+                    //Recalculamos el Descuento si hay alguno
+                    if (pDescuentoPorcentaje > 0 && pDescuentoPorcentaje < 100)
+                    {
+                        decimal vDescuento = pDescuentoPorcentaje;
+
+                        decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(pt1.Id, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+
+                        if (vDescuento > vPorcentajeDescuento)
+                        {
+                            row1.descuento = row1.descuento_porcentaje = 0;
+                            //CajaDialogo.Error("No se permite un descuento mayor al permitido!");
+                            return;
+                        }
+
+                        row1.descuento_porcentaje = vDescuento;
+                        decimal vDescuentoLinea = ((row1.cantidad * row1.precio) * (vDescuento / 100));
+                        row1.descuento = vDescuentoLinea;
+
+
+                    }
+                    else
+                    {
+                        row1.descuento_porcentaje = 0;
+                    }
+
+                    //Calculo del impuesto
+                    row1.isv1 = row1.isv2 = row1.isv3 = 0;
+                    Impuesto impuesto = new Impuesto();
+                    decimal tasaISV = 0;
+
+                    //if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
+                    //{
+                    //    tasaISV = impuesto.Valor / 100;
+
+                    //    //row1.isv1 = (row1.precio - row1.descuento) * tasaISV;
+                    //    decimal isv_calculo = (row1.precio - row1.descuento) - ((row1.precio - row1.descuento) / (1 + tasaISV));
+                    //    row1.isv1 = isv_calculo;
+                    //    row1.precio = (row1.precio - row1.descuento) - isv_calculo;
+
+                    //    row1.tasa_isv = tasaISV;
+                    //    row1.id_isv_aplicable = impuesto.Id;
+                    //    row1.total_linea = row1.cantidad * ((row1.precio - row1.descuento) + isv_calculo);
+                    //}
+                    //else
+                    //{
+                    //    row1.tasa_isv = 0;
+                    //    row1.id_isv_aplicable = 0;
+                    //    //row1.precio = (row1.precio - row1.descuento);
+                    //    row1.isv1 = 0;
+                    //}
+
+                    row1.tasa_isv = 0;
+                    row1.id_isv_aplicable = 0;
+                    //row1.precio = (row1.precio - row1.descuento);
+                    row1.isv1 = 0;
+
+                    row1.total_linea = (row1.cantidad * (row1.precio - row1.descuento)) +
+                                        (row1.cantidad * row1.isv1) +
+                                        (row1.cantidad * row1.isv2) +
+                                        (row1.cantidad * row1.isv3);
+
+                    int IdBodega_ = 0;
+                    string BodegaName_ = "N/D";
+                    decimal Cantidad_ = 0;
+
+
+                    //try
+                    //{
+                    //    DataOperations dp = new DataOperations();
+                    //    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    //    con.Open();
+
+                    //    SqlCommand cmd = new SqlCommand("dbo.[sp_get_cantidad_inv_kardex_pt_for_elejir_stock]", con);
+                    //    cmd.CommandType = CommandType.StoredProcedure;
+                    //    cmd.Parameters.AddWithValue("@id_pt", row1.id_pt);
+                    //    SqlDataReader dr = cmd.ExecuteReader();
+                    //    if (dr.Read())
+                    //    {
+                    //        IdBodega_ = dr.GetInt32(0);
+                    //        BodegaName_ = dr.GetString(1);
+                    //        Cantidad_ = dr.GetDecimal(2);
+                    //        row1.inventario = invTotal;
+                    //        row1.inventario_seleccionado = 1;
+                    //        row1.bodega_descripcion = BodegaName_;
+                    //    }
+                    //    else
+                    //    {
+                    //        row1.inventario =
+                    //        row1.inventario_seleccionado = 0;
+                    //    }
+                    //    dr.Close();
+
+
+                    //    if (AddDistribucionAlmacen)
+                    //    {
+                    //        AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
+                    //                                             1, pt1.Id_presentacion, row1.precio, row1.descuento,
+                    //                                             pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, row1.marca);
+
+                    //        //Buscamos el detalle en la seleccion de stock
+                    //        foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
+                    //        {
+                    //            if (RowInv.id_pt == row1.id_pt)
+                    //            {
+                    //                RowInv.descuento = row1.descuento;
+                    //                RowInv.descuento_porcentaje = row1.descuento_porcentaje;
+                    //            }
+                    //        }
+                    //    }
+                    //}
+                    //catch (Exception ec)
+                    //{
+                    //    CajaDialogo.Error(ec.Message);
+                    //}
+
+                    row1.inventario =1;
+                    row1.id_bodega = 2;
+                    row1.bodega_descripcion = "BG002";
+                    dsVentas1.detalle_factura_transaction.Adddetalle_factura_transactionRow(row1);
+                    valor_total += (row1.total_linea);// + row1.isv1);
+                    txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(valor_total, 2));
+
+                    dsVentas1.AcceptChanges();
+
+                    if (dsVentas1.detalle_factura_transaction.Count > 0)
+                        gridView1.FocusedRowHandle = dsVentas1.detalle_factura_transaction.Count - 1;
+                    else
+                        gridView1.FocusedRowHandle = 0;
+
+
+                    gridView1.FocusedColumn = colcantidad;
+                    gridView1.ShowEditor();
+                }
+            }
+        }
+
+
+
 
         private void AgregarProductoA_PrefacturaUsados(int pIdUsado, string pItemCode, string pItemName,
                                                        decimal pCantidad, bool AddDistribucionAlmacen,
@@ -2718,35 +2923,72 @@ namespace Eatery.Ventas
                 if (string.IsNullOrEmpty(txtScanProducto.Text)) return;
                 //errorProvLecturaCodigo.Clear();
 
-                ProductoTerminado pt1 = new ProductoTerminado();
-                if (pt1.Recuperar_productoByBarCode(txtScanProducto.Text))
+                if (TipoFacturacionActual == TipoFacturacionStock.VentaNormal)
                 {
-                    AgregarProductoA_Prefactura(pt1.Id, pt1.Code, pt1.Descripcion, 1, true, 0, pt1, pt1.MarcaName);
-                    
-                    gridView1.RefreshData();
-                    int newRowHandle = gridView1.RowCount - 1;
-                    gridView1.FocusedRowHandle = newRowHandle;
-
-                    if (ckEscaner.Checked == false)
+                    ProductoTerminado pt1 = new ProductoTerminado();
+                    if (pt1.Recuperar_productoByBarCode(txtScanProducto.Text))
                     {
-                        if (dsVentas1.detalle_factura_transaction.Rows.Count > 0)
-                        {
-                            cmdElejirAlmacen_ButtonClick(cmdElejirAlmacen, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen.Buttons[0]));
-                        }
-                    }
+                        AgregarProductoA_Prefactura(pt1.Id, pt1.Code, pt1.Descripcion, 1, true, 0, pt1, pt1.MarcaName);
 
-                    txtScanProducto.Text = "";
-                    txtScanProducto.Focus();
+                        gridView1.RefreshData();
+                        int newRowHandle = gridView1.RowCount - 1;
+                        gridView1.FocusedRowHandle = newRowHandle;
+
+                        if (ckEscaner.Checked == false)
+                        {
+                            if (dsVentas1.detalle_factura_transaction.Rows.Count > 0)
+                            {
+                                cmdElejirAlmacen_ButtonClick(cmdElejirAlmacen, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen.Buttons[0]));
+                            }
+                        }
+
+                        txtScanProducto.Text = "";
+                        txtScanProducto.Focus();
+                    }
+                    else
+                    {
+                        //Set error
+                        //errorProvLecturaCodigo.SetError(txtScanProducto, "No se encontró el código escaneado!");
+                        SetErrorBarra("No se encontró el código escaneado!");
+                        txtScanProducto.Text = "";
+                        txtScanProducto.Focus();
+                        timerLimpiarMensaje.Enabled = true;
+                        timerLimpiarMensaje.Start();
+                    }
                 }
                 else
                 {
-                    //Set error
-                    //errorProvLecturaCodigo.SetError(txtScanProducto, "No se encontró el código escaneado!");
-                    SetErrorBarra("No se encontró el código escaneado!");
-                    txtScanProducto.Text = "";
-                    txtScanProducto.Focus();
-                    timerLimpiarMensaje.Enabled = true;
-                    timerLimpiarMensaje.Start();
+                    //Usados
+                    ProductoUsado pt1 = new ProductoUsado();
+                    if (pt1.RecuperarRegistro(txtScanProducto.Text))
+                    {
+                        AgregarProductoUsadoA_Prefactura(pt1.Id, pt1.Barcode, pt1.Descripcion, 1, true, 0, pt1, "N/D");
+
+                        gridView1.RefreshData();
+                        int newRowHandle = gridView1.RowCount - 1;
+                        gridView1.FocusedRowHandle = newRowHandle;
+
+                        //if (ckEscaner.Checked == false)
+                        //{
+                        //    if (dsVentas1.detalle_factura_transaction.Rows.Count > 0)
+                        //    {
+                        //        cmdElejirAlmacen_ButtonClick(cmdElejirAlmacen, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(cmdElejirAlmacen.Buttons[0]));
+                        //    }
+                        //}
+
+                        txtScanProducto.Text = "";
+                        txtScanProducto.Focus();
+                    }
+                    else
+                    {
+                        //Set error
+                        //errorProvLecturaCodigo.SetError(txtScanProducto, "No se encontró el código escaneado!");
+                        SetErrorBarra("No se encontró el código escaneado!");
+                        txtScanProducto.Text = "";
+                        txtScanProducto.Focus();
+                        timerLimpiarMensaje.Enabled = true;
+                        timerLimpiarMensaje.Start();
+                    }
                 }
             }
         }
@@ -4080,6 +4322,17 @@ namespace Eatery.Ventas
                 }
             }
             
+        }
+
+        private void ckEscaner_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ckEscaner.Checked)
+            {
+                if (txtScanProducto.Visible == false)
+                {
+                    lblScanProducto.Visible = txtScanProducto.Visible = true;
+                }
+            }
         }
 
         //frmLoginVendedores

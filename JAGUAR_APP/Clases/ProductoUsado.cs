@@ -24,6 +24,7 @@ namespace JAGUAR_PRO.Clases
         public int? UserId { get; set; }
         public int? IdBodega { get; set; }
         public int? IdPT { get; set; }
+        public bool Recuperado { get; set; }
 
         public ProductoUsado()
         {
@@ -110,6 +111,65 @@ namespace JAGUAR_PRO.Clases
             }
 
             return false; // No se encontró el registro
-        }
+        }//Recuperar Registro
+
+        public bool RecuperarRegistro(string pBarcode)
+        {
+            // Ejemplo de conexión - ajustar cadena de conexión según tu entorno
+            DataOperations dp = new DataOperations();
+            string connectionString = dp.ConnectionStringJAGUAR_DB;
+            string query = "[sp_get_producto_usado_for_factura_by_barcode]";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@barcode", pBarcode);
+
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        Id = reader.GetInt32(reader.GetOrdinal("id"));
+                        Descripcion = reader["descripcion"] as string;
+                        ItemCode = reader["itemcode"] as string;
+                        Costo = reader["costo"] as decimal?;
+                        Margen = reader["margen"] as decimal?;
+
+                        PrecioVenta = Convert.ToDecimal(reader["precio_venta"]);
+                        Enable = reader["enable"] as bool?;
+                        Barcode = reader["barcode"] as string;
+                        Correlativo = reader["correlativo"] as string;
+                        FechaIngreso = reader["fecha_ingreso"] as DateTime?;
+                        UserId = reader["user_id"] as int?;
+                        IdBodega = reader["id_bodega"] as int?;
+                        IdPT = reader["id_pt"] as int?;
+                        return true;
+
+                        // Validar que ninguna propiedad sea null (solo para campos no anulables si aplica)
+                        //return Descripcion != null &&
+                        //       ItemCode != null &&
+                        //       Costo.HasValue &&
+                        //       Margen.HasValue &&
+                        //       PrecioVenta.HasValue &&
+                        //       Enable.HasValue &&
+                        //       Barcode != null &&
+                        //       Correlativo != null &&
+                        //       FechaIngreso.HasValue &&
+                        //       UserId.HasValue &&
+                        //       IdBodega.HasValue &&
+                        //       IdPT.HasValue;
+                    }
+                }
+            }
+
+            return false; // No se encontró el registro
+        }//Recupear registro Barcode
+
+
+
+
+
     }
 }
