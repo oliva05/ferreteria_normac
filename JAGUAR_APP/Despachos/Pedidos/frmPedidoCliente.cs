@@ -2407,7 +2407,8 @@ namespace Eatery.Ventas
                     row1.descuento_porcentaje = 0;
                     row1.codigo_referencia = pt1.Barcode;
                     row1.marca = "N/D";
-                    row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+                    //row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+                    row1.precio = pt1.PrecioVenta;
                     //row1.id_presentacion = pt1.Id_presentacion;
 
 
