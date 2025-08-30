@@ -12,6 +12,7 @@ using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using JAGUAR_PRO.Facturacion.Reportes;
 using JAGUAR_PRO.LogisticaJaguar;
+using JAGUAR_PRO.RRHH_Planilla.Mantenimientos;
 using JAGUAR_PRO.Utileria;
 using System;
 using System.Collections.Generic;
@@ -531,36 +532,123 @@ namespace JAGUAR_PRO.Despachos.Pedidos
 
             if (!row.Isid_estadoNull())
             {
-                if(row.id_estado == 6)//Nuevo
+                int id_estado = row.id_estado;
+                int id_row = row.id;
+
+                bool accesoprevio = false;
+                bool AccesoAdmin = false;
+                int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+                switch (idNivel)
                 {
-                    DialogResult r = CajaDialogo.Pregunta("Esta seguro de cancelar esta pre factura?");
-                    if (r != DialogResult.Yes)
-                        return;
-
-                    try
-                    {
-                        DataOperations dp = new DataOperations();
-                        SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                        con.Open();
-
-                        SqlCommand cmd = new SqlCommand("[dbo].[sp_set_update_pedido_h_estado_id]", con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id_estado", 6);
-                        cmd.Parameters.AddWithValue("@id", row.id);
-                        cmd.ExecuteNonQuery();
-                        gridView1.DeleteRow(gridView1.FocusedRowHandle);
-                        con.Close();
-                    }
-                    catch (Exception ec)
-                    {
-                        CajaDialogo.Error(ec.Message);
-                    }
+                    case 1://Basic View
+                        break;
+                    case 2://Basic No Autorization
+                        accesoprevio = false;
+                        break;
+                    case 3://Medium Autorization
+                        accesoprevio = false;
+                        break;
+                    case 4://Depth With Delta
+                    case 5://Depth Without Delta
+                        accesoprevio = AccesoAdmin = true;
+                        CancelarPedidoAccesoCompleto(id_estado, id_row);
+                        break;
+                    default:
+                        break;
                 }
-                else
+
+                if (!accesoprevio)
                 {
-                    CajaDialogo.Error("Solo las prefacturas nuevas se permite cancelar...");
+                    if (UsuarioLogeado.ValidarNivelPermisos(38))
+                    {
+                        CancelarPedidoAccesoCompleto(id_estado, id_row);
+                    }
+                    else
+                    {
+                        CancelarPedidoNuevoBasicoAcceso(id_estado, id_row);    
+                    }
                 }
             }
         }
+
+        public void CancelarPedidoNuevoBasicoAcceso(int pIdEstadoActual, int pId)
+        {
+            if (pIdEstadoActual == 6)//Nuevo
+            {
+                DialogResult r = CajaDialogo.Pregunta("Esta seguro de cancelar esta pre factura?");
+                if (r != DialogResult.Yes)
+                    return;
+
+                try
+                {
+                    DataOperations dp = new DataOperations();
+                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand("[dbo].[sp_set_update_pedido_h_estado_id]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_estado", 4);//Cancelado
+                    cmd.Parameters.AddWithValue("@id", pId);
+                    cmd.ExecuteNonQuery();
+                    gridView1.DeleteRow(gridView1.FocusedRowHandle);
+                    con.Close();
+                }
+                catch (Exception ec)
+                {
+                    CajaDialogo.Error(ec.Message);
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Solo las prefacturas nuevas se permite cancelar...");
+            }
+        }//End cancelar pedido basico
+
+        public void CancelarPedidoAccesoCompleto(int pIdEstado, int pId)
+        {
+            //id  descripcion               enable
+            //1   Confirmado                1
+            //2   Facturado                 1
+            //3   Entregado                 1
+            //4   Cancelado                 1
+            //5   Anulado                   1
+            //6   Nuevo                     1
+            //7   Parcialmente Entregado    1
+            //8   Sin Inventario            1
+            if (pIdEstado == 2 || pIdEstado == 3 || pIdEstado == 7)
+            {
+                CajaDialogo.Error("No se pueden cancelar pre facturas que fueron: Facturadas, Entregadas o Parcialmente entregadas!");
+                return;
+            }
+
+            DialogResult r = CajaDialogo.Pregunta("Esta seguro de cancelar esta pre factura?");
+            if (r != DialogResult.Yes)
+                return;
+
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_set_update_pedido_h_estado_id]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_estado", 4);//Cancelado
+                cmd.Parameters.AddWithValue("@id", pId);
+                cmd.ExecuteNonQuery();
+                gridView1.DeleteRow(gridView1.FocusedRowHandle);
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+
+        }//Cancelar Pedido Acceso Completo
+
+
+
+
+
     }
 }
