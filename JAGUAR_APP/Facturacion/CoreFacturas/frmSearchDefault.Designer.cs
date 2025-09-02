@@ -40,12 +40,15 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSeleccionado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colconcat_ = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.colinv = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.dsBusquedaPRO1 = new JAGUAR_PRO.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta.dsBusquedaPRO();
+            this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtParametroBusqueda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetalleMP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsBusquedaPRO1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtParametroBusqueda
@@ -93,7 +96,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlDetalleMP.DataMember = "search_mp";
-            this.gridControlDetalleMP.DataSource = this.dsConfigLoteConsumo1;
+            this.gridControlDetalleMP.DataSource = this.dsBusquedaPRO1;
             this.gridControlDetalleMP.Location = new System.Drawing.Point(2, 101);
             this.gridControlDetalleMP.MainView = this.gridView1;
             this.gridControlDetalleMP.Name = "gridControlDetalleMP";
@@ -114,7 +117,8 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colName,
             this.colSeleccionado,
             this.colconcat_,
-            this.colinv});
+            this.colinv,
+            this.colprecio});
             this.gridView1.GridControl = this.gridControlDetalleMP;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -146,13 +150,23 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colSeleccionado.FieldName = "Seleccionado";
             this.colSeleccionado.Name = "colSeleccionado";
             this.colSeleccionado.Visible = true;
-            this.colSeleccionado.VisibleIndex = 3;
+            this.colSeleccionado.VisibleIndex = 4;
             this.colSeleccionado.Width = 105;
             // 
             // colconcat_
             // 
             this.colconcat_.FieldName = "concat_";
             this.colconcat_.Name = "colconcat_";
+            // 
+            // colinv
+            // 
+            this.colinv.Caption = "Inventario";
+            this.colinv.DisplayFormat.FormatString = "n2";
+            this.colinv.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colinv.FieldName = "inv";
+            this.colinv.Name = "colinv";
+            this.colinv.Visible = true;
+            this.colinv.VisibleIndex = 2;
             // 
             // labelControl1
             // 
@@ -164,15 +178,21 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.labelControl1.TabIndex = 4;
             this.labelControl1.Text = "Seleccione un Producto";
             // 
-            // colinv
+            // dsBusquedaPRO1
             // 
-            this.colinv.Caption = "Inventario";
-            this.colinv.DisplayFormat.FormatString = "n2";
-            this.colinv.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colinv.FieldName = "inv";
-            this.colinv.Name = "colinv";
-            this.colinv.Visible = true;
-            this.colinv.VisibleIndex = 2;
+            this.dsBusquedaPRO1.DataSetName = "dsBusquedaPRO";
+            this.dsBusquedaPRO1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // colprecio
+            // 
+            this.colprecio.DisplayFormat.FormatString = "n2";
+            this.colprecio.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colprecio.FieldName = "precio";
+            this.colprecio.Name = "colprecio";
+            this.colprecio.OptionsColumn.ReadOnly = true;
+            this.colprecio.Visible = true;
+            this.colprecio.VisibleIndex = 3;
+            this.colprecio.Width = 79;
             // 
             // frmSearchDefault
             // 
@@ -191,6 +211,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetalleMP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsBusquedaPRO1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +230,7 @@ namespace LOSA.Calidad.LoteConfConsumo
         private DevExpress.XtraGrid.Columns.GridColumn colSeleccionado;
         private DevExpress.XtraGrid.Columns.GridColumn colconcat_;
         private DevExpress.XtraGrid.Columns.GridColumn colinv;
+        private JAGUAR_PRO.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta.dsBusquedaPRO dsBusquedaPRO1;
+        private DevExpress.XtraGrid.Columns.GridColumn colprecio;
     }
 }

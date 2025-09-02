@@ -1283,6 +1283,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsVentas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\CoreFacturas\FacturaParaPuntoDeVenta\dsBusquedaPRO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBusquedaPRO.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\CoreFacturas\FacturaParaPuntoDeVenta\dsBusquedas1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2869,6 +2874,17 @@
     </None>
     <None Include="Facturacion\CoreFacturas\dsVentas.xss">
       <DependentUpon>dsVentas.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\CoreFacturas\FacturaParaPuntoDeVenta\dsBusquedaPRO.xsc">
+      <DependentUpon>dsBusquedaPRO.xsd</DependentUpon>
+    </None>
+    <None Include="Facturacion\CoreFacturas\FacturaParaPuntoDeVenta\dsBusquedaPRO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBusquedaPRO.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Facturacion\CoreFacturas\FacturaParaPuntoDeVenta\dsBusquedaPRO.xss">
+      <DependentUpon>dsBusquedaPRO.xsd</DependentUpon>
     </None>
     <None Include="Facturacion\CoreFacturas\FacturaParaPuntoDeVenta\dsBusquedas.xsc">
       <DependentUpon>dsBusquedas.xsd</DependentUpon>
