@@ -421,7 +421,6 @@
             // 
             // cmdCargar
             // 
-            this.cmdCargar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCargar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmdCargar.Appearance.Options.UseFont = true;
             this.cmdCargar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
@@ -436,7 +435,6 @@
             // 
             // dtHasta
             // 
-            this.dtHasta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtHasta.EditValue = null;
             this.dtHasta.Location = new System.Drawing.Point(95, 33);
             this.dtHasta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -455,7 +453,6 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(13, 38);
@@ -467,7 +464,6 @@
             // 
             // dtDesde
             // 
-            this.dtDesde.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtDesde.EditValue = null;
             this.dtDesde.Location = new System.Drawing.Point(95, 3);
             this.dtDesde.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -486,7 +482,6 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(13, 8);
