@@ -372,6 +372,8 @@
             this.navBarReporteVentasPorVendedor = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup7 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem20 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup23 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem256 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbTrazabilidad = new DevExpress.XtraNavBar.NavBarItem();
@@ -510,8 +512,6 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup23 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem256 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -4978,6 +4978,7 @@
             this.navBarGroup10.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navBarGroup10.Appearance.Options.UseFont = true;
             this.navBarGroup10.Caption = "Ventas";
+            this.navBarGroup10.Expanded = true;
             this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbPrefactura),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem59),
@@ -5345,6 +5346,27 @@
             this.navBarItem20.Caption = "Reporte de Bancos";
             this.navBarItem20.Name = "navBarItem20";
             this.navBarItem20.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem20_LinkClicked_1);
+            // 
+            // navBarGroup23
+            // 
+            this.navBarGroup23.Caption = "navBarGroup23";
+            this.navBarGroup23.Expanded = true;
+            this.navBarGroup23.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem256)});
+            this.navBarGroup23.Name = "navBarGroup23";
+            // 
+            // navBarItem256
+            // 
+            this.navBarItem256.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem256.Appearance.Options.UseFont = true;
+            this.navBarItem256.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem256.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem256.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem256.AppearancePressed.Options.UseFont = true;
+            this.navBarItem256.Caption = "Lista de Entrega / Picking";
+            this.navBarItem256.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.boxPT32px;
+            this.navBarItem256.Name = "navBarItem256";
+            this.navBarItem256.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem256_LinkClicked);
             // 
             // navBarGroup1
             // 
@@ -7127,27 +7149,6 @@
             this.navBarItem350.Caption = "Requisa de Traslado";
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
-            // 
-            // navBarGroup23
-            // 
-            this.navBarGroup23.Caption = "navBarGroup23";
-            this.navBarGroup23.Expanded = true;
-            this.navBarGroup23.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem256)});
-            this.navBarGroup23.Name = "navBarGroup23";
-            // 
-            // navBarItem256
-            // 
-            this.navBarItem256.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem256.Appearance.Options.UseFont = true;
-            this.navBarItem256.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem256.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem256.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem256.AppearancePressed.Options.UseFont = true;
-            this.navBarItem256.Caption = "Lista de Entrega / Picking";
-            this.navBarItem256.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.boxPT32px;
-            this.navBarItem256.Name = "navBarItem256";
-            this.navBarItem256.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem256_LinkClicked);
             // 
             // frmOpciones
             // 

@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
+using JAGUAR_PRO.Calidad.LoteConfConsumo;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Mantenimientos.Modelos;
 using System;
@@ -24,10 +25,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes
         PDV puntoVentaActual = new PDV();
         DataOperations dp;
         int IdReporte;
+        ProductoTerminado ProductoActual;
 
         public frmReportesFacturacionMultiple(UserLogin pUsuario, PDV pPuntoVentaActual)
         {
             InitializeComponent();
+            ProductoActual = new ProductoTerminado();
             UsuarioLogeado = pUsuario;
             puntoVentaActual = pPuntoVentaActual;
             dp = new DataOperations();
@@ -113,30 +116,30 @@ namespace JAGUAR_PRO.Facturacion.Reportes
                 //}
                 switch (IdReporte)
                 {
-                    case 1:
+                    case 1://1 - Libro de Ventas
                         navigationFrame1.SelectedPage = navigationPage1;
                         break;
-                    case 2:
+                    case 2://2 - Ventas Mensuales por Puntos de Ventas'
                         navigationFrame1.SelectedPage = navigationPage2;
                         break;
-                    case 3:
+                    case 3://3 - Ventas Diarias por punto de ventas
                         navigationFrame1.SelectedPage = navigationPage3;
                         break;
-                    case 4:
+                    case 4://4 - Ventas por Producto
                         navigationFrame1.SelectedPage = navigationPage4;
                         break;
-                    case 5:
+                    case 5://5 - Ventas por Cliente
                         navigationFrame1.SelectedPage = navigationPage5;
                         break;
-                    case 6:
+                    case 6://6 - Reporte de Ventas Gravadas y Exentas
                         navigationFrame1.SelectedPage = navigationPage6;
                         glePuntoVenta6.EditValue = 0;
                         break;
-                    case 7:
+                    case 7://7 - Reporte de Ventas por Producto por Mes
                         navigationFrame1.SelectedPage = navigationPage7;
                         glePuntoVenta6.EditValue = 0;
                         break;
-                    case 8:
+                    case 8://8 - Reporte de Ventas por Cliente y Producto por mes
                         navigationFrame1.SelectedPage = navigationPage8;
                         glePuntoVenta6.EditValue = 0;
                         break;
@@ -480,16 +483,23 @@ namespace JAGUAR_PRO.Facturacion.Reportes
 
         private void LoadDatosPage4()
         {
+            if (!ProductoActual.Recuperado)
+            {
+                CajaDialogo.Error("Es necesario seleccionar un Item o Producto!");
+                return;
+            }
+
             try
             {
                 DataOperations dp = new DataOperations();
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("dbo.sp_get_reportes_ventas_venta_por_producto_por_punto_venta", con);
+                SqlCommand cmd = new SqlCommand("dbo.[sp_get_reportes_ventas_venta_por_producto_por_punto_venta_v2]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@desde", dtDesdePage4.EditValue);
                 cmd.Parameters.AddWithValue("@hasta", dtHastaPage4.EditValue);
+                cmd.Parameters.AddWithValue("@id_pt", ProductoActual.Id);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsReporte1.ventas_por_producto.Clear();
                 adat.Fill(dsReporte1.ventas_por_producto);
@@ -645,6 +655,23 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             catch (Exception ec)
             {
                 CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            frmSearchItems frm = new frmSearchItems();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                if (ProductoActual.Recuperar_producto(frm.ItemSeleccionado.id))
+                {
+                    txtCodigoProducto.Text = frm.ItemSeleccionado.ItemCode + " - " + frm.ItemSeleccionado.ItemName;
+                }
+                else 
+                {
+                    txtCodigoProducto.Text = " ";
+                    ProductoActual = new ProductoTerminado();
+                }
             }
         }
     }

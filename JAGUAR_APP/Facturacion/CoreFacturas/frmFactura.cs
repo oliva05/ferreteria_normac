@@ -788,7 +788,8 @@ namespace Eatery.Ventas
                         //Posteamos lineas de factura y Transaccion en Kardex
                         foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
                         {
-                            command.CommandText = "dbo.sp_set_insert_factura__lineas__punto_venta_dos_pasos";
+                            //command.CommandText = "dbo.sp_set_insert_factura__lineas__punto_venta_dos_pasos";
+                            command.CommandText = "dbo.[sp_set_insert_factura__lineas__punto_venta_dos_pasos_v2]";
                             command.Parameters.Clear();
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.AddWithValue("@id_facturaH", IdFacturaH);
@@ -811,6 +812,10 @@ namespace Eatery.Ventas
                                 command.Parameters.AddWithValue("@id_isv_aplicado", row.id_isv_aplicable);
                             else
                                 command.Parameters.AddWithValue("@id_isv_aplicado", DBNull.Value);
+
+                            //int tipo_factura_ = tipo
+                            
+                            command.Parameters.AddWithValue("@tipo_factura", PedidoRecuperado.TipoFactura);
                             TotalFactura += row.total_linea;
                             command.ExecuteNonQuery();
                         }
@@ -1065,7 +1070,7 @@ namespace Eatery.Ventas
                             //Posteamos lineas de factura y Transaccion en Kardex
                             foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
                             {
-                                command.CommandText = "dbo.sp_set_insert_factura__lineas__punto_venta_dos_pasos";
+                                command.CommandText = "dbo.sp_set_insert_factura__lineas__punto_venta_dos_pasos_v2";
                                 command.Parameters.Clear();
                                 command.CommandType = CommandType.StoredProcedure;
                                 command.Parameters.AddWithValue("@id_facturaH", IdFacturaH);
@@ -1089,6 +1094,7 @@ namespace Eatery.Ventas
                                 else
                                     command.Parameters.AddWithValue("@id_isv_aplicado", DBNull.Value);
 
+                                command.Parameters.AddWithValue("@tipo_factura", PedidoRecuperado.TipoFactura);
                                 TotalFactura += row.total_linea;
                                 command.ExecuteNonQuery();
                             }

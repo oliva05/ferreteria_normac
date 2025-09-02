@@ -157,6 +157,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.btnRefreshPage8 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl8 = new DevExpress.XtraGrid.GridControl();
             this.gridView11 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCodigoProducto = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReporte1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -226,6 +229,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             ((System.ComponentModel.ISupportInitialize)(this.dtDesdePage8.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoProducto.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // simpleButton1
@@ -474,6 +478,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             // 
             // navigationPage1
             // 
+            this.navigationPage1.Caption = "navigationPage1";
             this.navigationPage1.Controls.Add(this.dtHastaPage1);
             this.navigationPage1.Controls.Add(this.labelControl2);
             this.navigationPage1.Controls.Add(this.dtDesdePage1);
@@ -831,7 +836,9 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             // 
             // navigationPage4
             // 
-            this.navigationPage4.Caption = "navigationPage4";
+            this.navigationPage4.Controls.Add(this.simpleButton2);
+            this.navigationPage4.Controls.Add(this.txtCodigoProducto);
+            this.navigationPage4.Controls.Add(this.labelControl21);
             this.navigationPage4.Controls.Add(this.dtHastaPage4);
             this.navigationPage4.Controls.Add(this.labelControl8);
             this.navigationPage4.Controls.Add(this.dtDesdePage4);
@@ -844,7 +851,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             // dtHastaPage4
             // 
             this.dtHastaPage4.EditValue = null;
-            this.dtHastaPage4.Location = new System.Drawing.Point(328, 9);
+            this.dtHastaPage4.Location = new System.Drawing.Point(89, 37);
             this.dtHastaPage4.Name = "dtHastaPage4";
             this.dtHastaPage4.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.dtHastaPage4.Properties.Appearance.Options.UseFont = true;
@@ -860,7 +867,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(247, 12);
+            this.labelControl8.Location = new System.Drawing.Point(5, 40);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(75, 17);
             this.labelControl8.TabIndex = 81;
@@ -898,10 +905,10 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl4.DataMember = "ventas_por_producto";
             this.gridControl4.DataSource = this.dsReporte1;
-            this.gridControl4.Location = new System.Drawing.Point(0, 36);
+            this.gridControl4.Location = new System.Drawing.Point(0, 67);
             this.gridControl4.MainView = this.gridView4;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(817, 363);
+            this.gridControl4.Size = new System.Drawing.Size(817, 332);
             this.gridControl4.TabIndex = 78;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -917,7 +924,6 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.colTotalFila,
             this.colcantidad});
             this.gridView4.GridControl = this.gridControl4;
-            this.gridView4.GroupCount = 1;
             this.gridView4.GroupFormat = "SUM={0:##,###,##0.00}";
             this.gridView4.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalFila", this.colTotalFila, "(Valor: SUM={0:n2})")});
@@ -927,8 +933,6 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.gridView4.OptionsView.ShowChildrenInGroupPanel = true;
             this.gridView4.OptionsView.ShowFooter = true;
             this.gridView4.OptionsView.ShowGroupedColumns = true;
-            this.gridView4.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colnombre_punto_venta, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colid_punto_venta1
             // 
@@ -998,7 +1002,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.btnRefreshPage4.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnRefreshPage4.Appearance.Options.UseFont = true;
             this.btnRefreshPage4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRefreshPage4.ImageOptions.SvgImage")));
-            this.btnRefreshPage4.Location = new System.Drawing.Point(485, 3);
+            this.btnRefreshPage4.Location = new System.Drawing.Point(694, 29);
             this.btnRefreshPage4.Name = "btnRefreshPage4";
             this.btnRefreshPage4.Size = new System.Drawing.Size(114, 32);
             this.btnRefreshPage4.TabIndex = 77;
@@ -1646,6 +1650,38 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             this.gridView11.OptionsView.ShowAutoFilterRow = true;
             this.gridView11.OptionsView.ShowFooter = true;
             // 
+            // labelControl21
+            // 
+            this.labelControl21.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl21.Appearance.Options.UseFont = true;
+            this.labelControl21.Location = new System.Drawing.Point(246, 16);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(122, 17);
+            this.labelControl21.TabIndex = 83;
+            this.labelControl21.Text = "Código de Producto";
+            // 
+            // txtCodigoProducto
+            // 
+            this.txtCodigoProducto.Location = new System.Drawing.Point(246, 37);
+            this.txtCodigoProducto.Name = "txtCodigoProducto";
+            this.txtCodigoProducto.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtCodigoProducto.Properties.Appearance.Options.UseFont = true;
+            this.txtCodigoProducto.Properties.ReadOnly = true;
+            this.txtCodigoProducto.Size = new System.Drawing.Size(325, 24);
+            this.txtCodigoProducto.TabIndex = 84;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.75F, System.Drawing.FontStyle.Bold);
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(577, 29);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(114, 32);
+            this.simpleButton2.TabIndex = 85;
+            this.simpleButton2.Text = "Buscar \r\nProducto";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
             // frmReportesFacturacionMultiple
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1735,6 +1771,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             ((System.ComponentModel.ISupportInitialize)(this.dtDesdePage8.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoProducto.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1865,5 +1902,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
         private SimpleButton btnRefreshPage8;
         private GridControl gridControl8;
         private GridView gridView11;
+        private LabelControl labelControl21;
+        private SimpleButton simpleButton2;
+        private TextEdit txtCodigoProducto;
     }
 }
