@@ -374,7 +374,7 @@ namespace LOSA.Calidad.LoteConfConsumo
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             var gridView = (GridView)gridControlDetalleMP.FocusedView;
-            var row = (dsConfigLoteConsumo.search_mpRow)gridView.GetFocusedDataRow();
+            var row = (dsBusquedaPRO.search_mpRow)gridView.GetFocusedDataRow();
 
             ItemSeleccionado.id = row.id;
             ItemSeleccionado.ItemCode = row.ItemCode;
