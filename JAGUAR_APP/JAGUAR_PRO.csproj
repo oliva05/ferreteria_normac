@@ -720,6 +720,7 @@
     <Compile Include="Calidad\LoteConfConsumo\frmSearchMultItems.Designer.cs">
       <DependentUpon>frmSearchMultItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases\ActivosFijos.cs" />
     <Compile Include="Clases\AlimentacionTolvaMicrosPesaje.cs" />
     <Compile Include="Clases\APMS_OrderProduction.cs" />
     <Compile Include="Clases\BagsPT.cs" />
@@ -909,6 +910,23 @@
     </Compile>
     <Compile Include="Compras\rptOrdenCompra.Designer.cs">
       <DependentUpon>rptOrdenCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\ActivosFijos\dsActivosFijos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsActivosFijos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\ActivosFijos\frmActivosFijosCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\ActivosFijos\frmActivosFijosCRUD.Designer.cs">
+      <DependentUpon>frmActivosFijosCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\ActivosFijos\frmActivosFijosHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\ActivosFijos\frmActivosFijosHome.Designer.cs">
+      <DependentUpon>frmActivosFijosHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\Proveedores\dsAnticipo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2714,6 +2732,17 @@
     <None Include="Compras\dsCompras.xss">
       <DependentUpon>dsCompras.xsd</DependentUpon>
     </None>
+    <None Include="Contabilidad\ActivosFijos\dsActivosFijos.xsc">
+      <DependentUpon>dsActivosFijos.xsd</DependentUpon>
+    </None>
+    <None Include="Contabilidad\ActivosFijos\dsActivosFijos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsActivosFijos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Contabilidad\ActivosFijos\dsActivosFijos.xss">
+      <DependentUpon>dsActivosFijos.xsd</DependentUpon>
+    </None>
     <None Include="Contabilidad\Proveedores\dsAnticipo.xsc">
       <DependentUpon>dsAnticipo.xsd</DependentUpon>
     </None>
@@ -4338,6 +4367,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\rptOrdenCompra.resx">
       <DependentUpon>rptOrdenCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\ActivosFijos\frmActivosFijosCRUD.resx">
+      <DependentUpon>frmActivosFijosCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\ActivosFijos\frmActivosFijosHome.resx">
+      <DependentUpon>frmActivosFijosHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\Proveedores\frmCRUDAnticipo.resx">
       <DependentUpon>frmCRUDAnticipo.cs</DependentUpon>
