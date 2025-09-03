@@ -34,21 +34,21 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.cmdAplicar = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlDetalleMP = new DevExpress.XtraGrid.GridControl();
-            this.dsConfigLoteConsumo1 = new LOSA.Calidad.LoteConfConsumo.dsConfigLoteConsumo();
+            this.dsBusquedaPRO1 = new JAGUAR_PRO.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta.dsBusquedaPRO();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colItemCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSeleccionado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colconcat_ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colinv = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dsBusquedaPRO1 = new JAGUAR_PRO.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta.dsBusquedaPRO();
             this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dsConfigLoteConsumo1 = new LOSA.Calidad.LoteConfConsumo.dsConfigLoteConsumo();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtParametroBusqueda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetalleMP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBusquedaPRO1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtParametroBusqueda
@@ -105,10 +105,10 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.gridControlDetalleMP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // dsConfigLoteConsumo1
+            // dsBusquedaPRO1
             // 
-            this.dsConfigLoteConsumo1.DataSetName = "dsConfigLoteConsumo";
-            this.dsConfigLoteConsumo1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dsBusquedaPRO1.DataSetName = "dsBusquedaPRO";
+            this.dsBusquedaPRO1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -133,7 +133,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colItemCode.OptionsColumn.AllowEdit = false;
             this.colItemCode.Visible = true;
             this.colItemCode.VisibleIndex = 0;
-            this.colItemCode.Width = 78;
+            this.colItemCode.Width = 115;
             // 
             // colName
             // 
@@ -143,7 +143,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colName.OptionsColumn.AllowEdit = false;
             this.colName.Visible = true;
             this.colName.VisibleIndex = 1;
-            this.colName.Width = 441;
+            this.colName.Width = 313;
             // 
             // colSeleccionado
             // 
@@ -151,7 +151,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colSeleccionado.Name = "colSeleccionado";
             this.colSeleccionado.Visible = true;
             this.colSeleccionado.VisibleIndex = 4;
-            this.colSeleccionado.Width = 105;
+            this.colSeleccionado.Width = 79;
             // 
             // colconcat_
             // 
@@ -167,21 +167,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colinv.Name = "colinv";
             this.colinv.Visible = true;
             this.colinv.VisibleIndex = 2;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(2, 48);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(136, 17);
-            this.labelControl1.TabIndex = 4;
-            this.labelControl1.Text = "Seleccione un Producto";
-            // 
-            // dsBusquedaPRO1
-            // 
-            this.dsBusquedaPRO1.DataSetName = "dsBusquedaPRO";
-            this.dsBusquedaPRO1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.colinv.Width = 53;
             // 
             // colprecio
             // 
@@ -192,7 +178,22 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.colprecio.OptionsColumn.ReadOnly = true;
             this.colprecio.Visible = true;
             this.colprecio.VisibleIndex = 3;
-            this.colprecio.Width = 79;
+            this.colprecio.Width = 55;
+            // 
+            // dsConfigLoteConsumo1
+            // 
+            this.dsConfigLoteConsumo1.DataSetName = "dsConfigLoteConsumo";
+            this.dsConfigLoteConsumo1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(2, 48);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(136, 17);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Seleccione un Producto";
             // 
             // frmSearchDefault
             // 
@@ -209,9 +210,9 @@ namespace LOSA.Calidad.LoteConfConsumo
             this.Activated += new System.EventHandler(this.frmSearchDefault_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.txtParametroBusqueda.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetalleMP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBusquedaPRO1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsConfigLoteConsumo1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
