@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
+using JAGUAR_PRO.Facturacion.CoreFacturas.FacturaParaPuntoDeVenta;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -302,7 +303,7 @@ namespace LOSA.Calidad.LoteConfConsumo
             if (e.Column.FieldName == "Seleccionado")
             {
                 var gridView = (GridView)gridControlDetalleMP.FocusedView;
-                var row = (dsConfigLoteConsumo.search_mpRow)gridView.GetFocusedDataRow();
+                var row = (dsBusquedaPRO.search_mpRow)gridView.GetFocusedDataRow();
                 if (Convert.ToBoolean(e.Value))
                 {
                     ItemSeleccionado.id = row.id;
