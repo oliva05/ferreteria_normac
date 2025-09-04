@@ -16,14 +16,15 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos
     {
         UserLogin UsuarioLogeado;
         
-        public frmActivosFijosHome()
+        public frmActivosFijosHome(UserLogin userLogin)
         {
             InitializeComponent();
+            UsuarioLogeado = userLogin;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            frmActivosFijosCRUD frm = new frmActivosFijosCRUD(frmActivosFijosCRUD.Operacion.Nuevo, UsuarioLogeado);
+            frmActivosFijosCRUD frm = new frmActivosFijosCRUD(frmActivosFijosCRUD.Operacion.Nuevo, UsuarioLogeado, 0);
             if (frm.ShowDialog() == DialogResult.OK)
             {
 

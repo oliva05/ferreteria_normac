@@ -747,6 +747,7 @@
     <Compile Include="Clases\Contrato\ContratoAumento.cs" />
     <Compile Include="Clases\CotizacionH.cs" />
     <Compile Include="Clases\Cuentas.cs" />
+    <Compile Include="Clases\CuentasContables.cs" />
     <Compile Include="Clases\DataOperations.cs" />
     <Compile Include="Clases\DepositoBanco.cs" />
     <Compile Include="Clases\ElejirInvAlmacen.cs" />
@@ -927,6 +928,23 @@
     </Compile>
     <Compile Include="Contabilidad\ActivosFijos\frmActivosFijosHome.Designer.cs">
       <DependentUpon>frmActivosFijosHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\CuentasContables\dsCuentasC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCuentasC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\CuentasContables\frmCuentasContablesCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\CuentasContables\frmCuentasContablesCRUD.Designer.cs">
+      <DependentUpon>frmCuentasContablesCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\CuentasContables\frmCuentasContablesHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\CuentasContables\frmCuentasContablesHome.Designer.cs">
+      <DependentUpon>frmCuentasContablesHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\Proveedores\dsAnticipo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2743,6 +2761,17 @@
     <None Include="Contabilidad\ActivosFijos\dsActivosFijos.xss">
       <DependentUpon>dsActivosFijos.xsd</DependentUpon>
     </None>
+    <None Include="Contabilidad\CuentasContables\dsCuentasC.xsc">
+      <DependentUpon>dsCuentasC.xsd</DependentUpon>
+    </None>
+    <None Include="Contabilidad\CuentasContables\dsCuentasC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCuentasC.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Contabilidad\CuentasContables\dsCuentasC.xss">
+      <DependentUpon>dsCuentasC.xsd</DependentUpon>
+    </None>
     <None Include="Contabilidad\Proveedores\dsAnticipo.xsc">
       <DependentUpon>dsAnticipo.xsd</DependentUpon>
     </None>
@@ -4373,6 +4402,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\ActivosFijos\frmActivosFijosHome.resx">
       <DependentUpon>frmActivosFijosHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\CuentasContables\frmCuentasContablesCRUD.resx">
+      <DependentUpon>frmCuentasContablesCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\CuentasContables\frmCuentasContablesHome.resx">
+      <DependentUpon>frmCuentasContablesHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\Proveedores\frmCRUDAnticipo.resx">
       <DependentUpon>frmCRUDAnticipo.cs</DependentUpon>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCuentasC" targetNamespace="http://tempuri.org/dsCuentasC.xsd" xmlns:mstns="http://tempuri.org/dsCuentasC.xsd" xmlns="http://tempuri.org/dsCuentasC.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCuentasC" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsCuentasC" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCuentasC">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="get_account" msprop:Generator_RowEvHandlerName="get_accountRowChangeEventHandler" msprop:Generator_RowDeletedName="get_accountRowDeleted" msprop:Generator_RowDeletingName="get_accountRowDeleting" msprop:Generator_RowEvArgName="get_accountRowChangeEvent" msprop:Generator_TablePropName="get_account" msprop:Generator_RowChangedName="get_accountRowChanged" msprop:Generator_UserTableName="get_account" msprop:Generator_RowChangingName="get_accountRowChanging" msprop:Generator_RowClassName="get_accountRow" msprop:Generator_TableClassName="get_accountDataTable" msprop:Generator_TableVarName="tableget_account">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CuentaID" msprop:Generator_ColumnPropNameInTable="CuentaIDColumn" msprop:Generator_ColumnPropNameInRow="CuentaID" msprop:Generator_UserColumnName="CuentaID" msprop:Generator_ColumnVarNameInTable="columnCuentaID" type="xs:int" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="concat_" msprop:Generator_ColumnPropNameInTable="concat_Column" msprop:Generator_ColumnPropNameInRow="concat_" msprop:Generator_UserColumnName="concat_" msprop:Generator_ColumnVarNameInTable="columnconcat_" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="get_list_account" msprop:Generator_RowClassName="get_list_accountRow" msprop:Generator_RowEvHandlerName="get_list_accountRowChangeEventHandler" msprop:Generator_RowDeletedName="get_list_accountRowDeleted" msprop:Generator_RowDeletingName="get_list_accountRowDeleting" msprop:Generator_RowEvArgName="get_list_accountRowChangeEvent" msprop:Generator_TablePropName="get_list_account" msprop:Generator_RowChangedName="get_list_accountRowChanged" msprop:Generator_UserTableName="get_list_account" msprop:Generator_RowChangingName="get_list_accountRowChanging" msprop:Generator_TableClassName="get_list_accountDataTable" msprop:Generator_TableVarName="tableget_list_account">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CuentaID" msprop:Generator_UserColumnName="CuentaID" msprop:Generator_ColumnPropNameInTable="CuentaIDColumn" msprop:Generator_ColumnPropNameInRow="CuentaID" msprop:Generator_ColumnVarNameInTable="columnCuentaID" type="xs:int" minOccurs="0" />
+              <xs:element name="CodigoCuenta" msprop:Generator_UserColumnName="CodigoCuenta" msprop:Generator_ColumnPropNameInTable="CodigoCuentaColumn" msprop:Generator_ColumnPropNameInRow="CodigoCuenta" msprop:Generator_ColumnVarNameInTable="columnCodigoCuenta" type="xs:string" minOccurs="0" />
+              <xs:element name="NombreCuenta" msprop:Generator_UserColumnName="NombreCuenta" msprop:Generator_ColumnPropNameInTable="NombreCuentaColumn" msprop:Generator_ColumnPropNameInRow="NombreCuenta" msprop:Generator_ColumnVarNameInTable="columnNombreCuenta" type="xs:string" minOccurs="0" />
+              <xs:element name="Enable" msprop:Generator_UserColumnName="Enable" msprop:Generator_ColumnPropNameInTable="EnableColumn" msprop:Generator_ColumnPropNameInRow="Enable" msprop:Generator_ColumnVarNameInTable="columnEnable" type="xs:boolean" minOccurs="0" />
+              <xs:element name="TipoCuenta" msprop:Generator_UserColumnName="TipoCuenta" msprop:Generator_ColumnPropNameInTable="TipoCuentaColumn" msprop:Generator_ColumnPropNameInRow="TipoCuenta" msprop:Generator_ColumnVarNameInTable="columnTipoCuenta" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:length value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EsMovimiento" msprop:Generator_UserColumnName="EsMovimiento" msprop:Generator_ColumnPropNameInTable="EsMovimientoColumn" msprop:Generator_ColumnPropNameInRow="EsMovimiento" msprop:Generator_ColumnVarNameInTable="columnEsMovimiento" type="xs:double" minOccurs="0" />
+              <xs:element name="CuentaPadreID" msprop:Generator_UserColumnName="CuentaPadreID" msprop:Generator_ColumnPropNameInTable="CuentaPadreIDColumn" msprop:Generator_ColumnPropNameInRow="CuentaPadreID" msprop:Generator_ColumnVarNameInTable="columnCuentaPadreID" type="xs:int" minOccurs="0" />
+              <xs:element name="CuentaPadreName" msprop:Generator_UserColumnName="CuentaPadreName" msprop:Generator_ColumnPropNameInTable="CuentaPadreNameColumn" msprop:Generator_ColumnPropNameInRow="CuentaPadreName" msprop:Generator_ColumnVarNameInTable="columnCuentaPadreName" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaCreacion" msprop:Generator_UserColumnName="FechaCreacion" msprop:Generator_ColumnPropNameInTable="FechaCreacionColumn" msprop:Generator_ColumnPropNameInRow="FechaCreacion" msprop:Generator_ColumnVarNameInTable="columnFechaCreacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IdUserCreacion" msprop:Generator_UserColumnName="IdUserCreacion" msprop:Generator_ColumnPropNameInTable="IdUserCreacionColumn" msprop:Generator_ColumnPropNameInRow="IdUserCreacion" msprop:Generator_ColumnVarNameInTable="columnIdUserCreacion" type="xs:int" minOccurs="0" />
+              <xs:element name="Usuario" msprop:Generator_UserColumnName="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tipo_cuenta" msprop:Generator_RowEvHandlerName="tipo_cuentaRowChangeEventHandler" msprop:Generator_RowDeletedName="tipo_cuentaRowDeleted" msprop:Generator_RowDeletingName="tipo_cuentaRowDeleting" msprop:Generator_RowEvArgName="tipo_cuentaRowChangeEvent" msprop:Generator_TablePropName="tipo_cuenta" msprop:Generator_RowChangedName="tipo_cuentaRowChanged" msprop:Generator_RowChangingName="tipo_cuentaRowChanging" msprop:Generator_TableClassName="tipo_cuentaDataTable" msprop:Generator_RowClassName="tipo_cuentaRow" msprop:Generator_TableVarName="tabletipo_cuenta" msprop:Generator_UserTableName="tipo_cuenta">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_UserColumnName="Codigo" type="xs:string" minOccurs="0" />
+              <xs:element name="Descripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_UserColumnName="Descripcion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

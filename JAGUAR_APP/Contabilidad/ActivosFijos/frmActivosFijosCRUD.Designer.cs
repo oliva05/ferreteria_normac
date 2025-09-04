@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActivosFijosCRUD));
             this.xTabControlActivosFijos = new DevExpress.XtraTab.XtraTabControl();
             this.TabDetalle = new DevExpress.XtraTab.XtraTabPage();
+            this.grdDetalleDepreciacion = new DevExpress.XtraGrid.GridControl();
+            this.grdvDetalleDepreciacion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtCodigo = new DevExpress.XtraEditors.TextEdit();
@@ -44,8 +47,6 @@
             this.txtVidaUtil = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtValorResidual = new DevExpress.XtraEditors.TextEdit();
-            this.grdDetalleDepreciacion = new DevExpress.XtraGrid.GridControl();
-            this.grdvDetalleDepreciacion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dsActivosFijos1 = new JAGUAR_PRO.Contabilidad.ActivosFijos.dsActivosFijos();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtEstado = new DevExpress.XtraEditors.TextEdit();
@@ -58,12 +59,15 @@
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.grdCuentaGasto = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.dsCuentasC = new JAGUAR_PRO.Contabilidad.CuentasContables.dsCuentasC();
+            this.getaccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xTabControlActivosFijos)).BeginInit();
             this.xTabControlActivosFijos.SuspendLayout();
             this.TabDetalle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleDepreciacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdvDetalleDepreciacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorCompra.Properties)).BeginInit();
@@ -71,8 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtfCompra.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVidaUtil.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorResidual.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleDepreciacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdvDetalleDepreciacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsActivosFijos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEstado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaContable.Properties)).BeginInit();
@@ -81,6 +83,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaGasto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getaccountBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // xTabControlActivosFijos
@@ -89,7 +93,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.xTabControlActivosFijos.Location = new System.Drawing.Point(4, 308);
-            this.xTabControlActivosFijos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.xTabControlActivosFijos.Margin = new System.Windows.Forms.Padding(4);
             this.xTabControlActivosFijos.Name = "xTabControlActivosFijos";
             this.xTabControlActivosFijos.SelectedTabPage = this.TabDetalle;
             this.xTabControlActivosFijos.Size = new System.Drawing.Size(1202, 443);
@@ -105,17 +109,34 @@
             this.TabDetalle.Appearance.HeaderActive.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TabDetalle.Appearance.HeaderActive.Options.UseFont = true;
             this.TabDetalle.Controls.Add(this.grdDetalleDepreciacion);
-            this.TabDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TabDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.TabDetalle.Name = "TabDetalle";
             this.TabDetalle.Size = new System.Drawing.Size(1200, 410);
             this.TabDetalle.Text = "Detalle Depreciacion";
             // 
+            // grdDetalleDepreciacion
+            // 
+            this.grdDetalleDepreciacion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetalleDepreciacion.Location = new System.Drawing.Point(0, 0);
+            this.grdDetalleDepreciacion.MainView = this.grdvDetalleDepreciacion;
+            this.grdDetalleDepreciacion.Name = "grdDetalleDepreciacion";
+            this.grdDetalleDepreciacion.Size = new System.Drawing.Size(1200, 410);
+            this.grdDetalleDepreciacion.TabIndex = 0;
+            this.grdDetalleDepreciacion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdvDetalleDepreciacion});
+            // 
+            // grdvDetalleDepreciacion
+            // 
+            this.grdvDetalleDepreciacion.GridControl = this.grdDetalleDepreciacion;
+            this.grdvDetalleDepreciacion.Name = "grdvDetalleDepreciacion";
+            this.grdvDetalleDepreciacion.OptionsView.ShowGroupPanel = false;
+            // 
             // xtraTabPage2
             // 
-            this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.PageVisible = false;
-            this.xtraTabPage2.Size = new System.Drawing.Size(1610, 440);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1200, 410);
             this.xtraTabPage2.Text = "xtraTabPage2";
             // 
             // labelControl1
@@ -123,7 +144,7 @@
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(17, 64);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(115, 17);
             this.labelControl1.TabIndex = 1;
@@ -133,7 +154,7 @@
             // 
             this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(160, 61);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Properties.Appearance.Options.UseFont = true;
@@ -235,7 +256,7 @@
             // 
             // txtVidaUtil
             // 
-            this.txtVidaUtil.EditValue = "0";
+            this.txtVidaUtil.EditValue = "24";
             this.txtVidaUtil.Enabled = false;
             this.txtVidaUtil.Location = new System.Drawing.Point(160, 212);
             this.txtVidaUtil.Margin = new System.Windows.Forms.Padding(4);
@@ -276,23 +297,6 @@
             this.txtValorResidual.Size = new System.Drawing.Size(128, 24);
             this.txtValorResidual.TabIndex = 130;
             // 
-            // grdDetalleDepreciacion
-            // 
-            this.grdDetalleDepreciacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdDetalleDepreciacion.Location = new System.Drawing.Point(0, 0);
-            this.grdDetalleDepreciacion.MainView = this.grdvDetalleDepreciacion;
-            this.grdDetalleDepreciacion.Name = "grdDetalleDepreciacion";
-            this.grdDetalleDepreciacion.Size = new System.Drawing.Size(1200, 410);
-            this.grdDetalleDepreciacion.TabIndex = 0;
-            this.grdDetalleDepreciacion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grdvDetalleDepreciacion});
-            // 
-            // grdvDetalleDepreciacion
-            // 
-            this.grdvDetalleDepreciacion.GridControl = this.grdDetalleDepreciacion;
-            this.grdvDetalleDepreciacion.Name = "grdvDetalleDepreciacion";
-            this.grdvDetalleDepreciacion.OptionsView.ShowGroupPanel = false;
-            // 
             // dsActivosFijos1
             // 
             this.dsActivosFijos1.DataSetName = "dsActivosFijos";
@@ -329,8 +333,11 @@
             this.grdCuentaContable.Properties.Appearance.Options.UseFont = true;
             this.grdCuentaContable.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.grdCuentaContable.Properties.DataSource = this.getaccountBindingSource;
+            this.grdCuentaContable.Properties.DisplayMember = "concat_";
             this.grdCuentaContable.Properties.NullText = "";
             this.grdCuentaContable.Properties.PopupView = this.gridLookUpEdit1View;
+            this.grdCuentaContable.Properties.ValueMember = "id";
             this.grdCuentaContable.Size = new System.Drawing.Size(177, 24);
             this.grdCuentaContable.TabIndex = 134;
             // 
@@ -371,8 +378,11 @@
             this.grdCuentaDepreciacion.Properties.Appearance.Options.UseFont = true;
             this.grdCuentaDepreciacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.grdCuentaDepreciacion.Properties.DataSource = this.getaccountBindingSource;
+            this.grdCuentaDepreciacion.Properties.DisplayMember = "concat_";
             this.grdCuentaDepreciacion.Properties.NullText = "";
             this.grdCuentaDepreciacion.Properties.PopupView = this.gridView1;
+            this.grdCuentaDepreciacion.Properties.ValueMember = "id";
             this.grdCuentaDepreciacion.Size = new System.Drawing.Size(177, 24);
             this.grdCuentaDepreciacion.TabIndex = 137;
             // 
@@ -402,8 +412,11 @@
             this.grdCuentaGasto.Properties.Appearance.Options.UseFont = true;
             this.grdCuentaGasto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.grdCuentaGasto.Properties.DataSource = this.getaccountBindingSource;
+            this.grdCuentaGasto.Properties.DisplayMember = "concat_";
             this.grdCuentaGasto.Properties.NullText = "";
             this.grdCuentaGasto.Properties.PopupView = this.gridView2;
+            this.grdCuentaGasto.Properties.ValueMember = "id";
             this.grdCuentaGasto.Size = new System.Drawing.Size(177, 24);
             this.grdCuentaGasto.TabIndex = 139;
             // 
@@ -414,24 +427,25 @@
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
-            // simpleButton1
+            // btnGuardar
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.simpleButton1.AppearanceHovered.Options.UseBackColor = true;
-            this.simpleButton1.AppearancePressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(180)))));
-            this.simpleButton1.AppearancePressed.Options.UseBackColor = true;
-            this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
-            this.simpleButton1.Location = new System.Drawing.Point(17, 12);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(107, 42);
-            this.simpleButton1.TabIndex = 140;
-            this.simpleButton1.Text = "Guardar";
+            this.btnGuardar.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.btnGuardar.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Appearance.Options.UseBackColor = true;
+            this.btnGuardar.Appearance.Options.UseFont = true;
+            this.btnGuardar.Appearance.Options.UseForeColor = true;
+            this.btnGuardar.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnGuardar.AppearanceHovered.Options.UseBackColor = true;
+            this.btnGuardar.AppearancePressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(180)))));
+            this.btnGuardar.AppearancePressed.Options.UseBackColor = true;
+            this.btnGuardar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
+            this.btnGuardar.Location = new System.Drawing.Point(17, 12);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(107, 42);
+            this.btnGuardar.TabIndex = 140;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // simpleButton2
             // 
@@ -447,14 +461,17 @@
             this.simpleButton2.Size = new System.Drawing.Size(107, 42);
             this.simpleButton2.TabIndex = 141;
             this.simpleButton2.Text = "Volver";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // btnGuardar
+            // dsCuentasC
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(249, 12);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(114, 42);
-            this.btnGuardar.TabIndex = 142;
-            this.btnGuardar.Text = "simpleButton3";
+            this.dsCuentasC.DataSetName = "dsCuentasC";
+            this.dsCuentasC.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // getaccountBindingSource
+            // 
+            this.getaccountBindingSource.DataMember = "get_account";
+            this.getaccountBindingSource.DataSource = this.dsCuentasC;
             // 
             // frmActivosFijosCRUD
             // 
@@ -462,9 +479,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 750);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.grdCuentaGasto);
             this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.grdCuentaDepreciacion);
@@ -488,12 +504,14 @@
             this.Controls.Add(this.xTabControlActivosFijos);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconOptions.ShowIcon = false;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmActivosFijosCRUD";
             this.Text = "Activos Fijos";
             ((System.ComponentModel.ISupportInitialize)(this.xTabControlActivosFijos)).EndInit();
             this.xTabControlActivosFijos.ResumeLayout(false);
             this.TabDetalle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleDepreciacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdvDetalleDepreciacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorCompra.Properties)).EndInit();
@@ -501,8 +519,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtfCompra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVidaUtil.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorResidual.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleDepreciacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdvDetalleDepreciacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsActivosFijos1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEstado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaContable.Properties)).EndInit();
@@ -511,6 +527,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaGasto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getaccountBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -547,8 +565,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.GridLookUpEdit grdCuentaGasto;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton btnGuardar;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private System.Windows.Forms.BindingSource getaccountBindingSource;
+        private CuentasContables.dsCuentasC dsCuentasC;
     }
 }
