@@ -303,6 +303,12 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
             
             private global::System.Data.DataColumn columnEnable;
             
+            private global::System.Data.DataColumn columnCuentaContableActivoName;
+            
+            private global::System.Data.DataColumn columnCuentaDepreciacionAcumuladaName;
+            
+            private global::System.Data.DataColumn columnCuentaGastoDepreciacionName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public lista_activos_fijosDataTable() {
@@ -434,6 +440,30 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CuentaContableActivoNameColumn {
+                get {
+                    return this.columnCuentaContableActivoName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CuentaDepreciacionAcumuladaNameColumn {
+                get {
+                    return this.columnCuentaDepreciacionAcumuladaName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CuentaGastoDepreciacionNameColumn {
+                get {
+                    return this.columnCuentaGastoDepreciacionName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -469,7 +499,7 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public lista_activos_fijosRow Addlista_activos_fijosRow(int ActivoID, string CodigoActivo, string NombreActivo, System.DateTime FechaCompra, decimal ValorCompra, decimal VidaUtilMeses, decimal ValorResidual, short CuentaContableActivoID, short CuentaDepreciacionAcumuladaID, short CuentaGastoDepreciacionID, string Estado, bool Enable) {
+            public lista_activos_fijosRow Addlista_activos_fijosRow(int ActivoID, string CodigoActivo, string NombreActivo, System.DateTime FechaCompra, decimal ValorCompra, int VidaUtilMeses, decimal ValorResidual, int CuentaContableActivoID, int CuentaDepreciacionAcumuladaID, int CuentaGastoDepreciacionID, string Estado, bool Enable, string CuentaContableActivoName, string CuentaDepreciacionAcumuladaName, string CuentaGastoDepreciacionName) {
                 lista_activos_fijosRow rowlista_activos_fijosRow = ((lista_activos_fijosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ActivoID,
@@ -483,7 +513,10 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
                         CuentaDepreciacionAcumuladaID,
                         CuentaGastoDepreciacionID,
                         Estado,
-                        Enable};
+                        Enable,
+                        CuentaContableActivoName,
+                        CuentaDepreciacionAcumuladaName,
+                        CuentaGastoDepreciacionName};
                 rowlista_activos_fijosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlista_activos_fijosRow);
                 return rowlista_activos_fijosRow;
@@ -518,6 +551,9 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
                 this.columnCuentaGastoDepreciacionID = base.Columns["CuentaGastoDepreciacionID"];
                 this.columnEstado = base.Columns["Estado"];
                 this.columnEnable = base.Columns["Enable"];
+                this.columnCuentaContableActivoName = base.Columns["CuentaContableActivoName"];
+                this.columnCuentaDepreciacionAcumuladaName = base.Columns["CuentaDepreciacionAcumuladaName"];
+                this.columnCuentaGastoDepreciacionName = base.Columns["CuentaGastoDepreciacionName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -533,20 +569,26 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
                 base.Columns.Add(this.columnFechaCompra);
                 this.columnValorCompra = new global::System.Data.DataColumn("ValorCompra", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnValorCompra);
-                this.columnVidaUtilMeses = new global::System.Data.DataColumn("VidaUtilMeses", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnVidaUtilMeses = new global::System.Data.DataColumn("VidaUtilMeses", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVidaUtilMeses);
                 this.columnValorResidual = new global::System.Data.DataColumn("ValorResidual", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnValorResidual);
-                this.columnCuentaContableActivoID = new global::System.Data.DataColumn("CuentaContableActivoID", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnCuentaContableActivoID = new global::System.Data.DataColumn("CuentaContableActivoID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCuentaContableActivoID);
-                this.columnCuentaDepreciacionAcumuladaID = new global::System.Data.DataColumn("CuentaDepreciacionAcumuladaID", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnCuentaDepreciacionAcumuladaID = new global::System.Data.DataColumn("CuentaDepreciacionAcumuladaID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCuentaDepreciacionAcumuladaID);
-                this.columnCuentaGastoDepreciacionID = new global::System.Data.DataColumn("CuentaGastoDepreciacionID", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnCuentaGastoDepreciacionID = new global::System.Data.DataColumn("CuentaGastoDepreciacionID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCuentaGastoDepreciacionID);
                 this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado);
                 this.columnEnable = new global::System.Data.DataColumn("Enable", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEnable);
+                this.columnCuentaContableActivoName = new global::System.Data.DataColumn("CuentaContableActivoName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuentaContableActivoName);
+                this.columnCuentaDepreciacionAcumuladaName = new global::System.Data.DataColumn("CuentaDepreciacionAcumuladaName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuentaDepreciacionAcumuladaName);
+                this.columnCuentaGastoDepreciacionName = new global::System.Data.DataColumn("CuentaGastoDepreciacionName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuentaGastoDepreciacionName);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -773,10 +815,10 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal VidaUtilMeses {
+            public int VidaUtilMeses {
                 get {
                     try {
-                        return ((decimal)(this[this.tablelista_activos_fijos.VidaUtilMesesColumn]));
+                        return ((int)(this[this.tablelista_activos_fijos.VidaUtilMesesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'VidaUtilMeses\' de la tabla \'lista_activos_fijos\' es DBNul" +
@@ -807,10 +849,10 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short CuentaContableActivoID {
+            public int CuentaContableActivoID {
                 get {
                     try {
-                        return ((short)(this[this.tablelista_activos_fijos.CuentaContableActivoIDColumn]));
+                        return ((int)(this[this.tablelista_activos_fijos.CuentaContableActivoIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'CuentaContableActivoID\' de la tabla \'lista_activos_fijos\'" +
@@ -824,10 +866,10 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short CuentaDepreciacionAcumuladaID {
+            public int CuentaDepreciacionAcumuladaID {
                 get {
                     try {
-                        return ((short)(this[this.tablelista_activos_fijos.CuentaDepreciacionAcumuladaIDColumn]));
+                        return ((int)(this[this.tablelista_activos_fijos.CuentaDepreciacionAcumuladaIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'CuentaDepreciacionAcumuladaID\' de la tabla \'lista_activos" +
@@ -841,10 +883,10 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short CuentaGastoDepreciacionID {
+            public int CuentaGastoDepreciacionID {
                 get {
                     try {
-                        return ((short)(this[this.tablelista_activos_fijos.CuentaGastoDepreciacionIDColumn]));
+                        return ((int)(this[this.tablelista_activos_fijos.CuentaGastoDepreciacionIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'CuentaGastoDepreciacionID\' de la tabla \'lista_activos_fij" +
@@ -885,6 +927,57 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
                 }
                 set {
                     this[this.tablelista_activos_fijos.EnableColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CuentaContableActivoName {
+                get {
+                    try {
+                        return ((string)(this[this.tablelista_activos_fijos.CuentaContableActivoNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CuentaContableActivoName\' de la tabla \'lista_activos_fijo" +
+                                "s\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelista_activos_fijos.CuentaContableActivoNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CuentaDepreciacionAcumuladaName {
+                get {
+                    try {
+                        return ((string)(this[this.tablelista_activos_fijos.CuentaDepreciacionAcumuladaNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CuentaDepreciacionAcumuladaName\' de la tabla \'lista_activ" +
+                                "os_fijos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelista_activos_fijos.CuentaDepreciacionAcumuladaNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CuentaGastoDepreciacionName {
+                get {
+                    try {
+                        return ((string)(this[this.tablelista_activos_fijos.CuentaGastoDepreciacionNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CuentaGastoDepreciacionName\' de la tabla \'lista_activos_f" +
+                                "ijos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelista_activos_fijos.CuentaGastoDepreciacionNameColumn] = value;
                 }
             }
             
@@ -1030,6 +1123,42 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetEnableNull() {
                 this[this.tablelista_activos_fijos.EnableColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCuentaContableActivoNameNull() {
+                return this.IsNull(this.tablelista_activos_fijos.CuentaContableActivoNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCuentaContableActivoNameNull() {
+                this[this.tablelista_activos_fijos.CuentaContableActivoNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCuentaDepreciacionAcumuladaNameNull() {
+                return this.IsNull(this.tablelista_activos_fijos.CuentaDepreciacionAcumuladaNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCuentaDepreciacionAcumuladaNameNull() {
+                this[this.tablelista_activos_fijos.CuentaDepreciacionAcumuladaNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCuentaGastoDepreciacionNameNull() {
+                return this.IsNull(this.tablelista_activos_fijos.CuentaGastoDepreciacionNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCuentaGastoDepreciacionNameNull() {
+                this[this.tablelista_activos_fijos.CuentaGastoDepreciacionNameColumn] = global::System.Convert.DBNull;
             }
         }
         

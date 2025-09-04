@@ -40,26 +40,26 @@
             this.tsActivo = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.grdTipoCuenta = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dsCuentasC1 = new JAGUAR_PRO.Contabilidad.CuentasContables.dsCuentasC();
             this.tipocuentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsCuentasC1 = new JAGUAR_PRO.Contabilidad.CuentasContables.dsCuentasC();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
+            this.tsMovimiento = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.grdCuentaPadre = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.getaccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoCuenta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsActivo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTipoCuenta.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipocuentaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tsMovimiento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaPadre.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit2View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getaccountBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit2View)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl3
@@ -75,7 +75,6 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Enabled = false;
             this.txtDescripcion.Location = new System.Drawing.Point(212, 158);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.Name = "txtDescripcion";
@@ -194,22 +193,22 @@
             this.grdTipoCuenta.Size = new System.Drawing.Size(214, 24);
             this.grdTipoCuenta.TabIndex = 146;
             // 
-            // gridLookUpEdit1View
+            // tipocuentaBindingSource
             // 
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.tipocuentaBindingSource.DataMember = "tipo_cuenta";
+            this.tipocuentaBindingSource.DataSource = this.dsCuentasC1;
             // 
             // dsCuentasC1
             // 
             this.dsCuentasC1.DataSetName = "dsCuentasC";
             this.dsCuentasC1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tipocuentaBindingSource
+            // gridLookUpEdit1View
             // 
-            this.tipocuentaBindingSource.DataMember = "tipo_cuenta";
-            this.tipocuentaBindingSource.DataSource = this.dsCuentasC1;
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // labelControl4
             // 
@@ -222,17 +221,17 @@
             this.labelControl4.TabIndex = 147;
             this.labelControl4.Text = "Tipo de Movimiento";
             // 
-            // toggleSwitch1
+            // tsMovimiento
             // 
-            this.toggleSwitch1.EditValue = true;
-            this.toggleSwitch1.Location = new System.Drawing.Point(213, 242);
-            this.toggleSwitch1.Name = "toggleSwitch1";
-            this.toggleSwitch1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.toggleSwitch1.Properties.Appearance.Options.UseFont = true;
-            this.toggleSwitch1.Properties.OffText = "Cuenta de Agrupaciones";
-            this.toggleSwitch1.Properties.OnText = "Transacciones";
-            this.toggleSwitch1.Size = new System.Drawing.Size(214, 24);
-            this.toggleSwitch1.TabIndex = 148;
+            this.tsMovimiento.EditValue = true;
+            this.tsMovimiento.Location = new System.Drawing.Point(213, 242);
+            this.tsMovimiento.Name = "tsMovimiento";
+            this.tsMovimiento.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.tsMovimiento.Properties.Appearance.Options.UseFont = true;
+            this.tsMovimiento.Properties.OffText = "Cuenta de Agrupaciones";
+            this.tsMovimiento.Properties.OnText = "Transacciones";
+            this.tsMovimiento.Size = new System.Drawing.Size(214, 24);
+            this.tsMovimiento.TabIndex = 148;
             // 
             // labelControl6
             // 
@@ -261,17 +260,17 @@
             this.grdCuentaPadre.Size = new System.Drawing.Size(214, 24);
             this.grdCuentaPadre.TabIndex = 150;
             // 
+            // getaccountBindingSource
+            // 
+            this.getaccountBindingSource.DataMember = "get_account";
+            this.getaccountBindingSource.DataSource = this.dsCuentasC1;
+            // 
             // gridLookUpEdit2View
             // 
             this.gridLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridLookUpEdit2View.Name = "gridLookUpEdit2View";
             this.gridLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit2View.OptionsView.ShowGroupPanel = false;
-            // 
-            // getaccountBindingSource
-            // 
-            this.getaccountBindingSource.DataMember = "get_account";
-            this.getaccountBindingSource.DataSource = this.dsCuentasC1;
             // 
             // frmCuentasContablesCRUD
             // 
@@ -280,7 +279,7 @@
             this.ClientSize = new System.Drawing.Size(554, 412);
             this.Controls.Add(this.grdCuentaPadre);
             this.Controls.Add(this.labelControl6);
-            this.Controls.Add(this.toggleSwitch1);
+            this.Controls.Add(this.tsMovimiento);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.grdTipoCuenta);
             this.Controls.Add(this.labelControl5);
@@ -300,13 +299,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoCuenta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsActivo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTipoCuenta.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipocuentaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tsMovimiento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaPadre.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit2View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getaccountBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit2View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,7 +326,7 @@
         private System.Windows.Forms.BindingSource tipocuentaBindingSource;
         private dsCuentasC dsCuentasC1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
+        private DevExpress.XtraEditors.ToggleSwitch tsMovimiento;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.GridLookUpEdit grdCuentaPadre;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit2View;

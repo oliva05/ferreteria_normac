@@ -21,8 +21,11 @@ namespace JAGUAR_PRO.Clases
         private int vidaUtilMeses;
         private decimal valorResidual;
         private int cuentaContableActivoID;
+        private string cuentaContableActivoName;
         private int cuentaDepreciacionAcumuladaID;
+        private string cuentaDepreciacionAcumuladaName;
         private int cuentaGastoDepreciacionID;
+        private string cuentaGastoDepreciacionName;
         private string estado;
         private bool enable;
         private bool recuperado;
@@ -40,6 +43,9 @@ namespace JAGUAR_PRO.Clases
         public string Estado { get => estado; set => estado = value; }
         public bool Enable { get => enable; set => enable = value; }
         public bool Recuperado { get => recuperado; set => recuperado = value; }
+        public string CuentaContableActivoName { get => cuentaContableActivoName; set => cuentaContableActivoName = value; }
+        public string CuentaDepreciacionAcumuladaName { get => cuentaDepreciacionAcumuladaName; set => cuentaDepreciacionAcumuladaName = value; }
+        public string CuentaGastoDepreciacionName { get => cuentaGastoDepreciacionName; set => cuentaGastoDepreciacionName = value; }
 
         public bool RecuperarRegistros(int id)
         {

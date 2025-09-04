@@ -1,8 +1,10 @@
 ﻿using ACS.Classes;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Accesos.AccesosUsuarios;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.LogisticaJaguar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,6 +68,33 @@ namespace JAGUAR_PRO.Contabilidad.CuentasContables
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 LoadData();
+            }
+        }
+
+        private void cmdVer_Editar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdCuentasContables.FocusedView;
+            var row = (dsCuentasC.get_list_accountRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                frmCuentasContablesCRUD frmCuentasContablesCRUD = new frmCuentasContablesCRUD(frmCuentasContablesCRUD.Operacion.Modificar, UsuarioLogeado, row.CuentaID);
+                if (frmCuentasContablesCRUD.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel File (.xlsx)|*.xlsx";
+            dialog.FilterIndex = 0;
+
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                grdCuentasContables.ExportToXlsx(dialog.FileName);
             }
         }
     }

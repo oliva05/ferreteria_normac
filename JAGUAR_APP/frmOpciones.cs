@@ -6559,9 +6559,42 @@ namespace JAGUAR_PRO
 
         private void navBarItem258_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
-            frmCuentasContablesHome mtx = new frmCuentasContablesHome(UsuarioLogeado);
-            mtx.MdiParent = this.MdiParent;
-            mtx.Show();
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    break;
+                case 3://Medium Autorization
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmCuentasContablesHome mtx = new frmCuentasContablesHome(UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(40))
+                {
+                    frmCuentasContablesHome mtx = new frmCuentasContablesHome(UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-40 (Gestion de Cuentas Contables)");
+                }
+            }
+            
         }
         //End Facturacion Usados
 

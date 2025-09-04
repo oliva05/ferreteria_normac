@@ -49,8 +49,9 @@
             this.txtValorResidual = new DevExpress.XtraEditors.TextEdit();
             this.dsActivosFijos1 = new JAGUAR_PRO.Contabilidad.ActivosFijos.dsActivosFijos();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.txtEstado = new DevExpress.XtraEditors.TextEdit();
             this.grdCuentaContable = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.getaccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsCuentasC1 = new JAGUAR_PRO.Contabilidad.CuentasContables.dsCuentasC();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -61,8 +62,7 @@
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.dsCuentasC = new JAGUAR_PRO.Contabilidad.CuentasContables.dsCuentasC();
-            this.getaccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboEstados = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xTabControlActivosFijos)).BeginInit();
             this.xTabControlActivosFijos.SuspendLayout();
             this.TabDetalle.SuspendLayout();
@@ -76,15 +76,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtVidaUtil.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorResidual.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsActivosFijos1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEstado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaContable.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getaccountBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaDepreciacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaGasto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getaccountBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboEstados.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xTabControlActivosFijos
@@ -313,18 +313,6 @@
             this.labelControl7.TabIndex = 132;
             this.labelControl7.Text = "Estado";
             // 
-            // txtEstado
-            // 
-            this.txtEstado.Enabled = false;
-            this.txtEstado.Location = new System.Drawing.Point(900, 61);
-            this.txtEstado.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado.Properties.Appearance.Options.UseFont = true;
-            this.txtEstado.Properties.MaxLength = 250;
-            this.txtEstado.Size = new System.Drawing.Size(177, 24);
-            this.txtEstado.TabIndex = 133;
-            // 
             // grdCuentaContable
             // 
             this.grdCuentaContable.Location = new System.Drawing.Point(900, 97);
@@ -340,6 +328,16 @@
             this.grdCuentaContable.Properties.ValueMember = "id";
             this.grdCuentaContable.Size = new System.Drawing.Size(177, 24);
             this.grdCuentaContable.TabIndex = 134;
+            // 
+            // getaccountBindingSource
+            // 
+            this.getaccountBindingSource.DataMember = "get_account";
+            this.getaccountBindingSource.DataSource = this.dsCuentasC1;
+            // 
+            // dsCuentasC1
+            // 
+            this.dsCuentasC1.DataSetName = "dsCuentasC";
+            this.dsCuentasC1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridLookUpEdit1View
             // 
@@ -463,15 +461,20 @@
             this.simpleButton2.Text = "Volver";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // dsCuentasC
+            // comboEstados
             // 
-            this.dsCuentasC.DataSetName = "dsCuentasC";
-            this.dsCuentasC.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // getaccountBindingSource
-            // 
-            this.getaccountBindingSource.DataMember = "get_account";
-            this.getaccountBindingSource.DataSource = this.dsCuentasC;
+            this.comboEstados.Location = new System.Drawing.Point(900, 61);
+            this.comboEstados.Name = "comboEstados";
+            this.comboEstados.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.comboEstados.Properties.Appearance.Options.UseFont = true;
+            this.comboEstados.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboEstados.Properties.Items.AddRange(new object[] {
+            "Activo",
+            "Baja",
+            "Baja definitiva"});
+            this.comboEstados.Size = new System.Drawing.Size(177, 24);
+            this.comboEstados.TabIndex = 142;
             // 
             // frmActivosFijosCRUD
             // 
@@ -479,6 +482,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 750);
+            this.Controls.Add(this.comboEstados);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.grdCuentaGasto);
@@ -487,7 +491,6 @@
             this.Controls.Add(this.labelControl9);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.grdCuentaContable);
-            this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.txtValorResidual);
@@ -520,15 +523,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtVidaUtil.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorResidual.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsActivosFijos1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEstado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaContable.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getaccountBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaDepreciacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaGasto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getaccountBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboEstados.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -555,7 +558,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView grdvDetalleDepreciacion;
         private dsActivosFijos dsActivosFijos1;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.TextEdit txtEstado;
         private DevExpress.XtraEditors.GridLookUpEdit grdCuentaContable;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private DevExpress.XtraEditors.LabelControl labelControl8;
@@ -568,6 +570,7 @@
         private DevExpress.XtraEditors.SimpleButton btnGuardar;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.BindingSource getaccountBindingSource;
-        private CuentasContables.dsCuentasC dsCuentasC;
+        private CuentasContables.dsCuentasC dsCuentasC1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboEstados;
     }
 }

@@ -1,11 +1,14 @@
 ﻿using ACS.Classes;
 using DevExpress.Export;
+using DevExpress.Spreadsheet;
 using DevExpress.XtraEditors;
+using DocumentFormat.OpenXml.Spreadsheet;
 using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,19 +39,55 @@ namespace JAGUAR_PRO.Contabilidad.CuentasContables
             switch (OperacionActual)
             {
                 case Operacion.Nuevo:
+                    tsActivo.IsOn = true;
+                    tsActivo.Enabled = false;
                     break;
                 case Operacion.Modificar:
                     cc.RecuperarRegistros(IdCuenta);
-
+                    txtCodigoCuenta.Text = cc.CodigoCuenta;
+                    txtDescripcion.Text = cc.NombreCuenta;
+                    grdTipoCuenta.EditValue = cc.TipoCuenta.ToString();
+                    grdCuentaPadre.EditValue = cc.CuentaPadreID;
+                    tsMovimiento.IsOn = cc.EsMovimiento;
+                    tsActivo.IsOn = cc.Enable.HasValue ? cc.Enable.Value : false;
+                    LoadCuentas();
 
                     break;
                 case Operacion.Consultar:
+                    cc.RecuperarRegistros(IdCuenta);
+                    txtCodigoCuenta.Text = cc.CodigoCuenta;
+                    txtDescripcion.Text = cc.NombreCuenta;
+                    grdTipoCuenta.EditValue = cc.TipoCuenta.ToString();
+                    grdCuentaPadre.EditValue = cc.CuentaPadreID;
+                    tsMovimiento.IsOn = cc.EsMovimiento;
+                    tsActivo.IsOn = cc.Enable.HasValue ? cc.Enable.Value : false;
+                    LoadCuentas();
                     break;
                 default:
                     break;
             }
 
 
+        }
+
+        private void LoadCuentas()
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("[sp_get_account_enable]", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                dsCuentasC1.get_account.Clear();
+                da.Fill(dsCuentasC1.get_account);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
         }
 
         private void CrearDataTipoCuenta()
@@ -102,12 +141,75 @@ namespace JAGUAR_PRO.Contabilidad.CuentasContables
                 return;
             }
 
+            DataOperations dp = new DataOperations();
+            SqlTransaction transaction = null;
+            SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+            bool Guardar = false;
+            conn.Open();
+            transaction = conn.BeginTransaction("Transaction Order");
+            SqlCommand cmd = conn.CreateCommand();
+
             switch (OperacionActual)
             {
                 case Operacion.Nuevo:
+                    
+                    try
+                    {
+                        cmd.CommandText = "sp_cuentas_contables_insert";
+                        cmd.Connection = conn;
+                        cmd.Transaction = transaction;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@CodigoCuenta",txtCodigoCuenta.Text.Trim());
+                        cmd.Parameters.AddWithValue("@NombreCuenta",txtDescripcion.Text.Trim());
+                        cmd.Parameters.AddWithValue("@TipoCuenta",grdTipoCuenta.EditValue.ToString());
+                        cmd.Parameters.AddWithValue("@EsMovimiento",Convert.ToBoolean(tsMovimiento.IsOn));
+                        cmd.Parameters.AddWithValue("@CuentaPadreID", grdCuentaPadre.EditValue == null ? (object)DBNull.Value : Convert.ToInt32(grdCuentaPadre.EditValue));
+                        cmd.Parameters.AddWithValue("@IdUserCreacion", UsuarioLogeado.Id);
+                        cmd.ExecuteNonQuery();
+                        
+                        transaction.Commit();
+                        Guardar = true;
 
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+
+                    }
+                    catch (Exception ec)
+                    {
+                        transaction.Rollback();
+                        CajaDialogo.Error(ec.Message);
+                        Guardar = false;
+                    }
                     break;
                 case Operacion.Modificar:
+                    try
+                    {
+                        cmd.CommandText = "sp_cuentas_contables_update";
+                        cmd.Connection = conn;
+                        cmd.Transaction = transaction;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@CodigoCuenta", txtCodigoCuenta.Text.Trim());
+                        cmd.Parameters.AddWithValue("@NombreCuenta", txtDescripcion.Text.Trim());
+                        cmd.Parameters.AddWithValue("@TipoCuenta", grdTipoCuenta.EditValue.ToString());
+                        cmd.Parameters.AddWithValue("@EsMovimiento", Convert.ToBoolean(tsMovimiento.IsOn));
+                        cmd.Parameters.AddWithValue("@CuentaPadreID", grdCuentaPadre.EditValue == null ? (object)DBNull.Value : Convert.ToInt32(grdCuentaPadre.EditValue));
+                        cmd.Parameters.AddWithValue("@CuentaID", IdCuenta);
+                        cmd.Parameters.AddWithValue("@Enable", Convert.ToBoolean(tsActivo.IsOn));
+                        cmd.ExecuteNonQuery();
+
+                        transaction.Commit();
+                        Guardar = true;
+
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+
+                    }
+                    catch (Exception ec)
+                    {
+                        transaction.Rollback();
+                        CajaDialogo.Error(ec.Message);
+                        Guardar = false;
+                    }
                     break;
                 case Operacion.Consultar:
                     break;
