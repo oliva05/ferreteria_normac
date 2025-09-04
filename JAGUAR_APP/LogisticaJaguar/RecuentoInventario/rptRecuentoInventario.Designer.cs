@@ -820,6 +820,7 @@
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
             this.xrTableCell8.Text = "xrTableCell8";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell8.TextFormatString = "{0:N0}";
             this.xrTableCell8.Weight = 1.2214581335451307D;
             // 
             // xrTableCell6
@@ -836,6 +837,7 @@
             this.xrTableCell6.StylePriority.UseFont = false;
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
             this.xrTableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell6.TextFormatString = "{0:N0}";
             this.xrTableCell6.Weight = 1.4223512850287743D;
             // 
             // xrTableCell3
@@ -850,6 +852,7 @@
             this.xrTableCell3.StylePriority.UseBorders = false;
             this.xrTableCell3.StylePriority.UseBorderWidth = false;
             this.xrTableCell3.StylePriority.UseFont = false;
+            this.xrTableCell3.TextFormatString = "{0:N0}";
             this.xrTableCell3.Weight = 1.5801298789385361D;
             // 
             // xrTableCell4
@@ -865,7 +868,7 @@
             this.xrTableCell4.StylePriority.UseBorderWidth = false;
             this.xrTableCell4.StylePriority.UseFont = false;
             this.xrTableCell4.Text = "xrTableCell4";
-            this.xrTableCell4.TextFormatString = "{0: ###,##0.00}";
+            this.xrTableCell4.TextFormatString = "{0:N0}";
             this.xrTableCell4.Weight = 1.6051259017176811D;
             // 
             // xrTableCell9
@@ -881,7 +884,7 @@
             this.xrTableCell9.StylePriority.UseBorderWidth = false;
             this.xrTableCell9.StylePriority.UseFont = false;
             this.xrTableCell9.Text = "xrTableCell9";
-            this.xrTableCell9.TextFormatString = "{0: ###,##0.00}";
+            this.xrTableCell9.TextFormatString = "{0:#,##.00 Lps}";
             this.xrTableCell9.Weight = 1.4457829101229538D;
             // 
             // dsRecuento1
