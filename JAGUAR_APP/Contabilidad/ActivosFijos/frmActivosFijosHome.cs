@@ -1,6 +1,8 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.LogisticaJaguar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -94,6 +96,53 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel File (.xlsx)|*.xlsx";
+            dialog.FilterIndex = 0;
+
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                grdAnticipo.ExportToXlsx(dialog.FileName);
+            }
+        }
+
+        private void cmdVer_Editar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdAnticipo.FocusedView;
+            var row = (dsActivosFijos.lista_activos_fijosRow)gridview.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                frmActivosFijosCRUD frm = new frmActivosFijosCRUD(frmActivosFijosCRUD.Operacion.Nuevo, UsuarioLogeado, 0);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    if (frm.af1 != null)
+                    {
+                        row.CodigoActivo = frm.af1.CodigoActivo;
+                        row.NombreActivo = frm.af1.NombreActivo;
+                        row.FechaCompra = frm.af1.FechaCompra;
+                        row.ValorCompra = frm.af1.ValorCompra;
+                        row.VidaUtilMeses = frm.af1.VidaUtilMeses;
+                        row.ValorResidual = frm.af1.ValorResidual;
+                        row.CuentaContableActivoID = frm.af1.CuentaContableActivoID;
+                        row.CuentaDepreciacionAcumuladaID = frm.af1.CuentaDepreciacionAcumuladaID;
+                        row.CuentaGastoDepreciacionID = frm.af1.CuentaGastoDepreciacionID;
+                        row.Estado = frm.af1.Estado;
+                        row.Enable = frm.af1.Enable;
+                        row.CuentaContableActivoName = frm.af1.CuentaContableActivoName;
+                        row.CuentaDepreciacionAcumuladaName = frm.af1.CuentaDepreciacionAcumuladaName;
+                        row.CuentaGastoDepreciacionName = frm.af1.CuentaGastoDepreciacionName;
+                    }
+                    else
+                    {
+                        CargarDatos();
+                    }
+                }
+            }
         }
     }
 }

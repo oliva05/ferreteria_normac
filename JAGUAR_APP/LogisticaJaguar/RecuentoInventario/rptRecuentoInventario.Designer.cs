@@ -585,7 +585,7 @@
             this.xrTableCell5.StylePriority.UseFont = false;
             this.xrTableCell5.StylePriority.UseForeColor = false;
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
-            this.xrTableCell5.Text = "Resumen Impacto Economico";
+            this.xrTableCell5.Text = "Resumen Impacto Total";
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.xrTableCell5.Weight = 3D;
             // 
@@ -605,7 +605,7 @@
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StylePriority.UseBorders = false;
             this.xrTableCell10.StylePriority.UseFont = false;
-            this.xrTableCell10.Text = "Total Ganancias";
+            this.xrTableCell10.Text = "Faltante";
             this.xrTableCell10.Weight = 1.5042581288010928D;
             // 
             // xrTableGanancias
@@ -638,7 +638,7 @@
             this.xrTableCell13.Name = "xrTableCell13";
             this.xrTableCell13.StylePriority.UseBorders = false;
             this.xrTableCell13.StylePriority.UseFont = false;
-            this.xrTableCell13.Text = "Total Perdidas";
+            this.xrTableCell13.Text = "Sobrante";
             this.xrTableCell13.Weight = 1.5042581288010928D;
             // 
             // xrTablePerdidas
@@ -671,7 +671,7 @@
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.StylePriority.UseBorders = false;
             this.xrTableCell7.StylePriority.UseFont = false;
-            this.xrTableCell7.Text = "Impacto Total";
+            this.xrTableCell7.Text = "Impacto neto";
             this.xrTableCell7.Weight = 1.5042581288010928D;
             // 
             // xrTableTotal

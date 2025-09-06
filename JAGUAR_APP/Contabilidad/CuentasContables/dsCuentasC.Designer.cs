@@ -804,7 +804,7 @@ namespace JAGUAR_PRO.Contabilidad.CuentasContables {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public get_list_accountRow Addget_list_accountRow(int CuentaID, string CodigoCuenta, string NombreCuenta, bool Enable, char TipoCuenta, double EsMovimiento, int CuentaPadreID, string CuentaPadreName, System.DateTime FechaCreacion, int IdUserCreacion, string Usuario) {
+            public get_list_accountRow Addget_list_accountRow(int CuentaID, string CodigoCuenta, string NombreCuenta, bool Enable, char TipoCuenta, string EsMovimiento, int CuentaPadreID, string CuentaPadreName, System.DateTime FechaCreacion, int IdUserCreacion, string Usuario) {
                 get_list_accountRow rowget_list_accountRow = ((get_list_accountRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CuentaID,
@@ -866,7 +866,7 @@ namespace JAGUAR_PRO.Contabilidad.CuentasContables {
                 base.Columns.Add(this.columnEnable);
                 this.columnTipoCuenta = new global::System.Data.DataColumn("TipoCuenta", typeof(char), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTipoCuenta);
-                this.columnEsMovimiento = new global::System.Data.DataColumn("EsMovimiento", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnEsMovimiento = new global::System.Data.DataColumn("EsMovimiento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEsMovimiento);
                 this.columnCuentaPadreID = new global::System.Data.DataColumn("CuentaPadreID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCuentaPadreID);
@@ -1460,10 +1460,10 @@ namespace JAGUAR_PRO.Contabilidad.CuentasContables {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double EsMovimiento {
+            public string EsMovimiento {
                 get {
                     try {
-                        return ((double)(this[this.tableget_list_account.EsMovimientoColumn]));
+                        return ((string)(this[this.tableget_list_account.EsMovimientoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'EsMovimiento\' de la tabla \'get_list_account\' es DBNull.", e);

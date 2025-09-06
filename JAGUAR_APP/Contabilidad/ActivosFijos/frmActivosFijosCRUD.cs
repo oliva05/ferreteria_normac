@@ -86,7 +86,7 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("[sp_get_account_enable]", conn);
+                SqlCommand cmd = new SqlCommand("[sp_get_account_enable_af]", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 dsCuentasC1.get_account.Clear();
@@ -138,15 +138,33 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos
                 return;
             }
 
-            if (string.IsNullOrEmpty(txtValorCompra.Text) || (decimal)txtValorCompra.EditValue <= 0)
+            if (Convert.ToDecimal(txtValorCompra.EditValue) <= 0)
             {
                 CajaDialogo.Error("Valor de compra debe ser mayor que cero.");
                 return;
             }
 
-            if (string.IsNullOrEmpty(txtVidaUtil.Text) || (int)txtVidaUtil.EditValue <= 0)
+            if (Convert.ToDecimal(txtVidaUtil.EditValue) <= 0)
             {
                 CajaDialogo.Error("Vida Util debe ser mayor que cero.");
+                return;
+            }
+
+            if (Convert.ToInt32(grdCuentaContable.EditValue) > 0)
+            {
+                CajaDialogo.Error("Debe seleccionar una Cuenta Contable!");
+                return;
+            }
+
+            if (Convert.ToInt32(grdCuentaDepreciacion.EditValue) > 0)
+            {
+                CajaDialogo.Error("Debe seleccionar una Cuenta de Depreciacion!");
+                return;
+            }
+
+            if (Convert.ToInt32(grdCuentaGasto.EditValue) > 0)
+            {
+                CajaDialogo.Error("Debe seleccionar una Cuenta de Gastos!");
                 return;
             }
 
@@ -167,15 +185,24 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos
                         cmd.Connection = conn;
                         cmd.Transaction = transaction;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ActivoID", IdActivoFijo);
+                        //cmd.Parameters.AddWithValue("@ActivoID", IdActivoFijo);
                         cmd.Parameters.AddWithValue("@NombreActivo", txtDescripcion.Text.Trim());
                         cmd.Parameters.AddWithValue("@FechaCompra", dtfCompra.DateTime);
                         cmd.Parameters.AddWithValue("@ValorCompra", Convert.ToDecimal(txtValorCompra.EditValue));
-                        cmd.Parameters.AddWithValue("@VidaUtilMeses", Convert.ToDecimal(txtVidaUtil.EditValue));
+                        cmd.Parameters.AddWithValue("@VidaUtilMeses", Convert.ToInt32(txtVidaUtil.EditValue));
                         cmd.Parameters.AddWithValue("@ValorResidual", Convert.ToDecimal(txtValorResidual.EditValue));
-                        cmd.Parameters.AddWithValue("@CuentaContableActivoID", Convert.ToInt32(grdCuentaContable.EditValue));
-                        cmd.Parameters.AddWithValue("@CuentaDepreciacionAcumuladaID", Convert.ToInt32(grdCuentaDepreciacion.EditValue));
-                        cmd.Parameters.AddWithValue("@CuentaGastoDepreciacionID", Convert.ToInt32(grdCuentaGasto.EditValue));
+                        if (Convert.ToInt32(grdCuentaContable.EditValue) == 0)
+                            cmd.Parameters.AddWithValue("@CuentaContableActivoID", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@CuentaContableActivoID", Convert.ToInt32(grdCuentaContable.EditValue));
+                        if (Convert.ToInt32(grdCuentaDepreciacion.EditValue) == 0)
+                            cmd.Parameters.AddWithValue("@CuentaDepreciacionAcumuladaID", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@CuentaDepreciacionAcumuladaID", Convert.ToInt32(grdCuentaDepreciacion.EditValue));
+                        if (Convert.ToInt32(grdCuentaGasto.EditValue) == 0)
+                            cmd.Parameters.AddWithValue("@CuentaGastoDepreciacionID", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@CuentaGastoDepreciacionID", Convert.ToInt32(grdCuentaGasto.EditValue));
                         cmd.Parameters.AddWithValue("@Estado",comboEstados.Text);
                         IdActivoFijo = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -205,9 +232,18 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos
                         cmd.Parameters.AddWithValue("@ValorCompra", Convert.ToDecimal(txtValorCompra.EditValue));
                         cmd.Parameters.AddWithValue("@VidaUtilMeses", Convert.ToDecimal(txtVidaUtil.EditValue));
                         cmd.Parameters.AddWithValue("@ValorResidual", Convert.ToDecimal(txtValorResidual.EditValue));
-                        cmd.Parameters.AddWithValue("@CuentaContableActivoID", Convert.ToInt32(grdCuentaContable.EditValue));
-                        cmd.Parameters.AddWithValue("@CuentaDepreciacionAcumuladaID", Convert.ToInt32(grdCuentaDepreciacion.EditValue));
-                        cmd.Parameters.AddWithValue("@CuentaGastoDepreciacionID", Convert.ToInt32(grdCuentaGasto.EditValue));
+                        if (Convert.ToInt32(grdCuentaContable.EditValue) == 0)
+                            cmd.Parameters.AddWithValue("@CuentaContableActivoID", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@CuentaContableActivoID", Convert.ToInt32(grdCuentaContable.EditValue));
+                        if (Convert.ToInt32(grdCuentaDepreciacion.EditValue) == 0)
+                            cmd.Parameters.AddWithValue("@CuentaDepreciacionAcumuladaID", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@CuentaDepreciacionAcumuladaID", Convert.ToInt32(grdCuentaDepreciacion.EditValue));
+                        if (Convert.ToInt32(grdCuentaGasto.EditValue) == 0)
+                            cmd.Parameters.AddWithValue("@CuentaGastoDepreciacionID", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@CuentaGastoDepreciacionID", Convert.ToInt32(grdCuentaGasto.EditValue));
                         cmd.Parameters.AddWithValue("@Estado", comboEstados.Text);
                         cmd.ExecuteNonQuery();
                         transaction.Commit();

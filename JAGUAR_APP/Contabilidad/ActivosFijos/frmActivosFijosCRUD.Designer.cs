@@ -53,13 +53,22 @@
             this.getaccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsCuentasC1 = new JAGUAR_PRO.Contabilidad.CuentasContables.dsCuentasC();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCuentaID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colconcat_ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.grdCuentaDepreciacion = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCuentaID1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colconcat_1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.grdCuentaGasto = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCuentaID2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colconcat_2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.comboEstados = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -175,7 +184,6 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Enabled = false;
             this.txtDescripcion.Location = new System.Drawing.Point(160, 97);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.Name = "txtDescripcion";
@@ -199,7 +207,6 @@
             // txtValorCompra
             // 
             this.txtValorCompra.EditValue = "0.00";
-            this.txtValorCompra.Enabled = false;
             this.txtValorCompra.Location = new System.Drawing.Point(160, 175);
             this.txtValorCompra.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorCompra.Name = "txtValorCompra";
@@ -257,7 +264,6 @@
             // txtVidaUtil
             // 
             this.txtVidaUtil.EditValue = "24";
-            this.txtVidaUtil.Enabled = false;
             this.txtVidaUtil.Location = new System.Drawing.Point(160, 212);
             this.txtVidaUtil.Margin = new System.Windows.Forms.Padding(4);
             this.txtVidaUtil.Name = "txtVidaUtil";
@@ -284,7 +290,6 @@
             // txtValorResidual
             // 
             this.txtValorResidual.EditValue = "0.00";
-            this.txtValorResidual.Enabled = false;
             this.txtValorResidual.Location = new System.Drawing.Point(160, 250);
             this.txtValorResidual.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorResidual.Name = "txtValorResidual";
@@ -325,7 +330,7 @@
             this.grdCuentaContable.Properties.DisplayMember = "concat_";
             this.grdCuentaContable.Properties.NullText = "";
             this.grdCuentaContable.Properties.PopupView = this.gridLookUpEdit1View;
-            this.grdCuentaContable.Properties.ValueMember = "id";
+            this.grdCuentaContable.Properties.ValueMember = "CuentaID";
             this.grdCuentaContable.Size = new System.Drawing.Size(177, 24);
             this.grdCuentaContable.TabIndex = 134;
             // 
@@ -341,10 +346,32 @@
             // 
             // gridLookUpEdit1View
             // 
+            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCuentaID,
+            this.coldescripcion,
+            this.colconcat_});
             this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // colCuentaID
+            // 
+            this.colCuentaID.FieldName = "CuentaID";
+            this.colCuentaID.Name = "colCuentaID";
+            // 
+            // coldescripcion
+            // 
+            this.coldescripcion.FieldName = "descripcion";
+            this.coldescripcion.Name = "coldescripcion";
+            // 
+            // colconcat_
+            // 
+            this.colconcat_.Caption = "Cuenta";
+            this.colconcat_.FieldName = "concat_";
+            this.colconcat_.Name = "colconcat_";
+            this.colconcat_.Visible = true;
+            this.colconcat_.VisibleIndex = 0;
             // 
             // labelControl8
             // 
@@ -380,16 +407,38 @@
             this.grdCuentaDepreciacion.Properties.DisplayMember = "concat_";
             this.grdCuentaDepreciacion.Properties.NullText = "";
             this.grdCuentaDepreciacion.Properties.PopupView = this.gridView1;
-            this.grdCuentaDepreciacion.Properties.ValueMember = "id";
+            this.grdCuentaDepreciacion.Properties.ValueMember = "CuentaID";
             this.grdCuentaDepreciacion.Size = new System.Drawing.Size(177, 24);
             this.grdCuentaDepreciacion.TabIndex = 137;
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCuentaID1,
+            this.coldescripcion1,
+            this.colconcat_1});
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // colCuentaID1
+            // 
+            this.colCuentaID1.FieldName = "CuentaID";
+            this.colCuentaID1.Name = "colCuentaID1";
+            // 
+            // coldescripcion1
+            // 
+            this.coldescripcion1.FieldName = "descripcion";
+            this.coldescripcion1.Name = "coldescripcion1";
+            // 
+            // colconcat_1
+            // 
+            this.colconcat_1.Caption = "Cuenta";
+            this.colconcat_1.FieldName = "concat_";
+            this.colconcat_1.Name = "colconcat_1";
+            this.colconcat_1.Visible = true;
+            this.colconcat_1.VisibleIndex = 0;
             // 
             // labelControl10
             // 
@@ -414,16 +463,39 @@
             this.grdCuentaGasto.Properties.DisplayMember = "concat_";
             this.grdCuentaGasto.Properties.NullText = "";
             this.grdCuentaGasto.Properties.PopupView = this.gridView2;
-            this.grdCuentaGasto.Properties.ValueMember = "id";
+            this.grdCuentaGasto.Properties.ValueMember = "CuentaID";
             this.grdCuentaGasto.Size = new System.Drawing.Size(177, 24);
             this.grdCuentaGasto.TabIndex = 139;
             // 
             // gridView2
             // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCuentaID2,
+            this.coldescripcion2,
+            this.colconcat_2});
             this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // colCuentaID2
+            // 
+            this.colCuentaID2.Caption = "Cuenta";
+            this.colCuentaID2.FieldName = "CuentaID";
+            this.colCuentaID2.Name = "colCuentaID2";
+            // 
+            // coldescripcion2
+            // 
+            this.coldescripcion2.FieldName = "descripcion";
+            this.coldescripcion2.Name = "coldescripcion2";
+            // 
+            // colconcat_2
+            // 
+            this.colconcat_2.Caption = "Cuenta";
+            this.colconcat_2.FieldName = "concat_";
+            this.colconcat_2.Name = "colconcat_2";
+            this.colconcat_2.Visible = true;
+            this.colconcat_2.VisibleIndex = 0;
             // 
             // btnGuardar
             // 
@@ -572,5 +644,14 @@
         private System.Windows.Forms.BindingSource getaccountBindingSource;
         private CuentasContables.dsCuentasC dsCuentasC1;
         private DevExpress.XtraEditors.ComboBoxEdit comboEstados;
+        private DevExpress.XtraGrid.Columns.GridColumn colCuentaID;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
+        private DevExpress.XtraGrid.Columns.GridColumn colconcat_;
+        private DevExpress.XtraGrid.Columns.GridColumn colCuentaID1;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion1;
+        private DevExpress.XtraGrid.Columns.GridColumn colconcat_1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCuentaID2;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion2;
+        private DevExpress.XtraGrid.Columns.GridColumn colconcat_2;
     }
 }
