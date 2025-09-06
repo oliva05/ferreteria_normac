@@ -120,9 +120,6 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                 adat.Fill(dsRecuento1.rpt_detalle_recuento);
                 conn.Close();
 
-
-                
-
             }
             catch (Exception ex)
             {
