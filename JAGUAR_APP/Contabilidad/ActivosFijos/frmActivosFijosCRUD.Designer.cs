@@ -72,6 +72,14 @@
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.comboEstados = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.colDepreciacionID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colActivoID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPeriodo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMontoDepreciacion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdAsientoH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAsiento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAsientoCuenta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEnable = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xTabControlActivosFijos)).BeginInit();
             this.xTabControlActivosFijos.SuspendLayout();
             this.TabDetalle.SuspendLayout();
@@ -125,6 +133,8 @@
             // 
             // grdDetalleDepreciacion
             // 
+            this.grdDetalleDepreciacion.DataMember = "detalle_depreciacion";
+            this.grdDetalleDepreciacion.DataSource = this.dsActivosFijos1;
             this.grdDetalleDepreciacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetalleDepreciacion.Location = new System.Drawing.Point(0, 0);
             this.grdDetalleDepreciacion.MainView = this.grdvDetalleDepreciacion;
@@ -136,8 +146,18 @@
             // 
             // grdvDetalleDepreciacion
             // 
+            this.grdvDetalleDepreciacion.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colDepreciacionID,
+            this.colActivoID,
+            this.colPeriodo,
+            this.colMontoDepreciacion,
+            this.colIdAsientoH,
+            this.colAsiento,
+            this.colAsientoCuenta,
+            this.colEnable});
             this.grdvDetalleDepreciacion.GridControl = this.grdDetalleDepreciacion;
             this.grdvDetalleDepreciacion.Name = "grdvDetalleDepreciacion";
+            this.grdvDetalleDepreciacion.OptionsBehavior.ReadOnly = true;
             this.grdvDetalleDepreciacion.OptionsView.ShowGroupPanel = false;
             // 
             // xtraTabPage2
@@ -548,6 +568,56 @@
             this.comboEstados.Size = new System.Drawing.Size(177, 24);
             this.comboEstados.TabIndex = 142;
             // 
+            // colDepreciacionID
+            // 
+            this.colDepreciacionID.FieldName = "DepreciacionID";
+            this.colDepreciacionID.Name = "colDepreciacionID";
+            // 
+            // colActivoID
+            // 
+            this.colActivoID.FieldName = "ActivoID";
+            this.colActivoID.Name = "colActivoID";
+            // 
+            // colPeriodo
+            // 
+            this.colPeriodo.FieldName = "Periodo";
+            this.colPeriodo.Name = "colPeriodo";
+            this.colPeriodo.Visible = true;
+            this.colPeriodo.VisibleIndex = 2;
+            // 
+            // colMontoDepreciacion
+            // 
+            this.colMontoDepreciacion.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.colMontoDepreciacion.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colMontoDepreciacion.FieldName = "MontoDepreciacion";
+            this.colMontoDepreciacion.Name = "colMontoDepreciacion";
+            this.colMontoDepreciacion.Visible = true;
+            this.colMontoDepreciacion.VisibleIndex = 1;
+            // 
+            // colIdAsientoH
+            // 
+            this.colIdAsientoH.FieldName = "IdAsientoH";
+            this.colIdAsientoH.Name = "colIdAsientoH";
+            // 
+            // colAsiento
+            // 
+            this.colAsiento.FieldName = "Asiento";
+            this.colAsiento.Name = "colAsiento";
+            this.colAsiento.Visible = true;
+            this.colAsiento.VisibleIndex = 5;
+            // 
+            // colAsientoCuenta
+            // 
+            this.colAsientoCuenta.FieldName = "AsientoCuenta";
+            this.colAsientoCuenta.Name = "colAsientoCuenta";
+            this.colAsientoCuenta.Visible = true;
+            this.colAsientoCuenta.VisibleIndex = 6;
+            // 
+            // colEnable
+            // 
+            this.colEnable.FieldName = "Enable";
+            this.colEnable.Name = "colEnable";
+            // 
             // frmActivosFijosCRUD
             // 
             this.Appearance.Options.UseFont = true;
@@ -653,5 +723,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCuentaID2;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion2;
         private DevExpress.XtraGrid.Columns.GridColumn colconcat_2;
+        private DevExpress.XtraGrid.Columns.GridColumn colDepreciacionID;
+        private DevExpress.XtraGrid.Columns.GridColumn colActivoID;
+        private DevExpress.XtraGrid.Columns.GridColumn colPeriodo;
+        private DevExpress.XtraGrid.Columns.GridColumn colMontoDepreciacion;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdAsientoH;
+        private DevExpress.XtraGrid.Columns.GridColumn colAsiento;
+        private DevExpress.XtraGrid.Columns.GridColumn colAsientoCuenta;
+        private DevExpress.XtraGrid.Columns.GridColumn colEnable;
     }
 }
