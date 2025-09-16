@@ -5,6 +5,7 @@ using ACS.IT_Managment;
 using DevExpress.XtraEditors;
 using DevExpress.XtraNavBar;
 using DevExpress.XtraReports.UI;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Eatery.Ventas;
 using JAGUAR_PRO.Accesos;
 using JAGUAR_PRO.Accesos.AccesosUsuarios;
@@ -19,6 +20,8 @@ using JAGUAR_PRO.AlmacenesExterno.Salida_Almacen;
 using JAGUAR_PRO.BancosYTitulares;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
+using JAGUAR_PRO.Contabilidad.ActivosFijos;
+using JAGUAR_PRO.Contabilidad.CuentasContables;
 using JAGUAR_PRO.Contabilidad.Proveedores;
 using JAGUAR_PRO.Despachos;
 using JAGUAR_PRO.Despachos.Pedidos;
@@ -6513,6 +6516,85 @@ namespace JAGUAR_PRO
                     CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-13 (Lista de Entrega)");
                 }
             }
+        }
+
+        private void navBarItem257_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    break;
+                case 3://Medium Autorization
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmActivosFijosHome mtx = new frmActivosFijosHome(UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(39))
+                {
+                    frmActivosFijosHome mtx = new frmActivosFijosHome(UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-39 (Gestion de Activos Fijos)");
+                }
+            }
+        }
+
+        private void navBarItem258_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    break;
+                case 3://Medium Autorization
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmCuentasContablesHome mtx = new frmCuentasContablesHome(UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(40))
+                {
+                    frmCuentasContablesHome mtx = new frmCuentasContablesHome(UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-40 (Gestion de Cuentas Contables)");
+                }
+            }
+            
         }
         //End Facturacion Usados
 

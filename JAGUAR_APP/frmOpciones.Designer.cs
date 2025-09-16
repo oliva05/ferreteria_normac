@@ -295,6 +295,8 @@
             this.navBarItem253 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup22 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem259 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup24 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem257 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem269 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem270 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem271 = new DevExpress.XtraNavBar.NavBarItem();
@@ -512,6 +514,7 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem258 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -4182,7 +4185,8 @@
             this.navBarControl7.DragDropFlags = DevExpress.XtraNavBar.NavBarDragDrop.None;
             this.navBarControl7.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup21,
-            this.navBarGroup22});
+            this.navBarGroup22,
+            this.navBarGroup24});
             this.navBarControl7.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItem269,
             this.navBarItem270,
@@ -4234,7 +4238,9 @@
             this.navBarItem265,
             this.navBarItem266,
             this.navBarItem267,
-            this.navBarItem268});
+            this.navBarItem268,
+            this.navBarItem257,
+            this.navBarItem258});
             this.navBarControl7.Location = new System.Drawing.Point(0, 0);
             this.navBarControl7.Name = "navBarControl7";
             this.navBarControl7.OptionsNavPane.ExpandedWidth = 338;
@@ -4310,6 +4316,37 @@
             this.navBarItem259.AppearancePressed.Options.UseFont = true;
             this.navBarItem259.Caption = "Tipo Asignación";
             this.navBarItem259.Name = "navBarItem259";
+            // 
+            // navBarGroup24
+            // 
+            this.navBarGroup24.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup24.Appearance.Options.UseFont = true;
+            this.navBarGroup24.AppearanceBackground.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup24.AppearanceBackground.Options.UseFont = true;
+            this.navBarGroup24.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup24.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarGroup24.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup24.AppearancePressed.Options.UseFont = true;
+            this.navBarGroup24.Caption = "Datos Maestros";
+            this.navBarGroup24.Expanded = true;
+            this.navBarGroup24.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem257),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem258)});
+            this.navBarGroup24.Name = "navBarGroup24";
+            // 
+            // navBarItem257
+            // 
+            this.navBarItem257.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem257.Appearance.Options.UseFont = true;
+            this.navBarItem257.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem257.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem257.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem257.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem257.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem257.AppearancePressed.Options.UseFont = true;
+            this.navBarItem257.Caption = "Activos Fijos";
+            this.navBarItem257.Name = "navBarItem257";
+            this.navBarItem257.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem257_LinkClicked);
             // 
             // navBarItem269
             // 
@@ -7150,6 +7187,20 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
+            // navBarItem258
+            // 
+            this.navBarItem258.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem258.Appearance.Options.UseFont = true;
+            this.navBarItem258.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem258.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem258.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem258.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem258.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem258.AppearancePressed.Options.UseFont = true;
+            this.navBarItem258.Caption = "Cuentas Contables";
+            this.navBarItem258.Name = "navBarItem258";
+            this.navBarItem258.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem258_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7682,5 +7733,8 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem255;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup23;
         private DevExpress.XtraNavBar.NavBarItem navBarItem256;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup24;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem257;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem258;
     }
 }

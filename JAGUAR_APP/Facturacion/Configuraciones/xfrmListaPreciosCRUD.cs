@@ -1198,6 +1198,11 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
         {
             //Deshabilitar el registro de punto de venta.
             //var gridView = (GridView)gridControlPuntosVenta.FocusedView;
+
+            DialogResult r = CajaDialogo.Pregunta("DESEA ELIMINAR ESTE PRODUCTO DE ESTE PUNTO DE VENTA?");
+            if (r == DialogResult.No)
+                return;
+
             var row = (dsListaPrecios.ListaPrecioPuntosDeVentaRow)gridView2.GetFocusedDataRow();
             try
             {
@@ -1237,6 +1242,11 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
         private void cmdBorrarProducto_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             //var gridView = (GridView)gridControlPuntosVenta.FocusedView;
+
+            DialogResult r = CajaDialogo.Pregunta("DESEA ELIMINAR ESTE PRODUCTO DE LA LISTA DE PRECIOS?");
+            if (r == DialogResult.No)
+                return;
+
             var rowProducto = (dsListaPrecios.productos_precioRow)gridView1.GetFocusedDataRow();
             using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
             {
@@ -1551,6 +1561,10 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
 
         private void cmdBorrar3_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            DialogResult r = CajaDialogo.Pregunta("DESEA ELIMINAR ESTE PRECIO PARA ESTE CLIENTE?");
+            if (r == DialogResult.No)
+                return;
+
             var gridView = (GridView)gridControlClientes.FocusedView;
             var row = (dsListaPrecios.clientes_punto_ventaRow)gridView.GetFocusedDataRow();
 
