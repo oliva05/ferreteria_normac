@@ -561,7 +561,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                 case "isv":
 
-                    row0.total_fila = Math.Round((row0.cantidad * row0.costo_unitario + row0.isv),2);
+                    row0.total_fila = Math.Round(((row0.cantidad * row0.costo_unitario) + row0.isv),2);
 
                     break;
 
