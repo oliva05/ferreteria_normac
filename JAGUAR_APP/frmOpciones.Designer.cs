@@ -5400,6 +5400,8 @@
             // 
             // navBarGroup23
             // 
+            this.navBarGroup23.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup23.Appearance.Options.UseFont = true;
             this.navBarGroup23.Caption = "Despachos";
             this.navBarGroup23.Expanded = true;
             this.navBarGroup23.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
