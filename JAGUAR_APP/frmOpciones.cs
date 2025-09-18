@@ -5830,7 +5830,7 @@ namespace JAGUAR_PRO
                     accesoprevio = true;
 
                     frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, 
-                                                                EquipoActual, new Vendedor(), 
+                                                                EquipoActual, new Vendedor(),
                                                                 frmPedidoCliente.TipoFacturacionStock.VentaUsados);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
@@ -5844,7 +5844,7 @@ namespace JAGUAR_PRO
                 if (UsuarioLogeado.ValidarNivelPermisos(24))
                 {
                     frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, 
-                                                                EquipoActual, new Vendedor(), 
+                                                                EquipoActual, new Vendedor(),
                                                                 frmPedidoCliente.TipoFacturacionStock.VentaUsados);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();

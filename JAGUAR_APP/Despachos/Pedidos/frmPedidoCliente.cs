@@ -148,6 +148,10 @@ namespace Eatery.Ventas
                 cmdCopiarDesde.Visible =
                 ckGenerarCotizacion.Visible = false;
             }
+            else
+            {
+                gridView1.Columns["entrega_almacen_bit"].Visible = false; 
+            }
 
             //if (HostName == "7L12TV3" || HostName == "F3DYSQ2" /*Danys Oliva*/ ||
             //    HostName == "9SSCBV2" || HostName == "9PG91W2" /*Ruben Garcia */ ||
@@ -1677,6 +1681,10 @@ namespace Eatery.Ventas
                 cmdCopiarDesde.Visible =
                 ckGenerarCotizacion.Visible = false;
             }
+            else
+            {
+                gridView1.Columns["entrega_almacen_bit"].Visible = false;
+            }
 
         }
 
@@ -2215,7 +2223,7 @@ namespace Eatery.Ventas
                     row1.marca = pt1.MarcaName;
                     row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                     row1.id_presentacion = pt1.Id_presentacion;
-
+                    row1.entrega_almacen_bit = false;
 
                     if (row1.precio == 0)
                     {
@@ -2410,7 +2418,7 @@ namespace Eatery.Ventas
                     //row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                     row1.precio = pt1.PrecioVenta;
                     //row1.id_presentacion = pt1.Id_presentacion;
-
+                    row1.entrega_almacen_bit = false;
 
                     if (row1.precio == 0)
                     {
@@ -2608,7 +2616,7 @@ namespace Eatery.Ventas
                     //row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                     row1.precio = pt1.PrecioVenta;
                     row1.id_presentacion = 1;// pt1.Id_presentacion;
-
+                    row1.entrega_almacen_bit = false;
 
                     if (row1.precio == 0)
                     {
@@ -3171,8 +3179,11 @@ namespace Eatery.Ventas
                     if(!rowi.IsmarcaNull())
                         item.marca = rowi.marca;
                     
-                    if(rowi.Isisv1Null())
+                    if(!rowi.Isisv1Null())
                         item.isv1 = rowi.isv1;
+
+                    if (!rowi.Isentrega_almacen_bitNull())
+                        item.entrega_almacen_bit = rowi.entrega_almacen_bit;
 
                     ListaActual.Add(item);
                 }
@@ -3436,7 +3447,7 @@ namespace Eatery.Ventas
 
                                 if (row.cantidad > 0)
                                 {
-                                    command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
+                                    command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas_v2]";
                                     command.Parameters.Clear();
                                     command.CommandType = CommandType.StoredProcedure;
                                     command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
@@ -3451,10 +3462,31 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
                                     command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
 
-                                    if (row.id_bodega == 0)
-                                        command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                                    if (TipoFacturacionActual == TipoFacturacionStock.VentaNormal)
+                                    {
+                                        if (row.id_bodega == 0)
+                                            command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                                        else
+                                            command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+
+                                    }
                                     else
-                                        command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                                    {
+                                        //Es usados
+                                        if (row.id_bodega == 0)
+                                        {
+                                            if(row.entrega_almacen_bit)
+                                                command.Parameters.AddWithValue("@id_bodega", 3);//BG003
+                                            else
+                                                command.Parameters.AddWithValue("@id_bodega", DBNull.Value);//NULL
+                                        }
+                                        else
+                                        {
+                                            command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                                        }
+                                    }
+
+
 
                                     command.Parameters.AddWithValue("@isv", row.isv1);
                                     command.Parameters.AddWithValue("@descuento_porcentaje", descuentoPorcentaje);
@@ -3474,7 +3506,9 @@ namespace Eatery.Ventas
                                     {
                                         command.Parameters.AddWithValue("@marca", DBNull.Value);
                                     }
-                                        
+
+                                    command.Parameters.AddWithValue("@entrega_bodega", row.entrega_almacen_bit);
+
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }
@@ -3680,7 +3714,7 @@ namespace Eatery.Ventas
                                 Int64 idPedidoDetalle = 0;
                                 if (row.cantidad > 0)
                                 {
-                                    command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
+                                    command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas_v2]";
                                     command.Parameters.Clear();
                                     command.CommandType = CommandType.StoredProcedure;
                                     command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
@@ -3731,6 +3765,7 @@ namespace Eatery.Ventas
                                     {
                                         command.Parameters.AddWithValue("@marca", DBNull.Value);
                                     }
+                                    command.Parameters.AddWithValue("@entrega_bodega", row.entrega_almacen_bit);
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }

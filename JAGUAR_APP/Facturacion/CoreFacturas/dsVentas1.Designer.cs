@@ -2090,6 +2090,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             private global::System.Data.DataColumn columnid_bodega;
             
+            private global::System.Data.DataColumn columnentrega_almacen_bit;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_factura_transactionDataTable() {
@@ -2293,6 +2295,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn entrega_almacen_bitColumn {
+                get {
+                    return this.columnentrega_almacen_bit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2349,7 +2359,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         string codigo_referencia, 
                         string marca, 
                         string delete, 
-                        int id_bodega) {
+                        int id_bodega, 
+                        bool entrega_almacen_bit) {
                 detalle_factura_transactionRow rowdetalle_factura_transactionRow = ((detalle_factura_transactionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_pt,
@@ -2372,7 +2383,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         codigo_referencia,
                         marca,
                         delete,
-                        id_bodega};
+                        id_bodega,
+                        entrega_almacen_bit};
                 rowdetalle_factura_transactionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_factura_transactionRow);
                 return rowdetalle_factura_transactionRow;
@@ -2416,6 +2428,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columnmarca = base.Columns["marca"];
                 this.columndelete = base.Columns["delete"];
                 this.columnid_bodega = base.Columns["id_bodega"];
+                this.columnentrega_almacen_bit = base.Columns["entrega_almacen_bit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2463,6 +2476,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columndelete);
                 this.columnid_bodega = new global::System.Data.DataColumn("id_bodega", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_bodega);
+                this.columnentrega_almacen_bit = new global::System.Data.DataColumn("entrega_almacen_bit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnentrega_almacen_bit);
                 this.columnitemcode.Caption = "Código";
                 this.columnitemname.Caption = "Descripción";
                 this.columncantidad.Caption = "Cant.";
@@ -2477,6 +2492,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columninventario_seleccionado.Caption = "Inv Seleccionado";
                 this.columncodigo_referencia.Caption = "Codigo Ref";
                 this.columnmarca.Caption = "Marca";
+                this.columnentrega_almacen_bit.Caption = "Entrega Almacén";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2636,6 +2652,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             private global::System.Data.DataColumn columnmarca;
             
+            private global::System.Data.DataColumn columnentrega_almacen_bit;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public detalle_factura_transaccion_invDataTable() {
@@ -2775,6 +2793,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn entrega_almacen_bitColumn {
+                get {
+                    return this.columnentrega_almacen_bit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2810,7 +2836,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public detalle_factura_transaccion_invRow Adddetalle_factura_transaccion_invRow(int id_pt, int id_bodega, decimal cantidad, string bodega_descripcion, bool chequeado, decimal precio, int id_presentacion, decimal descuento, string item_code, string descripcion, decimal isv1, decimal descuento_porcentaje, string marca) {
+            public detalle_factura_transaccion_invRow Adddetalle_factura_transaccion_invRow(int id_pt, int id_bodega, decimal cantidad, string bodega_descripcion, bool chequeado, decimal precio, int id_presentacion, decimal descuento, string item_code, string descripcion, decimal isv1, decimal descuento_porcentaje, string marca, bool entrega_almacen_bit) {
                 detalle_factura_transaccion_invRow rowdetalle_factura_transaccion_invRow = ((detalle_factura_transaccion_invRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_pt,
@@ -2825,7 +2851,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                         descripcion,
                         isv1,
                         descuento_porcentaje,
-                        marca};
+                        marca,
+                        entrega_almacen_bit};
                 rowdetalle_factura_transaccion_invRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdetalle_factura_transaccion_invRow);
                 return rowdetalle_factura_transaccion_invRow;
@@ -2861,6 +2888,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 this.columnisv1 = base.Columns["isv1"];
                 this.columndescuento_porcentaje = base.Columns["descuento_porcentaje"];
                 this.columnmarca = base.Columns["marca"];
+                this.columnentrega_almacen_bit = base.Columns["entrega_almacen_bit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2892,9 +2920,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
                 base.Columns.Add(this.columndescuento_porcentaje);
                 this.columnmarca = new global::System.Data.DataColumn("marca", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmarca);
+                this.columnentrega_almacen_bit = new global::System.Data.DataColumn("entrega_almacen_bit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnentrega_almacen_bit);
                 this.columncantidad.Caption = "Cantidad";
                 this.columnbodega_descripcion.Caption = "Bodega";
                 this.columnmarca.Caption = "Marca";
+                this.columnentrega_almacen_bit.Caption = "Entrega Almacén";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4255,6 +4286,23 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool entrega_almacen_bit {
+                get {
+                    try {
+                        return ((bool)(this[this.tabledetalle_factura_transaction.entrega_almacen_bitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'entrega_almacen_bit\' de la tabla \'detalle_factura_transac" +
+                                "tion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_factura_transaction.entrega_almacen_bitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_ptNull() {
                 return this.IsNull(this.tabledetalle_factura_transaction.id_ptColumn);
             }
@@ -4504,6 +4552,18 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             public void Setid_bodegaNull() {
                 this[this.tabledetalle_factura_transaction.id_bodegaColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isentrega_almacen_bitNull() {
+                return this.IsNull(this.tabledetalle_factura_transaction.entrega_almacen_bitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setentrega_almacen_bitNull() {
+                this[this.tabledetalle_factura_transaction.entrega_almacen_bitColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -4743,6 +4803,23 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool entrega_almacen_bit {
+                get {
+                    try {
+                        return ((bool)(this[this.tabledetalle_factura_transaccion_inv.entrega_almacen_bitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'entrega_almacen_bit\' de la tabla \'detalle_factura_transac" +
+                                "cion_inv\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledetalle_factura_transaccion_inv.entrega_almacen_bitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_ptNull() {
                 return this.IsNull(this.tabledetalle_factura_transaccion_inv.id_ptColumn);
             }
@@ -4895,6 +4972,18 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetmarcaNull() {
                 this[this.tabledetalle_factura_transaccion_inv.marcaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isentrega_almacen_bitNull() {
+                return this.IsNull(this.tabledetalle_factura_transaccion_inv.entrega_almacen_bitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setentrega_almacen_bitNull() {
+                this[this.tabledetalle_factura_transaccion_inv.entrega_almacen_bitColumn] = global::System.Convert.DBNull;
             }
         }
         
