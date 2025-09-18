@@ -2326,7 +2326,8 @@ namespace Eatery.Ventas
                         {
                             AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
                                                                  1, pt1.Id_presentacion, row1.precio, row1.descuento,
-                                                                 pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, row1.marca);
+                                                                 pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, 
+                                                                 row1.marca, row1.entrega_almacen_bit);
 
                             //Buscamos el detalle en la seleccion de stock
                             foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
@@ -2704,7 +2705,9 @@ namespace Eatery.Ventas
                     {
                         AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
                                                              1, 1, row1.precio, row1.descuento,
-                                                             pt1.ItemCode, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, row1.marca);
+                                                             pt1.ItemCode, pt1.Descripcion, row1.isv1, 
+                                                             row1.descuento_porcentaje, row1.marca,
+                                                             row1.entrega_almacen_bit);
 
                         //Buscamos el detalle en la seleccion de stock
                         foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
@@ -2898,7 +2901,19 @@ namespace Eatery.Ventas
                     CalcularTotalFactura();
                     txtScanProducto.Focus();
                     break;
-
+                case "entrega_almacen_bit":
+                    foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
+                    {
+                        if (RowInv.id_pt == row.id_pt)
+                        {
+                            RowInv.entrega_almacen_bit = row.entrega_almacen_bit;
+                            if (RowInv.entrega_almacen_bit)
+                            {
+                                RowInv.id_bodega = 3;//BG003
+                            }
+                        }
+                    }
+                    break;
             }
             CalcularTotalFactura();
         }
@@ -3033,7 +3048,7 @@ namespace Eatery.Ventas
         private void AgregarDetalleInventarioSeleccionado(int id_pt, int idBodega_, string bodegaName_, decimal cantidad_, 
                                                           int pIdPresentacion, decimal pPrecio, decimal pDescuento,
                                                           string pItemCode, string pItemName, decimal isv1, 
-                                                          decimal pDescuentoPorcentaje, string pMarca)
+                                                          decimal pDescuentoPorcentaje, string pMarca, bool pEntregaAlmacenUsados)
         {
             dsVentas.detalle_factura_transaccion_invRow row = dsVentas1.detalle_factura_transaccion_inv.Newdetalle_factura_transaccion_invRow();
             row.id_pt = id_pt;
@@ -3049,6 +3064,7 @@ namespace Eatery.Ventas
             row.isv1 = isv1;
             row.marca = pMarca;
             row.descuento_porcentaje = pDescuentoPorcentaje;
+            row.entrega_almacen_bit = pEntregaAlmacenUsados;
             dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
             dsVentas1.AcceptChanges();
         }
