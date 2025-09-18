@@ -33,7 +33,16 @@
             this.xTabControlActivosFijos = new DevExpress.XtraTab.XtraTabControl();
             this.TabDetalle = new DevExpress.XtraTab.XtraTabPage();
             this.grdDetalleDepreciacion = new DevExpress.XtraGrid.GridControl();
+            this.dsActivosFijos1 = new JAGUAR_PRO.Contabilidad.ActivosFijos.dsActivosFijos();
             this.grdvDetalleDepreciacion = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colDepreciacionID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colActivoID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPeriodo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMontoDepreciacion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdAsientoH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAsiento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAsientoCuenta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEnable = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtCodigo = new DevExpress.XtraEditors.TextEdit();
@@ -47,7 +56,6 @@
             this.txtVidaUtil = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtValorResidual = new DevExpress.XtraEditors.TextEdit();
-            this.dsActivosFijos1 = new JAGUAR_PRO.Contabilidad.ActivosFijos.dsActivosFijos();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.grdCuentaContable = new DevExpress.XtraEditors.GridLookUpEdit();
             this.getaccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -72,18 +80,11 @@
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.comboEstados = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.colDepreciacionID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colActivoID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPeriodo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMontoDepreciacion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIdAsientoH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAsiento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAsientoCuenta = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEnable = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xTabControlActivosFijos)).BeginInit();
             this.xTabControlActivosFijos.SuspendLayout();
             this.TabDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetalleDepreciacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsActivosFijos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdvDetalleDepreciacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion.Properties)).BeginInit();
@@ -92,7 +93,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtfCompra.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVidaUtil.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorResidual.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsActivosFijos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaContable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getaccountBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC1)).BeginInit();
@@ -144,6 +144,11 @@
             this.grdDetalleDepreciacion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdvDetalleDepreciacion});
             // 
+            // dsActivosFijos1
+            // 
+            this.dsActivosFijos1.DataSetName = "dsActivosFijos";
+            this.dsActivosFijos1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // grdvDetalleDepreciacion
             // 
             this.grdvDetalleDepreciacion.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -159,6 +164,56 @@
             this.grdvDetalleDepreciacion.Name = "grdvDetalleDepreciacion";
             this.grdvDetalleDepreciacion.OptionsBehavior.ReadOnly = true;
             this.grdvDetalleDepreciacion.OptionsView.ShowGroupPanel = false;
+            // 
+            // colDepreciacionID
+            // 
+            this.colDepreciacionID.FieldName = "DepreciacionID";
+            this.colDepreciacionID.Name = "colDepreciacionID";
+            // 
+            // colActivoID
+            // 
+            this.colActivoID.FieldName = "ActivoID";
+            this.colActivoID.Name = "colActivoID";
+            // 
+            // colPeriodo
+            // 
+            this.colPeriodo.FieldName = "Periodo";
+            this.colPeriodo.Name = "colPeriodo";
+            this.colPeriodo.Visible = true;
+            this.colPeriodo.VisibleIndex = 1;
+            // 
+            // colMontoDepreciacion
+            // 
+            this.colMontoDepreciacion.DisplayFormat.FormatString = "{0:#,###,##0.00}";
+            this.colMontoDepreciacion.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colMontoDepreciacion.FieldName = "MontoDepreciacion";
+            this.colMontoDepreciacion.Name = "colMontoDepreciacion";
+            this.colMontoDepreciacion.Visible = true;
+            this.colMontoDepreciacion.VisibleIndex = 0;
+            // 
+            // colIdAsientoH
+            // 
+            this.colIdAsientoH.FieldName = "IdAsientoH";
+            this.colIdAsientoH.Name = "colIdAsientoH";
+            // 
+            // colAsiento
+            // 
+            this.colAsiento.FieldName = "Asiento";
+            this.colAsiento.Name = "colAsiento";
+            this.colAsiento.Visible = true;
+            this.colAsiento.VisibleIndex = 2;
+            // 
+            // colAsientoCuenta
+            // 
+            this.colAsientoCuenta.FieldName = "AsientoCuenta";
+            this.colAsientoCuenta.Name = "colAsientoCuenta";
+            this.colAsientoCuenta.Visible = true;
+            this.colAsientoCuenta.VisibleIndex = 3;
+            // 
+            // colEnable
+            // 
+            this.colEnable.FieldName = "Enable";
+            this.colEnable.Name = "colEnable";
             // 
             // xtraTabPage2
             // 
@@ -177,7 +232,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(115, 17);
             this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "Numero de Articulo";
+            this.labelControl1.Text = "Número de Artículo";
             // 
             // txtCodigo
             // 
@@ -200,7 +255,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(135, 17);
             this.labelControl2.TabIndex = 3;
-            this.labelControl2.Text = "Descripcion de Articulo";
+            this.labelControl2.Text = "Descripción de Articulo";
             // 
             // txtDescripcion
             // 
@@ -279,7 +334,7 @@
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(99, 17);
             this.labelControl5.TabIndex = 128;
-            this.labelControl5.Text = "Vida Util (Meses)";
+            this.labelControl5.Text = "Vida Útil (Meses)";
             // 
             // txtVidaUtil
             // 
@@ -321,11 +376,6 @@
             this.txtValorResidual.Properties.UseMaskAsDisplayFormat = true;
             this.txtValorResidual.Size = new System.Drawing.Size(128, 24);
             this.txtValorResidual.TabIndex = 130;
-            // 
-            // dsActivosFijos1
-            // 
-            this.dsActivosFijos1.DataSetName = "dsActivosFijos";
-            this.dsActivosFijos1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelControl7
             // 
@@ -413,7 +463,7 @@
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(188, 17);
             this.labelControl9.TabIndex = 136;
-            this.labelControl9.Text = "Cuenta Depreciacion Acumulada";
+            this.labelControl9.Text = "Cuenta Depreciación Acumulada";
             // 
             // grdCuentaDepreciacion
             // 
@@ -568,56 +618,6 @@
             this.comboEstados.Size = new System.Drawing.Size(177, 24);
             this.comboEstados.TabIndex = 142;
             // 
-            // colDepreciacionID
-            // 
-            this.colDepreciacionID.FieldName = "DepreciacionID";
-            this.colDepreciacionID.Name = "colDepreciacionID";
-            // 
-            // colActivoID
-            // 
-            this.colActivoID.FieldName = "ActivoID";
-            this.colActivoID.Name = "colActivoID";
-            // 
-            // colPeriodo
-            // 
-            this.colPeriodo.FieldName = "Periodo";
-            this.colPeriodo.Name = "colPeriodo";
-            this.colPeriodo.Visible = true;
-            this.colPeriodo.VisibleIndex = 2;
-            // 
-            // colMontoDepreciacion
-            // 
-            this.colMontoDepreciacion.DisplayFormat.FormatString = "{0:#,###,##0.00}";
-            this.colMontoDepreciacion.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colMontoDepreciacion.FieldName = "MontoDepreciacion";
-            this.colMontoDepreciacion.Name = "colMontoDepreciacion";
-            this.colMontoDepreciacion.Visible = true;
-            this.colMontoDepreciacion.VisibleIndex = 1;
-            // 
-            // colIdAsientoH
-            // 
-            this.colIdAsientoH.FieldName = "IdAsientoH";
-            this.colIdAsientoH.Name = "colIdAsientoH";
-            // 
-            // colAsiento
-            // 
-            this.colAsiento.FieldName = "Asiento";
-            this.colAsiento.Name = "colAsiento";
-            this.colAsiento.Visible = true;
-            this.colAsiento.VisibleIndex = 5;
-            // 
-            // colAsientoCuenta
-            // 
-            this.colAsientoCuenta.FieldName = "AsientoCuenta";
-            this.colAsientoCuenta.Name = "colAsientoCuenta";
-            this.colAsientoCuenta.Visible = true;
-            this.colAsientoCuenta.VisibleIndex = 6;
-            // 
-            // colEnable
-            // 
-            this.colEnable.FieldName = "Enable";
-            this.colEnable.Name = "colEnable";
-            // 
             // frmActivosFijosCRUD
             // 
             this.Appearance.Options.UseFont = true;
@@ -656,6 +656,7 @@
             this.xTabControlActivosFijos.ResumeLayout(false);
             this.TabDetalle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetalleDepreciacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsActivosFijos1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdvDetalleDepreciacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion.Properties)).EndInit();
@@ -664,7 +665,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtfCompra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVidaUtil.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorResidual.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsActivosFijos1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCuentaContable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getaccountBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsCuentasC1)).EndInit();
