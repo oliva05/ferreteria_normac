@@ -297,6 +297,7 @@
             this.navBarItem259 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup24 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem257 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem258 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem269 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem270 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem271 = new DevExpress.XtraNavBar.NavBarItem();
@@ -514,7 +515,6 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem258 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -4348,6 +4348,20 @@
             this.navBarItem257.Name = "navBarItem257";
             this.navBarItem257.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem257_LinkClicked);
             // 
+            // navBarItem258
+            // 
+            this.navBarItem258.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem258.Appearance.Options.UseFont = true;
+            this.navBarItem258.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem258.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem258.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem258.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem258.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem258.AppearancePressed.Options.UseFont = true;
+            this.navBarItem258.Caption = "Cuentas Contables";
+            this.navBarItem258.Name = "navBarItem258";
+            this.navBarItem258.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem258_LinkClicked);
+            // 
             // navBarItem269
             // 
             this.navBarItem269.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F);
@@ -5386,7 +5400,9 @@
             // 
             // navBarGroup23
             // 
-            this.navBarGroup23.Caption = "navBarGroup23";
+            this.navBarGroup23.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup23.Appearance.Options.UseFont = true;
+            this.navBarGroup23.Caption = "Despachos";
             this.navBarGroup23.Expanded = true;
             this.navBarGroup23.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem256)});
@@ -7186,20 +7202,6 @@
             this.navBarItem350.Caption = "Requisa de Traslado";
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
-            // 
-            // navBarItem258
-            // 
-            this.navBarItem258.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem258.Appearance.Options.UseFont = true;
-            this.navBarItem258.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem258.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem258.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem258.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem258.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem258.AppearancePressed.Options.UseFont = true;
-            this.navBarItem258.Caption = "Cuentas Contables";
-            this.navBarItem258.Name = "navBarItem258";
-            this.navBarItem258.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem258_LinkClicked);
             // 
             // frmOpciones
             // 

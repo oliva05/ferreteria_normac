@@ -122,7 +122,24 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos
 
         private void LoadDetalleDepreciacion()
         {
-            throw new NotImplementedException();
+            try
+            {
+                
+                DataOperations dp = new DataOperations();
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_get_depreciacion_activo_fijo", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ActivoID", IdActivoFijo);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                dsActivosFijos1.detalle_depreciacion.Clear();
+                da.Fill(dsActivosFijos1.detalle_depreciacion);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

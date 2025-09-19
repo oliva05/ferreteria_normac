@@ -148,6 +148,10 @@ namespace Eatery.Ventas
                 cmdCopiarDesde.Visible =
                 ckGenerarCotizacion.Visible = false;
             }
+            else
+            {
+                gridView1.Columns["entrega_almacen_bit"].Visible = false; 
+            }
 
             //if (HostName == "7L12TV3" || HostName == "F3DYSQ2" /*Danys Oliva*/ ||
             //    HostName == "9SSCBV2" || HostName == "9PG91W2" /*Ruben Garcia */ ||
@@ -1677,6 +1681,10 @@ namespace Eatery.Ventas
                 cmdCopiarDesde.Visible =
                 ckGenerarCotizacion.Visible = false;
             }
+            else
+            {
+                gridView1.Columns["entrega_almacen_bit"].Visible = false;
+            }
 
         }
 
@@ -2215,7 +2223,7 @@ namespace Eatery.Ventas
                     row1.marca = pt1.MarcaName;
                     row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                     row1.id_presentacion = pt1.Id_presentacion;
-
+                    row1.entrega_almacen_bit = false;
 
                     if (row1.precio == 0)
                     {
@@ -2318,7 +2326,8 @@ namespace Eatery.Ventas
                         {
                             AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
                                                                  1, pt1.Id_presentacion, row1.precio, row1.descuento,
-                                                                 pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, row1.marca);
+                                                                 pt1.Code, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, 
+                                                                 row1.marca, row1.entrega_almacen_bit);
 
                             //Buscamos el detalle en la seleccion de stock
                             foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
@@ -2410,7 +2419,7 @@ namespace Eatery.Ventas
                     //row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                     row1.precio = pt1.PrecioVenta;
                     //row1.id_presentacion = pt1.Id_presentacion;
-
+                    row1.entrega_almacen_bit = false;
 
                     if (row1.precio == 0)
                     {
@@ -2608,7 +2617,7 @@ namespace Eatery.Ventas
                     //row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
                     row1.precio = pt1.PrecioVenta;
                     row1.id_presentacion = 1;// pt1.Id_presentacion;
-
+                    row1.entrega_almacen_bit = false;
 
                     if (row1.precio == 0)
                     {
@@ -2696,7 +2705,9 @@ namespace Eatery.Ventas
                     {
                         AgregarDetalleInventarioSeleccionado(row1.id_pt, IdBodega_, BodegaName_,
                                                              1, 1, row1.precio, row1.descuento,
-                                                             pt1.ItemCode, pt1.Descripcion, row1.isv1, row1.descuento_porcentaje, row1.marca);
+                                                             pt1.ItemCode, pt1.Descripcion, row1.isv1, 
+                                                             row1.descuento_porcentaje, row1.marca,
+                                                             row1.entrega_almacen_bit);
 
                         //Buscamos el detalle en la seleccion de stock
                         foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
@@ -2890,7 +2901,19 @@ namespace Eatery.Ventas
                     CalcularTotalFactura();
                     txtScanProducto.Focus();
                     break;
-
+                case "entrega_almacen_bit":
+                    foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
+                    {
+                        if (RowInv.id_pt == row.id_pt)
+                        {
+                            RowInv.entrega_almacen_bit = row.entrega_almacen_bit;
+                            if (RowInv.entrega_almacen_bit)
+                            {
+                                RowInv.id_bodega = 3;//BG003
+                            }
+                        }
+                    }
+                    break;
             }
             CalcularTotalFactura();
         }
@@ -3025,7 +3048,7 @@ namespace Eatery.Ventas
         private void AgregarDetalleInventarioSeleccionado(int id_pt, int idBodega_, string bodegaName_, decimal cantidad_, 
                                                           int pIdPresentacion, decimal pPrecio, decimal pDescuento,
                                                           string pItemCode, string pItemName, decimal isv1, 
-                                                          decimal pDescuentoPorcentaje, string pMarca)
+                                                          decimal pDescuentoPorcentaje, string pMarca, bool pEntregaAlmacenUsados)
         {
             dsVentas.detalle_factura_transaccion_invRow row = dsVentas1.detalle_factura_transaccion_inv.Newdetalle_factura_transaccion_invRow();
             row.id_pt = id_pt;
@@ -3041,6 +3064,7 @@ namespace Eatery.Ventas
             row.isv1 = isv1;
             row.marca = pMarca;
             row.descuento_porcentaje = pDescuentoPorcentaje;
+            row.entrega_almacen_bit = pEntregaAlmacenUsados;
             dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
             dsVentas1.AcceptChanges();
         }
@@ -3171,8 +3195,11 @@ namespace Eatery.Ventas
                     if(!rowi.IsmarcaNull())
                         item.marca = rowi.marca;
                     
-                    if(rowi.Isisv1Null())
+                    if(!rowi.Isisv1Null())
                         item.isv1 = rowi.isv1;
+
+                    if (!rowi.Isentrega_almacen_bitNull())
+                        item.entrega_almacen_bit = rowi.entrega_almacen_bit;
 
                     ListaActual.Add(item);
                 }
@@ -3436,7 +3463,7 @@ namespace Eatery.Ventas
 
                                 if (row.cantidad > 0)
                                 {
-                                    command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
+                                    command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas_v2]";
                                     command.Parameters.Clear();
                                     command.CommandType = CommandType.StoredProcedure;
                                     command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
@@ -3451,10 +3478,31 @@ namespace Eatery.Ventas
                                     command.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
                                     command.Parameters.AddWithValue("@id_presentacion", row.id_presentacion);
 
-                                    if (row.id_bodega == 0)
-                                        command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                                    if (TipoFacturacionActual == TipoFacturacionStock.VentaNormal)
+                                    {
+                                        if (row.id_bodega == 0)
+                                            command.Parameters.AddWithValue("@id_bodega", DBNull.Value);
+                                        else
+                                            command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+
+                                    }
                                     else
-                                        command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                                    {
+                                        //Es usados
+                                        if (row.id_bodega == 0)
+                                        {
+                                            if(row.entrega_almacen_bit)
+                                                command.Parameters.AddWithValue("@id_bodega", 3);//BG003
+                                            else
+                                                command.Parameters.AddWithValue("@id_bodega", DBNull.Value);//NULL
+                                        }
+                                        else
+                                        {
+                                            command.Parameters.AddWithValue("@id_bodega", row.id_bodega);
+                                        }
+                                    }
+
+
 
                                     command.Parameters.AddWithValue("@isv", row.isv1);
                                     command.Parameters.AddWithValue("@descuento_porcentaje", descuentoPorcentaje);
@@ -3474,7 +3522,9 @@ namespace Eatery.Ventas
                                     {
                                         command.Parameters.AddWithValue("@marca", DBNull.Value);
                                     }
-                                        
+
+                                    command.Parameters.AddWithValue("@entrega_bodega", row.entrega_almacen_bit);
+
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }
@@ -3680,7 +3730,7 @@ namespace Eatery.Ventas
                                 Int64 idPedidoDetalle = 0;
                                 if (row.cantidad > 0)
                                 {
-                                    command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas]";
+                                    command.CommandText = "dbo.[sp_set_insert_pedido_cliente_lineas_v2]";
                                     command.Parameters.Clear();
                                     command.CommandType = CommandType.StoredProcedure;
                                     command.Parameters.AddWithValue("@id_pedidoH", IdPedidoH);
@@ -3731,6 +3781,7 @@ namespace Eatery.Ventas
                                     {
                                         command.Parameters.AddWithValue("@marca", DBNull.Value);
                                     }
+                                    command.Parameters.AddWithValue("@entrega_bodega", row.entrega_almacen_bit);
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }
