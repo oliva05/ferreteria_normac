@@ -3116,6 +3116,7 @@ namespace Eatery.Ventas
                         row.isv1 = i.isv1;
                         row.descuento_porcentaje = i.descuento_porcentaje;
                         row.marca = i.marca;
+                        row.entrega_almacen_bit = i.entrega_almacen_bit;
                         dsVentas1.detalle_factura_transaccion_inv.Adddetalle_factura_transaccion_invRow(row);
                         dsVentas1.AcceptChanges();
                     }
