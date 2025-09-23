@@ -3524,7 +3524,10 @@ namespace Eatery.Ventas
                                         command.Parameters.AddWithValue("@marca", DBNull.Value);
                                     }
 
-                                    command.Parameters.AddWithValue("@entrega_bodega", row.entrega_almacen_bit);
+                                    if(row.Isentrega_almacen_bitNull())
+                                        command.Parameters.AddWithValue("@entrega_bodega", 0);
+                                    else
+                                        command.Parameters.AddWithValue("@entrega_bodega", row.entrega_almacen_bit);
 
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
@@ -3782,7 +3785,11 @@ namespace Eatery.Ventas
                                     {
                                         command.Parameters.AddWithValue("@marca", DBNull.Value);
                                     }
-                                    command.Parameters.AddWithValue("@entrega_bodega", row.entrega_almacen_bit);
+
+                                    if (row.Isentrega_almacen_bitNull())
+                                        command.Parameters.AddWithValue("@entrega_bodega", 0);
+                                    else
+                                        command.Parameters.AddWithValue("@entrega_bodega", row.entrega_almacen_bit);
 
                                     idPedidoDetalle = Convert.ToInt64(command.ExecuteScalar());
                                 }
