@@ -51,6 +51,7 @@
             this.btnAtras = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmdExportToExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.colcomision = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesDeVenta1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -90,7 +91,8 @@
             this.colcodigo_vendedor,
             this.colnombre,
             this.colventas,
-            this.colver_detalle});
+            this.colver_detalle,
+            this.colcomision});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -110,7 +112,7 @@
             this.colcodigo_vendedor.OptionsColumn.ReadOnly = true;
             this.colcodigo_vendedor.Visible = true;
             this.colcodigo_vendedor.VisibleIndex = 0;
-            this.colcodigo_vendedor.Width = 91;
+            this.colcodigo_vendedor.Width = 84;
             // 
             // colnombre
             // 
@@ -119,7 +121,7 @@
             this.colnombre.OptionsColumn.ReadOnly = true;
             this.colnombre.Visible = true;
             this.colnombre.VisibleIndex = 1;
-            this.colnombre.Width = 256;
+            this.colnombre.Width = 238;
             // 
             // colventas
             // 
@@ -132,7 +134,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ventas", "SUM={0:#,###,##0.00}")});
             this.colventas.Visible = true;
             this.colventas.VisibleIndex = 2;
-            this.colventas.Width = 200;
+            this.colventas.Width = 157;
             // 
             // colver_detalle
             // 
@@ -140,8 +142,8 @@
             this.colver_detalle.FieldName = "ver_detalle";
             this.colver_detalle.Name = "colver_detalle";
             this.colver_detalle.Visible = true;
-            this.colver_detalle.VisibleIndex = 3;
-            this.colver_detalle.Width = 93;
+            this.colver_detalle.VisibleIndex = 4;
+            this.colver_detalle.Width = 82;
             // 
             // cmdVerDetalle
             // 
@@ -269,6 +271,17 @@
             this.cmdExportToExcel.Text = "Exportar";
             this.cmdExportToExcel.Click += new System.EventHandler(this.cmdExportToExcel_Click);
             // 
+            // colcomision
+            // 
+            this.colcomision.DisplayFormat.FormatString = "n2";
+            this.colcomision.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colcomision.FieldName = "comision";
+            this.colcomision.Name = "colcomision";
+            this.colcomision.OptionsColumn.ReadOnly = true;
+            this.colcomision.Visible = true;
+            this.colcomision.VisibleIndex = 3;
+            this.colcomision.Width = 106;
+            // 
             // frmResumenVentasVendedoresPorFecha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,5 +330,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdVerDetalle;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton cmdExportToExcel;
+        private DevExpress.XtraGrid.Columns.GridColumn colcomision;
     }
 }
