@@ -1773,6 +1773,12 @@
     <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmResumenVentasVendedoresPorFecha.Designer.cs">
       <DependentUpon>frmResumenVentasVendedoresPorFecha.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\rptResumenComisiones.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\rptResumenComisiones.Designer.cs">
+      <DependentUpon>rptResumenComisiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Reportes\rptEstadoCuenta.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -4738,6 +4744,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\Reportes de Ventas\frmResumenVentasVendedoresPorFecha.resx">
       <DependentUpon>frmResumenVentasVendedoresPorFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Reportes\Reportes de Ventas\rptResumenComisiones.resx">
+      <DependentUpon>rptResumenComisiones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\rptEstadoCuenta.resx">
       <DependentUpon>rptEstadoCuenta.cs</DependentUpon>
