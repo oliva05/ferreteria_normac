@@ -426,6 +426,9 @@ namespace JAGUAR_PRO
                             navBarGroup11.Visible =
                             navBarG_ReportesFacturacion.Visible =
                             navBarGroup7.Visible = false;
+
+                            navBarReporteVentasPorVendedor.Visible =
+                            navBarDetalleCalculoComisiones.Visible = false;
                             break;
                         case 4://Depth With Delta
                             tabOpciones.TabPages[4].PageVisible = true;
