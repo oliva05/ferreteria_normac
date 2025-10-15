@@ -32,16 +32,16 @@ namespace Eatery.Ventas
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPedidoCliente));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtNombreCliente = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.cmdAbrirBusqueda = new DevExpress.XtraEditors.SimpleButton();
@@ -113,6 +113,7 @@ namespace Eatery.Ventas
             this.dsPedidosClientesV1 = new JAGUAR_PRO.Despachos.Pedidos.dsPedidosClientesV();
             this.bsTipoPago = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvLecturaCodigo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.colentrega_almacen_bit = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCliente.Properties)).BeginInit();
             this.panelNotificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsVentas1)).BeginInit();
@@ -739,7 +740,8 @@ namespace Eatery.Ventas
             this.colbodega_descripcion,
             this.colGestionAlmacen,
             this.colinventario_seleccionado,
-            this.colmarca});
+            this.colmarca,
+            this.colentrega_almacen_bit});
             this.gridView1.DetailHeight = 182;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.LevelIndent = 0;
@@ -763,7 +765,7 @@ namespace Eatery.Ventas
             this.colitemcode.OptionsColumn.ReadOnly = true;
             this.colitemcode.Visible = true;
             this.colitemcode.VisibleIndex = 0;
-            this.colitemcode.Width = 52;
+            this.colitemcode.Width = 45;
             // 
             // colcodigo_referencia
             // 
@@ -771,7 +773,7 @@ namespace Eatery.Ventas
             this.colcodigo_referencia.Name = "colcodigo_referencia";
             this.colcodigo_referencia.Visible = true;
             this.colcodigo_referencia.VisibleIndex = 1;
-            this.colcodigo_referencia.Width = 83;
+            this.colcodigo_referencia.Width = 71;
             // 
             // colitemname
             // 
@@ -780,7 +782,7 @@ namespace Eatery.Ventas
             this.colitemname.OptionsColumn.ReadOnly = true;
             this.colitemname.Visible = true;
             this.colitemname.VisibleIndex = 2;
-            this.colitemname.Width = 189;
+            this.colitemname.Width = 163;
             // 
             // colcantidad
             // 
@@ -789,7 +791,7 @@ namespace Eatery.Ventas
             this.colcantidad.OptionsColumn.ReadOnly = true;
             this.colcantidad.Visible = true;
             this.colcantidad.VisibleIndex = 7;
-            this.colcantidad.Width = 61;
+            this.colcantidad.Width = 52;
             // 
             // colprecio
             // 
@@ -800,7 +802,7 @@ namespace Eatery.Ventas
             this.colprecio.OptionsColumn.ReadOnly = true;
             this.colprecio.Visible = true;
             this.colprecio.VisibleIndex = 8;
-            this.colprecio.Width = 76;
+            this.colprecio.Width = 65;
             // 
             // coldescuento
             // 
@@ -810,7 +812,7 @@ namespace Eatery.Ventas
             this.coldescuento.Name = "coldescuento";
             this.coldescuento.Visible = true;
             this.coldescuento.VisibleIndex = 9;
-            this.coldescuento.Width = 73;
+            this.coldescuento.Width = 63;
             // 
             // colisv1
             // 
@@ -822,7 +824,7 @@ namespace Eatery.Ventas
             this.colisv1.OptionsColumn.ReadOnly = true;
             this.colisv1.Visible = true;
             this.colisv1.VisibleIndex = 10;
-            this.colisv1.Width = 43;
+            this.colisv1.Width = 37;
             // 
             // colisv2
             // 
@@ -843,7 +845,7 @@ namespace Eatery.Ventas
             this.coltotal_linea.OptionsColumn.ReadOnly = true;
             this.coltotal_linea.Visible = true;
             this.coltotal_linea.VisibleIndex = 11;
-            this.coltotal_linea.Width = 82;
+            this.coltotal_linea.Width = 71;
             // 
             // colDelete
             // 
@@ -852,15 +854,15 @@ namespace Eatery.Ventas
             this.colDelete.FieldName = "delete";
             this.colDelete.Name = "colDelete";
             this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 12;
-            this.colDelete.Width = 40;
+            this.colDelete.VisibleIndex = 13;
+            this.colDelete.Width = 44;
             // 
             // cmdDeleteRowFactura
             // 
             this.cmdDeleteRowFactura.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.cmdDeleteRowFactura.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdDeleteRowFactura.Name = "cmdDeleteRowFactura";
             this.cmdDeleteRowFactura.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdDeleteRowFactura.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdDeleteRowFactura_ButtonClick);
@@ -875,7 +877,7 @@ namespace Eatery.Ventas
             this.colinventario.OptionsColumn.ReadOnly = true;
             this.colinventario.Visible = true;
             this.colinventario.VisibleIndex = 4;
-            this.colinventario.Width = 67;
+            this.colinventario.Width = 58;
             // 
             // colbodega_descripcion
             // 
@@ -883,7 +885,7 @@ namespace Eatery.Ventas
             this.colbodega_descripcion.Name = "colbodega_descripcion";
             this.colbodega_descripcion.Visible = true;
             this.colbodega_descripcion.VisibleIndex = 5;
-            this.colbodega_descripcion.Width = 88;
+            this.colbodega_descripcion.Width = 76;
             // 
             // colGestionAlmacen
             // 
@@ -892,14 +894,14 @@ namespace Eatery.Ventas
             this.colGestionAlmacen.Name = "colGestionAlmacen";
             this.colGestionAlmacen.Visible = true;
             this.colGestionAlmacen.VisibleIndex = 6;
-            this.colGestionAlmacen.Width = 59;
+            this.colGestionAlmacen.Width = 51;
             // 
             // cmdElejirAlmacen
             // 
             this.cmdElejirAlmacen.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
             this.cmdElejirAlmacen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdElejirAlmacen.Name = "cmdElejirAlmacen";
             this.cmdElejirAlmacen.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdElejirAlmacen.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdElejirAlmacen_ButtonClick);
@@ -920,7 +922,7 @@ namespace Eatery.Ventas
             this.colmarca.OptionsColumn.ReadOnly = true;
             this.colmarca.Visible = true;
             this.colmarca.VisibleIndex = 3;
-            this.colmarca.Width = 83;
+            this.colmarca.Width = 71;
             // 
             // bsBancos
             // 
@@ -940,6 +942,14 @@ namespace Eatery.Ventas
             // errorProvLecturaCodigo
             // 
             this.errorProvLecturaCodigo.ContainerControl = this;
+            // 
+            // colentrega_almacen_bit
+            // 
+            this.colentrega_almacen_bit.FieldName = "entrega_almacen_bit";
+            this.colentrega_almacen_bit.Name = "colentrega_almacen_bit";
+            this.colentrega_almacen_bit.Visible = true;
+            this.colentrega_almacen_bit.VisibleIndex = 12;
+            this.colentrega_almacen_bit.Width = 61;
             // 
             // frmPedidoCliente
             // 
@@ -1058,5 +1068,6 @@ namespace Eatery.Ventas
         private System.Windows.Forms.RadioButton rdCredito;
         private DevExpress.XtraEditors.SimpleButton cmdSalir2;
         private DevExpress.XtraEditors.CheckEdit ckEscaner;
+        private DevExpress.XtraGrid.Columns.GridColumn colentrega_almacen_bit;
     }
 }

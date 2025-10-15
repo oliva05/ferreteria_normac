@@ -2,7 +2,10 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraSpreadsheet.Import.Xls;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.Facturacion.CoreFacturas;
 using System;
 using System.Collections.Generic;
@@ -117,6 +120,15 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas
             {
                 CajaDialogo.Error(ex.Message);
             }
+        }
+
+        private void cmdImprimir_Click(object sender, EventArgs e)
+        {
+            rptResumenComisiones report = new rptResumenComisiones(dtDesde.DateTime, dtHasta.DateTime);
+            //RPT_OrdenCompra report = new RPT_OrdenCompra(num) { DataSource = dsCompras1, ShowPrintMarginsWarning = false };
+            report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+            ReportPrintTool printReport = new ReportPrintTool(report);
+            printReport.ShowPreviewDialog();
         }
     }
 }

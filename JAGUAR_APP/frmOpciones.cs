@@ -22,7 +22,6 @@ using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.Contabilidad.ActivosFijos;
 using JAGUAR_PRO.Contabilidad.CuentasContables;
-using JAGUAR_PRO.Contabilidad.Depreciacion;
 using JAGUAR_PRO.Contabilidad.Proveedores;
 using JAGUAR_PRO.Despachos;
 using JAGUAR_PRO.Despachos.Pedidos;
@@ -427,6 +426,9 @@ namespace JAGUAR_PRO
                             navBarGroup11.Visible =
                             navBarG_ReportesFacturacion.Visible =
                             navBarGroup7.Visible = false;
+
+                            navBarReporteVentasPorVendedor.Visible =
+                            navBarDetalleCalculoComisiones.Visible = false;
                             break;
                         case 4://Depth With Delta
                             tabOpciones.TabPages[4].PageVisible = true;
@@ -5831,7 +5833,7 @@ namespace JAGUAR_PRO
                     accesoprevio = true;
 
                     frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, 
-                                                                EquipoActual, new Vendedor(), 
+                                                                EquipoActual, new Vendedor(),
                                                                 frmPedidoCliente.TipoFacturacionStock.VentaUsados);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
@@ -5845,7 +5847,7 @@ namespace JAGUAR_PRO
                 if (UsuarioLogeado.ValidarNivelPermisos(24))
                 {
                     frmPedidoCliente frm = new frmPedidoCliente(this.UsuarioLogeado, puntoVenta1, 
-                                                                EquipoActual, new Vendedor(), 
+                                                                EquipoActual, new Vendedor(),
                                                                 frmPedidoCliente.TipoFacturacionStock.VentaUsados);
                     frm.MdiParent = this.MdiParent;
                     frm.Show();
@@ -6600,23 +6602,44 @@ namespace JAGUAR_PRO
 
         private void navBarItem351_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+
             bool accesoprevio = false;
-            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
-            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
             {
                 case 1://Basic View
                     break;
                 case 2://Basic No Autorization
+                    accesoprevio = false;
                     break;
                 case 3://Medium Autorization
+                    accesoprevio = false;
                     break;
                 case 4://Depth With Delta
                 case 5://Depth Without Delta
                     accesoprevio = true;
-                    frmDepreciacionHome mtx = new frmDepreciacionHome(UsuarioLogeado);
-                    mtx.MdiParent = this.MdiParent;
-                    mtx.Show();
 
+                    frmCalculoDeComisionesPorVentasVendedoresPorFecha frm = new frmCalculoDeComisionesPorVentasVendedoresPorFecha(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
                     break;
                 default:
                     break;
@@ -6624,15 +6647,15 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(124))
+                if (UsuarioLogeado.ValidarNivelPermisos(27))
                 {
-                    frmDepreciacionHome mtx = new frmDepreciacionHome(UsuarioLogeado);
-                    mtx.MdiParent = this.MdiParent;
-                    mtx.Show();
+                    frmCalculoDeComisionesPorVentasVendedoresPorFecha frm = new frmCalculoDeComisionesPorVentasVendedoresPorFecha(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-124 (Depreciacion de Activos Fijos)");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #27 (Reporte de ventas por vendedor)");
                 }
             }
         }

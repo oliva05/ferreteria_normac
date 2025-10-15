@@ -359,6 +359,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
             
             private global::System.Data.DataColumn columnver_detalle;
             
+            private global::System.Data.DataColumn columncomision;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public resumen_ventas_vendedoersDataTable() {
@@ -434,6 +436,14 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn comisionColumn {
+                get {
+                    return this.columncomision;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -469,14 +479,15 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public resumen_ventas_vendedoersRow Addresumen_ventas_vendedoersRow(int id, string codigo_vendedor, string nombre, decimal ventas, string ver_detalle) {
+            public resumen_ventas_vendedoersRow Addresumen_ventas_vendedoersRow(int id, string codigo_vendedor, string nombre, decimal ventas, string ver_detalle, decimal comision) {
                 resumen_ventas_vendedoersRow rowresumen_ventas_vendedoersRow = ((resumen_ventas_vendedoersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         codigo_vendedor,
                         nombre,
                         ventas,
-                        ver_detalle};
+                        ver_detalle,
+                        comision};
                 rowresumen_ventas_vendedoersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowresumen_ventas_vendedoersRow);
                 return rowresumen_ventas_vendedoersRow;
@@ -504,6 +515,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
                 this.columnnombre = base.Columns["nombre"];
                 this.columnventas = base.Columns["ventas"];
                 this.columnver_detalle = base.Columns["ver_detalle"];
+                this.columncomision = base.Columns["comision"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -519,10 +531,13 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
                 base.Columns.Add(this.columnventas);
                 this.columnver_detalle = new global::System.Data.DataColumn("ver_detalle", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnver_detalle);
+                this.columncomision = new global::System.Data.DataColumn("comision", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncomision);
                 this.columncodigo_vendedor.Caption = "Código";
                 this.columnnombre.Caption = "Nombre";
                 this.columnventas.Caption = "Ventas";
                 this.columnver_detalle.Caption = "Ver Detalle";
+                this.columncomision.Caption = "Comisión";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1567,6 +1582,23 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal comision {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableresumen_ventas_vendedoers.comisionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'comision\' de la tabla \'resumen_ventas_vendedoers\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableresumen_ventas_vendedoers.comisionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tableresumen_ventas_vendedoers.idColumn);
             }
@@ -1623,6 +1655,18 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setver_detalleNull() {
                 this[this.tableresumen_ventas_vendedoers.ver_detalleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscomisionNull() {
+                return this.IsNull(this.tableresumen_ventas_vendedoers.comisionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcomisionNull() {
+                this[this.tableresumen_ventas_vendedoers.comisionColumn] = global::System.Convert.DBNull;
             }
         }
         
