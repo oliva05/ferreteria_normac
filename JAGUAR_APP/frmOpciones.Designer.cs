@@ -3019,8 +3019,9 @@
             this.navBarItem155.AppearanceHotTracked.Options.UseFont = true;
             this.navBarItem155.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem155.AppearancePressed.Options.UseFont = true;
-            this.navBarItem155.Caption = "Huellas";
+            this.navBarItem155.Caption = "Huellas de Empleado";
             this.navBarItem155.Name = "navBarItem155";
+            this.navBarItem155.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem155_LinkClicked);
             // 
             // navBarItem75
             // 
@@ -5388,7 +5389,7 @@
             this.navBarDetalleCalculoComisiones.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
             this.navBarDetalleCalculoComisiones.AppearancePressed.Options.UseFont = true;
             this.navBarDetalleCalculoComisiones.Caption = "Detalle Calculo Comisiones";
-            this.navBarDetalleCalculoComisiones.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem351.ImageOptions.SmallImage")));
+            this.navBarDetalleCalculoComisiones.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDetalleCalculoComisiones.ImageOptions.SmallImage")));
             this.navBarDetalleCalculoComisiones.Name = "navBarDetalleCalculoComisiones";
             this.navBarDetalleCalculoComisiones.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem351_LinkClicked);
             // 

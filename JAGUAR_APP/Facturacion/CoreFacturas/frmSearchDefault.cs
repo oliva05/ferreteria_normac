@@ -67,6 +67,7 @@ namespace LOSA.Calidad.LoteConfConsumo
                     LoadData();
                     break;
                 case TipoBusqueda.Empleados:
+                    LoadDataEmpleados();
                     break;
                 case TipoBusqueda.PresentacionEmpaqueALOSY:
                     break;
@@ -98,6 +99,35 @@ namespace LOSA.Calidad.LoteConfConsumo
             }
             ItemSeleccionado = new ItemBusqueda();
             
+        }
+
+        private void LoadDataEmpleados()
+        {
+            try
+            {
+                SqlConnection con;
+                con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                //SqlCommand cmd = new SqlCommand("[dbo].[sp_get_lista_items_for_facturacion]", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_lista_items_for_facturacion_by_punto_venta]", con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@parametro_busqueda", Convert.ToInt32(TipoBusquedaActual));
+                cmd.Parameters.AddWithValue("@tipo_facturacion", 2);
+                cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoVentaActual.ID);
+
+                dsConfigLoteConsumo1.search_mp.Clear();
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                adat.Fill(dsConfigLoteConsumo1.search_mp);
+
+                dv = new DataView(dsConfigLoteConsumo1.search_mp);
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
         }
 
         public frmSearchDefault(TipoBusqueda pTipo, PDV pPuntoVenta)

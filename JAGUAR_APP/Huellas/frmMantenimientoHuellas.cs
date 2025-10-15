@@ -6,6 +6,7 @@ using GriauleFingerprintLibrary.DataTypes;
 using JAGUAR_PRO.Calidad.LoteConfConsumo;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
+using LOSA.Calidad.LoteConfConsumo;
 using NormacApp.Models;
 using System;
 using System.Collections.Generic;
@@ -871,7 +872,7 @@ namespace Proyecto.Huellas
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            frmSearchMultItems frm = new frmSearchMultItems(frmSearchMultItems.TipoBusqueda.Empleados, 0);
+            frmSearchDefault frm = new frmSearchDefault(frmSearchDefault.TipoBusqueda.Empleados);
             if(frm.ShowDialog() == DialogResult.OK)
             {
                 //if(EmpleadoActual.GetById(frm.)

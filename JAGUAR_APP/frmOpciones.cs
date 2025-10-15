@@ -61,6 +61,7 @@ using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
 using JAGUAR_PRO.Utileria;
 using LOSA.TransaccionesMP;
+using Proyecto.Huellas;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -6656,6 +6657,66 @@ namespace JAGUAR_PRO
                 else
                 {
                     CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #27 (Reporte de ventas por vendedor)");
+                }
+            }
+        }
+
+        private void navBarItem155_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+
+                    frmMantenimientoHuellas frm = new frmMantenimientoHuellas(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(41))
+                {
+                    frmMantenimientoHuellas frm = new frmMantenimientoHuellas(UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #41 (Mantenimiento de Huellas)");
                 }
             }
         }
