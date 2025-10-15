@@ -22,6 +22,7 @@ using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.Contabilidad.ActivosFijos;
 using JAGUAR_PRO.Contabilidad.CuentasContables;
+using JAGUAR_PRO.Contabilidad.Depreciacion;
 using JAGUAR_PRO.Contabilidad.Proveedores;
 using JAGUAR_PRO.Despachos;
 using JAGUAR_PRO.Despachos.Pedidos;
@@ -6595,6 +6596,45 @@ namespace JAGUAR_PRO
                 }
             }
             
+        }
+
+        private void navBarItem351_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.Id, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar //12 = Success
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    break;
+                case 3://Medium Autorization
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmDepreciacionHome mtx = new frmDepreciacionHome(UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(124))
+                {
+                    frmDepreciacionHome mtx = new frmDepreciacionHome(UsuarioLogeado);
+                    mtx.MdiParent = this.MdiParent;
+                    mtx.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función!\nPermiso Requerido #VT-124 (Depreciacion de Activos Fijos)");
+                }
+            }
         }
         //End Facturacion Usados
 

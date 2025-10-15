@@ -243,7 +243,7 @@
             this.txtCodigo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Properties.Appearance.Options.UseFont = true;
             this.txtCodigo.Properties.MaxLength = 50;
-            this.txtCodigo.Size = new System.Drawing.Size(119, 24);
+            this.txtCodigo.Size = new System.Drawing.Size(97, 24);
             this.txtCodigo.TabIndex = 2;
             // 
             // labelControl2
@@ -291,7 +291,7 @@
             this.txtValorCompra.Properties.MaskSettings.Set("mask", "n");
             this.txtValorCompra.Properties.MaxLength = 250;
             this.txtValorCompra.Properties.UseMaskAsDisplayFormat = true;
-            this.txtValorCompra.Size = new System.Drawing.Size(128, 24);
+            this.txtValorCompra.Size = new System.Drawing.Size(97, 24);
             this.txtValorCompra.TabIndex = 6;
             // 
             // dtfCompra
@@ -311,7 +311,7 @@
             this.dtfCompra.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtfCompra.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dtfCompra.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtfCompra.Size = new System.Drawing.Size(128, 24);
+            this.dtfCompra.Size = new System.Drawing.Size(97, 24);
             this.dtfCompra.TabIndex = 126;
             // 
             // labelControl4
@@ -348,7 +348,7 @@
             this.txtVidaUtil.Properties.MaskSettings.Set("mask", "d");
             this.txtVidaUtil.Properties.MaxLength = 250;
             this.txtVidaUtil.Properties.UseMaskAsDisplayFormat = true;
-            this.txtVidaUtil.Size = new System.Drawing.Size(128, 24);
+            this.txtVidaUtil.Size = new System.Drawing.Size(97, 24);
             this.txtVidaUtil.TabIndex = 129;
             // 
             // labelControl6
@@ -374,7 +374,7 @@
             this.txtValorResidual.Properties.MaskSettings.Set("mask", "n");
             this.txtValorResidual.Properties.MaxLength = 250;
             this.txtValorResidual.Properties.UseMaskAsDisplayFormat = true;
-            this.txtValorResidual.Size = new System.Drawing.Size(128, 24);
+            this.txtValorResidual.Size = new System.Drawing.Size(97, 24);
             this.txtValorResidual.TabIndex = 130;
             // 
             // labelControl7
@@ -401,7 +401,7 @@
             this.grdCuentaContable.Properties.NullText = "";
             this.grdCuentaContable.Properties.PopupView = this.gridLookUpEdit1View;
             this.grdCuentaContable.Properties.ValueMember = "CuentaID";
-            this.grdCuentaContable.Size = new System.Drawing.Size(177, 24);
+            this.grdCuentaContable.Size = new System.Drawing.Size(217, 24);
             this.grdCuentaContable.TabIndex = 134;
             // 
             // getaccountBindingSource
@@ -478,7 +478,7 @@
             this.grdCuentaDepreciacion.Properties.NullText = "";
             this.grdCuentaDepreciacion.Properties.PopupView = this.gridView1;
             this.grdCuentaDepreciacion.Properties.ValueMember = "CuentaID";
-            this.grdCuentaDepreciacion.Size = new System.Drawing.Size(177, 24);
+            this.grdCuentaDepreciacion.Size = new System.Drawing.Size(217, 24);
             this.grdCuentaDepreciacion.TabIndex = 137;
             // 
             // gridView1
@@ -534,7 +534,7 @@
             this.grdCuentaGasto.Properties.NullText = "";
             this.grdCuentaGasto.Properties.PopupView = this.gridView2;
             this.grdCuentaGasto.Properties.ValueMember = "CuentaID";
-            this.grdCuentaGasto.Size = new System.Drawing.Size(177, 24);
+            this.grdCuentaGasto.Size = new System.Drawing.Size(217, 24);
             this.grdCuentaGasto.TabIndex = 139;
             // 
             // gridView2
@@ -615,7 +615,7 @@
             "Activo",
             "Baja",
             "Baja definitiva"});
-            this.comboEstados.Size = new System.Drawing.Size(177, 24);
+            this.comboEstados.Size = new System.Drawing.Size(165, 24);
             this.comboEstados.TabIndex = 142;
             // 
             // frmActivosFijosCRUD

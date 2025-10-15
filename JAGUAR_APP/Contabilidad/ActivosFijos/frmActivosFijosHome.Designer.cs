@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActivosFijosHome));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions11 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions13 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject49 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject50 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject51 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject52 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions14 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject53 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject54 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject55 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject56 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions15 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject57 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject58 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject59 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject60 = new DevExpress.Utils.SerializableAppearanceObject();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnAgregar = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -155,6 +155,9 @@
             // 
             // grdAnticipo
             // 
+            this.grdAnticipo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdAnticipo.DataMember = "lista_activos_fijos";
             this.grdAnticipo.DataSource = this.dsActivosFijos1;
             this.grdAnticipo.Location = new System.Drawing.Point(0, 107);
@@ -209,6 +212,7 @@
             this.colActivoID.OptionsColumn.ReadOnly = true;
             this.colActivoID.Visible = true;
             this.colActivoID.VisibleIndex = 0;
+            this.colActivoID.Width = 122;
             // 
             // colCodigoActivo
             // 
@@ -217,6 +221,7 @@
             this.colCodigoActivo.OptionsColumn.ReadOnly = true;
             this.colCodigoActivo.Visible = true;
             this.colCodigoActivo.VisibleIndex = 1;
+            this.colCodigoActivo.Width = 122;
             // 
             // colNombreActivo
             // 
@@ -225,6 +230,7 @@
             this.colNombreActivo.OptionsColumn.ReadOnly = true;
             this.colNombreActivo.Visible = true;
             this.colNombreActivo.VisibleIndex = 2;
+            this.colNombreActivo.Width = 122;
             // 
             // colFechaCompra
             // 
@@ -233,6 +239,7 @@
             this.colFechaCompra.OptionsColumn.ReadOnly = true;
             this.colFechaCompra.Visible = true;
             this.colFechaCompra.VisibleIndex = 3;
+            this.colFechaCompra.Width = 122;
             // 
             // colValorCompra
             // 
@@ -241,6 +248,7 @@
             this.colValorCompra.OptionsColumn.ReadOnly = true;
             this.colValorCompra.Visible = true;
             this.colValorCompra.VisibleIndex = 4;
+            this.colValorCompra.Width = 122;
             // 
             // colVidaUtilMeses
             // 
@@ -249,6 +257,7 @@
             this.colVidaUtilMeses.OptionsColumn.ReadOnly = true;
             this.colVidaUtilMeses.Visible = true;
             this.colVidaUtilMeses.VisibleIndex = 5;
+            this.colVidaUtilMeses.Width = 122;
             // 
             // colValorResidual
             // 
@@ -257,30 +266,25 @@
             this.colValorResidual.OptionsColumn.ReadOnly = true;
             this.colValorResidual.Visible = true;
             this.colValorResidual.VisibleIndex = 6;
+            this.colValorResidual.Width = 122;
             // 
             // colCuentaContableActivoID
             // 
             this.colCuentaContableActivoID.FieldName = "CuentaContableActivoID";
             this.colCuentaContableActivoID.Name = "colCuentaContableActivoID";
             this.colCuentaContableActivoID.OptionsColumn.ReadOnly = true;
-            this.colCuentaContableActivoID.Visible = true;
-            this.colCuentaContableActivoID.VisibleIndex = 7;
             // 
             // colCuentaDepreciacionAcumuladaID
             // 
             this.colCuentaDepreciacionAcumuladaID.FieldName = "CuentaDepreciacionAcumuladaID";
             this.colCuentaDepreciacionAcumuladaID.Name = "colCuentaDepreciacionAcumuladaID";
             this.colCuentaDepreciacionAcumuladaID.OptionsColumn.ReadOnly = true;
-            this.colCuentaDepreciacionAcumuladaID.Visible = true;
-            this.colCuentaDepreciacionAcumuladaID.VisibleIndex = 8;
             // 
             // colCuentaGastoDepreciacionID
             // 
             this.colCuentaGastoDepreciacionID.FieldName = "CuentaGastoDepreciacionID";
             this.colCuentaGastoDepreciacionID.Name = "colCuentaGastoDepreciacionID";
             this.colCuentaGastoDepreciacionID.OptionsColumn.ReadOnly = true;
-            this.colCuentaGastoDepreciacionID.Visible = true;
-            this.colCuentaGastoDepreciacionID.VisibleIndex = 9;
             // 
             // colEstado
             // 
@@ -288,15 +292,14 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.OptionsColumn.ReadOnly = true;
             this.colEstado.Visible = true;
-            this.colEstado.VisibleIndex = 10;
+            this.colEstado.VisibleIndex = 7;
+            this.colEstado.Width = 122;
             // 
             // colEnable
             // 
             this.colEnable.FieldName = "Enable";
             this.colEnable.Name = "colEnable";
             this.colEnable.OptionsColumn.ReadOnly = true;
-            this.colEnable.Visible = true;
-            this.colEnable.VisibleIndex = 11;
             // 
             // colCuentaContableActivoName
             // 
@@ -304,7 +307,8 @@
             this.colCuentaContableActivoName.Name = "colCuentaContableActivoName";
             this.colCuentaContableActivoName.OptionsColumn.ReadOnly = true;
             this.colCuentaContableActivoName.Visible = true;
-            this.colCuentaContableActivoName.VisibleIndex = 12;
+            this.colCuentaContableActivoName.VisibleIndex = 8;
+            this.colCuentaContableActivoName.Width = 122;
             // 
             // colCuentaDepreciacionAcumuladaName
             // 
@@ -312,7 +316,8 @@
             this.colCuentaDepreciacionAcumuladaName.Name = "colCuentaDepreciacionAcumuladaName";
             this.colCuentaDepreciacionAcumuladaName.OptionsColumn.ReadOnly = true;
             this.colCuentaDepreciacionAcumuladaName.Visible = true;
-            this.colCuentaDepreciacionAcumuladaName.VisibleIndex = 13;
+            this.colCuentaDepreciacionAcumuladaName.VisibleIndex = 9;
+            this.colCuentaDepreciacionAcumuladaName.Width = 122;
             // 
             // colCuentaGastoDepreciacionName
             // 
@@ -320,7 +325,8 @@
             this.colCuentaGastoDepreciacionName.Name = "colCuentaGastoDepreciacionName";
             this.colCuentaGastoDepreciacionName.OptionsColumn.ReadOnly = true;
             this.colCuentaGastoDepreciacionName.Visible = true;
-            this.colCuentaGastoDepreciacionName.VisibleIndex = 14;
+            this.colCuentaGastoDepreciacionName.VisibleIndex = 10;
+            this.colCuentaGastoDepreciacionName.Width = 151;
             // 
             // gridColumn1
             // 
@@ -328,14 +334,15 @@
             this.gridColumn1.ColumnEdit = this.cmdVer_Editar;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 15;
+            this.gridColumn1.VisibleIndex = 11;
+            this.gridColumn1.Width = 102;
             // 
             // cmdVer_Editar
             // 
             this.cmdVer_Editar.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions11.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions11.Image")));
             this.cmdVer_Editar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdVer_Editar.Name = "cmdVer_Editar";
             this.cmdVer_Editar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdVer_Editar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdVer_Editar_ButtonClick);
@@ -343,36 +350,36 @@
             // cmdPrintFromGrid
             // 
             this.cmdPrintFromGrid.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions12.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions12.Image")));
             this.cmdPrintFromGrid.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdPrintFromGrid.Name = "cmdPrintFromGrid";
             this.cmdPrintFromGrid.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // cmdVerDetalle
             // 
             this.cmdVerDetalle.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            editorButtonImageOptions13.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions13.Image")));
             this.cmdVerDetalle.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdVerDetalle.Name = "cmdVerDetalle";
             this.cmdVerDetalle.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // reposCancelar
             // 
             this.reposCancelar.AutoHeight = false;
-            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
+            editorButtonImageOptions14.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions14.Image")));
             this.reposCancelar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposCancelar.Name = "reposCancelar";
             this.reposCancelar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // reposVerOC
             // 
             this.reposVerOC.AutoHeight = false;
-            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
+            editorButtonImageOptions15.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions15.Image")));
             this.reposVerOC.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposVerOC.Name = "reposVerOC";
             // 
             // comboEstados
@@ -396,7 +403,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(776, 56);
+            this.labelControl2.Location = new System.Drawing.Point(788, 56);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(46, 17);
             this.labelControl2.TabIndex = 144;
@@ -414,8 +421,8 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnAtras);
+            this.IconOptions.ShowIcon = false;
             this.Name = "frmActivosFijosHome";
-            this.Text = "frmActivosFijosHome";
             ((System.ComponentModel.ISupportInitialize)(this.grdAnticipo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsActivosFijos1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdvAnticipo)).EndInit();

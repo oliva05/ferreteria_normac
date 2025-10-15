@@ -946,6 +946,18 @@
     <Compile Include="Contabilidad\CuentasContables\frmCuentasContablesHome.Designer.cs">
       <DependentUpon>frmCuentasContablesHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contabilidad\Depreciacion\frmDepreciacionHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Depreciacion\frmDepreciacionHome.Designer.cs">
+      <DependentUpon>frmDepreciacionHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\Depreciacion\frmDepreciacionOP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Depreciacion\frmDepreciacionOP.Designer.cs">
+      <DependentUpon>frmDepreciacionOP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contabilidad\Proveedores\dsAnticipo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4408,6 +4420,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\CuentasContables\frmCuentasContablesHome.resx">
       <DependentUpon>frmCuentasContablesHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Depreciacion\frmDepreciacionHome.resx">
+      <DependentUpon>frmDepreciacionHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Depreciacion\frmDepreciacionOP.resx">
+      <DependentUpon>frmDepreciacionOP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\Proveedores\frmCRUDAnticipo.resx">
       <DependentUpon>frmCRUDAnticipo.cs</DependentUpon>
