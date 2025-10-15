@@ -3243,6 +3243,16 @@ namespace JAGUAR_PRO.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap varita_magica24 {
+            get {
+                object obj = ResourceManager.GetObject("varita-magica24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap view_32x32 {
             get {
                 object obj = ResourceManager.GetObject("view_32x32", resourceCulture);
