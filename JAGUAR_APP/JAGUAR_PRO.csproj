@@ -130,6 +130,9 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.GrFingerXLib">
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Griaule\Fingerprint SDK 2009\bin\AxInterop.GrFingerXLib.dll</HintPath>
+    </Reference>
     <Reference Include="ClosedXML, Version=0.105.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.105.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
     </Reference>
@@ -274,6 +277,9 @@
     </Reference>
     <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="GriauleFingerprintLibrary">
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Griaule\Fingerprint SDK 2009\bin\GriauleFingerprintLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
@@ -755,6 +761,23 @@
     <Compile Include="Clases\FacturasPagoMultiple.cs" />
     <Compile Include="Clases\Factura_SolicitudAutorizacion.cs" />
     <Compile Include="Clases\HrConfIsrAjusteSaldos.cs" />
+    <Compile Include="Clases\hr_employee.cs" />
+    <Compile Include="Clases\Huellas\DBClass.cs" />
+    <Compile Include="Clases\Huellas\dsDetalleHuellas.Designer.cs" />
+    <Compile Include="Clases\Huellas\EstadoHuella.cs" />
+    <Compile Include="Clases\Huellas\Huella.cs" />
+    <Compile Include="Clases\Huellas\LectorHuellas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clases\Huellas\LectorHuellas.Designer.cs">
+      <DependentUpon>LectorHuellas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Huellas\LectorHuellasv2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clases\Huellas\LectorHuellasv2.Designer.cs">
+      <DependentUpon>LectorHuellasv2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clases\InputBox.cs" />
     <Compile Include="Clases\KardexPT.cs" />
     <Compile Include="Clases\Marcas.cs" />
@@ -1896,6 +1919,50 @@
       <DependentUpon>frmOpciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\GrupoUser.cs" />
+    <Compile Include="Huellas\dsHuellasManto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHuellasManto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Huellas\dsHuellasX.Designer.cs" />
+    <Compile Include="Huellas\frmControlAsistencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Huellas\frmControlAsistencias.Designer.cs">
+      <DependentUpon>frmControlAsistencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Huellas\frmGestionAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Huellas\frmGestionAsistencia.Designer.cs">
+      <DependentUpon>frmGestionAsistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Huellas\frmIdentificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Huellas\frmIdentificar.Designer.cs">
+      <DependentUpon>frmIdentificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Huellas\frmMantenimientoHuellas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Huellas\frmMantenimientoHuellas.Designer.cs">
+      <DependentUpon>frmMantenimientoHuellas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Huellas\frmProcesando.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Huellas\frmProcesando.Designer.cs">
+      <DependentUpon>frmProcesando.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Huellas\frm_addHuella.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Huellas\frm_addHuella.Designer.cs">
+      <DependentUpon>frm_addHuella.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Huellas\Util.cs" />
+    <Compile Include="Huellas\Util2.cs" />
     <Compile Include="JaguarProduccion\dsProduccion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2745,6 +2812,13 @@
     <None Include="Clases\dsColleccionesClases.xss">
       <DependentUpon>dsColleccionesClases.xsd</DependentUpon>
     </None>
+    <None Include="Clases\Huellas\dsDetalleHuellas.xsc">
+      <DependentUpon>dsDetalleHuellas.xsd</DependentUpon>
+    </None>
+    <None Include="Clases\Huellas\dsDetalleHuellas.xsd" />
+    <None Include="Clases\Huellas\dsDetalleHuellas.xss">
+      <DependentUpon>dsDetalleHuellas.xsd</DependentUpon>
+    </None>
     <None Include="Compras\dsCompras.xsc">
       <DependentUpon>dsCompras.xsd</DependentUpon>
     </None>
@@ -3072,6 +3146,24 @@
     </None>
     <None Include="Formulas\dsFormulasCRUD.xss">
       <DependentUpon>dsFormulasCRUD.xsd</DependentUpon>
+    </None>
+    <None Include="Huellas\dsHuellasManto.xsc">
+      <DependentUpon>dsHuellasManto.xsd</DependentUpon>
+    </None>
+    <None Include="Huellas\dsHuellasManto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHuellasManto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Huellas\dsHuellasManto.xss">
+      <DependentUpon>dsHuellasManto.xsd</DependentUpon>
+    </None>
+    <None Include="Huellas\dsHuellasX.xsc">
+      <DependentUpon>dsHuellasX.xsd</DependentUpon>
+    </None>
+    <None Include="Huellas\dsHuellasX.xsd" />
+    <None Include="Huellas\dsHuellasX.xss">
+      <DependentUpon>dsHuellasX.xsd</DependentUpon>
     </None>
     <None Include="JaguarProduccion\dsProduccion.xsc">
       <DependentUpon>dsProduccion.xsd</DependentUpon>
@@ -3844,6 +3936,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsMaestroEmpleados.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\frmBuscarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\frmBuscarEmpleado.Designer.cs">
+      <DependentUpon>frmBuscarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\frmEmployeeBeneficiariosHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4385,6 +4483,12 @@
     <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMP.resx">
       <DependentUpon>frmSearchMP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clases\Huellas\LectorHuellas.resx">
+      <DependentUpon>LectorHuellas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clases\Huellas\LectorHuellasv2.resx">
+      <DependentUpon>LectorHuellasv2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmOCompraAutorizacion.resx">
       <DependentUpon>frmOCompraAutorizacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -4802,6 +4906,24 @@
     <EmbeddedResource Include="frmOpciones.resx">
       <DependentUpon>frmOpciones.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Huellas\frmControlAsistencias.resx">
+      <DependentUpon>frmControlAsistencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Huellas\frmGestionAsistencia.resx">
+      <DependentUpon>frmGestionAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Huellas\frmIdentificar.resx">
+      <DependentUpon>frmIdentificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Huellas\frmMantenimientoHuellas.resx">
+      <DependentUpon>frmMantenimientoHuellas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Huellas\frmProcesando.resx">
+      <DependentUpon>frmProcesando.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Huellas\frm_addHuella.resx">
+      <DependentUpon>frm_addHuella.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JaguarProduccion\frmAddAvanceProduccionBolsasGroupByProducto.resx">
       <DependentUpon>frmAddAvanceProduccionBolsasGroupByProducto.cs</DependentUpon>
@@ -5914,6 +6036,8 @@
     <Content Include="normac_ico_.ico" />
     <None Include="Resources\Ionic-Ionicons-Add-circle-sharp.32.png" />
     <None Include="Resources\rec_inventory.png" />
+    <None Include="Resources\varita-magica24.png" />
+    <None Include="Resources\Custom-Save.24.png" />
     <Content Include="WhatsApp Image 2025-03-01 at 11.15.59 AM.ico" />
     <None Include="Resources\xml_24x24.png" />
     <None Include="Resources\_click_24X24.png" />
@@ -6185,6 +6309,17 @@
     <Folder Include="Facturacion\Numeracion Fiscal\Model\" />
     <Folder Include="Mantenimientos\Facturacion\" />
     <Folder Include="RRHH_Planilla\Planilla\HorasExtra\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="GrFingerXLib">
+      <Guid>{A9995C7C-77BF-4E27-B581-A4B5BBD90E50}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

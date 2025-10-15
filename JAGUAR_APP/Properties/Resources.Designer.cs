@@ -963,6 +963,16 @@ namespace JAGUAR_PRO.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Custom_Save_24 {
+            get {
+                object obj = ResourceManager.GetObject("Custom-Save.24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dakirby309_Simply_Styled_Settings {
             get {
                 object obj = ResourceManager.GetObject("Dakirby309-Simply-Styled-Settings", resourceCulture);
@@ -3226,6 +3236,16 @@ namespace JAGUAR_PRO.Properties {
         internal static System.Drawing.Bitmap Users_Group_icon64px {
             get {
                 object obj = ResourceManager.GetObject("Users-Group-icon64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap varita_magica24 {
+            get {
+                object obj = ResourceManager.GetObject("varita-magica24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
