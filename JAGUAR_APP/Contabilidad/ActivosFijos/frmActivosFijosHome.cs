@@ -58,8 +58,10 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos
                 if (frm.af1 != null)
                 {
                     DataRow dr = dsActivosFijos1.lista_activos_fijos.NewRow();
+                    Clases.ActivosFijos af = new Clases.ActivosFijos();
+                    af.RecuperarRegistros(frm.af1.ActivoId);
                     dr[0] = frm.af1.ActivoId;
-                    dr[1] = frm.af1.CodigoActivo;
+                    dr[1] = af.CodigoActivo;
                     dr[2] = frm.af1.NombreActivo;
                     dr[3] = frm.af1.FechaCompra;
                     dr[4] = frm.af1.ValorCompra;
@@ -122,6 +124,7 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos
                 {
                     if (frm.af1 != null)
                     {
+                        
                         row.CodigoActivo = frm.af1.CodigoActivo;
                         row.NombreActivo = frm.af1.NombreActivo;
                         row.FechaCompra = frm.af1.FechaCompra;

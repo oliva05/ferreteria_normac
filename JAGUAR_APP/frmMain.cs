@@ -59,7 +59,7 @@ namespace JAGUAR_PRO
             //    Log1.Id = 1067;
             //    Log1.GrupoUsuario.GrupoUsuarioActivo = GrupoUser.GrupoUsuario.Produccion;
             //}
-            
+
             //frmOpciones frm = new frmOpciones(Log1);
             //frm.MdiParent = this.MdiParent;
             //frm.WindowState = FormWindowState.Maximized;
@@ -153,12 +153,12 @@ namespace JAGUAR_PRO
             //}
             ////Select del grupo al que pertenece el usuario
             ////Iniciar la variable de sesion con el grupo activo.
-            
+
             #endregion
             ValidateUserInfo();
         }
 
-        
+
 
         private void ValidateUserInfo()
         {
@@ -248,9 +248,10 @@ namespace JAGUAR_PRO
         {
             lblVersion.Text = AssemblyVersion;
             string HostName = Dns.GetHostName();
-            if (HostName == "7L12TV3" || HostName == "F3DYSQ2" /*Danys Oliva*/ || 
-                HostName == "RubenGarcia-PC" || HostName == "9PG91W2" /*Ruben Garcia */ || 
-                HostName == "F9Q11Q2" /*PC Soporte La 50*/|| 
+            if (HostName == "7L12TV3" || HostName == "F3DYSQ2" /*Danys Oliva*/ ||
+                HostName == "RubenGarcia-PC" || HostName == "9PG91W2" /*Ruben Garcia */ ||
+                HostName == "F9Q11Q2" /*PC Soporte La 50*/ ||
+                HostName == "6G1SST3" /* Pc Ruben Aquafeed*/||
                 HostName == "DESKTOP-U63MQ6A" ||
                 HostName == "EUCEDA-PC" /*Euceda*/)
             {

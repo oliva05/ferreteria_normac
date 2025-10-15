@@ -167,19 +167,19 @@ namespace JAGUAR_PRO.Contabilidad.ActivosFijos
                 return;
             }
 
-            if (Convert.ToInt32(grdCuentaContable.EditValue) > 0)
+            if (Convert.ToInt32(grdCuentaContable.EditValue) < 0)
             {
                 CajaDialogo.Error("Debe seleccionar una Cuenta Contable!");
                 return;
             }
 
-            if (Convert.ToInt32(grdCuentaDepreciacion.EditValue) > 0)
+            if (Convert.ToInt32(grdCuentaDepreciacion.EditValue) < 0)
             {
                 CajaDialogo.Error("Debe seleccionar una Cuenta de Depreciacion!");
                 return;
             }
 
-            if (Convert.ToInt32(grdCuentaGasto.EditValue) > 0)
+            if (Convert.ToInt32(grdCuentaGasto.EditValue) < 0)
             {
                 CajaDialogo.Error("Debe seleccionar una Cuenta de Gastos!");
                 return;
