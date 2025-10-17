@@ -17,13 +17,14 @@ using NormacApp.Models;
 using JAGUAR_PRO.Clases;
 using ACS.Classes;
 using GrFingerXLib;
+using AxGrFingerXLib;
 
 namespace Proyecto.Huellas
 {
     public partial class frmControlAsistencias : Form
     {
         public const int ERR_INVALID_TEMPLATE = -997;
-        AxGrFingerXLib.AxGrFingerXCtrl _grfingerx;
+        AxGrFingerXCtrl _grfingerx;
         private TTemplate _tpt;
         Util myUtil;
 

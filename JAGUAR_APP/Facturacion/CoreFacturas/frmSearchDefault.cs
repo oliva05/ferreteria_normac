@@ -67,6 +67,8 @@ namespace LOSA.Calidad.LoteConfConsumo
                     LoadData();
                     break;
                 case TipoBusqueda.Empleados:
+                    gridView1.Columns["inv"].Visible = false; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
+                    gridView1.Columns["precio"].Visible = false; //Permite mostrar o ocultar una columna, se utiliza colocando el string de FieldName que se define desde el dataset
                     LoadDataEmpleados();
                     break;
                 case TipoBusqueda.PresentacionEmpaqueALOSY:
@@ -117,11 +119,11 @@ namespace LOSA.Calidad.LoteConfConsumo
                 cmd.Parameters.AddWithValue("@tipo_facturacion", 2);
                 cmd.Parameters.AddWithValue("@id_punto_venta", this.PuntoVentaActual.ID);
 
-                dsConfigLoteConsumo1.search_mp.Clear();
+                dsBusquedaPRO1.search_mp.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                adat.Fill(dsConfigLoteConsumo1.search_mp);
+                adat.Fill(dsBusquedaPRO1.search_mp);
 
-                dv = new DataView(dsConfigLoteConsumo1.search_mp);
+                dv = new DataView(dsBusquedaPRO1.search_mp);
                 con.Close();
             }
             catch (Exception ec)

@@ -28,6 +28,7 @@ namespace Proyecto.Huellas
             fingerprint = new FingerprintCore();
             fingerprint.onStatus += new StatusEventHandler(Fingerprint_onStatus);
             fingerprint.onImage += new ImageEventHandler(FingerPrint_onImage);
+            //fingerprint.StartCapture();
         }
 
         void Fingerprint_onStatus(object sender, GriauleFingerprintLibrary.Events.StatusEventArgs se)
@@ -66,8 +67,9 @@ namespace Proyecto.Huellas
 
         private void frm_addHuella_Load(object sender, EventArgs e)
         {
+            fingerprint.Initialize();
+            fingerprint.CaptureInitialize();
         }
-
 
         private delegate void delSetImage(Image img);
         void SetImage(Image img)
@@ -126,7 +128,6 @@ namespace Proyecto.Huellas
 
             if (Convert.ToDouble(pbQuality.Position) > 60)
             {
-
                 cmdGuardar_Click(new object(), new EventArgs());
             }
             else
@@ -176,11 +177,11 @@ namespace Proyecto.Huellas
 
         static void Procesando()
         {
-            int TiempoP = 3000;
+            //int TiempoP = 100;
             administracion.Huellas.frmProcesando frmProceso = new administracion.Huellas.frmProcesando();
 
             frmProceso.ShowDialog();
-            Thread.Sleep(TiempoP);
+            //Thread.Sleep(TiempoP);
             frmProceso.Close();
         }
 
@@ -191,6 +192,8 @@ namespace Proyecto.Huellas
                 CalidadHuellaInt = pbQuality.Position;
                 Thread tr = new Thread(Procesando);
                 tr.Start();
+                fingerprint.CaptureFinalize();
+                fingerprint.Finalizer();
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             }
             else
@@ -203,13 +206,29 @@ namespace Proyecto.Huellas
         {
             try
             {
-                //fingerprint.CaptureFinalize();
-                //fingerprint.Finalizer();
+                fingerprint.CaptureFinalize();
+                //fingerprint.StopCapture(sender);
+                fingerprint.Finalizer();
                 this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            }
+            catch(Exception ex) 
+            {
+
+            }
+        }
+
+        private void frm_addHuella_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                fingerprint.Initialize();
+                fingerprint.CaptureInitialize();
+
+                fingerprint.Finalizer();
+                fingerprint.CaptureFinalize();
             }
             catch
             {
-
             }
         }
     }

@@ -200,6 +200,7 @@
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
+            this.gridControl2.Click += new System.EventHandler(this.gridControl2_Click);
             // 
             // dsHuellasManto1
             // 
@@ -356,7 +357,7 @@
             this.cmdGuardar.FlatAppearance.BorderSize = 2;
             this.cmdGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.cmdGuardar.Image = global::JAGUAR_PRO.Properties.Resources.Custom_Save_24;
+            this.cmdGuardar.Image = global::JAGUAR_PRO.Properties.Resources.Custom_Save_24;
             this.cmdGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdGuardar.Location = new System.Drawing.Point(613, 15);
             this.cmdGuardar.Name = "cmdGuardar";
@@ -435,7 +436,7 @@
             this.cmdIniciarAsistente.FlatAppearance.BorderSize = 2;
             this.cmdIniciarAsistente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdIniciarAsistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.cmdIniciarAsistente.Image = global::JAGUAR_PRO.Properties.Resources.varita_magica24;
+            this.cmdIniciarAsistente.Image = global::JAGUAR_PRO.Properties.Resources.varita_magica24;
             this.cmdIniciarAsistente.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.cmdIniciarAsistente.Location = new System.Drawing.Point(1, 37);
             this.cmdIniciarAsistente.Name = "cmdIniciarAsistente";
@@ -445,6 +446,7 @@
             this.cmdIniciarAsistente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdIniciarAsistente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.cmdIniciarAsistente.UseVisualStyleBackColor = false;
+            this.cmdIniciarAsistente.Visible = false;
             this.cmdIniciarAsistente.Click += new System.EventHandler(this.cmdIniciarAsistente_Click);
             // 
             // timer1
