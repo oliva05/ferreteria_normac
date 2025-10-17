@@ -200,6 +200,7 @@
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
+            this.gridControl2.Click += new System.EventHandler(this.gridControl2_Click);
             // 
             // dsHuellasManto1
             // 
@@ -445,6 +446,7 @@
             this.cmdIniciarAsistente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdIniciarAsistente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.cmdIniciarAsistente.UseVisualStyleBackColor = false;
+            this.cmdIniciarAsistente.Visible = false;
             this.cmdIniciarAsistente.Click += new System.EventHandler(this.cmdIniciarAsistente_Click);
             // 
             // timer1

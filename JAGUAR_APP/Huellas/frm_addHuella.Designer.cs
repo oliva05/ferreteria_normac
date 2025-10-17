@@ -55,7 +55,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 101);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -72,6 +71,8 @@
             // 
             this.pbQuality.Location = new System.Drawing.Point(7, 228);
             this.pbQuality.Name = "pbQuality";
+            this.pbQuality.Properties.FlowAnimationDelay = 500;
+            this.pbQuality.Properties.ShowTitle = true;
             this.pbQuality.Size = new System.Drawing.Size(193, 18);
             this.pbQuality.TabIndex = 32;
             // 
@@ -121,6 +122,7 @@
             this.Name = "frm_addHuella";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Huella";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_addHuella_FormClosing);
             this.Load += new System.EventHandler(this.frm_addHuella_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbQuality.Properties)).EndInit();

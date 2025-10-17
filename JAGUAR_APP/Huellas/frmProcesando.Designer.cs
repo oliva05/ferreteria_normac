@@ -29,31 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-           // this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
-            // 
-            // ultraLabel1
-            // 
-            //this.ultraLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.ultraLabel1.Location = new System.Drawing.Point(74, 30);
-            //this.ultraLabel1.Name = "ultraLabel1";
-            //this.ultraLabel1.Size = new System.Drawing.Size(117, 23);
-            //this.ultraLabel1.TabIndex = 0;
-            //this.ultraLabel1.Text = "Procesando...";
             // 
             // timer1
             // 
-            this.timer1.Interval = 4500;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(13, 30);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(239, 23);
+            this.progressBar1.TabIndex = 0;
             // 
             // frmProcesando
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 82);
+            this.ClientSize = new System.Drawing.Size(264, 81);
             this.ControlBox = false;
-            //this.Controls.Add(this.ultraLabel1);
+            this.Controls.Add(this.progressBar1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(280, 120);
             this.MinimizeBox = false;
@@ -69,6 +67,7 @@
         #endregion
 
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ProgressBar progressBar1;
         //public Infragistics.Win.Misc.UltraLabel ultraLabel1;
     }
 }

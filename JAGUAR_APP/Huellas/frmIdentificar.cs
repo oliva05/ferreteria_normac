@@ -1,5 +1,8 @@
-﻿using core.Clases;
+﻿using ACS.Classes;
+using core.Clases;
 using core.Clases.Huellas;
+using GriauleFingerprintLibrary;
+using JAGUAR_PRO.Huellas;
 using NormacApp.Models;
 
 //using GrFingerXLib;
@@ -20,65 +23,164 @@ namespace administracion.Huellas
 {
     public partial class frmIdentificar : Form
     {
-        //FingerprintCore fingerprint = new FingerprintCore();
-        DBClass _DB;
-        //Util myUtil;
-        SqlConnection psConnection;
         Huella huella;
         hr_employee EmpleadoIdentificado;
         dsHuellasX dsHuellas = new dsHuellasX();
-        public event EventHandler OnEstudianteEncontrado;
+        public event EventHandler Onhr_employeeEncontrado;
 
-        public frmIdentificar(SqlConnection pConnection)
+        public frmIdentificar()
         {
             InitializeComponent();
-
-            psConnection = pConnection;
-
-            huella = new Huella();
-            _DB = new DBClass();
-            ////myUtil = new Util(pConnection);
-            //fingerPrint = new GriauleFingerprintLibrary.FingerprintCore();
-            //fingerPrint.onStatus += new GriauleFingerprintLibrary.StatusEventHandler(fingerPrint_onStatus);
-            //fingerPrint.onImage += new GriauleFingerprintLibrary.ImageEventHandler(fingerPrint_onImage);
+            try
+            {
+                huella = new Huella();
+                fingerPrint = new GriauleFingerprintLibrary.FingerprintCore();
+                fingerPrint.onStatus += new StatusEventHandler(fingerPrint_onStatus);
+                fingerPrint.onImage += new ImageEventHandler(fingerPrint_onImage);
+                //InicializarLector();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+                //statusStrip1.Text = ec.Message;
+            }
         }
 
-        //private GriauleFingerprintLibrary.FingerprintCore fingerPrint;
-        //private GriauleFingerprintLibrary.DataTypes.FingerprintRawImage rawImage_Huella;
-        //private GriauleFingerprintLibrary.DataTypes.FingerprintTemplate _template;
-        //void fingerPrint_onStatus(object source, GriauleFingerprintLibrary.Events.StatusEventArgs se)
-        //{
-        //    if (se.StatusEventType == GriauleFingerprintLibrary.Events.StatusEventType.SENSOR_PLUG)
-        //    {
-        //        fingerPrint.StartCapture(source.ToString());
-        //    }
-        //    else
-        //    {
-        //        fingerPrint.StopCapture(source);
-        //    }
-        //}
+        private GriauleFingerprintLibrary.FingerprintCore fingerPrint;
+        private GriauleFingerprintLibrary.DataTypes.FingerprintRawImage rawImage_Huella;
+        private GriauleFingerprintLibrary.DataTypes.FingerprintTemplate _template;
+        void fingerPrint_onStatus(object source, GriauleFingerprintLibrary.Events.StatusEventArgs se)
+        {
+            if (se.StatusEventType == GriauleFingerprintLibrary.Events.StatusEventType.SENSOR_PLUG)
+            {
+                fingerPrint.StartCapture(source.ToString());
+            }
+            else
+            {
+                fingerPrint.StopCapture(source);
+            }
+        }
 
-        //void fingerPrint_onImage(object source, GriauleFingerprintLibrary.Events.ImageEventArgs ie)
-        //{
-        //    //rawImage_Huella = ie.RawImage;
-        //    //setImage(ie.RawImage.Image);
-        //    //if (rawImage_Huella != null)
-        //    //{
-        //    //    try
-        //    //    {
-        //    //        _template = null;
-        //    //        fingerPrint.Extract(rawImage_Huella, ref _template);
-        //    //        SetQualityBar(_template.Quality);
-        //    //        DisplayImage(_template, false);
-        //    //    }
-        //    //    catch
-        //    //    {
+        void fingerPrint_onImage(object source, GriauleFingerprintLibrary.Events.ImageEventArgs ie)
+        {
+            rawImage_Huella = ie.RawImage;
+            setImage(ie.RawImage.Image);
+            if (rawImage_Huella != null)
+            {
+                try
+                {
+                    _template = null;
+                    fingerPrint.Extract(rawImage_Huella, ref _template);
+                    SetQualityBar(_template.Quality);
+                    DisplayImage(_template, false);
+                }
+                catch
+                {
 
-        //    //    }
-        //    //}
+                }
+            }
 
-        //    fingerPrint_OnImage(source, ie);
-        //}
+            fingerPrint_OnImage(source, ie);
+        }
+        void fingerPrint_OnImage(object source, GriauleFingerprintLibrary.Events.ImageEventArgs ie)
+        {
+            try
+            {
+                rawImage_Huella = ie.RawImage;
+                //_template = new GriauleFingerprintLibrary.DataTypes.FingerprintTemplate();
+                fingerPrint.Extract(rawImage_Huella, ref _template);
+                byte[] dataTemp;
+                GriauleFingerprintLibrary.DataTypes.FingerprintTemplate templateTemp;
+                int precision, calidad;
+
+                DataOperations dp = new DataOperations();
+                SqlConnection psConnection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                psConnection.Open();
+                // selecciono 
+                SqlCommand cmdGetTemplates;
+                string sql = @"dbo.sp_get_all_huellas";
+
+                //Configurando el comando
+                cmdGetTemplates = new SqlCommand(sql, psConnection);
+                cmdGetTemplates.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmdGetTemplates);
+
+                dsHuellasManto1.HuellasAll_employees.Clear();
+                adap.Fill(dsHuellasManto1.HuellasAll_employees);
+                fingerPrint.IdentifyPrepare(_template);
+
+
+                foreach (dsHuellasManto.HuellasAll_employeesRow huella in dsHuellasManto1.HuellasAll_employees.Rows)
+                {
+
+                    dataTemp = (byte[])huella.huella;
+                    calidad = 50;
+                    templateTemp = new GriauleFingerprintLibrary.DataTypes.FingerprintTemplate();
+                    templateTemp.Buffer = dataTemp;
+                    templateTemp.Size = dataTemp.Length;
+                    templateTemp.Quality = calidad;
+
+                    precision = 1;
+
+                    int result = fingerPrint.Identify(templateTemp, out precision);
+                    //int result = 1;
+                    //WriteLog("kj");
+                    if (result == 1)
+                    {
+                        hr_employee ess = new hr_employee();
+                        if (ess.GetById(huella.id_empleado))
+                        {
+
+                            EmpleadoIdentificado = ess;
+                            //lblNombre.Text = ess.Nombres + " " + ess.Apellidos;
+                            //lblAsistencia.Visible = lblNombre.Visible = true;
+
+
+                            //MessageBox.Show("Huella encontrada con exito!");
+                            //SendKeys.Send("{ENTER}");
+                            //Onhr_employeeEncontrado(source, new EventArgs());
+
+                            //Thread tr = new Thread(Procesando);
+                            //tr.Start();
+                            if (MarcarAsistencia(EmpleadoIdentificado.Id))
+                            {
+                                lblAsistencia.Text = "Marca realizada con exito!";
+                                lblAsistencia.BackColor = Color.Transparent;
+                                this.Invoke(new SetName(SetNameF), new object[] { String.Format("{0}", ess.Name) });
+                            }
+                            else
+                            {
+                                lblAsistencia.Text = "No se pudo realizar el marcaje!";
+                                lblAsistencia.BackColor = Color.LightPink;
+                                this.Invoke(new SetName(SetNameF), new object[] { String.Format("{0}", ess.Name) });
+                            }
+                            //this.Invoke(new CleanData(CleanAll), new object[] { });
+
+                            return;
+                        }
+                        break;
+                    }//end if
+                }
+            }
+            catch (Exception ex)
+            {
+                //statusStrip1.Text = ex.Message;
+                MessageBox.Show(ex.Message);
+                this.Invoke(new SetName(SetNameError), new object[] { String.Format("{0}", ex.Message) });
+            }
+        }
+
+        void SetNameError(string a)
+        {
+            //lblMensaje.Visible = true;
+            //lblMensaje.Text = a;
+            //lblNombre.Text = LblHoraMarcada.Text = "";
+            //LblHoraMarcada.Visible = lblNombre.Visible = false;
+            timerResetLabels.Start();
+        }
+
+
 
         private delegate void delSetImage(Image img);
         void setImage(Image img)
@@ -94,46 +196,46 @@ namespace administracion.Huellas
             }
         }
 
-        //private void ExtractTemplate()
-        //{
-        //    if (rawImage_Huella != null)
-        //    {
-        //        try
-        //        {
-        //            _template = null;
-        //            fingerPrint.Extract(rawImage_Huella, ref _template);
-        //            SetQualityBar(_template.Quality);
-        //            DisplayImage(_template, false);
-        //        }
-        //        catch
-        //        {
+        private void ExtractTemplate()
+        {
+            if (rawImage_Huella != null)
+            {
+                try
+                {
+                    _template = null;
+                    fingerPrint.Extract(rawImage_Huella, ref _template);
+                    SetQualityBar(_template.Quality);
+                    DisplayImage(_template, false);
+                }
+                catch
+                {
 
-        //        }
-        //    }
-        //}
+                }
+            }
+        }
 
-        //private void DisplayImage(GriauleFingerprintLibrary.DataTypes.FingerprintTemplate template, bool identify)
-        //{
-        //    IntPtr hdc = FingerprintCore.GetDC();
-        //    IntPtr image = new IntPtr();
+        private void DisplayImage(GriauleFingerprintLibrary.DataTypes.FingerprintTemplate template, bool identify)
+        {
+            IntPtr hdc = FingerprintCore.GetDC();
+            IntPtr image = new IntPtr();
 
-        //    if (identify)
-        //    {
-        //        fingerPrint.GetBiometricDisplay(template, rawImage_Huella, hdc, ref image, FingerprintConstants.GR_DEFAULT_CONTEXT);
-        //    }
-        //    else
-        //    {
-        //        fingerPrint.GetBiometricDisplay(template, rawImage_Huella, hdc, ref image, FingerprintConstants.GR_NO_CONTEXT);
-        //    }
-        //    setImage(Bitmap.FromHbitmap(image));
-        //    FingerprintCore.ReleaseDC(hdc);
-        //}
+            if (identify)
+            {
+                fingerPrint.GetBiometricDisplay(template, rawImage_Huella, hdc, ref image, FingerprintConstants.GR_DEFAULT_CONTEXT);
+            }
+            else
+            {
+                fingerPrint.GetBiometricDisplay(template, rawImage_Huella, hdc, ref image, FingerprintConstants.GR_NO_CONTEXT);
+            }
+            setImage(Bitmap.FromHbitmap(image));
+            FingerprintCore.ReleaseDC(hdc);
+        }
 
-        //private void Form1_Load(object sender, EventArgs e)
-        //{
-        //    fingerPrint.Initialize();
-        //    fingerPrint.CaptureInitialize();
-        //}
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            fingerPrint.Initialize();
+            fingerPrint.CaptureInitialize();
+        }
 
         delegate void delsetQuality(int quality);
 
@@ -185,19 +287,19 @@ namespace administracion.Huellas
         //        SqlCommand cmdGetTemplates;
         //        string sql = @" SELECT 
         //                          id_huella,
-        //                          eh.id_estudiante,
+        //                          eh.id_hr_employee,
         //                          huella,
         //                          mano,
         //                          dedo
-        //                        FROM admon.estudiantes_huellas eh join
-        //                             admon.estudiante ee on
-        //                             eh.id_estudiante = ee.id_estudiante
-        //                        where ee.habilitado order by eh.id_estudiante asc";
+        //                        FROM admon.hr_employees_huellas eh join
+        //                             admon.hr_employee ee on
+        //                             eh.id_hr_employee = ee.id_hr_employee
+        //                        where ee.habilitado order by eh.id_hr_employee asc";
 
         //        //Configurando el comando
         //        cmdGetTemplates = new SqlCommand(sql, psConnection);
 
-        //        PgSqlDataAdapter adap = new PgSqlDataAdapter(cmdGetTemplates);
+        //        SqlDataAdapter adap = new SqlDataAdapter(cmdGetTemplates);
         //        dsHuellas.Huellas.Clear();
         //        adap.Fill(dsHuellas.Huellas);
         //        //fingerPrint.IdentifyPrepare(_template);
@@ -224,8 +326,8 @@ namespace administracion.Huellas
         //            //WriteLog("kj");
         //            if (result == 1)
         //            {
-        //                Estudiante ess = new Estudiante(psConnection);
-        //                if (ess.RecuperarRegistro(huella.id_estudiante))
+        //                hr_employee ess = new hr_employee(psConnection);
+        //                if (ess.RecuperarRegistro(huella.id_hr_employee))
         //                {
         //                    EmpleadoIdentificado = ess;
         //                    //lblNombre.Text = ess.Nombres + " " + ess.Apellidos;
@@ -234,11 +336,11 @@ namespace administracion.Huellas
 
         //                    //MessageBox.Show("Huella encontrada con exito!");
         //                    //SendKeys.Send("{ENTER}");
-        //                    //OnEstudianteEncontrado(source, new EventArgs());
+        //                    //Onhr_employeeEncontrado(source, new EventArgs());
 
         //                    //Thread tr = new Thread(Procesando);
         //                    //tr.Start();
-        //                    if (MarcarAsistencia(EmpleadoIdentificado.IdEstudiante))
+        //                    if (MarcarAsistencia(EmpleadoIdentificado.Idhr_employee))
         //                    {
         //                        lblAsistencia.Text = "Asistencia marcada con exito!";
         //                        lblAsistencia.BackColor = Color.LightGreen;
@@ -270,7 +372,7 @@ namespace administracion.Huellas
         //    }
         //}
 
-        bool MarcarAsistencia(int id_Estudiante)
+        bool MarcarAsistencia(int id_hr_employee)
         {
             //ConfiguracionSuccess conf1 = new ConfiguracionSuccess(psConnection);
             //DateTime FechaActual = conf1.FechaNow();
@@ -302,9 +404,9 @@ namespace administracion.Huellas
 
             //try
             //{
-            //    string sql = "select * from admon.ft_asistencia_huella (:p_id_estudiante, :p_id_dia)";
+            //    string sql = "select * from admon.ft_asistencia_huella (:p_id_hr_employee, :p_id_dia)";
             //    SqlCommand cmd = new SqlCommand(sql, psConnection);
-            //    cmd.Parameters.AddWithValue("p_id_estudiante", id_Estudiante);
+            //    cmd.Parameters.AddWithValue("p_id_hr_employee", id_hr_employee);
             //    cmd.Parameters.AddWithValue("p_id_dia", dia);
             //    return Convert.ToBoolean(cmd.ExecuteScalar());
 
@@ -418,14 +520,14 @@ namespace administracion.Huellas
             //{
             //    hr_employee ess = new hr_employee();
             //    ess.Id = ess.GetIdStudentFromToken(id_token);
-            //    if (ess.IdEstudiante>0)
+            //    if (ess.Idhr_employee>0)
             //    {
                    
-            //        if (ess.RecuperarRegistro(ess.IdEstudiante))
+            //        if (ess.RecuperarRegistro(ess.Idhr_employee))
             //        {
             //            EmpleadoIdentificado = ess;
             //            txtCode.Text = "";
-            //            if (MarcarAsistencia(EmpleadoIdentificado.IdEstudiante))
+            //            if (MarcarAsistencia(EmpleadoIdentificado.Idhr_employee))
             //            {
             //                lblAsistencia.Text = "Asistencia marcada con exito!";
             //                lblAsistencia.BackColor = Color.LightGreen;

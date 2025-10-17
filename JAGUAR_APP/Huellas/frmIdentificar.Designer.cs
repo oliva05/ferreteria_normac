@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIdentificar));
             this.lblNombre = new System.Windows.Forms.Label();
-            //this.acceptPict = new Infragistics.Win.UltraWinEditors.UltraPictureBox();
             this.lblAsistencia = new System.Windows.Forms.Label();
             this.timerResetLabels = new System.Windows.Forms.Timer(this.components);
             this.txtCode = new System.Windows.Forms.TextBox();
+            this.dsHuellasManto1 = new JAGUAR_PRO.Huellas.dsHuellasManto();
+            ((System.ComponentModel.ISupportInitialize)(this.dsHuellasManto1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -49,20 +49,6 @@
             this.lblNombre.TabIndex = 1;
             this.lblNombre.Visible = false;
             this.lblNombre.Click += new System.EventHandler(this.lblNombre_Click);
-            // 
-            // acceptPict
-            // 
-            //this.acceptPict.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            //this.acceptPict.BorderShadowColor = System.Drawing.Color.Empty;
-            //this.acceptPict.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dashed;
-            //this.acceptPict.Cursor = System.Windows.Forms.Cursors.Hand;
-            //this.acceptPict.Image = ((object)(resources.GetObject("acceptPict.Image")));
-            //this.acceptPict.Location = new System.Drawing.Point(549, 301);
-            //this.acceptPict.Name = "acceptPict";
-            //this.acceptPict.Size = new System.Drawing.Size(63, 67);
-            //this.acceptPict.TabIndex = 33;
-            //this.acceptPict.Visible = false;
-            //this.acceptPict.Click += new System.EventHandler(this.acceptPict_Click);
             // 
             // lblAsistencia
             // 
@@ -85,23 +71,26 @@
             // txtCode
             // 
             this.txtCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCode.Location = new System.Drawing.Point(515, 425);
+            this.txtCode.Location = new System.Drawing.Point(416, 425);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(100, 20);
             this.txtCode.TabIndex = 0;
             this.txtCode.Click += new System.EventHandler(this.txtCode_Click);
             this.txtCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCode_KeyDown);
             // 
+            // dsHuellasManto1
+            // 
+            this.dsHuellasManto1.DataSetName = "dsHuellasManto";
+            this.dsHuellasManto1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // frmIdentificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            //this.BackgroundImage = global::administracion.Properties.Resources.Diseño_Pantalla_Digital_3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(615, 445);
             this.Controls.Add(this.lblAsistencia);
-            //this.Controls.Add(this.acceptPict);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtCode);
             this.Name = "frmIdentificar";
@@ -109,6 +98,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmIdentificar_FormClosing);
             this.Load += new System.EventHandler(this.frmIdentificar_Load);
             this.Click += new System.EventHandler(this.frmIdentificar_Click);
+            ((System.ComponentModel.ISupportInitialize)(this.dsHuellasManto1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +110,6 @@
         private System.Windows.Forms.Label lblAsistencia;
         private System.Windows.Forms.Timer timerResetLabels;
         private System.Windows.Forms.TextBox txtCode;
+        private JAGUAR_PRO.Huellas.dsHuellasManto dsHuellasManto1;
     }
 }

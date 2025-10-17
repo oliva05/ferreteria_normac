@@ -199,7 +199,7 @@ namespace NormacApp.Models
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al recuperar empleado: " + ex.Message);
+                CajaDialogo.Error("Error al recuperar empleado: " + ex.Message);
             }
 
             return found;
