@@ -37,7 +37,24 @@ namespace administracion.Huellas
                 fingerPrint = new GriauleFingerprintLibrary.FingerprintCore();
                 fingerPrint.onStatus += new StatusEventHandler(fingerPrint_onStatus);
                 fingerPrint.onImage += new ImageEventHandler(fingerPrint_onImage);
-                //InicializarLector();
+
+
+                DataOperations dp = new DataOperations();
+                SqlConnection psConnection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                psConnection.Open();
+                // selecciono 
+                SqlCommand cmdGetTemplates;
+                string sql = @"dbo.sp_get_all_huellas";
+
+                //Configurando el comando
+                cmdGetTemplates = new SqlCommand(sql, psConnection);
+                cmdGetTemplates.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmdGetTemplates);
+
+                dsHuellasManto1.HuellasAll_employees.Clear();
+                adap.Fill(dsHuellasManto1.HuellasAll_employees);
+
             }
             catch (Exception ec)
             {
@@ -93,21 +110,7 @@ namespace administracion.Huellas
                 GriauleFingerprintLibrary.DataTypes.FingerprintTemplate templateTemp;
                 int precision, calidad;
 
-                DataOperations dp = new DataOperations();
-                SqlConnection psConnection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                psConnection.Open();
-                // selecciono 
-                SqlCommand cmdGetTemplates;
-                string sql = @"dbo.sp_get_all_huellas";
-
-                //Configurando el comando
-                cmdGetTemplates = new SqlCommand(sql, psConnection);
-                cmdGetTemplates.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter adap = new SqlDataAdapter(cmdGetTemplates);
-
-                dsHuellasManto1.HuellasAll_employees.Clear();
-                adap.Fill(dsHuellasManto1.HuellasAll_employees);
+               
                 fingerPrint.IdentifyPrepare(_template);
 
 
@@ -133,6 +136,7 @@ namespace administracion.Huellas
                         {
 
                             EmpleadoIdentificado = ess;
+                            //CajaDialogo.Information("Cantarito: " + ess.Name);
                             //lblNombre.Text = ess.Nombres + " " + ess.Apellidos;
                             //lblAsistencia.Visible = lblNombre.Visible = true;
 
@@ -145,14 +149,14 @@ namespace administracion.Huellas
                             //tr.Start();
                             if (MarcarAsistencia(EmpleadoIdentificado.Id))
                             {
-                                lblAsistencia.Text = "Marca realizada con exito!";
-                                lblAsistencia.BackColor = Color.Transparent;
+                                lbl_MensajeAsistencia.Text = "Marca realizada con exito!";
+                                lbl_MensajeAsistencia.BackColor = Color.Transparent;
                                 this.Invoke(new SetName(SetNameF), new object[] { String.Format("{0}", ess.Name) });
                             }
                             else
                             {
-                                lblAsistencia.Text = "No se pudo realizar el marcaje!";
-                                lblAsistencia.BackColor = Color.LightPink;
+                                lbl_MensajeAsistencia.Text = "No se pudo realizar el marcaje!";
+                                lbl_MensajeAsistencia.BackColor = Color.LightPink;
                                 this.Invoke(new SetName(SetNameF), new object[] { String.Format("{0}", ess.Name) });
                             }
                             //this.Invoke(new CleanData(CleanAll), new object[] { });
@@ -246,32 +250,32 @@ namespace administracion.Huellas
         private void frmIdentificar_Load(object sender, EventArgs e)
         {
 
-            //CheckForIllegalCrossThreadCalls = false;
-            //fingerPrint.Initialize();
-            //fingerPrint.CaptureInitialize();
+            CheckForIllegalCrossThreadCalls = false;
+            fingerPrint.Initialize();
+            fingerPrint.CaptureInitialize();
 
-            //fingerPrint = new GriauleFingerprintLibrary.FingerprintCore();
+            fingerPrint = new GriauleFingerprintLibrary.FingerprintCore();
 
-            //fingerPrint.onStatus += new GriauleFingerprintLibrary.StatusEventHandler(fingerPrint_Onstatus);
-            //fingerPrint.onImage += new GriauleFingerprintLibrary.ImageEventHandler(fingerPrint_OnImage);
+            fingerPrint.onStatus += new GriauleFingerprintLibrary.StatusEventHandler(fingerPrint_Onstatus);
+            fingerPrint.onImage += new GriauleFingerprintLibrary.ImageEventHandler(fingerPrint_OnImage);
             txtCode.Focus();
         }
 
-        //void fingerPrint_Onstatus(object source, GriauleFingerprintLibrary.Events.StatusEventArgs se)
-        //{
-        //    if (se.StatusEventType == GriauleFingerprintLibrary.Events.StatusEventType.SENSOR_PLUG)
-        //    {
-        //        //core.StartCapture(source);
-        //        fingerPrint.StartCapture(source);
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        CajaDialogo.Error("SENSOR NO DETECTADO, FAVOR VERIFICAR");
-        //        fingerPrint.StopCapture(source);
-        //        //cmdCancelar_Click(new object(), new EventArgs());
-        //    }
-        //}
+        void fingerPrint_Onstatus(object source, GriauleFingerprintLibrary.Events.StatusEventArgs se)
+        {
+            if (se.StatusEventType == GriauleFingerprintLibrary.Events.StatusEventType.SENSOR_PLUG)
+            {
+                //core.StartCapture(source);
+                fingerPrint.StartCapture(source);
+                return;
+            }
+            else
+            {
+                CajaDialogo.Error("SENSOR NO DETECTADO, FAVOR VERIFICAR");
+                fingerPrint.StopCapture(source);
+                //cmdCancelar_Click(new object(), new EventArgs());
+            }
+        }
 
         //void fingerPrint_OnImage(object source, GriauleFingerprintLibrary.Events.ImageEventArgs ie)
         //{
@@ -307,7 +311,7 @@ namespace administracion.Huellas
 
         //        foreach (dsHuellasX.HuellasRow huella in dsHuellas.Huellas.Rows)
         //        {
-                    
+
         //            dataTemp = (byte[])huella.huella;
         //            calidad = 50;
         //            templateTemp = new GriauleFingerprintLibrary.DataTypes.FingerprintTemplate();
@@ -353,7 +357,7 @@ namespace administracion.Huellas
         //                        this.Invoke(new SetName(SetNameF), new object[] { String.Format("{0} {1}", ess.Nombres, ess.Apellidos) });
         //                    }
         //                    //this.Invoke(new CleanData(CleanAll), new object[] { });
-                            
+
         //                    return;
         //                }
         //                break;
@@ -375,49 +379,51 @@ namespace administracion.Huellas
         bool MarcarAsistencia(int id_hr_employee)
         {
             //ConfiguracionSuccess conf1 = new ConfiguracionSuccess(psConnection);
-            //DateTime FechaActual = conf1.FechaNow();
-            //int dia = 0;
-            //switch (FechaActual.DayOfWeek)
-            //{
-            //    case DayOfWeek.Monday:
-            //        dia =1;
-            //        break;
-            //    case DayOfWeek.Tuesday:
-            //        dia = 2;
-            //        break;
-            //    case DayOfWeek.Wednesday:
-            //        dia = 3;
-            //        break;
-            //    case DayOfWeek.Thursday:
-            //        dia = 4;
-            //        break;
-            //    case DayOfWeek.Friday:
-            //        dia = 5;
-            //        break;
-            //    case DayOfWeek.Saturday:
-            //        dia = 6;
-            //        break;
-            //    case DayOfWeek.Sunday:
-            //        dia = 7;
-            //        break;
-            //}
+            DataOperations dp = new DataOperations();
+            DateTime FechaActual = dp.Now();
+            int dia = 0;
+            switch (FechaActual.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    dia = 2;
+                    break;
+                case DayOfWeek.Tuesday:
+                    dia = 3;
+                    break;
+                case DayOfWeek.Wednesday:
+                    dia = 4;
+                    break;
+                case DayOfWeek.Thursday:
+                    dia = 5;
+                    break;
+                case DayOfWeek.Friday:
+                    dia = 6;
+                    break;
+                case DayOfWeek.Saturday:
+                    dia = 7;
+                    break;
+                case DayOfWeek.Sunday:
+                    dia = 1;
+                    break;
+            }
 
-            //try
-            //{
-            //    string sql = "select * from admon.ft_asistencia_huella (:p_id_hr_employee, :p_id_dia)";
-            //    SqlCommand cmd = new SqlCommand(sql, psConnection);
-            //    cmd.Parameters.AddWithValue("p_id_hr_employee", id_hr_employee);
-            //    cmd.Parameters.AddWithValue("p_id_dia", dia);
-            //    return Convert.ToBoolean(cmd.ExecuteScalar());
-
-            //}
-            //catch (Exception ec)
-            //{
-            //    //CajaDialogo.Error(ec.Message);
-            //    throw new Exception(ec.Message);
-            //    //return false;
-            //}
-            return false;
+            try
+            {
+                string sql = "";
+                SqlConnection psConnection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                psConnection.Open();
+                SqlCommand cmd = new SqlCommand(sql, psConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_id_hr_employee", id_hr_employee);
+                cmd.Parameters.AddWithValue("p_id_dia", dia);
+                return Convert.ToBoolean(cmd.ExecuteScalar());
+            }
+            catch (Exception ec)
+            {
+                //CajaDialogo.Error(ec.Message);
+                throw new Exception(ec.Message);
+                //return false;
+            }
         }
 
 
@@ -435,7 +441,7 @@ namespace administracion.Huellas
         void SetNameF(string a)
         {
             lblNombre.Text = a;
-            lblNombre.Visible= lblAsistencia.Visible = true;
+            lblNombre.Visible= lbl_MensajeAsistencia.Visible = true;
             lblNombre.BackColor = Color.White;
             timerResetLabels.Enabled = true;
             timerResetLabels.Start();
@@ -457,12 +463,12 @@ namespace administracion.Huellas
 
         private void frmIdentificar_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //try
-            //{
-            //    fingerPrint.CaptureFinalize();
-            //    fingerPrint.Finalizer();
-            //}
-            //catch { }
+            try
+            {
+                fingerPrint.CaptureFinalize();
+                fingerPrint.Finalizer();
+            }
+            catch { }
         }
 
         private void lblAsistencia_Click(object sender, EventArgs e)
@@ -472,7 +478,7 @@ namespace administracion.Huellas
 
         private void timerResetLabels_Tick(object sender, EventArgs e)
         {
-            lblNombre.Visible = lblAsistencia.Visible = false;
+            lblNombre.Visible = lbl_MensajeAsistencia.Visible = false;
             //lblNombre.BackColor = Color.White;
             timerResetLabels.Enabled = false;
             timerResetLabels.Stop();
