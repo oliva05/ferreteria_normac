@@ -408,7 +408,8 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
             if (row != null)
             {
-
+                frmEmployeeSchedule frm = new frmEmployeeSchedule(UsuarioLogeado, row.id);
+                frm.ShowDialog();
             }
         }
     }
