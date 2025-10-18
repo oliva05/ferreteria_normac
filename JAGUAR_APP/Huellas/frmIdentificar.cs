@@ -27,10 +27,12 @@ namespace administracion.Huellas
         hr_employee EmpleadoIdentificado;
         dsHuellasX dsHuellas = new dsHuellasX();
         public event EventHandler Onhr_employeeEncontrado;
+        DataOperations dp;
 
         public frmIdentificar()
         {
             InitializeComponent();
+            dp = new DataOperations();
             try
             {
                 huella = new Huella();
@@ -134,8 +136,8 @@ namespace administracion.Huellas
                         hr_employee ess = new hr_employee();
                         if (ess.GetById(huella.id_empleado))
                         {
-
                             EmpleadoIdentificado = ess;
+                            DateTime FechaActual = dp.Now();
                             //CajaDialogo.Information("Cantarito: " + ess.Name);
                             //lblNombre.Text = ess.Nombres + " " + ess.Apellidos;
                             //lblAsistencia.Visible = lblNombre.Visible = true;
@@ -147,16 +149,20 @@ namespace administracion.Huellas
 
                             //Thread tr = new Thread(Procesando);
                             //tr.Start();
-                            if (MarcarAsistencia(EmpleadoIdentificado.Id))
+                            if (MarcarAsistencia(EmpleadoIdentificado.Id, FechaActual))
                             {
                                 lbl_MensajeAsistencia.Text = "Marca realizada con exito!";
                                 lbl_MensajeAsistencia.BackColor = Color.Transparent;
+                                lbl_MensajeAsistencia.ForeColor = Color.Blue;
+                                lblHoraMarcada.Text = string.Format("{0:dd/MM/yyyy HH:mm}", FechaActual);
                                 this.Invoke(new SetName(SetNameF), new object[] { String.Format("{0}", ess.Name) });
+                                lblHoraMarcada.Text = string.Format("{0:dd/MM/yyyy HH:mm}", FechaActual); 
                             }
                             else
                             {
-                                lbl_MensajeAsistencia.Text = "No se pudo realizar el marcaje!";
+                                //lbl_MensajeAsistencia.Text = "No se pudo realizar el marcaje!";
                                 lbl_MensajeAsistencia.BackColor = Color.LightPink;
+                                lbl_MensajeAsistencia.ForeColor = Color.Black;
                                 this.Invoke(new SetName(SetNameF), new object[] { String.Format("{0}", ess.Name) });
                             }
                             //this.Invoke(new CleanData(CleanAll), new object[] { });
@@ -258,7 +264,7 @@ namespace administracion.Huellas
 
             fingerPrint.onStatus += new GriauleFingerprintLibrary.StatusEventHandler(fingerPrint_Onstatus);
             fingerPrint.onImage += new GriauleFingerprintLibrary.ImageEventHandler(fingerPrint_OnImage);
-            txtCode.Focus();
+            //txtCode.Focus();
         }
 
         void fingerPrint_Onstatus(object source, GriauleFingerprintLibrary.Events.StatusEventArgs se)
@@ -376,11 +382,10 @@ namespace administracion.Huellas
         //    }
         //}
 
-        bool MarcarAsistencia(int id_hr_employee)
+        bool MarcarAsistencia(int id_hr_employee, DateTime FechaActual)
         {
             //ConfiguracionSuccess conf1 = new ConfiguracionSuccess(psConnection);
-            DataOperations dp = new DataOperations();
-            DateTime FechaActual = dp.Now();
+            bool result = false;
             int dia = 0;
             switch (FechaActual.DayOfWeek)
             {
@@ -407,16 +412,55 @@ namespace administracion.Huellas
                     break;
             }
 
+            
             try
             {
-                string sql = "";
+                string sql = "dbo.sp_set_marcaje_asistencia_empleado";
                 SqlConnection psConnection = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 psConnection.Open();
                 SqlCommand cmd = new SqlCommand(sql, psConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("p_id_hr_employee", id_hr_employee);
-                cmd.Parameters.AddWithValue("p_id_dia", dia);
-                return Convert.ToBoolean(cmd.ExecuteScalar());
+                cmd.Parameters.AddWithValue("@id_hr_employee", id_hr_employee);
+                cmd.Parameters.AddWithValue("@id_dia", dia);
+                FechaActual = Convert.ToDateTime("10/17/2025 04:56:30 PM");
+                cmd.Parameters.AddWithValue("@delta_time", FechaActual);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    int id_msj = 0;
+
+                    if (!dr.IsDBNull(dr.GetOrdinal("mensaje")))
+                        id_msj = dr.GetInt32(0);
+
+                    if (!dr.IsDBNull(dr.GetOrdinal("mensaje")))
+                        result = dr.GetBoolean(1);
+
+                    switch (id_msj) 
+                    {
+                        case 1:
+                            lbl_MensajeAsistencia.Text = "Tiene marcas abiertas de dias anteriores... No se registró la marca";
+                            break;
+                        case 2:
+                            lbl_MensajeAsistencia.Text = "Esta marcando entrada tarde! No se registrará la marca...";
+                            break;
+                        case 3:
+                            lbl_MensajeAsistencia.Text = "No se permite marcar, ha marcado hace menos de 10 minutos!";
+                            break;
+                        case 4:
+                            lbl_MensajeAsistencia.Text = "Esta marcando Tarde el regreso de almuerzo. No se registrará la marca...";
+                            break;
+                        case 5:
+                            lbl_MensajeAsistencia.Text = "Esta marcando antes de la hora de salida. No se registrará la marca...";
+                            break;
+                        default:
+                            lbl_MensajeAsistencia.Text = "";
+                            break;
+                    }
+
+                }
+
+                dr.Close();
+                psConnection.Close();   
             }
             catch (Exception ec)
             {
@@ -424,6 +468,7 @@ namespace administracion.Huellas
                 throw new Exception(ec.Message);
                 //return false;
             }
+            return result;
         }
 
 
@@ -465,15 +510,17 @@ namespace administracion.Huellas
         {
             try
             {
+                CheckForIllegalCrossThreadCalls = false;
+                fingerPrint.StopCapture(sender);
                 fingerPrint.CaptureFinalize();
                 fingerPrint.Finalizer();
+
             }
             catch { }
         }
 
         private void lblAsistencia_Click(object sender, EventArgs e)
         {
-            txtCode.Focus();
         }
 
         private void timerResetLabels_Tick(object sender, EventArgs e)
@@ -486,17 +533,17 @@ namespace administracion.Huellas
 
         private void lblNombre_Click(object sender, EventArgs e)
         {
-            txtCode.Focus();
+           
         }
 
         private void acceptPict_Click(object sender, EventArgs e)
         {
-            txtCode.Focus();
+           
         }
 
         private void frmIdentificar_Click(object sender, EventArgs e)
         {
-            txtCode.Focus();
+           
         }
 
         private void txtCode_Click(object sender, EventArgs e)
@@ -511,16 +558,16 @@ namespace administracion.Huellas
 
             //identificar
             string id_token = "";
-            try
-            {
-                id_token = txtCode.Text;
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-            }
+            //try
+            //{
+            //    id_token = txtCode.Text;
+            //}
+            //catch (Exception ex)
+            //{
+            //    //MessageBox.Show(ex.Message);
+            //}
 
-            txtCode.Text = "";
+            //txtCode.Text = "";
 
             //try
             //{
