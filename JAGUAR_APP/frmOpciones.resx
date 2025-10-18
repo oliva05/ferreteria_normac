@@ -267,7 +267,7 @@
   <data name="nBarConsultarAjusteInventario.ImageOptions.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        5wAAAOcB8BtYtQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAQMSURBVFhH7Zdb
+        5AAAAOQBXaJ52AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAQMSURBVFhH7Zdb
         bBRVGMe3+KCEGE00kpTdmWkty6Xtmd3Z7rK73Z3L3qC4pavdjYhAXVIolGqDhUDKTcTUC+ESCE2hgSpF
         sVoUiUiUFBRKC01LCA9cNMFXo7bSB3jg5fOc4Th02tl2N9nGF/7JL7Nzzjfz/eecmbPfMT1RKhUUlD3N
         cfIz9FQVZ5OfZ4p9+blFosWUSDxFmydHjE1axdrEtS8j70ssL21leOkGZoBB0jkVXvoVt5/FcQkcnvPo
@@ -3741,10 +3741,10 @@
         odR2xAtq/YgGDAwAmAoKOdd8ViEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="navBarItem351.ImageOptions.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="navBarDetalleCalculoComisiones.ImageOptions.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        6gAAAOoB+Ss1JgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAblSURBVFhH3ZUL
+        5wAAAOcB8BtYtQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAblSURBVFhH3ZUL
         UFNXHsbZbnflYbW7zhZEAyShBAiBPG5unuSBQIwGBORhBSyNILWgddvK0m7t9M3ooOOqnXbUrgq+GB/U
         J2Bb6qOIguy2uy1Va3nalhKFRpQ2Efj2XrwJIJfadtaZnf1mvpncnP/5/757zzn3evz/yTfSx5Mry/UV
         Kg5xRIoLM0Rk3cMhxDqvIJmCqfjloid788lj3lx5jw9f3uvFI/p8guVfeHOJAg+Z7HdMmYc3X5w0LZS4

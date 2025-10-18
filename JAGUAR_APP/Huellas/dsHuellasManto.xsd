@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsHuellasManto" targetNamespace="http://tempuri.org/dsHuellasManto.xsd" xmlns:mstns="http://tempuri.org/dsHuellasManto.xsd" xmlns="http://tempuri.org/dsHuellasManto.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsHuellasManto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsHuellasManto" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsHuellasManto">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Huellas" msprop:Generator_RowEvHandlerName="HuellasRowChangeEventHandler" msprop:Generator_RowDeletedName="HuellasRowDeleted" msprop:Generator_RowDeletingName="HuellasRowDeleting" msprop:Generator_RowEvArgName="HuellasRowChangeEvent" msprop:Generator_TablePropName="Huellas" msprop:Generator_RowChangedName="HuellasRowChanged" msprop:Generator_UserTableName="Huellas" msprop:Generator_RowChangingName="HuellasRowChanging" msprop:Generator_RowClassName="HuellasRow" msprop:Generator_TableClassName="HuellasDataTable" msprop:Generator_TableVarName="tableHuellas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_huella" msprop:Generator_ColumnPropNameInTable="id_huellaColumn" msprop:Generator_ColumnPropNameInRow="id_huella" msprop:Generator_UserColumnName="id_huella" msprop:Generator_ColumnVarNameInTable="columnid_huella" type="xs:int" minOccurs="0" />
+              <xs:element name="id_estudiante" msprop:Generator_ColumnPropNameInTable="id_estudianteColumn" msprop:Generator_ColumnPropNameInRow="id_estudiante" msprop:Generator_UserColumnName="id_estudiante" msprop:Generator_ColumnVarNameInTable="columnid_estudiante" type="xs:int" minOccurs="0" />
+              <xs:element name="mano" msprop:Generator_ColumnPropNameInTable="manoColumn" msprop:Generator_ColumnPropNameInRow="mano" msprop:Generator_UserColumnName="mano" msprop:Generator_ColumnVarNameInTable="columnmano" type="xs:int" minOccurs="0" />
+              <xs:element name="dedo" msprop:Generator_ColumnPropNameInTable="dedoColumn" msprop:Generator_ColumnPropNameInRow="dedo" msprop:Generator_UserColumnName="dedo" msprop:Generator_ColumnVarNameInTable="columndedo" type="xs:int" minOccurs="0" />
+              <xs:element name="huella" msprop:Generator_ColumnPropNameInTable="huellaColumn" msprop:Generator_ColumnPropNameInRow="huella" msprop:Generator_UserColumnName="huella" msprop:Generator_ColumnVarNameInTable="columnhuella" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="quality" msdata:Caption="Calidad" msprop:Generator_ColumnPropNameInTable="qualityColumn" msprop:Generator_ColumnPropNameInRow="quality" msprop:Generator_UserColumnName="quality" msprop:Generator_ColumnVarNameInTable="columnquality" type="xs:int" minOccurs="0" />
+              <xs:element name="delete" msdata:Caption="Eliminar" msprop:Generator_UserColumnName="delete" msprop:Generator_ColumnPropNameInTable="deleteColumn" msprop:Generator_ColumnPropNameInRow="delete" msprop:Generator_ColumnVarNameInTable="columndelete" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HuellasManoIzquierda" msprop:Generator_RowEvHandlerName="HuellasManoIzquierdaRowChangeEventHandler" msprop:Generator_RowDeletedName="HuellasManoIzquierdaRowDeleted" msprop:Generator_RowDeletingName="HuellasManoIzquierdaRowDeleting" msprop:Generator_RowEvArgName="HuellasManoIzquierdaRowChangeEvent" msprop:Generator_TablePropName="HuellasManoIzquierda" msprop:Generator_RowChangedName="HuellasManoIzquierdaRowChanged" msprop:Generator_UserTableName="HuellasManoIzquierda" msprop:Generator_RowChangingName="HuellasManoIzquierdaRowChanging" msprop:Generator_RowClassName="HuellasManoIzquierdaRow" msprop:Generator_TableClassName="HuellasManoIzquierdaDataTable" msprop:Generator_TableVarName="tableHuellasManoIzquierda">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_huella" msprop:Generator_ColumnPropNameInTable="id_huellaColumn" msprop:Generator_ColumnPropNameInRow="id_huella" msprop:Generator_UserColumnName="id_huella" msprop:Generator_ColumnVarNameInTable="columnid_huella" type="xs:int" minOccurs="0" />
+              <xs:element name="id_empleado" msdata:Caption="id_estudiante" msprop:Generator_ColumnPropNameInTable="id_empleadoColumn" msprop:Generator_ColumnPropNameInRow="id_empleado" msprop:Generator_UserColumnName="id_empleado" msprop:Generator_ColumnVarNameInTable="columnid_empleado" type="xs:int" minOccurs="0" />
+              <xs:element name="dedo" msprop:Generator_ColumnPropNameInTable="dedoColumn" msprop:Generator_ColumnPropNameInRow="dedo" msprop:Generator_UserColumnName="dedo" msprop:Generator_ColumnVarNameInTable="columndedo" type="xs:int" minOccurs="0" />
+              <xs:element name="huella" msprop:Generator_ColumnPropNameInTable="huellaColumn" msprop:Generator_ColumnPropNameInRow="huella" msprop:Generator_UserColumnName="huella" msprop:Generator_ColumnVarNameInTable="columnhuella" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="quality" msdata:Caption="Calidad" msprop:Generator_ColumnPropNameInTable="qualityColumn" msprop:Generator_ColumnPropNameInRow="quality" msprop:Generator_UserColumnName="quality" msprop:Generator_ColumnVarNameInTable="columnquality" type="xs:int" minOccurs="0" />
+              <xs:element name="delete" msdata:Caption="Eliminar" msprop:Generator_UserColumnName="delete" msprop:Generator_ColumnPropNameInTable="deleteColumn" msprop:Generator_ColumnPropNameInRow="delete" msprop:Generator_ColumnVarNameInTable="columndelete" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HuellasManoDerecha" msprop:Generator_RowEvHandlerName="HuellasManoDerechaRowChangeEventHandler" msprop:Generator_RowDeletedName="HuellasManoDerechaRowDeleted" msprop:Generator_RowDeletingName="HuellasManoDerechaRowDeleting" msprop:Generator_RowEvArgName="HuellasManoDerechaRowChangeEvent" msprop:Generator_TablePropName="HuellasManoDerecha" msprop:Generator_RowChangedName="HuellasManoDerechaRowChanged" msprop:Generator_UserTableName="HuellasManoDerecha" msprop:Generator_RowChangingName="HuellasManoDerechaRowChanging" msprop:Generator_RowClassName="HuellasManoDerechaRow" msprop:Generator_TableClassName="HuellasManoDerechaDataTable" msprop:Generator_TableVarName="tableHuellasManoDerecha">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_huella" msprop:Generator_ColumnPropNameInTable="id_huellaColumn" msprop:Generator_ColumnPropNameInRow="id_huella" msprop:Generator_UserColumnName="id_huella" msprop:Generator_ColumnVarNameInTable="columnid_huella" type="xs:int" minOccurs="0" />
+              <xs:element name="id_empleado" msdata:Caption="id_estudiante" msprop:Generator_ColumnPropNameInTable="id_empleadoColumn" msprop:Generator_ColumnPropNameInRow="id_empleado" msprop:Generator_UserColumnName="id_empleado" msprop:Generator_ColumnVarNameInTable="columnid_empleado" type="xs:int" minOccurs="0" />
+              <xs:element name="dedo" msprop:Generator_ColumnPropNameInTable="dedoColumn" msprop:Generator_ColumnPropNameInRow="dedo" msprop:Generator_UserColumnName="dedo" msprop:Generator_ColumnVarNameInTable="columndedo" type="xs:int" minOccurs="0" />
+              <xs:element name="huella" msprop:Generator_ColumnPropNameInTable="huellaColumn" msprop:Generator_ColumnPropNameInRow="huella" msprop:Generator_UserColumnName="huella" msprop:Generator_ColumnVarNameInTable="columnhuella" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="quality" msdata:Caption="Calidad" msprop:Generator_ColumnPropNameInTable="qualityColumn" msprop:Generator_ColumnPropNameInRow="quality" msprop:Generator_UserColumnName="quality" msprop:Generator_ColumnVarNameInTable="columnquality" type="xs:int" minOccurs="0" />
+              <xs:element name="delete" msdata:Caption="Eliminar" msprop:Generator_UserColumnName="delete" msprop:Generator_ColumnPropNameInTable="deleteColumn" msprop:Generator_ColumnPropNameInRow="delete" msprop:Generator_ColumnVarNameInTable="columndelete" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HuellasAll_employees" msprop:Generator_RowEvHandlerName="HuellasAll_employeesRowChangeEventHandler" msprop:Generator_RowDeletedName="HuellasAll_employeesRowDeleted" msprop:Generator_RowDeletingName="HuellasAll_employeesRowDeleting" msprop:Generator_RowEvArgName="HuellasAll_employeesRowChangeEvent" msprop:Generator_TablePropName="HuellasAll_employees" msprop:Generator_RowChangedName="HuellasAll_employeesRowChanged" msprop:Generator_RowChangingName="HuellasAll_employeesRowChanging" msprop:Generator_TableClassName="HuellasAll_employeesDataTable" msprop:Generator_RowClassName="HuellasAll_employeesRow" msprop:Generator_TableVarName="tableHuellasAll_employees" msprop:Generator_UserTableName="HuellasAll_employees">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_huella" msprop:Generator_ColumnPropNameInRow="id_huella" msprop:Generator_ColumnPropNameInTable="id_huellaColumn" msprop:Generator_ColumnVarNameInTable="columnid_huella" msprop:Generator_UserColumnName="id_huella" type="xs:int" minOccurs="0" />
+              <xs:element name="id_empleado" msdata:Caption="id_estudiante" msprop:Generator_ColumnPropNameInRow="id_empleado" msprop:Generator_ColumnPropNameInTable="id_empleadoColumn" msprop:Generator_ColumnVarNameInTable="columnid_empleado" msprop:Generator_UserColumnName="id_empleado" type="xs:int" minOccurs="0" />
+              <xs:element name="huella" msprop:Generator_ColumnPropNameInRow="huella" msprop:Generator_ColumnPropNameInTable="huellaColumn" msprop:Generator_ColumnVarNameInTable="columnhuella" msprop:Generator_UserColumnName="huella" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

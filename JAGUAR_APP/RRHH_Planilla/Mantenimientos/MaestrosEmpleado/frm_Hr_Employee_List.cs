@@ -400,5 +400,17 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 gridControl1.ExportToXlsx(dialog.FileName);
             }
         }
+
+        private void cmdHorario_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridView = (GridView)gridControl1.FocusedView;
+            var row = (dsMaestroEmpleados.empleados_listRow)gridView.GetFocusedDataRow();
+
+            if (row != null)
+            {
+                frmEmployeeSchedule frm = new frmEmployeeSchedule(UsuarioLogeado, row.id);
+                frm.ShowDialog();
+            }
+        }
     }
 }

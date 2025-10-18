@@ -516,6 +516,7 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbMarcarAsistencia = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -2689,7 +2690,8 @@
             this.navBarItem206,
             this.navBarItem207,
             this.navBarItem155,
-            this.navBarItem255});
+            this.navBarItem255,
+            this.nbMarcarAsistencia});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 338;
@@ -3006,7 +3008,8 @@
             this.navBarGroup18.Caption = "Configuracion de Reloj Asistencia";
             this.navBarGroup18.Expanded = true;
             this.navBarGroup18.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem155)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem155),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbMarcarAsistencia)});
             this.navBarGroup18.Name = "navBarGroup18";
             // 
             // navBarItem155
@@ -3019,8 +3022,9 @@
             this.navBarItem155.AppearanceHotTracked.Options.UseFont = true;
             this.navBarItem155.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.navBarItem155.AppearancePressed.Options.UseFont = true;
-            this.navBarItem155.Caption = "Huellas";
+            this.navBarItem155.Caption = "Huellas de Empleado";
             this.navBarItem155.Name = "navBarItem155";
+            this.navBarItem155.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem155_LinkClicked);
             // 
             // navBarItem75
             // 
@@ -5388,7 +5392,7 @@
             this.navBarDetalleCalculoComisiones.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
             this.navBarDetalleCalculoComisiones.AppearancePressed.Options.UseFont = true;
             this.navBarDetalleCalculoComisiones.Caption = "Detalle Calculo Comisiones";
-            this.navBarDetalleCalculoComisiones.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem351.ImageOptions.SmallImage")));
+            this.navBarDetalleCalculoComisiones.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDetalleCalculoComisiones.ImageOptions.SmallImage")));
             this.navBarDetalleCalculoComisiones.Name = "navBarDetalleCalculoComisiones";
             this.navBarDetalleCalculoComisiones.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem351_LinkClicked);
             // 
@@ -7221,6 +7225,20 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
+            // nbMarcarAsistencia
+            // 
+            this.nbMarcarAsistencia.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbMarcarAsistencia.Appearance.Options.UseFont = true;
+            this.nbMarcarAsistencia.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbMarcarAsistencia.AppearanceDisabled.Options.UseFont = true;
+            this.nbMarcarAsistencia.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbMarcarAsistencia.AppearanceHotTracked.Options.UseFont = true;
+            this.nbMarcarAsistencia.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbMarcarAsistencia.AppearancePressed.Options.UseFont = true;
+            this.nbMarcarAsistencia.Caption = "Marcar Asistencia";
+            this.nbMarcarAsistencia.Name = "nbMarcarAsistencia";
+            this.nbMarcarAsistencia.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbMarcarAsistencia_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7757,5 +7775,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem257;
         private DevExpress.XtraNavBar.NavBarItem navBarItem258;
         private DevExpress.XtraNavBar.NavBarItem navBarDetalleCalculoComisiones;
+        private DevExpress.XtraNavBar.NavBarItem nbMarcarAsistencia;
     }
 }
