@@ -109,7 +109,7 @@
             this.lblHoraMarcada.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblHoraMarcada.Size = new System.Drawing.Size(591, 41);
             this.lblHoraMarcada.TabIndex = 37;
-            this.lblHoraMarcada.Visible = false;
+            this.lblHoraMarcada.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmIdentificar
             // 
