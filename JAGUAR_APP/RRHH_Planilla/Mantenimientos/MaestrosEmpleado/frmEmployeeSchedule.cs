@@ -1,6 +1,8 @@
 ﻿using ACS.Classes;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraRichEdit.Model;
+using DocumentFormat.OpenXml.Wordprocessing;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Clases.Colaborador;
 using System;
@@ -64,6 +66,8 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 lblCodigo.Text = EmpleadoActual.Barcode;
                 lblNombreEmpleado.Text = EmpleadoActual.Name;
                 IdEmpleado = pIdEmp;
+                tggMarcAlmuerzo.IsOn = EmpleadoActual.MarcAlmuerzo;
+                
             }
             LoadData();
 
@@ -109,11 +113,12 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
                 SqlCommand cmd = conn.CreateCommand();
 
-                cmd.CommandText = "sp_update_disable_old_schedule";
+                cmd.CommandText = "[sp_update_disable_old_scheduleV2]";
                 cmd.Connection = conn;
                 cmd.Transaction = transaction;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idEmpleado", IdEmpleado);
+                cmd.Parameters.AddWithValue("@MarcaAlmuerzo", tggMarcAlmuerzo.IsOn);
                 cmd.ExecuteNonQuery();
 
                 foreach (dsMaestroEmpleados.horarioRow item in dsMaestroEmpleados1.horario.Rows)
@@ -126,8 +131,14 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     cmd.Parameters.AddWithValue("@idEmpleado", item.id_employee);
                     cmd.Parameters.AddWithValue("@dia", item.dia);
                     cmd.Parameters.AddWithValue("@hora_entrada", item.hora_entrada);
-                    cmd.Parameters.AddWithValue("@hora_salida_lunch", item.hora_salida_lunch);
-                    cmd.Parameters.AddWithValue("@hora_entrada_lunch", item.hora_entrada_lunch);
+                    if (item.IsNull("hora_salida_lunch"))
+                        cmd.Parameters.AddWithValue("@hora_salida_lunch", DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@hora_salida_lunch", item.hora_salida_lunch);
+                    if (item.IsNull("hora_entrada_lunch"))
+                        cmd.Parameters.AddWithValue("@hora_entrada_lunch", DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@hora_entrada_lunch", item.hora_entrada_lunch);
                     cmd.Parameters.AddWithValue("@hora_salida", item.hora_salida);
                     cmd.Parameters.AddWithValue("@id_user_create", item.id_user_create);
                     
@@ -146,6 +157,27 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 transaction.Rollback();
                 CajaDialogo.Error(ec.Message);
                 Guardar = false;
+            }
+        }
+
+        private void tggMarcAlmuerzo_Toggled(object sender, EventArgs e)
+        {
+            bool isChecked = tggMarcAlmuerzo.IsOn; // true = encendido, false = apagado
+
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                if (isChecked)
+                {
+                    // ✅ Toggle en true → asignar valores por defecto
+                    gridView1.SetRowCellValue(i, "hora_salida_lunch", new TimeSpan(12, 0, 0));
+                    gridView1.SetRowCellValue(i, "hora_entrada_lunch", new TimeSpan(13, 0, 0));
+                }
+                else
+                {
+                    // ❌ Toggle en false → limpiar valores
+                    gridView1.SetRowCellValue(i, "hora_salida_lunch", null);
+                    gridView1.SetRowCellValue(i, "hora_entrada_lunch", null);
+                }
             }
         }
     }

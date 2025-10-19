@@ -111,6 +111,8 @@ namespace JAGUAR_PRO.Clases.Colaborador
         public string Turno { get; set; }
         public bool Recuperado { get; set; }
 
+        public bool MarcAlmuerzo { get; set; }
+
 
         DataOperations dp;
         #endregion
@@ -220,7 +222,7 @@ namespace JAGUAR_PRO.Clases.Colaborador
                                 HorarioTrabajoParaImprimirContrato = reader.IsDBNull(reader.GetOrdinal("display_for_contract_print")) ? string.Empty : reader.GetString(reader.GetOrdinal("display_for_contract_print"));
                                 DireccionPersonal = reader.IsDBNull(reader.GetOrdinal("direccion_personal")) ? string.Empty : reader.GetString(reader.GetOrdinal("direccion_personal"));
                                 Turno = reader.IsDBNull(reader.GetOrdinal("turno")) ? string.Empty : reader.GetString(reader.GetOrdinal("turno"));
-
+                                MarcAlmuerzo = reader.IsDBNull(reader.GetOrdinal("marca_almuerzo")) ? false : reader.GetBoolean(reader.GetOrdinal("marca_almuerzo"));
                                 Recuperado = true;
 
                             }

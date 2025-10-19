@@ -46,9 +46,12 @@
             this.lblCodigo = new DevExpress.XtraEditors.LabelControl();
             this.cmdGuardar = new System.Windows.Forms.Button();
             this.cmdCerrar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tggMarcAlmuerzo = new DevExpress.XtraEditors.ToggleSwitch();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tggMarcAlmuerzo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -217,11 +220,38 @@
             this.cmdCerrar.UseVisualStyleBackColor = true;
             this.cmdCerrar.Click += new System.EventHandler(this.cmdCerrar_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label1.Location = new System.Drawing.Point(520, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Marca Almuerzo";
+            // 
+            // tggMarcAlmuerzo
+            // 
+            this.tggMarcAlmuerzo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tggMarcAlmuerzo.EditValue = true;
+            this.tggMarcAlmuerzo.Location = new System.Drawing.Point(615, 33);
+            this.tggMarcAlmuerzo.Name = "tggMarcAlmuerzo";
+            this.tggMarcAlmuerzo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tggMarcAlmuerzo.Properties.Appearance.Options.UseFont = true;
+            this.tggMarcAlmuerzo.Properties.OffText = "No";
+            this.tggMarcAlmuerzo.Properties.OnText = "Si";
+            this.tggMarcAlmuerzo.Size = new System.Drawing.Size(95, 21);
+            this.tggMarcAlmuerzo.TabIndex = 12;
+            this.tggMarcAlmuerzo.Toggled += new System.EventHandler(this.tggMarcAlmuerzo_Toggled);
+            // 
             // frmEmployeeSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 439);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tggMarcAlmuerzo);
             this.Controls.Add(this.cmdCerrar);
             this.Controls.Add(this.cmdGuardar);
             this.Controls.Add(this.lblCodigo);
@@ -233,6 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tggMarcAlmuerzo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,5 +289,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colfecha_created;
         private System.Windows.Forms.Button cmdGuardar;
         private System.Windows.Forms.Button cmdCerrar;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.ToggleSwitch tggMarcAlmuerzo;
     }
 }
