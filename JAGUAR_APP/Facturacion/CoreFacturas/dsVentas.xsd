@@ -94,7 +94,8 @@
               <xs:element name="marca" msdata:Caption="Marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_UserColumnName="marca" msprop:Generator_ColumnVarNameInTable="columnmarca" type="xs:string" minOccurs="0" />
               <xs:element name="delete" msprop:Generator_ColumnPropNameInTable="deleteColumn" msprop:Generator_ColumnPropNameInRow="delete" msprop:Generator_UserColumnName="delete" msprop:Generator_ColumnVarNameInTable="columndelete" type="xs:string" minOccurs="0" />
               <xs:element name="id_bodega" msprop:Generator_ColumnPropNameInTable="id_bodegaColumn" msprop:Generator_ColumnPropNameInRow="id_bodega" msprop:Generator_UserColumnName="id_bodega" msprop:Generator_ColumnVarNameInTable="columnid_bodega" type="xs:int" minOccurs="0" />
-              <xs:element name="entrega_almacen_bit" msdata:Caption="Entrega Almacén" msprop:Generator_ColumnPropNameInRow="entrega_almacen_bit" msprop:Generator_ColumnPropNameInTable="entrega_almacen_bitColumn" msprop:Generator_ColumnVarNameInTable="columnentrega_almacen_bit" msprop:Generator_UserColumnName="entrega_almacen_bit" type="xs:boolean" minOccurs="0" />
+              <xs:element name="entrega_almacen_bit" msdata:Caption="Entrega Almacén" msprop:Generator_UserColumnName="entrega_almacen_bit" msprop:Generator_ColumnPropNameInTable="entrega_almacen_bitColumn" msprop:Generator_ColumnPropNameInRow="entrega_almacen_bit" msprop:Generator_ColumnVarNameInTable="columnentrega_almacen_bit" type="xs:boolean" minOccurs="0" />
+              <xs:element name="id_pt_usado" msprop:Generator_ColumnPropNameInRow="id_pt_usado" msprop:Generator_ColumnPropNameInTable="id_pt_usadoColumn" msprop:Generator_ColumnVarNameInTable="columnid_pt_usado" msprop:Generator_UserColumnName="id_pt_usado" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -114,7 +115,7 @@
               <xs:element name="isv1" msprop:Generator_ColumnPropNameInTable="isv1Column" msprop:Generator_ColumnPropNameInRow="isv1" msprop:Generator_UserColumnName="isv1" msprop:Generator_ColumnVarNameInTable="columnisv1" type="xs:decimal" minOccurs="0" />
               <xs:element name="descuento_porcentaje" msprop:Generator_ColumnPropNameInTable="descuento_porcentajeColumn" msprop:Generator_ColumnPropNameInRow="descuento_porcentaje" msprop:Generator_UserColumnName="descuento_porcentaje" msprop:Generator_ColumnVarNameInTable="columndescuento_porcentaje" type="xs:decimal" minOccurs="0" />
               <xs:element name="marca" msdata:Caption="Marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_UserColumnName="marca" msprop:Generator_ColumnVarNameInTable="columnmarca" type="xs:string" minOccurs="0" />
-              <xs:element name="entrega_almacen_bit" msdata:Caption="Entrega Almacén" msprop:Generator_ColumnPropNameInRow="entrega_almacen_bit" msprop:Generator_ColumnPropNameInTable="entrega_almacen_bitColumn" msprop:Generator_ColumnVarNameInTable="columnentrega_almacen_bit" msprop:Generator_UserColumnName="entrega_almacen_bit" type="xs:boolean" minOccurs="0" />
+              <xs:element name="entrega_almacen_bit" msdata:Caption="Entrega Almacén" msprop:Generator_UserColumnName="entrega_almacen_bit" msprop:Generator_ColumnPropNameInTable="entrega_almacen_bitColumn" msprop:Generator_ColumnPropNameInRow="entrega_almacen_bit" msprop:Generator_ColumnVarNameInTable="columnentrega_almacen_bit" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

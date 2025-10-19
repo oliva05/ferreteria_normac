@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>\\WIN-1U114J6T1NI\JAGUAR_PRO\</PublishUrl>
+    <PublishUrl>\\192.168.21.50\JAGUAR_PROIP\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -29,7 +29,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>122</ApplicationRevision>
+    <ApplicationRevision>128</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -2142,6 +2142,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsLogisticaJaguar.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\dsPT_USADOS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPT_USADOS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\dsRecepcionMP.cs">
       <DependentUpon>dsRecepcionMP.xsd</DependentUpon>
     </Compile>
@@ -3214,6 +3219,17 @@
     </None>
     <None Include="LogisticaJaguar\dsLogisticaJaguar.xss">
       <DependentUpon>dsLogisticaJaguar.xsd</DependentUpon>
+    </None>
+    <None Include="LogisticaJaguar\dsPT_USADOS.xsc">
+      <DependentUpon>dsPT_USADOS.xsd</DependentUpon>
+    </None>
+    <None Include="LogisticaJaguar\dsPT_USADOS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPT_USADOS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LogisticaJaguar\dsPT_USADOS.xss">
+      <DependentUpon>dsPT_USADOS.xsd</DependentUpon>
     </None>
     <None Include="LogisticaJaguar\dsRecepcionMP.xsc">
       <DependentUpon>dsRecepcionMP.xsd</DependentUpon>

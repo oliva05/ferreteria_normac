@@ -204,17 +204,27 @@ namespace Proyecto.Huellas
 
         private void cmdCancelar_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    fingerprint.CaptureFinalize();
+            //    //fingerprint.StopCapture(sender);
+            //    fingerprint.Finalizer();
+            //    this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            //}
+            //catch(Exception ex) 
+            //{
+
+            //}
+
             try
             {
+                CheckForIllegalCrossThreadCalls = false;
+                fingerprint.StopCapture(sender);
                 fingerprint.CaptureFinalize();
-                //fingerprint.StopCapture(sender);
                 fingerprint.Finalizer();
-                this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            }
-            catch(Exception ex) 
-            {
 
             }
+            catch { }
         }
 
         private void frm_addHuella_FormClosing(object sender, FormClosingEventArgs e)

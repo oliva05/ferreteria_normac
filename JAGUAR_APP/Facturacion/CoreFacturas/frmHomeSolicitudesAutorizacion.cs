@@ -28,9 +28,13 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
     {
         UserLogin usuarioLogeado = new UserLogin();
         PDV PuntoVentaActual = new PDV();
+        DataOperations dp;
         public frmHomeSolicitudesAutorizacion(UserLogin userLog, PDV pDV)
         {
             InitializeComponent();
+            dp = new DataOperations();
+            dtHasta.DateTime = dp.Now();
+            dtDesde.DateTime = dtHasta.DateTime.AddDays(-2);
             LoadData(false);
             usuarioLogeado = userLog;
             PuntoVentaActual = pDV;
@@ -46,10 +50,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                 {
                     cnx.Open();
-                    SqlDataAdapter da = new SqlDataAdapter("dbo.uspLoadSolicitudesAutorizacion", cnx);
+                    SqlDataAdapter da = new SqlDataAdapter("[dbo].[uspLoadSolicitudesAutorizacion_by_dates]", cnx);
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    da.SelectCommand.Parameters.Add("@filtro", SqlDbType.Bit).Value = filtro;
-
+                    da.SelectCommand.Parameters.Add("@desde", SqlDbType.DateTime).Value = dtDesde.DateTime;
+                    da.SelectCommand.Parameters.Add("@hasta", SqlDbType.DateTime).Value = dtHasta.DateTime;
                     dsFacturasGestion1.SolicitudAutorizacion.Clear();
 
                     //da.SelectCommand.Parameters.Add("@id_cliente", SqlDbType.Int).Value = id_cliente;
@@ -169,10 +173,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
         private void cmdRefresh_Click(object sender, EventArgs e)
         {
-            if (xtraTabControl1.SelectedTabPage.Name == "TabFacturas")
-            {
-                LoadData(Convert.ToBoolean(tsFiltro.EditValue));
-            }
+            //if (xtraTabControl1.SelectedTabPage.Name == "TabFacturas")
+            //{
+            //    LoadData(Convert.ToBoolean(tsFiltro.EditValue));
+            //}
 
             if (xtraTabControl1.SelectedTabPage.Name == "TabCompras")
             {
@@ -432,6 +436,36 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             else
             {
                 CajaDialogo.Error("Esta factura no esta anulada!");
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            LoadData(Convert.ToBoolean(tsFiltro.EditValue));
+        }
+
+        private void cmdImprimirFact_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Imprimir factura anulada.
+            var gv = (GridView)gridControl1.FocusedView;
+            var row = (dsFacturasGestion.SolicitudAutorizacionRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            Factura factura1 = new Factura();
+            if (factura1.RecuperarRegistro(row.factura_id_H))
+            {
+                if (factura1.IdEstado == 3)
+                {
+
+                    rptFacturaAnuladaLetterSize report = new rptFacturaAnuladaLetterSize(factura1, rptFacturaAnuladaLetterSize.TipoCopia.Blanco);
+                    //RPT_OrdenCompra report = new RPT_OrdenCompra(num) { DataSource = dsCompras1, ShowPrintMarginsWarning = false };
+                    report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                    ReportPrintTool printReport = new ReportPrintTool(report);
+                    printReport.ShowPreviewDialog();
+                }
+                else
+                {
+                    CajaDialogo.Error("La factura aún no se ha anulado...");
+                }
             }
         }
     }
