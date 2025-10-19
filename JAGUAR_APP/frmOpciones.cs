@@ -57,6 +57,7 @@ using JAGUAR_PRO.Reproceso;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
 using JAGUAR_PRO.RRHH_Planilla.Planilla;
+using JAGUAR_PRO.RRHH_Planilla.Reportes;
 using JAGUAR_PRO.Tools;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
@@ -6780,6 +6781,12 @@ namespace JAGUAR_PRO
                     CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #41 (Mantenimiento de Huellas)");
                 }
             }
+        }
+
+        private void navBarItem351_LinkClicked_1(object sender, NavBarLinkEventArgs e)
+        {
+            frmRptMarcaje frm = new frmRptMarcaje(UsuarioLogeado);
+            frm.ShowDialog();
         }
         //End Facturacion Usados
 

@@ -2142,6 +2142,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsLogisticaJaguar.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LogisticaJaguar\dsPT_USADOS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPT_USADOS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LogisticaJaguar\dsRecepcionMP.cs">
       <DependentUpon>dsRecepcionMP.xsd</DependentUpon>
     </Compile>
@@ -3215,6 +3220,17 @@
     <None Include="LogisticaJaguar\dsLogisticaJaguar.xss">
       <DependentUpon>dsLogisticaJaguar.xsd</DependentUpon>
     </None>
+    <None Include="LogisticaJaguar\dsPT_USADOS.xsc">
+      <DependentUpon>dsPT_USADOS.xsd</DependentUpon>
+    </None>
+    <None Include="LogisticaJaguar\dsPT_USADOS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPT_USADOS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LogisticaJaguar\dsPT_USADOS.xss">
+      <DependentUpon>dsPT_USADOS.xsd</DependentUpon>
+    </None>
     <None Include="LogisticaJaguar\dsRecepcionMP.xsc">
       <DependentUpon>dsRecepcionMP.xsd</DependentUpon>
     </None>
@@ -4025,6 +4041,12 @@
     <Compile Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\frm_Hr_Employee_List.Designer.cs">
       <DependentUpon>frm_Hr_Employee_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\frnEmployeeBrandManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\frnEmployeeBrandManual.Designer.cs">
+      <DependentUpon>frnEmployeeBrandManual.cs</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\WaitFormEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4165,6 +4187,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPlanillaReportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Reportes\frmRptMarcaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Reportes\frmRptMarcaje.Designer.cs">
+      <DependentUpon>frmRptMarcaje.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashForm.cs">
       <SubType>Form</SubType>
@@ -5598,6 +5626,9 @@
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\frm_Hr_Employee_List.resx">
       <DependentUpon>frm_Hr_Employee_List.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\frnEmployeeBrandManual.resx">
+      <DependentUpon>frnEmployeeBrandManual.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\WaitFormEmployee.resx">
       <DependentUpon>WaitFormEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -5648,6 +5679,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptVoucherV2.resx">
       <DependentUpon>rptVoucherV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Reportes\frmRptMarcaje.resx">
+      <DependentUpon>frmRptMarcaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>

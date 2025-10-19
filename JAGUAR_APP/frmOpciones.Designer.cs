@@ -201,6 +201,7 @@
             this.navBarItem255 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup18 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem155 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbMarcarAsistencia = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem75 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem76 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem77 = new DevExpress.XtraNavBar.NavBarItem();
@@ -247,6 +248,7 @@
             this.navBarItem108 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem109 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem110 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem351 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem157 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem158 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem159 = new DevExpress.XtraNavBar.NavBarItem();
@@ -516,7 +518,6 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbMarcarAsistencia = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -3026,6 +3027,20 @@
             this.navBarItem155.Name = "navBarItem155";
             this.navBarItem155.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem155_LinkClicked);
             // 
+            // nbMarcarAsistencia
+            // 
+            this.nbMarcarAsistencia.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbMarcarAsistencia.Appearance.Options.UseFont = true;
+            this.nbMarcarAsistencia.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbMarcarAsistencia.AppearanceDisabled.Options.UseFont = true;
+            this.nbMarcarAsistencia.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbMarcarAsistencia.AppearanceHotTracked.Options.UseFont = true;
+            this.nbMarcarAsistencia.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbMarcarAsistencia.AppearancePressed.Options.UseFont = true;
+            this.nbMarcarAsistencia.Caption = "Marcar Asistencia";
+            this.nbMarcarAsistencia.Name = "nbMarcarAsistencia";
+            this.nbMarcarAsistencia.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbMarcarAsistencia_LinkClicked);
+            // 
             // navBarItem75
             // 
             this.navBarItem75.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F);
@@ -3522,7 +3537,6 @@
             this.TabReportes.Controls.Add(this.navBarControl5);
             this.TabReportes.Margin = new System.Windows.Forms.Padding(2);
             this.TabReportes.Name = "TabReportes";
-            this.TabReportes.PageVisible = false;
             this.TabReportes.Size = new System.Drawing.Size(944, 491);
             this.TabReportes.Text = "Reportes";
             // 
@@ -3581,7 +3595,8 @@
             this.navBarItem195,
             this.navBarItem108,
             this.navBarItem109,
-            this.navBarItem110});
+            this.navBarItem110,
+            this.navBarItem351});
             this.navBarControl5.Location = new System.Drawing.Point(0, 0);
             this.navBarControl5.Name = "navBarControl5";
             this.navBarControl5.OptionsNavPane.ExpandedWidth = 338;
@@ -3603,7 +3618,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem156),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem108),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem109),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem110)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem110),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem351)});
             this.navBarGroup15.Name = "navBarGroup15";
             // 
             // navBarItem156
@@ -3618,6 +3634,7 @@
             this.navBarItem156.AppearancePressed.Options.UseFont = true;
             this.navBarItem156.Caption = "Salarios Devengados";
             this.navBarItem156.Name = "navBarItem156";
+            this.navBarItem156.Visible = false;
             // 
             // navBarItem108
             // 
@@ -3631,6 +3648,7 @@
             this.navBarItem108.AppearancePressed.Options.UseFont = true;
             this.navBarItem108.Caption = "Cuadro de Vacaciones";
             this.navBarItem108.Name = "navBarItem108";
+            this.navBarItem108.Visible = false;
             // 
             // navBarItem109
             // 
@@ -3644,6 +3662,7 @@
             this.navBarItem109.AppearancePressed.Options.UseFont = true;
             this.navBarItem109.Caption = "Planilla General";
             this.navBarItem109.Name = "navBarItem109";
+            this.navBarItem109.Visible = false;
             // 
             // navBarItem110
             // 
@@ -3657,6 +3676,21 @@
             this.navBarItem110.AppearancePressed.Options.UseFont = true;
             this.navBarItem110.Caption = "Beneficios y Deducciónes";
             this.navBarItem110.Name = "navBarItem110";
+            this.navBarItem110.Visible = false;
+            // 
+            // navBarItem351
+            // 
+            this.navBarItem351.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem351.Appearance.Options.UseFont = true;
+            this.navBarItem351.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem351.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem351.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem351.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem351.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem351.AppearancePressed.Options.UseFont = true;
+            this.navBarItem351.Caption = "Marcaje";
+            this.navBarItem351.Name = "navBarItem351";
+            this.navBarItem351.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem351_LinkClicked_1);
             // 
             // navBarItem157
             // 
@@ -7225,20 +7259,6 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
-            // nbMarcarAsistencia
-            // 
-            this.nbMarcarAsistencia.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nbMarcarAsistencia.Appearance.Options.UseFont = true;
-            this.nbMarcarAsistencia.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nbMarcarAsistencia.AppearanceDisabled.Options.UseFont = true;
-            this.nbMarcarAsistencia.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nbMarcarAsistencia.AppearanceHotTracked.Options.UseFont = true;
-            this.nbMarcarAsistencia.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nbMarcarAsistencia.AppearancePressed.Options.UseFont = true;
-            this.nbMarcarAsistencia.Caption = "Marcar Asistencia";
-            this.nbMarcarAsistencia.Name = "nbMarcarAsistencia";
-            this.nbMarcarAsistencia.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbMarcarAsistencia_LinkClicked);
-            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7776,5 +7796,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem258;
         private DevExpress.XtraNavBar.NavBarItem navBarDetalleCalculoComisiones;
         private DevExpress.XtraNavBar.NavBarItem nbMarcarAsistencia;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem351;
     }
 }
