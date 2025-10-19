@@ -30,9 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frnEmployeeBrandManual));
-            this.dtFechaHora = new DevExpress.XtraEditors.DateEdit();
             this.grdTipoMarca = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.tipomarcaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsMaestroEmpleados1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdGuardar = new System.Windows.Forms.Button();
             this.cmdCerrar = new System.Windows.Forms.Button();
             this.labelControl54 = new DevExpress.XtraEditors.LabelControl();
@@ -40,35 +43,18 @@
             this.cmdBuscar = new System.Windows.Forms.Button();
             this.txtEmpleado = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dsMaestroEmpleados1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
-            this.tipomarcaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dtFechaHora = new DevExpress.XtraEditors.DateEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdTipoMarca.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipomarcaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaHora.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaHora.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdTipoMarca.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipomarcaBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dtFechaHora
-            // 
-            this.dtFechaHora.EditValue = null;
-            this.dtFechaHora.Location = new System.Drawing.Point(253, 123);
-            this.dtFechaHora.Name = "dtFechaHora";
-            this.dtFechaHora.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.dtFechaHora.Properties.Appearance.Options.UseFont = true;
-            this.dtFechaHora.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtFechaHora.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtFechaHora.Size = new System.Drawing.Size(174, 24);
-            this.dtFechaHora.TabIndex = 0;
             // 
             // grdTipoMarca
             // 
-            this.grdTipoMarca.Location = new System.Drawing.Point(253, 82);
+            this.grdTipoMarca.Location = new System.Drawing.Point(233, 82);
             this.grdTipoMarca.Name = "grdTipoMarca";
             this.grdTipoMarca.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grdTipoMarca.Properties.Appearance.Options.UseFont = true;
@@ -78,8 +64,18 @@
             this.grdTipoMarca.Properties.DisplayMember = "descripcion";
             this.grdTipoMarca.Properties.PopupView = this.gridLookUpEdit1View;
             this.grdTipoMarca.Properties.ValueMember = "id";
-            this.grdTipoMarca.Size = new System.Drawing.Size(174, 24);
+            this.grdTipoMarca.Size = new System.Drawing.Size(211, 24);
             this.grdTipoMarca.TabIndex = 1;
+            // 
+            // tipomarcaBindingSource
+            // 
+            this.tipomarcaBindingSource.DataMember = "tipo_marca";
+            this.tipomarcaBindingSource.DataSource = this.dsMaestroEmpleados1;
+            // 
+            // dsMaestroEmpleados1
+            // 
+            this.dsMaestroEmpleados1.DataSetName = "dsMaestroEmpleados";
+            this.dsMaestroEmpleados1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridLookUpEdit1View
             // 
@@ -90,6 +86,19 @@
             this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid
+            // 
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
+            // coldescripcion
+            // 
+            this.coldescripcion.Caption = "Descripcion";
+            this.coldescripcion.FieldName = "descripcion";
+            this.coldescripcion.Name = "coldescripcion";
+            this.coldescripcion.Visible = true;
+            this.coldescripcion.VisibleIndex = 0;
             // 
             // cmdGuardar
             // 
@@ -126,7 +135,7 @@
             // 
             this.labelControl54.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl54.Appearance.Options.UseFont = true;
-            this.labelControl54.Location = new System.Drawing.Point(157, 82);
+            this.labelControl54.Location = new System.Drawing.Point(137, 82);
             this.labelControl54.Name = "labelControl54";
             this.labelControl54.Size = new System.Drawing.Size(86, 17);
             this.labelControl54.TabIndex = 14;
@@ -136,7 +145,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(157, 123);
+            this.labelControl1.Location = new System.Drawing.Point(137, 123);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(80, 17);
             this.labelControl1.TabIndex = 15;
@@ -181,34 +190,34 @@
             this.label3.Text = "Empleado";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // dsMaestroEmpleados1
+            // dtFechaHora
             // 
-            this.dsMaestroEmpleados1.DataSetName = "dsMaestroEmpleados";
-            this.dsMaestroEmpleados1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tipomarcaBindingSource
-            // 
-            this.tipomarcaBindingSource.DataMember = "tipo_marca";
-            this.tipomarcaBindingSource.DataSource = this.dsMaestroEmpleados1;
-            // 
-            // colid
-            // 
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            // 
-            // coldescripcion
-            // 
-            this.coldescripcion.Caption = "Descripcion";
-            this.coldescripcion.FieldName = "descripcion";
-            this.coldescripcion.Name = "coldescripcion";
-            this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 0;
+            this.dtFechaHora.EditValue = null;
+            this.dtFechaHora.Location = new System.Drawing.Point(233, 118);
+            this.dtFechaHora.Name = "dtFechaHora";
+            this.dtFechaHora.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.dtFechaHora.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.dtFechaHora.Properties.Appearance.Options.UseFont = true;
+            this.dtFechaHora.Properties.Appearance.Options.UseForeColor = true;
+            this.dtFechaHora.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtFechaHora.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            this.dtFechaHora.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtFechaHora.Properties.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
+            this.dtFechaHora.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dtFechaHora.Properties.EditFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
+            this.dtFechaHora.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dtFechaHora.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dtFechaHora.Size = new System.Drawing.Size(211, 26);
+            this.dtFechaHora.TabIndex = 44;
             // 
             // frnEmployeeBrandManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 249);
+            this.Controls.Add(this.dtFechaHora);
             this.Controls.Add(this.cmdBuscar);
             this.Controls.Add(this.txtEmpleado);
             this.Controls.Add(this.label3);
@@ -217,24 +226,21 @@
             this.Controls.Add(this.cmdCerrar);
             this.Controls.Add(this.cmdGuardar);
             this.Controls.Add(this.grdTipoMarca);
-            this.Controls.Add(this.dtFechaHora);
             this.IconOptions.ShowIcon = false;
             this.Name = "frnEmployeeBrandManual";
             this.Text = "Marcaje Manual";
+            ((System.ComponentModel.ISupportInitialize)(this.grdTipoMarca.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipomarcaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaHora.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFechaHora.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdTipoMarca.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipomarcaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.DateEdit dtFechaHora;
         private DevExpress.XtraEditors.GridLookUpEdit grdTipoMarca;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private System.Windows.Forms.Button cmdGuardar;
@@ -248,5 +254,6 @@
         private dsMaestroEmpleados dsMaestroEmpleados1;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
+        private DevExpress.XtraEditors.DateEdit dtFechaHora;
     }
 }

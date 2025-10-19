@@ -20,7 +20,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 {
     public partial class frnEmployeeBrandManual : DevExpress.XtraEditors.XtraForm
     {
-        public hr_employee EmpleadoActual;
+        public hr_employee EmpleadoActual = new hr_employee();
         int IdEmpleadoActual;
         UserLogin UsuarioLogueado;
         DataOperations dp = new DataOperations();   
@@ -30,6 +30,12 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             LoadData();
             UsuarioLogueado = user;
             IdEmpleadoActual = pidEmp;
+
+            if (EmpleadoActual.GetById(IdEmpleadoActual))
+            {
+                txtEmpleado.Text = EmpleadoActual.Barcode + " - " + EmpleadoActual.Name;
+               
+            }
 
         }
 

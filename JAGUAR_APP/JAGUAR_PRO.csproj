@@ -4188,6 +4188,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPlanillaReportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Reportes\frmRptMarcaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Reportes\frmRptMarcaje.Designer.cs">
+      <DependentUpon>frmRptMarcaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5674,6 +5680,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Planilla\Reportes\rptVoucherV2.resx">
       <DependentUpon>rptVoucherV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Reportes\frmRptMarcaje.resx">
+      <DependentUpon>frmRptMarcaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
