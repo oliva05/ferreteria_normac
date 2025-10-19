@@ -793,7 +793,12 @@ namespace Eatery.Ventas
                             command.Parameters.Clear();
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.AddWithValue("@id_facturaH", IdFacturaH);
-                            command.Parameters.AddWithValue("@id_pt", row.id_pt);
+
+                            if(PedidoRecuperado.TipoFactura == 1)
+                                command.Parameters.AddWithValue("@id_pt", row.id_pt);
+                            else
+                                command.Parameters.AddWithValue("@id_pt", row.id_pt_usado);
+
                             command.Parameters.AddWithValue("@item_code", row.itemcode);
                             command.Parameters.AddWithValue("@descripcion", row.itemname);
                             command.Parameters.AddWithValue("@cantidad", row.cantidad);
@@ -1074,7 +1079,13 @@ namespace Eatery.Ventas
                                 command.Parameters.Clear();
                                 command.CommandType = CommandType.StoredProcedure;
                                 command.Parameters.AddWithValue("@id_facturaH", IdFacturaH);
-                                command.Parameters.AddWithValue("@id_pt", row.id_pt);
+
+                                //command.Parameters.AddWithValue("@id_pt", row.id_pt);
+                                if (PedidoRecuperado.TipoFactura == 1)
+                                    command.Parameters.AddWithValue("@id_pt", row.id_pt);
+                                else
+                                    command.Parameters.AddWithValue("@id_pt", row.id_pt_usado);
+
                                 command.Parameters.AddWithValue("@item_code", row.itemcode);
                                 command.Parameters.AddWithValue("@descripcion", row.itemname);
                                 command.Parameters.AddWithValue("@cantidad", row.cantidad);
