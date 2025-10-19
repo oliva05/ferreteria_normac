@@ -62,6 +62,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.grdTipoMarca.Properties.DataSource = this.tipomarcaBindingSource;
             this.grdTipoMarca.Properties.DisplayMember = "descripcion";
+            this.grdTipoMarca.Properties.NullText = "";
             this.grdTipoMarca.Properties.PopupView = this.gridLookUpEdit1View;
             this.grdTipoMarca.Properties.ValueMember = "id";
             this.grdTipoMarca.Size = new System.Drawing.Size(211, 24);
@@ -135,7 +136,7 @@
             // 
             this.labelControl54.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl54.Appearance.Options.UseFont = true;
-            this.labelControl54.Location = new System.Drawing.Point(137, 82);
+            this.labelControl54.Location = new System.Drawing.Point(137, 85);
             this.labelControl54.Name = "labelControl54";
             this.labelControl54.Size = new System.Drawing.Size(86, 17);
             this.labelControl54.TabIndex = 14;
@@ -145,7 +146,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(137, 123);
+            this.labelControl1.Location = new System.Drawing.Point(137, 124);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(80, 17);
             this.labelControl1.TabIndex = 15;
@@ -155,13 +156,14 @@
             // 
             this.cmdBuscar.BackColor = System.Drawing.Color.LightSkyBlue;
             this.cmdBuscar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdBuscar.Enabled = false;
             this.cmdBuscar.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
             this.cmdBuscar.FlatAppearance.BorderSize = 2;
             this.cmdBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdBuscar.Image = ((System.Drawing.Image)(resources.GetObject("cmdBuscar.Image")));
             this.cmdBuscar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.cmdBuscar.Location = new System.Drawing.Point(438, 34);
+            this.cmdBuscar.Location = new System.Drawing.Point(479, 37);
             this.cmdBuscar.Name = "cmdBuscar";
             this.cmdBuscar.Size = new System.Drawing.Size(96, 33);
             this.cmdBuscar.TabIndex = 40;
@@ -173,17 +175,18 @@
             // 
             // txtEmpleado
             // 
+            this.txtEmpleado.Enabled = false;
             this.txtEmpleado.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtEmpleado.Location = new System.Drawing.Point(177, 41);
             this.txtEmpleado.Name = "txtEmpleado";
-            this.txtEmpleado.Size = new System.Drawing.Size(255, 25);
+            this.txtEmpleado.Size = new System.Drawing.Size(296, 25);
             this.txtEmpleado.TabIndex = 39;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(103, 44);
+            this.label3.Location = new System.Drawing.Point(103, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 38;

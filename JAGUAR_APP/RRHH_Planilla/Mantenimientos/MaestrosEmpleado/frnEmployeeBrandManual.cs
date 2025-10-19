@@ -12,6 +12,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -92,7 +93,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 return;
             }
 
-            if (dtFechaHora.DateTime == null)
+            if (dtFechaHora.EditValue == null)
             {
                 CajaDialogo.Error("Debe seleccionar una Fecha y Hora");
                 return;
@@ -110,6 +111,9 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 cmd.Parameters.AddWithValue("@user_log",UsuarioLogueado.Id);
                 cmd.ExecuteNonQuery();
                 conn.Close();
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception EX)
             {
