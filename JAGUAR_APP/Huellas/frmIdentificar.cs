@@ -263,15 +263,18 @@ namespace administracion.Huellas
 
         private void frmIdentificar_Load(object sender, EventArgs e)
         {
+            try
+            {
+                CheckForIllegalCrossThreadCalls = false;
+                fingerPrint.Initialize();
+                fingerPrint.CaptureInitialize();
 
-            CheckForIllegalCrossThreadCalls = false;
-            fingerPrint.Initialize();
-            fingerPrint.CaptureInitialize();
+                fingerPrint = new GriauleFingerprintLibrary.FingerprintCore();
 
-            fingerPrint = new GriauleFingerprintLibrary.FingerprintCore();
-
-            fingerPrint.onStatus += new GriauleFingerprintLibrary.StatusEventHandler(fingerPrint_Onstatus);
-            fingerPrint.onImage += new GriauleFingerprintLibrary.ImageEventHandler(fingerPrint_OnImage);
+                fingerPrint.onStatus += new GriauleFingerprintLibrary.StatusEventHandler(fingerPrint_Onstatus);
+                fingerPrint.onImage += new GriauleFingerprintLibrary.ImageEventHandler(fingerPrint_OnImage);
+            }
+            catch { }
             //txtCode.Focus();
         }
 

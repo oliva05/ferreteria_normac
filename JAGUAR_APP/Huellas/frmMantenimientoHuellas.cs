@@ -1146,7 +1146,11 @@ namespace Proyecto.Huellas
             var gv = (GridView)gridControl1.FocusedView;
             var row = (dsHuellasManto.HuellasManoIzquierdaRow)gv.GetDataRow(gv.FocusedRowHandle);
 
-            int idAEliminar = row.id_huella; // ID que quieres eliminar
+            int idAEliminar = 0;
+
+            if(!row.Isid_huellaNull())
+                idAEliminar = row.id_huella; // ID que quieres eliminar
+
             if (idAEliminar > 0)
             {
                 // Buscar las filas que coincidan con el ID
@@ -1188,7 +1192,12 @@ namespace Proyecto.Huellas
             var gv = (GridView)gridControl2.FocusedView;
             var row = (dsHuellasManto.HuellasManoDerechaRow)gv.GetDataRow(gv.FocusedRowHandle);
 
-            int idAEliminar = row.id_huella; // ID que quieres eliminar
+
+            int idAEliminar = 0;
+            if (!row.Isid_huellaNull())
+                idAEliminar = row.id_huella; // ID que quieres eliminar
+
+
             if (idAEliminar > 0)
             {
                 // Buscar las filas que coincidan con el ID
@@ -1221,16 +1230,19 @@ namespace Proyecto.Huellas
         {
             try
             {
-                DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                con.Open();
+                if (idAEliminar > 0)
+                {
+                    DataOperations dp = new DataOperations();
+                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[sp_update_huellas_empleados_by_mano]", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_huella", idAEliminar);
-                cmd.Parameters.AddWithValue("@enable", 0);
-                cmd.ExecuteNonQuery();
-                con.Close();
+                    SqlCommand cmd = new SqlCommand("[dbo].[sp_update_huellas_empleados_by_mano]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_huella", idAEliminar);
+                    cmd.Parameters.AddWithValue("@enable", 0);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
             }
             catch (Exception ec)
             {
