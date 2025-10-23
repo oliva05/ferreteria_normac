@@ -190,7 +190,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         }
                     }
                     cmdGuardar.Visible = false;
-                    cmdAddFactura.Visible = false;
+                    //cmdAddFactura.Visible = false;
                     gridView2.Columns["eliminar"].Visible = false;
 
                     gridView2.OptionsMenu.EnableColumnMenu = true;

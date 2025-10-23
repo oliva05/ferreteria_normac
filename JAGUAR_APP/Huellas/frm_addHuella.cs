@@ -67,8 +67,20 @@ namespace Proyecto.Huellas
 
         private void frm_addHuella_Load(object sender, EventArgs e)
         {
-            fingerprint.Initialize();
-            fingerprint.CaptureInitialize();
+            //fingerprint.Initialize();
+            //fingerprint.CaptureInitialize();
+            try
+            {
+                CheckForIllegalCrossThreadCalls = false;
+                fingerprint.Initialize();
+                fingerprint.CaptureInitialize();
+
+                fingerprint = new GriauleFingerprintLibrary.FingerprintCore();
+
+                fingerprint.onStatus += new GriauleFingerprintLibrary.StatusEventHandler(Fingerprint_onStatus);
+                fingerprint.onImage += new GriauleFingerprintLibrary.ImageEventHandler(FingerPrint_onImage);
+            }
+            catch { }
         }
 
         private delegate void delSetImage(Image img);
@@ -231,11 +243,12 @@ namespace Proyecto.Huellas
         {
             try
             {
+                CheckForIllegalCrossThreadCalls = false;
                 fingerprint.Initialize();
                 fingerprint.CaptureInitialize();
 
-                fingerprint.Finalizer();
                 fingerprint.CaptureFinalize();
+                fingerprint.Finalizer();
             }
             catch
             {
