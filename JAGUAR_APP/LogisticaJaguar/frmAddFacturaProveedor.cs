@@ -828,10 +828,10 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@id_header", FacturaProveedorH_Actual.idFacturaH);
                         }
-                        
+
                         cmd.Parameters.AddWithValue("@id_proveedor", gridLookUpEditProveedor.EditValue);
                         cmd.Parameters.AddWithValue("@id_usuario_recibido", UsuarioLogeado.Id);
-                        
+
 
                         if (tsWithCAI.IsOn)
                         {
@@ -843,7 +843,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             cmd.Parameters.AddWithValue("@id_cai", DBNull.Value);
                             cmd.Parameters.AddWithValue("@cai", txtCAI.Text);
                         }
-                        
+
 
                         cmd.Parameters.AddWithValue("@factura", txtNumeroFactura.Text);
                         cmd.Parameters.AddWithValue("@fecha_factura", dtFechaFactura.EditValue);
@@ -851,8 +851,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         cmd.Parameters.AddWithValue("@entregado_por_identidad", txtIdentidadEntrega.Text);
                         cmd.Parameters.AddWithValue("@entregado_por_hora", dtHoraEntregado.EditValue);
                         cmd.Parameters.AddWithValue("@entregado_por_telefono", txtTelefonoEntrega.Text);
-                        
-                        if(string.IsNullOrEmpty(dtHoraRevisado.Text))
+
+                        if (string.IsNullOrEmpty(dtHoraRevisado.Text))
                             cmd.Parameters.AddWithValue("@id_usuario_revisado", DBNull.Value);
                         else
                             cmd.Parameters.AddWithValue("@id_usuario_revisado", this.UsuarioLogeado.Id);
@@ -876,78 +876,136 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         else
                             cmd.ExecuteNonQuery();
 
+                        DataTable dtDetalle = new DataTable();
+                        
+                        dtDetalle.Columns.Add("id_linea_detalle", typeof(int));
+                        dtDetalle.Columns.Add("cantidad_factura", typeof(decimal));
+                        dtDetalle.Columns.Add("id_unidad_medida_factura", typeof(int));
+                        dtDetalle.Columns.Add("descripcion", typeof(string));
+                        dtDetalle.Columns.Add("cantidad_entrada", typeof(decimal));
+                        dtDetalle.Columns.Add("id_unidad_medida_entrada", typeof(int));
+                        dtDetalle.Columns.Add("total_linea", typeof(decimal));
+                        dtDetalle.Columns.Add("id_producto_terminado", typeof(int));
+                        dtDetalle.Columns.Add("id_user", typeof(int));
+                        dtDetalle.Columns.Add("num_factura", typeof(string));
+                        dtDetalle.Columns.Add("item_code", typeof(string));
+                        dtDetalle.Columns.Add("id_bodega", typeof(int));
+                        dtDetalle.Columns.Add("codigo_proveedor", typeof(string));
+                        dtDetalle.Columns.Add("tipo_item", typeof(string));
+                        dtDetalle.Columns.Add("isv", typeof(decimal));
+                        dtDetalle.Columns.Add("costo_unitario", typeof(decimal));
+                        dtDetalle.Columns.Add("precio", typeof(decimal));
+                        dtDetalle.Columns.Add("porcentaje_utilidad", typeof(decimal));
 
-
-                        //Insert Detalle y transaccion de kardex
                         foreach (dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
                         {
-                            cmd.Parameters.Clear();
-                            if (TipoAccionActualVentana == TipoAccionVentana.Insert)
-                            {
-                                //Insert Detalle
-                                cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v4_compra_pt]"; 
-                                cmd.CommandType = CommandType.StoredProcedure;
-                                cmd.Parameters.AddWithValue("@id_factura_h", id_H);//Header id recien insertado en la transaccion
-                            }
-                            else
-                            {
-                                Int64 id_linea_new = 0;
-                                try
-                                {
-                                    id_linea_new = row.id;
-                                }
-                                catch { }
-
-                                if(id_linea_new == 0)
-                                {
-                                    cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v4_compra_pt]";
-                                    cmd.CommandType = CommandType.StoredProcedure;
-                                    cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
-                                }
-                                else
-                                {
-                                    cmd.CommandText = "[dbo].[sp_set_update_detalle_factura_proveedor_d_v4_compra_pt]";
-                                    cmd.CommandType = CommandType.StoredProcedure;
-                                    cmd.Parameters.AddWithValue("@id_linea_detalle", row.id);
-                                    cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
-                                }
-                                
-                            }
-                            //cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v2]";
-                            //cmd.CommandType = CommandType.StoredProcedure;
-
-                            cmd.Parameters.AddWithValue("@cantidad_factura", row.cantidad);
-                            cmd.Parameters.AddWithValue("@id_unidad_medida_factura", row.id_ud_medida_prv);
-                            cmd.Parameters.AddWithValue("@descripcion", row.descripcion_mp);
-                            cmd.Parameters.AddWithValue("@cantidad_entrada", row.cantidad_ingreso);
-                            cmd.Parameters.AddWithValue("@id_unidad_medida_entrada", row.id_ud_medida_jaguar);
-                            cmd.Parameters.AddWithValue("@total_linea", row.total_fila);
-                            cmd.Parameters.AddWithValue("@id_producto_terminado", row.id_mp);
-                            cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
-                            cmd.Parameters.AddWithValue("@num_factura", txtNumeroFactura.Text);
-                            cmd.Parameters.AddWithValue("@item_code", row.ItemCode);
-                            cmd.Parameters.AddWithValue("@id_bodega", row.id_bodega);//row.id_bodega);
-                            cmd.Parameters.AddWithValue("@codigo_proveedor", ProveedorActual.Jaguar_codigo);
-                            cmd.Parameters.AddWithValue("@tipo_item", DBNull.Value);
-                            cmd.Parameters.AddWithValue("@isv", row.isv);
-                            cmd.Parameters.AddWithValue("@costo_unitario", row.costo_unitario);
-                            cmd.ExecuteNonQuery();
-
-                            if (row.precio_venta > 0)
-                            {
-                                cmd.CommandText = "[dbo].sp_set_utilidad_precio_desde_ingreso_factura_proveedor";
-                                cmd.CommandType = CommandType.StoredProcedure;
-                                cmd.Parameters.Clear();
-                                decimal Porcentaje = 0;
-                                if (!row.Isporcentaje_utilidadNull())
-                                    Porcentaje = row.porcentaje_utilidad;
-
-                                cmd.Parameters.AddWithValue("@porcentaje_utilidad", Porcentaje);
-                                cmd.Parameters.AddWithValue("@id_pt", row.id_mp);
-                                cmd.Parameters.AddWithValue("@precio", row.precio_venta);
-                                cmd.ExecuteNonQuery();
-                            }
+                            dtDetalle.Rows.Add(row.id,
+                                                row.cantidad,
+                                                row.id_ud_medida_prv,
+                                                row.descripcion_mp,
+                                                row.cantidad_ingreso,
+                                                row.id_ud_medida_jaguar,
+                                                row.total_fila,
+                                                row.id_mp,
+                                                this.UsuarioLogeado.Id,
+                                                txtNumeroFactura.Text,
+                                                row.ItemCode,
+                                                row.id_bodega,
+                                                ProveedorActual.Jaguar_codigo,
+                                                DBNull.Value,
+                                                row.isv,
+                                                row.costo_unitario,
+                                                row.precio_venta,
+                                                row.porcentaje_utilidad
+                                       );
                         }
+                        //Insert Detalle y transaccion de kardex
+
+                        SqlCommand cmdDetalle = connection.CreateCommand();
+                        cmdDetalle.CommandText = "[sp_set_insert_detalle_factura_proveedor_d_v5_compra_pt]";
+                        cmdDetalle.Connection = connection;
+                        cmdDetalle.Transaction = transaction;
+                        cmdDetalle.CommandType = CommandType.StoredProcedure;
+                        cmdDetalle.Parameters.AddWithValue("@id_factura_h", id_H);
+                        cmdDetalle.Parameters.AddWithValue("@id_user", UsuarioLogeado.Id);
+
+                        SqlParameter tvpParam = cmdDetalle.Parameters.AddWithValue("@Detalles", dtDetalle);
+                        tvpParam.SqlDbType = SqlDbType.Structured;
+                        tvpParam.TypeName = "dbo.RecuentoDetalleFactura";
+
+                        cmdDetalle.ExecuteNonQuery();
+
+
+                        ////Insert Detalle y transaccion de kardex
+                        //foreach (dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
+                        //{
+                        //    cmd.Parameters.Clear();
+                        //    if (TipoAccionActualVentana == TipoAccionVentana.Insert)
+                        //    {
+                        //        //Insert Detalle
+                        //        cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v4_compra_pt]";
+                        //        cmd.CommandType = CommandType.StoredProcedure;
+                        //        cmd.Parameters.AddWithValue("@id_factura_h", id_H);//Header id recien insertado en la transaccion
+                        //    }
+                        //    else
+                        //    {
+                        //        Int64 id_linea_new = 0;
+                        //        try
+                        //        {
+                        //            id_linea_new = row.id;
+                        //        }
+                        //        catch { }
+
+                        //        if (id_linea_new == 0)
+                        //        {
+                        //            cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v4_compra_pt]";
+                        //            cmd.CommandType = CommandType.StoredProcedure;
+                        //            cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
+                        //        }
+                        //        else
+                        //        {
+                        //            cmd.CommandText = "[dbo].[sp_set_update_detalle_factura_proveedor_d_v4_compra_pt]";
+                        //            cmd.CommandType = CommandType.StoredProcedure;
+                        //            cmd.Parameters.AddWithValue("@id_linea_detalle", row.id);
+                        //            cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
+                        //        }
+
+                        //    }
+                        //    //cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v2]";
+                        //    //cmd.CommandType = CommandType.StoredProcedure;
+
+                        //    cmd.Parameters.AddWithValue("@cantidad_factura", row.cantidad);
+                        //    cmd.Parameters.AddWithValue("@id_unidad_medida_factura", row.id_ud_medida_prv);
+                        //    cmd.Parameters.AddWithValue("@descripcion", row.descripcion_mp);
+                        //    cmd.Parameters.AddWithValue("@cantidad_entrada", row.cantidad_ingreso);
+                        //    cmd.Parameters.AddWithValue("@id_unidad_medida_entrada", row.id_ud_medida_jaguar);
+                        //    cmd.Parameters.AddWithValue("@total_linea", row.total_fila);
+                        //    cmd.Parameters.AddWithValue("@id_producto_terminado", row.id_mp);
+                        //    cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                        //    cmd.Parameters.AddWithValue("@num_factura", txtNumeroFactura.Text);
+                        //    cmd.Parameters.AddWithValue("@item_code", row.ItemCode);
+                        //    cmd.Parameters.AddWithValue("@id_bodega", row.id_bodega);//row.id_bodega);
+                        //    cmd.Parameters.AddWithValue("@codigo_proveedor", ProveedorActual.Jaguar_codigo);
+                        //    cmd.Parameters.AddWithValue("@tipo_item", DBNull.Value);
+                        //    cmd.Parameters.AddWithValue("@isv", row.isv);
+                        //    cmd.Parameters.AddWithValue("@costo_unitario", row.costo_unitario);
+                        //    cmd.ExecuteNonQuery();
+
+                        //    if (row.precio_venta > 0)
+                        //    {
+                        //        cmd.CommandText = "[dbo].sp_set_utilidad_precio_desde_ingreso_factura_proveedor";
+                        //        cmd.CommandType = CommandType.StoredProcedure;
+                        //        cmd.Parameters.Clear();
+                        //        decimal Porcentaje = 0;
+                        //        if (!row.Isporcentaje_utilidadNull())
+                        //            Porcentaje = row.porcentaje_utilidad;
+
+                        //        cmd.Parameters.AddWithValue("@porcentaje_utilidad", Porcentaje);
+                        //        cmd.Parameters.AddWithValue("@id_pt", row.id_mp);
+                        //        cmd.Parameters.AddWithValue("@precio", row.precio_venta);
+                        //        cmd.ExecuteNonQuery();
+                        //    }
+                        //}
                         transaction.Commit();
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -963,6 +1021,180 @@ namespace JAGUAR_PRO.LogisticaJaguar
             {
                 CajaDialogo.Error(ec.Message);
             }
+
+            #region CodigoViejo
+
+            //try
+            //{
+
+            //    DataOperations dp = new DataOperations();
+            //    using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+            //    {
+            //        connection.Open();
+
+            //        SqlCommand cmd = connection.CreateCommand();
+            //        SqlTransaction transaction;
+
+            //        // Start a local transaction.
+            //        transaction = connection.BeginTransaction("SampleTransaction");
+
+            //        // Must assign both transaction object and connection
+            //        cmd.Connection = connection;
+            //        cmd.Transaction = transaction;
+
+            //        try
+            //        {
+
+            //            if (TipoAccionActualVentana == TipoAccionVentana.Insert)
+            //            {
+            //                //Insert Header
+            //                cmd.CommandText = "[dbo].[jaguar_sp_insert_recepcion_factura_compra_v2]";
+            //                cmd.CommandType = CommandType.StoredProcedure;
+            //            }
+            //            else
+            //            {
+            //                //Update Header
+            //                cmd.CommandText = "[dbo].[jaguar_sp_update_recepcion_factura_compra]";
+            //                cmd.CommandType = CommandType.StoredProcedure;
+            //                cmd.Parameters.AddWithValue("@id_header", FacturaProveedorH_Actual.idFacturaH);
+            //            }
+
+            //            cmd.Parameters.AddWithValue("@id_proveedor", gridLookUpEditProveedor.EditValue);
+            //            cmd.Parameters.AddWithValue("@id_usuario_recibido", UsuarioLogeado.Id);
+
+
+            //            if (tsWithCAI.IsOn)
+            //            {
+            //                cmd.Parameters.AddWithValue("@id_cai", gridLookUpEdit_CAI_Proveedor.EditValue);
+            //                cmd.Parameters.AddWithValue("@cai", gridLookUpEdit_CAI_Proveedor.Text);
+            //            }
+            //            else
+            //            {
+            //                cmd.Parameters.AddWithValue("@id_cai", DBNull.Value);
+            //                cmd.Parameters.AddWithValue("@cai", txtCAI.Text);
+            //            }
+
+
+            //            cmd.Parameters.AddWithValue("@factura", txtNumeroFactura.Text);
+            //            cmd.Parameters.AddWithValue("@fecha_factura", dtFechaFactura.EditValue);
+            //            cmd.Parameters.AddWithValue("@entregado_por_nombre", txtNombreEntrega.Text);
+            //            cmd.Parameters.AddWithValue("@entregado_por_identidad", txtIdentidadEntrega.Text);
+            //            cmd.Parameters.AddWithValue("@entregado_por_hora", dtHoraEntregado.EditValue);
+            //            cmd.Parameters.AddWithValue("@entregado_por_telefono", txtTelefonoEntrega.Text);
+
+            //            if(string.IsNullOrEmpty(dtHoraRevisado.Text))
+            //                cmd.Parameters.AddWithValue("@id_usuario_revisado", DBNull.Value);
+            //            else
+            //                cmd.Parameters.AddWithValue("@id_usuario_revisado", this.UsuarioLogeado.Id);
+
+            //            if (string.IsNullOrEmpty(dtHoraRevisado.Text))
+            //                cmd.Parameters.AddWithValue("@hora_revisado", DBNull.Value);
+            //            else
+            //                cmd.Parameters.AddWithValue("@hora_revisado", dtHoraRevisado.EditValue);
+
+            //            cmd.Parameters.AddWithValue("@observaciones", txtObservaciones.Text);
+            //            if (IdOrdenCompra == 0)
+            //                cmd.Parameters.AddWithValue("@id_orden_compra", DBNull.Value);
+            //            else
+            //                cmd.Parameters.AddWithValue("@id_orden_compra", IdOrdenCompra);
+
+            //            int id_H = 0;
+
+
+            //            if (TipoAccionActualVentana == TipoAccionVentana.Insert)
+            //                id_H = dp.ValidateNumberInt32(cmd.ExecuteScalar());
+            //            else
+            //                cmd.ExecuteNonQuery();
+
+
+
+            //            //Insert Detalle y transaccion de kardex
+            //            foreach (dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
+            //            {
+            //                cmd.Parameters.Clear();
+            //                if (TipoAccionActualVentana == TipoAccionVentana.Insert)
+            //                {
+            //                    //Insert Detalle
+            //                    cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v4_compra_pt]"; 
+            //                    cmd.CommandType = CommandType.StoredProcedure;
+            //                    cmd.Parameters.AddWithValue("@id_factura_h", id_H);//Header id recien insertado en la transaccion
+            //                }
+            //                else
+            //                {
+            //                    Int64 id_linea_new = 0;
+            //                    try
+            //                    {
+            //                        id_linea_new = row.id;
+            //                    }
+            //                    catch { }
+
+            //                    if(id_linea_new == 0)
+            //                    {
+            //                        cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v4_compra_pt]";
+            //                        cmd.CommandType = CommandType.StoredProcedure;
+            //                        cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
+            //                    }
+            //                    else
+            //                    {
+            //                        cmd.CommandText = "[dbo].[sp_set_update_detalle_factura_proveedor_d_v4_compra_pt]";
+            //                        cmd.CommandType = CommandType.StoredProcedure;
+            //                        cmd.Parameters.AddWithValue("@id_linea_detalle", row.id);
+            //                        cmd.Parameters.AddWithValue("@id_factura_h", FacturaProveedorH_Actual.idFacturaH);
+            //                    }
+
+            //                }
+            //                //cmd.CommandText = "[dbo].[sp_set_insert_detalle_factura_proveedor_d_v2]";
+            //                //cmd.CommandType = CommandType.StoredProcedure;
+
+            //                cmd.Parameters.AddWithValue("@cantidad_factura", row.cantidad);
+            //                cmd.Parameters.AddWithValue("@id_unidad_medida_factura", row.id_ud_medida_prv);
+            //                cmd.Parameters.AddWithValue("@descripcion", row.descripcion_mp);
+            //                cmd.Parameters.AddWithValue("@cantidad_entrada", row.cantidad_ingreso);
+            //                cmd.Parameters.AddWithValue("@id_unidad_medida_entrada", row.id_ud_medida_jaguar);
+            //                cmd.Parameters.AddWithValue("@total_linea", row.total_fila);
+            //                cmd.Parameters.AddWithValue("@id_producto_terminado", row.id_mp);
+            //                cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+            //                cmd.Parameters.AddWithValue("@num_factura", txtNumeroFactura.Text);
+            //                cmd.Parameters.AddWithValue("@item_code", row.ItemCode);
+            //                cmd.Parameters.AddWithValue("@id_bodega", row.id_bodega);//row.id_bodega);
+            //                cmd.Parameters.AddWithValue("@codigo_proveedor", ProveedorActual.Jaguar_codigo);
+            //                cmd.Parameters.AddWithValue("@tipo_item", DBNull.Value);
+            //                cmd.Parameters.AddWithValue("@isv", row.isv);
+            //                cmd.Parameters.AddWithValue("@costo_unitario", row.costo_unitario);
+            //                cmd.ExecuteNonQuery();
+
+            //                if (row.precio_venta > 0)
+            //                {
+            //                    cmd.CommandText = "[dbo].sp_set_utilidad_precio_desde_ingreso_factura_proveedor";
+            //                    cmd.CommandType = CommandType.StoredProcedure;
+            //                    cmd.Parameters.Clear();
+            //                    decimal Porcentaje = 0;
+            //                    if (!row.Isporcentaje_utilidadNull())
+            //                        Porcentaje = row.porcentaje_utilidad;
+
+            //                    cmd.Parameters.AddWithValue("@porcentaje_utilidad", Porcentaje);
+            //                    cmd.Parameters.AddWithValue("@id_pt", row.id_mp);
+            //                    cmd.Parameters.AddWithValue("@precio", row.precio_venta);
+            //                    cmd.ExecuteNonQuery();
+            //                }
+            //            }
+            //            transaction.Commit();
+            //            this.DialogResult = DialogResult.OK;
+            //            this.Close();
+            //        }
+            //        catch (Exception ec)
+            //        {
+            //            transaction.Rollback();
+            //            CajaDialogo.Error(ec.Message);
+            //        }
+            //    }//End using
+            //}
+            //catch (Exception ec)
+            //{
+            //    CajaDialogo.Error(ec.Message);
+            //}
+
+            #endregion
         }
 
 

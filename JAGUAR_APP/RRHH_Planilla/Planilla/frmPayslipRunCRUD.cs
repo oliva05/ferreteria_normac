@@ -415,7 +415,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                             command.Parameters.AddWithValue("@quincena", quincena_anual);
                             command.Parameters.AddWithValue("@id_estado", gleEstado.EditValue);
                             command.Parameters.AddWithValue("@quincena_mes", gleQuincena.EditValue);
-                            
+
 
                             //id name
                             //1   Planilla General
@@ -427,6 +427,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                             //7   Planilla décimo cuarto($)
                             //8   Planilla provisiones(L.)
                             //9   Planilla provisiones($)
+                            //10  Planilla General + Horas Extras
                             switch (vPayRollType)
                             {
                                 case 1:
@@ -442,6 +443,12 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                                     command.Parameters.AddWithValue("@calculation_date_start", dtDesde_Decimo.DateTime);
                                     command.Parameters.AddWithValue("@calculation_date_end", dtHasta_Decimo.DateTime);
                                     command.Parameters.AddWithValue("@fecha_corte_cafeteria", DBNull.Value);
+                                    break;
+
+                                case 10:
+                                    command.Parameters.AddWithValue("@fecha_corte_cafeteria", dtFechaCorteCafe.DateTime);
+                                    command.Parameters.AddWithValue("@calculation_date_start", DBNull.Value);
+                                    command.Parameters.AddWithValue("@calculation_date_end", DBNull.Value);
                                     break;
                                 default:
                                     command.Parameters.AddWithValue("@calculation_date_start", DBNull.Value);
@@ -719,6 +726,18 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                                     lbl_dt_desde_decimo.Visible = lbl_dt_hasta_decimo.Visible = true;
                                     dtDesde_Decimo.Visible = dtHasta_Decimo.Visible = true;
                                     lbl_dt_desde_decimo.Text = "Desde:"; 
+                                    break;
+
+                                case 10://Administrativo + Horas Extras
+                                    lblDescripcionDecimo.Text = "Fecha de Corte Cafeteria";
+                                    lbl_dt_desde_decimo.Text = "Hasta:";
+                                    lblDescripcionDecimo.Visible = false;
+                                    lbl_dt_hasta_decimo.Visible = true;
+                                    dtFechaCorteCafe.Visible = false;
+                                    dtFechaCorteCafe.DateTime = dp.Now();
+                                    lbl_dt_desde_decimo.Visible = true;
+                                    lbl_dt_hasta_decimo.Visible = false;
+                                    dtHasta_Decimo.Visible = false;
                                     break;
                                 default:
                                     TimeSpan diferencia = dtHasta.DateTime.AddDays(1) - dtDesde.DateTime;

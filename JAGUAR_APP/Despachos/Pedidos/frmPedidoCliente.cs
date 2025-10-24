@@ -145,8 +145,8 @@ namespace Eatery.Ventas
             {
                 lblScanProducto.Visible =
                 txtScanProducto.Visible = true;
-                cmdCopiarDesde.Visible =
-                ckGenerarCotizacion.Visible = false;
+                cmdCopiarDesde.Visible = false;
+                //ckGenerarCotizacion.Visible = false;
             }
             else
             {
