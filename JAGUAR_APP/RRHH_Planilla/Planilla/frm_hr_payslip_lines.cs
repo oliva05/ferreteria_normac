@@ -170,7 +170,37 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                         cmdSiguiente.Visible = cmdAnterior.Visible = false;
                         cmdVerMarcas.Visible = false;
                         LoadDetalleNominasDecimo();
+
                         break;
+
+                    case 10:
+                        //cmdSiguiente.Visible = cmdAnterior.Visible = true;
+                        //cmdVerMarcas.Visible = true;
+                        //gridView1.Columns["salario_hora"].Visible = false;
+                        //LoadDetalleNominas();
+
+
+                        cmdSiguiente.Visible = cmdAnterior.Visible = true;
+                        cmdVerMarcas.Visible = true;
+
+                        this.ArraySlips = pArraySlips;
+
+                        FilaActual = pLineaActual;
+                        UltimaFila = this.ArraySlips.Count;
+                        foreach (PaySlip slip in this.ArraySlips)
+                        {
+                            if (slip != null)
+                            {
+                                if (slip.LineaNum_Orden == pLineaActual)
+                                {
+                                    LoadDetalleNominasGeneralplusHE(slip.PaySlip_id);
+                                    break;
+                                }
+                            }
+                        }
+
+                        break;
+
                     default:
                         break;
                 }
@@ -243,6 +273,38 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                 dsPlanillasTransaccion1.hr_payslip_lines.Clear();
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 adat.Fill(dsPlanillasTransaccion1.hr_payslip_lines);
+
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void LoadDetalleNominasGeneralplusHE(int pSlipId)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("dbo.[GetPlanillasEmpleadosLineas_Detalle_PlanillaGeneral_plus_HE]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@slip_id", pSlipId);
+                //cmd.Parameters.AddWithValue("@hasta", dtHasta.EditValue);
+                dsPlanillasTransaccion1.hr_payslip_lines.Clear();
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                adat.Fill(dsPlanillasTransaccion1.hr_payslip_lines);
+
+                PaySlip SlipNow = new PaySlip();
+                if (SlipNow.RecuperarRegistro(pSlipId))
+                {
+                    lblCodigo.Text = SlipNow.EmployeeCode;
+                    lblNombre.Text = SlipNow.EmployeeName;
+                    IdEmpleadoLoaded = SlipNow.EmployeeId;
+                }
 
                 con.Close();
             }
@@ -373,136 +435,324 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
             var gridView1 = (GridView)gridControl1.FocusedView;
             var row = (dsPlanillasTransaccion.hr_payslip_linesRow)gridView1.GetFocusedDataRow();
 
-            switch(e.Column.FieldName)
+            switch (PlanillaHeaderObject.PayrollTypeId)
             {
-                case "note":
-                    if(!row.IsnoteNull())
+                case 10: //Administrativo + Horas Extras
+                    switch (e.Column.FieldName)
                     {
-                        if (!string.IsNullOrEmpty(row.note))
-                        {
-                            if(row.note.Length > 0)
+                        case "note":
+                            if (!row.IsnoteNull())
                             {
-                                try
+                                if (!string.IsNullOrEmpty(row.note))
                                 {
-                                    DataOperations dp = new DataOperations();
-                                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                                    con.Open();
+                                    if (row.note.Length > 0)
+                                    {
+                                        try
+                                        {
+                                            DataOperations dp = new DataOperations();
+                                            SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                                            con.Open();
 
-                                    SqlCommand cmd = new SqlCommand("[dbo].[SetNotaLineaPlanilla_empleado]", con);
-                                    cmd.CommandType = CommandType.StoredProcedure;
-                                    cmd.Parameters.AddWithValue("@note", row.note);
-                                    cmd.Parameters.AddWithValue("@id", row.id);
-                                    cmd.ExecuteNonQuery();
+                                            SqlCommand cmd = new SqlCommand("[dbo].[SetNotaLineaPlanilla_empleado]", con);
+                                            cmd.CommandType = CommandType.StoredProcedure;
+                                            cmd.Parameters.AddWithValue("@note", row.note);
+                                            cmd.Parameters.AddWithValue("@id", row.id);
+                                            cmd.ExecuteNonQuery();
 
-                                    con.Close();
-                                }
-                                catch (Exception ec)
-                                {
-                                    CajaDialogo.Error(ec.Message);
+                                            con.Close();
+                                        }
+                                        catch (Exception ec)
+                                        {
+                                            CajaDialogo.Error(ec.Message);
+                                        }
+                                    }
                                 }
                             }
-                        }
-                    }
-                    break;
-                case "quantity":
-                    decimal percent = 1M;
+                            break;
+                        case "quantity":
+                            decimal percent = 1M;
 
-                    if (row.code == "PHE25" || row.code == "PHE50" || row.code == "PHE75" || row.code == "PHE100")
+                            if (row.code == "PHE25" || row.code == "PHE50" || row.code == "PHE75" || row.code == "PHE100")
+                            {
+                                switch (row.code)
+                                {
+                                    case "PHE25":
+                                        percent = 1.25M;
+                                        break;
+                                    case "PHE50":
+                                        percent = 1.50M;
+                                        break;
+                                    case "PHE75":
+                                        percent = 1.75M;
+                                        break;
+                                    case "PHE100":
+                                        percent = 2M;
+                                        break;
+                                    default:
+
+                                        break;
+                                }
+                                row.Credito = row.quantity * (row.salario_hora * percent);
+
+                                UpdateLineaPlanillaGeneralplusHE(row.id, row.Credito, row.quantity);
+
+                                decimal TotalA_Pagar = 0;
+                                decimal TotalHorasExtra = 0;
+                                decimal TotalIngresos = 0;
+                                decimal TotalDeducciones = 0;
+                                decimal TotalNeto = 0;
+
+                                foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowS in dsPlanillasTransaccion1.hr_payslip_lines)
+                                {
+                                    if (rowS.code == "PHE25" || rowS.code == "PHE50" || rowS.code == "PHE75" || rowS.code == "PHE100")
+                                    {
+                                        TotalA_Pagar += rowS.Credito;
+                                        TotalHorasExtra += rowS.quantity;
+                                    }
+
+                                    if (rowS.Credito > 0 && rowS.code != "BASIC")
+                                        TotalIngresos += rowS.Credito;
+                                    else if (rowS.code != "BASIC")
+                                        TotalDeducciones += Math.Abs(rowS.Debito);
+                                }
+
+                                TotalNeto = TotalIngresos - TotalDeducciones;
+
+                                foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowT in dsPlanillasTransaccion1.hr_payslip_lines)
+                                {
+                                    if (rowT.code == "TPHE" )//|| rowT.code == "GROSS" || rowT.code == "NET")
+                                    {
+                                        rowT.Saldo = TotalA_Pagar;
+                                        rowT.quantity = TotalHorasExtra;
+                                        UpdateLineaPlanillaGeneralplusHE(rowT.id, TotalA_Pagar, TotalHorasExtra);
+                                    }
+
+                                    if (rowT.code == "GROSS")
+                                    {
+                                        rowT.Saldo = TotalIngresos;
+                                        UpdateLineaPlanillaGeneralplusHE(rowT.id, TotalIngresos, 0);
+                                    }
+
+                                    if (rowT.code == "NET")
+                                    {
+                                        rowT.Saldo = TotalNeto;
+                                        UpdateLineaPlanillaGeneralplusHE(rowT.id, TotalNeto, 0);
+                                    }
+                                }
+                            }
+                            break;
+                        case "Credito":
+                            //if (row.code != "CTAVO" && row.code != "TCAVO")
+                            //{
+                            //    row.Credito = dp.ValidateNumberDecimal(e.OldValue);
+                            //}
+                            //else
+                            //{
+                            //    decimal SaldoDecimo = dp.ValidateNumberDecimal(e.Value);
+                            //    decimal DeduccionesDecimo = 0;
+                            //    foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowS in dsPlanillasTransaccion1.hr_payslip_lines)
+                            //    {
+                            //        if (rowS.salary_rule_id == 50)
+                            //        {
+                            //            DeduccionesDecimo += rowS.Debito;
+                            //        }
+                            //    }
+
+                            //    foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowS in dsPlanillasTransaccion1.hr_payslip_lines)
+                            //    {
+                            //        if (rowS.salary_rule_id == 3)
+                            //        {
+                            //            rowS.Saldo = (SaldoDecimo - DeduccionesDecimo);
+                            //            try
+                            //            {
+                            //                DataOperations dp = new DataOperations();
+                            //                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                            //                con.Open();
+
+                            //                SqlCommand cmd = new SqlCommand("[dbo].[spSetUpdate_Payslip_line_by_id]", con);
+                            //                cmd.CommandType = CommandType.StoredProcedure;
+                            //                cmd.Parameters.AddWithValue("@payslip_line_id", row.id);
+                            //                cmd.Parameters.AddWithValue("@quantity", 1);
+                            //                cmd.Parameters.AddWithValue("@total", rowS.Saldo);
+                            //                cmd.ExecuteNonQuery();
+
+                            //                con.Close();
+                            //            }
+                            //            catch (Exception ec)
+                            //            {
+                            //                CajaDialogo.Error(ec.Message);
+                            //            }
+                            //            break; 
+                            //        }
+                            //    }
+                            //}
+                            break;
+                    }
+
+
+                    break;
+
+                default:
+
+                    switch (e.Column.FieldName)
                     {
-                        switch (row.code)
-                        {
-                            case "PHE25":
-                                percent = 1.25M;
-                                break;
-                            case "PHE50":
-                                percent = 1.50M;
-                                break;
-                            case "PHE75":
-                                percent = 1.75M;
-                                break;
-                            case "PHE100":
-                                percent = 2M;
-                                break;
-                            default:
-
-                                break;
-                        }
-                        row.Credito = row.quantity * (row.salario_hora * percent);
-
-                        UpdateLineaPlanilla(row.id, row.Credito, row.quantity);
-
-                        decimal TotalA_Pagar = 0;
-                        decimal TotalHorasExtra = 0;
-                        foreach(dsPlanillasTransaccion.hr_payslip_linesRow rowS in dsPlanillasTransaccion1.hr_payslip_lines)
-                        {
-                            if (rowS.code == "PHE25" || rowS.code == "PHE50" || rowS.code == "PHE75" || rowS.code == "PHE100")
+                        case "note":
+                            if (!row.IsnoteNull())
                             {
-                                TotalA_Pagar += rowS.Credito;
-                                TotalHorasExtra += rowS.quantity;
-                            }
-                        }
+                                if (!string.IsNullOrEmpty(row.note))
+                                {
+                                    if (row.note.Length > 0)
+                                    {
+                                        try
+                                        {
+                                            DataOperations dp = new DataOperations();
+                                            SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                                            con.Open();
 
-                        foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowT in dsPlanillasTransaccion1.hr_payslip_lines)
-                        {
-                            if(rowT.code == "TPHE")
-                            {
-                                rowT.Saldo = TotalA_Pagar;
-                                rowT.quantity = TotalHorasExtra;
-                                UpdateLineaPlanilla(rowT.id, TotalA_Pagar, TotalHorasExtra);
+                                            SqlCommand cmd = new SqlCommand("[dbo].[SetNotaLineaPlanilla_empleado]", con);
+                                            cmd.CommandType = CommandType.StoredProcedure;
+                                            cmd.Parameters.AddWithValue("@note", row.note);
+                                            cmd.Parameters.AddWithValue("@id", row.id);
+                                            cmd.ExecuteNonQuery();
+
+                                            con.Close();
+                                        }
+                                        catch (Exception ec)
+                                        {
+                                            CajaDialogo.Error(ec.Message);
+                                        }
+                                    }
+                                }
                             }
-                        }
+                            break;
+                        case "quantity":
+                            decimal percent = 1M;
+
+                            if (row.code == "PHE25" || row.code == "PHE50" || row.code == "PHE75" || row.code == "PHE100")
+                            {
+                                switch (row.code)
+                                {
+                                    case "PHE25":
+                                        percent = 1.25M;
+                                        break;
+                                    case "PHE50":
+                                        percent = 1.50M;
+                                        break;
+                                    case "PHE75":
+                                        percent = 1.75M;
+                                        break;
+                                    case "PHE100":
+                                        percent = 2M;
+                                        break;
+                                    default:
+
+                                        break;
+                                }
+                                row.Credito = row.quantity * (row.salario_hora * percent);
+
+                                UpdateLineaPlanilla(row.id, row.Credito, row.quantity);
+
+                                decimal TotalA_Pagar = 0;
+                                decimal TotalHorasExtra = 0;
+                                foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowS in dsPlanillasTransaccion1.hr_payslip_lines)
+                                {
+                                    if (rowS.code == "PHE25" || rowS.code == "PHE50" || rowS.code == "PHE75" || rowS.code == "PHE100")
+                                    {
+                                        TotalA_Pagar += rowS.Credito;
+                                        TotalHorasExtra += rowS.quantity;
+                                    }
+                                }
+
+                                foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowT in dsPlanillasTransaccion1.hr_payslip_lines)
+                                {
+                                    if (rowT.code == "TPHE")
+                                    {
+                                        rowT.Saldo = TotalA_Pagar;
+                                        rowT.quantity = TotalHorasExtra;
+                                        UpdateLineaPlanilla(rowT.id, TotalA_Pagar, TotalHorasExtra);
+                                    }
+                                }
+                            }
+                            break;
+                        case "Credito":
+                            //if (row.code != "CTAVO" && row.code != "TCAVO")
+                            //{
+                            //    row.Credito = dp.ValidateNumberDecimal(e.OldValue);
+                            //}
+                            //else
+                            //{
+                            //    decimal SaldoDecimo = dp.ValidateNumberDecimal(e.Value);
+                            //    decimal DeduccionesDecimo = 0;
+                            //    foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowS in dsPlanillasTransaccion1.hr_payslip_lines)
+                            //    {
+                            //        if (rowS.salary_rule_id == 50)
+                            //        {
+                            //            DeduccionesDecimo += rowS.Debito;
+                            //        }
+                            //    }
+
+                            //    foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowS in dsPlanillasTransaccion1.hr_payslip_lines)
+                            //    {
+                            //        if (rowS.salary_rule_id == 3)
+                            //        {
+                            //            rowS.Saldo = (SaldoDecimo - DeduccionesDecimo);
+                            //            try
+                            //            {
+                            //                DataOperations dp = new DataOperations();
+                            //                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                            //                con.Open();
+
+                            //                SqlCommand cmd = new SqlCommand("[dbo].[spSetUpdate_Payslip_line_by_id]", con);
+                            //                cmd.CommandType = CommandType.StoredProcedure;
+                            //                cmd.Parameters.AddWithValue("@payslip_line_id", row.id);
+                            //                cmd.Parameters.AddWithValue("@quantity", 1);
+                            //                cmd.Parameters.AddWithValue("@total", rowS.Saldo);
+                            //                cmd.ExecuteNonQuery();
+
+                            //                con.Close();
+                            //            }
+                            //            catch (Exception ec)
+                            //            {
+                            //                CajaDialogo.Error(ec.Message);
+                            //            }
+                            //            break; 
+                            //        }
+                            //    }
+                            //}
+                            break;
                     }
-                    break;
-                case "Credito":
-                    //if (row.code != "CTAVO" && row.code != "TCAVO")
-                    //{
-                    //    row.Credito = dp.ValidateNumberDecimal(e.OldValue);
-                    //}
-                    //else
-                    //{
-                    //    decimal SaldoDecimo = dp.ValidateNumberDecimal(e.Value);
-                    //    decimal DeduccionesDecimo = 0;
-                    //    foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowS in dsPlanillasTransaccion1.hr_payslip_lines)
-                    //    {
-                    //        if (rowS.salary_rule_id == 50)
-                    //        {
-                    //            DeduccionesDecimo += rowS.Debito;
-                    //        }
-                    //    }
 
-                    //    foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowS in dsPlanillasTransaccion1.hr_payslip_lines)
-                    //    {
-                    //        if (rowS.salary_rule_id == 3)
-                    //        {
-                    //            rowS.Saldo = (SaldoDecimo - DeduccionesDecimo);
-                    //            try
-                    //            {
-                    //                DataOperations dp = new DataOperations();
-                    //                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
-                    //                con.Open();
 
-                    //                SqlCommand cmd = new SqlCommand("[dbo].[spSetUpdate_Payslip_line_by_id]", con);
-                    //                cmd.CommandType = CommandType.StoredProcedure;
-                    //                cmd.Parameters.AddWithValue("@payslip_line_id", row.id);
-                    //                cmd.Parameters.AddWithValue("@quantity", 1);
-                    //                cmd.Parameters.AddWithValue("@total", rowS.Saldo);
-                    //                cmd.ExecuteNonQuery();
-
-                    //                con.Close();
-                    //            }
-                    //            catch (Exception ec)
-                    //            {
-                    //                CajaDialogo.Error(ec.Message);
-                    //            }
-                    //            break; 
-                    //        }
-                    //    }
-                    //}
                     break;
             }
+
+            
         }
 
         private void UpdateLineaPlanilla(int idPaySlipLine, decimal pCredito, decimal pCantidad)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("dbo.spSetUpdate_Payslip_line_by_id", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@payslip_line_id", idPaySlipLine);
+                cmd.Parameters.AddWithValue("@quantity", pCantidad);
+                cmd.Parameters.AddWithValue("@total", pCredito);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+        }
+
+        private void UpdateLineaPlanillaGeneralplusHE(int idPaySlipLine, decimal pCredito, decimal pCantidad)
         {
             try
             {

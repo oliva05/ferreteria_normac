@@ -180,7 +180,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(108))
+                if (UsuarioLogeado.ValidarNivelPermisos(42))
                 {
 
                     if (payslip_Run.RecuperarRegistro(row.id))
