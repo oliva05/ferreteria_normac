@@ -335,6 +335,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                     slueTipoContrato2.EditValue = contratoActual.TipoContrato;
                     txtDescripcionPermiso.Text = contratoActual.DescripcionPermiso;
                     grdEstados.EditValue = contratoActual.EstadoId;
+                    tsComision.IsOn = contratoActual.Comisiona;
                 }
                 else
                 {
@@ -366,6 +367,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                     slueTipoContrato2.EditValue = contratoActual.TipoContrato;
                     txtDescripcionPermiso.Text = contratoActual.DescripcionPermiso;
                     grdEstados.EditValue = contratoActual.EstadoId;
+                    tsComision.IsOn = contratoActual.Comisiona;
                 }
 
                 CambiarMascaraMoneda(contratoActual.Moneda);
@@ -907,7 +909,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                     {
                         cnx.Open();
 
-                        SqlCommand cmd = new SqlCommand("uspInsertContractV2", cnx);
+                        SqlCommand cmd = new SqlCommand("[uspInsertContractV3]", cnx);
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@name", empleado.Barcode);
@@ -934,7 +936,10 @@ namespace JAGUAR_PRO.RRHH_Planilla
                         cmd.Parameters.AddWithValue("@descripcion_permiso", txtDescripcionPermiso.EditValue == null ? string.Empty : txtDescripcionPermiso.Text);
                         cmd.Parameters.AddWithValue("@state_id", 1);
                         cmd.Parameters.AddWithValue("@tipo_contrato", slueTipoContrato2.EditValue==null ? 1 : slueTipoContrato2.EditValue);
-
+                        if (tsComision.IsOn)
+                            cmd.Parameters.AddWithValue("@comisiona", 1);
+                        else
+                            cmd.Parameters.AddWithValue("@comisiona", 0);
                         contratoId = Convert.ToInt32(cmd.ExecuteNonQuery());
 
                         cnx.Close(); 
@@ -960,7 +965,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                     {
                         cnx2.Open();
 
-                        SqlCommand cmd2 = new SqlCommand("uspUpdateContractV3", cnx2);
+                        SqlCommand cmd2 = new SqlCommand("[uspUpdateContractV4]", cnx2);
                         cmd2.CommandType = CommandType.StoredProcedure;
 
                         cmd2.Parameters.AddWithValue("@name", empleado.Barcode);
@@ -986,7 +991,10 @@ namespace JAGUAR_PRO.RRHH_Planilla
                         cmd2.Parameters.AddWithValue("@id", contratoActual.ID);
                         cmd2.Parameters.AddWithValue("@tipo_contrato", slueTipoContrato2.EditValue == null ? 1 : slueTipoContrato2.EditValue);
                         cmd2.Parameters.AddWithValue("@estado", grdEstados.EditValue);
-
+                        if (tsComision.IsOn)
+                            cmd2.Parameters.AddWithValue("@comisiona", 1);
+                        else
+                            cmd2.Parameters.AddWithValue("@comisiona", 0);
                         cmd2.ExecuteNonQuery();
 
                         cnx2.Close();
@@ -1052,6 +1060,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
             sluePagoPlanificado.Enabled =
             sluePlanificacion.Enabled =
             tsPermisoEstudio.Enabled =
+            tsComision.Enabled =
             slueCategoriaContrato.Enabled =
             btnGuardarContrato.Enabled =
             btnCancelar.Enabled =

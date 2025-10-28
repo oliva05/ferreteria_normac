@@ -231,6 +231,8 @@
             this.Dialog = new System.Windows.Forms.OpenFileDialog();
             this.lblEstadoContrato = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.tsComision = new DevExpress.XtraEditors.ToggleSwitch();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bshrcontratotipocontrato)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsColaborador1)).BeginInit();
@@ -297,6 +299,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tsComision.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // repositoryItemSearchLookUpEdit1
@@ -362,6 +365,8 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.labelControl18);
+            this.xtraTabPage1.Controls.Add(this.tsComision);
             this.xtraTabPage1.Controls.Add(this.grdEstados);
             this.xtraTabPage1.Controls.Add(this.labelControl17);
             this.xtraTabPage1.Controls.Add(this.btn_print_otorsi);
@@ -706,7 +711,7 @@
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(30, 275);
+            this.labelControl10.Location = new System.Drawing.Point(30, 285);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(40, 17);
             this.labelControl10.TabIndex = 16;
@@ -878,11 +883,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNote.Enabled = false;
-            this.txtNote.Location = new System.Drawing.Point(30, 298);
+            this.txtNote.Location = new System.Drawing.Point(30, 308);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNote.Properties.Appearance.Options.UseFont = true;
-            this.txtNote.Size = new System.Drawing.Size(1212, 99);
+            this.txtNote.Size = new System.Drawing.Size(1212, 89);
             this.txtNote.TabIndex = 17;
             // 
             // sluePlanificacion
@@ -1736,7 +1741,7 @@
             this.labelControl11.Location = new System.Drawing.Point(864, 12);
             this.labelControl11.Name = "labelControl11";
             this.tablePanel1.SetRow(this.labelControl11, 0);
-            this.labelControl11.Size = new System.Drawing.Size(383, 16);
+            this.labelControl11.Size = new System.Drawing.Size(383, 17);
             this.labelControl11.TabIndex = 9;
             this.labelControl11.Text = "Ajustes";
             // 
@@ -1749,13 +1754,13 @@
             gridLevelNode1.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.gridControl1.Location = new System.Drawing.Point(864, 32);
+            this.gridControl1.Location = new System.Drawing.Point(864, 33);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdEditar});
             this.tablePanel1.SetRow(this.gridControl1, 1);
-            this.gridControl1.Size = new System.Drawing.Size(383, 276);
+            this.gridControl1.Size = new System.Drawing.Size(383, 275);
             this.gridControl1.TabIndex = 5;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1867,11 +1872,11 @@
             this.gridControl4.DataMember = "proyeccion_isr";
             this.gridControl4.DataSource = this.dsContrato1;
             this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl4.Location = new System.Drawing.Point(439, 32);
+            this.gridControl4.Location = new System.Drawing.Point(439, 33);
             this.gridControl4.MainView = this.gridView3;
             this.gridControl4.Name = "gridControl4";
             this.tablePanel1.SetRow(this.gridControl4, 1);
-            this.gridControl4.Size = new System.Drawing.Size(422, 276);
+            this.gridControl4.Size = new System.Drawing.Size(422, 275);
             this.gridControl4.TabIndex = 8;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1926,11 +1931,11 @@
             this.gridControl3.DataMember = "isr_deducido";
             this.gridControl3.DataSource = this.dsContrato1;
             this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl3.Location = new System.Drawing.Point(13, 32);
+            this.gridControl3.Location = new System.Drawing.Point(13, 33);
             this.gridControl3.MainView = this.gridView2;
             this.gridControl3.Name = "gridControl3";
             this.tablePanel1.SetRow(this.gridControl3, 1);
-            this.gridControl3.Size = new System.Drawing.Size(422, 276);
+            this.gridControl3.Size = new System.Drawing.Size(422, 275);
             this.gridControl3.TabIndex = 7;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1983,7 +1988,7 @@
             this.labelControl21.Location = new System.Drawing.Point(439, 12);
             this.labelControl21.Name = "labelControl21";
             this.tablePanel1.SetRow(this.labelControl21, 0);
-            this.labelControl21.Size = new System.Drawing.Size(422, 16);
+            this.labelControl21.Size = new System.Drawing.Size(422, 17);
             this.labelControl21.TabIndex = 6;
             this.labelControl21.Text = "Proyección";
             // 
@@ -1999,7 +2004,7 @@
             this.labelControl19.Location = new System.Drawing.Point(13, 12);
             this.labelControl19.Name = "labelControl19";
             this.tablePanel1.SetRow(this.labelControl19, 0);
-            this.labelControl19.Size = new System.Drawing.Size(422, 16);
+            this.labelControl19.Size = new System.Drawing.Size(422, 17);
             this.labelControl19.TabIndex = 5;
             this.labelControl19.Text = "Cobrado";
             // 
@@ -2163,6 +2168,28 @@
             this.labelControl15.TabIndex = 26;
             this.labelControl15.Text = "Categoría del contrato:";
             // 
+            // tsComision
+            // 
+            this.tsComision.Enabled = false;
+            this.tsComision.Location = new System.Drawing.Point(175, 255);
+            this.tsComision.Name = "tsComision";
+            this.tsComision.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.tsComision.Properties.Appearance.Options.UseFont = true;
+            this.tsComision.Properties.OffText = "No";
+            this.tsComision.Properties.OnText = "Si";
+            this.tsComision.Size = new System.Drawing.Size(95, 22);
+            this.tsComision.TabIndex = 50;
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.labelControl18.Appearance.Options.UseFont = true;
+            this.labelControl18.Location = new System.Drawing.Point(30, 258);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(80, 15);
+            this.labelControl18.TabIndex = 51;
+            this.labelControl18.Text = "Gana Comision";
+            // 
             // frmContratoColaborador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2252,6 +2279,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tsComision.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2424,5 +2452,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private System.Windows.Forms.BindingSource estadosBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.ToggleSwitch tsComision;
     }
 }

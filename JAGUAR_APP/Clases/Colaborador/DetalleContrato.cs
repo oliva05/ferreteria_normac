@@ -36,6 +36,8 @@ namespace JAGUAR_PRO.Clases.Colaborador
         public bool StudyPermit { get; set; }
         public bool Recuperado { get; set; }
 
+        public bool Comisiona { get; set;}
+
         public bool RecuperarRegistroPorCodigo(string barCode) {
 
             try
@@ -77,7 +79,7 @@ namespace JAGUAR_PRO.Clases.Colaborador
                         SimboloMoneda = dr.IsDBNull(dr.GetOrdinal("simbolo")) ? "" : dr["simbolo"].ToString();
                         CategoriaContrato = dr.IsDBNull(dr.GetOrdinal("categoria_contrato")) ? "" : dr["categoria_contrato"].ToString();
                         EmployeeId = dr.IsDBNull(dr.GetOrdinal("employee_id")) ? 0 : Convert.ToInt32(dr["employee_id"].ToString());
-
+                        Comisiona = dr.IsDBNull(dr.GetOrdinal("comisiona")) ? false : Convert.ToBoolean(dr["comisiona"].ToString());
                         //Si todas las propiedades se asignan carrectamente, en envía true para aprobar el proceso.
                         Recuperado = true;
                     }
@@ -139,7 +141,7 @@ namespace JAGUAR_PRO.Clases.Colaborador
                         EmployeeId = dr.IsDBNull(dr.GetOrdinal("employee_id")) ? 0 : Convert.ToInt32(dr["employee_id"].ToString());
                         Barcode = dr.IsDBNull(dr.GetOrdinal("name")) ? "" : dr["name"].ToString();
                         CategoriaContrato = dr.IsDBNull(dr.GetOrdinal("categoria_contrato")) ? "" : dr["categoria_contrato"].ToString();
-
+                        Comisiona = dr.IsDBNull(dr.GetOrdinal("comisiona")) ? false : Convert.ToBoolean(dr["comisiona"].ToString());
                         //Si todas las propiedades se asignan carrectamente, en envía true para aprobar el proceso.
                         Recuperado = true;
                     }
