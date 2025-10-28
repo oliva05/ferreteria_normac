@@ -899,7 +899,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                         foreach (dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
                         {
-                            dtDetalle.Rows.Add(row.id,
+                            dtDetalle.Rows.Add(0,
                                                 row.cantidad,
                                                 row.id_ud_medida_prv,
                                                 row.descripcion_mp,

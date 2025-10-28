@@ -739,6 +739,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                                     lbl_dt_hasta_decimo.Visible = false;
                                     dtHasta_Decimo.Visible = false;
                                     break;
+
                                 default:
                                     TimeSpan diferencia = dtHasta.DateTime.AddDays(1) - dtDesde.DateTime;
                                     dtDesde.EditValueChanged += new EventHandler(dtDesde_EditValueChanged);
