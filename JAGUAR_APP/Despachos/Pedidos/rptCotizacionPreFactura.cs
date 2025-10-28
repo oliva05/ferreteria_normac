@@ -100,7 +100,8 @@ namespace JAGUAR_PRO.Facturacion.Reportes
         {
             try
             {
-                string sql = "[uspRptGetDetailOrderQuotation]";
+                //string sql = "[uspRptGetDetailOrderQuotation]";
+                string sql = "[uspRptGetDetailOrderQuotation_v2]";
                 DataOperations dp = new DataOperations();
                 SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 

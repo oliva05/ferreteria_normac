@@ -54,7 +54,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
             PaySlipRunId = pPaySlipRunId;
             if (PaySlipRunActual.RecuperarRegistro(pPaySlipRunId))
             {
-                    if (PaySlipRunActual.PayrollTypeId == 3)
+                    if (PaySlipRunActual.PayrollTypeId == 3 || PaySlipRunActual.PayrollTypeId == 10)
                         cmdNavegarPlanilla.Visible = true;
                     else
                         cmdNavegarPlanilla.Visible = false;
