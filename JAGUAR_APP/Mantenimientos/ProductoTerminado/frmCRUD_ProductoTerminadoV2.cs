@@ -229,7 +229,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                             spinMaximo.EditValue = PT_Class_instance.InvMaximo;
                             spinMinimo.EditValue = PT_Class_instance.InvMinimo;
                         }
-                            
+                        spinvKardex.EditValue = PT_Class_instance.CantInventarioKardex;
 
                         xtraTabControl1.SelectedTabPage = tabInventario;
                         //gridLookUpEditTipoFacturacionDestino.TextChanged -= new EventHandler(gridLookUpEditTipoFacturacionDestino_TextChanged);

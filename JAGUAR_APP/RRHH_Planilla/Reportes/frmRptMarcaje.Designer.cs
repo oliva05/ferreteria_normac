@@ -37,14 +37,15 @@
             this.gcBreak = new DevExpress.XtraGrid.GridControl();
             this.dsReporte1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes.dsReporte();
             this.gvBreak = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_employee1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colbarcode1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colhora_cerrada1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid_tipo_marca1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltipo_marca1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhora_entrada = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhora_salida = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhoras_programadas = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhoras_trabajadas = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhoras_legales = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhoras_extras = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.CargarDatos = new DevExpress.XtraEditors.SimpleButton();
@@ -174,7 +175,7 @@
             this.gcBreak.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcBreak.DataMember = "get_marcas_empleado";
+            this.gcBreak.DataMember = "get_marcas_by_dates";
             this.gcBreak.DataSource = this.dsReporte1;
             this.gcBreak.Location = new System.Drawing.Point(3, 104);
             this.gcBreak.MainView = this.gvBreak;
@@ -192,24 +193,19 @@
             // gvBreak
             // 
             this.gvBreak.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid,
             this.colid_employee1,
-            this.colbarcode1,
-            this.colnombre,
+            this.colname,
             this.colfecha,
-            this.colhora_cerrada1,
-            this.colid_tipo_marca1,
-            this.coltipo_marca1});
+            this.colhora_entrada,
+            this.colhora_salida,
+            this.colhoras_programadas,
+            this.colhoras_trabajadas,
+            this.colhoras_legales,
+            this.colhoras_extras});
             this.gvBreak.GridControl = this.gcBreak;
             this.gvBreak.Name = "gvBreak";
             this.gvBreak.OptionsView.ShowAutoFilterRow = true;
             this.gvBreak.OptionsView.ShowFooter = true;
-            // 
-            // colid
-            // 
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            this.colid.OptionsColumn.ReadOnly = true;
             // 
             // colid_employee1
             // 
@@ -217,58 +213,85 @@
             this.colid_employee1.Name = "colid_employee1";
             this.colid_employee1.OptionsColumn.ReadOnly = true;
             // 
-            // colbarcode1
+            // colname
             // 
-            this.colbarcode1.Caption = "Codigo";
-            this.colbarcode1.FieldName = "barcode";
-            this.colbarcode1.Name = "colbarcode1";
-            this.colbarcode1.OptionsColumn.ReadOnly = true;
-            this.colbarcode1.Visible = true;
-            this.colbarcode1.VisibleIndex = 0;
-            // 
-            // colnombre
-            // 
-            this.colnombre.Caption = "Empleado";
-            this.colnombre.FieldName = "nombre";
-            this.colnombre.Name = "colnombre";
-            this.colnombre.OptionsColumn.ReadOnly = true;
-            this.colnombre.Visible = true;
-            this.colnombre.VisibleIndex = 1;
+            this.colname.Caption = "Empleado";
+            this.colname.FieldName = "name";
+            this.colname.Name = "colname";
+            this.colname.OptionsColumn.ReadOnly = true;
+            this.colname.Visible = true;
+            this.colname.VisibleIndex = 0;
             // 
             // colfecha
             // 
-            this.colfecha.Caption = "Fecha y Hora";
-            this.colfecha.DisplayFormat.FormatString = "g";
-            this.colfecha.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colfecha.Caption = "Fecha";
             this.colfecha.FieldName = "fecha";
             this.colfecha.Name = "colfecha";
             this.colfecha.OptionsColumn.ReadOnly = true;
             this.colfecha.Visible = true;
-            this.colfecha.VisibleIndex = 2;
+            this.colfecha.VisibleIndex = 1;
             // 
-            // colhora_cerrada1
+            // colhora_entrada
             // 
-            this.colhora_cerrada1.Caption = "Pocesado";
-            this.colhora_cerrada1.FieldName = "hora_cerrada";
-            this.colhora_cerrada1.Name = "colhora_cerrada1";
-            this.colhora_cerrada1.OptionsColumn.ReadOnly = true;
-            this.colhora_cerrada1.Visible = true;
-            this.colhora_cerrada1.VisibleIndex = 4;
+            this.colhora_entrada.Caption = "Hora Entrada";
+            this.colhora_entrada.FieldName = "hora_entrada";
+            this.colhora_entrada.Name = "colhora_entrada";
+            this.colhora_entrada.OptionsColumn.ReadOnly = true;
+            this.colhora_entrada.Visible = true;
+            this.colhora_entrada.VisibleIndex = 2;
             // 
-            // colid_tipo_marca1
+            // colhora_salida
             // 
-            this.colid_tipo_marca1.FieldName = "id_tipo_marca";
-            this.colid_tipo_marca1.Name = "colid_tipo_marca1";
-            this.colid_tipo_marca1.OptionsColumn.ReadOnly = true;
+            this.colhora_salida.Caption = "Hora Salida";
+            this.colhora_salida.FieldName = "hora_salida";
+            this.colhora_salida.Name = "colhora_salida";
+            this.colhora_salida.OptionsColumn.ReadOnly = true;
+            this.colhora_salida.Visible = true;
+            this.colhora_salida.VisibleIndex = 3;
             // 
-            // coltipo_marca1
+            // colhoras_programadas
             // 
-            this.coltipo_marca1.Caption = "Tipo de Marca";
-            this.coltipo_marca1.FieldName = "tipo_marca";
-            this.coltipo_marca1.Name = "coltipo_marca1";
-            this.coltipo_marca1.OptionsColumn.ReadOnly = true;
-            this.coltipo_marca1.Visible = true;
-            this.coltipo_marca1.VisibleIndex = 3;
+            this.colhoras_programadas.Caption = "Hora Programadas";
+            this.colhoras_programadas.DisplayFormat.FormatString = "n2";
+            this.colhoras_programadas.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colhoras_programadas.FieldName = "horas_programadas";
+            this.colhoras_programadas.Name = "colhoras_programadas";
+            this.colhoras_programadas.OptionsColumn.ReadOnly = true;
+            this.colhoras_programadas.Visible = true;
+            this.colhoras_programadas.VisibleIndex = 4;
+            // 
+            // colhoras_trabajadas
+            // 
+            this.colhoras_trabajadas.Caption = "Horas Trabajadas";
+            this.colhoras_trabajadas.DisplayFormat.FormatString = "N2";
+            this.colhoras_trabajadas.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colhoras_trabajadas.FieldName = "horas_trabajadas";
+            this.colhoras_trabajadas.Name = "colhoras_trabajadas";
+            this.colhoras_trabajadas.OptionsColumn.ReadOnly = true;
+            this.colhoras_trabajadas.Visible = true;
+            this.colhoras_trabajadas.VisibleIndex = 5;
+            // 
+            // colhoras_legales
+            // 
+            this.colhoras_legales.Caption = "Horas Legales";
+            this.colhoras_legales.DisplayFormat.FormatString = "N2";
+            this.colhoras_legales.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colhoras_legales.FieldName = "horas_legales";
+            this.colhoras_legales.Name = "colhoras_legales";
+            this.colhoras_legales.OptionsColumn.ReadOnly = true;
+            this.colhoras_legales.Visible = true;
+            this.colhoras_legales.VisibleIndex = 6;
+            // 
+            // colhoras_extras
+            // 
+            this.colhoras_extras.Caption = "Horas Extras";
+            this.colhoras_extras.DisplayFormat.FormatString = "N2";
+            this.colhoras_extras.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colhoras_extras.FieldName = "horas_extras";
+            this.colhoras_extras.Name = "colhoras_extras";
+            this.colhoras_extras.OptionsColumn.ReadOnly = true;
+            this.colhoras_extras.Visible = true;
+            this.colhoras_extras.VisibleIndex = 7;
             // 
             // labelControl1
             // 
@@ -313,6 +336,7 @@
             this.cmdExportar.TabIndex = 19;
             this.cmdExportar.Text = "Exportar";
             this.cmdExportar.Visible = false;
+            this.cmdExportar.Click += new System.EventHandler(this.cmdExportar_Click);
             // 
             // TabByEmpleado
             // 
@@ -659,19 +683,20 @@
         private DevExpress.XtraGrid.Columns.GridColumn coltipo_marca;
         private System.Windows.Forms.BindingSource getemployeeactiveBindingSource;
         private System.Windows.Forms.BindingSource dsReporte1BindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colid;
-        private DevExpress.XtraGrid.Columns.GridColumn colid_employee1;
-        private DevExpress.XtraGrid.Columns.GridColumn colbarcode1;
-        private DevExpress.XtraGrid.Columns.GridColumn colnombre;
-        private DevExpress.XtraGrid.Columns.GridColumn colfecha;
-        private DevExpress.XtraGrid.Columns.GridColumn colhora_cerrada1;
-        private DevExpress.XtraGrid.Columns.GridColumn colid_tipo_marca1;
-        private DevExpress.XtraGrid.Columns.GridColumn coltipo_marca1;
         private DevExpress.XtraEditors.DateEdit dtDesde;
         private DevExpress.XtraEditors.DateEdit dtHasta;
         private DevExpress.XtraEditors.DateEdit deFechaFinal;
         private DevExpress.XtraEditors.DateEdit deFechaInicial;
         private DevExpress.XtraGrid.Columns.GridColumn colid2;
         private DevExpress.XtraGrid.Columns.GridColumn colconcat_;
+        private DevExpress.XtraGrid.Columns.GridColumn colid_employee1;
+        private DevExpress.XtraGrid.Columns.GridColumn colname;
+        private DevExpress.XtraGrid.Columns.GridColumn colfecha;
+        private DevExpress.XtraGrid.Columns.GridColumn colhora_entrada;
+        private DevExpress.XtraGrid.Columns.GridColumn colhora_salida;
+        private DevExpress.XtraGrid.Columns.GridColumn colhoras_programadas;
+        private DevExpress.XtraGrid.Columns.GridColumn colhoras_trabajadas;
+        private DevExpress.XtraGrid.Columns.GridColumn colhoras_legales;
+        private DevExpress.XtraGrid.Columns.GridColumn colhoras_extras;
     }
 }
