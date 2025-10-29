@@ -481,6 +481,7 @@
             this.cmdNavegarPlanilla.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdNavegarPlanilla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdNavegarPlanilla.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdNavegarPlanilla.Image = global::JAGUAR_PRO.Properties.Resources.logout;
             this.cmdNavegarPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdNavegarPlanilla.Location = new System.Drawing.Point(424, 59);
             this.cmdNavegarPlanilla.Name = "cmdNavegarPlanilla";

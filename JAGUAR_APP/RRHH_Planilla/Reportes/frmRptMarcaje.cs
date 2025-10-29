@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace JAGUAR_PRO.RRHH_Planilla.Reportes
 {
@@ -36,7 +37,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
         {
             try
             {
-                string query = @"sp_get_marcas_employee";
+                string query = @"[sp_get_cantidad_horas_laboras_extras]";
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -45,8 +46,8 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
                 cmd.Parameters.AddWithValue("@desde",dtDesde.DateTime);
                 cmd.Parameters.AddWithValue("@hasta",dtHasta.DateTime);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
-                dsReporte1.get_marcas_empleado.Clear();
-                adat.Fill(dsReporte1.get_marcas_empleado);
+                dsReporte1.get_marcas_by_dates.Clear();
+                adat.Fill(dsReporte1.get_marcas_by_dates);
                 conn.Close();
             }
             catch (Exception ex)
@@ -147,7 +148,26 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
 
         private void btnExportarAcumulados_Click(object sender, EventArgs e)
         {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel File (.xlsx)|*.xlsx";
+            dialog.FilterIndex = 0;
 
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                gcAcumulados.ExportToXlsx(dialog.FileName);
+            }
+        }
+
+        private void cmdExportar_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel File (.xlsx)|*.xlsx";
+            dialog.FilterIndex = 0;
+
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                gcBreak.ExportToXlsx(dialog.FileName);
+            }
         }
     }
 }

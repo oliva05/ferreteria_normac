@@ -170,7 +170,7 @@
             // 
             // colquantity
             // 
-            this.colquantity.DisplayFormat.FormatString = "n0";
+            this.colquantity.DisplayFormat.FormatString = "n2";
             this.colquantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colquantity.FieldName = "quantity";
             this.colquantity.Name = "colquantity";
