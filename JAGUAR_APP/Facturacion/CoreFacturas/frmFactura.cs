@@ -2209,8 +2209,8 @@ namespace Eatery.Ventas
             decimal total = 0;  
             foreach(dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
             {
-                row.total_linea = (row.cantidad * row.precio) - row.descuento;
-                row.total_linea = ((row.cantidad * row.precio) - row.descuento ) + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
+                row.total_linea = row.cantidad * (row.precio - row.descuento);
+                row.total_linea = (row.cantidad * (row.precio - row.descuento)) + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
                 total += row.total_linea;    
             }
 
