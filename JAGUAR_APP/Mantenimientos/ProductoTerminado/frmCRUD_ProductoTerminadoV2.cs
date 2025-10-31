@@ -1773,7 +1773,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 {
                     //Calculamos el precio
                     PorcentajeUtilidad = vPorcentajeUtilidad;
-                    PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad/100));
+                    if(PorcentajeUtilidad >= 100)
+                        PrecioVenta = CostoActual / (1 - (99/100));
+                    else
+                        PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad / 100));
+
                     txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
                     txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
                 }
