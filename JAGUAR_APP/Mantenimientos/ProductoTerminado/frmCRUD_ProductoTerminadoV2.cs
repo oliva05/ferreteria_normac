@@ -1725,40 +1725,40 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     txtCostoActual.Text = string.Format("{0:###,##0.00}", CostoActual);
                     txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
                 }
-                //try
-                //{
-                //    DataOperations dp = new DataOperations();
-                //    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                //    con.Open();
+                try
+                {
+                    DataOperations dp = new DataOperations();
+                    SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                    con.Open();
 
-                //    SqlCommand cmd = new SqlCommand("[sp_set_costo_producto]", con);
-                //    cmd.CommandType = CommandType.StoredProcedure;
-                //    cmd.Parameters.AddWithValue("@id_pt", IdPT);
-                //    cmd.Parameters.AddWithValue("@costo", valor);
-                //    cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
-                //    cmd.ExecuteNonQuery();
-                //    txtCostoActual.Text = string.Format("{0:###,##0.00}", valor);
+                    SqlCommand cmd = new SqlCommand("[sp_set_costo_producto]", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_pt", IdPT);
+                    cmd.Parameters.AddWithValue("@costo", valor);
+                    cmd.Parameters.AddWithValue("@id_user", this.UsuarioLogeado.Id);
+                    cmd.ExecuteNonQuery();
+                    txtCostoActual.Text = string.Format("{0:###,##0.00}", valor);
 
-                //    dsDatosProductos.historial_costoRow row = dsDatosProductos1.historial_costo.Newhistorial_costoRow();
-                //    int cantRows = dsDatosProductos1.historial_costo.Rows.Count;
-                //    row.id = 0;
-                //    row.id_pt = IdPT;
-                //    row.costo = valor;
-                //    row.cantidad = 0;
-                //    row.fecha_entrada = dp.NowSetDateTime();
-                //    row.usuario_name = this.UsuarioLogeado.Nombre;
-                //    row.id_usuario = this.UsuarioLogeado.Id;
-                //    row.num_linea = cantRows + 1;
+                    dsDatosProductos.historial_costoRow row = dsDatosProductos1.historial_costo.Newhistorial_costoRow();
+                    int cantRows = dsDatosProductos1.historial_costo.Rows.Count;
+                    row.id = 0;
+                    row.id_pt = IdPT;
+                    row.costo = valor;
+                    row.cantidad = 0;
+                    row.fecha_entrada = dp.NowSetDateTime();
+                    row.usuario_name = this.UsuarioLogeado.Nombre;
+                    row.id_usuario = this.UsuarioLogeado.Id;
+                    row.num_linea = cantRows + 1;
 
 
-                //    dsDatosProductos1.historial_costo.Addhistorial_costoRow(row);
-                //    dsDatosProductos1.AcceptChanges();
-                //    con.Close();
-                //}
-                //catch (Exception ec)
-                //{
-                //    CajaDialogo.Error(ec.Message);
-                //}
+                    dsDatosProductos1.historial_costo.Addhistorial_costoRow(row);
+                    dsDatosProductos1.AcceptChanges();
+                    con.Close();
+                }
+                catch (Exception ec)
+                {
+                    CajaDialogo.Error(ec.Message);
+                }
             }
         }
 
