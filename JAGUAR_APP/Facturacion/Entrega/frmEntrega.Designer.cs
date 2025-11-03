@@ -316,6 +316,8 @@
             // colfecha
             // 
             this.colfecha.Caption = "Fecha Creado";
+            this.colfecha.DisplayFormat.FormatString = "g";
+            this.colfecha.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colfecha.FieldName = "fecha";
             this.colfecha.Name = "colfecha";
             this.colfecha.OptionsColumn.AllowEdit = false;
@@ -326,6 +328,8 @@
             // colfecha_entrega_estimada
             // 
             this.colfecha_entrega_estimada.Caption = "Fecha Entrega Estimado";
+            this.colfecha_entrega_estimada.DisplayFormat.FormatString = "g";
+            this.colfecha_entrega_estimada.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colfecha_entrega_estimada.FieldName = "fecha_entrega_estimada";
             this.colfecha_entrega_estimada.Name = "colfecha_entrega_estimada";
             this.colfecha_entrega_estimada.OptionsColumn.AllowEdit = false;
