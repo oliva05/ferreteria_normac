@@ -296,7 +296,7 @@
             this.navBarItem252 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem253 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup22 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem259 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbReporteVentas = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup24 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem257 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem258 = new DevExpress.XtraNavBar.NavBarItem();
@@ -518,7 +518,6 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbReporteVentas = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -4269,7 +4268,6 @@
             this.navBarItem305,
             this.navBarItem306,
             this.navBarItem307,
-            this.navBarItem259,
             this.navBarItem260,
             this.navBarItem261,
             this.navBarItem262,
@@ -4341,23 +4339,22 @@
             this.navBarGroup22.Caption = "Reportes";
             this.navBarGroup22.Expanded = true;
             this.navBarGroup22.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem259),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbReporteVentas)});
             this.navBarGroup22.Name = "navBarGroup22";
-            this.navBarGroup22.Visible = false;
             // 
-            // navBarItem259
+            // nbReporteVentas
             // 
-            this.navBarItem259.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem259.Appearance.Options.UseFont = true;
-            this.navBarItem259.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem259.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem259.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem259.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem259.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem259.AppearancePressed.Options.UseFont = true;
-            this.navBarItem259.Caption = "Tipo Asignación";
-            this.navBarItem259.Name = "navBarItem259";
+            this.nbReporteVentas.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbReporteVentas.Appearance.Options.UseFont = true;
+            this.nbReporteVentas.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbReporteVentas.AppearanceDisabled.Options.UseFont = true;
+            this.nbReporteVentas.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbReporteVentas.AppearanceHotTracked.Options.UseFont = true;
+            this.nbReporteVentas.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbReporteVentas.AppearancePressed.Options.UseFont = true;
+            this.nbReporteVentas.Caption = "Reporte de ventas";
+            this.nbReporteVentas.Name = "nbReporteVentas";
+            this.nbReporteVentas.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbReporteVentas_LinkClicked);
             // 
             // navBarGroup24
             // 
@@ -7262,20 +7259,6 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
-            // nbReporteVentas
-            // 
-            this.nbReporteVentas.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nbReporteVentas.Appearance.Options.UseFont = true;
-            this.nbReporteVentas.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nbReporteVentas.AppearanceDisabled.Options.UseFont = true;
-            this.nbReporteVentas.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nbReporteVentas.AppearanceHotTracked.Options.UseFont = true;
-            this.nbReporteVentas.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.nbReporteVentas.AppearancePressed.Options.UseFont = true;
-            this.nbReporteVentas.Caption = "Reporte de ventas";
-            this.nbReporteVentas.Name = "nbReporteVentas";
-            this.nbReporteVentas.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbReporteVentas_LinkClicked);
-            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7667,7 +7650,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem252;
         private DevExpress.XtraNavBar.NavBarItem navBarItem253;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup22;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem259;
         private DevExpress.XtraNavBar.NavBarItem navBarItem260;
         private DevExpress.XtraNavBar.NavBarItem navBarItem261;
         private DevExpress.XtraNavBar.NavBarItem navBarItem262;

@@ -1015,6 +1015,17 @@
     <Compile Include="Contabilidad\Proveedores\rptPagoProveedores.Designer.cs">
       <DependentUpon>rptPagoProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contabilidad\Reportes\dsReportesBasicosConta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReportesBasicosConta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\Reportes\frmReporteVentasResumenConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Reportes\frmReporteVentasResumenConta.Designer.cs">
+      <DependentUpon>frmReporteVentasResumenConta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Despachos\dsTransaccionesDespacho.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2885,6 +2896,17 @@
     <None Include="Contabilidad\Proveedores\dsAnticipo.xss">
       <DependentUpon>dsAnticipo.xsd</DependentUpon>
     </None>
+    <None Include="Contabilidad\Reportes\dsReportesBasicosConta.xsc">
+      <DependentUpon>dsReportesBasicosConta.xsd</DependentUpon>
+    </None>
+    <None Include="Contabilidad\Reportes\dsReportesBasicosConta.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReportesBasicosConta.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Contabilidad\Reportes\dsReportesBasicosConta.xss">
+      <DependentUpon>dsReportesBasicosConta.xsd</DependentUpon>
+    </None>
     <None Include="Despachos\dsTransaccionesDespacho.xsc">
       <DependentUpon>dsTransaccionesDespacho.xsd</DependentUpon>
     </None>
@@ -4584,6 +4606,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\Proveedores\rptPagoProveedores.resx">
       <DependentUpon>rptPagoProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Reportes\frmReporteVentasResumenConta.resx">
+      <DependentUpon>frmReporteVentasResumenConta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\frmentregadeproductoT.resx">
       <DependentUpon>frmentregadeproductoT.cs</DependentUpon>
