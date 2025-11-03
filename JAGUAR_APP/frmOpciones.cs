@@ -6788,6 +6788,11 @@ namespace JAGUAR_PRO
             frmRptMarcaje frm = new frmRptMarcaje(UsuarioLogeado);
             frm.ShowDialog();
         }
+
+        private void nbReporteVentas_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+
+        }
         //End Facturacion Usados
 
 

@@ -518,6 +518,7 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbReporteVentas = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -4279,7 +4280,8 @@
             this.navBarItem267,
             this.navBarItem268,
             this.navBarItem257,
-            this.navBarItem258});
+            this.navBarItem258,
+            this.nbReporteVentas});
             this.navBarControl7.Location = new System.Drawing.Point(0, 0);
             this.navBarControl7.Name = "navBarControl7";
             this.navBarControl7.OptionsNavPane.ExpandedWidth = 338;
@@ -4339,7 +4341,8 @@
             this.navBarGroup22.Caption = "Reportes";
             this.navBarGroup22.Expanded = true;
             this.navBarGroup22.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem259)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem259),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbReporteVentas)});
             this.navBarGroup22.Name = "navBarGroup22";
             this.navBarGroup22.Visible = false;
             // 
@@ -7259,6 +7262,20 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
+            // nbReporteVentas
+            // 
+            this.nbReporteVentas.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbReporteVentas.Appearance.Options.UseFont = true;
+            this.nbReporteVentas.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbReporteVentas.AppearanceDisabled.Options.UseFont = true;
+            this.nbReporteVentas.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbReporteVentas.AppearanceHotTracked.Options.UseFont = true;
+            this.nbReporteVentas.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbReporteVentas.AppearancePressed.Options.UseFont = true;
+            this.nbReporteVentas.Caption = "Reporte de ventas";
+            this.nbReporteVentas.Name = "nbReporteVentas";
+            this.nbReporteVentas.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbReporteVentas_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7797,5 +7814,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarDetalleCalculoComisiones;
         private DevExpress.XtraNavBar.NavBarItem nbMarcarAsistencia;
         private DevExpress.XtraNavBar.NavBarItem navBarItem351;
+        private DevExpress.XtraNavBar.NavBarItem nbReporteVentas;
     }
 }
