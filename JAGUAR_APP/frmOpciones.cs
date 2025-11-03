@@ -24,6 +24,7 @@ using JAGUAR_PRO.Compras;
 using JAGUAR_PRO.Contabilidad.ActivosFijos;
 using JAGUAR_PRO.Contabilidad.CuentasContables;
 using JAGUAR_PRO.Contabilidad.Proveedores;
+using JAGUAR_PRO.Contabilidad.Reportes;
 using JAGUAR_PRO.Despachos;
 using JAGUAR_PRO.Despachos.Pedidos;
 using JAGUAR_PRO.Facturacion.Configuraciones;
@@ -6787,6 +6788,67 @@ namespace JAGUAR_PRO
         {
             frmRptMarcaje frm = new frmRptMarcaje(UsuarioLogeado);
             frm.ShowDialog();
+        }
+
+        private void nbReporteVentas_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            //frmReporteVentasResumenConta
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+
+                    frmReporteVentasResumenConta frm = new frmReporteVentasResumenConta(this.UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(43))
+                {
+                    frmReporteVentasResumenConta frm = new frmReporteVentasResumenConta(this.UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #43 (Reporte de Ventas Contabilidad)");
+                }
+            }
         }
         //End Facturacion Usados
 

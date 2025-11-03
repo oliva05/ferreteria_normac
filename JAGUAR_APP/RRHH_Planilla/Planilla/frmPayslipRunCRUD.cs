@@ -740,6 +740,20 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                                     dtHasta_Decimo.Visible = false;
                                     break;
 
+                                case 11://Planilla de Comisiones
+                                    DateTime fechaActual = dp.Now();
+
+                                    DateTime primerDiaMes = new DateTime(fechaActual.Year, fechaActual.Month, 1);
+                                    DateTime ultimoDiaMes = primerDiaMes.AddMonths(1).AddDays(-1);
+
+                                    dtDesde.EditValue = primerDiaMes;
+                                    dtHasta.EditValue = ultimoDiaMes;
+                                    spinEditCantidadDias.Value = 30;
+                                    lblDescripcionDecimo.Visible = false;
+                                    lbl_dt_desde_decimo.Visible = lbl_dt_hasta_decimo.Visible = false;
+                                    dtDesde_Decimo.Visible = dtHasta_Decimo.Visible = false;
+                                    break;
+
                                 default:
                                     TimeSpan diferencia = dtHasta.DateTime.AddDays(1) - dtDesde.DateTime;
                                     dtDesde.EditValueChanged += new EventHandler(dtDesde_EditValueChanged);
