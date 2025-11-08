@@ -600,8 +600,12 @@ namespace Eatery.Ventas
                         txtNombreCliente.Text = clienteEmpresa1.NombreLargo;
                         txtRTN.Text = clienteEmpresa1.RTN;
                         txtDireccion.Text = clienteEmpresa1.Direccion;
-                        
-                        if(PedidoActual == null)
+
+                        txtNombreCliente.ReadOnly =
+                        txtRTN.ReadOnly =
+                        txtDireccion.ReadOnly = true;
+
+                        if (PedidoActual == null)
                             PedidoActual = new PedidoCliente();
 
                         PedidoActual.IdCliente = clienteEmpresa1.Id;
@@ -614,6 +618,10 @@ namespace Eatery.Ventas
                         txtNombreCliente.Text = ClienteFactura.NombreCliente;
                         txtDireccion.Text = ClienteFactura.Direccion;
                         txtRTN.Text = "";
+
+                        txtNombreCliente.ReadOnly =
+                        txtRTN.ReadOnly =
+                        txtDireccion.ReadOnly = true;
                     }
 
                     if (dsVentas1.detalle_factura_transaction.Count > 0)
@@ -1673,7 +1681,11 @@ namespace Eatery.Ventas
             //txtRTN.Text = string.Empty;
             //txtRTN.Properties.NullValuePrompt =
             //txtDireccion.Properties.NullValuePrompt = "No Aplica";
-                        
+
+            txtNombreCliente.ReadOnly =
+            txtRTN.ReadOnly =
+            txtDireccion.ReadOnly = false;
+            
             if (TipoFacturacionActual == TipoFacturacionStock.VentaUsados)
             {
                 lblScanProducto.Visible =
@@ -2196,6 +2208,8 @@ namespace Eatery.Ventas
                     if (rowF.id_pt == pIdPT)
                     {
                         //Sumar cantidad nada mas
+                        
+
 
                         rowF.inventario = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
                        
@@ -2871,16 +2885,36 @@ namespace Eatery.Ventas
                     }
 
 
-                    decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(row.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+                    decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(row.id_pt, 
+                                                                                                   PuntoDeVentaActual.ID, 
+                                                                                                   this.ClienteFactura.Id);
 
-                    if (vDescuento > vPorcentajeDescuento)
+                    //Descuento en general
+                    if (vDescuento > vPorcentajeDescuento && this.ClienteFactura.Id == 0)
                     {
                         row.descuento = row.descuento_porcentaje = 0;
                         CajaDialogo.Error("No se permite un descuento mayor al permitido!");
                         return;
                     }
 
+                    //Aqui el cliente tiene precio establecido y no aplica descuento
+                    if (vDescuento > vPorcentajeDescuento && this.ClienteFactura.Id > 0)
+                    {
+                        row.descuento = row.descuento_porcentaje = 0;
+                        CajaDialogo.Error("El cliente no tiene un % de descuento definido en lista de precio!");
+                        return;
+                    }
+
                     row.descuento_porcentaje = vDescuento;
+
+                    //Si se pone un valor mayor al del precio del producto.
+                    if(vDescuento >= row.precio)
+                    {
+                        row.descuento = row.descuento_porcentaje = 0;
+                        CajaDialogo.Error("El descuento no puede ser mayor al precio del producto!");
+                        return;
+                    }
+
                     decimal vDescuentoLinea = ((row.cantidad * row.precio) * (vDescuento / 100));
                     row.descuento = vDescuentoLinea;
 
@@ -3253,6 +3287,18 @@ namespace Eatery.Ventas
                     }
                 }
             }
+
+            //Validar que nose facture un producto con un precio menor o igual al costo
+            foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
+            {
+                ProductoTerminado pt1x = new ProductoTerminado();
+                if(pt1x.GetUltimoCosto(row.id_pt)>= row.precio)
+                {
+                    SetErrorBarra("Esta intentando facturar un producto con un precio menor al costo!");
+                    return;
+                }
+            }
+            
 
             if (ckConfirmarPedido.Checked)
             {
