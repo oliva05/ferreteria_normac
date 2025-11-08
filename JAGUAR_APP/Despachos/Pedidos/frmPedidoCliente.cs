@@ -3289,16 +3289,31 @@ namespace Eatery.Ventas
             }
 
             //Validar que nose facture un producto con un precio menor o igual al costo
-            foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
+            if (TipoFacturacionActual == TipoFacturacionStock.VentaNormal)
             {
-                ProductoTerminado pt1x = new ProductoTerminado();
-                if(pt1x.GetUltimoCosto(row.id_pt)>= row.precio)
+                foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
                 {
-                    SetErrorBarra("Esta intentando facturar un producto con un precio menor al costo!");
-                    return;
+                    ProductoTerminado pt1x = new ProductoTerminado();
+                    if (pt1x.GetUltimoCosto(row.id_pt) >= row.precio)
+                    {
+                        SetErrorBarra("Esta intentando facturar un producto con un precio menor al costo!");
+                        return;
+                    }
                 }
             }
-            
+            else
+            {
+                foreach (dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction.Rows)
+                {
+                    ProductoUsado pt1x = new ProductoUsado();
+                    if(pt1x.RecuperarRegistro(row.id_pt))
+                    if (pt1x.Costo >= row.precio)
+                    {
+                        SetErrorBarra("Esta intentando facturar un producto con un precio menor al costo!");
+                        return;
+                    }
+                }
+            }
 
             if (ckConfirmarPedido.Checked)
             {
