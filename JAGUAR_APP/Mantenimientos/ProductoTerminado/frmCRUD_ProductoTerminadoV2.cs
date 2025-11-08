@@ -1700,8 +1700,40 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 if (vPrecio > 0)
                 {
                     //Calculamos el Porcentaje de Utilidad
+                    //PrecioVenta = vPrecio;
+                    //PorcentajeUtilidad = (1 - (CostoActual / PrecioVenta)) * 100;
+                    //txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
+                    //txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
+
+
+                    decimal costo = CostoActual;
                     PrecioVenta = vPrecio;
-                    PorcentajeUtilidad = (1 - (CostoActual / PrecioVenta))*100;
+                    decimal impuesto = 15;
+                    decimal descuento = 5;
+
+                    decimal utilidadBruto = PrecioVenta - costo;
+                    decimal porcentajeTotal = 0;
+                    decimal precioCalculado = 0;
+
+
+                    for (decimal p = 20; p <= 100; p += 0.01m)
+                    {
+                        decimal uNeta = p - impuesto - descuento;
+                        decimal utilidadNeta = costo / (1 - (uNeta / 100)) - costo;
+                        decimal precio = costo + utilidadNeta + (costo * impuesto / 100) + (costo * descuento / 100);
+                        if (Math.Abs(precio - PrecioVenta) < 0.05m)
+                        {
+                            porcentajeTotal = p;
+                            break;
+                        }
+                    }
+                    PorcentajeUtilidad = Math.Round(porcentajeTotal, 2, MidpointRounding.AwayFromZero);
+
+                    decimal redondeoCercano = Math.Round(PorcentajeUtilidad, 0, MidpointRounding.AwayFromZero);
+
+                    if (Math.Abs(PorcentajeUtilidad - redondeoCercano) < 0.03m)
+                        PorcentajeUtilidad = redondeoCercano;
+
                     txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
                     txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
                 }
@@ -1717,13 +1749,35 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             {
                 if (valor > 0)
                 {
-                    CostoActual = valor;
-                    //Calculamos el precio
-                    PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad)/100);
-                    ModificoElUltimoCosto = true;
-                    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
+                    //CostoActual = valor;
+                    ////Calculamos el precio
+                    //PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad)/100);
+                    //ModificoElUltimoCosto = true;
+                    //txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
+                    //txtCostoActual.Text = string.Format("{0:###,##0.00}", CostoActual);
+                    //txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
+
+                    decimal NuevoCosto = valor;
+
+                    decimal PorcentajeImpuesto = 15;
+                    decimal PorcentajeDescuento = 5;
+                    decimal PorcentajeutilidadNeta = 0;
+                    decimal UtilidadNeta = 0;
+                    decimal UtilidadISV = 0;
+                    decimal MargenDescuento = 0;
+
+                    PorcentajeutilidadNeta = PorcentajeUtilidad - PorcentajeImpuesto - PorcentajeDescuento;
+
+                    UtilidadNeta = NuevoCosto / (1 - (PorcentajeutilidadNeta / 100)) - NuevoCosto;
+                    UtilidadISV = NuevoCosto * (PorcentajeImpuesto / 100);
+                    MargenDescuento = NuevoCosto * (PorcentajeDescuento / 100);
+
+
+                    PrecioVenta = UtilidadNeta + UtilidadISV + MargenDescuento + NuevoCosto;
+                    CostoActual = NuevoCosto;
                     txtCostoActual.Text = string.Format("{0:###,##0.00}", CostoActual);
                     txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
+
                 }
                 //try
                 //{
@@ -1769,17 +1823,51 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
             if (Input1.IsOk)
             {
-                if (vPorcentajeUtilidad > 0)
+                if (vPorcentajeUtilidad > 20) //Tomando en Cuenta que el Margen de Utilidad cuenta con 1= 15% ISV 2= 5% Descuento
+                                              //El resto seria utilidad Neta no puede bajar del 20%
                 {
-                    //Calculamos el precio
+                    if (vPorcentajeUtilidad >= 100)
+                    {
+                        vPorcentajeUtilidad = 99;
+                        
+                    }
                     PorcentajeUtilidad = vPorcentajeUtilidad;
-                    if(PorcentajeUtilidad >= 100)
-                        PrecioVenta = CostoActual / (1 - (99/100));
-                    else
-                        PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad / 100));
+                    #region Calculo Anterior
 
+                    decimal PorcentajeImpuesto = 15;
+                    decimal PorcentajeDescuento = 5;
+                    decimal UtilidadNeta = 0;
+                    decimal UtilidadISV = 0;
+                    decimal MargenDescuento = 0;
+
+                    PorcentajeUtilidad = PorcentajeUtilidad - PorcentajeImpuesto - PorcentajeDescuento;
+
+                    UtilidadNeta = CostoActual / (1 - (PorcentajeUtilidad / 100)) - CostoActual;
+                    UtilidadISV = CostoActual * (PorcentajeImpuesto / 100);
+                    MargenDescuento = CostoActual * (PorcentajeDescuento / 100);
+
+                    PrecioVenta = UtilidadNeta + UtilidadISV + MargenDescuento + CostoActual;
+
+                    //PorcentajeUtilidad = vPorcentajeUtilidad;
+                    //if (PorcentajeUtilidad >= 100)
+                    //    PrecioVenta = CostoActual / (1 - (99 / 100));
+                    //else
+                    //    PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad / 100));
+
+                    //txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
+                    //txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
+
+                    #endregion
+                    //Calculamos el precio
+                    PorcentajeUtilidad = PorcentajeUtilidad + PorcentajeImpuesto + PorcentajeDescuento;
                     txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
                     txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
+
+                }
+                else
+                {
+                    CajaDialogo.Error("El Margen de Utilidad debe ser mayor al 21%");
+                    return;
                 }
             }
         }
