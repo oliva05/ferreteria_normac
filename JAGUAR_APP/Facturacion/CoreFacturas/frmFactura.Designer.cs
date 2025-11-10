@@ -590,7 +590,7 @@ namespace Eatery.Ventas
             this.gridControl1.DataMember = "detalle_factura_transaction";
             this.gridControl1.DataSource = this.dsVentas1;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gridControl1.Location = new System.Drawing.Point(9, 117);
+            this.gridControl1.Location = new System.Drawing.Point(5, 117);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl1.Name = "gridControl1";
