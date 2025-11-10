@@ -31,21 +31,21 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCRUD_ProductoTerminadoV2));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridLookUpEdit_Presentaciones = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourcePresentacion = new System.Windows.Forms.BindingSource(this.components);
             this.dsProductoTerminado1 = new JAGUAR_PRO.Mantenimientos.ProductoTerminado.dsProductoTerminado();
@@ -115,6 +115,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.reposDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.tabInventario = new DevExpress.XtraTab.XtraTabPage();
             this.gCMaximosyMinimos = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
+            this.spinvKardex = new DevExpress.XtraEditors.SpinEdit();
             this.tsGestionMaximosMinimos = new DevExpress.XtraEditors.ToggleSwitch();
             this.spinMaximo = new DevExpress.XtraEditors.SpinEdit();
             this.spinMinimo = new DevExpress.XtraEditors.SpinEdit();
@@ -205,8 +207,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.coldescripcion1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
             this.toggleEntegaBodega = new DevExpress.XtraEditors.ToggleSwitch();
-            this.spinvKardex = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
+            this.txtMargenLps = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit_Presentaciones.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePresentacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProductoTerminado1)).BeginInit();
@@ -242,6 +244,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.tabInventario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCMaximosyMinimos)).BeginInit();
             this.gCMaximosyMinimos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinvKardex.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsGestionMaximosMinimos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinMaximo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinMinimo.Properties)).BeginInit();
@@ -276,7 +279,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.tipoproductoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleEntegaBodega.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinvKardex.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMargenLps.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridLookUpEdit_Presentaciones
@@ -886,9 +889,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // reposDelete
             // 
             this.reposDelete.AutoHeight = false;
-            editorButtonImageOptions9.Image = global::JAGUAR_PRO.Properties.Resources.remove_32x32;
+            editorButtonImageOptions1.Image = global::JAGUAR_PRO.Properties.Resources.remove_32x32;
             this.reposDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposDelete.Name = "reposDelete";
             this.reposDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.reposDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.reposDelete_ButtonClick_1);
@@ -917,6 +920,33 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.gCMaximosyMinimos.TabIndex = 1;
             this.gCMaximosyMinimos.Text = "Gestion de Maximos y Minimo";
             this.gCMaximosyMinimos.ToolTipController = this.defaultToolTipController1.DefaultController;
+            // 
+            // labelControl28
+            // 
+            this.labelControl28.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labelControl28.Appearance.Options.UseFont = true;
+            this.labelControl28.Location = new System.Drawing.Point(340, 40);
+            this.labelControl28.Name = "labelControl28";
+            this.labelControl28.Size = new System.Drawing.Size(115, 15);
+            this.labelControl28.TabIndex = 6;
+            this.labelControl28.Text = "Inventario Disponible:";
+            // 
+            // spinvKardex
+            // 
+            this.spinvKardex.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinvKardex.Enabled = false;
+            this.spinvKardex.Location = new System.Drawing.Point(461, 37);
+            this.spinvKardex.Name = "spinvKardex";
+            this.spinvKardex.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.spinvKardex.Properties.Appearance.Options.UseFont = true;
+            this.spinvKardex.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinvKardex.Size = new System.Drawing.Size(100, 22);
+            this.spinvKardex.TabIndex = 5;
             // 
             // tsGestionMaximosMinimos
             // 
@@ -1088,9 +1118,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // cmdFijarComoEstandar
             // 
             this.cmdFijarComoEstandar.AutoHeight = false;
-            editorButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions7.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.cmdFijarComoEstandar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdFijarComoEstandar.Name = "cmdFijarComoEstandar";
             this.cmdFijarComoEstandar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdFijarComoEstandar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdFijarComoEstandar_ButtonClick);
@@ -1107,9 +1137,9 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // cmdHabilitarAlmacen
             // 
             this.cmdHabilitarAlmacen.AutoHeight = false;
-            editorButtonImageOptions8.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions8.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.cmdHabilitarAlmacen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdHabilitarAlmacen.Name = "cmdHabilitarAlmacen";
             this.cmdHabilitarAlmacen.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdHabilitarAlmacen.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdHabilitarAlmacen_ButtonClick);
@@ -1118,6 +1148,8 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.TabConfigVentas.Appearance.PageClient.BackColor = System.Drawing.Color.White;
             this.TabConfigVentas.Appearance.PageClient.Options.UseBackColor = true;
+            this.TabConfigVentas.Controls.Add(this.txtMargenLps);
+            this.TabConfigVentas.Controls.Add(this.labelControl29);
             this.TabConfigVentas.Controls.Add(this.cmdCancelarRecalculo);
             this.TabConfigVentas.Controls.Add(this.tsComision);
             this.TabConfigVentas.Controls.Add(this.labelControl23);
@@ -1144,7 +1176,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // cmdCancelarRecalculo
             // 
             this.cmdCancelarRecalculo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCancelarRecalculo.ImageOptions.Image")));
-            this.cmdCancelarRecalculo.Location = new System.Drawing.Point(529, 101);
+            this.cmdCancelarRecalculo.Location = new System.Drawing.Point(529, 112);
             this.cmdCancelarRecalculo.Name = "cmdCancelarRecalculo";
             this.cmdCancelarRecalculo.Size = new System.Drawing.Size(117, 23);
             this.cmdCancelarRecalculo.TabIndex = 67;
@@ -1154,7 +1186,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // tsComision
             // 
             this.tsComision.EditValue = true;
-            this.tsComision.Location = new System.Drawing.Point(136, 98);
+            this.tsComision.Location = new System.Drawing.Point(136, 90);
             this.tsComision.Name = "tsComision";
             this.tsComision.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tsComision.Properties.Appearance.Options.UseFont = true;
@@ -1167,7 +1199,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl23.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl23.Appearance.Options.UseFont = true;
-            this.labelControl23.Location = new System.Drawing.Point(14, 101);
+            this.labelControl23.Location = new System.Drawing.Point(14, 93);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(234, 15);
             this.labelControl23.TabIndex = 65;
@@ -1176,7 +1208,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // cmdRecalculoPrecio
             // 
             this.cmdRecalculoPrecio.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdRecalculoPrecio.ImageOptions.Image")));
-            this.cmdRecalculoPrecio.Location = new System.Drawing.Point(359, 101);
+            this.cmdRecalculoPrecio.Location = new System.Drawing.Point(359, 112);
             this.cmdRecalculoPrecio.Name = "cmdRecalculoPrecio";
             this.cmdRecalculoPrecio.Size = new System.Drawing.Size(164, 23);
             this.cmdRecalculoPrecio.TabIndex = 64;
@@ -1186,7 +1218,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // cmdDescuentoMaximo
             // 
             this.cmdDescuentoMaximo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdDescuentoMaximo.ImageOptions.Image")));
-            this.cmdDescuentoMaximo.Location = new System.Drawing.Point(583, 68);
+            this.cmdDescuentoMaximo.Location = new System.Drawing.Point(583, 53);
             this.cmdDescuentoMaximo.Name = "cmdDescuentoMaximo";
             this.cmdDescuentoMaximo.Size = new System.Drawing.Size(63, 23);
             this.cmdDescuentoMaximo.TabIndex = 63;
@@ -1196,7 +1228,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // cmdEditarMargenUtilidad
             // 
             this.cmdEditarMargenUtilidad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdEditarMargenUtilidad.ImageOptions.Image")));
-            this.cmdEditarMargenUtilidad.Location = new System.Drawing.Point(583, 40);
+            this.cmdEditarMargenUtilidad.Location = new System.Drawing.Point(583, 25);
             this.cmdEditarMargenUtilidad.Name = "cmdEditarMargenUtilidad";
             this.cmdEditarMargenUtilidad.Size = new System.Drawing.Size(63, 23);
             this.cmdEditarMargenUtilidad.TabIndex = 62;
@@ -1205,7 +1237,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             // txtDescuentoMaximo
             // 
-            this.txtDescuentoMaximo.Location = new System.Drawing.Point(482, 69);
+            this.txtDescuentoMaximo.Location = new System.Drawing.Point(482, 54);
             this.txtDescuentoMaximo.Name = "txtDescuentoMaximo";
             this.txtDescuentoMaximo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDescuentoMaximo.Properties.Appearance.Options.UseFont = true;
@@ -1217,7 +1249,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl21.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl21.Appearance.Options.UseFont = true;
-            this.labelControl21.Location = new System.Drawing.Point(359, 76);
+            this.labelControl21.Location = new System.Drawing.Point(359, 61);
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(190, 15);
             this.labelControl21.TabIndex = 60;
@@ -1225,7 +1257,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             // txtPorcentajeUtilidad
             // 
-            this.txtPorcentajeUtilidad.Location = new System.Drawing.Point(482, 41);
+            this.txtPorcentajeUtilidad.Location = new System.Drawing.Point(482, 26);
             this.txtPorcentajeUtilidad.Name = "txtPorcentajeUtilidad";
             this.txtPorcentajeUtilidad.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPorcentajeUtilidad.Properties.Appearance.Options.UseFont = true;
@@ -1237,7 +1269,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl22.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl22.Appearance.Options.UseFont = true;
-            this.labelControl22.Location = new System.Drawing.Point(359, 48);
+            this.labelControl22.Location = new System.Drawing.Point(359, 33);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(188, 15);
             this.labelControl22.TabIndex = 58;
@@ -1256,7 +1288,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // cmdEditarCosto
             // 
             this.cmdEditarCosto.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdEditarCosto.ImageOptions.Image")));
-            this.cmdEditarCosto.Location = new System.Drawing.Point(237, 68);
+            this.cmdEditarCosto.Location = new System.Drawing.Point(237, 53);
             this.cmdEditarCosto.Name = "cmdEditarCosto";
             this.cmdEditarCosto.Size = new System.Drawing.Size(63, 23);
             this.cmdEditarCosto.TabIndex = 56;
@@ -1266,7 +1298,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // cmdEditarPrecio
             // 
             this.cmdEditarPrecio.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdEditarPrecio.ImageOptions.Image")));
-            this.cmdEditarPrecio.Location = new System.Drawing.Point(237, 40);
+            this.cmdEditarPrecio.Location = new System.Drawing.Point(237, 25);
             this.cmdEditarPrecio.Name = "cmdEditarPrecio";
             this.cmdEditarPrecio.Size = new System.Drawing.Size(63, 23);
             this.cmdEditarPrecio.TabIndex = 55;
@@ -1277,7 +1309,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl19.Appearance.Options.UseFont = true;
-            this.labelControl19.Location = new System.Drawing.Point(251, 11);
+            this.labelControl19.Location = new System.Drawing.Point(251, 5);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(159, 18);
             this.labelControl19.TabIndex = 54;
@@ -1412,7 +1444,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             // txtCostoActual
             // 
-            this.txtCostoActual.Location = new System.Drawing.Point(136, 69);
+            this.txtCostoActual.Location = new System.Drawing.Point(136, 54);
             this.txtCostoActual.Name = "txtCostoActual";
             this.txtCostoActual.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCostoActual.Properties.Appearance.Options.UseFont = true;
@@ -1424,7 +1456,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl18.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl18.Appearance.Options.UseFont = true;
-            this.labelControl18.Location = new System.Drawing.Point(13, 76);
+            this.labelControl18.Location = new System.Drawing.Point(13, 61);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(143, 15);
             this.labelControl18.TabIndex = 25;
@@ -1432,7 +1464,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             // txtPrecioVenta
             // 
-            this.txtPrecioVenta.Location = new System.Drawing.Point(136, 41);
+            this.txtPrecioVenta.Location = new System.Drawing.Point(136, 26);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPrecioVenta.Properties.Appearance.Options.UseFont = true;
@@ -1444,7 +1476,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             // 
             this.labelControl17.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl17.Appearance.Options.UseFont = true;
-            this.labelControl17.Location = new System.Drawing.Point(13, 48);
+            this.labelControl17.Location = new System.Drawing.Point(13, 33);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(157, 15);
             this.labelControl17.TabIndex = 22;
@@ -1821,32 +1853,25 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             this.toggleEntegaBodega.Size = new System.Drawing.Size(115, 22);
             this.toggleEntegaBodega.TabIndex = 70;
             // 
-            // spinvKardex
+            // labelControl29
             // 
-            this.spinvKardex.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.spinvKardex.Enabled = false;
-            this.spinvKardex.Location = new System.Drawing.Point(461, 37);
-            this.spinvKardex.Name = "spinvKardex";
-            this.spinvKardex.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.spinvKardex.Properties.Appearance.Options.UseFont = true;
-            this.spinvKardex.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinvKardex.Size = new System.Drawing.Size(100, 22);
-            this.spinvKardex.TabIndex = 5;
+            this.labelControl29.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl29.Appearance.Options.UseFont = true;
+            this.labelControl29.Location = new System.Drawing.Point(359, 88);
+            this.labelControl29.Name = "labelControl29";
+            this.labelControl29.Size = new System.Drawing.Size(188, 15);
+            this.labelControl29.TabIndex = 68;
+            this.labelControl29.Text = "Margen de utilidad %_______________";
             // 
-            // labelControl28
+            // txtMargenLps
             // 
-            this.labelControl28.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.labelControl28.Appearance.Options.UseFont = true;
-            this.labelControl28.Location = new System.Drawing.Point(340, 40);
-            this.labelControl28.Name = "labelControl28";
-            this.labelControl28.Size = new System.Drawing.Size(115, 15);
-            this.labelControl28.TabIndex = 6;
-            this.labelControl28.Text = "Inventario Disponible:";
+            this.txtMargenLps.Location = new System.Drawing.Point(482, 81);
+            this.txtMargenLps.Name = "txtMargenLps";
+            this.txtMargenLps.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtMargenLps.Properties.Appearance.Options.UseFont = true;
+            this.txtMargenLps.Properties.ReadOnly = true;
+            this.txtMargenLps.Size = new System.Drawing.Size(99, 22);
+            this.txtMargenLps.TabIndex = 69;
             // 
             // frmCRUD_ProductoTerminadoV2
             // 
@@ -1936,6 +1961,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.gCMaximosyMinimos)).EndInit();
             this.gCMaximosyMinimos.ResumeLayout(false);
             this.gCMaximosyMinimos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinvKardex.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsGestionMaximosMinimos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinMaximo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinMinimo.Properties)).EndInit();
@@ -1971,7 +1997,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             ((System.ComponentModel.ISupportInitialize)(this.tipoproductoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleEntegaBodega.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinvKardex.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMargenLps.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2139,5 +2165,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         private DevExpress.XtraEditors.SimpleButton cmdCancelarRecalculo;
         private DevExpress.XtraEditors.LabelControl labelControl28;
         private DevExpress.XtraEditors.SpinEdit spinvKardex;
+        private DevExpress.XtraEditors.LabelControl labelControl29;
+        private DevExpress.XtraEditors.TextEdit txtMargenLps;
     }
 }

@@ -1715,11 +1715,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     decimal porcentajeTotal = 0;
                     decimal precioCalculado = 0;
 
-
                     for (decimal p = 20; p <= 100; p += 0.01m)
                     {
                         decimal uNeta = p - impuesto - descuento;
                         decimal utilidadNeta = costo / (1 - (uNeta / 100)) - costo;
+                        txtMargenLps.Text = string.Format("{0:###,##0.00}", utilidadNeta);
                         decimal precio = costo + utilidadNeta + (costo * impuesto / 100) + (costo * descuento / 100);
                         if (Math.Abs(precio - PrecioVenta) < 0.05m)
                         {
@@ -1769,6 +1769,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     PorcentajeutilidadNeta = PorcentajeUtilidad - PorcentajeImpuesto - PorcentajeDescuento;
 
                     UtilidadNeta = NuevoCosto / (1 - (PorcentajeutilidadNeta / 100)) - NuevoCosto;
+                    txtMargenLps.Text = string.Format("{0:###,##0.00}", UtilidadNeta);
                     UtilidadISV = NuevoCosto * (PorcentajeImpuesto / 100);
                     MargenDescuento = NuevoCosto * (PorcentajeDescuento / 100);
 
@@ -1843,6 +1844,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     PorcentajeUtilidad = PorcentajeUtilidad - PorcentajeImpuesto - PorcentajeDescuento;
 
                     UtilidadNeta = CostoActual / (1 - (PorcentajeUtilidad / 100)) - CostoActual;
+                    txtMargenLps.Text = string.Format("{0:###,##0.00}", UtilidadNeta);
                     UtilidadISV = CostoActual * (PorcentajeImpuesto / 100);
                     MargenDescuento = CostoActual * (PorcentajeDescuento / 100);
 
