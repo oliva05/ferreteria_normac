@@ -58,6 +58,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
         public bool ModificoElUltimoCosto;
         public decimal PorcentajeDescuento;
         public decimal PorcentajeUtilidad;
+        decimal ISVAplicable;
         public bool IsEnabledMaximoMinimo = false;
 
         public PDV PuntoVentaActual;
@@ -148,6 +149,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
                         gle_ClaseProducto.EditValue = PT_Class_instance.Id_clase;
                         gleImpuestoAplicable.EditValue = PT_Class_instance.Id_isv_aplicable;
+                        Impuesto isv = new Impuesto();
+                        if (isv.RecuperarRegistro(Convert.ToInt32(gleImpuestoAplicable.EditValue)))
+                        {
+                            ISVAplicable = isv.Valor;
+                        }
 
                         txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PT_Class_instance.porcentaje_utilidad);
                         txtDescuentoMaximo.Text = string.Format("{0:###,##0.00}", PT_Class_instance.porcentaje_descuento);
@@ -1699,43 +1705,53 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             {
                 if (vPrecio > 0)
                 {
-                    //Calculamos el Porcentaje de Utilidad
+                    decimal costo = CostoActual;
+                    decimal PrecioVentaConISV = PrecioVenta = vPrecio;
+                    decimal impuesto = ISVAplicable;
+
+                    decimal PrecioSinISV = 0;
+                    decimal UtilidadLps = 0;
+                    decimal PorcentajeUtilidad = 0;
+
+                    PrecioSinISV = PrecioVentaConISV / (1 + (impuesto / 100));
+                    UtilidadLps = PrecioSinISV - costo;
+
+                    PorcentajeUtilidad = (UtilidadLps / PrecioSinISV) * 100;
+                    this.PorcentajeUtilidad = PorcentajeUtilidad;
+                    txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVentaConISV);
+                    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
+                    txtMargenLps.Text = string.Format("{0:###,##0.00}", UtilidadLps);
+
+                    //decimal costo = CostoActual;
                     //PrecioVenta = vPrecio;
-                    //PorcentajeUtilidad = (1 - (CostoActual / PrecioVenta)) * 100;
+                    //decimal impuesto = 15;
+                    //decimal descuento = Convert.ToDecimal(txtDescuentoMaximo.EditValue);
+
+                    //decimal utilidadBruto = PrecioVenta - costo;
+                    //decimal porcentajeTotal = 0;
+                    //decimal precioCalculado = 0;
+
+                    //for (decimal p = 20; p <= 100; p += 0.01m)
+                    //{
+                    //    decimal uNeta = p - impuesto - descuento;
+                    //    decimal utilidadNeta = costo / (1 - (uNeta / 100)) - costo;
+                    //    txtMargenLps.Text = string.Format("{0:###,##0.00}", utilidadNeta);
+                    //    decimal precio = costo + utilidadNeta + (costo * impuesto / 100) + (costo * descuento / 100);
+                    //    if (Math.Abs(precio - PrecioVenta) < 0.05m)
+                    //    {
+                    //        porcentajeTotal = p;
+                    //        break;
+                    //    }
+                    //}
+                    //PorcentajeUtilidad = Math.Round(porcentajeTotal, 2, MidpointRounding.AwayFromZero);
+
+                    //decimal redondeoCercano = Math.Round(PorcentajeUtilidad, 0, MidpointRounding.AwayFromZero);
+
+                    //if (Math.Abs(PorcentajeUtilidad - redondeoCercano) < 0.03m)
+                    //    PorcentajeUtilidad = redondeoCercano;
+
                     //txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
                     //txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
-
-
-                    decimal costo = CostoActual;
-                    PrecioVenta = vPrecio;
-                    decimal impuesto = 15;
-                    decimal descuento = 5;
-
-                    decimal utilidadBruto = PrecioVenta - costo;
-                    decimal porcentajeTotal = 0;
-                    decimal precioCalculado = 0;
-
-                    for (decimal p = 20; p <= 100; p += 0.01m)
-                    {
-                        decimal uNeta = p - impuesto - descuento;
-                        decimal utilidadNeta = costo / (1 - (uNeta / 100)) - costo;
-                        txtMargenLps.Text = string.Format("{0:###,##0.00}", utilidadNeta);
-                        decimal precio = costo + utilidadNeta + (costo * impuesto / 100) + (costo * descuento / 100);
-                        if (Math.Abs(precio - PrecioVenta) < 0.05m)
-                        {
-                            porcentajeTotal = p;
-                            break;
-                        }
-                    }
-                    PorcentajeUtilidad = Math.Round(porcentajeTotal, 2, MidpointRounding.AwayFromZero);
-
-                    decimal redondeoCercano = Math.Round(PorcentajeUtilidad, 0, MidpointRounding.AwayFromZero);
-
-                    if (Math.Abs(PorcentajeUtilidad - redondeoCercano) < 0.03m)
-                        PorcentajeUtilidad = redondeoCercano;
-
-                    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
-                    txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
                 }
             }
         }
@@ -1749,35 +1765,47 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             {
                 if (valor > 0)
                 {
-                    //CostoActual = valor;
-                    ////Calculamos el precio
-                    //PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad)/100);
-                    //ModificoElUltimoCosto = true;
-                    //txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
+                    decimal Costo = valor;
+                    decimal PorcentajeUtilidad = Convert.ToDecimal(txtPorcentajeUtilidad.EditValue);
+                    decimal impuesto = ISVAplicable; // Porcentaje de ISV
+
+                    decimal UtilidadLps = 0;
+                    decimal PrecioSinISV = 0;
+                    decimal ISV = 0;
+                    decimal PrecioVentaConISV = 0;
+
+                    UtilidadLps = Costo / (1 - (PorcentajeUtilidad / 100)) - Costo;
+                    PrecioSinISV = Costo + UtilidadLps;
+                    ISV = PrecioSinISV * (ISVAplicable / 100);
+                    PrecioVentaConISV = PrecioSinISV + ISV;
+
+                    PrecioVenta = PrecioVentaConISV;
+                    CostoActual = Costo;
+                    txtMargenLps.Text = string.Format("{0:###,##0.00}", UtilidadLps);
+                    txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
+                    txtCostoActual.Text = string.Format("{0:###,##0.00}", CostoActual);
+
+                    //decimal NuevoCosto = valor;
+
+                    //decimal PorcentajeImpuesto = 15;
+                    //decimal PorcentajeDescuento = Convert.ToDecimal(txtDescuentoMaximo.EditValue);
+                    //decimal PorcentajeutilidadNeta = 0;
+                    //decimal UtilidadNeta = 0;
+                    //decimal UtilidadISV = 0;
+                    //decimal MargenDescuento = 0;
+
+                    //PorcentajeutilidadNeta = PorcentajeUtilidad - PorcentajeImpuesto - PorcentajeDescuento;
+
+                    //UtilidadNeta = NuevoCosto / (1 - (PorcentajeutilidadNeta / 100)) - NuevoCosto;
+                    //txtMargenLps.Text = string.Format("{0:###,##0.00}", UtilidadNeta);
+                    //UtilidadISV = NuevoCosto * (PorcentajeImpuesto / 100);
+                    //MargenDescuento = NuevoCosto * (PorcentajeDescuento / 100);
+
+
+                    //PrecioVenta = UtilidadNeta + UtilidadISV + MargenDescuento + NuevoCosto;
+                    //CostoActual = NuevoCosto;
                     //txtCostoActual.Text = string.Format("{0:###,##0.00}", CostoActual);
                     //txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
-
-                    decimal NuevoCosto = valor;
-
-                    decimal PorcentajeImpuesto = 15;
-                    decimal PorcentajeDescuento = 5;
-                    decimal PorcentajeutilidadNeta = 0;
-                    decimal UtilidadNeta = 0;
-                    decimal UtilidadISV = 0;
-                    decimal MargenDescuento = 0;
-
-                    PorcentajeutilidadNeta = PorcentajeUtilidad - PorcentajeImpuesto - PorcentajeDescuento;
-
-                    UtilidadNeta = NuevoCosto / (1 - (PorcentajeutilidadNeta / 100)) - NuevoCosto;
-                    txtMargenLps.Text = string.Format("{0:###,##0.00}", UtilidadNeta);
-                    UtilidadISV = NuevoCosto * (PorcentajeImpuesto / 100);
-                    MargenDescuento = NuevoCosto * (PorcentajeDescuento / 100);
-
-
-                    PrecioVenta = UtilidadNeta + UtilidadISV + MargenDescuento + NuevoCosto;
-                    CostoActual = NuevoCosto;
-                    txtCostoActual.Text = string.Format("{0:###,##0.00}", CostoActual);
-                    txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
 
                 }
                 //try
@@ -1824,51 +1852,57 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
 
             if (Input1.IsOk)
             {
-                if (vPorcentajeUtilidad > 20) //Tomando en Cuenta que el Margen de Utilidad cuenta con 1= 15% ISV 2= 5% Descuento
-                                              //El resto seria utilidad Neta no puede bajar del 20%
+                if (vPorcentajeUtilidad > 5) 
                 {
                     if (vPorcentajeUtilidad >= 100)
                     {
                         vPorcentajeUtilidad = 99;
                         
                     }
-                    PorcentajeUtilidad = vPorcentajeUtilidad;
-                    #region Calculo Anterior
 
-                    decimal PorcentajeImpuesto = 15;
-                    decimal PorcentajeDescuento = 5;
-                    decimal UtilidadNeta = 0;
-                    decimal UtilidadISV = 0;
-                    decimal MargenDescuento = 0;
+                    decimal UtilidadLps = 0;
+                    decimal Costo = CostoActual;
+                    decimal PorcentajeUtilidad = vPorcentajeUtilidad;
+                    decimal ISV = 0;
+                    decimal PrecioConISV = 0;
+                    decimal DescuentoLPS = 0;
+                    decimal PorcentajeDescuento = Convert.ToDecimal(txtDescuentoMaximo.EditValue);
 
-                    PorcentajeUtilidad = PorcentajeUtilidad - PorcentajeImpuesto - PorcentajeDescuento;
+                    UtilidadLps = Costo / (1 - (PorcentajeUtilidad / 100)) - Costo;
+                    ISV = (Costo + UtilidadLps) * (ISVAplicable / 100);//LPS
+                    PrecioConISV = Costo + UtilidadLps + ISV;
+                    //DescuentoLPS = (Costo + UtilidadLps) * (PorcentajeDescuento / 100);
 
-                    UtilidadNeta = CostoActual / (1 - (PorcentajeUtilidad / 100)) - CostoActual;
-                    txtMargenLps.Text = string.Format("{0:###,##0.00}", UtilidadNeta);
-                    UtilidadISV = CostoActual * (PorcentajeImpuesto / 100);
-                    MargenDescuento = CostoActual * (PorcentajeDescuento / 100);
+                    PrecioVenta = PrecioConISV;
+                    this.PorcentajeUtilidad = PorcentajeUtilidad;
+                    txtMargenLps.Text = string.Format("{0:###,##0.00}", UtilidadLps);
+                    txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
+                    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad); 
+                    //PorcentajeUtilidad = vPorcentajeUtilidad;      
 
-                    PrecioVenta = UtilidadNeta + UtilidadISV + MargenDescuento + CostoActual;
+                    //decimal PorcentajeImpuesto = 15;
+                    //decimal PorcentajeDescuento = Convert.ToDecimal(txtDescuentoMaximo.EditValue);
+                    //decimal UtilidadNeta = 0;
+                    //decimal UtilidadISV = 0;
+                    //decimal MargenDescuento = 0;
 
-                    //PorcentajeUtilidad = vPorcentajeUtilidad;
-                    //if (PorcentajeUtilidad >= 100)
-                    //    PrecioVenta = CostoActual / (1 - (99 / 100));
-                    //else
-                    //    PrecioVenta = CostoActual / (1 - (PorcentajeUtilidad / 100));
+                    //PorcentajeUtilidad = PorcentajeUtilidad - PorcentajeImpuesto - PorcentajeDescuento;
 
+                    //UtilidadNeta = CostoActual / (1 - (PorcentajeUtilidad / 100)) - CostoActual;
+                    //txtMargenLps.Text = string.Format("{0:###,##0.00}", UtilidadNeta);
+                    //UtilidadISV = CostoActual * (PorcentajeImpuesto / 100);
+                    //MargenDescuento = CostoActual * (PorcentajeDescuento / 100);
+
+                    //PrecioVenta = UtilidadNeta + UtilidadISV + MargenDescuento + CostoActual;
+                    ////Calculamos el precio
+                    //PorcentajeUtilidad = PorcentajeUtilidad + PorcentajeImpuesto + PorcentajeDescuento;
                     //txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
                     //txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
-
-                    #endregion
-                    //Calculamos el precio
-                    PorcentajeUtilidad = PorcentajeUtilidad + PorcentajeImpuesto + PorcentajeDescuento;
-                    txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
-                    txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
 
                 }
                 else
                 {
-                    CajaDialogo.Error("El Margen de Utilidad debe ser mayor al 21%");
+                    CajaDialogo.Error("El Margen de Utilidad debe ser mayor al 5%");
                     return;
                 }
             }
@@ -1880,7 +1914,28 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             decimal valor = Input1.ShowNumeric("Ingrese el descuento maximo permitido por defecto:", "Ingrese el valor");
             if (Input1.IsOk)
             {
+
+
+                //decimal PorcentajeImpuesto = 15;
+                //decimal PorcentajeDescuento = Convert.ToDecimal(txtDescuentoMaximo.EditValue);
+                //decimal UtilidadNeta = 0;
+                //decimal UtilidadISV = 0;
+                //decimal MargenDescuento = 0;
+
+                //PorcentajeUtilidad = PorcentajeUtilidad - PorcentajeImpuesto - PorcentajeDescuento;
+
+                //UtilidadNeta = CostoActual / (1 - (PorcentajeUtilidad / 100)) - CostoActual;
+                //txtMargenLps.Text = string.Format("{0:###,##0.00}", UtilidadNeta);
+                //UtilidadISV = CostoActual * (PorcentajeImpuesto / 100);
+                //MargenDescuento = CostoActual * (PorcentajeDescuento / 100);
+
+                //PrecioVenta = UtilidadNeta + UtilidadISV + MargenDescuento + CostoActual;
+
+                ////Calculamos el precio
+                //PorcentajeUtilidad = PorcentajeUtilidad + PorcentajeImpuesto + PorcentajeDescuento;
+                
                 txtDescuentoMaximo.Text = string.Format("{0:###,##0.00}", valor);
+                //txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
                 PorcentajeDescuento = valor;
             }
         }
@@ -2010,6 +2065,23 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                     {
                         CajaDialogo.Error(ex2.Message);
                     }
+                }
+            }
+        }
+
+        private void gleImpuestoAplicable_EditValueChanging(object sender, ChangingEventArgs e)
+        {
+            
+        }
+
+        private void gleImpuestoAplicable_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(gleImpuestoAplicable.EditValue) > 0)
+            {
+                Impuesto isv = new Impuesto();
+                if (isv.RecuperarRegistro(Convert.ToInt32(gleImpuestoAplicable.EditValue)))
+                {
+                    ISVAplicable = isv.Valor;
                 }
             }
         }
