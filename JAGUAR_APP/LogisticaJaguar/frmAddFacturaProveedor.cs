@@ -417,6 +417,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                     row1.porcentaje_utilidad = 0;
                     row1.precio_venta = 0;
+                    row1.porcentaje_descuento = 0;
 
 
                     //Agregamos el ID PT a la lista de los que iremos a consultar precio de venta y margen de utilidad.
@@ -519,50 +520,58 @@ namespace JAGUAR_PRO.LogisticaJaguar
             var gridView0 = (GridView)gridControl1.FocusedView;
             var row0 = (dsLogisticaJaguar.detalle_recepcion_factRow)gridView0.GetFocusedDataRow();
             decimal PrecioConISV = 0;
+            decimal PorcentajeUtilidad = dp.ValidateNumberDecimal(row0.porcentaje_utilidad);
+            decimal PorcentajeDescuento = dp.ValidateNumberDecimal(row0.porcentaje_descuento);
+            decimal DescuentoLPS = 0;
+
             Impuesto impuesto = new Impuesto();
-            switch (e.Column.FieldName)
+            switch (e.Column.FieldName) 
             {
                 case "isv_aplicable":
 
-                    row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
-                    PrecioConISV = row0.costo_unitario + row0.isv;
-                    row0.total_fila = Math.Round(( PrecioConISV * row0.cantidad_ingreso),2);
+                    row0.utilidad_lps = row0.costo_unitario / (1 - (PorcentajeUtilidad / 100)) - row0.costo_unitario;
+                    row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);//lps
+                    PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
 
+                    //Dato informativo
+                    //DescuentoLPS = (row0.costo_unitario + row0.utilidad_lps) * (PorcentajeDescuento / 100);
+                    row0.precio_venta = PrecioConISV; 
+                    row0.total_fila = Math.Round(( PrecioConISV * row0.cantidad_ingreso),2);
                     break;
                 case "cantidad":
 
-                    row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
-                    PrecioConISV = row0.costo_unitario + row0.isv;
+                    
+                    //PrecioConISV = row0.costo_unitario + row0.isv;
+                    row0.utilidad_lps = row0.costo_unitario / (1 - (PorcentajeUtilidad / 100)) - row0.costo_unitario;
+                    row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
+                    PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
+                    row0.precio_venta = PrecioConISV;
                     row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
-
-                    //row0.total_fila = row0.cantidad * row0.costo_unitario;
-                    //impuesto.RecuperarRegistro(1);
-                    //row0.isv = (row0.total_fila * impuesto.Valor) / 100;
-
-                    //row0.total_fila = row0.cantidad * row0.costo_unitario + row0.isv;
-
                     break;
-
                 case "cantidad_ingreso":
-                    row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
-                    PrecioConISV = row0.costo_unitario + row0.isv;
+                    
+                    row0.utilidad_lps = row0.costo_unitario / (1 - (PorcentajeUtilidad / 100)) - row0.costo_unitario;
+                    row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
+                    PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
+                    row0.precio_venta = PrecioConISV;
                     row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
                     break;
                 case "costo_unitario":
-                    row0.isv = row0.costo_unitario * (row0.isv_aplicable / 100m);
-                    PrecioConISV = row0.costo_unitario + row0.isv;
+                    row0.utilidad_lps = row0.costo_unitario / (1 - (PorcentajeUtilidad / 100)) - row0.costo_unitario;
+                    row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
+                    PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
+                    row0.precio_venta = PrecioConISV;
                     row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
-                    //row0.total_fila = row0.cantidad * row0.costo_unitario;
-                    //impuesto.RecuperarRegistro(1);
-                    //row0.isv = (row0.total_fila * impuesto.Valor) / 100;
-
-                    //row0.total_fila = row0.cantidad * row0.costo_unitario + row0.isv;
                     break;
 
                 case "isv":
 
-                    row0.total_fila = Math.Round(((row0.cantidad * row0.costo_unitario) + row0.isv),2);
-
+                    //row0.total_fila = Math.Round(((row0.cantidad * row0.costo_unitario) + row0.isv),2);
+                    row0.utilidad_lps = row0.costo_unitario / (1 - (PorcentajeUtilidad / 100)) - row0.costo_unitario;
+                    row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
+                    PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
+                    row0.precio_venta = PrecioConISV;
+                    row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso), 2);
                     break;
 
                 case "id_ud_medida_prv":
@@ -669,39 +678,57 @@ namespace JAGUAR_PRO.LogisticaJaguar
 
                     break;
                 case "porcentaje_utilidad":
-                    var gridView3 = (GridView)gridControl1.FocusedView;
-                    var row3 = (dsLogisticaJaguar.detalle_recepcion_factRow)gridView3.GetFocusedDataRow();
-                    decimal PrecioU1 = row3.costo_unitario;
-                    decimal Impuesto1 = row3.isv;
-                    decimal PrecioVenta1 = 0;
+                    //var gridView3 = (GridView)gridControl1.FocusedView;
+                    //var row3 = (dsLogisticaJaguar.detalle_recepcion_factRow)gridView3.GetFocusedDataRow();
+                    //decimal PrecioU1 = row3.costo_unitario;
+                    //decimal Impuesto1 = row3.isv;
+                    //decimal PrecioVenta1 = 0;
 
-                    if((PrecioU1 + Impuesto1) > 0 &&  row3.porcentaje_utilidad > 0)
+                    //if((PrecioU1 + Impuesto1) > 0 &&  row3.porcentaje_utilidad > 0)
+                    //{
+                    //    decimal Costo = (PrecioU1 + Impuesto1);
+                    //    PrecioVenta1 = Costo / (1 - (row3.porcentaje_utilidad / 100));
+                    //    row3.precio_venta = Math.Round(PrecioVenta1,4);
+                    //    if (row3.precio_venta > Costo)
+                    //        row3.utilidad_lps = Math.Round((row3.precio_venta - Costo),4);
+                    //    else
+                    //        row3.utilidad_lps = 0;
+                    //}
+
+                    if ((row0.precio_venta + row0.isv) > 0 && row0.porcentaje_utilidad > 0)
                     {
-                        decimal Costo = (PrecioU1 + Impuesto1);
-                        PrecioVenta1 = Costo / (1 - (row3.porcentaje_utilidad / 100));
-                        row3.precio_venta = Math.Round(PrecioVenta1,4);
-                        if (row3.precio_venta > Costo)
-                            row3.utilidad_lps = Math.Round((row3.precio_venta - Costo),4);
-                        else
-                            row3.utilidad_lps = 0;
+                        row0.utilidad_lps = row0.costo_unitario / (1 - (PorcentajeUtilidad / 100)) - row0.costo_unitario;
+                        row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
+                        PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
+                        row0.precio_venta = PrecioConISV;
+                        row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso), 2);
                     }
-
                     break;
                 case "precio_venta":
-                    var gridView4 = (GridView)gridControl1.FocusedView;
-                    var row4 = (dsLogisticaJaguar.detalle_recepcion_factRow)gridView4.GetFocusedDataRow();
-                    decimal PrecioU2 = row4.costo_unitario;
-                    decimal Impuesto2 = row4.isv;
+                    //var gridView4 = (GridView)gridControl1.FocusedView;
+                    //var row4 = (dsLogisticaJaguar.detalle_recepcion_factRow)gridView4.GetFocusedDataRow();
+                    //decimal PrecioU2 = row4.costo_unitario;
+                    //decimal Impuesto2 = row4.isv;
 
-                    if ((PrecioU2 + Impuesto2) > 0 && row4.precio_venta > 0)
+                    //if ((PrecioU2 + Impuesto2) > 0 && row4.precio_venta > 0)
+                    //{
+                    //    decimal Costo = (PrecioU2 + Impuesto2);
+                    //    row4.porcentaje_utilidad = Math.Round(((1 - (Costo / row4.precio_venta))*100),4);
+
+                    //    if (row4.precio_venta > Costo)
+                    //        row4.utilidad_lps = Math.Round((row4.precio_venta - Costo),4);
+                    //    else
+                    //        row4.utilidad_lps = 0;
+                    //}
+                    if ((row0.costo_unitario + row0.isv) > 0 && row0.precio_venta > 0)
                     {
-                        decimal Costo = (PrecioU2 + Impuesto2);
-                        row4.porcentaje_utilidad = Math.Round(((1 - (Costo / row4.precio_venta))*100),4);
-
-                        if (row4.precio_venta > Costo)
-                            row4.utilidad_lps = Math.Round((row4.precio_venta - Costo),4);
-                        else
-                            row4.utilidad_lps = 0;
+                        PorcentajeUtilidad = row0.porcentaje_utilidad = Math.Round(((1 - (row0.costo_unitario / (row0.precio_venta - row0.isv))) * 100), 4);
+                        row0.utilidad_lps = row0.precio_venta - row0.isv - row0.costo_unitario;
+                        //row0.costo_unitario = row0.precio_venta;
+                        //row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
+                        //PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
+                        //row0.precio_venta = PrecioConISV;
+                        row0.total_fila = Math.Round((row0.precio_venta * row0.cantidad_ingreso), 2);
                     }
                     break;
             }
@@ -896,6 +923,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         dtDetalle.Columns.Add("costo_unitario", typeof(decimal));
                         dtDetalle.Columns.Add("precio", typeof(decimal));
                         dtDetalle.Columns.Add("porcentaje_utilidad", typeof(decimal));
+                        dtDetalle.Columns.Add("porcentaje_descuento", typeof(decimal));
 
                         foreach (dsLogisticaJaguar.detalle_recepcion_factRow row in dsLogisticaJaguar1.detalle_recepcion_fact.Rows)
                         {
@@ -916,13 +944,16 @@ namespace JAGUAR_PRO.LogisticaJaguar
                                                 row.isv,//15
                                                 row.costo_unitario,//16
                                                 row.precio_venta,//17
-                                                row.porcentaje_utilidad//18
+                                                row.porcentaje_utilidad,//18
+                                                row.porcentaje_descuento
                                        );
                         }
                         //Insert Detalle y transaccion de kardex
 
                         SqlCommand cmdDetalle = connection.CreateCommand();
-                        cmdDetalle.CommandText = "[sp_set_insert_detalle_factura_proveedor_d_v5_compra_pt]";
+                        //cmdDetalle.CommandText = "[sp_set_insert_detalle_factura_proveedor_d_v5_compra_pt]";
+                        cmdDetalle.CommandText = "[sp_set_insert_detalle_factura_proveedor_d_compra_pt_v6]";
+                        
                         cmdDetalle.Connection = connection;
                         cmdDetalle.Transaction = transaction;
                         cmdDetalle.CommandType = CommandType.StoredProcedure;
