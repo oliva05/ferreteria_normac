@@ -96,5 +96,27 @@ namespace JAGUAR_PRO.Contabilidad.Reportes
                 CajaDialogo.Error(ex.Message);
             }
         }
+
+        private void cmdVerDetalleFacturas_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gv = (GridView)gridControl1.FocusedView;
+            var row = (dsReportesBasicosConta.resumen_ventasRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            switch (row.linea)
+            {
+                case 1:
+                case 2:
+                case 3:
+
+                break;
+                default:
+                    break;
+            }
+        }
+
+        private void cmdVerFacturas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

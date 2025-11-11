@@ -1020,6 +1020,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReportesBasicosConta.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Contabilidad\Reportes\frmDetalleFacturasResumenVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Reportes\frmDetalleFacturasResumenVentas.Designer.cs">
+      <DependentUpon>frmDetalleFacturasResumenVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contabilidad\Reportes\frmReporteVentasResumenConta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4606,6 +4612,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\Proveedores\rptPagoProveedores.resx">
       <DependentUpon>rptPagoProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Reportes\frmDetalleFacturasResumenVentas.resx">
+      <DependentUpon>frmDetalleFacturasResumenVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\Reportes\frmReporteVentasResumenConta.resx">
       <DependentUpon>frmReporteVentasResumenConta.cs</DependentUpon>
