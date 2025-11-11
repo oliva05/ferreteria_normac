@@ -694,6 +694,11 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     //    else
                     //        row3.utilidad_lps = 0;
                     //}
+                    if (PorcentajeUtilidad >= 100)
+                    {
+                        CajaDialogo.Error("No se permite ingresar utilidad mayor al 99%");
+                        return;
+                    }
 
                     if ((row0.precio_venta + row0.isv) > 0 && row0.porcentaje_utilidad > 0)
                     {
@@ -1238,12 +1243,18 @@ namespace JAGUAR_PRO.LogisticaJaguar
                 conn.Close();
 
                 //CALCULAR TOTALES
-                foreach (dsLogisticaJaguar.detalle_recepcion_factRow item in dsLogisticaJaguar1.detalle_recepcion_fact)
+                //foreach (dsLogisticaJaguar.detalle_recepcion_factRow item in dsLogisticaJaguar1.detalle_recepcion_fact)
+                foreach (dsLogisticaJaguar.detalle_recepcion_factRow row0 in dsLogisticaJaguar1.detalle_recepcion_fact)
                 {
-                    item.isv = item.costo_unitario * (item.isv_aplicable / 100m);
-                    decimal ValorProductoConISV = item.costo_unitario + item.isv;
-                    
-                    item.total_fila = item.cantidad_ingreso * ValorProductoConISV;
+                    //item.isv = item.costo_unitario * (item.isv_aplicable / 100m);
+                    //decimal ValorProductoConISV = item.costo_unitario + item.isv;
+
+                    //item.total_fila = item.cantidad_ingreso * ValorProductoConISV;
+
+                    row0.utilidad_lps = row0.costo_unitario / (1 - (row0.porcentaje_utilidad / 100)) - row0.costo_unitario;
+                    row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
+                    row0.precio_venta = row0.costo_unitario + row0.utilidad_lps + row0.isv;
+                    row0.total_fila = Math.Round((row0.precio_venta * row0.cantidad_ingreso), 2);
                 }
 
             }
