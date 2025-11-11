@@ -287,7 +287,7 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 DataOperations dp = new DataOperations();
                 SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 //using (SqlCommand cmd = new SqlCommand("[dbo].[sp_get_precio_pt_from_lista_y_punto_venta_v2]", cnx))
-                using (SqlCommand cmd = new SqlCommand("[dbo].[sp_get_precio_cost_y_margen_utilidad_pt]", cnx))
+                using (SqlCommand cmd = new SqlCommand("[dbo].[sp_get_precio_cost_y_margen_utilidad_pt_v2]", cnx))
                 {
                     cnx.Open();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -303,8 +303,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                         //CostoActual = dr.GetDecimal(0);
                         PrecioVenta = dr.GetDecimal(0);
                         PorcentajeUtilidad = dr.GetDecimal(1);
+                        decimal MargenLps = dr.GetDecimal(2);
                         txtPrecioVenta.Text = string.Format("{0:###,##0.00}", PrecioVenta);
                         txtPorcentajeUtilidad.Text = string.Format("{0:###,##0.00}", PorcentajeUtilidad);
+                        txtMargenLps.Text= string.Format("{0:###,##0.00}", MargenLps);
                     }
                     dr.Close();
                     cnx.Close();
@@ -1765,6 +1767,10 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
             {
                 if (valor > 0)
                 {
+                    if (CostoActual != valor)
+                        ModificoElUltimoCosto = true;
+                    else
+                        ModificoElUltimoCosto = false;
                     decimal Costo = valor;
                     decimal PorcentajeUtilidad = Convert.ToDecimal(txtPorcentajeUtilidad.EditValue);
                     decimal impuesto = ISVAplicable; // Porcentaje de ISV
@@ -1997,10 +2003,11 @@ namespace JAGUAR_PRO.Mantenimientos.ProductoTerminado
                 try
                 {
                     //Actualizamos margen de utilidad
-                    command.CommandText = "[sp_set_margen_utilidad_master_producto]";
+                    command.CommandText = "[sp_set_margen_utilidad_master_productoV2]";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@porcentaje_utilidad", PorcentajeUtilidad);
                     command.Parameters.AddWithValue("@id_pt", IdPT);
+                    command.Parameters.AddWithValue("@margenLps", Convert.ToDecimal(txtMargenLps.EditValue));
                     command.ExecuteNonQuery();
 
                     if (ModificoElUltimoCosto)
