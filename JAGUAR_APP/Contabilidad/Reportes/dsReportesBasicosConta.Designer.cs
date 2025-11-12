@@ -747,7 +747,7 @@ namespace JAGUAR_PRO.Contabilidad.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public detalle_facturas_rptRow Adddetalle_facturas_rptRow(string fecha, string factura_i, string factura_f, string exento, string gravado, string isv, string total) {
+            public detalle_facturas_rptRow Adddetalle_facturas_rptRow(System.DateTime fecha, string factura_i, string factura_f, decimal exento, decimal gravado, decimal isv, decimal total) {
                 detalle_facturas_rptRow rowdetalle_facturas_rptRow = ((detalle_facturas_rptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         fecha,
@@ -791,21 +791,27 @@ namespace JAGUAR_PRO.Contabilidad.Reportes {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha);
                 this.columnfactura_i = new global::System.Data.DataColumn("factura_i", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfactura_i);
                 this.columnfactura_f = new global::System.Data.DataColumn("factura_f", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfactura_f);
-                this.columnexento = new global::System.Data.DataColumn("exento", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnexento = new global::System.Data.DataColumn("exento", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnexento);
-                this.columngravado = new global::System.Data.DataColumn("gravado", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columngravado = new global::System.Data.DataColumn("gravado", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngravado);
-                this.columnisv = new global::System.Data.DataColumn("isv", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnisv = new global::System.Data.DataColumn("isv", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnisv);
-                this.columntotal = new global::System.Data.DataColumn("total", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal);
                 this.columnfecha.Caption = "Fecha";
+                this.columnfactura_i.Caption = "Factura Desde";
+                this.columnfactura_f.Caption = "Factura Final";
+                this.columnexento.Caption = "Exento";
+                this.columngravado.Caption = "Gravado";
+                this.columnisv.Caption = "ISV";
+                this.columntotal.Caption = "Total";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1076,10 +1082,10 @@ namespace JAGUAR_PRO.Contabilidad.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string fecha {
+            public System.DateTime fecha {
                 get {
                     try {
-                        return ((string)(this[this.tabledetalle_facturas_rpt.fechaColumn]));
+                        return ((global::System.DateTime)(this[this.tabledetalle_facturas_rpt.fechaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'fecha\' de la tabla \'detalle_facturas_rpt\' es DBNull.", e);
@@ -1124,10 +1130,10 @@ namespace JAGUAR_PRO.Contabilidad.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string exento {
+            public decimal exento {
                 get {
                     try {
-                        return ((string)(this[this.tabledetalle_facturas_rpt.exentoColumn]));
+                        return ((decimal)(this[this.tabledetalle_facturas_rpt.exentoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'exento\' de la tabla \'detalle_facturas_rpt\' es DBNull.", e);
@@ -1140,10 +1146,10 @@ namespace JAGUAR_PRO.Contabilidad.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string gravado {
+            public decimal gravado {
                 get {
                     try {
-                        return ((string)(this[this.tabledetalle_facturas_rpt.gravadoColumn]));
+                        return ((decimal)(this[this.tabledetalle_facturas_rpt.gravadoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'gravado\' de la tabla \'detalle_facturas_rpt\' es DBNull.", e);
@@ -1156,10 +1162,10 @@ namespace JAGUAR_PRO.Contabilidad.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string isv {
+            public decimal isv {
                 get {
                     try {
-                        return ((string)(this[this.tabledetalle_facturas_rpt.isvColumn]));
+                        return ((decimal)(this[this.tabledetalle_facturas_rpt.isvColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'isv\' de la tabla \'detalle_facturas_rpt\' es DBNull.", e);
@@ -1172,10 +1178,10 @@ namespace JAGUAR_PRO.Contabilidad.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string total {
+            public decimal total {
                 get {
                     try {
-                        return ((string)(this[this.tabledetalle_facturas_rpt.totalColumn]));
+                        return ((decimal)(this[this.tabledetalle_facturas_rpt.totalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'total\' de la tabla \'detalle_facturas_rpt\' es DBNull.", e);

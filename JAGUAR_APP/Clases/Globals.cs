@@ -23,7 +23,7 @@ namespace ACS.Classes
         #region Credenciales Producción
 
 
-        //Jaguar
+        ////Jaguar
         public static string JAGUAR_ServerAddress = "mssql-137225-0.cloudclusters.net,10043";
         public static string JAGUAR_ServerName = "mssql-137225-0.cloudclusters.net,10043";
         public static string JAGUAR_ActiveDB = "normac";

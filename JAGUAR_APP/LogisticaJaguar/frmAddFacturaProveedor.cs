@@ -536,7 +536,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     //Dato informativo
                     //DescuentoLPS = (row0.costo_unitario + row0.utilidad_lps) * (PorcentajeDescuento / 100);
                     row0.precio_venta = PrecioConISV; 
-                    row0.total_fila = Math.Round(( PrecioConISV * row0.cantidad_ingreso),2);
+                    row0.isv_costo = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                    row0.total_fila = Math.Round(((row0.isv_costo + row0.costo_unitario) * row0.cantidad_ingreso),2);
                     break;
                 case "cantidad":
 
@@ -546,7 +547,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
                     PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
                     row0.precio_venta = PrecioConISV;
-                    row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
+                    //row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
+                    row0.isv_costo = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                    row0.total_fila = Math.Round(((row0.isv_costo + row0.costo_unitario) * row0.cantidad_ingreso), 2);
                     break;
                 case "cantidad_ingreso":
                     
@@ -554,14 +557,18 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
                     PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
                     row0.precio_venta = PrecioConISV;
-                    row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
+                    //row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
+                    row0.isv_costo = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                    row0.total_fila = Math.Round(((row0.isv_costo + row0.costo_unitario) * row0.cantidad_ingreso), 2);
                     break;
                 case "costo_unitario":
                     row0.utilidad_lps = row0.costo_unitario / (1 - (PorcentajeUtilidad / 100)) - row0.costo_unitario;
                     row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
                     PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
                     row0.precio_venta = PrecioConISV;
-                    row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
+                    //row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso),2);
+                    row0.isv_costo = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                    row0.total_fila = Math.Round(((row0.isv_costo + row0.costo_unitario) * row0.cantidad_ingreso), 2);
                     break;
 
                 case "isv":
@@ -571,7 +578,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
                     PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
                     row0.precio_venta = PrecioConISV;
-                    row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso), 2);
+                    //row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso), 2);
+                    row0.isv_costo = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                    row0.total_fila = Math.Round(((row0.isv_costo + row0.costo_unitario) * row0.cantidad_ingreso), 2);
                     break;
 
                 case "id_ud_medida_prv":
@@ -706,7 +715,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
                         PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
                         row0.precio_venta = PrecioConISV;
-                        row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso), 2);
+                        //row0.total_fila = Math.Round((PrecioConISV * row0.cantidad_ingreso), 2);
+                        row0.isv_costo = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                        row0.total_fila = Math.Round(((row0.isv_costo + row0.costo_unitario) * row0.cantidad_ingreso), 2);
                     }
                     break;
                 case "precio_venta":
@@ -733,7 +744,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                         //row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
                         //PrecioConISV = row0.costo_unitario + row0.utilidad_lps + row0.isv;
                         //row0.precio_venta = PrecioConISV;
-                        row0.total_fila = Math.Round((row0.precio_venta * row0.cantidad_ingreso), 2);
+                        //row0.total_fila = Math.Round((row0.precio_venta * row0.cantidad_ingreso), 2);
+                        row0.isv_costo = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                        row0.total_fila = Math.Round(((row0.isv_costo + row0.costo_unitario) * row0.cantidad_ingreso), 2);
                     }
                     break;
             }
@@ -946,7 +959,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
                                                 row.id_bodega,//12
                                                 ProveedorActual.Jaguar_codigo,//13
                                                 DBNull.Value,//14
-                                                row.isv,//15
+                                                //row.isv,//15
+                                                row.isv_costo,//15
                                                 row.costo_unitario,//16
                                                 row.precio_venta,//17
                                                 row.porcentaje_utilidad,//18
@@ -1254,7 +1268,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
                     row0.utilidad_lps = row0.costo_unitario / (1 - (row0.porcentaje_utilidad / 100)) - row0.costo_unitario;
                     row0.isv = (row0.costo_unitario + row0.utilidad_lps) * (row0.isv_aplicable / 100m);
                     row0.precio_venta = row0.costo_unitario + row0.utilidad_lps + row0.isv;
-                    row0.total_fila = Math.Round((row0.precio_venta * row0.cantidad_ingreso), 2);
+                    //row0.total_fila = Math.Round((row0.precio_venta * row0.cantidad_ingreso), 2);
+                    row0.isv_costo = row0.costo_unitario * (row0.isv_aplicable / 100m);
+                    row0.total_fila = (row0.costo_unitario + row0.isv_costo) * row0.cantidad_ingreso;
                 }
 
             }
