@@ -307,5 +307,19 @@ namespace JAGUAR_PRO.Compras
                 this.Close();
             }
         }
+
+        private void cmdSeleccionar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var gridview = (GridView)grdOrdenCompra.FocusedView;
+            var row = (dsCompras.orden_compraRow)gridview.GetFocusedDataRow();
+
+            if (row.id > 0)
+            {
+                IdOrdenesSeleccionado = row.id;
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
     }
 }

@@ -30,17 +30,17 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddFacturaProveedor));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridLookUpEditProveedor = new DevExpress.XtraEditors.GridLookUpEdit();
             this.bindingSourceProveedor = new System.Windows.Forms.BindingSource(this.components);
             this.dsLogisticaJaguar1 = new JAGUAR_PRO.LogisticaJaguar.dsLogisticaJaguar();
@@ -99,6 +99,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colprecio_venta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colutilidad_lps = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colultimo_costo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colporcentaje_descuento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RGridLookUpE_MateriaPrimaList = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.mPListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -150,7 +151,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.tsWithCAI = new DevExpress.XtraEditors.ToggleSwitch();
             this.cmdClose = new DevExpress.XtraEditors.DropDownButton();
             this.cmdAplicarCalculoPrecioVenta = new DevExpress.XtraEditors.DropDownButton();
-            this.colporcentaje_descuento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colisv_costo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEditProveedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsLogisticaJaguar1)).BeginInit();
@@ -450,7 +451,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colprecio_venta,
             this.colutilidad_lps,
             this.colultimo_costo,
-            this.colporcentaje_descuento});
+            this.colporcentaje_descuento,
+            this.colisv_costo});
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.LevelIndent = 0;
             this.gridView2.Name = "gridView2";
@@ -468,7 +470,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colcantidad.Name = "colcantidad";
             this.colcantidad.Visible = true;
             this.colcantidad.VisibleIndex = 1;
-            this.colcantidad.Width = 69;
+            this.colcantidad.Width = 65;
             // 
             // colid_ud_medida_prv
             // 
@@ -477,7 +479,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colid_ud_medida_prv.Name = "colid_ud_medida_prv";
             this.colid_ud_medida_prv.Visible = true;
             this.colid_ud_medida_prv.VisibleIndex = 2;
-            this.colid_ud_medida_prv.Width = 53;
+            this.colid_ud_medida_prv.Width = 49;
             // 
             // RGridLookUpE_UdMedidaFactura
             // 
@@ -536,7 +538,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.coldescripcion_mp.OptionsColumn.AllowEdit = false;
             this.coldescripcion_mp.Visible = true;
             this.coldescripcion_mp.VisibleIndex = 4;
-            this.coldescripcion_mp.Width = 117;
+            this.coldescripcion_mp.Width = 110;
             // 
             // colid_ud_medida_jaguar
             // 
@@ -545,7 +547,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colid_ud_medida_jaguar.Name = "colid_ud_medida_jaguar";
             this.colid_ud_medida_jaguar.Visible = true;
             this.colid_ud_medida_jaguar.VisibleIndex = 5;
-            this.colid_ud_medida_jaguar.Width = 52;
+            this.colid_ud_medida_jaguar.Width = 49;
             // 
             // R_GridLookUpEdit_Ud_medida_Jaguar
             // 
@@ -592,16 +594,20 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // colcantidad_ingreso
             // 
+            this.colcantidad_ingreso.AppearanceCell.BackColor = System.Drawing.Color.PapayaWhip;
+            this.colcantidad_ingreso.AppearanceCell.Options.UseBackColor = true;
             this.colcantidad_ingreso.DisplayFormat.FormatString = "n2";
             this.colcantidad_ingreso.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colcantidad_ingreso.FieldName = "cantidad_ingreso";
             this.colcantidad_ingreso.Name = "colcantidad_ingreso";
             this.colcantidad_ingreso.Visible = true;
-            this.colcantidad_ingreso.VisibleIndex = 8;
-            this.colcantidad_ingreso.Width = 73;
+            this.colcantidad_ingreso.VisibleIndex = 7;
+            this.colcantidad_ingreso.Width = 68;
             // 
             // coltotal_fila
             // 
+            this.coltotal_fila.AppearanceCell.BackColor = System.Drawing.Color.PapayaWhip;
+            this.coltotal_fila.AppearanceCell.Options.UseBackColor = true;
             this.coltotal_fila.Caption = "Total Fila L";
             this.coltotal_fila.DisplayFormat.FormatString = "{0:#,###,##0.0000}";
             this.coltotal_fila.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -615,7 +621,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
                             262144}))});
             this.coltotal_fila.Visible = true;
             this.coltotal_fila.VisibleIndex = 11;
-            this.coltotal_fila.Width = 114;
+            this.coltotal_fila.Width = 106;
             // 
             // colnum_linea
             // 
@@ -625,7 +631,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colnum_linea.OptionsColumn.ReadOnly = true;
             this.colnum_linea.Visible = true;
             this.colnum_linea.VisibleIndex = 0;
-            this.colnum_linea.Width = 29;
+            this.colnum_linea.Width = 27;
             // 
             // colid_bodega
             // 
@@ -635,7 +641,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colid_bodega.Name = "colid_bodega";
             this.colid_bodega.Visible = true;
             this.colid_bodega.VisibleIndex = 12;
-            this.colid_bodega.Width = 81;
             // 
             // GridLookUpE_Bodega
             // 
@@ -688,7 +693,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colItemCode.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.True;
             this.colItemCode.Visible = true;
             this.colItemCode.VisibleIndex = 3;
-            this.colItemCode.Width = 53;
+            this.colItemCode.Width = 49;
             // 
             // gridColumn3
             // 
@@ -697,15 +702,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.gridColumn3.FieldName = "eliminar";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 17;
-            this.gridColumn3.Width = 51;
+            this.gridColumn3.VisibleIndex = 18;
+            this.gridColumn3.Width = 60;
             // 
             // cmdEliminar
             // 
             this.cmdEliminar.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.cmdEliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.cmdEliminar.Name = "cmdEliminar";
             this.cmdEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEliminar_ButtonClick);
@@ -717,37 +722,41 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // 
             // colisv
             // 
-            this.colisv.Caption = "Impuesto";
+            this.colisv.Caption = "ISV Venta";
             this.colisv.DisplayFormat.FormatString = "{0:#,###,##0.0000}";
             this.colisv.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colisv.FieldName = "isv";
             this.colisv.Name = "colisv";
             this.colisv.OptionsColumn.ReadOnly = true;
             this.colisv.Visible = true;
-            this.colisv.VisibleIndex = 10;
-            this.colisv.Width = 61;
+            this.colisv.VisibleIndex = 16;
+            this.colisv.Width = 56;
             // 
             // colcosto_unitario
             // 
+            this.colcosto_unitario.AppearanceCell.BackColor = System.Drawing.Color.PapayaWhip;
+            this.colcosto_unitario.AppearanceCell.Options.UseBackColor = true;
             this.colcosto_unitario.Caption = "Precio Unit.";
             this.colcosto_unitario.DisplayFormat.FormatString = "{0:#,###,##0.0000}";
             this.colcosto_unitario.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colcosto_unitario.FieldName = "costo_unitario";
             this.colcosto_unitario.Name = "colcosto_unitario";
             this.colcosto_unitario.Visible = true;
-            this.colcosto_unitario.VisibleIndex = 9;
+            this.colcosto_unitario.VisibleIndex = 8;
             this.colcosto_unitario.Width = 70;
             // 
             // colisv_aplicable
             // 
+            this.colisv_aplicable.AppearanceCell.BackColor = System.Drawing.Color.PapayaWhip;
+            this.colisv_aplicable.AppearanceCell.Options.UseBackColor = true;
             this.colisv_aplicable.Caption = "ISV Aplicable";
             this.colisv_aplicable.DisplayFormat.FormatString = "{0:#,###,##0} %";
             this.colisv_aplicable.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colisv_aplicable.FieldName = "isv_aplicable";
             this.colisv_aplicable.Name = "colisv_aplicable";
             this.colisv_aplicable.Visible = true;
-            this.colisv_aplicable.VisibleIndex = 6;
-            this.colisv_aplicable.Width = 55;
+            this.colisv_aplicable.VisibleIndex = 9;
+            this.colisv_aplicable.Width = 51;
             // 
             // colporcentaje_utilidad
             // 
@@ -755,7 +764,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colporcentaje_utilidad.Name = "colporcentaje_utilidad";
             this.colporcentaje_utilidad.Visible = true;
             this.colporcentaje_utilidad.VisibleIndex = 13;
-            this.colporcentaje_utilidad.Width = 49;
+            this.colporcentaje_utilidad.Width = 45;
             // 
             // colprecio_venta
             // 
@@ -764,8 +773,8 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colprecio_venta.FieldName = "precio_venta";
             this.colprecio_venta.Name = "colprecio_venta";
             this.colprecio_venta.Visible = true;
-            this.colprecio_venta.VisibleIndex = 16;
-            this.colprecio_venta.Width = 107;
+            this.colprecio_venta.VisibleIndex = 17;
+            this.colprecio_venta.Width = 99;
             // 
             // colutilidad_lps
             // 
@@ -775,7 +784,7 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colutilidad_lps.Name = "colutilidad_lps";
             this.colutilidad_lps.Visible = true;
             this.colutilidad_lps.VisibleIndex = 14;
-            this.colutilidad_lps.Width = 63;
+            this.colutilidad_lps.Width = 58;
             // 
             // colultimo_costo
             // 
@@ -783,8 +792,16 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.colultimo_costo.Name = "colultimo_costo";
             this.colultimo_costo.OptionsColumn.ReadOnly = true;
             this.colultimo_costo.Visible = true;
-            this.colultimo_costo.VisibleIndex = 7;
-            this.colultimo_costo.Width = 69;
+            this.colultimo_costo.VisibleIndex = 6;
+            this.colultimo_costo.Width = 65;
+            // 
+            // colporcentaje_descuento
+            // 
+            this.colporcentaje_descuento.FieldName = "porcentaje_descuento";
+            this.colporcentaje_descuento.Name = "colporcentaje_descuento";
+            this.colporcentaje_descuento.Visible = true;
+            this.colporcentaje_descuento.VisibleIndex = 15;
+            this.colporcentaje_descuento.Width = 58;
             // 
             // RGridLookUpE_MateriaPrimaList
             // 
@@ -895,9 +912,9 @@ namespace JAGUAR_PRO.LogisticaJaguar
             // reposbtnAlmacenes
             // 
             this.reposbtnAlmacenes.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
             this.reposbtnAlmacenes.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.reposbtnAlmacenes.Name = "reposbtnAlmacenes";
             this.reposbtnAlmacenes.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -1347,13 +1364,15 @@ namespace JAGUAR_PRO.LogisticaJaguar
             this.cmdAplicarCalculoPrecioVenta.Visible = false;
             this.cmdAplicarCalculoPrecioVenta.Click += new System.EventHandler(this.cmdAplicarCalculoPrecioVenta_Click);
             // 
-            // colporcentaje_descuento
+            // colisv_costo
             // 
-            this.colporcentaje_descuento.FieldName = "porcentaje_descuento";
-            this.colporcentaje_descuento.Name = "colporcentaje_descuento";
-            this.colporcentaje_descuento.Visible = true;
-            this.colporcentaje_descuento.VisibleIndex = 15;
-            this.colporcentaje_descuento.Width = 63;
+            this.colisv_costo.AppearanceCell.BackColor = System.Drawing.Color.PapayaWhip;
+            this.colisv_costo.AppearanceCell.Options.UseBackColor = true;
+            this.colisv_costo.FieldName = "isv_costo";
+            this.colisv_costo.Name = "colisv_costo";
+            this.colisv_costo.Visible = true;
+            this.colisv_costo.VisibleIndex = 10;
+            this.colisv_costo.Width = 69;
             // 
             // frmAddFacturaProveedor
             // 
@@ -1556,5 +1575,6 @@ namespace JAGUAR_PRO.LogisticaJaguar
         private DevExpress.XtraEditors.DropDownButton cmdAplicarCalculoPrecioVenta;
         private DevExpress.XtraGrid.Columns.GridColumn colultimo_costo;
         private DevExpress.XtraGrid.Columns.GridColumn colporcentaje_descuento;
+        private DevExpress.XtraGrid.Columns.GridColumn colisv_costo;
     }
 }

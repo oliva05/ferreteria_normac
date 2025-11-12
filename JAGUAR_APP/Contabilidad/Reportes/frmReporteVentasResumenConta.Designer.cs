@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReporteVentasResumenConta));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.dtHasta = new DevExpress.XtraEditors.DateEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.dtDesde = new DevExpress.XtraEditors.DateEdit();
@@ -43,6 +48,9 @@
             this.collinea = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldetalle_facturas = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdVerDetalleFacturas = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.cmdVerFacturas = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtHasta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDesde.Properties)).BeginInit();
@@ -50,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesBasicosConta1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdVerDetalleFacturas)).BeginInit();
             this.SuspendLayout();
             // 
             // dtHasta
@@ -166,6 +175,8 @@
             this.gridControl1.Location = new System.Drawing.Point(8, 109);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmdVerDetalleFacturas});
             this.gridControl1.Size = new System.Drawing.Size(607, 335);
             this.gridControl1.TabIndex = 79;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -181,7 +192,8 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.collinea,
             this.coldescripcion,
-            this.colvalor});
+            this.colvalor,
+            this.coldetalle_facturas});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -192,6 +204,7 @@
             this.collinea.Name = "collinea";
             this.collinea.Visible = true;
             this.collinea.VisibleIndex = 0;
+            this.collinea.Width = 52;
             // 
             // coldescripcion
             // 
@@ -199,6 +212,7 @@
             this.coldescripcion.Name = "coldescripcion";
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 1;
+            this.coldescripcion.Width = 263;
             // 
             // colvalor
             // 
@@ -208,12 +222,46 @@
             this.colvalor.Name = "colvalor";
             this.colvalor.Visible = true;
             this.colvalor.VisibleIndex = 2;
+            this.colvalor.Width = 265;
+            // 
+            // coldetalle_facturas
+            // 
+            this.coldetalle_facturas.ColumnEdit = this.cmdVerDetalleFacturas;
+            this.coldetalle_facturas.FieldName = "detalle_facturas";
+            this.coldetalle_facturas.Name = "coldetalle_facturas";
+            // 
+            // cmdVerDetalleFacturas
+            // 
+            this.cmdVerDetalleFacturas.AutoHeight = false;
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            this.cmdVerDetalleFacturas.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdVerDetalleFacturas.Name = "cmdVerDetalleFacturas";
+            this.cmdVerDetalleFacturas.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdVerDetalleFacturas.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdVerDetalleFacturas_ButtonClick);
+            // 
+            // cmdVerFacturas
+            // 
+            this.cmdVerFacturas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdVerFacturas.Appearance.BackColor = System.Drawing.Color.Ivory;
+            this.cmdVerFacturas.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdVerFacturas.Appearance.Options.UseBackColor = true;
+            this.cmdVerFacturas.Appearance.Options.UseFont = true;
+            this.cmdVerFacturas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdVerFacturas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.cmdVerFacturas.Location = new System.Drawing.Point(371, 71);
+            this.cmdVerFacturas.Name = "cmdVerFacturas";
+            this.cmdVerFacturas.Size = new System.Drawing.Size(114, 32);
+            this.cmdVerFacturas.TabIndex = 80;
+            this.cmdVerFacturas.Text = "Ver Facturas";
+            this.cmdVerFacturas.Click += new System.EventHandler(this.cmdVerFacturas_Click);
             // 
             // frmReporteVentasResumenConta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 446);
+            this.Controls.Add(this.cmdVerFacturas);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.cmdSalir);
@@ -232,6 +280,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesBasicosConta1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdVerDetalleFacturas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,5 +302,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn collinea;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
         private DevExpress.XtraGrid.Columns.GridColumn colvalor;
+        private DevExpress.XtraGrid.Columns.GridColumn coldetalle_facturas;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdVerDetalleFacturas;
+        private DevExpress.XtraEditors.SimpleButton cmdVerFacturas;
     }
 }
