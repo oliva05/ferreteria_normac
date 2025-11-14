@@ -161,10 +161,10 @@
             this.xrLabel24.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "([cantidad]*[precio])-[descuento]")});
             this.xrLabel24.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(182.2913F, 31.91666F);
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(182.2913F, 31.91665F);
             this.xrLabel24.Name = "xrLabel24";
             this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(73.03404F, 16F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(75.1871F, 16F);
             this.xrLabel24.StylePriority.UseBorderDashStyle = false;
             this.xrLabel24.StylePriority.UseBorders = false;
             this.xrLabel24.StylePriority.UseFont = false;
@@ -194,11 +194,11 @@
             this.xrLabel39.CanShrink = true;
             this.xrLabel39.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[descripcion]")});
-            this.xrLabel39.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel39.LocationFloat = new DevExpress.Utils.PointFloat(9.13562F, 2.000046F);
+            this.xrLabel39.Font = new DevExpress.Drawing.DXFont("Arial", 7F);
+            this.xrLabel39.LocationFloat = new DevExpress.Utils.PointFloat(9.135626F, 2.000046F);
             this.xrLabel39.Name = "xrLabel39";
             this.xrLabel39.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel39.SizeF = new System.Drawing.SizeF(246.1898F, 29.91661F);
+            this.xrLabel39.SizeF = new System.Drawing.SizeF(248.3428F, 29.91661F);
             this.xrLabel39.StylePriority.UseBorderDashStyle = false;
             this.xrLabel39.StylePriority.UseBorders = false;
             this.xrLabel39.StylePriority.UseFont = false;
