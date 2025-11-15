@@ -629,6 +629,77 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                             }
                         }
                         break;
+
+                    case 10://Planilla Planilla General + Horas Extras
+                        foreach (var item in dsPlanillasTransaccion1.hr_payslip)
+                        {
+                            if (item.seleccionar)
+                            {
+                                if (contador_vouchers == 0)
+                                {
+                                    voucher_main = new rptVoucher(lblDescripcion.Text, item.employee_id, item.id);
+                                    voucher_main.CreateDocument();
+                                    contador_vouchers++;
+                                }
+                                else
+                                {
+
+                                    rptVoucher report = new rptVoucher(lblDescripcion.Text, item.employee_id, item.id);
+                                    report.CreateDocument();
+
+                                    if (voucher_main != null)
+                                    {
+                                        voucher_main.ModifyDocument(x => { x.AddPages(report.Pages); });
+                                    }
+                                }
+                            }
+                        }
+                        if (voucher_main != null)
+                        {
+                            voucher_main.ShowPrintMarginsWarning = false;
+
+                            using (ReportPrintTool printTool = new ReportPrintTool(voucher_main))
+                            {
+                                printTool.ShowPreviewDialog();
+                            }
+                        }
+                        break;
+
+                    case 11://Planilla de Comisiones
+                        foreach (var item in dsPlanillasTransaccion1.hr_payslip)
+                        {
+                            if (item.seleccionar)
+                            {
+                                if (contador_vouchers == 0)
+                                {
+                                    voucher_main = new rptVoucher(lblDescripcion.Text, item.employee_id, item.id);
+                                    voucher_main.CreateDocument();
+                                    contador_vouchers++;
+                                }
+                                else
+                                {
+
+                                    rptVoucher report = new rptVoucher(lblDescripcion.Text, item.employee_id, item.id);
+                                    report.CreateDocument();
+
+                                    if (voucher_main != null)
+                                    {
+                                        voucher_main.ModifyDocument(x => { x.AddPages(report.Pages); });
+                                    }
+                                }
+                            }
+                        }
+                        if (voucher_main != null)
+                        {
+                            voucher_main.ShowPrintMarginsWarning = false;
+
+                            using (ReportPrintTool printTool = new ReportPrintTool(voucher_main))
+                            {
+                                printTool.ShowPreviewDialog();
+                            }
+                        }
+
+                        break;
                     default://Decimos
                         foreach (var item in dsPlanillasTransaccion1.hr_payslip)
                         {
