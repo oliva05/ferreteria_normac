@@ -202,6 +202,10 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                         break;
 
                     default:
+                        cmdSiguiente.Visible = cmdAnterior.Visible = false;
+                        cmdVerMarcas.Visible = false;
+                        gridView1.Columns["salario_hora"].Visible = false;
+                        LoadDetalleNominas();
                         break;
                 }
 
