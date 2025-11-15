@@ -17,6 +17,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -483,9 +484,18 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                                         command.Parameters.Clear();
                                         command.Parameters.AddWithValue("@struct_id", TipoPlanillaActual.Id_Struct_Related);
                                         command.Parameters.AddWithValue("@name", row.employeeName);
-                                        command.Parameters.AddWithValue("@number", "Nómina salarial de " + row.employeeName + " para la " +
-                                                                         gleQuincena.Text + " quincena de " + MesName + " - " + Now.Year.ToString());
+                                        switch (vPayRollType)
+                                        {
+                                            case 11:
+                                                MesName = dtDesde.DateTime.ToString("MMMM", new CultureInfo("es-Es"));
+                                                command.Parameters.AddWithValue("@number", "Nómina salarial de " + row.employeeName + " para la Planilla de Comisiones  del Mes de" + MesName + " - " + Now.Year.ToString());
+                                                break;
 
+                                            default:
+                                                command.Parameters.AddWithValue("@number", "Nómina salarial de " + row.employeeName + " para la " +
+                                                                         gleQuincena.Text + " quincena de " + MesName + " - " + Now.Year.ToString());
+                                                break;
+                                        }
                                         command.Parameters.AddWithValue("@employee_id", row.employee_id);
                                         command.Parameters.AddWithValue("@date_from", dtDesde.DateTime);
                                         command.Parameters.AddWithValue("@date_to", dtHasta.DateTime);
