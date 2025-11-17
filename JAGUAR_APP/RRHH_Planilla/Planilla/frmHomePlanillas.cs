@@ -204,7 +204,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #108");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #42");
                 }
             }
         }
