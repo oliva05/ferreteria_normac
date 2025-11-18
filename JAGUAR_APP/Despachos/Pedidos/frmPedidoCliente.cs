@@ -2250,25 +2250,31 @@ namespace Eatery.Ventas
                     row1.itemname = pItemName;
                     decimal invTotal = pt1.Recuperar_Cant_Inv_Actual_PT_for_facturacion(pt1.Id, this.PuntoDeVentaActual.ID);
 
+
+                    //Sacamos el valor de sub total 
+                    Impuesto impuesto = new Impuesto();
+                    decimal tasaISV, PrecioSin_ISV = 0;
+                    if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
+                    {
+                        tasaISV = Math.Round((impuesto.Valor / 100), 4);
+                        PrecioSin_ISV = Math.Round(((row1.precio) / (1 + tasaISV)), 4);
+                    }
+
                     //Recalculamos el Descuento si hay alguno
                     if (pDescuentoPorcentaje > 0 && pDescuentoPorcentaje < 100)
                     {
                         decimal vDescuento = pDescuentoPorcentaje;
-
                         decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(pt1.Id, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
 
                         if (vDescuento > vPorcentajeDescuento)
                         {
                             row1.descuento = row1.descuento_porcentaje = 0;
-                            //CajaDialogo.Error("No se permite un descuento mayor al permitido!");
                             return;
                         }
 
                         row1.descuento_porcentaje = vDescuento;
-                        decimal vDescuentoLinea = Math.Round(((row1.cantidad * row1.precio) * (vDescuento / 100)), 4);
+                        decimal vDescuentoLinea = Math.Round((PrecioSin_ISV * (vDescuento / 100)), 4);
                         row1.descuento = vDescuentoLinea;
-
-                        
                     }
                     else
                     {
@@ -2277,33 +2283,84 @@ namespace Eatery.Ventas
 
                     //Calculo del impuesto
                     row1.isv1 = row1.isv2 = row1.isv3 = 0;
-                    Impuesto impuesto = new Impuesto();
-                    decimal tasaISV = 0;
 
-                    if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
+                    //if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
+                    if(impuesto.Recuperado)
                     {
-                        tasaISV = Math.Round((impuesto.Valor / 100),4);
+                        tasaISV = Math.Round((impuesto.Valor / 100), 4);
 
-
-                        //decimal isv_calculo = (row1.precio - row1.descuento) - ((row1.precio - row1.descuento) / (1 + tasaISV));
-                        decimal isv_calculo = Math.Round(((row1.precio - row1.descuento) * (tasaISV)),4);
+                        decimal isv_calculo = Math.Round(((PrecioSin_ISV - row1.descuento) * (tasaISV)), 4);
                         row1.isv1 = isv_calculo;
-                        //row1.precio =  (row1.precio - row1.descuento) - isv_calculo;
 
                         row1.tasa_isv = tasaISV;
                         row1.id_isv_aplicable = impuesto.Id;
-                        row1.total_linea = Math.Round((row1.cantidad * ((row1.precio - row1.descuento)) + 
-                                           (row1.cantidad * isv_calculo)),4);
+                        row1.total_linea = Math.Round((row1.cantidad * ((PrecioSin_ISV - row1.descuento)) +
+                                           (row1.cantidad * isv_calculo)), 4);
                     }
                     else
                     {
                         row1.tasa_isv = 0;
                         row1.id_isv_aplicable = 0;
-                        //row1.precio = (row1.precio - row1.descuento);
                         row1.isv1 = 0;
                     }
 
-                    row1.total_linea =  (row1.cantidad * (row1.precio - row1.descuento)) + 
+                    #region Old Code
+                    ////Recalculamos el Descuento si hay alguno
+                    //if (pDescuentoPorcentaje > 0 && pDescuentoPorcentaje < 100)
+                    //{
+                    //    decimal vDescuento = pDescuentoPorcentaje;
+
+                    //    decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(pt1.Id, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
+
+                    //    if (vDescuento > vPorcentajeDescuento)
+                    //    {
+                    //        row1.descuento = row1.descuento_porcentaje = 0;
+                    //        //CajaDialogo.Error("No se permite un descuento mayor al permitido!");
+                    //        return;
+                    //    }
+
+                    //    row1.descuento_porcentaje = vDescuento;
+                    //    decimal vDescuentoLinea = Math.Round(((row1.cantidad * row1.precio) * (vDescuento / 100)), 4);
+                    //    row1.descuento = vDescuentoLinea;
+
+
+                    //}
+                    //else
+                    //{
+                    //    row1.descuento_porcentaje = 0;
+                    //}
+
+                    ////Calculo del impuesto
+                    //row1.isv1 = row1.isv2 = row1.isv3 = 0;
+                    //Impuesto impuesto = new Impuesto();
+                    //decimal tasaISV = 0;
+
+                    //if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
+                    //{
+                    //    tasaISV = Math.Round((impuesto.Valor / 100),4);
+
+
+                    //    //decimal isv_calculo = (row1.precio - row1.descuento) - ((row1.precio - row1.descuento) / (1 + tasaISV));
+                    //    decimal isv_calculo = Math.Round(((row1.precio - row1.descuento) * (tasaISV)),4);
+                    //    row1.isv1 = isv_calculo;
+                    //    //row1.precio =  (row1.precio - row1.descuento) - isv_calculo;
+
+                    //    row1.tasa_isv = tasaISV;
+                    //    row1.id_isv_aplicable = impuesto.Id;
+                    //    row1.total_linea = Math.Round((row1.cantidad * ((row1.precio - row1.descuento)) + 
+                    //                       (row1.cantidad * isv_calculo)),4);
+                    //}
+                    //else
+                    //{
+                    //    row1.tasa_isv = 0;
+                    //    row1.id_isv_aplicable = 0;
+                    //    //row1.precio = (row1.precio - row1.descuento);
+                    //    row1.isv1 = 0;
+                    //}
+                    #endregion
+
+                    row1.precio -= row1.isv1; 
+                    row1.total_linea =  (row1.cantidad * (PrecioSin_ISV - row1.descuento)) + 
                                         (row1.cantidad * row1.isv1) + 
                                         (row1.cantidad * row1.isv2) + 
                                         (row1.cantidad * row1.isv3);
@@ -2871,16 +2928,16 @@ namespace Eatery.Ventas
                     txtScanProducto.Focus();
                     break;
                 case "descuento":
-                    decimal vDescuento = dp.ValidateNumberDecimal(e.Value);
+                    decimal vDescuentoTyped = dp.ValidateNumberDecimal(e.Value);
 
-                    if (vDescuento <= 0)
+                    if (vDescuentoTyped <= 0)
                     {
                         row.descuento = row.descuento_porcentaje = 0;
                         CajaDialogo.Error("No se permite valores menores a cero (0)!");
                         return;
                     }
 
-                    if (vDescuento > 99)
+                    if (vDescuentoTyped > 99)
                     {
                         row.descuento = row.descuento_porcentaje = 0;
                         CajaDialogo.Error("No se permite valores mayores a noventa y nueve (99)!");
@@ -2893,7 +2950,7 @@ namespace Eatery.Ventas
                                                                                                    this.ClienteFactura.Id);
 
                     //Descuento en general
-                    if (vDescuento > vPorcentajeDescuento && this.ClienteFactura.Id == 0)
+                    if (vDescuentoTyped > vPorcentajeDescuento && this.ClienteFactura.Id == 0)
                     {
                         row.descuento = row.descuento_porcentaje = 0;
                         CajaDialogo.Error("No se permite un descuento mayor al permitido!");
@@ -2901,65 +2958,123 @@ namespace Eatery.Ventas
                     }
 
                     //Aqui el cliente tiene precio establecido y no aplica descuento
-                    if (vDescuento > vPorcentajeDescuento && this.ClienteFactura.Id > 0)
+                    if (vDescuentoTyped > vPorcentajeDescuento && this.ClienteFactura.Id > 0)
                     {
                         row.descuento = row.descuento_porcentaje = 0;
                         CajaDialogo.Error("El cliente no tiene un % de descuento definido en lista de precio!");
                         return;
                     }
 
-                    row.descuento_porcentaje = vDescuento;
+                    row.descuento_porcentaje = vDescuentoTyped;
 
                     //Si se pone un valor mayor al del precio del producto.
-                    if(vDescuento >= row.precio)
+                    decimal preCalculoDescuento = row.precio * (vDescuentoTyped / 100);
+                    if(preCalculoDescuento >= row.precio)
                     {
                         row.descuento = row.descuento_porcentaje = 0;
                         CajaDialogo.Error("El descuento no puede ser mayor al precio del producto!");
                         return;
                     }
 
-                    //decimal vDescuentoLinea = ((row.cantidad * row.precio) * (vDescuento / 100));
-                    decimal vDescuentoLinea = Math.Round(((row.precio) * (vDescuento / 100)), 4);
-                    row.descuento = vDescuentoLinea;
+                    #region Codigo Old
+                    //decimal vDescuentoLinea = Math.Round(((row.precio) * (vDescuento / 100)), 4);
+                    //row.descuento = vDescuentoLinea;
 
-                   
+                    //if(vDescuentoLinea > 0)
+                    //{
+                    //    row.isv1 = row.isv2 = row.isv3 = 0;
+                    //    Impuesto impuesto = new Impuesto();
+                    //    decimal tasaISV = 0;
+                    //    ProductoTerminado pt = new ProductoTerminado();
+                    //    if (pt.Recuperar_producto(row.id_pt))
+                    //    {
+                    //        if (impuesto.RecuperarRegistro(pt.Id_isv_aplicable))
+                    //        {
+                    //            tasaISV = Math.Round((impuesto.Valor / 100), 4);
 
-                    if(vDescuentoLinea > 0)
+                    //            decimal isv_calculo = Math.Round(((row.precio - row.descuento) * tasaISV),4);
+                    //            row.isv1 = isv_calculo;
+                    //            //row.precio = (row.precio - row.descuento) - isv_calculo;
+
+                    //            row.tasa_isv = tasaISV;
+                    //            row.id_isv_aplicable = impuesto.Id;
+                    //            row.total_linea = Math.Round((row.cantidad * (row.precio - row.descuento)) + (row.cantidad * isv_calculo),4);
+                    //        }
+                    //        else
+                    //        {
+                    //            row.tasa_isv = 0;
+                    //            row.id_isv_aplicable = 0;
+                    //            //row.precio = (row.precio - row.descuento);
+                    //            row.isv1 = 0;
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        row.tasa_isv = 0;
+                    //        row.id_isv_aplicable = 0;
+                    //        //row.precio = (row.precio - row.descuento);
+                    //        row.isv1 = 0;
+                    //    }
+                    //}
+                    #endregion
+
+                    //Sacamos el valor de sub total 
+                    Impuesto impuesto = new Impuesto();
+                    decimal tasaISV, PrecioSin_ISV = 0;
+                    ProductoTerminado pt1 = new ProductoTerminado();
+
+                    if (pt1.Recuperar_producto(row.id_pt))
                     {
-                        row.isv1 = row.isv2 = row.isv3 = 0;
-                        Impuesto impuesto = new Impuesto();
-                        decimal tasaISV = 0;
-                        ProductoTerminado pt = new ProductoTerminado();
-                        if (pt.Recuperar_producto(row.id_pt))
+                        if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
                         {
-                            if (impuesto.RecuperarRegistro(pt.Id_isv_aplicable))
-                            {
-                                tasaISV = Math.Round((impuesto.Valor / 100), 4);
+                            tasaISV = Math.Round((impuesto.Valor / 100), 4);
+                            PrecioSin_ISV = Math.Round(((row.precio) / (1 + tasaISV)), 4);
+                        }
 
-                                decimal isv_calculo = Math.Round(((row.precio - row.descuento) * tasaISV),4);
-                                row.isv1 = isv_calculo;
-                                //row.precio = (row.precio - row.descuento) - isv_calculo;
+                        //Recalculamos el Descuento si hay alguno
+                        if (vDescuentoTyped > 0 && vDescuentoTyped < 100)
+                        {
+                            //decimal vDescuento = pDescuentoPorcentaje;
+                            //decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(pt1.Id, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
 
-                                row.tasa_isv = tasaISV;
-                                row.id_isv_aplicable = impuesto.Id;
-                                row.total_linea = Math.Round((row.cantidad * (row.precio - row.descuento)) + (row.cantidad * isv_calculo),4);
-                            }
-                            else
+                            if (vDescuentoTyped > vPorcentajeDescuento)
                             {
-                                row.tasa_isv = 0;
-                                row.id_isv_aplicable = 0;
-                                //row.precio = (row.precio - row.descuento);
-                                row.isv1 = 0;
+                                row.descuento = row.descuento_porcentaje = 0;
+                                return;
                             }
+
+                            row.descuento_porcentaje = vDescuentoTyped;
+                            row.descuento = Math.Round((PrecioSin_ISV * (vDescuentoTyped / 100)), 4);
+                        }
+                        else
+                        {
+                            row.descuento_porcentaje = 0;
+                        }
+
+                        //Calculo del impuesto
+                        row.isv1 = row.isv2 = row.isv3 = 0;
+
+                        //if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
+                        if (impuesto.Recuperado)
+                        {
+                            tasaISV = Math.Round((impuesto.Valor / 100), 4);
+
+                            decimal isv_calculo = Math.Round(((PrecioSin_ISV - row.descuento) * (tasaISV)), 4);
+                            row.isv1 = isv_calculo;
+
+                            row.tasa_isv = tasaISV;
+                            row.id_isv_aplicable = impuesto.Id;
+                            row.total_linea = Math.Round((row.cantidad * ((PrecioSin_ISV - row.descuento)) +
+                                              (row.cantidad * isv_calculo)), 4);
                         }
                         else
                         {
                             row.tasa_isv = 0;
                             row.id_isv_aplicable = 0;
-                            //row.precio = (row.precio - row.descuento);
                             row.isv1 = 0;
                         }
                     }
+
 
                     //Actualizamos los row de la DataTable de validacion de stocks
                     foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
@@ -3297,7 +3412,7 @@ namespace Eatery.Ventas
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 row.inventario_seleccionado = row.cantidad = AgregarDetalleInventarioSeleccionadoList(frm.ListaSeleccionAlmacen, row.id_pt);
-                row.total_linea = (row.cantidad * row.precio) - row.descuento;
+                //row.total_linea = (row.cantidad * (row.precio - row.descuento)) + (row.cantidad * row.isv1);
                 //CalcularTotal();
                 CalcularTotalFactura();
             }
