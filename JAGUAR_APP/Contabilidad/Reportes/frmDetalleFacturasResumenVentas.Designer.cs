@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetalleFacturasResumenVentas));
             this.dsReportesBasicosConta1 = new JAGUAR_PRO.Contabilidad.Reportes.dsReportesBasicosConta();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -38,6 +39,9 @@
             this.colgravado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colisv = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.cmdSalir = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdExcel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesBasicosConta1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -55,10 +59,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "detalle_facturas_rpt";
             this.gridControl1.DataSource = this.dsReportesBasicosConta1;
-            this.gridControl1.Location = new System.Drawing.Point(1, 66);
+            this.gridControl1.Location = new System.Drawing.Point(1, 51);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(737, 409);
+            this.gridControl1.Size = new System.Drawing.Size(737, 424);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -133,11 +137,56 @@
             this.coltotal.Visible = true;
             this.coltotal.VisibleIndex = 6;
             // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(8, 22);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(177, 23);
+            this.labelControl3.TabIndex = 81;
+            this.labelControl3.Text = "Detalle de documentos";
+            // 
+            // cmdSalir
+            // 
+            this.cmdSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdSalir.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.cmdSalir.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cmdSalir.Appearance.Options.UseBackColor = true;
+            this.cmdSalir.Appearance.Options.UseFont = true;
+            this.cmdSalir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSalir.ImageOptions.Image")));
+            this.cmdSalir.Location = new System.Drawing.Point(624, 7);
+            this.cmdSalir.Name = "cmdSalir";
+            this.cmdSalir.Size = new System.Drawing.Size(114, 38);
+            this.cmdSalir.TabIndex = 80;
+            this.cmdSalir.Text = "Salir";
+            this.cmdSalir.Click += new System.EventHandler(this.cmdSalir_Click);
+            // 
+            // cmdExcel
+            // 
+            this.cmdExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdExcel.Appearance.BackColor = System.Drawing.Color.PaleGreen;
+            this.cmdExcel.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdExcel.Appearance.Options.UseBackColor = true;
+            this.cmdExcel.Appearance.Options.UseFont = true;
+            this.cmdExcel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdExcel.ImageOptions.Image")));
+            this.cmdExcel.Location = new System.Drawing.Point(504, 7);
+            this.cmdExcel.Name = "cmdExcel";
+            this.cmdExcel.Size = new System.Drawing.Size(114, 38);
+            this.cmdExcel.TabIndex = 79;
+            this.cmdExcel.Text = "Excel";
+            this.cmdExcel.Click += new System.EventHandler(this.cmdExcel_Click);
+            // 
             // frmDetalleFacturasResumenVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(739, 476);
+            this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.cmdSalir);
+            this.Controls.Add(this.cmdExcel);
             this.Controls.Add(this.gridControl1);
             this.Name = "frmDetalleFacturasResumenVentas";
             this.Text = "Detalle de Facturas Resumen Ventas";
@@ -145,6 +194,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -160,5 +210,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colgravado;
         private DevExpress.XtraGrid.Columns.GridColumn colisv;
         private DevExpress.XtraGrid.Columns.GridColumn coltotal;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.SimpleButton cmdSalir;
+        private DevExpress.XtraEditors.SimpleButton cmdExcel;
     }
 }

@@ -2217,8 +2217,8 @@ namespace Eatery.Ventas
                         rowF.cantidad = rowF.cantidad + 1;
                         rowF.codigo_referencia = pt1.Codig_Referencia;
                         rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
-                        rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
-                        rowF.total_linea = ((rowF.cantidad * rowF.precio) - rowF.descuento) + rowF.isv1 + rowF.isv2 + rowF.isv3;
+                        rowF.isv1 = ((rowF.cantidad) * (rowF.precio - rowF.descuento)) * rowF.tasa_isv;
+                        rowF.total_linea = ((rowF.cantidad * (rowF.precio - rowF.descuento)) + rowF.isv1 + rowF.isv2 + rowF.isv3);
                         AgregarNuevo = false;
                     }
                     //valor_total += (rowF.total_linea + rowF.isv1);
@@ -2265,7 +2265,7 @@ namespace Eatery.Ventas
                         }
 
                         row1.descuento_porcentaje = vDescuento;
-                        decimal vDescuentoLinea = ((row1.cantidad * row1.precio) * (vDescuento / 100));
+                        decimal vDescuentoLinea = Math.Round(((row1.cantidad * row1.precio) * (vDescuento / 100)), 4);
                         row1.descuento = vDescuentoLinea;
 
                         
@@ -2282,16 +2282,18 @@ namespace Eatery.Ventas
 
                     if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
                     {
-                        tasaISV = impuesto.Valor / 100;
+                        tasaISV = Math.Round((impuesto.Valor / 100),4);
 
-                        //row1.isv1 = (row1.precio - row1.descuento) * tasaISV;
-                        decimal isv_calculo = (row1.precio - row1.descuento) - ((row1.precio - row1.descuento) / (1 + tasaISV));
+
+                        //decimal isv_calculo = (row1.precio - row1.descuento) - ((row1.precio - row1.descuento) / (1 + tasaISV));
+                        decimal isv_calculo = Math.Round(((row1.precio - row1.descuento) * (tasaISV)),4);
                         row1.isv1 = isv_calculo;
-                        row1.precio = (row1.precio - row1.descuento) - isv_calculo;
+                        //row1.precio =  (row1.precio - row1.descuento) - isv_calculo;
 
                         row1.tasa_isv = tasaISV;
                         row1.id_isv_aplicable = impuesto.Id;
-                        row1.total_linea = row1.cantidad * ((row1.precio - row1.descuento) + isv_calculo);
+                        row1.total_linea = Math.Round((row1.cantidad * ((row1.precio - row1.descuento)) + 
+                                           (row1.cantidad * isv_calculo)),4);
                     }
                     else
                     {
@@ -2865,6 +2867,7 @@ namespace Eatery.Ventas
                             row.ClearErrors();
                         }
                     }
+                    //CalcularTotalFactura();
                     txtScanProducto.Focus();
                     break;
                 case "descuento":
@@ -2915,24 +2918,67 @@ namespace Eatery.Ventas
                         return;
                     }
 
-                    decimal vDescuentoLinea = ((row.cantidad * row.precio) * (vDescuento / 100));
+                    //decimal vDescuentoLinea = ((row.cantidad * row.precio) * (vDescuento / 100));
+                    decimal vDescuentoLinea = Math.Round(((row.precio) * (vDescuento / 100)), 4);
                     row.descuento = vDescuentoLinea;
 
-                    foreach(dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
+                   
+
+                    if(vDescuentoLinea > 0)
                     {
-                        if(RowInv.id_pt == row.id_pt)
+                        row.isv1 = row.isv2 = row.isv3 = 0;
+                        Impuesto impuesto = new Impuesto();
+                        decimal tasaISV = 0;
+                        ProductoTerminado pt = new ProductoTerminado();
+                        if (pt.Recuperar_producto(row.id_pt))
+                        {
+                            if (impuesto.RecuperarRegistro(pt.Id_isv_aplicable))
+                            {
+                                tasaISV = Math.Round((impuesto.Valor / 100), 4);
+
+                                decimal isv_calculo = Math.Round(((row.precio - row.descuento) * tasaISV),4);
+                                row.isv1 = isv_calculo;
+                                //row.precio = (row.precio - row.descuento) - isv_calculo;
+
+                                row.tasa_isv = tasaISV;
+                                row.id_isv_aplicable = impuesto.Id;
+                                row.total_linea = Math.Round((row.cantidad * (row.precio - row.descuento)) + (row.cantidad * isv_calculo),4);
+                            }
+                            else
+                            {
+                                row.tasa_isv = 0;
+                                row.id_isv_aplicable = 0;
+                                //row.precio = (row.precio - row.descuento);
+                                row.isv1 = 0;
+                            }
+                        }
+                        else
+                        {
+                            row.tasa_isv = 0;
+                            row.id_isv_aplicable = 0;
+                            //row.precio = (row.precio - row.descuento);
+                            row.isv1 = 0;
+                        }
+                    }
+
+                    //Actualizamos los row de la DataTable de validacion de stocks
+                    foreach (dsVentas.detalle_factura_transaccion_invRow RowInv in dsVentas1.detalle_factura_transaccion_inv)
+                    {
+                        if (RowInv.id_pt == row.id_pt)
                         {
                             RowInv.descuento = row.descuento;
                             RowInv.descuento_porcentaje = row.descuento_porcentaje;
+                            RowInv.isv1 = row.isv1;
                         }
                     }
+
                     //recalculamos 
-                    CalcularTotalFactura();
+                    //CalcularTotalFactura();
                     txtScanProducto.Focus();
                     break;
                 case "precio":
                     row.total_linea = (row.cantidad * (row.precio - row.descuento)); 
-                    CalcularTotalFactura();
+                    //CalcularTotalFactura();
                     txtScanProducto.Focus();
                     break;
                 case "entrega_almacen_bit":
@@ -2957,20 +3003,20 @@ namespace Eatery.Ventas
             decimal total = 0;  
             foreach(dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
             {
-                row.total_linea = (row.cantidad * row.precio) - row.descuento;
+                //row.total_linea = (row.cantidad * row.precio) - row.descuento;
                 //row.total_linea = row.total_linea + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
                 
                 //Recalculamos impuestos
 
-                row.total_linea = ((row.cantidad * row.precio) - row.descuento) + 
+                row.total_linea = Math.Round((row.cantidad * (row.precio - row.descuento)) + 
                                    (row.cantidad * row.isv1) + 
                                    (row.cantidad * row.isv2) + 
-                                   (row.cantidad * row.isv3);
+                                   (row.cantidad * row.isv3),4);
 
                 total += row.total_linea;    
             }
 
-            txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(total,2));
+            txtTotal.Text = string.Format("{0:#,###,##0.00}", Math.Round(total,4));
             return total;
         }
 

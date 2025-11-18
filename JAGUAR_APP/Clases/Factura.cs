@@ -88,7 +88,7 @@ namespace JAGUAR_PRO.Clases
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "dbo.sp_get_factura_header_for_class_main";
+                string query = "dbo.[sp_get_factura_header_for_class_main_v2]";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;

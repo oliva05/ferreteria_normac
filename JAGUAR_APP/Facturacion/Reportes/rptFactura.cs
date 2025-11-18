@@ -84,11 +84,12 @@ namespace JAGUAR_PRO.Facturacion.Reportes
             txtVendedor.Text = Factura1.Vendedor;
             lblValorLetras.Text = Factura1.ValorLetras;
 
-            lblSubTotal.Text = string.Format("{0: ###,##0.00}", Factura1.subtotalFactura);
+            lblSubTotal.Text = string.Format("{0: ###,##0.00}", Factura1.TotalFactura - Factura1.ISV1 - Factura1.ISV2);
             lblISV15.Text = string.Format("{0: ###,##0.00}", Factura1.ISV1);
             lblISV18.Text = string.Format("{0: ###,##0.00}", Factura1.ISV2);
             //lblISV.Text = string.Format("{0: ###,##0.00}", Factura1.ISV1+Factura1.ISV2);
-            lblTotalPagar.Text = string.Format("{0: ###,##0.00}", Factura1.subtotalFactura-Factura1.descuentoTotalFactura+Factura1.ISV1 + Factura1.ISV2);
+            //lblTotalPagar.Text = string.Format("{0: ###,##0.00}", Factura1.subtotalFactura-Factura1.descuentoTotalFactura+Factura1.ISV1 + Factura1.ISV2);
+            lblTotalPagar.Text = string.Format("{0: ###,##0.00}", Factura1.TotalFactura );
 
             if (Factura1.monto_entregado > 0)
             {
@@ -121,7 +122,7 @@ namespace JAGUAR_PRO.Facturacion.Reportes
         {
             try
             {
-                string sql = "uspRptGetDetailInvoice";
+                string sql = "[uspRptGetDetailInvoice_v2]";
                 DataOperations dp = new DataOperations();
                 SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
