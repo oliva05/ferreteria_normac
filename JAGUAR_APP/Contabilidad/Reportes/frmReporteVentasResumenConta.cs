@@ -116,7 +116,8 @@ namespace JAGUAR_PRO.Contabilidad.Reportes
 
         private void cmdVerFacturas_Click(object sender, EventArgs e)
         {
-
+            frmDetalleFacturasResumenVentas frm = new frmDetalleFacturasResumenVentas(this.UsuarioLogeado, dtDesde.DateTime, dtHasta.DateTime);
+            frm.Show();
         }
     }
 }

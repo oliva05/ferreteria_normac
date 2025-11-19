@@ -252,6 +252,14 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 
                         break;
 
+                    case 11://Comisiones
+                        cmdSiguiente.Visible = cmdAnterior.Visible = false;
+                        cmdVerMarcas.Visible = false;
+                        gridView1.Columns["salario_hora"].Visible = false;
+                        LoadDetalleNominasComisiones();
+
+                        break;
+
                     default:
                         cmdSiguiente.Visible = cmdAnterior.Visible = false;
                         cmdVerMarcas.Visible = false;
@@ -288,6 +296,30 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
             }
 
             
+        }
+
+        private void LoadDetalleNominasComisiones()
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[GetPlanillasEmpleadosLineas_ComisionesDetalle]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@slip_id", SlipId);
+                //cmd.Parameters.AddWithValue("@hasta", dtHasta.EditValue);
+                dsPlanillasTransaccion1.hr_payslip_lines.Clear();
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                adat.Fill(dsPlanillasTransaccion1.hr_payslip_lines);
+
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
         }
 
         private void LoadDetalleNominasDecimo()

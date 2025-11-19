@@ -16,6 +16,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
     public partial class rptVoucher : DevExpress.XtraReports.UI.XtraReport
     {
         int slipId = 0;
+        int TypePayroll = 0;
 
         public rptVoucher(string descripcion_payslip,int employee_id, int pSlipId)
         {
@@ -27,6 +28,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
 
             empleadoActual.RecuperarDatosPorId(employee_id);
             payslip_Run.RecuperarRegistroBySlipId(pSlipId);
+            TypePayroll = payslip_Run.PayrollTypeId;
 
             lblPlanilla1.Text = descripcion_payslip;
             lblIFechaImpresion1.Text = "Impreso el: " + DateTime.Now.ToString("dd/MM/yyyy");
@@ -82,7 +84,24 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("dbo.[GetPlanillasEmpleadosLineas_Detalle_Ingresos]", con);
+                string sql = "";
+
+                switch (TypePayroll)
+                {
+                    case 10://Planilla General + Horas Extras
+                        sql = "[dbo].[GetPlanillasEmpleadosLineas_Detalle_Ingresos_General+He]";
+                        break;
+
+                    case 11://Comisiones
+                        sql = "dbo.[GetPlanillasEmpleadosLineas_Detalle_Ingresos_Comisiones]";
+                        break;
+
+                    default:
+                        sql = "dbo.[GetPlanillasEmpleadosLineas_Detalle_Ingresos]";
+                        break;
+                }
+
+                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@slip_id", SlipId);
 
@@ -106,7 +125,24 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("dbo.[GetPlanillasEmpleadosLineas_Detalle_egresos]", con);
+                string sql = "";
+
+                switch (TypePayroll)
+                {
+                    case 10://Planilla General + Horas Extras
+                        sql = "dbo.[GetPlanillasEmpleadosLineas_Detalle_Egresos_General+HE]";
+                        break;
+
+                    case 11://Comisiones
+                        sql = "dbo.[GetPlanillasEmpleadosLineas_Detalle_Egresos_Comisiones]";
+                        break;
+
+                    default:
+                        sql = "dbo.[GetPlanillasEmpleadosLineas_Detalle_egresos]";
+                        break;
+                }
+
+                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@slip_id", SlipId);
 
