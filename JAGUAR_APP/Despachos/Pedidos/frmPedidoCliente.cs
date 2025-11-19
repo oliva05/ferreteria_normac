@@ -2299,6 +2299,7 @@ namespace Eatery.Ventas
                     }
                     else
                     {
+                        PrecioSin_ISV = row1.precio;
                         row1.tasa_isv = 0;
                         row1.id_isv_aplicable = 0;
                         row1.isv1 = 0;
