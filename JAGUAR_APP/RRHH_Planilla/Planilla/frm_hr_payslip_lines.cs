@@ -252,14 +252,6 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 
                         break;
 
-                    case 11://Comisiones
-                        cmdSiguiente.Visible = cmdAnterior.Visible = false;
-                        cmdVerMarcas.Visible = false;
-                        gridView1.Columns["salario_hora"].Visible = false;
-                        LoadDetalleNominasComisiones();
-
-                        break;
-
                     default:
                         cmdSiguiente.Visible = cmdAnterior.Visible = false;
                         cmdVerMarcas.Visible = false;
