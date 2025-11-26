@@ -77,7 +77,8 @@ namespace administracion.Huellas
             }
             else
             {
-                fingerPrint.StopCapture(source);
+                //Comentario por Danys el 19 nov 2025
+                //fingerPrint.StopCapture(source);
             }
         }
 
