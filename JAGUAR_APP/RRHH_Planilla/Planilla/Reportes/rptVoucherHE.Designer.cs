@@ -142,7 +142,7 @@
             this.xrTableCell4.Text = "xrTableCell4";
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTableCell4.TextFormatString = "{0:N1}";
-            this.xrTableCell4.Weight = 0.75906928742735857D;
+            this.xrTableCell4.Weight = 0.75190428196187253D;
             // 
             // xrTableCell8
             // 
@@ -156,7 +156,7 @@
             this.xrTableCell8.Text = "xrTableCell6";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTableCell8.TextFormatString = "{0:N1}";
-            this.xrTableCell8.Weight = 0.947143070845577D;
+            this.xrTableCell8.Weight = 0.95430807631106307D;
             // 
             // xrPictureBox1
             // 
@@ -261,14 +261,14 @@
             this.xrTableCell9.Multiline = true;
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.Text = "CANTIDAD";
-            this.xrTableCell9.Weight = 0.7694165706265419D;
+            this.xrTableCell9.Weight = 0.76215366556866793D;
             // 
             // xrTableCell2
             // 
             this.xrTableCell2.Multiline = true;
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Text = "TOTAL";
-            this.xrTableCell2.Weight = 0.96005325722659451D;
+            this.xrTableCell2.Weight = 0.96731616228446848D;
             // 
             // rtCargo
             // 
@@ -360,7 +360,7 @@
             this.xrTCRegla.Name = "xrTCRegla";
             this.xrTCRegla.StylePriority.UseFont = false;
             this.xrTCRegla.Text = "xrTableCell5";
-            this.xrTCRegla.Weight = 1.5695350935216632D;
+            this.xrTCRegla.Weight = 1.5743793703141096D;
             // 
             // xrTCCantidad
             // 
@@ -372,7 +372,7 @@
             this.xrTCCantidad.Text = "xrTableCell4";
             this.xrTCCantidad.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTCCantidad.TextFormatString = "{0:N1}";
-            this.xrTCCantidad.Weight = 0.75906928742735857D;
+            this.xrTCCantidad.Weight = 0.75422501063491232D;
             // 
             // xrTCMonto
             // 

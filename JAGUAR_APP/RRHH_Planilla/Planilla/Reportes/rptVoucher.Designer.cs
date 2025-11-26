@@ -130,7 +130,7 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 50F;
+            this.TopMargin.HeightF = 35.57692F;
             this.TopMargin.Name = "TopMargin";
             // 
             // BottomMargin
@@ -285,7 +285,7 @@
             this.rtDepartamento,
             this.rtCodigo,
             this.rtColaborador});
-            this.PageHeader.HeightF = 667.9167F;
+            this.PageHeader.HeightF = 686.8269F;
             this.PageHeader.Name = "PageHeader";
             this.PageHeader.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.PageHeader_BeforePrint);
             // 
@@ -295,7 +295,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable3.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrTable3.LocationFloat = new DevExpress.Utils.PointFloat(352.9998F, 512.5F);
+            this.xrTable3.LocationFloat = new DevExpress.Utils.PointFloat(352.9998F, 499.2468F);
             this.xrTable3.Name = "xrTable3";
             this.xrTable3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable3.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -342,7 +342,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable4.Font = new DevExpress.Drawing.DXFont("Segoe UI", 9F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(0F, 512.5F);
+            this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(9.781275E-05F, 499.2468F);
             this.xrTable4.Name = "xrTable4";
             this.xrTable4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable4.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -387,7 +387,7 @@
             // 
             this.xrTableIngresos2.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTableIngresos2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 537.5F);
+            this.xrTableIngresos2.LocationFloat = new DevExpress.Utils.PointFloat(9.781275E-05F, 524.2468F);
             this.xrTableIngresos2.Name = "xrTableIngresos2";
             this.xrTableIngresos2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTableIngresos2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -439,7 +439,7 @@
             // 
             this.xrTableEgresos2.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTableEgresos2.LocationFloat = new DevExpress.Utils.PointFloat(353.0001F, 537.5F);
+            this.xrTableEgresos2.LocationFloat = new DevExpress.Utils.PointFloat(353.0002F, 524.2468F);
             this.xrTableEgresos2.Name = "xrTableEgresos2";
             this.xrTableEgresos2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTableEgresos2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -488,7 +488,7 @@
             // xrLabel1
             // 
             this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Segoe UI", 10F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(247.3797F, 640.9583F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(247.3797F, 627.7051F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -501,75 +501,75 @@
             // xrLine4
             // 
             this.xrLine4.LineWidth = 2F;
-            this.xrLine4.LocationFloat = new DevExpress.Utils.PointFloat(247.3797F, 622F);
+            this.xrLine4.LocationFloat = new DevExpress.Utils.PointFloat(247.3797F, 608.7468F);
             this.xrLine4.Name = "xrLine4";
             this.xrLine4.SizeF = new System.Drawing.SizeF(197.9375F, 18.83335F);
             // 
             // rtColaborador2
             // 
             this.rtColaborador2.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.rtColaborador2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 439.2499F);
+            this.rtColaborador2.LocationFloat = new DevExpress.Utils.PointFloat(9.781275E-05F, 425.9967F);
             this.rtColaborador2.Name = "rtColaborador2";
             this.rtColaborador2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtColaborador2.SerializableRtfString = resources.GetString("rtColaborador2.SerializableRtfString");
-            this.rtColaborador2.SizeF = new System.Drawing.SizeF(392.7499F, 20F);
+            this.rtColaborador2.SizeF = new System.Drawing.SizeF(375.9229F, 20F);
             this.rtColaborador2.StylePriority.UseFont = false;
             // 
             // rtCodigo2
             // 
             this.rtCodigo2.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.rtCodigo2.LocationFloat = new DevExpress.Utils.PointFloat(2.000014F, 459.2499F);
+            this.rtCodigo2.LocationFloat = new DevExpress.Utils.PointFloat(2.000075F, 445.9967F);
             this.rtCodigo2.Name = "rtCodigo2";
             this.rtCodigo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtCodigo2.SerializableRtfString = resources.GetString("rtCodigo2.SerializableRtfString");
-            this.rtCodigo2.SizeF = new System.Drawing.SizeF(390.7498F, 20F);
+            this.rtCodigo2.SizeF = new System.Drawing.SizeF(373.9228F, 20F);
             this.rtCodigo2.StylePriority.UseFont = false;
             // 
             // rtDepartamento2
             // 
             this.rtDepartamento2.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.rtDepartamento2.LocationFloat = new DevExpress.Utils.PointFloat(420.9375F, 439.2499F);
+            this.rtDepartamento2.LocationFloat = new DevExpress.Utils.PointFloat(395.2964F, 425.9967F);
             this.rtDepartamento2.Name = "rtDepartamento2";
             this.rtDepartamento2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtDepartamento2.SerializableRtfString = resources.GetString("rtDepartamento2.SerializableRtfString");
-            this.rtDepartamento2.SizeF = new System.Drawing.SizeF(280.065F, 20F);
+            this.rtDepartamento2.SizeF = new System.Drawing.SizeF(305.7061F, 20F);
             this.rtDepartamento2.StylePriority.UseFont = false;
             // 
             // rtTurno2
             // 
             this.rtTurno2.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.rtTurno2.LocationFloat = new DevExpress.Utils.PointFloat(420.9375F, 459.2499F);
+            this.rtTurno2.LocationFloat = new DevExpress.Utils.PointFloat(395.2964F, 445.9967F);
             this.rtTurno2.Name = "rtTurno2";
             this.rtTurno2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtTurno2.SerializableRtfString = resources.GetString("rtTurno2.SerializableRtfString");
-            this.rtTurno2.SizeF = new System.Drawing.SizeF(280.065F, 20F);
+            this.rtTurno2.SizeF = new System.Drawing.SizeF(305.7061F, 20F);
             this.rtTurno2.StylePriority.UseFont = false;
             // 
             // rtFechaPago2
             // 
             this.rtFechaPago2.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.rtFechaPago2.LocationFloat = new DevExpress.Utils.PointFloat(420.9375F, 479.2499F);
+            this.rtFechaPago2.LocationFloat = new DevExpress.Utils.PointFloat(395.2964F, 465.9967F);
             this.rtFechaPago2.Name = "rtFechaPago2";
             this.rtFechaPago2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtFechaPago2.SerializableRtfString = resources.GetString("rtFechaPago2.SerializableRtfString");
-            this.rtFechaPago2.SizeF = new System.Drawing.SizeF(280.0623F, 20F);
+            this.rtFechaPago2.SizeF = new System.Drawing.SizeF(305.7035F, 20.00003F);
             this.rtFechaPago2.StylePriority.UseFont = false;
             // 
             // rtCargo2
             // 
             this.rtCargo2.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.rtCargo2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 479.2499F);
+            this.rtCargo2.LocationFloat = new DevExpress.Utils.PointFloat(9.781275E-05F, 465.9967F);
             this.rtCargo2.Name = "rtCargo2";
             this.rtCargo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtCargo2.SerializableRtfString = resources.GetString("rtCargo2.SerializableRtfString");
-            this.rtCargo2.SizeF = new System.Drawing.SizeF(392.7499F, 20F);
+            this.rtCargo2.SizeF = new System.Drawing.SizeF(375.9229F, 20.00003F);
             this.rtCargo2.StylePriority.UseFont = false;
             // 
             // xrPictureBox1
             // 
             this.xrPictureBox1.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::JAGUAR_PRO.Properties.Resources.logoNormac, true);
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(1.999901F, 351.2499F);
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(1.999977F, 337.9967F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(94.77F, 78.00001F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
@@ -578,7 +578,7 @@
             // lblIFechaImpresion2
             // 
             this.lblIFechaImpresion2.Font = new DevExpress.Drawing.DXFont("Segoe UI", 12F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblIFechaImpresion2.LocationFloat = new DevExpress.Utils.PointFloat(509.3333F, 376.2499F);
+            this.lblIFechaImpresion2.LocationFloat = new DevExpress.Utils.PointFloat(509.3334F, 362.9967F);
             this.lblIFechaImpresion2.Multiline = true;
             this.lblIFechaImpresion2.Name = "lblIFechaImpresion2";
             this.lblIFechaImpresion2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -589,7 +589,7 @@
             // lblPlanilla2
             // 
             this.lblPlanilla2.Font = new DevExpress.Drawing.DXFont("Segoe UI", 12F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblPlanilla2.LocationFloat = new DevExpress.Utils.PointFloat(117.7499F, 406.25F);
+            this.lblPlanilla2.LocationFloat = new DevExpress.Utils.PointFloat(117.7499F, 392.9968F);
             this.lblPlanilla2.Multiline = true;
             this.lblPlanilla2.Name = "lblPlanilla2";
             this.lblPlanilla2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -602,7 +602,7 @@
             this.xrLine1.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLine1.BorderWidth = 1F;
             this.xrLine1.LineWidth = 3F;
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(117.7499F, 399.2499F);
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(117.7499F, 385.9967F);
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(584.2499F, 6.333351F);
             this.xrLine1.StylePriority.UseBorders = false;
@@ -611,7 +611,7 @@
             // xrLabel8
             // 
             this.xrLabel8.Font = new DevExpress.Drawing.DXFont("Segoe UI", 12F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(117.7499F, 376.2499F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(117.7499F, 362.9967F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -622,7 +622,7 @@
             // xrLabel9
             // 
             this.xrLabel9.Font = new DevExpress.Drawing.DXFont("Segoe UI", 12F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(117.7499F, 353.2499F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(117.7499F, 339.9967F);
             this.xrLabel9.Multiline = true;
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -816,47 +816,47 @@
             this.rtCargo.Name = "rtCargo";
             this.rtCargo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtCargo.SerializableRtfString = resources.GetString("rtCargo.SerializableRtfString");
-            this.rtCargo.SizeF = new System.Drawing.SizeF(392.7499F, 20F);
+            this.rtCargo.SizeF = new System.Drawing.SizeF(375.923F, 20.00002F);
             this.rtCargo.StylePriority.UseFont = false;
             // 
             // rtFechaPago
             // 
             this.rtFechaPago.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.rtFechaPago.LocationFloat = new DevExpress.Utils.PointFloat(420.9375F, 137F);
+            this.rtFechaPago.LocationFloat = new DevExpress.Utils.PointFloat(395.2964F, 137F);
             this.rtFechaPago.Name = "rtFechaPago";
             this.rtFechaPago.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtFechaPago.SerializableRtfString = resources.GetString("rtFechaPago.SerializableRtfString");
-            this.rtFechaPago.SizeF = new System.Drawing.SizeF(280.0622F, 20F);
+            this.rtFechaPago.SizeF = new System.Drawing.SizeF(305.7032F, 20.00002F);
             this.rtFechaPago.StylePriority.UseFont = false;
             // 
             // rtTurno
             // 
             this.rtTurno.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.rtTurno.LocationFloat = new DevExpress.Utils.PointFloat(420.9375F, 117F);
+            this.rtTurno.LocationFloat = new DevExpress.Utils.PointFloat(395.2964F, 117F);
             this.rtTurno.Name = "rtTurno";
             this.rtTurno.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtTurno.SerializableRtfString = resources.GetString("rtTurno.SerializableRtfString");
-            this.rtTurno.SizeF = new System.Drawing.SizeF(280.065F, 20F);
+            this.rtTurno.SizeF = new System.Drawing.SizeF(305.706F, 19.99998F);
             this.rtTurno.StylePriority.UseFont = false;
             // 
             // rtDepartamento
             // 
             this.rtDepartamento.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.rtDepartamento.LocationFloat = new DevExpress.Utils.PointFloat(420.9375F, 97.00002F);
+            this.rtDepartamento.LocationFloat = new DevExpress.Utils.PointFloat(395.2964F, 97.00002F);
             this.rtDepartamento.Name = "rtDepartamento";
             this.rtDepartamento.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtDepartamento.SerializableRtfString = resources.GetString("rtDepartamento.SerializableRtfString");
-            this.rtDepartamento.SizeF = new System.Drawing.SizeF(280.065F, 20F);
+            this.rtDepartamento.SizeF = new System.Drawing.SizeF(305.706F, 20.00001F);
             this.rtDepartamento.StylePriority.UseFont = false;
             // 
             // rtCodigo
             // 
             this.rtCodigo.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.rtCodigo.LocationFloat = new DevExpress.Utils.PointFloat(1.000014F, 117F);
+            this.rtCodigo.LocationFloat = new DevExpress.Utils.PointFloat(0.9999397F, 117F);
             this.rtCodigo.Name = "rtCodigo";
             this.rtCodigo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtCodigo.SerializableRtfString = resources.GetString("rtCodigo.SerializableRtfString");
-            this.rtCodigo.SizeF = new System.Drawing.SizeF(390.7498F, 20F);
+            this.rtCodigo.SizeF = new System.Drawing.SizeF(373.9229F, 19.99998F);
             this.rtCodigo.StylePriority.UseFont = false;
             // 
             // rtColaborador
@@ -866,7 +866,7 @@
             this.rtColaborador.Name = "rtColaborador";
             this.rtColaborador.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.rtColaborador.SerializableRtfString = resources.GetString("rtColaborador.SerializableRtfString");
-            this.rtColaborador.SizeF = new System.Drawing.SizeF(392.7499F, 20F);
+            this.rtColaborador.SizeF = new System.Drawing.SizeF(375.923F, 20.00001F);
             this.rtColaborador.StylePriority.UseFont = false;
             // 
             // dsPlanillaReportes1
@@ -890,7 +890,7 @@
             this.dsPlanillaReportes1,
             this.dsReporte1});
             this.Font = new DevExpress.Drawing.DXFont("Arial; 9.75pt; 8.25pt", 8.25F);
-            this.Margins = new DevExpress.Drawing.DXMargins(74F, 74F, 50F, 50F);
+            this.Margins = new DevExpress.Drawing.DXMargins(74F, 74F, 35.57692F, 50F);
             this.Version = "23.2";
             xrWatermark1.Id = "Watermark1";
             this.Watermarks.Add(xrWatermark1);

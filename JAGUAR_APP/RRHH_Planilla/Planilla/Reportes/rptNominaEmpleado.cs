@@ -67,6 +67,9 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
                             case 7:
                                 Query = @"[dbo].[GetPlanillasEmpleadosLineas_Detalle_Decimo]";
                                 break;
+                            case 11://Comisiones
+                                Query = @"[dbo].[GetPlanillasEmpleadosLineas_Detalle_Comisiones]";
+                                break;
                             default:
                                 Query = @"dbo.GetPlanillasEmpleadosLineas_Detalle";
                                 break;
