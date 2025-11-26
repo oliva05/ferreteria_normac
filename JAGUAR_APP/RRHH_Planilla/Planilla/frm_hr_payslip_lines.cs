@@ -60,22 +60,65 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 
             if (PlanillaHeaderObject.RecuperarRegistroBySlipId(pSlipId))
             {
-                if (PlanillaHeaderObject.PayrollTypeId == 3)//Horas Extra
+                switch (PlanillaHeaderObject.PayrollTypeId)
                 {
-                    cmdSiguiente.Visible = cmdAnterior.Visible = 
-                    cmdVerMarcas.Visible = true;
-                    
-                    LoadDetalleNominasHE(SlipId);
-                    //gridView1.Columns["salario_hora"].Visible = true;
-                }
-                else
-                {
-                    cmdSiguiente.Visible = cmdAnterior.Visible =
-                    cmdVerMarcas.Visible = false;
+                    case 3://Horas Extras
+                        cmdSiguiente.Visible = cmdAnterior.Visible =
+                        cmdVerMarcas.Visible = true;
 
-                    gridView1.Columns["salario_hora"].Visible = false;
-                    LoadDetalleNominas();
+                        LoadDetalleNominasHE(SlipId);
+                        
+                        break;
+
+                    case 11://Planilla Comisiones
+
+                        cmdSiguiente.Visible = cmdAnterior.Visible =
+                        cmdVerMarcas.Visible = false;
+
+                        LoadDetalleNominasComisiones(SlipId);
+                        break;
+                    default:
+
+                        cmdSiguiente.Visible = cmdAnterior.Visible =
+                        cmdVerMarcas.Visible = false;
+
+                        gridView1.Columns["salario_hora"].Visible = false;
+                        LoadDetalleNominas();
+
+                        break;
                 }
+            }
+        }
+
+        private void LoadDetalleNominasComisiones(int pSlipId)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("dbo.[GetPlanillasEmpleadosLineas_Detalle_Comisiones]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@slip_id", pSlipId);
+                //cmd.Parameters.AddWithValue("@hasta", dtHasta.EditValue);
+                dsPlanillasTransaccion1.hr_payslip_lines.Clear();
+                SqlDataAdapter adat = new SqlDataAdapter(cmd);
+                adat.Fill(dsPlanillasTransaccion1.hr_payslip_lines);
+
+                PaySlip SlipNow = new PaySlip();
+                if (SlipNow.RecuperarRegistro(pSlipId))
+                {
+                    lblCodigo.Text = SlipNow.EmployeeCode;
+                    lblNombre.Text = SlipNow.EmployeeName;
+                    IdEmpleadoLoaded = SlipNow.EmployeeId;
+                }
+
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
             }
         }
 
@@ -198,14 +241,14 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                                 }
                             }
                         }
+                       break;
+                    case 11://Planilla Comisiones
 
-                        break;
-
-                    case 11://Comisiones
-                        cmdSiguiente.Visible = cmdAnterior.Visible = false;
+                        cmdSiguiente.Visible = cmdAnterior.Visible =
                         cmdVerMarcas.Visible = false;
-                        gridView1.Columns["salario_hora"].Visible = false;
-                        LoadDetalleNominasComisiones();
+
+                        LoadDetalleNominasComisiones(SlipId);
+                        
 
                         break;
 
