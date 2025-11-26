@@ -202,10 +202,10 @@ namespace Proyecto.Huellas
             if (pbQuality.Position > 60)
             {
                 CalidadHuellaInt = pbQuality.Position;
-                Thread tr = new Thread(Procesando);
-                tr.Start();
-                fingerprint.CaptureFinalize();
-                fingerprint.Finalizer();
+                //Thread tr = new Thread(Procesando);
+                //tr.Start();
+                //fingerprint.CaptureFinalize();
+                //fingerprint.Finalizer();
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             }
             else
@@ -230,10 +230,10 @@ namespace Proyecto.Huellas
 
             try
             {
-                CheckForIllegalCrossThreadCalls = false;
-                fingerprint.StopCapture(sender);
-                fingerprint.CaptureFinalize();
-                fingerprint.Finalizer();
+                //CheckForIllegalCrossThreadCalls = false;
+                //fingerprint.StopCapture(sender);
+                //fingerprint.CaptureFinalize();
+                //fingerprint.Finalizer();
 
             }
             catch { }
@@ -243,12 +243,12 @@ namespace Proyecto.Huellas
         {
             try
             {
-                CheckForIllegalCrossThreadCalls = false;
-                fingerprint.Initialize();
-                fingerprint.CaptureInitialize();
+                //CheckForIllegalCrossThreadCalls = false;
+                //fingerprint.Initialize();
+                //fingerprint.CaptureInitialize();
 
-                fingerprint.CaptureFinalize();
-                fingerprint.Finalizer();
+                //fingerprint.CaptureFinalize();
+                //fingerprint.Finalizer();
             }
             catch
             {
