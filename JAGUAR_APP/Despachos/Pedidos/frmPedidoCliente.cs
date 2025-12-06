@@ -2959,7 +2959,7 @@ namespace Eatery.Ventas
                     }
 
                     //Aqui el cliente tiene precio establecido y no aplica descuento
-                    if (vDescuentoTyped > vPorcentajeDescuento && this.ClienteFactura.Id > 0)
+                    if (vDescuentoTyped > vPorcentajeDescuento && this.ClienteFactura.Id > 0 && vPorcentajeDescuento > 0)
                     {
                         row.descuento = row.descuento_porcentaje = 0;
                         CajaDialogo.Error("El cliente no tiene un % de descuento definido en lista de precio!");
@@ -3038,7 +3038,7 @@ namespace Eatery.Ventas
                             //decimal vDescuento = pDescuentoPorcentaje;
                             //decimal vPorcentajeDescuento = PuntoDeVentaActual.RecuperarMaximoDescuentoItem(pt1.Id, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
 
-                            if (vDescuentoTyped > vPorcentajeDescuento)
+                            if (vDescuentoTyped > vPorcentajeDescuento && vPorcentajeDescuento > 0)
                             {
                                 row.descuento = row.descuento_porcentaje = 0;
                                 return;
