@@ -362,11 +362,11 @@ namespace Eatery.Ventas
                     if (!dr.IsDBNull(dr.GetOrdinal("descuento")))
                         descuentoLinea = dr.GetDecimal(9);
 
-                    //if (!dr.IsDBNull(dr.GetOrdinal("descuento_porcentaje")))
-                    //    descuentoPorcentaje = dr.GetDecimal(10);
+                    if (!dr.IsDBNull(dr.GetOrdinal("descuento_porcentaje")))
+                        descuentoPorcentaje = dr.GetDecimal(10);
 
                     if (pt.Recuperar_producto(pt.Id))
-                        AgregarProductoA_Prefactura(pt.Id, pt.Code, Descripcion, Cantidad, false, descuentoPorcentaje, pt, pt.MarcaName);
+                        AgregarProductoA_Prefactura(pt.Id, pt.Code, Descripcion, Cantidad, false, descuentoPorcentaje, pt, pt.MarcaName, descuentoLinea);
 
                 }
                 dr.Close();
@@ -455,7 +455,7 @@ namespace Eatery.Ventas
                         descuentoPorcentaje = dr.GetDecimal(10);
 
                     if (pt.Recuperar_producto(pt.Id))
-                        AgregarProductoA_Prefactura(pt.Id, pt.Code, Descripcion, Cantidad, false, descuentoPorcentaje, pt, pt.MarcaName);
+                        AgregarProductoA_Prefactura(pt.Id, pt.Code, Descripcion, Cantidad, false, descuentoPorcentaje, pt, pt.MarcaName, descuentoLinea);
                     
                 }
                 dr.Close();
@@ -2154,7 +2154,7 @@ namespace Eatery.Ventas
                     {
                         AgregarProductoA_Prefactura(frm.ItemSeleccionado.id, frm.ItemSeleccionado.ItemCode,
                                                     frm.ItemSeleccionado.ItemName, 1, true, 0,
-                                                    new ProductoTerminado(), frm.ItemSeleccionado.Marca);
+                                                    new ProductoTerminado(), frm.ItemSeleccionado.Marca,0);
                         txtScanProducto.Focus();
                     }
                     break;
@@ -2184,7 +2184,7 @@ namespace Eatery.Ventas
         private void AgregarProductoA_Prefactura(int pIdPT, string pItemCode, string pItemName, 
                                                  decimal pCantidad, bool AddDistribucionAlmacen, 
                                                  decimal pDescuentoPorcentaje, ProductoTerminado pProductoTerminado
-                                                 ,string pMarca)
+                                                 ,string pMarca, decimal pDescuentoLinea)
         {
             ProductoTerminado pt1;
             if (pProductoTerminado == null) 
@@ -2231,8 +2231,8 @@ namespace Eatery.Ventas
                     dsVentas.detalle_factura_transactionRow row1 = dsVentas1.detalle_factura_transaction.Newdetalle_factura_transactionRow();
                     row1.id_pt = pIdPT;
                     row1.cantidad = pCantidad;
-                    row1.descuento = 
-                    row1.descuento_porcentaje = 0;
+                    row1.descuento = pDescuentoLinea;
+                    //row1.descuento_porcentaje = 
                     row1.codigo_referencia = pt1.Codig_Referencia;
                     row1.marca = pt1.MarcaName;
                     row1.precio = PuntoDeVentaActual.RecuperarPrecioItem(row1.id_pt, PuntoDeVentaActual.ID, this.ClienteFactura.Id);
@@ -3029,7 +3029,8 @@ namespace Eatery.Ventas
                         if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
                         {
                             tasaISV = Math.Round((impuesto.Valor / 100), 4);
-                            PrecioSin_ISV = Math.Round(((row.precio) / (1 + tasaISV)), 4);
+                            //PrecioSin_ISV = Math.Round(((row.precio) / (1 + tasaISV)), 4);
+                            PrecioSin_ISV = row.precio;
                         }
 
                         //Recalculamos el Descuento si hay alguno
@@ -3148,7 +3149,7 @@ namespace Eatery.Ventas
                     ProductoTerminado pt1 = new ProductoTerminado();
                     if (pt1.Recuperar_productoByBarCode(txtScanProducto.Text))
                     {
-                        AgregarProductoA_Prefactura(pt1.Id, pt1.Code, pt1.Descripcion, 1, true, 0, pt1, pt1.MarcaName);
+                        AgregarProductoA_Prefactura(pt1.Id, pt1.Code, pt1.Descripcion, 1, true, 0, pt1, pt1.MarcaName,0);
 
                         gridView1.RefreshData();
                         int newRowHandle = gridView1.RowCount - 1;

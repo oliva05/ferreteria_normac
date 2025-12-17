@@ -2615,7 +2615,8 @@ namespace Eatery.Ventas
                         if (impuesto.RecuperarRegistro(pt1.Id_isv_aplicable))
                         {
                             tasaISV = Math.Round((impuesto.Valor / 100), 4);
-                            PrecioSin_ISV = Math.Round(((row.precio) / (1 + tasaISV)), 4);
+                            //PrecioSin_ISV = Math.Round(((row.precio) / (1 + tasaISV)), 4);
+                            PrecioSin_ISV = row.precio;
                         }
 
                         //Recalculamos el Descuento si hay alguno
