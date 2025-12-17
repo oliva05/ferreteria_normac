@@ -244,7 +244,11 @@ namespace JAGUAR_PRO.Facturacion.Cotizaciones
         private void cmdNuevaCotizacion_Click(object sender, EventArgs e)
         {
             frmCotizacionesCRUD frm = new frmCotizacionesCRUD(this.UsuarioLogeado, this.PuntoVentaActual, VendedorActual);
-            frm.ShowDialog();
+            if (this.MdiParent != null)
+            {
+                frm.MdiParent = this.MdiParent; 
+            }
+            frm.Show();
         }
     }
 }
