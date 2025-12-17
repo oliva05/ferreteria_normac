@@ -556,7 +556,7 @@ namespace Eatery.Ventas
                                     row1.precio = (row1.precio - row1.descuento);
                                 }
 
-                                row1.total_linea = (row1.cantidad * row1.precio) + (row1.cantidad * row1.isv1) + (row1.cantidad * row1.isv2) + (row1.cantidad * row1.isv3);
+                                row1.total_linea = (row1.cantidad * (row1.precio - row1.descuento)) + (row1.cantidad * row1.isv1) + (row1.cantidad * row1.isv2) + (row1.cantidad * row1.isv3);
                                 AcumuladoTotalFactura += row1.total_linea;
                             }
                         }
@@ -2073,7 +2073,8 @@ namespace Eatery.Ventas
                         rowF.codigo_referencia = pt1.Codig_Referencia;
                         rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
                         rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
-                        rowF.total_linea = ((rowF.cantidad * rowF.precio) - rowF.descuento) + rowF.isv1 + rowF.isv2 + rowF.isv3;
+                        rowF.total_linea = ((rowF.cantidad * (rowF.precio - rowF.descuento)) + 
+                                             rowF.isv1 + rowF.isv2 + rowF.isv3);
                         AgregarNuevo = false;
                     }
                     //valor_total += (rowF.total_linea + rowF.isv1);
@@ -2257,8 +2258,9 @@ namespace Eatery.Ventas
                         rowF.cantidad = rowF.cantidad + 1;
                         rowF.codigo_referencia = "N/D";
                         rowF.isv1 = rowF.isv2 = rowF.isv3 = 0;
-                        rowF.isv1 = ((rowF.cantidad * rowF.precio) - rowF.descuento) * rowF.tasa_isv;
-                        rowF.total_linea = ((rowF.cantidad * rowF.precio) - rowF.descuento) + rowF.isv1 + rowF.isv2 + rowF.isv3;
+                        rowF.isv1 = ((rowF.cantidad * (rowF.precio - rowF.descuento)) * rowF.tasa_isv);
+                        rowF.total_linea = ((rowF.cantidad * (rowF.precio - rowF.descuento)) + 
+                                            rowF.isv1 + rowF.isv2 + rowF.isv3);
                         AgregarNuevo = false;
                     }
                     //valor_total += (rowF.total_linea + rowF.isv1);
@@ -2349,10 +2351,10 @@ namespace Eatery.Ventas
                     //row1.precio = (row1.precio - row1.descuento);
                     row1.isv1 = 0;
 
-                    row1.total_linea = ((row1.cantidad * row1.precio) - row1.descuento) +
+                    row1.total_linea = ((row1.cantidad * (row1.precio - row1.descuento)) +
                                         (row1.cantidad * row1.isv1) +
                                         (row1.cantidad * row1.isv2) +
-                                        (row1.cantidad * row1.isv3);
+                                        (row1.cantidad * row1.isv3));
 
 
                     int IdBodega_ = 2;
@@ -2694,15 +2696,15 @@ namespace Eatery.Ventas
             decimal total = 0;  
             foreach(dsVentas.detalle_factura_transactionRow row in dsVentas1.detalle_factura_transaction)
             {
-                row.total_linea = (row.cantidad * row.precio) - row.descuento;
+                //row.total_linea = (row.cantidad * (row.precio - row.descuento));
                 //row.total_linea = row.total_linea + (row.cantidad * row.isv1) + (row.cantidad * row.isv2) + (row.cantidad * row.isv3);
                 
                 //Recalculamos impuestos
 
-                row.total_linea = ((row.cantidad * row.precio) - row.descuento) + 
+                row.total_linea = ((row.cantidad * (row.precio - row.descuento)) + 
                                    (row.cantidad * row.isv1) + 
                                    (row.cantidad * row.isv2) + 
-                                   (row.cantidad * row.isv3);
+                                   (row.cantidad * row.isv3));
 
                 total += row.total_linea;    
             }
@@ -2946,7 +2948,7 @@ namespace Eatery.Ventas
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 row.inventario_seleccionado = row.cantidad = AgregarDetalleInventarioSeleccionadoList(frm.ListaSeleccionAlmacen, row.id_pt);
-                row.total_linea = (row.cantidad * row.precio) - row.descuento;
+                row.total_linea = (row.cantidad * (row.precio - row.descuento));
                 //CalcularTotal();
                 CalcularTotalFactura();
             }
