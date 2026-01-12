@@ -44,13 +44,13 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label30 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblTituloVentana = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtReferencia = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdGuardarGenerar = new DevExpress.XtraEditors.SimpleButton();
             this.txtValorTransferencia = new DevExpress.XtraEditors.CalcEdit();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.txtComentario = new DevExpress.XtraEditors.MemoEdit();
@@ -59,6 +59,8 @@
             this.lblNumeroDeposito = new System.Windows.Forms.Label();
             this.lblEnable = new System.Windows.Forms.Label();
             this.tggEnable = new DevExpress.XtraEditors.ToggleSwitch();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtFechaDeposito = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gleCuentaBanco.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRegistroPagos1)).BeginInit();
@@ -70,6 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggEnable.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaDeposito.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaDeposito.Properties.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // gleCuentaBanco
@@ -196,16 +200,16 @@
             this.label30.TabIndex = 62;
             this.label30.Text = "Banco";
             // 
-            // label15
+            // lblTituloVentana
             // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(340, 9);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(169, 25);
-            this.label15.TabIndex = 66;
-            this.label15.Text = "Generar Deposito";
+            this.lblTituloVentana.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTituloVentana.AutoSize = true;
+            this.lblTituloVentana.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTituloVentana.Location = new System.Drawing.Point(340, 9);
+            this.lblTituloVentana.Name = "lblTituloVentana";
+            this.lblTituloVentana.Size = new System.Drawing.Size(169, 25);
+            this.lblTituloVentana.TabIndex = 66;
+            this.lblTituloVentana.Text = "Generar Deposito";
             // 
             // label12
             // 
@@ -263,22 +267,22 @@
             this.cmdCerrar.Text = "Salir";
             this.cmdCerrar.Click += new System.EventHandler(this.cmdCerrar_Click);
             // 
-            // simpleButton3
+            // cmdGuardarGenerar
             // 
-            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton3.Appearance.BorderColor = System.Drawing.Color.LightGray;
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Appearance.Options.UseBorderColor = true;
-            this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(302, 290);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(120, 46);
-            this.simpleButton3.TabIndex = 73;
-            this.simpleButton3.Text = "Generar";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            this.cmdGuardarGenerar.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdGuardarGenerar.Appearance.BorderColor = System.Drawing.Color.LightGray;
+            this.cmdGuardarGenerar.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cmdGuardarGenerar.Appearance.Options.UseBackColor = true;
+            this.cmdGuardarGenerar.Appearance.Options.UseBorderColor = true;
+            this.cmdGuardarGenerar.Appearance.Options.UseFont = true;
+            this.cmdGuardarGenerar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.cmdGuardarGenerar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.cmdGuardarGenerar.Location = new System.Drawing.Point(302, 290);
+            this.cmdGuardarGenerar.Name = "cmdGuardarGenerar";
+            this.cmdGuardarGenerar.Size = new System.Drawing.Size(120, 46);
+            this.cmdGuardarGenerar.TabIndex = 73;
+            this.cmdGuardarGenerar.Text = "Generar";
+            this.cmdGuardarGenerar.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // txtValorTransferencia
             // 
@@ -311,11 +315,11 @@
             // 
             // txtComentario
             // 
-            this.txtComentario.Location = new System.Drawing.Point(575, 78);
+            this.txtComentario.Location = new System.Drawing.Point(602, 78);
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.txtComentario.Properties.Appearance.Options.UseFont = true;
-            this.txtComentario.Size = new System.Drawing.Size(275, 117);
+            this.txtComentario.Size = new System.Drawing.Size(248, 117);
             this.txtComentario.TabIndex = 79;
             // 
             // label2
@@ -361,7 +365,7 @@
             // tggEnable
             // 
             this.tggEnable.EditValue = true;
-            this.tggEnable.Location = new System.Drawing.Point(585, 209);
+            this.tggEnable.Location = new System.Drawing.Point(602, 209);
             this.tggEnable.Name = "tggEnable";
             this.tggEnable.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.tggEnable.Properties.Appearance.Options.UseFont = true;
@@ -371,11 +375,37 @@
             this.tggEnable.TabIndex = 84;
             this.tggEnable.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(443, 249);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(153, 21);
+            this.label3.TabIndex = 85;
+            this.label3.Text = "Fecha del depósito";
+            // 
+            // dtFechaDeposito
+            // 
+            this.dtFechaDeposito.EditValue = null;
+            this.dtFechaDeposito.Location = new System.Drawing.Point(602, 242);
+            this.dtFechaDeposito.Name = "dtFechaDeposito";
+            this.dtFechaDeposito.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.dtFechaDeposito.Properties.Appearance.Options.UseFont = true;
+            this.dtFechaDeposito.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtFechaDeposito.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtFechaDeposito.Size = new System.Drawing.Size(248, 28);
+            this.dtFechaDeposito.TabIndex = 86;
+            // 
             // frmDepositoBancoOP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 342);
+            this.Controls.Add(this.dtFechaDeposito);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.tggEnable);
             this.Controls.Add(this.lblEnable);
             this.Controls.Add(this.lblNumeroDeposito);
@@ -385,12 +415,12 @@
             this.Controls.Add(this.radioGroup1);
             this.Controls.Add(this.txtValorTransferencia);
             this.Controls.Add(this.cmdCerrar);
-            this.Controls.Add(this.simpleButton3);
+            this.Controls.Add(this.cmdGuardarGenerar);
             this.Controls.Add(this.txtReferencia);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.lblTituloVentana);
             this.Controls.Add(this.gleCuentaBanco);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.gleBancoDeposito);
@@ -407,6 +437,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtComentario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggEnable.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaDeposito.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFechaDeposito.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,13 +456,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblTituloVentana;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtReferencia;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label13;
         private DevExpress.XtraEditors.SimpleButton cmdCerrar;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton cmdGuardarGenerar;
         private CoreFacturas.dsRegistroPagos dsRegistroPagos1;
         private System.Windows.Forms.BindingSource cuentasBindingSource;
         private System.Windows.Forms.BindingSource bancoslistBindingSource;
@@ -443,5 +475,7 @@
         private System.Windows.Forms.Label lblNumeroDeposito;
         private System.Windows.Forms.Label lblEnable;
         private DevExpress.XtraEditors.ToggleSwitch tggEnable;
+        private System.Windows.Forms.Label label3;
+        private DevExpress.XtraEditors.DateEdit dtFechaDeposito;
     }
 }

@@ -5,6 +5,7 @@ using DevExpress.XtraReports.Design;
 using DevExpress.XtraReports.UI;
 using DocumentFormat.OpenXml.Wordprocessing;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Contabilidad.Reportes;
 using JAGUAR_PRO.LogisticaJaguar;
 using System;
 using System.Collections.Generic;
@@ -140,9 +141,53 @@ namespace JAGUAR_PRO.Facturacion.Deposito
 
         private void cmdPagar_Click(object sender, EventArgs e)
         {
-            frmDepositoBancoOP frm = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Nuevo, UsuarioLogeado, PuntoVenta,0);
-            frm.MdiParent = this.MdiParent;
-            frm.Show();
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
+            {
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                    accesoprevio = true;
+                    frmDepositoBancoOP frm = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Nuevo, 
+                                                                    UsuarioLogeado, PuntoVenta, 0,true,true);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                    break;
+                case 5://Depth Without Delta
+                    if (UsuarioLogeado.ValidarNivelPermisos(32))//Editar Depositos en Caja
+                    {
+                        accesoprevio = true;
+                        frmDepositoBancoOP frm2 = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Nuevo,
+                                                                        UsuarioLogeado, PuntoVenta, 0, true, true);
+                        frm2.MdiParent = this.MdiParent;
+                        frm2.Show();
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(23))//Postear depositos del dia
+                {
+                    frmDepositoBancoOP frm2 = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Nuevo,
+                                                                     UsuarioLogeado, PuntoVenta, 0, false, false);
+                    frm2.MdiParent = this.MdiParent;
+                    frm2.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #43 (Reporte de Ventas Contabilidad)");
+                }
+            }
         }
 
         private void reposPrint_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -166,12 +211,65 @@ namespace JAGUAR_PRO.Facturacion.Deposito
             var gv = (GridView)gridControl1.FocusedView;
             var row = (dsDepositos.lista_depositosRow)gv.GetDataRow(gv.FocusedRowHandle);
 
-            frmDepositoBancoOP frm = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Editar, UsuarioLogeado, PuntoVenta,row.id);
-            frm.MdiParent = this.MdiParent;
-            if (frm.ShowDialog() == DialogResult.OK)
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
             {
-                LoaData();
+                case 1://Basic View
+                    break;
+                case 2://Basic No Autorization
+                    accesoprevio = false;
+                    break;
+                case 3://Medium Autorization
+                    accesoprevio = false;
+                    break;
+                case 4://Depth With Delta
+                    accesoprevio = true;
+                    frmDepositoBancoOP frm = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Editar,
+                                                                    UsuarioLogeado, PuntoVenta, row.id, true, true);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoaData();
+                    }
+                    break;
+                case 5://Depth Without Delta
+                    if (UsuarioLogeado.ValidarNivelPermisos(32))//Editar Depositos en Caja
+                    {
+                        accesoprevio = true;
+                        frmDepositoBancoOP frm2 = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Editar,
+                                                                     UsuarioLogeado, PuntoVenta, row.id, false, false);
+                        if (frm2.ShowDialog() == DialogResult.OK)
+                        {
+                            LoaData();
+                        }
+                    }
+                    break;
+                default:
+                    break;
             }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(32))//Editar Depositos en Caja
+                {
+                    frmDepositoBancoOP frm2 = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Editar,
+                                                                     UsuarioLogeado, PuntoVenta, row.id, false, false);
+                    if (frm2.ShowDialog() == DialogResult.OK)
+                    {
+                        LoaData();
+                    }
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #43 (Reporte de Ventas Contabilidad)");
+                }
+            }
+
+            //frmDepositoBancoOP frm = new frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion.Editar, UsuarioLogeado, PuntoVenta,row.id);
+            //if (frm.ShowDialog() == DialogResult.OK)
+            //{
+            //    LoaData();
+            //}
         }
     }
 }
