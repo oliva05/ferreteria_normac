@@ -22,7 +22,7 @@ namespace JAGUAR_PRO.Facturacion.Deposito
 {
     public partial class frmDepositoBancoOP : DevExpress.XtraEditors.XtraForm
     {
-        DataOperations dp = new DataOperations();
+        DataOperations dp;
         public int IdFormato = 0;
         public enum TipoOperacion
         {
@@ -34,9 +34,12 @@ namespace JAGUAR_PRO.Facturacion.Deposito
         TipoOperacion Operacion;
         DepositoBanco DepositoActual;
        
-        public frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion pOperacion, UserLogin userLogin, PDV ppdv, int pIdDeposito)
+        public frmDepositoBancoOP(frmDepositoBancoOP.TipoOperacion pOperacion, 
+                                  UserLogin userLogin, PDV ppdv, int pIdDeposito, 
+                                  bool pCanChangeDate, bool pCanEditDocument)
         {
             InitializeComponent();
+            dp = new DataOperations();
             DepositoActual = new DepositoBanco();
             UsuarioLogeado = userLogin;
             PuntoVenta = ppdv;
@@ -46,7 +49,13 @@ namespace JAGUAR_PRO.Facturacion.Deposito
             //txtValorEnCaja.EditValue = 0.00;//
             if (Operacion == TipoOperacion.Nuevo)
             {
-                
+                this.Text = lblTituloVentana.Text = "Generar un nuevo depósito";
+                dtFechaDeposito.DateTime = dp.Now();
+
+                if (!pCanChangeDate)
+                {
+                    dtFechaDeposito.ReadOnly = true;
+                }
             }
             else if (Operacion == TipoOperacion.Editar)
             {
@@ -60,6 +69,9 @@ namespace JAGUAR_PRO.Facturacion.Deposito
                     txtComentario.Text = DepositoActual.Obs;
                     lblEnable.Visible = tggEnable.Visible = true;
                     tggEnable.IsOn = DepositoActual.Enable;
+                    dtFechaDeposito.DateTime = DepositoActual.Fecha;
+                    this.Text = lblTituloVentana.Text = "Modificación del depósito";
+                    cmdGuardarGenerar.Text = "Guardar";
                 }
             }
         }
@@ -137,12 +149,20 @@ namespace JAGUAR_PRO.Facturacion.Deposito
             //    return;
             //}
 
-            //if (string.IsNullOrEmpty(gleCuentaBanco.Text))
-            //{
-            //    CajaDialogo.Error("Debe seleccionar una cuenta para el depósito.");
-            //    gleCuentaBanco.Focus();
-            //    return;
-            //}
+            if (string.IsNullOrEmpty(txtValorTransferencia.Text))
+            {
+                CajaDialogo.Error("Debe indicar un valor para el depósito.");
+                txtValorTransferencia.Focus();
+                return;
+            }
+
+
+            if (string.IsNullOrEmpty(dtFechaDeposito.Text))
+            {
+                CajaDialogo.Error("Debe indicar una fecha para el depósito.");
+                dtFechaDeposito.Focus();
+                return;
+            }
 
             if (IdFormato == 0)
             {
@@ -174,7 +194,12 @@ namespace JAGUAR_PRO.Facturacion.Deposito
                         cmd.Parameters.AddWithValue("@id_banco", gleBancoDeposito.EditValue);
                         cmd.Parameters.AddWithValue("@cuenta_banco", gleCuentaBanco.Text.Trim());
                         cmd.Parameters.AddWithValue("@total", txtValorTransferencia.EditValue);
-                        cmd.Parameters.AddWithValue("@obs", txtComentario.Text);
+                        
+                        if (string.IsNullOrEmpty(txtComentario.Text))
+                            cmd.Parameters.AddWithValue("@obs", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@obs", txtComentario.Text);
+
                         cmd.Parameters.AddWithValue("@created_user_id", UsuarioLogeado.Id);
                         cmd.Parameters.AddWithValue("@created_date", dp.Now());
                         cmd.Parameters.AddWithValue("@puntoVentaId", PuntoVenta.ID);
@@ -187,12 +212,18 @@ namespace JAGUAR_PRO.Facturacion.Deposito
                         cmd.CommandText = "[dbo].[sp_facturacion_deposito_update]";
                         cmd.Parameters.AddWithValue("@id", this.DepositoActual.Id);
                         cmd.Parameters.AddWithValue("@num_transaccion", txtReferencia.Text.Trim());
-                        cmd.Parameters.AddWithValue("@fecha", dp.Now());
+                        cmd.Parameters.AddWithValue("@fecha", dtFechaDeposito.DateTime);
                         cmd.Parameters.AddWithValue("@enable", tggEnable.IsOn);
                         cmd.Parameters.AddWithValue("@id_banco", gleBancoDeposito.EditValue);
                         cmd.Parameters.AddWithValue("@cuenta_banco", gleCuentaBanco.Text.Trim());
-                        cmd.Parameters.AddWithValue("@total", txtValorTransferencia.EditValue);
-                        cmd.Parameters.AddWithValue("@obs", txtComentario.Text);
+                        decimal total_ = dp.ValidateNumberDecimal(txtValorTransferencia.EditValue);
+                        cmd.Parameters.AddWithValue("@total", total_);
+
+                        if (string.IsNullOrEmpty(txtComentario.Text))
+                            cmd.Parameters.AddWithValue("@obs", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@obs", txtComentario.Text);
+
                         cmd.Parameters.AddWithValue("@modified_user_id", UsuarioLogeado.Id);
                         cmd.Parameters.AddWithValue("@modified_date", dp.Now());
                         //cmd.Parameters.AddWithValue("@puntoVentaId", PuntoVenta.ID);
@@ -222,16 +253,14 @@ namespace JAGUAR_PRO.Facturacion.Deposito
                 ReportPrintTool printReport = new ReportPrintTool(report);
                 //printReport.ShowPreviewDialog();
                 printReport.Print();
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-
             }
             else
             {
                 CajaDialogo.Error("No se pudo guardar el depósito, verifique los datos ingresados.");
             }
 
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void gleBancoDeposito_KeyDown(object sender, KeyEventArgs e)
