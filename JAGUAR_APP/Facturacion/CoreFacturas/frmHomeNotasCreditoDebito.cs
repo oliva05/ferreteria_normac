@@ -153,7 +153,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
             if (frm.ShowDialog()== DialogResult.OK)
             {
-
+                LoadData();
             }
         }
     }

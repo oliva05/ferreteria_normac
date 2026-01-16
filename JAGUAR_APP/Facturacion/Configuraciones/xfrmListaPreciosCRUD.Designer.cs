@@ -482,7 +482,7 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
             // 
             // coldescuento_porcentaje
             // 
-            this.coldescuento_porcentaje.DisplayFormat.FormatString = "n0";
+            this.coldescuento_porcentaje.DisplayFormat.FormatString = "n1";
             this.coldescuento_porcentaje.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coldescuento_porcentaje.FieldName = "descuento_porcentaje";
             this.coldescuento_porcentaje.Name = "coldescuento_porcentaje";

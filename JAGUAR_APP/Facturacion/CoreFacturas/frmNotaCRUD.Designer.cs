@@ -29,6 +29,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNotaCRUD));
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtCliente = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -53,7 +54,6 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.cmdClose = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtCAI = new DevExpress.XtraEditors.TextEdit();
-            this.lblNota = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtRTN = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -64,9 +64,15 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.cmdSearchPDV = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmdSearchCliente = new DevExpress.XtraEditors.SimpleButton();
-            this.tsNotaCD = new DevExpress.XtraEditors.ToggleSwitch();
             this.cmdSearchFacturas = new DevExpress.XtraEditors.SimpleButton();
             this.lblTotal = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.rdCredito = new System.Windows.Forms.RadioButton();
+            this.rdDebito = new System.Windows.Forms.RadioButton();
+            this.lblNota = new DevExpress.XtraEditors.LabelControl();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.txtCliente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFecha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFecha.Properties.CalendarTimeProperties)).BeginInit();
@@ -80,27 +86,28 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             ((System.ComponentModel.ISupportInitialize)(this.txtClienteRTN.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tsNotaCD.Properties)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(14, 23);
+            this.labelControl2.Location = new System.Drawing.Point(14, 27);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(42, 15);
+            this.labelControl2.Size = new System.Drawing.Size(99, 15);
             this.labelControl2.TabIndex = 4;
-            this.labelControl2.Text = "Cliente:";
+            this.labelControl2.Text = "Cliente____________";
             // 
             // txtCliente
             // 
-            this.txtCliente.Location = new System.Drawing.Point(62, 20);
+            this.txtCliente.Location = new System.Drawing.Point(102, 20);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCliente.Properties.Appearance.Options.UseFont = true;
             this.txtCliente.Properties.ReadOnly = true;
-            this.txtCliente.Size = new System.Drawing.Size(293, 22);
+            this.txtCliente.Size = new System.Drawing.Size(253, 22);
             this.txtCliente.TabIndex = 3;
             // 
             // labelControl3
@@ -108,17 +115,17 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(21, 79);
+            this.labelControl3.Location = new System.Drawing.Point(14, 83);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(35, 15);
+            this.labelControl3.Size = new System.Drawing.Size(107, 15);
             this.labelControl3.TabIndex = 6;
-            this.labelControl3.Text = "Fecha:";
+            this.labelControl3.Text = "Fecha_______________";
             // 
             // deFecha
             // 
             this.deFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deFecha.EditValue = null;
-            this.deFecha.Location = new System.Drawing.Point(62, 76);
+            this.deFecha.Location = new System.Drawing.Point(102, 75);
             this.deFecha.Name = "deFecha";
             this.deFecha.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deFecha.Properties.Appearance.Options.UseFont = true;
@@ -131,7 +138,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.deFecha.Properties.EditFormat.FormatString = "";
             this.deFecha.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.deFecha.Properties.MaskSettings.Set("mask", "");
-            this.deFecha.Size = new System.Drawing.Size(126, 22);
+            this.deFecha.Size = new System.Drawing.Size(253, 22);
             this.deFecha.TabIndex = 5;
             // 
             // gridControl1
@@ -141,10 +148,10 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = "NotaD";
             this.gridControl1.DataSource = this.dsFacturasGestion;
-            this.gridControl1.Location = new System.Drawing.Point(-2, 226);
+            this.gridControl1.Location = new System.Drawing.Point(6, 210);
             this.gridControl1.MainView = this.grd_data;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1071, 248);
+            this.gridControl1.Size = new System.Drawing.Size(1045, 237);
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grd_data});
@@ -282,30 +289,33 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(60, 123);
+            this.labelControl5.Location = new System.Drawing.Point(14, 182);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(56, 15);
+            this.labelControl5.Size = new System.Drawing.Size(143, 15);
             this.labelControl5.TabIndex = 11;
-            this.labelControl5.Text = "Concepto:";
+            this.labelControl5.Text = "Concepto__________________";
+            this.labelControl5.Click += new System.EventHandler(this.labelControl5_Click);
             // 
             // txtConcepto
             // 
             this.txtConcepto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtConcepto.Location = new System.Drawing.Point(129, 122);
+            this.txtConcepto.Location = new System.Drawing.Point(102, 131);
             this.txtConcepto.Name = "txtConcepto";
             this.txtConcepto.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConcepto.Properties.Appearance.Options.UseFont = true;
             this.txtConcepto.Properties.ReadOnly = true;
-            this.txtConcepto.Size = new System.Drawing.Size(344, 82);
+            this.txtConcepto.Size = new System.Drawing.Size(344, 65);
             this.txtConcepto.TabIndex = 10;
             // 
             // cmdSave
             // 
             this.cmdSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdSave.Appearance.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.cmdSave.Appearance.BackColor = System.Drawing.Color.LightBlue;
+            this.cmdSave.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.cmdSave.Appearance.Options.UseBackColor = true;
-            this.cmdSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
-            this.cmdSave.Location = new System.Drawing.Point(817, 123);
+            this.cmdSave.Appearance.Options.UseFont = true;
+            this.cmdSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdSave.ImageOptions.SvgImage")));
+            this.cmdSave.Location = new System.Drawing.Point(839, 6);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(103, 47);
             this.cmdSave.TabIndex = 60;
@@ -315,10 +325,12 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // cmdClose
             // 
             this.cmdClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdClose.Appearance.BackColor = System.Drawing.Color.IndianRed;
+            this.cmdClose.Appearance.BackColor = System.Drawing.Color.LightCoral;
+            this.cmdClose.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.cmdClose.Appearance.Options.UseBackColor = true;
+            this.cmdClose.Appearance.Options.UseFont = true;
             this.cmdClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel2_32;
-            this.cmdClose.Location = new System.Drawing.Point(926, 123);
+            this.cmdClose.Location = new System.Drawing.Point(948, 6);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(103, 47);
             this.cmdClose.TabIndex = 61;
@@ -329,7 +341,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(74, 84);
+            this.labelControl6.Location = new System.Drawing.Point(12, 78);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(22, 15);
             this.labelControl6.TabIndex = 63;
@@ -345,26 +357,11 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.txtCAI.Size = new System.Drawing.Size(293, 22);
             this.txtCAI.TabIndex = 62;
             // 
-            // lblNota
-            // 
-            this.lblNota.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblNota.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNota.Appearance.Options.UseFont = true;
-            this.lblNota.Appearance.Options.UseTextOptions = true;
-            this.lblNota.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lblNota.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblNota.Location = new System.Drawing.Point(-2, 0);
-            this.lblNota.Name = "lblNota";
-            this.lblNota.Size = new System.Drawing.Size(1071, 25);
-            this.lblNota.TabIndex = 64;
-            this.lblNota.Text = "Nota";
-            // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(74, 56);
+            this.labelControl1.Location = new System.Drawing.Point(12, 52);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(27, 15);
             this.labelControl1.TabIndex = 66;
@@ -404,20 +401,20 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(29, 51);
+            this.labelControl7.Location = new System.Drawing.Point(14, 56);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(27, 15);
+            this.labelControl7.Size = new System.Drawing.Size(104, 15);
             this.labelControl7.TabIndex = 70;
-            this.labelControl7.Text = "RTN:";
+            this.labelControl7.Text = "RTN________________";
             // 
             // txtClienteRTN
             // 
-            this.txtClienteRTN.Location = new System.Drawing.Point(62, 48);
+            this.txtClienteRTN.Location = new System.Drawing.Point(102, 48);
             this.txtClienteRTN.Name = "txtClienteRTN";
             this.txtClienteRTN.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClienteRTN.Properties.Appearance.Options.UseFont = true;
             this.txtClienteRTN.Properties.ReadOnly = true;
-            this.txtClienteRTN.Size = new System.Drawing.Size(293, 22);
+            this.txtClienteRTN.Size = new System.Drawing.Size(253, 22);
             this.txtClienteRTN.TabIndex = 69;
             // 
             // groupBox1
@@ -430,12 +427,13 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.groupBox1.Controls.Add(this.txtRTN);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(27, 9);
+            this.groupBox1.Location = new System.Drawing.Point(484, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(444, 107);
+            this.groupBox1.Size = new System.Drawing.Size(103, 87);
             this.groupBox1.TabIndex = 71;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Punto de Venta";
+            this.groupBox1.Visible = false;
             // 
             // cmdSearchPDV
             // 
@@ -450,17 +448,22 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtConcepto);
+            this.groupBox2.Controls.Add(this.rdDebito);
+            this.groupBox2.Controls.Add(this.rdCredito);
+            this.groupBox2.Controls.Add(this.labelControl8);
+            this.groupBox2.Controls.Add(this.txtClienteRTN);
             this.groupBox2.Controls.Add(this.cmdSearchCliente);
             this.groupBox2.Controls.Add(this.txtCliente);
             this.groupBox2.Controls.Add(this.deFecha);
+            this.groupBox2.Controls.Add(this.labelControl5);
             this.groupBox2.Controls.Add(this.labelControl7);
             this.groupBox2.Controls.Add(this.labelControl2);
-            this.groupBox2.Controls.Add(this.txtClienteRTN);
             this.groupBox2.Controls.Add(this.labelControl3);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.groupBox2.Location = new System.Drawing.Point(611, 9);
+            this.groupBox2.Location = new System.Drawing.Point(6, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(418, 104);
+            this.groupBox2.Size = new System.Drawing.Size(458, 202);
             this.groupBox2.TabIndex = 72;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Cliente";
@@ -476,27 +479,14 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.cmdSearchCliente.Visible = false;
             this.cmdSearchCliente.Click += new System.EventHandler(this.cmdSearchCliente_Click);
             // 
-            // tsNotaCD
-            // 
-            this.tsNotaCD.EditValue = 1;
-            this.tsNotaCD.Location = new System.Drawing.Point(492, 121);
-            this.tsNotaCD.Name = "tsNotaCD";
-            this.tsNotaCD.Properties.OffText = "Debito";
-            this.tsNotaCD.Properties.OnText = "Credito";
-            this.tsNotaCD.Properties.ValueOff = 2;
-            this.tsNotaCD.Properties.ValueOn = 1;
-            this.tsNotaCD.Size = new System.Drawing.Size(95, 18);
-            this.tsNotaCD.TabIndex = 73;
-            this.tsNotaCD.Visible = false;
-            this.tsNotaCD.Toggled += new System.EventHandler(this.tsNotaCD_Toggled);
-            // 
             // cmdSearchFacturas
             // 
             this.cmdSearchFacturas.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.search_24x24;
-            this.cmdSearchFacturas.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.cmdSearchFacturas.Location = new System.Drawing.Point(27, 177);
+            this.cmdSearchFacturas.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.cmdSearchFacturas.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.cmdSearchFacturas.Location = new System.Drawing.Point(939, 175);
             this.cmdSearchFacturas.Name = "cmdSearchFacturas";
-            this.cmdSearchFacturas.Size = new System.Drawing.Size(89, 43);
+            this.cmdSearchFacturas.Size = new System.Drawing.Size(112, 33);
             this.cmdSearchFacturas.TabIndex = 74;
             this.cmdSearchFacturas.Text = "Buscar Facturas";
             this.cmdSearchFacturas.Visible = false;
@@ -508,28 +498,115 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.lblTotal.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.Appearance.Options.UseFont = true;
             this.lblTotal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblTotal.Location = new System.Drawing.Point(817, 195);
+            this.lblTotal.Location = new System.Drawing.Point(721, 183);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(212, 25);
             this.lblTotal.TabIndex = 75;
             this.lblTotal.Text = "Total: 0.00";
             // 
+            // labelControl8
+            // 
+            this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(14, 108);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(106, 15);
+            this.labelControl8.TabIndex = 76;
+            this.labelControl8.Text = "Tipo de Nota_______";
+            // 
+            // rdCredito
+            // 
+            this.rdCredito.AutoSize = true;
+            this.rdCredito.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rdCredito.Checked = true;
+            this.rdCredito.Location = new System.Drawing.Point(102, 106);
+            this.rdCredito.Name = "rdCredito";
+            this.rdCredito.Size = new System.Drawing.Size(64, 19);
+            this.rdCredito.TabIndex = 77;
+            this.rdCredito.TabStop = true;
+            this.rdCredito.Text = "Crédito";
+            this.rdCredito.UseVisualStyleBackColor = true;
+            this.rdCredito.CheckedChanged += new System.EventHandler(this.rdCredito_CheckedChanged);
+            // 
+            // rdDebito
+            // 
+            this.rdDebito.AutoSize = true;
+            this.rdDebito.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rdDebito.Location = new System.Drawing.Point(195, 106);
+            this.rdDebito.Name = "rdDebito";
+            this.rdDebito.Size = new System.Drawing.Size(60, 19);
+            this.rdDebito.TabIndex = 78;
+            this.rdDebito.Text = "Débito";
+            this.rdDebito.UseVisualStyleBackColor = true;
+            this.rdDebito.CheckedChanged += new System.EventHandler(this.rdDebito_CheckedChanged);
+            // 
+            // lblNota
+            // 
+            this.lblNota.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNota.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota.Appearance.Options.UseFont = true;
+            this.lblNota.Appearance.Options.UseTextOptions = true;
+            this.lblNota.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblNota.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblNota.Location = new System.Drawing.Point(-2, 0);
+            this.lblNota.Name = "lblNota";
+            this.lblNota.Size = new System.Drawing.Size(1071, 25);
+            this.lblNota.TabIndex = 64;
+            this.lblNota.Text = "Nota";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(4, 31);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1065, 479);
+            this.tabControl1.TabIndex = 76;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.cmdSearchFacturas);
+            this.tabPage1.Controls.Add(this.gridControl1);
+            this.tabPage1.Controls.Add(this.cmdClose);
+            this.tabPage1.Controls.Add(this.cmdSave);
+            this.tabPage1.Controls.Add(this.lblTotal);
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1057, 453);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Aplicado a Factura";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1057, 453);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "General";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // frmNotaCRUD
             // 
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 473);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.cmdSearchFacturas);
-            this.Controls.Add(this.tsNotaCD);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1068, 512);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblNota);
-            this.Controls.Add(this.cmdClose);
-            this.Controls.Add(this.cmdSave);
-            this.Controls.Add(this.labelControl5);
-            this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.txtConcepto);
             this.Name = "frmNotaCRUD";
             this.Text = "Nota de Crédito/Débito";
             this.Load += new System.EventHandler(this.frmNotaCRUD_Load);
@@ -548,9 +625,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tsNotaCD.Properties)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -574,7 +651,6 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private DevExpress.XtraGrid.Columns.GridColumn colnum_doc;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit txtCAI;
-        private DevExpress.XtraEditors.LabelControl lblNota;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtRTN;
         private DevExpress.XtraEditors.LabelControl labelControl4;
@@ -589,9 +665,15 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraEditors.SimpleButton cmdSearchPDV;
         private DevExpress.XtraEditors.SimpleButton cmdSearchCliente;
-        private DevExpress.XtraEditors.ToggleSwitch tsNotaCD;
         private DevExpress.XtraEditors.SimpleButton cmdSearchFacturas;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraEditors.LabelControl lblTotal;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private System.Windows.Forms.RadioButton rdDebito;
+        private System.Windows.Forms.RadioButton rdCredito;
+        private DevExpress.XtraEditors.LabelControl lblNota;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

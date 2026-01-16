@@ -31,7 +31,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         {
             FacturaEmitida=1,
             AutorizacionDirecta=2,
-            FromCRUD=3
+            FromCRUD=3 //Registro nuevo desde el Home de Notas Credito/Debito
         }
 
         public enum TipoNota
@@ -39,6 +39,8 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             Credito=1,
             Debito=2
         }
+
+        TipoNota TipoNotaActual;
 
         public enum EstadoSolicitud
         {
@@ -60,6 +62,9 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
             solicitudActual = request;
             //factura_id = factura_id_p;
             solicitud_id = p_solicitud_id;
+            TipoNotaActual = TipoNota.Credito;
+            punto_venta = new PDV();
+            punto_venta.RecuperaRegistro(1);
             userLog = pUser;
         }
 
@@ -122,11 +127,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 var id_numeracion = NumDocumentoFiscal.ID;
                 var correlativoSiguiente = NumDocumentoFiscal.Correlative;
                 string doc_num="";
-                //decimal Monto = Convert.ToDecimal( coltotal_line.SummaryItem.SummaryValue);
                 total = 0;
-
-               
-
                 bool encontrar_seleccionados = false;
 
                 foreach (var item in dsFacturasGestion.NotaD)
@@ -177,34 +178,43 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
                 if (SourceSolicitud.FromCRUD==solicitudActual)
                 {
-                    cmd.Parameters.Add("@credito", Convert.ToInt32(tsNotaCD.EditValue) == (int)TipoNota.Credito ? total : 0);
-                    cmd.Parameters.Add("@debito", Convert.ToInt32(tsNotaCD.EditValue) == (int)TipoNota.Debito ? total : 0);
-                    cmd.Parameters.Add("@id_punto_venta",punto_venta.ID);
-                    cmd.Parameters.Add("@id_tipo_nota", Convert.ToInt32(tsNotaCD.EditValue));
-                    cmd.Parameters.Add("@solicitud_id", -1);
-                    cmd.Parameters.Add("@id_cliente", cliente.Id);
-                    cmd.Parameters.Add("@cliente", cliente.Nombre);
+                    if (TipoNotaActual == TipoNota.Credito)
+                    {
+                        cmd.Parameters.AddWithValue("@credito", total);
+                        cmd.Parameters.AddWithValue("@debito", 0);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@credito", 0);
+                        cmd.Parameters.AddWithValue("@debito", total);
+                    }
+
+                    cmd.Parameters.AddWithValue("@id_punto_venta", punto_venta.ID);
+                    cmd.Parameters.AddWithValue("@id_tipo_nota", (int)TipoNotaActual);
+                    cmd.Parameters.AddWithValue("@solicitud_id", -1);
+                    cmd.Parameters.AddWithValue("@id_cliente", cliente.Id);
+                    cmd.Parameters.AddWithValue("@cliente", cliente.Nombre);
                 }
                 else
                 {
-                    cmd.Parameters.Add("@credito", solicitud.TipoNotaId == (int)TipoNota.Credito ? total : 0);
-                    cmd.Parameters.Add("@debito", solicitud.TipoNotaId == (int)TipoNota.Debito ? total : 0);
-                    cmd.Parameters.Add("@id_punto_venta", solicitud.PuntoDeVenta_Id);
-                    cmd.Parameters.Add("@id_tipo_nota", solicitud.TipoNotaId);
-                    cmd.Parameters.Add("@solicitud_id", solicitud_id);
-                    cmd.Parameters.Add("@id_cliente", solicitud.ClienteId);
+                    cmd.Parameters.AddWithValue("@credito", solicitud.TipoNotaId == (int)TipoNota.Credito ? total : 0);
+                    cmd.Parameters.AddWithValue("@debito", solicitud.TipoNotaId == (int)TipoNota.Debito ? total : 0);
+                    cmd.Parameters.AddWithValue("@id_punto_venta", solicitud.PuntoDeVenta_Id);
+                    cmd.Parameters.AddWithValue("@id_tipo_nota", solicitud.TipoNotaId);
+                    cmd.Parameters.AddWithValue("@solicitud_id", solicitud_id);
+                    cmd.Parameters.AddWithValue("@id_cliente", solicitud.ClienteId);
                 }
 
-                cmd.Parameters.Add("@created_date", DateTime.Now);
-                cmd.Parameters.Add("@cai", txtCAI.Text);
+                cmd.Parameters.AddWithValue("@created_date", DateTime.Now);
+                cmd.Parameters.AddWithValue("@cai", txtCAI.Text);
                     
-                cmd.Parameters.Add("@num_documento", doc_num);
-                cmd.Parameters.Add("@rtn", txtClienteRTN.Text);
-                cmd.Parameters.Add("@fecha_documento", deFecha.EditValue);
-                cmd.Parameters.Add("@id_doc_fiscal", NumDocumentoFiscal.ID);
-                //cmd.Parameters.Add("@factura_id",factura1.Id);
-                //cmd.Parameters.Add("@due_date",);
-                cmd.Parameters.Add("@concepto", txtConcepto.Text);
+                cmd.Parameters.AddWithValue("@num_documento", doc_num);
+                cmd.Parameters.AddWithValue("@rtn", txtClienteRTN.Text);
+                cmd.Parameters.AddWithValue("@fecha_documento", deFecha.EditValue);
+                cmd.Parameters.AddWithValue("@id_doc_fiscal", NumDocumentoFiscal.ID);
+                //cmd.Parameters.AddWithValue("@factura_id",factura1.Id);
+                //cmd.Parameters.AddWithValue("@due_date",);
+                cmd.Parameters.AddWithValue("@concepto", txtConcepto.Text);
                 long id_inserted = Convert.ToInt64(cmd.ExecuteScalar());
 
                 //Detalle
@@ -218,17 +228,17 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                         cmd2.Transaction = transaccion;
                         cmd2.CommandType = CommandType.StoredProcedure;
 
-                        cmd2.Parameters.Add("@id_nota", id_inserted);
-                        cmd2.Parameters.Add("@id_factura", item.id_factura);
-                        cmd2.Parameters.Add("@cuenta", "");
-                        //cmd2.Parameters.Add("@price",item.price);
-                        cmd2.Parameters.Add("@total_line", item.total_line);
-                        cmd2.Parameters.Add("@descripcion", item.descripcion);
-                        cmd2.Parameters.Add("@num_doc", item.num_doc);
-                        cmd2.Parameters.Add("@id_pt", item.id_pt);
-                        cmd2.Parameters.Add("@cantidad", item.cantidad);
-                        cmd2.Parameters.Add("@precio", item.precio);
-                        cmd2.Parameters.Add("@factura_d_id", item.id_factura_d);
+                        cmd2.Parameters.AddWithValue("@id_nota", id_inserted);
+                        cmd2.Parameters.AddWithValue("@id_factura", item.id_factura);
+                        cmd2.Parameters.AddWithValue("@cuenta", "");
+                        //cmd2.Parameters.AddWithValue("@price",item.price);
+                        cmd2.Parameters.AddWithValue("@total_line", item.total_line);
+                        cmd2.Parameters.AddWithValue("@descripcion", item.descripcion);
+                        cmd2.Parameters.AddWithValue("@num_doc", item.num_doc);
+                        cmd2.Parameters.AddWithValue("@id_pt", item.id_pt);
+                        cmd2.Parameters.AddWithValue("@cantidad", item.cantidad);
+                        cmd2.Parameters.AddWithValue("@precio", item.precio);
+                        cmd2.Parameters.AddWithValue("@factura_d_id", item.id_factura_d);
 
                         cmd2.ExecuteNonQuery();
                     }
@@ -276,7 +286,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                         SqlDataAdapter da = new SqlDataAdapter("dbo.uspGetLineasToCreate_NC_ND", cnx);
 
                         da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                        da.SelectCommand.Parameters.Add("@id_autorizacion_h", solicitud_id);
+                        da.SelectCommand.Parameters.AddWithValue("@id_autorizacion_h", solicitud_id);
 
                         dsFacturasGestion.NotaD.Clear();
                         da.Fill(dsFacturasGestion.NotaD);
@@ -379,9 +389,6 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                         cmdSearchPDV.Visible = true;
                         cmdSearchFacturas.Visible = true;
                         txtConcepto.ReadOnly = false;
-                        tsNotaCD.Visible = true;
-                        
-
                         break;
 
                 }
@@ -481,18 +488,16 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 txtPDV.Text = punto_venta.NombreLegal;
                 txtRTN.Text = punto_venta.RTN;
 
-                if ( (int)TipoNota.Debito== Convert.ToInt32( tsNotaCD.EditValue))
+                if (TipoNotaActual == TipoNota.Credito)
                 {
                     txtCAI.Text = punto_venta.CAI_NotaCredido;
-
                 }
                 else
                 {
                     txtCAI.Text = punto_venta.CAI_NotaDebito;
-
                 }
 
-                if (Convert.ToInt32(tsNotaCD.EditValue) == (int)TipoNota.Credito)
+                if (TipoNotaActual == TipoNota.Credito)
                 {
                     if (NumDocumentoFiscal.GetIdNumeracionFiscalFromPuntoVentaId(punto_venta.ID, NumeracionFiscal.TipoDocumentoFiscal.Nota_de_Credito))
                     {
@@ -508,7 +513,7 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
 
                 }
 
-                if (Convert.ToInt32(tsNotaCD.EditValue) == (int)TipoNota.Debito)
+                if (TipoNotaActual == TipoNota.Debito)
                 {
                     if (NumDocumentoFiscal.GetIdNumeracionFiscalFromPuntoVentaId(punto_venta.ID, NumeracionFiscal.TipoDocumentoFiscal.Nota_de_Debito))
                     {
@@ -528,19 +533,16 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         private void tsNotaCD_Toggled(object sender, EventArgs e)
         {
 
-            if (punto_venta.ID!=0)
+            if (punto_venta.ID != 0)
             {
-
-            if ((int)TipoNota.Debito == Convert.ToInt32(tsNotaCD.EditValue))
-            {
-                txtCAI.Text = punto_venta.CAI_NotaCredido;
-
-            }
-            else
-            {
-                txtCAI.Text = punto_venta.CAI_NotaDebito;
-
-            }
+                if (TipoNotaActual == TipoNota.Credito)
+                {
+                    txtCAI.Text = punto_venta.CAI_NotaCredido;
+                }
+                else
+                {
+                    txtCAI.Text = punto_venta.CAI_NotaDebito;
+                }
             }
         }
 
@@ -611,6 +613,27 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     }
                 }
             }
+        }
+
+        private void labelControl5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdCredito_CheckedChanged(object sender, EventArgs e)
+        {
+            TipoNotaActual = TipoNota.Credito;
+            rdDebito.CheckedChanged -= new EventHandler(rdDebito_CheckedChanged);
+            rdDebito.Checked = false;
+            rdDebito.CheckedChanged += new EventHandler(rdDebito_CheckedChanged);
+        }
+
+        private void rdDebito_CheckedChanged(object sender, EventArgs e)
+        {
+            TipoNotaActual = TipoNota.Debito;
+            rdCredito.CheckedChanged -= new EventHandler(rdCredito_CheckedChanged);
+            rdCredito.Checked = false;
+            rdCredito.CheckedChanged += new EventHandler(rdCredito_CheckedChanged);
         }
     }
 }
