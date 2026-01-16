@@ -109,20 +109,13 @@ namespace JAGUAR_PRO.Clases
                         ProductoTerminadoId = Convert.ToInt32(dr["id_pt"].ToString())
                     }) ;
                 }
-
-
                 cnx.Close();
             }
 
-            if (factura_detalle.Count>0)
-            {
-            return true;
-
-            }
+            if (factura_detalle.Count > 0)
+                return true;
             else
-            {
                 return false;
-            }
         }
 
 

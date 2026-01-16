@@ -277,6 +277,14 @@ namespace JAGUAR_PRO.TransaccionesPT
                 }
             }
 
+            //
+            if (string.IsNullOrEmpty(txtComentarioJustificacion.Text))
+            {
+                CajaDialogo.Error("Es necesario ingresar una motivo o Justificacion del ajuste!" +
+                                  "\nAunque usted sea un usuario administrador...");
+                return;
+            }
+
             int id_bodega = 0;
             if (!string.IsNullOrEmpty(gleAlmacen.Text))
             {

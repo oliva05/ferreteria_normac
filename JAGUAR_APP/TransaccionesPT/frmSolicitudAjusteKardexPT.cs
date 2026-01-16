@@ -54,8 +54,8 @@ namespace JAGUAR_PRO.TransaccionesPT
                     SolicitudAjustes solicitud = new SolicitudAjustes();
                     solicitud.RecuperarRegistros(idSolicitud);
                     IdSOlicitud = solicitud.Id;
-                    txtDescr.Text = solicitud.Comentario;
-                    txtDescr.Enabled = false;
+                    txtComentario.Text = solicitud.Comentario;
+                    txtComentario.Enabled = false;
                     txtNumSolicitud.Text = solicitud.DocNum;
                     txtUsuario.Text = solicitud.nameUsuarioSolicitante;
                     lblUsuario.Text = "Solicitado por___________";
@@ -129,7 +129,20 @@ namespace JAGUAR_PRO.TransaccionesPT
                 CajaDialogo.Error("Debe agregar por lo menos un Producto!");
                 return;
             }
-            bool Guardar = false;
+
+            if (string.IsNullOrEmpty(txtComentario.Text))
+            {
+                CajaDialogo.Error("Debe agregar un comentario de manera obligatoria!");
+                return;
+            }
+            else
+            {
+                if(txtComentario.Text.Length < 12)
+                {
+                    CajaDialogo.Error("Debe agregar un comentario valido de manera obligatoria!");
+                    return;
+                }
+            }
 
             foreach (dsPT.ajuste_inventario_detalleRow item in dsPT1.ajuste_inventario_detalle)
             {
@@ -178,7 +191,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                         cmd.Connection = conn;
                         cmd.Transaction = transaction;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@comentario",txtDescr.Text.Trim());
+                        cmd.Parameters.AddWithValue("@comentario",txtComentario.Text.Trim());
                         cmd.Parameters.AddWithValue("@usuario_solicitante",UsuarioLogueado.Id);
 
                         int id_header = Convert.ToInt32(cmd.ExecuteScalar());
@@ -222,8 +235,6 @@ namespace JAGUAR_PRO.TransaccionesPT
 
 
                         transaction.Commit();
-                        Guardar = true;
-
                         CajaDialogo.Information("Soliciutd Creada con Exito!\nSolicite a su Gerente la Aprobacion");
 
                         this.DialogResult = DialogResult.OK;
@@ -234,7 +245,6 @@ namespace JAGUAR_PRO.TransaccionesPT
                     {
                         transaction.Rollback();
                         CajaDialogo.Error(ec.Message);
-                        Guardar = false;
                     }
 
 
@@ -258,7 +268,7 @@ namespace JAGUAR_PRO.TransaccionesPT
                         cmd.Connection = conn;
                         cmd.Transaction = transaction;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@comentario", txtDescr.Text.Trim());
+                        cmd.Parameters.AddWithValue("@comentario", txtComentario.Text.Trim());
                         cmd.Parameters.AddWithValue("@usuario_solicitante", UsuarioLogueado.Id);
 
                         int id_header = Convert.ToInt32(cmd.ExecuteScalar());
@@ -311,8 +321,6 @@ namespace JAGUAR_PRO.TransaccionesPT
 
 
                         transaction.Commit();
-                        Guardar = true;
-
                         CajaDialogo.Information("Ajuste creada con Exito!");
 
                         this.DialogResult = DialogResult.OK;
@@ -323,7 +331,6 @@ namespace JAGUAR_PRO.TransaccionesPT
                     {
                         transaction.Rollback();
                         CajaDialogo.Error(ec.Message);
-                        Guardar = false;
                     }
 
                     break;
