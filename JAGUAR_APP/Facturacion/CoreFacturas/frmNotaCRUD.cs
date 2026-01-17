@@ -218,7 +218,6 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 long id_inserted = Convert.ToInt64(cmd.ExecuteScalar());
 
                 //Detalle
-
                 foreach (var item in dsFacturasGestion.NotaD)
                 {
                     if (item.seleccion == true)
@@ -250,8 +249,6 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 CajaDialogo.Information("Datos Guardados");
                 cnx.Close();
                 this.DialogResult = DialogResult.OK;
-
-
             }
             catch (Exception ex)
             {
