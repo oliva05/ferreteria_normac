@@ -24,13 +24,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\192.168.21.50\JAGUAR_PROIP\</InstallUrl>
     <ProductName>Jaguar PRO</ProductName>
     <PublisherName>Danys Fidel Oliva</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>158</ApplicationRevision>
+    <ApplicationRevision>146</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1032,6 +1031,12 @@
     </Compile>
     <Compile Include="Contabilidad\Reportes\frmReporteVentasResumenConta.Designer.cs">
       <DependentUpon>frmReporteVentasResumenConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\Reportes\frmReporteVentasXMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Reportes\frmReporteVentasXMes.Designer.cs">
+      <DependentUpon>frmReporteVentasXMes.cs</DependentUpon>
     </Compile>
     <Compile Include="Despachos\dsTransaccionesDespacho.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -4620,6 +4625,9 @@
     <EmbeddedResource Include="Contabilidad\Reportes\frmReporteVentasResumenConta.resx">
       <DependentUpon>frmReporteVentasResumenConta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Reportes\frmReporteVentasXMes.resx">
+      <DependentUpon>frmReporteVentasXMes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Despachos\frmentregadeproductoT.resx">
       <DependentUpon>frmentregadeproductoT.cs</DependentUpon>
     </EmbeddedResource>
@@ -5348,6 +5356,7 @@
     <EmbeddedResource Include="Micro\frmOpcionesMicro.resx">
       <DependentUpon>frmOpcionesMicro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
