@@ -47,14 +47,13 @@
             this.colGravable_18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colISV18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtMes.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtMes.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdRpt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesBasicosConta1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmdVerFacturas
@@ -118,7 +117,7 @@
             // dtMes
             // 
             this.dtMes.EditValue = null;
-            this.dtMes.Location = new System.Drawing.Point(26, 40);
+            this.dtMes.Location = new System.Drawing.Point(15, 37);
             this.dtMes.Name = "dtMes";
             this.dtMes.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.dtMes.Properties.Appearance.Options.UseFont = true;
@@ -136,7 +135,7 @@
             this.btnRefresh.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.Appearance.Options.UseFont = true;
             this.btnRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRefresh.ImageOptions.SvgImage")));
-            this.btnRefresh.Location = new System.Drawing.Point(199, 35);
+            this.btnRefresh.Location = new System.Drawing.Point(172, 32);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(114, 32);
             this.btnRefresh.TabIndex = 81;
@@ -292,22 +291,23 @@
             this.colTotal.VisibleIndex = 8;
             this.colTotal.Width = 106;
             // 
-            // groupControl1
+            // groupBox1
             // 
-            this.groupControl1.Controls.Add(this.dtMes);
-            this.groupControl1.Controls.Add(this.btnRefresh);
-            this.groupControl1.Location = new System.Drawing.Point(12, 49);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(353, 78);
-            this.groupControl1.TabIndex = 92;
-            this.groupControl1.Text = "Seleccione Mes y Año";
+            this.groupBox1.Controls.Add(this.dtMes);
+            this.groupBox1.Controls.Add(this.btnRefresh);
+            this.groupBox1.Location = new System.Drawing.Point(12, 49);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(297, 78);
+            this.groupBox1.TabIndex = 93;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Seleccione Mes y Año";
             // 
             // frmReporteVentasXMes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 663);
-            this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grdRpt);
             this.Controls.Add(this.cmdVerFacturas);
             this.Controls.Add(this.labelControl3);
@@ -320,8 +320,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdRpt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesBasicosConta1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,6 +346,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colGravable_18;
         private DevExpress.XtraGrid.Columns.GridColumn colISV18;
         private DevExpress.XtraGrid.Columns.GridColumn colTotal;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
