@@ -21,36 +21,28 @@ namespace JAGUAR_PRO.Contabilidad.Reportes
         {
             InitializeComponent();
 
-            dtAnio.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
+            //MES Año
+            dtMes.Properties.CalendarView =
+             DevExpress.XtraEditors.Repository.CalendarView.Vista;
 
-            dtAnio.Properties.VistaCalendarViewStyle =
-                DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView;
-
-            dtAnio.Properties.Mask.EditMask = "yyyy";
-            dtAnio.Properties.Mask.UseMaskAsDisplayFormat = true;
-
-            dtAnio.Properties.TextEditStyle =
-                DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-
-            dtAnio.Properties.ShowToday = false;
-            dtAnio.Properties.ShowClear = false;
-
-
-            dtMes.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
+            // 🔴 Vista de MESES
 
             dtMes.Properties.VistaCalendarViewStyle =
-                DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView;
+                DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
 
-            dtMes.Properties.Mask.EditMask = "mm";
+            // Formato Mes / Año
+            dtMes.Properties.Mask.EditMask = "MMMM yyyy";
             dtMes.Properties.Mask.UseMaskAsDisplayFormat = true;
 
+            // Bloquear escritura manual
             dtMes.Properties.TextEditStyle =
                 DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
 
+            // Opcional (limpieza)
             dtMes.Properties.ShowToday = false;
             dtMes.Properties.ShowClear = false;
+            //dtMes.Properties.CalendarTimeEditing = false;
 
-            dtAnio.DateTime = dp.dNow();
             dtMes.DateTime = dp.dNow();
         }
 
@@ -70,7 +62,7 @@ namespace JAGUAR_PRO.Contabilidad.Reportes
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_conta_get_ventas_x_mes", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@anio", dtAnio.DateTime.Year);
+                cmd.Parameters.AddWithValue("@anio", dtMes.DateTime.Year);
                 cmd.Parameters.AddWithValue("@mes", dtMes.DateTime.Month);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsReportesBasicosConta1.resumen_ventas_x_mes.Clear();

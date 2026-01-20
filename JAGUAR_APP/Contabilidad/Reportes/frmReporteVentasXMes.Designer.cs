@@ -34,8 +34,6 @@
             this.cmdSalir = new DevExpress.XtraEditors.SimpleButton();
             this.cmdExcel = new DevExpress.XtraEditors.SimpleButton();
             this.dtMes = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.grdRpt = new DevExpress.XtraGrid.GridControl();
             this.dsReportesBasicosConta1 = new JAGUAR_PRO.Contabilidad.Reportes.dsReportesBasicosConta();
@@ -49,14 +47,14 @@
             this.colGravable_18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colISV18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dtAnio = new DevExpress.XtraEditors.DateEdit();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.dtMes.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtMes.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdRpt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesBasicosConta1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtAnio.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtAnio.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmdVerFacturas
@@ -68,7 +66,7 @@
             this.cmdVerFacturas.Appearance.Options.UseFont = true;
             this.cmdVerFacturas.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdVerFacturas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdVerFacturas.ImageOptions.Image")));
-            this.cmdVerFacturas.Location = new System.Drawing.Point(420, 78);
+            this.cmdVerFacturas.Location = new System.Drawing.Point(969, 81);
             this.cmdVerFacturas.Name = "cmdVerFacturas";
             this.cmdVerFacturas.Size = new System.Drawing.Size(114, 32);
             this.cmdVerFacturas.TabIndex = 89;
@@ -79,7 +77,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(12, 23);
+            this.labelControl3.Location = new System.Drawing.Point(420, 23);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(217, 23);
             this.labelControl3.TabIndex = 88;
@@ -120,7 +118,7 @@
             // dtMes
             // 
             this.dtMes.EditValue = null;
-            this.dtMes.Location = new System.Drawing.Point(57, 90);
+            this.dtMes.Location = new System.Drawing.Point(26, 40);
             this.dtMes.Name = "dtMes";
             this.dtMes.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.dtMes.Properties.Appearance.Options.UseFont = true;
@@ -133,32 +131,12 @@
             this.dtMes.TabIndex = 85;
             this.dtMes.EditValueChanged += new System.EventHandler(this.dtMes_EditValueChanged);
             // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(12, 93);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(25, 17);
-            this.labelControl2.TabIndex = 84;
-            this.labelControl2.Text = "Mes";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(12, 63);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(25, 17);
-            this.labelControl1.TabIndex = 82;
-            this.labelControl1.Text = "Año";
-            // 
             // btnRefresh
             // 
             this.btnRefresh.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.Appearance.Options.UseFont = true;
             this.btnRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRefresh.ImageOptions.SvgImage")));
-            this.btnRefresh.Location = new System.Drawing.Point(248, 78);
+            this.btnRefresh.Location = new System.Drawing.Point(199, 35);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(114, 32);
             this.btnRefresh.TabIndex = 81;
@@ -314,37 +292,27 @@
             this.colTotal.VisibleIndex = 8;
             this.colTotal.Width = 106;
             // 
-            // dtAnio
+            // groupControl1
             // 
-            this.dtAnio.EditValue = null;
-            this.dtAnio.Location = new System.Drawing.Point(57, 60);
-            this.dtAnio.Name = "dtAnio";
-            this.dtAnio.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dtAnio.Properties.Appearance.Options.UseFont = true;
-            this.dtAnio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtAnio.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
-            this.dtAnio.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtAnio.Size = new System.Drawing.Size(151, 24);
-            this.dtAnio.TabIndex = 91;
-            this.dtAnio.EditValueChanged += new System.EventHandler(this.dtAnio_EditValueChanged);
+            this.groupControl1.Controls.Add(this.dtMes);
+            this.groupControl1.Controls.Add(this.btnRefresh);
+            this.groupControl1.Location = new System.Drawing.Point(12, 49);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(353, 78);
+            this.groupControl1.TabIndex = 92;
+            this.groupControl1.Text = "Seleccione Mes y Año";
             // 
             // frmReporteVentasXMes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 663);
-            this.Controls.Add(this.dtAnio);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.grdRpt);
             this.Controls.Add(this.cmdVerFacturas);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.cmdSalir);
             this.Controls.Add(this.cmdExcel);
-            this.Controls.Add(this.dtMes);
-            this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.btnRefresh);
             this.IconOptions.ShowIcon = false;
             this.Name = "frmReporteVentasXMes";
             ((System.ComponentModel.ISupportInitialize)(this.dtMes.Properties.CalendarTimeProperties)).EndInit();
@@ -352,8 +320,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdRpt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportesBasicosConta1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtAnio.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtAnio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,8 +334,6 @@
         private DevExpress.XtraEditors.SimpleButton cmdSalir;
         private DevExpress.XtraEditors.SimpleButton cmdExcel;
         private DevExpress.XtraEditors.DateEdit dtMes;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
         private DevExpress.XtraGrid.GridControl grdRpt;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -381,6 +347,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colGravable_18;
         private DevExpress.XtraGrid.Columns.GridColumn colISV18;
         private DevExpress.XtraGrid.Columns.GridColumn colTotal;
-        private DevExpress.XtraEditors.DateEdit dtAnio;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }
