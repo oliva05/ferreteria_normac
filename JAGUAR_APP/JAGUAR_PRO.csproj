@@ -1032,6 +1032,12 @@
     <Compile Include="Contabilidad\Reportes\frmReporteVentasResumenConta.Designer.cs">
       <DependentUpon>frmReporteVentasResumenConta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contabilidad\Reportes\frmReporteVentasXMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Reportes\frmReporteVentasXMes.Designer.cs">
+      <DependentUpon>frmReporteVentasXMes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Despachos\dsTransaccionesDespacho.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4618,6 +4624,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\Reportes\frmReporteVentasResumenConta.resx">
       <DependentUpon>frmReporteVentasResumenConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Reportes\frmReporteVentasXMes.resx">
+      <DependentUpon>frmReporteVentasXMes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Despachos\frmentregadeproductoT.resx">
       <DependentUpon>frmentregadeproductoT.cs</DependentUpon>
