@@ -523,7 +523,7 @@ namespace administracion.Huellas
             try
             {
                 CheckForIllegalCrossThreadCalls = false;
-                fingerPrint.StopCapture(sender);
+                //fingerPrint.StopCapture(sender);
                 fingerPrint.CaptureFinalize();
                 fingerPrint.Finalizer();
 

@@ -1,5 +1,6 @@
 ﻿//using GriauleFingerprintLibrary;
 using ACS.Classes;
+using core.Clases.Huellas;
 using GriauleFingerprintLibrary;
 using System;
 using System.Collections.Generic;
@@ -25,10 +26,11 @@ namespace Proyecto.Huellas
         public frm_addHuella()
         {
             InitializeComponent();
-            fingerprint = new FingerprintCore();
-            fingerprint.onStatus += new StatusEventHandler(Fingerprint_onStatus);
-            fingerprint.onImage += new ImageEventHandler(FingerPrint_onImage);
-            //fingerprint.StartCapture();
+            //fingerprint = new FingerprintCore();
+            //fingerprint.onStatus += new StatusEventHandler(Fingerprint_onStatus);
+            //fingerprint.onImage += new ImageEventHandler(FingerPrint_onImage);
+            ////fingerprint.StartCapture();
+
         }
 
         void Fingerprint_onStatus(object sender, GriauleFingerprintLibrary.Events.StatusEventArgs se)
@@ -43,16 +45,68 @@ namespace Proyecto.Huellas
                 else
                 {
                     CajaDialogo.Error("SENSOR NO DETECTADO, FAVOR VERIFICAR");
-                    fingerprint.StopCapture(sender);
+                    //fingerprint.StopCapture(sender);
+                    //fingerprint.CaptureFinalize();
+                    //fingerprint.Finalizer();
                     cmdCancelar_Click(new object(), new EventArgs());
                 }
-
             }
             catch (Exception ERROR)
             {
                 CajaDialogo.Error(ERROR.Message);
             }
         }
+
+        void FingerPrint_onImage(object sender, GriauleFingerprintLibrary.Events.ImageEventArgs se)
+        {
+
+            rawimage = se.RawImage;
+            SetImage(se.RawImage.Image);
+            //ExtractTemplate();
+
+            //if (rawimage != null)
+            //{
+            //    if (Convert.ToDouble(pbQuality.Position) > 60)
+            //    {
+            //        cmdGuardar_Click(new object(), new EventArgs());
+            //    }
+            //    else
+            //        CajaDialogo.Error("Huella muy debil");
+
+            //}
+            bool Guardo = false;
+            if (rawimage != null)
+            {
+                try
+                {
+                    fingerprint.StartCapture(sender.ToString());
+                }
+                catch { }
+
+                try
+                {
+                    _template = null;
+                    fingerprint.Extract(rawimage, ref _template);
+                    SetQualityBar(_template.Quality);
+                    DisplayImage(_template, false);
+                    Thread.Sleep(600);
+
+                    if (Convert.ToDouble(pbQuality.Position) > 60)
+                    {
+                        Guardo = true;
+                        cmdGuardar_Click(new object(), new EventArgs());
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+
+            if (!Guardo)
+                FingerPrint_onImage(sender, se);
+        }
+
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -67,8 +121,21 @@ namespace Proyecto.Huellas
 
         private void frm_addHuella_Load(object sender, EventArgs e)
         {
-            //fingerprint.Initialize();
-            //fingerprint.CaptureInitialize();
+            ////fingerprint.Initialize();
+            ////fingerprint.CaptureInitialize();
+            //try
+            //{
+            //    CheckForIllegalCrossThreadCalls = false;
+            //    fingerprint = new GriauleFingerprintLibrary.FingerprintCore();
+
+            //    fingerprint.onStatus += new GriauleFingerprintLibrary.StatusEventHandler(Fingerprint_onStatus);
+            //    fingerprint.onImage += new GriauleFingerprintLibrary.ImageEventHandler(FingerPrint_onImage);
+
+            //    //fingerprint.Initialize();
+            //    //fingerprint.CaptureInitialize();
+
+            //}
+            //catch { }
             try
             {
                 CheckForIllegalCrossThreadCalls = false;
@@ -82,7 +149,7 @@ namespace Proyecto.Huellas
             }
             catch { }
         }
-
+        
         private delegate void delSetImage(Image img);
         void SetImage(Image img)
         {
@@ -106,6 +173,7 @@ namespace Proyecto.Huellas
                     _template = null;
                     fingerprint.Extract(rawimage, ref _template);
                     SetQualityBar(_template.Quality);
+                    CalidadHuellaInt = _template.Quality;
                     DisplayImage(_template, false);
                 }
                 catch
@@ -131,21 +199,7 @@ namespace Proyecto.Huellas
             FingerprintCore.ReleaseDC(hdc_);
         }
 
-        void FingerPrint_onImage(object sender, GriauleFingerprintLibrary.Events.ImageEventArgs se)
-        {
-
-            rawimage = se.RawImage;
-            SetImage(se.RawImage.Image);
-            ExtractTemplate();
-
-            if (Convert.ToDouble(pbQuality.Position) > 60)
-            {
-                cmdGuardar_Click(new object(), new EventArgs());
-            }
-            else
-                CajaDialogo.Error("Huella muy debil");
-
-        }
+        
 
         delegate void delsetQualityBar(int quality);
         void SetQualityBar(int quality)
@@ -206,7 +260,14 @@ namespace Proyecto.Huellas
                 //tr.Start();
                 //fingerprint.CaptureFinalize();
                 //fingerprint.Finalizer();
+
+                CheckForIllegalCrossThreadCalls = false;
+                //fingerprint.StopCapture(sender);
+                fingerprint.CaptureFinalize();
+                fingerprint.Finalizer();
+
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
             }
             else
             {
@@ -216,27 +277,23 @@ namespace Proyecto.Huellas
 
         private void cmdCancelar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    fingerprint.CaptureFinalize();
-            //    //fingerprint.StopCapture(sender);
-            //    fingerprint.Finalizer();
-            //    this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            //}
-            //catch(Exception ex) 
-            //{
-
-            //}
-
             try
             {
                 //CheckForIllegalCrossThreadCalls = false;
-                //fingerprint.StopCapture(sender);
+                //fingerprint.Initialize();
+                //fingerprint.CaptureInitialize();
+
                 //fingerprint.CaptureFinalize();
                 //fingerprint.Finalizer();
+                CheckForIllegalCrossThreadCalls = false;
+                //fingerprint.StopCapture(sender);
+                fingerprint.CaptureFinalize();
+                fingerprint.Finalizer();
 
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         private void frm_addHuella_FormClosing(object sender, FormClosingEventArgs e)
@@ -249,10 +306,16 @@ namespace Proyecto.Huellas
 
                 //fingerprint.CaptureFinalize();
                 //fingerprint.Finalizer();
+                CheckForIllegalCrossThreadCalls = false;
+                //fingerprint.StopCapture(sender);
+                fingerprint.CaptureFinalize();
+                fingerprint.Finalizer();
+
             }
             catch
             {
             }
+            
         }
     }
 }
