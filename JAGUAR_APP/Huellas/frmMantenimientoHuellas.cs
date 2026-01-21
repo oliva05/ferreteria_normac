@@ -441,8 +441,8 @@ namespace Proyecto.Huellas
                             break;
                         case 9:
                             h9 = frmDetectarHuella._template;
-                            AddRowMano(h9, Calidad9, pMano);
                             Calidad9 = frmDetectarHuella.CalidadHuellaInt;
+                            AddRowMano(h9, Calidad9, pMano);
                             break;
                         case 10:
                             h10 = frmDetectarHuella._template;

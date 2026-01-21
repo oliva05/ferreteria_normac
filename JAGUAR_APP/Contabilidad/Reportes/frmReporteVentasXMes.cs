@@ -59,6 +59,7 @@ namespace JAGUAR_PRO.Contabilidad.Reportes
                 dp = new DataOperations();
                 SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
+                //asdf
 
                 SqlCommand cmd = new SqlCommand("dbo.sp_conta_get_ventas_x_mes", con);
                 cmd.CommandType = CommandType.StoredProcedure;

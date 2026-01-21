@@ -88,7 +88,6 @@
             this.cmdGuardar.TabIndex = 34;
             this.cmdGuardar.Text = "OK ";
             this.cmdGuardar.UseVisualStyleBackColor = true;
-            this.cmdGuardar.Visible = false;
             this.cmdGuardar.Click += new System.EventHandler(this.cmdGuardar_Click);
             // 
             // cmdCancelar
