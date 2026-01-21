@@ -346,8 +346,11 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     switch (row.estadoId)
                     {
                         case 1://creado
-                            Permitir = false;
-                            break;
+                            rptRecuentoInventario rptcompraCreado = new rptRecuentoInventario(row.id_recuento, rptRecuentoInventario.TipoVista.Creado);
+                            rptcompraCreado.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                            ReportPrintTool printOrden2 = new DevExpress.XtraReports.UI.ReportPrintTool(rptcompraCreado);
+                            printOrden2.ShowPreview();
+                        break;
 
                         case 2://aprobado
                             Permitir = false;
