@@ -15,7 +15,8 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
         public enum TipoVista
         {
             PendienteAprobacion = 1,
-            Completado = 2
+            Completado = 2,
+            Creado = 3
         }
         TipoVista tipoVista;
         public rptRecuentoInventario(int PidRecuento, rptRecuentoInventario.TipoVista tipo)
@@ -54,14 +55,19 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
                     case TipoVista.PendienteAprobacion:
                         xrTable2.Visible = false;
                         xrTotalLps.Text = "Re Chequeo";
-                        GetDetalleRecuento(PidRecuento, IsComplete = false);
+                        GetDetalleRecuento(PidRecuento, TipoVista.PendienteAprobacion);
                         break;
 
                     case TipoVista.Completado:
                         xrTable2.Visible = true;
-                        GetDetalleRecuento(PidRecuento, IsComplete = true);
+                        GetDetalleRecuento(PidRecuento, TipoVista.Completado);
                         break;
 
+                    case TipoVista.Creado:
+                        xrTable2.Visible = false;
+                        xrTotalLps.Text = "Re Chequeo";
+                        GetDetalleRecuento(PidRecuento, TipoVista.Creado);
+                        break;
                     default:
 
                         break;
@@ -103,18 +109,19 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
             }
         }
 
-        private void GetDetalleRecuento(int PidRecuento, bool pIsComplete)
+        private void GetDetalleRecuento(int PidRecuento, TipoVista tipoVista)
         {
             try
             {
-                string query = @"[sp_rpt_get_recuento_inventarioV2]";
+                //string query = @"[sp_rpt_get_recuento_inventarioV2]";
+                string query = @"[sp_rpt_get_recuento_inventarioV2_por_estado]";
                 DataOperations dp = new DataOperations();
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idRecuento", PidRecuento);
-                cmd.Parameters.AddWithValue("@IsComplete", pIsComplete);
+                cmd.Parameters.AddWithValue("@Type", tipoVista);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
                 dsRecuento1.rpt_detalle_recuento.Clear();
                 adat.Fill(dsRecuento1.rpt_detalle_recuento);
