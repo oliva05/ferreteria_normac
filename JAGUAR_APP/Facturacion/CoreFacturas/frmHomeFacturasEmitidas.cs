@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
+using Eatery.Ventas;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.Facturacion.Mantenimientos.Models;
 using JAGUAR_PRO.Facturacion.Reportes;
@@ -525,6 +526,17 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
         {
             //Revertir anulacion
 
+        }
+
+        private void cmdVerFactura_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var row = (dsFacturasGestion.HomeFacturasRow)gvFacturas.GetFocusedDataRow();
+            frmFacturaView frm = new frmFacturaView(this.UsuarioLogeado, this.PuntoDeVentaActual,EquipoActual, row.id);
+            if (this.MdiParent != null)
+            {
+                frm.MdiParent = this.MdiParent;
+            }
+            frm.Show();
         }
     }
 }
