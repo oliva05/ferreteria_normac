@@ -86,6 +86,7 @@ namespace Eatery.Ventas
                     txtNombreCliente.Text = FacturaActual.ClienteNombre;
                     txtRTN.Text = FacturaActual.RTN;
                     txtDireccion.Text = FacturaActual.direccion_cliente;
+                    lblTitulo.Text = "Factura: " + FacturaActual.NumeroDocumento;
 
                     string HostName = Dns.GetHostName();
                     PedidoCliente pedido = new PedidoCliente();
