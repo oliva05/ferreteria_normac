@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using administracion.Huellas;
 using Core.Clases.Herramientas;
 using DevExpress.Utils.TouchHelpers;
 using DevExpress.XtraEditors;
@@ -432,6 +433,17 @@ namespace JAGUAR_PRO
             //txtClave.Text = "Tempo1234";
 
             ValidateUserInfo();
+        }
+
+        private void simpleButton1_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                frmIdentificar frm = new frmIdentificar();
+                frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
+            catch { }
         }
     }
 }

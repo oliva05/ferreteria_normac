@@ -39,16 +39,15 @@ namespace JAGUAR_PRO
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.lblVersion = new System.Windows.Forms.Label();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.SaltarLogin = new DevExpress.XtraEditors.SimpleButton();
             this.cmdButtonSaltarLogin = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdMicros = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SaltarLoginPRD = new DevExpress.XtraEditors.SimpleButton();
             this.cmdAbrirTeclado = new DevExpress.XtraEditors.SimpleButton();
             this.cmdIngresarAdmin = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtClave.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -162,23 +161,6 @@ namespace JAGUAR_PRO
             this.lblVersion.TabIndex = 13;
             this.lblVersion.Text = "Ninguna";
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Orange;
-            this.simpleButton1.Appearance.BorderColor = System.Drawing.Color.MediumAquamarine;
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseBorderColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton1.Location = new System.Drawing.Point(325, 293);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(199, 59);
-            this.simpleButton1.TabIndex = 14;
-            this.simpleButton1.Text = "Alimentación";
-            this.simpleButton1.Visible = false;
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
-            // 
             // SaltarLogin
             // 
             this.SaltarLogin.Appearance.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -212,23 +194,6 @@ namespace JAGUAR_PRO
             this.cmdButtonSaltarLogin.Text = "Montacarga";
             this.cmdButtonSaltarLogin.Visible = false;
             this.cmdButtonSaltarLogin.Click += new System.EventHandler(this.cmdButtonSaltarLogin_Click);
-            // 
-            // cmdMicros
-            // 
-            this.cmdMicros.Appearance.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.cmdMicros.Appearance.BorderColor = System.Drawing.Color.PaleTurquoise;
-            this.cmdMicros.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdMicros.Appearance.Options.UseBackColor = true;
-            this.cmdMicros.Appearance.Options.UseBorderColor = true;
-            this.cmdMicros.Appearance.Options.UseFont = true;
-            this.cmdMicros.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.cmdMicros.Location = new System.Drawing.Point(325, 358);
-            this.cmdMicros.Name = "cmdMicros";
-            this.cmdMicros.Size = new System.Drawing.Size(199, 59);
-            this.cmdMicros.TabIndex = 16;
-            this.cmdMicros.Text = "Micro Ingredientes";
-            this.cmdMicros.Visible = false;
-            this.cmdMicros.Click += new System.EventHandler(this.cmdMicros_Click);
             // 
             // simpleButton2
             // 
@@ -314,6 +279,23 @@ namespace JAGUAR_PRO
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.White;
+            this.simpleButton1.Appearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseBorderColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(325, 293);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(199, 59);
+            this.simpleButton1.TabIndex = 22;
+            this.simpleButton1.Text = "Reloj de marcaje";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_2);
+            // 
             // frmMain
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -322,14 +304,13 @@ namespace JAGUAR_PRO
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 585);
             this.ControlBox = false;
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdIngresarAdmin);
             this.Controls.Add(this.cmdAbrirTeclado);
             this.Controls.Add(this.SaltarLoginPRD);
             this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.cmdMicros);
             this.Controls.Add(this.SaltarLogin);
-            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.cmdButtonSaltarLogin);
             this.Controls.Add(this.pictureBox1);
@@ -365,15 +346,14 @@ namespace JAGUAR_PRO
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private System.Windows.Forms.Label lblVersion;
-        private SimpleButton simpleButton1;
         private SimpleButton SaltarLogin;
         private SimpleButton cmdButtonSaltarLogin;
-        private SimpleButton cmdMicros;
         private SimpleButton simpleButton2;
         private SimpleButton SaltarLoginPRD;
         private SimpleButton cmdAbrirTeclado;
         private SimpleButton cmdIngresarAdmin;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private SimpleButton simpleButton1;
     }
 }
 
