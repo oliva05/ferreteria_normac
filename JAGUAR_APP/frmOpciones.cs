@@ -6787,7 +6787,8 @@ namespace JAGUAR_PRO
         private void navBarItem351_LinkClicked_1(object sender, NavBarLinkEventArgs e)
         {
             frmRptMarcaje frm = new frmRptMarcaje(UsuarioLogeado);
-            frm.ShowDialog();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
         }
 
         private void nbReporteVentas_LinkClicked(object sender, NavBarLinkEventArgs e)
