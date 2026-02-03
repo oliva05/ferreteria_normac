@@ -25,11 +25,17 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
         {
             InitializeComponent();
             UsuarioLogueado = userLogin;
-            dtDesde.DateTime = dp.dNow().AddDays(-1);
-            dtHasta.DateTime = dp.dNow().Date.AddDays(1).AddSeconds(-1); // hoy, 23:59:59
 
-            deFechaInicial.DateTime = dp.dNow().AddDays(-1);
-            deFechaFinal.DateTime = dp.dNow().Date.AddDays(1).AddSeconds(-1); // hoy, 23:59:59
+            DateTime Desde = dp.dNow();
+            Desde = new DateTime(Desde.Year, Desde.Month, Desde.Day, 0, 0, 0);
+            dtDesde.DateTime = Desde;
+            deFechaInicial.DateTime = Desde;
+
+            DateTime Hasta = Desde;
+            Hasta = new DateTime(Hasta.Year, Hasta.Month, Hasta.Day, 23, 59, 0);
+
+            dtHasta.DateTime = Hasta; // hoy, 23:59:59
+            deFechaFinal.DateTime = Hasta; // hoy, 23:59:59
             LoadDataGeneral();
         }
 
