@@ -1440,6 +1440,12 @@
     <Compile Include="Facturacion\CoreFacturas\frmElejirTipoPagoEditFactura.Designer.cs">
       <DependentUpon>frmElejirTipoPagoEditFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\CoreFacturas\frmFacturaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\CoreFacturas\frmFacturaView.Designer.cs">
+      <DependentUpon>frmFacturaView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\CoreFacturas\frmFactura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4777,6 +4783,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\CoreFacturas\frmElejirTipoPagoEditFactura.resx">
       <DependentUpon>frmElejirTipoPagoEditFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\CoreFacturas\frmFacturaView.resx">
+      <DependentUpon>frmFacturaView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\CoreFacturas\frmFactura.resx">
       <DependentUpon>frmFactura.cs</DependentUpon>

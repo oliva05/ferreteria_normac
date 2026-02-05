@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRptMarcaje));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.TabGeneral = new DevExpress.XtraTab.XtraTabPage();
             this.dtHasta = new DevExpress.XtraEditors.DateEdit();
@@ -75,6 +80,8 @@
             this.btnCargarDatosAcumulados = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportarAcumulados = new DevExpress.XtraEditors.SimpleButton();
             this.dsReporte1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.TabGeneral.SuspendLayout();
@@ -96,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcAcumulados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAcumulados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReporte1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -104,7 +112,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.TabGeneral;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1366, 703);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1180, 586);
             this.xtraTabControl1.TabIndex = 25;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabGeneral,
@@ -353,7 +361,7 @@
             this.TabByEmpleado.Controls.Add(this.btnCargarDatosAcumulados);
             this.TabByEmpleado.Controls.Add(this.btnExportarAcumulados);
             this.TabByEmpleado.Name = "TabByEmpleado";
-            this.TabByEmpleado.Size = new System.Drawing.Size(1364, 670);
+            this.TabByEmpleado.Size = new System.Drawing.Size(1178, 553);
             this.TabByEmpleado.Text = "Reporte por Empleado";
             // 
             // deFechaFinal
@@ -456,12 +464,11 @@
             // 
             // btnCambiarImagen
             // 
-            this.btnCambiarImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCambiarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiarImagen.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambiarImagen.Image = global::JAGUAR_PRO.Properties.Resources._click_32X32;
             this.btnCambiarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCambiarImagen.Location = new System.Drawing.Point(1030, 40);
+            this.btnCambiarImagen.Location = new System.Drawing.Point(814, 54);
             this.btnCambiarImagen.Name = "btnCambiarImagen";
             this.btnCambiarImagen.Size = new System.Drawing.Size(137, 39);
             this.btnCambiarImagen.TabIndex = 39;
@@ -480,7 +487,9 @@
             this.gcAcumulados.Location = new System.Drawing.Point(1, 99);
             this.gcAcumulados.MainView = this.gvAcumulados;
             this.gcAcumulados.Name = "gcAcumulados";
-            this.gcAcumulados.Size = new System.Drawing.Size(1362, 566);
+            this.gcAcumulados.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmdEliminar});
+            this.gcAcumulados.Size = new System.Drawing.Size(1176, 449);
             this.gcAcumulados.TabIndex = 31;
             this.gcAcumulados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAcumulados});
@@ -495,7 +504,8 @@
             this.colfecha1,
             this.colhora_cerrada,
             this.colid_tipo_marca,
-            this.coltipo_marca});
+            this.coltipo_marca,
+            this.colDelete});
             this.gvAcumulados.GridControl = this.gcAcumulados;
             this.gvAcumulados.Name = "gvAcumulados";
             this.gvAcumulados.OptionsView.ShowAutoFilterRow = true;
@@ -591,7 +601,7 @@
             this.btnCargarDatosAcumulados.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCargarDatosAcumulados.Appearance.Options.UseFont = true;
             this.btnCargarDatosAcumulados.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCargarDatosAcumulados.ImageOptions.Image")));
-            this.btnCargarDatosAcumulados.Location = new System.Drawing.Point(878, 40);
+            this.btnCargarDatosAcumulados.Location = new System.Drawing.Point(671, 54);
             this.btnCargarDatosAcumulados.Name = "btnCargarDatosAcumulados";
             this.btnCargarDatosAcumulados.Size = new System.Drawing.Size(137, 39);
             this.btnCargarDatosAcumulados.TabIndex = 26;
@@ -603,7 +613,7 @@
             this.btnExportarAcumulados.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportarAcumulados.Appearance.Options.UseFont = true;
             this.btnExportarAcumulados.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportarAcumulados.ImageOptions.Image")));
-            this.btnExportarAcumulados.Location = new System.Drawing.Point(1186, 40);
+            this.btnExportarAcumulados.Location = new System.Drawing.Point(957, 54);
             this.btnExportarAcumulados.Name = "btnExportarAcumulados";
             this.btnExportarAcumulados.Size = new System.Drawing.Size(116, 39);
             this.btnExportarAcumulados.TabIndex = 27;
@@ -616,11 +626,29 @@
             this.dsReporte1BindingSource.DataSource = this.dsReporte1;
             this.dsReporte1BindingSource.Position = 0;
             // 
+            // colDelete
+            // 
+            this.colDelete.Caption = "Eliminar";
+            this.colDelete.ColumnEdit = this.cmdEliminar;
+            this.colDelete.Name = "colDelete";
+            this.colDelete.Visible = true;
+            this.colDelete.VisibleIndex = 5;
+            // 
+            // cmdEliminar
+            // 
+            this.cmdEliminar.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.cmdEliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdEliminar.Name = "cmdEliminar";
+            this.cmdEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEliminar_ButtonClick);
+            // 
             // frmRptMarcaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 703);
+            this.ClientSize = new System.Drawing.Size(1180, 586);
             this.Controls.Add(this.xtraTabControl1);
             this.IconOptions.ShowIcon = false;
             this.Name = "frmRptMarcaje";
@@ -647,6 +675,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcAcumulados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAcumulados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReporte1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -698,5 +727,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colhoras_trabajadas;
         private DevExpress.XtraGrid.Columns.GridColumn colhoras_legales;
         private DevExpress.XtraGrid.Columns.GridColumn colhoras_extras;
+        private DevExpress.XtraGrid.Columns.GridColumn colDelete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdEliminar;
     }
 }

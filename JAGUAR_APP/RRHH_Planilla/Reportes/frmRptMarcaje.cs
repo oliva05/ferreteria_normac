@@ -1,8 +1,10 @@
 ﻿using ACS.Classes;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
+using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,11 +27,17 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
         {
             InitializeComponent();
             UsuarioLogueado = userLogin;
-            dtDesde.DateTime = dp.dNow().AddDays(-1);
-            dtHasta.DateTime = dp.dNow().Date.AddDays(1).AddSeconds(-1); // hoy, 23:59:59
 
-            deFechaInicial.DateTime = dp.dNow().AddDays(-1);
-            deFechaFinal.DateTime = dp.dNow().Date.AddDays(1).AddSeconds(-1); // hoy, 23:59:59
+            DateTime Desde = dp.dNow();
+            Desde = new DateTime(Desde.Year, Desde.Month, Desde.Day, 0, 0, 0);
+            dtDesde.DateTime = Desde;
+            deFechaInicial.DateTime = Desde;
+
+            DateTime Hasta = Desde;
+            Hasta = new DateTime(Hasta.Year, Hasta.Month, Hasta.Day, 23, 59, 0);
+
+            dtHasta.DateTime = Hasta; // hoy, 23:59:59
+            deFechaFinal.DateTime = Hasta; // hoy, 23:59:59
             LoadDataGeneral();
         }
 
@@ -167,6 +175,35 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 gcBreak.ExportToXlsx(dialog.FileName);
+            }
+        }
+
+        private void cmdEliminar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            DialogResult r = CajaDialogo.Pregunta("Esta seguro de elminar este registro de marca?");
+            if (r != DialogResult.Yes)
+                return;
+
+            try
+            {
+                var gv = (GridView)gcAcumulados.FocusedView;
+                var row = (dsReporte.get_marcas_by_empleadoRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+                string query = @"sp_set_marca_eliminar";
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@IdEmpleado", Convert.ToInt32(grdEmployee.EditValue));
+                cmd.Parameters.AddWithValue("@id", row.id);
+                cmd.Parameters.AddWithValue("@enable", 0);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                LoadData();
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
             }
         }
     }
