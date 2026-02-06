@@ -1,6 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using JAGUAR_PRO.Accesos;
 using JAGUAR_PRO.Accesos.AccesosUsuarios;
 using JAGUAR_PRO.Clases;
 using LOSA.Calidad.LoteConfConsumo;
@@ -24,7 +25,19 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
         public hr_employee EmpleadoActual = new hr_employee();
         int IdEmpleadoActual;
         UserLogin UsuarioLogueado;
-        DataOperations dp = new DataOperations();   
+        DataOperations dp = new DataOperations();
+
+        Int64 IdMarca;
+        int IdTipoMarca;
+        DateTime FechaMarca;
+
+        public enum  Operacion 
+        {
+            Nueva = 1,
+            Editar = 2
+        }
+        Operacion TipoOp = new Operacion();
+
         public frnEmployeeBrandManual(UserLogin user, int pidEmp)
         {
             InitializeComponent();
@@ -36,6 +49,60 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             {
                 txtEmpleado.Text = EmpleadoActual.Barcode + " - " + EmpleadoActual.Name;
                
+            }
+            TipoOp = Operacion.Nueva;
+         
+        }
+
+        public frnEmployeeBrandManual(UserLogin user, int pidEmp, int pidMarca)
+        {
+            InitializeComponent();
+            LoadData();
+            UsuarioLogueado = user;
+            IdEmpleadoActual = pidEmp;
+
+            if (EmpleadoActual.GetById(IdEmpleadoActual))
+            {
+                txtEmpleado.Text = EmpleadoActual.Barcode + " - " + EmpleadoActual.Name;
+            }
+
+            cmdBuscar.Visible = false;
+            TipoOp = Operacion.Editar;
+
+            if (pidMarca > 0) 
+            {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                    {
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand("[sp_get_marcas_by_id]", conn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@IdMarca", pidMarca);
+                            SqlDataReader dr = cmd.ExecuteReader();
+                            if (dr.Read())
+                            {
+                                IdMarca = dr.GetInt64(0);
+                                FechaMarca = dr.GetDateTime(1);
+                                    dtFechaHora.DateTime = FechaMarca;
+                                IdTipoMarca = dr.GetInt32(2);
+                                    grdTipoMarca.EditValue = IdTipoMarca;
+                                dr.Close();
+                            }
+                        }
+                    }
+
+                }
+                catch (SqlException sqlEx)
+                {
+                    CajaDialogo.Error($"Error SQL: {sqlEx.Message}");
+                }
+                catch (Exception ex)
+                {
+                    CajaDialogo.Error($"Error general: {ex.Message}");
+                }
+
             }
 
         }
@@ -99,26 +166,61 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 return;
             }
 
-            try
+            switch (TipoOp)
             {
-                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_insert_marca_manual", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_employee",IdEmpleadoActual);
-                cmd.Parameters.AddWithValue("@fecha",dtFechaHora.DateTime);
-                cmd.Parameters.AddWithValue("@id_tipo_marca",Convert.ToInt32(grdTipoMarca.EditValue));
-                cmd.Parameters.AddWithValue("@user_log",UsuarioLogueado.Id);
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                case Operacion.Nueva:
 
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    try
+                    {
+                        SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("sp_insert_marca_manual", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id_employee", IdEmpleadoActual);
+                        cmd.Parameters.AddWithValue("@fecha", dtFechaHora.DateTime);
+                        cmd.Parameters.AddWithValue("@id_tipo_marca", Convert.ToInt32(grdTipoMarca.EditValue));
+                        cmd.Parameters.AddWithValue("@user_log", UsuarioLogueado.Id);
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    catch (Exception EX)
+                    {
+                        CajaDialogo.Error(EX.Message);
+                    }
+
+                    break;
+                case Operacion.Editar:
+
+                    try
+                    {
+                        SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("[sp_update_marca_manual]", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id_employee", IdEmpleadoActual);
+                        cmd.Parameters.AddWithValue("@fecha", dtFechaHora.DateTime);
+                        cmd.Parameters.AddWithValue("@id_tipo_marca", Convert.ToInt32(grdTipoMarca.EditValue));
+                        cmd.Parameters.AddWithValue("@idMarca", IdMarca);
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    catch (Exception EX)
+                    {
+                        CajaDialogo.Error(EX.Message);
+                    }
+
+                    break;
+                default:
+                    break;
             }
-            catch (Exception EX)
-            {
-                CajaDialogo.Error(EX.Message);
-            }
+
+            
         }
     }
 }

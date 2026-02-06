@@ -35,6 +35,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.TabGeneral = new DevExpress.XtraTab.XtraTabPage();
             this.dtHasta = new DevExpress.XtraEditors.DateEdit();
@@ -77,6 +82,8 @@
             this.coltipo_marca = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colEditar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.btnCargarDatosAcumulados = new DevExpress.XtraEditors.SimpleButton();
@@ -103,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcAcumulados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAcumulados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReporte1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -281,7 +289,7 @@
             // 
             // colhoras_legales
             // 
-            this.colhoras_legales.Caption = "Horas Legales";
+            this.colhoras_legales.Caption = "Horas Base";
             this.colhoras_legales.DisplayFormat.FormatString = "N2";
             this.colhoras_legales.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colhoras_legales.FieldName = "horas_legales";
@@ -488,7 +496,8 @@
             this.gcAcumulados.MainView = this.gvAcumulados;
             this.gcAcumulados.Name = "gcAcumulados";
             this.gcAcumulados.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.cmdEliminar});
+            this.cmdEliminar,
+            this.cmdEditar});
             this.gcAcumulados.Size = new System.Drawing.Size(1176, 449);
             this.gcAcumulados.TabIndex = 31;
             this.gcAcumulados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -505,7 +514,8 @@
             this.colhora_cerrada,
             this.colid_tipo_marca,
             this.coltipo_marca,
-            this.colDelete});
+            this.colDelete,
+            this.colEditar});
             this.gvAcumulados.GridControl = this.gcAcumulados;
             this.gvAcumulados.Name = "gvAcumulados";
             this.gvAcumulados.OptionsView.ShowAutoFilterRow = true;
@@ -531,6 +541,7 @@
             this.colbarcode.OptionsColumn.ReadOnly = true;
             this.colbarcode.Visible = true;
             this.colbarcode.VisibleIndex = 0;
+            this.colbarcode.Width = 90;
             // 
             // colnombre1
             // 
@@ -540,6 +551,7 @@
             this.colnombre1.OptionsColumn.ReadOnly = true;
             this.colnombre1.Visible = true;
             this.colnombre1.VisibleIndex = 1;
+            this.colnombre1.Width = 176;
             // 
             // colfecha1
             // 
@@ -551,6 +563,7 @@
             this.colfecha1.OptionsColumn.ReadOnly = true;
             this.colfecha1.Visible = true;
             this.colfecha1.VisibleIndex = 2;
+            this.colfecha1.Width = 176;
             // 
             // colhora_cerrada
             // 
@@ -560,6 +573,7 @@
             this.colhora_cerrada.OptionsColumn.ReadOnly = true;
             this.colhora_cerrada.Visible = true;
             this.colhora_cerrada.VisibleIndex = 3;
+            this.colhora_cerrada.Width = 176;
             // 
             // colid_tipo_marca
             // 
@@ -575,6 +589,7 @@
             this.coltipo_marca.OptionsColumn.ReadOnly = true;
             this.coltipo_marca.Visible = true;
             this.coltipo_marca.VisibleIndex = 4;
+            this.coltipo_marca.Width = 253;
             // 
             // colDelete
             // 
@@ -582,7 +597,8 @@
             this.colDelete.ColumnEdit = this.cmdEliminar;
             this.colDelete.Name = "colDelete";
             this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 5;
+            this.colDelete.VisibleIndex = 6;
+            this.colDelete.Width = 141;
             // 
             // cmdEliminar
             // 
@@ -593,6 +609,25 @@
             this.cmdEliminar.Name = "cmdEliminar";
             this.cmdEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEliminar_ButtonClick);
+            // 
+            // colEditar
+            // 
+            this.colEditar.Caption = "Editar";
+            this.colEditar.ColumnEdit = this.cmdEditar;
+            this.colEditar.Name = "colEditar";
+            this.colEditar.Visible = true;
+            this.colEditar.VisibleIndex = 5;
+            this.colEditar.Width = 137;
+            // 
+            // cmdEditar
+            // 
+            this.cmdEditar.AutoHeight = false;
+            editorButtonImageOptions2.Image = global::JAGUAR_PRO.Properties.Resources.editname_16x16;
+            this.cmdEditar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdEditar.Name = "cmdEditar";
+            this.cmdEditar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdEditar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEditar_ButtonClick);
             // 
             // labelControl5
             // 
@@ -675,6 +710,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcAcumulados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAcumulados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReporte1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -729,5 +765,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colhoras_extras;
         private DevExpress.XtraGrid.Columns.GridColumn colDelete;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdEliminar;
+        private DevExpress.XtraGrid.Columns.GridColumn colEditar;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdEditar;
     }
 }

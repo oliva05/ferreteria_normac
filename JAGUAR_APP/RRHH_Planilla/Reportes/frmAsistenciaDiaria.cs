@@ -17,5 +17,10 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
         {
             InitializeComponent();
         }
+
+        private void btnCargarDatosAcumulados_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

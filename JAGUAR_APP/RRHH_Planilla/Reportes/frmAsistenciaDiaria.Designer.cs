@@ -204,6 +204,7 @@
             this.btnCargarDatosAcumulados.Size = new System.Drawing.Size(137, 39);
             this.btnCargarDatosAcumulados.TabIndex = 46;
             this.btnCargarDatosAcumulados.Text = "Cargar Datos";
+            this.btnCargarDatosAcumulados.Click += new System.EventHandler(this.btnCargarDatosAcumulados_Click);
             // 
             // simpleButton1
             // 

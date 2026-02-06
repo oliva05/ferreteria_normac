@@ -206,5 +206,24 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
                 CajaDialogo.Error(ex.Message);
             }
         }
+
+        private void cmdEditar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(grdEmployee.Text))
+            {
+                CajaDialogo.Error("Debe seleccionar un empleado!");
+                return;
+            }
+
+            var gv = (GridView)gcAcumulados.FocusedView;
+            var row = (dsReporte.get_marcas_by_empleadoRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            frnEmployeeBrandManual frm = new frnEmployeeBrandManual(UsuarioLogueado, Convert.ToInt32(grdEmployee.EditValue), row.id);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
+        }
     }
 }
