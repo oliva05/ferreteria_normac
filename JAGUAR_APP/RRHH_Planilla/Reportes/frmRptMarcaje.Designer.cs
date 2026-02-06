@@ -132,7 +132,7 @@
             this.TabGeneral.Controls.Add(this.cmdExportar);
             this.TabGeneral.Name = "TabGeneral";
             this.TabGeneral.Size = new System.Drawing.Size(1178, 553);
-            this.TabGeneral.Text = "Reporte General";
+            this.TabGeneral.Text = "Reporte de General";
             // 
             // dtHasta
             // 
@@ -185,10 +185,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gcBreak.DataMember = "get_marcas_by_dates";
             this.gcBreak.DataSource = this.dsReporte1;
-            this.gcBreak.Location = new System.Drawing.Point(3, 104);
+            this.gcBreak.Location = new System.Drawing.Point(3, 78);
             this.gcBreak.MainView = this.gvBreak;
             this.gcBreak.Name = "gcBreak";
-            this.gcBreak.Size = new System.Drawing.Size(1172, 446);
+            this.gcBreak.Size = new System.Drawing.Size(1172, 472);
             this.gcBreak.TabIndex = 23;
             this.gcBreak.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBreak});
@@ -281,7 +281,7 @@
             // 
             // colhoras_legales
             // 
-            this.colhoras_legales.Caption = "Horas Base";
+            this.colhoras_legales.Caption = "Horas Legales";
             this.colhoras_legales.DisplayFormat.FormatString = "N2";
             this.colhoras_legales.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colhoras_legales.FieldName = "horas_legales";
