@@ -6910,6 +6910,11 @@ namespace JAGUAR_PRO
                 }
             }
         }
+
+        private void navBarItem352_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+
+        }
         //End Facturacion Usados
 
 

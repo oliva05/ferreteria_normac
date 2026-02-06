@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRptMarcaje));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.TabGeneral = new DevExpress.XtraTab.XtraTabPage();
             this.dtHasta = new DevExpress.XtraEditors.DateEdit();
@@ -75,13 +75,13 @@
             this.colhora_cerrada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_tipo_marca = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo_marca = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.btnCargarDatosAcumulados = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportarAcumulados = new DevExpress.XtraEditors.SimpleButton();
             this.dsReporte1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmdEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.TabGeneral.SuspendLayout();
@@ -102,8 +102,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcAcumulados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAcumulados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsReporte1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsReporte1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -131,8 +131,8 @@
             this.TabGeneral.Controls.Add(this.CargarDatos);
             this.TabGeneral.Controls.Add(this.cmdExportar);
             this.TabGeneral.Name = "TabGeneral";
-            this.TabGeneral.Size = new System.Drawing.Size(1364, 670);
-            this.TabGeneral.Text = "Reporte de General";
+            this.TabGeneral.Size = new System.Drawing.Size(1178, 553);
+            this.TabGeneral.Text = "Reporte General";
             // 
             // dtHasta
             // 
@@ -188,7 +188,7 @@
             this.gcBreak.Location = new System.Drawing.Point(3, 104);
             this.gcBreak.MainView = this.gvBreak;
             this.gcBreak.Name = "gcBreak";
-            this.gcBreak.Size = new System.Drawing.Size(1362, 566);
+            this.gcBreak.Size = new System.Drawing.Size(1172, 446);
             this.gcBreak.TabIndex = 23;
             this.gcBreak.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBreak});
@@ -281,7 +281,7 @@
             // 
             // colhoras_legales
             // 
-            this.colhoras_legales.Caption = "Horas Legales";
+            this.colhoras_legales.Caption = "Horas Base";
             this.colhoras_legales.DisplayFormat.FormatString = "N2";
             this.colhoras_legales.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colhoras_legales.FieldName = "horas_legales";
@@ -576,6 +576,24 @@
             this.coltipo_marca.Visible = true;
             this.coltipo_marca.VisibleIndex = 4;
             // 
+            // colDelete
+            // 
+            this.colDelete.Caption = "Eliminar";
+            this.colDelete.ColumnEdit = this.cmdEliminar;
+            this.colDelete.Name = "colDelete";
+            this.colDelete.Visible = true;
+            this.colDelete.VisibleIndex = 5;
+            // 
+            // cmdEliminar
+            // 
+            this.cmdEliminar.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.cmdEliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdEliminar.Name = "cmdEliminar";
+            this.cmdEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEliminar_ButtonClick);
+            // 
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -626,24 +644,6 @@
             this.dsReporte1BindingSource.DataSource = this.dsReporte1;
             this.dsReporte1BindingSource.Position = 0;
             // 
-            // colDelete
-            // 
-            this.colDelete.Caption = "Eliminar";
-            this.colDelete.ColumnEdit = this.cmdEliminar;
-            this.colDelete.Name = "colDelete";
-            this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 5;
-            // 
-            // cmdEliminar
-            // 
-            this.cmdEliminar.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
-            this.cmdEliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.cmdEliminar.Name = "cmdEliminar";
-            this.cmdEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.cmdEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdEliminar_ButtonClick);
-            // 
             // frmRptMarcaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -674,8 +674,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcAcumulados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAcumulados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsReporte1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsReporte1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
