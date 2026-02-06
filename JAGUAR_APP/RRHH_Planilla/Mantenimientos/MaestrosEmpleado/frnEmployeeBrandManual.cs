@@ -48,6 +48,8 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             UsuarioLogueado = user;
             IdEmpleadoActual = pidEmp;
             h1 = new Huella();
+            FechaMarca = dp.Now();
+            dtFechaHora.DateTime = FechaMarca;
             cantidad_marcas = h1.GetCantidadMarcasDelDia(this.IdEmpleadoActual, this.FechaMarca);
             lblCantMarcas.Text = cantidad_marcas.ToString();
 
@@ -172,6 +174,9 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 return;
             }
 
+            if (cantidad_marcas == 3)
+                tggCierreDia.IsOn = true;
+
             switch (TipoOp)
             {
                 case Operacion.Nueva:
@@ -180,12 +185,13 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     {
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand("sp_insert_marca_manual", conn);
+                        SqlCommand cmd = new SqlCommand("[sp_insert_marca_manual_v2]", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@id_employee", IdEmpleadoActual);
                         cmd.Parameters.AddWithValue("@fecha", dtFechaHora.DateTime);
                         cmd.Parameters.AddWithValue("@id_tipo_marca", Convert.ToInt32(grdTipoMarca.EditValue));
                         cmd.Parameters.AddWithValue("@user_log", UsuarioLogueado.Id);
+                        cmd.Parameters.AddWithValue("@generar_cierre", tggCierreDia.IsOn);
                         cmd.ExecuteNonQuery();
                         conn.Close();
 
@@ -262,7 +268,8 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
         private void dtFechaHora_EditValueChanged(object sender, EventArgs e)
         {
-            cantidad_marcas = h1.GetCantidadMarcasDelDia(this.IdEmpleadoActual, this.FechaMarca);
+            FechaMarca = dtFechaHora.DateTime;
+            cantidad_marcas = h1.GetCantidadMarcasDelDia(IdEmpleadoActual, FechaMarca);
             lblCantMarcas.Text = cantidad_marcas.ToString();
         }
     }
