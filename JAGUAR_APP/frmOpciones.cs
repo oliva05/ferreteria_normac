@@ -6914,7 +6914,39 @@ namespace JAGUAR_PRO
 
         private void navBarItem352_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
+            switch (idNivel)
+            {
+                case 1://Basic View
+                case 2://Basic No Autorization
+                case 3://Medium Autorization
+                    break;
+                case 4://Depth With Delta
+                    accesoprevio = true;
+                    frmAsistenciaDiaria frm5 = new frmAsistenciaDiaria();
+                    frm5.MdiParent = this.MdiParent;
+                    frm5.Show();
+                    break;
+                case 5://Depth Without Delta
+                    break;
+                default:
+                    break;
+            }
 
+            if (!accesoprevio)
+            {
+                //if (UsuarioLogeado.ValidarNivelPermisos())
+                //{
+                frmAsistenciaDiaria frm1 = new frmAsistenciaDiaria();
+                frm1.MdiParent = this.MdiParent;
+                frm1.Show();
+                //}
+                //else
+                //{
+                //    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #107");
+                //}
+            }
         }
         //End Facturacion Usados
 

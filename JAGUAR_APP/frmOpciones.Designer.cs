@@ -3708,7 +3708,6 @@
             this.navBarItem352.AppearancePressed.Options.UseFont = true;
             this.navBarItem352.Caption = "Asistencia Diaria";
             this.navBarItem352.Name = "navBarItem352";
-            this.navBarItem352.Visible = false;
             this.navBarItem352.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem352_LinkClicked);
             // 
             // navBarItem157

@@ -34,49 +34,28 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.deFechaInicial = new DevExpress.XtraEditors.DateEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.gcAcumulados = new DevExpress.XtraGrid.GridControl();
+            this.dsReporte1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes.dsReporte();
             this.gvAcumulados = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid_employee = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colbarcode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colnombre1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfecha1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colhora_cerrada = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid_tipo_marca = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltipo_marca = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colempleado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhora_entrada = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhora_salida_almuerzo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhora_entrada_almuerzo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhora_salida = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnCargarDatosAcumulados = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaInicial.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaInicial.Properties.CalendarTimeProperties)).BeginInit();
+            this.dtFecha = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gcAcumulados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsReporte1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAcumulados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFecha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFecha.Properties.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // deFechaInicial
-            // 
-            this.deFechaInicial.EditValue = null;
-            this.deFechaInicial.Location = new System.Drawing.Point(124, 52);
-            this.deFechaInicial.Name = "deFechaInicial";
-            this.deFechaInicial.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.deFechaInicial.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.deFechaInicial.Properties.Appearance.Options.UseFont = true;
-            this.deFechaInicial.Properties.Appearance.Options.UseForeColor = true;
-            this.deFechaInicial.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaInicial.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            this.deFechaInicial.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaInicial.Properties.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaInicial.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaInicial.Properties.EditFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaInicial.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaInicial.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.deFechaInicial.Size = new System.Drawing.Size(214, 26);
-            this.deFechaInicial.TabIndex = 44;
             // 
             // labelControl5
             // 
@@ -84,16 +63,17 @@
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(41, 57);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(77, 17);
+            this.labelControl5.Size = new System.Drawing.Size(36, 17);
             this.labelControl5.TabIndex = 43;
-            this.labelControl5.Text = "Fecha Desde:";
+            this.labelControl5.Text = "Fecha:";
             // 
             // gcAcumulados
             // 
             this.gcAcumulados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcAcumulados.DataMember = "get_marcas_by_empleado";
+            this.gcAcumulados.DataMember = "asistencia_diaria";
+            this.gcAcumulados.DataSource = this.dsReporte1;
             this.gcAcumulados.Location = new System.Drawing.Point(3, 124);
             this.gcAcumulados.MainView = this.gvAcumulados;
             this.gcAcumulados.Name = "gcAcumulados";
@@ -104,86 +84,98 @@
             this.gcAcumulados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAcumulados});
             // 
+            // dsReporte1
+            // 
+            this.dsReporte1.DataSetName = "dsReporte";
+            this.dsReporte1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // gvAcumulados
             // 
             this.gvAcumulados.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid1,
-            this.colid_employee,
-            this.colbarcode,
-            this.colnombre1,
-            this.colfecha1,
-            this.colhora_cerrada,
-            this.colid_tipo_marca,
-            this.coltipo_marca});
+            this.colcodigo,
+            this.colempleado,
+            this.colhora_entrada,
+            this.colhora_salida_almuerzo,
+            this.colhora_entrada_almuerzo,
+            this.colhora_salida,
+            this.colfecha});
             this.gvAcumulados.GridControl = this.gcAcumulados;
             this.gvAcumulados.Name = "gvAcumulados";
             this.gvAcumulados.OptionsView.ShowAutoFilterRow = true;
             this.gvAcumulados.OptionsView.ShowFooter = true;
             // 
-            // colid1
+            // colcodigo
             // 
-            this.colid1.FieldName = "id";
-            this.colid1.Name = "colid1";
-            this.colid1.OptionsColumn.ReadOnly = true;
+            this.colcodigo.Caption = "Codigo";
+            this.colcodigo.FieldName = "codigo";
+            this.colcodigo.Name = "colcodigo";
+            this.colcodigo.OptionsColumn.AllowEdit = false;
+            this.colcodigo.Visible = true;
+            this.colcodigo.VisibleIndex = 0;
             // 
-            // colid_employee
+            // colempleado
             // 
-            this.colid_employee.FieldName = "id_employee";
-            this.colid_employee.Name = "colid_employee";
-            this.colid_employee.OptionsColumn.ReadOnly = true;
+            this.colempleado.Caption = "Empleado";
+            this.colempleado.FieldName = "empleado";
+            this.colempleado.Name = "colempleado";
+            this.colempleado.OptionsColumn.AllowEdit = false;
+            this.colempleado.Visible = true;
+            this.colempleado.VisibleIndex = 1;
             // 
-            // colbarcode
+            // colhora_entrada
             // 
-            this.colbarcode.Caption = "Codigo";
-            this.colbarcode.FieldName = "barcode";
-            this.colbarcode.Name = "colbarcode";
-            this.colbarcode.OptionsColumn.ReadOnly = true;
-            this.colbarcode.Visible = true;
-            this.colbarcode.VisibleIndex = 0;
+            this.colhora_entrada.Caption = "Hora Entrada";
+            this.colhora_entrada.DisplayFormat.FormatString = "{0:t}";
+            this.colhora_entrada.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colhora_entrada.FieldName = "hora_entrada";
+            this.colhora_entrada.Name = "colhora_entrada";
+            this.colhora_entrada.OptionsColumn.AllowEdit = false;
+            this.colhora_entrada.Visible = true;
+            this.colhora_entrada.VisibleIndex = 3;
             // 
-            // colnombre1
+            // colhora_salida_almuerzo
             // 
-            this.colnombre1.Caption = "Empleado";
-            this.colnombre1.FieldName = "nombre";
-            this.colnombre1.Name = "colnombre1";
-            this.colnombre1.OptionsColumn.ReadOnly = true;
-            this.colnombre1.Visible = true;
-            this.colnombre1.VisibleIndex = 1;
+            this.colhora_salida_almuerzo.Caption = "H. Salida Almuerzo";
+            this.colhora_salida_almuerzo.DisplayFormat.FormatString = "{0:t}";
+            this.colhora_salida_almuerzo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colhora_salida_almuerzo.FieldName = "hora_salida_almuerzo";
+            this.colhora_salida_almuerzo.Name = "colhora_salida_almuerzo";
+            this.colhora_salida_almuerzo.OptionsColumn.AllowEdit = false;
+            this.colhora_salida_almuerzo.Visible = true;
+            this.colhora_salida_almuerzo.VisibleIndex = 4;
             // 
-            // colfecha1
+            // colhora_entrada_almuerzo
             // 
-            this.colfecha1.Caption = "Fecha y Hora";
-            this.colfecha1.DisplayFormat.FormatString = "g";
-            this.colfecha1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colfecha1.FieldName = "fecha";
-            this.colfecha1.Name = "colfecha1";
-            this.colfecha1.OptionsColumn.ReadOnly = true;
-            this.colfecha1.Visible = true;
-            this.colfecha1.VisibleIndex = 2;
+            this.colhora_entrada_almuerzo.Caption = "H. Entrada Almuerzo";
+            this.colhora_entrada_almuerzo.DisplayFormat.FormatString = "{0:t}";
+            this.colhora_entrada_almuerzo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colhora_entrada_almuerzo.FieldName = "hora_entrada_almuerzo";
+            this.colhora_entrada_almuerzo.Name = "colhora_entrada_almuerzo";
+            this.colhora_entrada_almuerzo.OptionsColumn.AllowEdit = false;
+            this.colhora_entrada_almuerzo.Visible = true;
+            this.colhora_entrada_almuerzo.VisibleIndex = 5;
             // 
-            // colhora_cerrada
+            // colhora_salida
             // 
-            this.colhora_cerrada.Caption = "Procesado";
-            this.colhora_cerrada.FieldName = "hora_cerrada";
-            this.colhora_cerrada.Name = "colhora_cerrada";
-            this.colhora_cerrada.OptionsColumn.ReadOnly = true;
-            this.colhora_cerrada.Visible = true;
-            this.colhora_cerrada.VisibleIndex = 3;
+            this.colhora_salida.Caption = "Hora Salida";
+            this.colhora_salida.DisplayFormat.FormatString = "{0:t}";
+            this.colhora_salida.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colhora_salida.FieldName = "hora_salida";
+            this.colhora_salida.Name = "colhora_salida";
+            this.colhora_salida.OptionsColumn.AllowEdit = false;
+            this.colhora_salida.Visible = true;
+            this.colhora_salida.VisibleIndex = 6;
             // 
-            // colid_tipo_marca
+            // colfecha
             // 
-            this.colid_tipo_marca.FieldName = "id_tipo_marca";
-            this.colid_tipo_marca.Name = "colid_tipo_marca";
-            this.colid_tipo_marca.OptionsColumn.ReadOnly = true;
-            // 
-            // coltipo_marca
-            // 
-            this.coltipo_marca.Caption = "Tipo de Marca";
-            this.coltipo_marca.FieldName = "tipo_marca";
-            this.coltipo_marca.Name = "coltipo_marca";
-            this.coltipo_marca.OptionsColumn.ReadOnly = true;
-            this.coltipo_marca.Visible = true;
-            this.coltipo_marca.VisibleIndex = 4;
+            this.colfecha.Caption = "Fecha";
+            this.colfecha.DisplayFormat.FormatString = "{0:d}";
+            this.colfecha.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colfecha.FieldName = "fecha";
+            this.colfecha.Name = "colfecha";
+            this.colfecha.OptionsColumn.AllowEdit = false;
+            this.colfecha.Visible = true;
+            this.colfecha.VisibleIndex = 2;
             // 
             // cmdEliminar
             // 
@@ -199,7 +191,7 @@
             this.btnCargarDatosAcumulados.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCargarDatosAcumulados.Appearance.Options.UseFont = true;
             this.btnCargarDatosAcumulados.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCargarDatosAcumulados.ImageOptions.Image")));
-            this.btnCargarDatosAcumulados.Location = new System.Drawing.Point(378, 46);
+            this.btnCargarDatosAcumulados.Location = new System.Drawing.Point(359, 46);
             this.btnCargarDatosAcumulados.Name = "btnCargarDatosAcumulados";
             this.btnCargarDatosAcumulados.Size = new System.Drawing.Size(137, 39);
             this.btnCargarDatosAcumulados.TabIndex = 46;
@@ -211,52 +203,68 @@
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.printer_32x32;
-            this.simpleButton1.Location = new System.Drawing.Point(547, 46);
+            this.simpleButton1.Location = new System.Drawing.Point(533, 46);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(137, 39);
             this.simpleButton1.TabIndex = 47;
             this.simpleButton1.Text = "Imprimir";
             this.simpleButton1.Visible = false;
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // dtFecha
+            // 
+            this.dtFecha.EditValue = null;
+            this.dtFecha.Location = new System.Drawing.Point(83, 54);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dtFecha.Properties.Appearance.Options.UseFont = true;
+            this.dtFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtFecha.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
+            this.dtFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtFecha.Size = new System.Drawing.Size(192, 24);
+            this.dtFecha.TabIndex = 76;
             // 
             // frmAsistenciaDiaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1412, 697);
+            this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnCargarDatosAcumulados);
             this.Controls.Add(this.gcAcumulados);
-            this.Controls.Add(this.deFechaInicial);
             this.Controls.Add(this.labelControl5);
             this.IconOptions.ShowIcon = false;
             this.Name = "frmAsistenciaDiaria";
             this.Text = "Asistencia Diaria";
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaInicial.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaInicial.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcAcumulados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsReporte1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAcumulados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEliminar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFecha.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFecha.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.DateEdit deFechaInicial;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraGrid.GridControl gcAcumulados;
         private DevExpress.XtraGrid.Views.Grid.GridView gvAcumulados;
-        private DevExpress.XtraGrid.Columns.GridColumn colid1;
-        private DevExpress.XtraGrid.Columns.GridColumn colid_employee;
-        private DevExpress.XtraGrid.Columns.GridColumn colbarcode;
-        private DevExpress.XtraGrid.Columns.GridColumn colnombre1;
-        private DevExpress.XtraGrid.Columns.GridColumn colfecha1;
-        private DevExpress.XtraGrid.Columns.GridColumn colhora_cerrada;
-        private DevExpress.XtraGrid.Columns.GridColumn colid_tipo_marca;
-        private DevExpress.XtraGrid.Columns.GridColumn coltipo_marca;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdEliminar;
         private DevExpress.XtraEditors.SimpleButton btnCargarDatosAcumulados;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.DateEdit dtFecha;
+        private Planilla.Reportes.dsReporte dsReporte1;
+        private DevExpress.XtraGrid.Columns.GridColumn colcodigo;
+        private DevExpress.XtraGrid.Columns.GridColumn colempleado;
+        private DevExpress.XtraGrid.Columns.GridColumn colhora_entrada;
+        private DevExpress.XtraGrid.Columns.GridColumn colhora_salida_almuerzo;
+        private DevExpress.XtraGrid.Columns.GridColumn colhora_entrada_almuerzo;
+        private DevExpress.XtraGrid.Columns.GridColumn colhora_salida;
+        private DevExpress.XtraGrid.Columns.GridColumn colfecha;
     }
 }
