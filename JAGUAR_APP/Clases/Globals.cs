@@ -24,11 +24,11 @@ namespace ACS.Classes
 
 
         ////Jaguar
-        //public static string JAGUAR_ServerAddress = "mssql-137225-0.cloudclusters.net,10043";
-        //public static string JAGUAR_ServerName = "mssql-137225-0.cloudclusters.net,10043";
-        //public static string JAGUAR_ActiveDB = "normac";
-        //public static string JAGUAR_DB_User = "normac_us";
-        //public static string JAGUAR_DB_Pass = "1z8umPKQ61dr";
+        public static string JAGUAR_ServerAddress = "mssql-137225-0.cloudclusters.net,10043";
+        public static string JAGUAR_ServerName = "mssql-137225-0.cloudclusters.net,10043";
+        public static string JAGUAR_ActiveDB = "normac";
+        public static string JAGUAR_DB_User = "normac_us";
+        public static string JAGUAR_DB_Pass = "1z8umPKQ61dr";
 
         ////Jaguar Server Local Ruben Garcia
         //public static string JAGUAR_ServerAddress = @"RubenGarcia-PC\SQLEXPRESS01";
@@ -45,12 +45,12 @@ namespace ACS.Classes
         //public static string JAGUAR_DB_Pass = " tBW3DER7";
         //
 
-        //Jaguar Server Local Oliva
-        public static string JAGUAR_ServerAddress = @"7L12TV3";
-        public static string JAGUAR_ServerName = @"7L12TV3";
-        public static string JAGUAR_ActiveDB = "normac";
-        public static string JAGUAR_DB_User = "sa";
-        public static string JAGUAR_DB_Pass = "Aq4x_3Fj2#";
+        ////Jaguar Server Local Oliva
+        //public static string JAGUAR_ServerAddress = @"7L12TV3";
+        //public static string JAGUAR_ServerName = @"7L12TV3";
+        //public static string JAGUAR_ActiveDB = "normac";
+        //public static string JAGUAR_DB_User = "sa";
+        //public static string JAGUAR_DB_Pass = "Aq4x_3Fj2#";
 
 
         #endregion

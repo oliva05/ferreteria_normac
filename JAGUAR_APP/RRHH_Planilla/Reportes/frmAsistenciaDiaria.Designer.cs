@@ -125,7 +125,7 @@
             // colhora_entrada
             // 
             this.colhora_entrada.Caption = "Hora Entrada";
-            this.colhora_entrada.DisplayFormat.FormatString = "{0:t}";
+            this.colhora_entrada.DisplayFormat.FormatString = "{0:h:mm tt}";
             this.colhora_entrada.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colhora_entrada.FieldName = "hora_entrada";
             this.colhora_entrada.Name = "colhora_entrada";
@@ -136,7 +136,7 @@
             // colhora_salida_almuerzo
             // 
             this.colhora_salida_almuerzo.Caption = "H. Salida Almuerzo";
-            this.colhora_salida_almuerzo.DisplayFormat.FormatString = "{0:t}";
+            this.colhora_salida_almuerzo.DisplayFormat.FormatString = "{0:h:mm tt}";
             this.colhora_salida_almuerzo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colhora_salida_almuerzo.FieldName = "hora_salida_almuerzo";
             this.colhora_salida_almuerzo.Name = "colhora_salida_almuerzo";
@@ -147,7 +147,7 @@
             // colhora_entrada_almuerzo
             // 
             this.colhora_entrada_almuerzo.Caption = "H. Entrada Almuerzo";
-            this.colhora_entrada_almuerzo.DisplayFormat.FormatString = "{0:t}";
+            this.colhora_entrada_almuerzo.DisplayFormat.FormatString = "{0:h:mm tt}";
             this.colhora_entrada_almuerzo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colhora_entrada_almuerzo.FieldName = "hora_entrada_almuerzo";
             this.colhora_entrada_almuerzo.Name = "colhora_entrada_almuerzo";
@@ -158,7 +158,7 @@
             // colhora_salida
             // 
             this.colhora_salida.Caption = "Hora Salida";
-            this.colhora_salida.DisplayFormat.FormatString = "{0:t}";
+            this.colhora_salida.DisplayFormat.FormatString = "{0:h:mm tt}";
             this.colhora_salida.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colhora_salida.FieldName = "hora_salida";
             this.colhora_salida.Name = "colhora_salida";

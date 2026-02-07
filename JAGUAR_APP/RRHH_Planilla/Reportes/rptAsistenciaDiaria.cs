@@ -14,7 +14,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
         {
             InitializeComponent();
 
-            xrFecha.Value = fecha;
+            xrFecha.Text = "Fecha: " + fecha.ToString("dd/MM/yyyy");
             PuntoVentaActual = pDV;
             
             
