@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using core.Clases.Huellas;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using JAGUAR_PRO.Accesos;
@@ -30,6 +31,8 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
         Int64 IdMarca;
         int IdTipoMarca;
         DateTime FechaMarca;
+        Huella h1;
+        int cantidad_marcas;
 
         public enum  Operacion 
         {
@@ -44,6 +47,11 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             LoadData();
             UsuarioLogueado = user;
             IdEmpleadoActual = pidEmp;
+            h1 = new Huella();
+            FechaMarca = dp.Now();
+            dtFechaHora.DateTime = FechaMarca;
+            cantidad_marcas = h1.GetCantidadMarcasDelDia(this.IdEmpleadoActual, this.FechaMarca);
+            lblCantMarcas.Text = cantidad_marcas.ToString();
 
             if (EmpleadoActual.GetById(IdEmpleadoActual))
             {
@@ -166,6 +174,9 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                 return;
             }
 
+            if (cantidad_marcas == 3)
+                tggCierreDia.IsOn = true;
+
             switch (TipoOp)
             {
                 case Operacion.Nueva:
@@ -174,12 +185,13 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     {
                         SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand("sp_insert_marca_manual", conn);
+                        SqlCommand cmd = new SqlCommand("[sp_insert_marca_manual_v2]", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@id_employee", IdEmpleadoActual);
                         cmd.Parameters.AddWithValue("@fecha", dtFechaHora.DateTime);
                         cmd.Parameters.AddWithValue("@id_tipo_marca", Convert.ToInt32(grdTipoMarca.EditValue));
                         cmd.Parameters.AddWithValue("@user_log", UsuarioLogueado.Id);
+                        cmd.Parameters.AddWithValue("@generar_cierre", tggCierreDia.IsOn);
                         cmd.ExecuteNonQuery();
                         conn.Close();
 
@@ -221,6 +233,44 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
             }
 
             
+        }
+
+        private void tggCierreDia_Toggled(object sender, EventArgs e)
+        {
+            if (tggCierreDia.IsOn)
+            {
+                switch (cantidad_marcas)
+                {
+                    case 0:
+                        tggCierreDia.IsOn = false;
+                        CajaDialogo.Error("No se puede generar un cierre de dia solo con una marca!");
+                        break;
+                    case 1:
+                        //Permitimos porque ya existe una marca mas la nueva.
+                        break;
+                    case 2:
+                        tggCierreDia.IsOn = false;
+                        CajaDialogo.Error("No se puede generar un cierre de dia con tres marcas!");
+                        break;
+                    case 3:
+                        //Permitimos el cierre ya que se generara marca par.
+                        break;
+                    case 4:
+                        CajaDialogo.Error("El empleado ya cuenta con 4 marcas en esta fecha!");
+                        tggCierreDia.IsOn = false;
+                        break;
+                    default:
+
+                        break;
+                }
+            }
+        }
+
+        private void dtFechaHora_EditValueChanged(object sender, EventArgs e)
+        {
+            FechaMarca = dtFechaHora.DateTime;
+            cantidad_marcas = h1.GetCantidadMarcasDelDia(IdEmpleadoActual, FechaMarca);
+            lblCantMarcas.Text = cantidad_marcas.ToString();
         }
     }
 }

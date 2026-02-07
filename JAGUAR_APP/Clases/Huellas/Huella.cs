@@ -1,7 +1,9 @@
 ﻿using ACS.Classes;
+using JAGUAR_PRO.Facturacion.CoreFacturas;
 using NormacApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -93,7 +95,29 @@ namespace core.Clases.Huellas
         }
 
 
+        public int GetCantidadMarcasDelDia(int pIdEmployee, DateTime pFecha)
+        {
+            int cant = 0;
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
 
+                SqlCommand cmd = new SqlCommand("[dbo].[sp_get_cant_marcas_by_employee]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_employee", pIdEmployee);
+                cmd.Parameters.AddWithValue("@fecha", pFecha);
+                cant = Convert.ToInt32(cmd.ExecuteScalar());    
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
+
+            return cant;
+        }
 
 
     }
