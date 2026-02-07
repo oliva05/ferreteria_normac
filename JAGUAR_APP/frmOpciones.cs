@@ -6914,6 +6914,24 @@ namespace JAGUAR_PRO
 
         private void navBarItem352_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
             bool accesoprevio = false;
             int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
             switch (idNivel)
@@ -6924,7 +6942,7 @@ namespace JAGUAR_PRO
                     break;
                 case 4://Depth With Delta
                     accesoprevio = true;
-                    frmAsistenciaDiaria frm5 = new frmAsistenciaDiaria();
+                    frmAsistenciaDiaria frm5 = new frmAsistenciaDiaria(puntoVenta1);
                     frm5.MdiParent = this.MdiParent;
                     frm5.Show();
                     break;
@@ -6938,7 +6956,7 @@ namespace JAGUAR_PRO
             {
                 //if (UsuarioLogeado.ValidarNivelPermisos())
                 //{
-                frmAsistenciaDiaria frm1 = new frmAsistenciaDiaria();
+                frmAsistenciaDiaria frm1 = new frmAsistenciaDiaria(puntoVenta1);
                 frm1.MdiParent = this.MdiParent;
                 frm1.Show();
                 //}

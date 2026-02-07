@@ -208,7 +208,6 @@
             this.simpleButton1.Size = new System.Drawing.Size(137, 39);
             this.simpleButton1.TabIndex = 47;
             this.simpleButton1.Text = "Imprimir";
-            this.simpleButton1.Visible = false;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // dtFecha

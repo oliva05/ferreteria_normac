@@ -18,9 +18,11 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
     public partial class frmAsistenciaDiaria : DevExpress.XtraEditors.XtraForm
     {
         DataOperations dp = new DataOperations();
-        public frmAsistenciaDiaria()
+        PDV PuntoVentaActual;
+        public frmAsistenciaDiaria(PDV pDV)
         {
             InitializeComponent();
+            PuntoVentaActual = pDV;
 
             dtFecha.DateTime = dp.Now().Date;
         }
@@ -55,7 +57,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            rptAsistenciaDiaria report = new rptAsistenciaDiaria(dtFecha.DateTime.Date) 
+            rptAsistenciaDiaria report = new rptAsistenciaDiaria(dtFecha.DateTime.Date, PuntoVentaActual) 
             { 
                 DataSource = dsReporte1,
                 DataMember = "asistencia_diaria",
