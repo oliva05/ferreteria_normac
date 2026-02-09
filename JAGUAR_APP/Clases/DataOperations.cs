@@ -496,7 +496,7 @@ namespace ACS.Classes
             DateTime date;
             try
             {
-                string sql = "select CURRENT_TIMESTAMP";
+                string sql = "select getdate()";
                 SqlConnection conn = new SqlConnection(ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sql, conn);
