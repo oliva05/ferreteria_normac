@@ -57,6 +57,12 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            if (gvAcumulados.RowCount == 0)
+            {
+                CajaDialogo.Error("Debe cargar la data.");
+                return;
+            }
+
             rptAsistenciaDiaria report = new rptAsistenciaDiaria(dtFecha.DateTime.Date, PuntoVentaActual) 
             { 
                 DataSource = dsReporte1,
