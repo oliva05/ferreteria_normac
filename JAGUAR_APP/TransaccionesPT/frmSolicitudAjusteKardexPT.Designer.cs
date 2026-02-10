@@ -130,7 +130,7 @@
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtComentario.Properties.Appearance.Options.UseFont = true;
-            this.txtComentario.Properties.MaxLength = 300;
+            this.txtComentario.Properties.MaxLength = 200;
             this.txtComentario.Size = new System.Drawing.Size(265, 66);
             this.txtComentario.TabIndex = 1;
             this.txtComentario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescr_KeyDown);
