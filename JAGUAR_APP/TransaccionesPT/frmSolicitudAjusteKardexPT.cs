@@ -311,12 +311,13 @@ namespace JAGUAR_PRO.TransaccionesPT
                         }
 
                         cmd.Parameters.Clear();
-                        cmd.CommandText = "sp_Insert_Solicitud_Ajuste_Inventario";
+                        cmd.CommandText = "[sp_Insert_Solicitud_Ajuste_InventarioV2]";
                         cmd.Connection = conn;
                         cmd.Transaction = transaction;
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@id_solicitud_h", id_header);
                         cmd.Parameters.AddWithValue("@user_id",UsuarioLogueado.Id);
+                        cmd.Parameters.AddWithValue("@comentario", txtComentario.Text);
                         cmd.ExecuteNonQuery();
 
 
