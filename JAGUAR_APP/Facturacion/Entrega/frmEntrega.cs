@@ -85,7 +85,8 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             try
             {
                 dp = new DataOperations();
-                string query = @"sp_get_pedidos_h_list_abiertas";
+                //string query = @"sp_get_pedidos_h_list_abiertas";
+                string query = "[sp_get_pedidos_h_list_abiertasV2]";
 
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
@@ -93,7 +94,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_bodega", idBodega);
                 cmd.Parameters.AddWithValue("@idPuntoVenta", PuntoVentaId);
-                //cmd.Parameters.AddWithValue("@SeEntregaEnBodega", SeEntregaEnBodega);
+                cmd.Parameters.AddWithValue("@SeEntregaEnBodega", SeEntregaEnBodega);
                 //cmd.Parameters.AddWithValue("@dtDesde", dtDesde.DateTime);
                 //cmd.Parameters.AddWithValue("@dtHasta", dtHasta.DateTime);
                 SqlDataAdapter adat = new SqlDataAdapter(cmd);
@@ -243,13 +244,15 @@ namespace JAGUAR_PRO.Facturacion.Entrega
             try
             {
                 dp = new DataOperations();
-                string query = @"[sp_get_pedidos_h_list_parcial]";
+                //string query = @"[sp_get_pedidos_h_list_parcial]";
+                string query = "[sp_get_pedidos_h_list_parcialV2]";
                 SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_bodega", idBodega);
                 cmd.Parameters.AddWithValue("@idPuntoVenta", PuntoVentaId);
+                cmd.Parameters.AddWithValue("@SeEntregaEnBodega", SeEntregaEnBodega);
                 //cmd.Parameters.AddWithValue("@DocCerrados", tggIncluirDocCerrados.IsOn);
                 //cmd.Parameters.AddWithValue("@dtDesde", dtDesde.DateTime);
                 //cmd.Parameters.AddWithValue("@dtHasta", dtHasta.DateTime);
