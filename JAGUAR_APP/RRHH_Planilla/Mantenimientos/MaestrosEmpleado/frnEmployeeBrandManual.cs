@@ -249,11 +249,29 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                         //Permitimos porque ya existe una marca mas la nueva.
                         break;
                     case 2:
-                        tggCierreDia.IsOn = false;
-                        CajaDialogo.Error("No se puede generar un cierre de dia con tres marcas!");
+                        //tggCierreDia.IsOn = false;
+                        //CajaDialogo.Error("No se puede generar un cierre de dia con tres marcas!");
+                        if(TipoOp == Operacion.Nueva)
+                        {
+                            tggCierreDia.IsOn = false;
+                            CajaDialogo.Error("No se puede generar un cierre de dia con tres marcas!");
+                        }
+                        else
+                        {
+                            //Si estamos editando si permitimos cerrar el dia.
+                            //Permitimos el cierre ya que se generara marca par.
+                        }
                         break;
                     case 3:
-                        //Permitimos el cierre ya que se generara marca par.
+                        if (TipoOp == Operacion.Nueva)
+                        {
+                            //Permitimos el cierre ya que se generara marca par.
+                        }
+                        else
+                        {
+                            tggCierreDia.IsOn = false;
+                            CajaDialogo.Error("No se puede generar un cierre de dia con tres marcas!");
+                        }
                         break;
                     case 4:
                         CajaDialogo.Error("El empleado ya cuenta con 4 marcas en esta fecha!");
@@ -269,6 +287,8 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
         private void dtFechaHora_EditValueChanged(object sender, EventArgs e)
         {
             FechaMarca = dtFechaHora.DateTime;
+            if (h1 == null)
+                h1 = new Huella();
             cantidad_marcas = h1.GetCantidadMarcasDelDia(IdEmpleadoActual, FechaMarca);
             lblCantMarcas.Text = cantidad_marcas.ToString();
         }
