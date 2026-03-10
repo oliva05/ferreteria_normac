@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmployeeSchedule));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dsMaestroEmpleados1 = new JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado.dsMaestroEmpleados();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -42,6 +48,8 @@
             this.colhora_salida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_user_create = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha_created = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSalidaLunch = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdQuitarSalidaLunch = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.lblNombreEmpleado = new DevExpress.XtraEditors.LabelControl();
             this.lblCodigo = new DevExpress.XtraEditors.LabelControl();
             this.cmdGuardar = new System.Windows.Forms.Button();
@@ -51,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdQuitarSalidaLunch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggMarcAlmuerzo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +73,8 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 71);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmdQuitarSalidaLunch});
             this.gridControl1.Size = new System.Drawing.Size(954, 365);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -87,7 +98,8 @@
             this.colhora_entrada_lunch,
             this.colhora_salida,
             this.colid_user_create,
-            this.colfecha_created});
+            this.colfecha_created,
+            this.colSalidaLunch});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -124,6 +136,7 @@
             this.coldias_name.OptionsColumn.ReadOnly = true;
             this.coldias_name.Visible = true;
             this.coldias_name.VisibleIndex = 0;
+            this.coldias_name.Width = 154;
             // 
             // colhora_entrada
             // 
@@ -132,6 +145,7 @@
             this.colhora_entrada.Name = "colhora_entrada";
             this.colhora_entrada.Visible = true;
             this.colhora_entrada.VisibleIndex = 1;
+            this.colhora_entrada.Width = 154;
             // 
             // colhora_salida_lunch
             // 
@@ -140,6 +154,7 @@
             this.colhora_salida_lunch.Name = "colhora_salida_lunch";
             this.colhora_salida_lunch.Visible = true;
             this.colhora_salida_lunch.VisibleIndex = 2;
+            this.colhora_salida_lunch.Width = 115;
             // 
             // colhora_entrada_lunch
             // 
@@ -148,6 +163,7 @@
             this.colhora_entrada_lunch.Name = "colhora_entrada_lunch";
             this.colhora_entrada_lunch.Visible = true;
             this.colhora_entrada_lunch.VisibleIndex = 3;
+            this.colhora_entrada_lunch.Width = 112;
             // 
             // colhora_salida
             // 
@@ -155,7 +171,8 @@
             this.colhora_salida.FieldName = "hora_salida";
             this.colhora_salida.Name = "colhora_salida";
             this.colhora_salida.Visible = true;
-            this.colhora_salida.VisibleIndex = 4;
+            this.colhora_salida.VisibleIndex = 5;
+            this.colhora_salida.Width = 252;
             // 
             // colid_user_create
             // 
@@ -168,6 +185,25 @@
             this.colfecha_created.FieldName = "fecha_created";
             this.colfecha_created.Name = "colfecha_created";
             this.colfecha_created.OptionsColumn.AllowEdit = false;
+            // 
+            // colSalidaLunch
+            // 
+            this.colSalidaLunch.Caption = "Quitar Tiempo de Almuerzo";
+            this.colSalidaLunch.ColumnEdit = this.cmdQuitarSalidaLunch;
+            this.colSalidaLunch.Name = "colSalidaLunch";
+            this.colSalidaLunch.Visible = true;
+            this.colSalidaLunch.VisibleIndex = 4;
+            this.colSalidaLunch.Width = 140;
+            // 
+            // cmdQuitarSalidaLunch
+            // 
+            this.cmdQuitarSalidaLunch.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.cmdQuitarSalidaLunch.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cmdQuitarSalidaLunch.Name = "cmdQuitarSalidaLunch";
+            this.cmdQuitarSalidaLunch.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.cmdQuitarSalidaLunch.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdQuitarSalidaLunch_ButtonClick);
             // 
             // lblNombreEmpleado
             // 
@@ -195,7 +231,7 @@
             this.cmdGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdGuardar.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
             this.cmdGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdGuardar.Location = new System.Drawing.Point(734, 27);
+            this.cmdGuardar.Location = new System.Drawing.Point(769, 27);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(86, 33);
             this.cmdGuardar.TabIndex = 10;
@@ -225,7 +261,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label1.Location = new System.Drawing.Point(520, 37);
+            this.label1.Location = new System.Drawing.Point(573, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 13;
@@ -235,7 +271,7 @@
             // 
             this.tggMarcAlmuerzo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tggMarcAlmuerzo.EditValue = true;
-            this.tggMarcAlmuerzo.Location = new System.Drawing.Point(615, 33);
+            this.tggMarcAlmuerzo.Location = new System.Drawing.Point(668, 33);
             this.tggMarcAlmuerzo.Name = "tggMarcAlmuerzo";
             this.tggMarcAlmuerzo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tggMarcAlmuerzo.Properties.Appearance.Options.UseFont = true;
@@ -263,6 +299,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsMaestroEmpleados1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdQuitarSalidaLunch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tggMarcAlmuerzo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -291,5 +328,7 @@
         private System.Windows.Forms.Button cmdCerrar;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.ToggleSwitch tggMarcAlmuerzo;
+        private DevExpress.XtraGrid.Columns.GridColumn colSalidaLunch;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdQuitarSalidaLunch;
     }
 }

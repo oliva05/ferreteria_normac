@@ -1,6 +1,8 @@
 ﻿using ACS.Classes;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraRichEdit.Model;
 using DocumentFormat.OpenXml.Wordprocessing;
 using JAGUAR_PRO.Clases;
@@ -131,15 +133,27 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     cmd.Parameters.AddWithValue("@idEmpleado", item.id_employee);
                     cmd.Parameters.AddWithValue("@dia", item.dia);
                     cmd.Parameters.AddWithValue("@hora_entrada", item.hora_entrada);
-                    if (item.IsNull("hora_salida_lunch"))
+
+                    if (item.hora_almuerzo)
+                    {
+                        if (item.IsNull("hora_salida_lunch"))
+                            cmd.Parameters.AddWithValue("@hora_salida_lunch", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@hora_salida_lunch", item.hora_salida_lunch);
+
+                        if (item.IsNull("hora_entrada_lunch"))
+                            cmd.Parameters.AddWithValue("@hora_entrada_lunch", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@hora_entrada_lunch", item.hora_entrada_lunch);
+                    }
+                    else
+                    {
                         cmd.Parameters.AddWithValue("@hora_salida_lunch", DBNull.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@hora_salida_lunch", item.hora_salida_lunch);
-                    if (item.IsNull("hora_entrada_lunch"))
                         cmd.Parameters.AddWithValue("@hora_entrada_lunch", DBNull.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@hora_entrada_lunch", item.hora_entrada_lunch);
-                    cmd.Parameters.AddWithValue("@hora_salida", item.hora_salida);
+                    }
+
+
+                        cmd.Parameters.AddWithValue("@hora_salida", item.hora_salida);
                     cmd.Parameters.AddWithValue("@id_user_create", item.id_user_create);
                     
                     cmd.ExecuteNonQuery();
@@ -179,6 +193,22 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     gridView1.SetRowCellValue(i, "hora_entrada_lunch", null);
                 }
             }
+        }
+
+        private void cmdQuitarSalidaLunch_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Vamos a setear la salida del almuerzo en null para indicar que no tiene horario de almuerzo en ese dia.
+            DialogResult r = CajaDialogo.Pregunta("Esta seguro de quitar la configuracion de hora de almuerzo para este dia?");
+            if (r != DialogResult.Yes)
+                return;
+            
+            var gv = (GridView)gridControl1.FocusedView;
+            var row = (dsMaestroEmpleados.horarioRow)gv.GetDataRow(gv.FocusedRowHandle);
+
+            gridView1.SetRowCellValue(gv.FocusedRowHandle, "hora_salida_lunch", null);
+            gridView1.SetRowCellValue(gv.FocusedRowHandle, "hora_entrada_lunch", null);
+            //row.hora_salida_lunch = DBNull.Value;
+            //row.hora_entrada_lunch = null;
         }
     }
 }
