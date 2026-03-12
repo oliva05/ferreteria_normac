@@ -440,14 +440,16 @@ namespace administracion.Huellas
                 if (dr.Read())
                 {
                     int id_msj = 0;
+                    result = false;
 
                     if (!dr.IsDBNull(dr.GetOrdinal("mensaje")))
                         id_msj = dr.GetInt32(0);
 
-                    if (!dr.IsDBNull(dr.GetOrdinal("mensaje")))
+                    if (!dr.IsDBNull(dr.GetOrdinal("result")))
                         result = dr.GetBoolean(1);
 
-                    switch (id_msj) 
+
+                    switch (id_msj)
                     {
                         case 1:
                             lbl_MensajeAsistencia.Text = "Tiene marcas abiertas de dias anteriores... No se registró la marca";
@@ -468,7 +470,7 @@ namespace administracion.Huellas
                             lbl_MensajeAsistencia.Text = "";
                             break;
                     }
-
+                    
                 }
 
                 dr.Close();
