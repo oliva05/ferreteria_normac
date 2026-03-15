@@ -58,6 +58,13 @@ namespace administracion.Huellas
                 dsHuellasManto1.HuellasAll_employees.Clear();
                 adap.Fill(dsHuellasManto1.HuellasAll_employees);
 
+                EmpleadoIdentificado = new hr_employee();
+                if (EmpleadoIdentificado.GetById(8))
+                {
+                    DateTime pfechaD = new DateTime(2026, 03, 14, 13, 01, 01);
+                    MarcarAsistencia(EmpleadoIdentificado.Id, pfechaD);
+                }
+
             }
             catch (Exception ec)
             {
@@ -174,7 +181,6 @@ namespace administracion.Huellas
                                 lblHoraMarcada.Text = "";
                                 this.Invoke(new SetName(SetNameF), new object[] { String.Format("{0}", ess.Name) });
                             }
-                            //this.Invoke(new CleanData(CleanAll), new object[] { });
 
                             return;
                         }
@@ -465,6 +471,9 @@ namespace administracion.Huellas
                             break;
                         case 5:
                             lbl_MensajeAsistencia.Text = "Esta marcando antes de la hora de salida. No se registrará la marca...";
+                            break;
+                        case 6:
+                            lbl_MensajeAsistencia.Text = "Ya completó sus marcas del dia.";
                             break;
                         default:
                             lbl_MensajeAsistencia.Text = "";
