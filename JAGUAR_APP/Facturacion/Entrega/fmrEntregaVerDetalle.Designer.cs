@@ -56,6 +56,8 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colentregado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colentregado1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsEntregaPedidos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -95,7 +97,8 @@
             this.colcode,
             this.colcode_referencia,
             this.coldescripcion,
-            this.colentrega});
+            this.colentrega,
+            this.colentregado});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowViewCaption = true;
@@ -231,7 +234,8 @@
             this.gridColumn8,
             this.gridColumn9,
             this.gridColumn10,
-            this.gridColumn11});
+            this.gridColumn11,
+            this.colentregado1});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowViewCaption = true;
@@ -329,6 +333,24 @@
             this.gridColumn11.VisibleIndex = 2;
             this.gridColumn11.Width = 357;
             // 
+            // colentregado
+            // 
+            this.colentregado.Caption = "Cant. Entregada";
+            this.colentregado.FieldName = "entregado";
+            this.colentregado.Name = "colentregado";
+            this.colentregado.OptionsColumn.AllowEdit = false;
+            this.colentregado.Visible = true;
+            this.colentregado.VisibleIndex = 7;
+            // 
+            // colentregado1
+            // 
+            this.colentregado1.Caption = "Cant. Entregada";
+            this.colentregado1.FieldName = "entregado";
+            this.colentregado1.Name = "colentregado1";
+            this.colentregado1.OptionsColumn.AllowEdit = false;
+            this.colentregado1.Visible = true;
+            this.colentregado1.VisibleIndex = 6;
+            // 
             // fmrEntregaVerDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,5 +401,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn colentrega;
+        private DevExpress.XtraGrid.Columns.GridColumn colentregado;
+        private DevExpress.XtraGrid.Columns.GridColumn colentregado1;
     }
 }
