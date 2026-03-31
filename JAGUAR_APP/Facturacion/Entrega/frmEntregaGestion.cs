@@ -144,7 +144,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                                     {
                                         DetalleEntregado.ImportRow(row);
 
-                                        using (SqlCommand cmd = new SqlCommand("sp_insert_entrega_pedido", conn, transaction))
+                                        using (SqlCommand cmd = new SqlCommand("[sp_insert_entrega_pedidoV2]", conn, transaction))
                                         {
                                             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -154,6 +154,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                                             cmd.Parameters.AddWithValue("@id_pt", row.id_pt);
                                             cmd.Parameters.AddWithValue("@fecha", dp.Now());
                                             cmd.Parameters.AddWithValue("@entrego_todo", row.entregar_todo);
+                                            cmd.Parameters.AddWithValue("@user_id", UsuarioLogeado.Id);
                                             cmd.ExecuteNonQuery();
                                         }
                                     }

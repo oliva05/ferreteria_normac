@@ -1680,6 +1680,12 @@
     <Compile Include="Facturacion\Entrega\frmEntregaGestion.Designer.cs">
       <DependentUpon>frmEntregaGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Entrega\frmRastreoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\frmRastreoPedido.Designer.cs">
+      <DependentUpon>frmRastreoPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Entrega\xrptEntrega.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -4904,6 +4910,9 @@
     <EmbeddedResource Include="Facturacion\Entrega\frmEntregaGestion.resx">
       <DependentUpon>frmEntregaGestion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Entrega\frmRastreoPedido.resx">
+      <DependentUpon>frmRastreoPedido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Entrega\xrptEntrega.resx">
       <DependentUpon>xrptEntrega.cs</DependentUpon>
     </EmbeddedResource>
@@ -6177,6 +6186,7 @@
     <None Include="Resources\reloj.jpg" />
     <None Include="Resources\printer_32x32.png" />
     <None Include="Resources\editname_16x16.png" />
+    <None Include="Resources\find_32x32.png" />
     <Content Include="WhatsApp Image 2025-03-01 at 11.15.59 AM.ico" />
     <None Include="Resources\xml_24x24.png" />
     <None Include="Resources\_click_24X24.png" />
