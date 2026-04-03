@@ -1836,6 +1836,12 @@
     <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmCalculoDeComisionesPorVentasVendedoresPorFecha .Designer.cs">
       <DependentUpon>frmCalculoDeComisionesPorVentasVendedoresPorFecha .cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmReporteFletes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmReporteFletes.Designer.cs">
+      <DependentUpon>frmReporteFletes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Reportes\Reportes de Ventas\frmResumenVentasVendedoresPorFecha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4966,6 +4972,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\Reportes de Ventas\frmCalculoDeComisionesPorVentasVendedoresPorFecha .resx">
       <DependentUpon>frmCalculoDeComisionesPorVentasVendedoresPorFecha .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Reportes\Reportes de Ventas\frmReporteFletes.resx">
+      <DependentUpon>frmReporteFletes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Reportes\Reportes de Ventas\frmResumenVentasVendedoresPorFecha.resx">
       <DependentUpon>frmResumenVentasVendedoresPorFecha.cs</DependentUpon>
