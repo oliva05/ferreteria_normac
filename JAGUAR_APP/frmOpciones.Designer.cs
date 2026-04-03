@@ -520,6 +520,7 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem353 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -5086,7 +5087,8 @@
             this.navBarReporteVentasPorVendedor,
             this.navBarCotizaciones,
             this.navBarItem256,
-            this.navBarDetalleCalculoComisiones});
+            this.navBarDetalleCalculoComisiones,
+            this.navBarItem353});
             this.navBarControl3.Location = new System.Drawing.Point(0, 0);
             this.navBarControl3.Margin = new System.Windows.Forms.Padding(2);
             this.navBarControl3.Name = "navBarControl3";
@@ -5495,7 +5497,8 @@
             this.navBarGroup23.Caption = "Despachos";
             this.navBarGroup23.Expanded = true;
             this.navBarGroup23.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem256)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem256),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem353)});
             this.navBarGroup23.Name = "navBarGroup23";
             // 
             // navBarItem256
@@ -7293,6 +7296,21 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
+            // navBarItem353
+            // 
+            this.navBarItem353.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem353.Appearance.Options.UseFont = true;
+            this.navBarItem353.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem353.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem353.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem353.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem353.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem353.AppearancePressed.Options.UseFont = true;
+            this.navBarItem353.Caption = "Reporte Fletes Facturados";
+            this.navBarItem353.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem353.ImageOptions.SvgImage")));
+            this.navBarItem353.Name = "navBarItem353";
+            this.navBarItem353.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem353_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7833,5 +7851,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem nbReporteVentas;
         private DevExpress.XtraNavBar.NavBarItem navBarItem259;
         private DevExpress.XtraNavBar.NavBarItem navBarItem352;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem353;
     }
 }

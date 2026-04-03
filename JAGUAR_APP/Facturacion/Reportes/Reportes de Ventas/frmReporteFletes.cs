@@ -1,11 +1,14 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraPrinting;
 using JAGUAR_PRO.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -62,6 +65,44 @@ namespace JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas
         private void cmdCargar_Click(object sender, EventArgs e)
         {
             LoadDatos();
+        }
+
+        private void cmdExportToExcel_Click(object sender, EventArgs e)
+        {
+            //Nueva version
+            try
+            {
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.Filter = "Excel File (.xlsx)|*.xlsx";
+                dialog.FilterIndex = 0;
+                string path = "Fletes NORMAC";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    path = dialog.FileName;
+                    //Customize export options
+                    (gridControl1.MainView as GridView).OptionsPrint.PrintHeader = true;
+                    XlsxExportOptionsEx advOptions = new XlsxExportOptionsEx();
+                    advOptions.AllowGrouping = DevExpress.Utils.DefaultBoolean.False;
+                    advOptions.ShowTotalSummaries = DevExpress.Utils.DefaultBoolean.False;
+                    advOptions.SheetName = "Exported NORMAC System";
+
+                    gridControl1.ExportToXlsx(path, advOptions);
+                    // Open the created XLSX file with the default application.
+                    Process.Start(path);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CajaDialogo.Error(ex.Message);
+            }
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

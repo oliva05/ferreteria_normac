@@ -76,6 +76,7 @@
             this.cmdExportToExcel.Size = new System.Drawing.Size(92, 34);
             this.cmdExportToExcel.TabIndex = 126;
             this.cmdExportToExcel.Text = "Exportar";
+            this.cmdExportToExcel.Click += new System.EventHandler(this.cmdExportToExcel_Click);
             // 
             // labelControl1
             // 
@@ -176,6 +177,7 @@
             this.btnAtras.Size = new System.Drawing.Size(92, 34);
             this.btnAtras.TabIndex = 119;
             this.btnAtras.Text = "Cerrar";
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // gridControl1
             // 
