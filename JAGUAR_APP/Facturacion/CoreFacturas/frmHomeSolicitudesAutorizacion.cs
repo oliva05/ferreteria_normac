@@ -129,8 +129,6 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                             
                             //Impresion de voucher de Anulacion de factura.
                             //To do
-
-
                         }
                         break;
 
@@ -467,6 +465,11 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                     CajaDialogo.Error("La factura aún no se ha anulado...");
                 }
             }
+        }
+
+        private void repositoryItemButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
         }
     }
 }

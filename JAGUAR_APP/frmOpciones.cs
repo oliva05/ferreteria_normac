@@ -63,7 +63,7 @@ using JAGUAR_PRO.Tools;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
 using JAGUAR_PRO.Utileria;
-using JAGUAR_PRO.RRHH_Planilla.Planilla.Inasistencias;
+using LOSA.TransaccionesMP;
 using Proyecto.Huellas;
 using System;
 using System.Data;
@@ -3167,10 +3167,10 @@ namespace JAGUAR_PRO
                 case 4://Depth With Delta
                 case 5://Depth Without Delta
                     accesoprevio = true;
-                    //frmRequisiciones frm = new frmRequisiciones(this.UsuarioLogeado);
-                    //frm.MdiParent = this.MdiParent;
-                    //frm.WindowState = FormWindowState.Maximized;
-                    //frm.Show();
+                    frmRequisiciones frm = new frmRequisiciones(this.UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.WindowState = FormWindowState.Maximized;
+                    frm.Show();
                     break;
                 default:
                     break;
@@ -3180,10 +3180,10 @@ namespace JAGUAR_PRO
             {
                 if (UsuarioLogeado.ValidarNivelPermisos(4))
                 {
-                    //frmRequisiciones frm = new frmRequisiciones(this.UsuarioLogeado);
-                    //frm.MdiParent = this.MdiParent;
-                    //frm.WindowState = FormWindowState.Maximized;
-                    //frm.Show();
+                    frmRequisiciones frm = new frmRequisiciones(this.UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.WindowState = FormWindowState.Maximized;
+                    frm.Show();
                 }
                 else
                 {
@@ -6899,7 +6899,7 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(43))
+                if (UsuarioLogeado.ValidarNivelPermisos(44))
                 {
                     frmReporteVentasXMes frm = new frmReporteVentasXMes(this.UsuarioLogeado);
                     frm.MdiParent = this.MdiParent;
@@ -6967,23 +6967,44 @@ namespace JAGUAR_PRO
             }
         }
 
-        private void navBarAusencias_LinkClicked(object sender, NavBarLinkEventArgs e)
+        private void navBarItem353_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
+            //frmReporteVentasResumenConta
+            string HostName = Dns.GetHostName();
+            FacturacionEquipo EquipoActual = new FacturacionEquipo();
+            PDV puntoVenta1 = new PDV();
+
+            if (EquipoActual.RecuperarRegistro(HostName))
+            {
+                if (!puntoVenta1.RecuperaRegistro(EquipoActual.id_punto_venta))
+                {
+                    CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                    return;
+                }
+            }
+            else
+            {
+                CajaDialogo.Error("Este equipo de nombre: " + HostName + " no esta configurado en ningun punto de venta!");
+                return;
+            }
+
+
             bool accesoprevio = false;
-            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
-            switch (idNivel)
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//9 = AMS
+            switch (idNivel)                                                      //11 = Jaguar
             {
                 case 1://Basic View
+                    break;
                 case 2://Basic No Autorization
                 case 3://Medium Autorization
+                case 5://Depth Without Delta
+                    accesoprevio = false;
                     break;
                 case 4://Depth With Delta
                     accesoprevio = true;
-                    frmLeavesHome frm5 = new frmLeavesHome(UsuarioLogeado);
-                    frm5.MdiParent = this.MdiParent;
-                    frm5.Show();
-                    break;
-                case 5://Depth Without Delta
+                    frmReporteFletes frm = new frmReporteFletes(this.UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
                     break;
                 default:
                     break;
@@ -6991,19 +7012,18 @@ namespace JAGUAR_PRO
 
             if (!accesoprevio)
             {
-                if (UsuarioLogeado.ValidarNivelPermisos(107))
+                if (UsuarioLogeado.ValidarNivelPermisos(46))
                 {
-                    frmLeavesHome frm1 = new frmLeavesHome(UsuarioLogeado);
-                    frm1.MdiParent = this.MdiParent;
-                    frm1.Show();
+                    frmReporteFletes frm = new frmReporteFletes(this.UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
                 }
                 else
                 {
-                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #107");
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #46 (Reporte de Fletes Facturados)");
                 }
             }
         }
-        //End Facturacion Usados
 
 
 
