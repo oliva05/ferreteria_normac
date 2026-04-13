@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Ausencias
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 {
     partial class frmLeaveCRUD
     {
@@ -37,7 +37,7 @@
             this.dtFin = new DevExpress.XtraEditors.DateEdit();
             this.slueTipoAusencia = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bstipoausencia = new System.Windows.Forms.BindingSource(this.components);
-            this.dsInasistencias1 = new LOSA.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
+            this.dsInasistencias1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -212,8 +212,8 @@
             // 
             // categorialeaveBindingSource
             // 
-            this.categorialeaveBindingSource.DataMember = "categoria_leave";
-            this.categorialeaveBindingSource.DataSource = this.dsInasistencias1;
+            //this.categorialeaveBindingSource.DataMember = "categoria_leave";
+            //this.categorialeaveBindingSource.DataSource = this.dsInasistencias1;
             // 
             // simpleButton2
             // 
@@ -221,7 +221,7 @@
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.Image = global::LOSA.Properties.Resources.cancel_24x24;
+            this.simpleButton2.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.simpleButton2.Location = new System.Drawing.Point(275, 375);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(96, 46);
@@ -235,7 +235,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseBackColor = true;
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.ImageOptions.Image = global::LOSA.Properties.Resources.save_24x24;
+            this.btnSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
             this.btnSave.Location = new System.Drawing.Point(158, 375);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 46);

@@ -520,6 +520,10 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup26 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarAusencias = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarApliMasiva = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarRevisionAusencias = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -2015,7 +2019,8 @@
             this.navBarControl4.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl4.DragDropFlags = DevExpress.XtraNavBar.NavBarDragDrop.None;
             this.navBarControl4.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navBarGroup14});
+            this.navBarGroup14,
+            this.navBarGroup26});
             this.navBarControl4.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItem112,
             this.navBarItem113,
@@ -2058,7 +2063,10 @@
             this.navBarItem149,
             this.navBarItem150,
             this.navBarItem106,
-            this.navBarItem107});
+            this.navBarItem107,
+            this.navBarAusencias,
+            this.navBarApliMasiva,
+            this.navBarRevisionAusencias});
             this.navBarControl4.Location = new System.Drawing.Point(0, 0);
             this.navBarControl4.Name = "navBarControl4";
             this.navBarControl4.OptionsNavPane.ExpandedWidth = 338;
@@ -7293,6 +7301,60 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
+            // navBarGroup26
+            // 
+            this.navBarGroup26.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup26.Appearance.Options.UseFont = true;
+            this.navBarGroup26.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup26.AppearancePressed.Options.UseFont = true;
+            this.navBarGroup26.Caption = "Gestion de Ausencias";
+            this.navBarGroup26.Expanded = true;
+            this.navBarGroup26.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarAusencias),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarApliMasiva),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarRevisionAusencias)});
+            this.navBarGroup26.Name = "navBarGroup26";
+            // 
+            // navBarAusencias
+            // 
+            this.navBarAusencias.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarAusencias.Appearance.Options.UseFont = true;
+            this.navBarAusencias.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarAusencias.AppearanceDisabled.Options.UseFont = true;
+            this.navBarAusencias.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarAusencias.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarAusencias.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 13.25F);
+            this.navBarAusencias.AppearancePressed.Options.UseFont = true;
+            this.navBarAusencias.Caption = "Ausencias";
+            this.navBarAusencias.Name = "navBarAusencias";
+            this.navBarAusencias.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarAusencias_LinkClicked);
+            // 
+            // navBarApliMasiva
+            // 
+            this.navBarApliMasiva.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarApliMasiva.Appearance.Options.UseFont = true;
+            this.navBarApliMasiva.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarApliMasiva.AppearanceDisabled.Options.UseFont = true;
+            this.navBarApliMasiva.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarApliMasiva.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarApliMasiva.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 13.25F);
+            this.navBarApliMasiva.AppearancePressed.Options.UseFont = true;
+            this.navBarApliMasiva.Caption = "Aplicación Masiva de Ausencias";
+            this.navBarApliMasiva.Name = "navBarApliMasiva";
+            // 
+            // navBarRevisionAusencias
+            // 
+            this.navBarRevisionAusencias.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarRevisionAusencias.Appearance.Options.UseFont = true;
+            this.navBarRevisionAusencias.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarRevisionAusencias.AppearanceDisabled.Options.UseFont = true;
+            this.navBarRevisionAusencias.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarRevisionAusencias.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarRevisionAusencias.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 13.25F);
+            this.navBarRevisionAusencias.AppearancePressed.Options.UseFont = true;
+            this.navBarRevisionAusencias.Caption = "Revision Ausencias";
+            this.navBarRevisionAusencias.Name = "navBarRevisionAusencias";
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7833,5 +7895,9 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem nbReporteVentas;
         private DevExpress.XtraNavBar.NavBarItem navBarItem259;
         private DevExpress.XtraNavBar.NavBarItem navBarItem352;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup26;
+        private DevExpress.XtraNavBar.NavBarItem navBarAusencias;
+        private DevExpress.XtraNavBar.NavBarItem navBarApliMasiva;
+        private DevExpress.XtraNavBar.NavBarItem navBarRevisionAusencias;
     }
 }

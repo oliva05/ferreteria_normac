@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Ausencias
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 {
     partial class frmLeaveGestionarEstado
     {
@@ -34,7 +34,7 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.slueEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bsleaveestado = new System.Windows.Forms.BindingSource(this.components);
-            this.dsInasistencias1 = new LOSA.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
+            this.dsInasistencias1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.slueEstado.Properties)).BeginInit();
@@ -49,7 +49,7 @@
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.Image = global::LOSA.Properties.Resources.cancel_24x24;
+            this.simpleButton2.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel_24x24;
             this.simpleButton2.Location = new System.Drawing.Point(214, 88);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(96, 46);
@@ -63,7 +63,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseBackColor = true;
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.ImageOptions.Image = global::LOSA.Properties.Resources.save_24x24;
+            this.btnSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
             this.btnSave.Location = new System.Drawing.Point(97, 88);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 46);

@@ -63,7 +63,7 @@ using JAGUAR_PRO.Tools;
 using JAGUAR_PRO.TransaccionesMP;
 using JAGUAR_PRO.TransaccionesPT;
 using JAGUAR_PRO.Utileria;
-using LOSA.TransaccionesMP;
+using JAGUAR_PRO.RRHH_Planilla.Planilla.Inasistencias;
 using Proyecto.Huellas;
 using System;
 using System.Data;
@@ -3167,10 +3167,10 @@ namespace JAGUAR_PRO
                 case 4://Depth With Delta
                 case 5://Depth Without Delta
                     accesoprevio = true;
-                    frmRequisiciones frm = new frmRequisiciones(this.UsuarioLogeado);
-                    frm.MdiParent = this.MdiParent;
-                    frm.WindowState = FormWindowState.Maximized;
-                    frm.Show();
+                    //frmRequisiciones frm = new frmRequisiciones(this.UsuarioLogeado);
+                    //frm.MdiParent = this.MdiParent;
+                    //frm.WindowState = FormWindowState.Maximized;
+                    //frm.Show();
                     break;
                 default:
                     break;
@@ -3180,10 +3180,10 @@ namespace JAGUAR_PRO
             {
                 if (UsuarioLogeado.ValidarNivelPermisos(4))
                 {
-                    frmRequisiciones frm = new frmRequisiciones(this.UsuarioLogeado);
-                    frm.MdiParent = this.MdiParent;
-                    frm.WindowState = FormWindowState.Maximized;
-                    frm.Show();
+                    //frmRequisiciones frm = new frmRequisiciones(this.UsuarioLogeado);
+                    //frm.MdiParent = this.MdiParent;
+                    //frm.WindowState = FormWindowState.Maximized;
+                    //frm.Show();
                 }
                 else
                 {
@@ -6964,6 +6964,43 @@ namespace JAGUAR_PRO
                 //{
                 //    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #107");
                 //}
+            }
+        }
+
+        private void navBarAusencias_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
+            switch (idNivel)
+            {
+                case 1://Basic View
+                case 2://Basic No Autorization
+                case 3://Medium Autorization
+                    break;
+                case 4://Depth With Delta
+                    accesoprevio = true;
+                    frmLeavesHome frm5 = new frmLeavesHome(UsuarioLogeado);
+                    frm5.MdiParent = this.MdiParent;
+                    frm5.Show();
+                    break;
+                case 5://Depth Without Delta
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(107))
+                {
+                    frmLeavesHome frm1 = new frmLeavesHome(UsuarioLogeado);
+                    frm1.MdiParent = this.MdiParent;
+                    frm1.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #107");
+                }
             }
         }
         //End Facturacion Usados

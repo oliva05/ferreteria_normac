@@ -1,14 +1,13 @@
 ﻿using ACS.Classes;
-using Devart.Data.PostgreSql;
 using DevExpress.XtraEditors;
 using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
-using LOSA.Clases;
-using LOSA.MigracionACS.RRHH.Reportes;
-using LOSA.RecepcionMP;
-using LOSA.RRHH_Planilla.Planilla.Ausencias;
+using JAGUAR_PRO.Clases;
+//using JAGUAR_PRO.MigracionACS.RRHH.Reportes;
+//using JAGUAR_PRO.RecepcionMP;
+using JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +20,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
  
 
-namespace LOSA.RRHH_Planilla.Planilla.Inasistencias
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Inasistencias
 {
     public partial class frmLeavesHome : DevExpress.XtraEditors.XtraForm
     {
@@ -45,7 +44,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Inasistencias
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsInasistencias1.hr_employee.Clear();
 
@@ -96,7 +95,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Inasistencias
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand(@"uspLoadResumenInasistencia", con);

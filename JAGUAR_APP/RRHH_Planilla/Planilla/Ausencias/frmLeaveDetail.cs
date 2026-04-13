@@ -1,6 +1,6 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.MigracionACS.RRHH.Vacaciones;
+//using JAGUAR_PRO.MigracionACS.RRHH.Vacaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Planilla.Ausencias
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 {
     public partial class frmLeaveDetail : DevExpress.XtraEditors.XtraForm
     {
@@ -31,8 +31,8 @@ namespace LOSA.RRHH_Planilla.Planilla.Ausencias
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringCostos);
-                SqlConnection con_rrhh = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                SqlConnection con_rrhh = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
                 con_rrhh.Open();
 
