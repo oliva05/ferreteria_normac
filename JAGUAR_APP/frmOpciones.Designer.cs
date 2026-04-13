@@ -382,6 +382,7 @@
             this.navBarItem20 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup23 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem256 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem353 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbTrazabilidad = new DevExpress.XtraNavBar.NavBarItem();
@@ -520,7 +521,8 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem353 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup26 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem354 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -2016,7 +2018,8 @@
             this.navBarControl4.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl4.DragDropFlags = DevExpress.XtraNavBar.NavBarDragDrop.None;
             this.navBarControl4.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navBarGroup14});
+            this.navBarGroup14,
+            this.navBarGroup26});
             this.navBarControl4.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItem112,
             this.navBarItem113,
@@ -2059,7 +2062,8 @@
             this.navBarItem149,
             this.navBarItem150,
             this.navBarItem106,
-            this.navBarItem107});
+            this.navBarItem107,
+            this.navBarItem354});
             this.navBarControl4.Location = new System.Drawing.Point(0, 0);
             this.navBarControl4.Name = "navBarControl4";
             this.navBarControl4.OptionsNavPane.ExpandedWidth = 338;
@@ -5514,6 +5518,21 @@
             this.navBarItem256.Name = "navBarItem256";
             this.navBarItem256.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem256_LinkClicked);
             // 
+            // navBarItem353
+            // 
+            this.navBarItem353.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem353.Appearance.Options.UseFont = true;
+            this.navBarItem353.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem353.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem353.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem353.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem353.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
+            this.navBarItem353.AppearancePressed.Options.UseFont = true;
+            this.navBarItem353.Caption = "Reporte Fletes Facturados";
+            this.navBarItem353.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem353.ImageOptions.SvgImage")));
+            this.navBarItem353.Name = "navBarItem353";
+            this.navBarItem353.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem353_LinkClicked);
+            // 
             // navBarGroup1
             // 
             this.navBarGroup1.Appearance.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -7296,20 +7315,31 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
-            // navBarItem353
+            // navBarGroup26
             // 
-            this.navBarItem353.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem353.Appearance.Options.UseFont = true;
-            this.navBarItem353.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem353.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem353.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem353.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem353.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 10.875F);
-            this.navBarItem353.AppearancePressed.Options.UseFont = true;
-            this.navBarItem353.Caption = "Reporte Fletes Facturados";
-            this.navBarItem353.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem353.ImageOptions.SvgImage")));
-            this.navBarItem353.Name = "navBarItem353";
-            this.navBarItem353.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem353_LinkClicked);
+            this.navBarGroup26.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup26.Appearance.Options.UseFont = true;
+            this.navBarGroup26.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup26.AppearancePressed.Options.UseFont = true;
+            this.navBarGroup26.Caption = "Ausencias";
+            this.navBarGroup26.Expanded = true;
+            this.navBarGroup26.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem354)});
+            this.navBarGroup26.Name = "navBarGroup26";
+            // 
+            // navBarItem354
+            // 
+            this.navBarItem354.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem354.Appearance.Options.UseFont = true;
+            this.navBarItem354.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem354.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem354.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem354.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem354.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem354.AppearancePressed.Options.UseFont = true;
+            this.navBarItem354.Caption = "Ausencias";
+            this.navBarItem354.Name = "navBarItem354";
+            this.navBarItem354.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem354_LinkClicked);
             // 
             // frmOpciones
             // 
@@ -7852,5 +7882,7 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem259;
         private DevExpress.XtraNavBar.NavBarItem navBarItem352;
         private DevExpress.XtraNavBar.NavBarItem navBarItem353;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup26;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem354;
     }
 }
