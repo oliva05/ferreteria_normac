@@ -58,6 +58,7 @@ using JAGUAR_PRO.Reproceso;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
 using JAGUAR_PRO.RRHH_Planilla.Planilla;
+using JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias;
 using JAGUAR_PRO.RRHH_Planilla.Planilla.Inasistencias;
 using JAGUAR_PRO.RRHH_Planilla.Reportes;
 using JAGUAR_PRO.Tools;
@@ -7081,6 +7082,68 @@ namespace JAGUAR_PRO
                 {
                     CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #45 (Gestionn de Ausencias)");
                 }
+            }
+        }
+
+        private void navBarItem355_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
+            switch (idNivel)
+            {
+                case 1://Basic View
+                case 2://Basic No Autorization
+                    break;
+                case 3://Medium Autorization
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmAusenciasMasivas_Home frm5 = new frmAusenciasMasivas_Home(UsuarioLogeado);
+                    frm5.MdiParent = this.MdiParent;
+                    frm5.WindowState = FormWindowState.Normal;
+                    frm5.Show();
+                    break;
+                default:
+                    break;
+            }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(45))
+                {
+                    frmAusenciasMasivas_Home frm = new frmAusenciasMasivas_Home(this.UsuarioLogeado);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #45 (Gestion de Ausencias Masivas)");
+                }
+            }
+
+
+        }
+
+        private void navBarItem356_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            bool accesoprevio = false;
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
+            switch (idNivel)
+            {
+                case 1://Basic View
+                case 2://Basic No Autorization
+                    break;
+                case 3://Medium Autorization
+                case 4://Depth With Delta
+                case 5://Depth Without Delta
+                    accesoprevio = true;
+                    frmAusenciasGestionRpt frm5 = new frmAusenciasGestionRpt(UsuarioLogeado);
+                    frm5.MdiParent = this.MdiParent;
+                    frm5.WindowState = FormWindowState.Normal;
+                    frm5.Show();
+                    break;
+                default:
+                    break;
             }
         }
     }

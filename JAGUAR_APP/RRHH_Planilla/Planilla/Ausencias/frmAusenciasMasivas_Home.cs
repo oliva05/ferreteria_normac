@@ -1,7 +1,7 @@
 ﻿using ACS.Classes;
 using DevExpress.XtraEditors;
-using LOSA.Clases;
-using LOSA.RRHH_Planilla.Planilla.ImportarPlanilla;
+using JAGUAR_PRO.Clases;
+//using LOSA.RRHH_Planilla.Planilla.;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static LOSA.FromAMS.dsControlInv_AMS;
 
-namespace LOSA.RRHH_Planilla.Planilla.Ausencias
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 {
     public partial class frmAusenciasMasivas_Home : DevExpress.XtraEditors.XtraForm
     {
@@ -31,7 +30,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Ausencias
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
                 SqlCommand cmd1 = new SqlCommand("[dbo].[uspLoadLeaveType]", con);
                 cmd1.CommandType = CommandType.StoredProcedure;
@@ -104,7 +103,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Ausencias
                     DataOperations dp = new DataOperations();
                     bool proceso_terminado = false;
 
-                    using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH))
+                    using (SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                     {
                         cnx.Open();
                         SqlCommand cmd = new SqlCommand("dbo.uspProcesarLeavesMasivas", cnx);

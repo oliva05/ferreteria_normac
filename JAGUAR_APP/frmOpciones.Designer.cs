@@ -138,6 +138,10 @@
             this.navBarItem111 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem106 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem107 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup26 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem354 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem355 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem356 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem112 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem113 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem114 = new DevExpress.XtraNavBar.NavBarItem();
@@ -521,8 +525,6 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup26 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem354 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -2063,7 +2065,9 @@
             this.navBarItem150,
             this.navBarItem106,
             this.navBarItem107,
-            this.navBarItem354});
+            this.navBarItem354,
+            this.navBarItem355,
+            this.navBarItem356});
             this.navBarControl4.Location = new System.Drawing.Point(0, 0);
             this.navBarControl4.Name = "navBarControl4";
             this.navBarControl4.OptionsNavPane.ExpandedWidth = 338;
@@ -2127,6 +2131,63 @@
             this.navBarItem107.Caption = "Empleados";
             this.navBarItem107.Name = "navBarItem107";
             this.navBarItem107.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem107_LinkClicked);
+            // 
+            // navBarGroup26
+            // 
+            this.navBarGroup26.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup26.Appearance.Options.UseFont = true;
+            this.navBarGroup26.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
+            this.navBarGroup26.AppearancePressed.Options.UseFont = true;
+            this.navBarGroup26.Caption = "Ausencias";
+            this.navBarGroup26.Expanded = true;
+            this.navBarGroup26.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem354),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem355),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem356)});
+            this.navBarGroup26.Name = "navBarGroup26";
+            // 
+            // navBarItem354
+            // 
+            this.navBarItem354.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem354.Appearance.Options.UseFont = true;
+            this.navBarItem354.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem354.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem354.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem354.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem354.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem354.AppearancePressed.Options.UseFont = true;
+            this.navBarItem354.Caption = "Ausencias";
+            this.navBarItem354.Name = "navBarItem354";
+            this.navBarItem354.Visible = false;
+            this.navBarItem354.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem354_LinkClicked);
+            // 
+            // navBarItem355
+            // 
+            this.navBarItem355.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem355.Appearance.Options.UseFont = true;
+            this.navBarItem355.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem355.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem355.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem355.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem355.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem355.AppearancePressed.Options.UseFont = true;
+            this.navBarItem355.Caption = "Aplicación Masiva de Ausencias";
+            this.navBarItem355.Name = "navBarItem355";
+            this.navBarItem355.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem355_LinkClicked);
+            // 
+            // navBarItem356
+            // 
+            this.navBarItem356.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem356.Appearance.Options.UseFont = true;
+            this.navBarItem356.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem356.AppearanceDisabled.Options.UseFont = true;
+            this.navBarItem356.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem356.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem356.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.navBarItem356.AppearancePressed.Options.UseFont = true;
+            this.navBarItem356.Caption = "Revision Ausencias";
+            this.navBarItem356.Name = "navBarItem356";
+            this.navBarItem356.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem356_LinkClicked);
             // 
             // navBarItem112
             // 
@@ -7315,32 +7376,6 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
-            // navBarGroup26
-            // 
-            this.navBarGroup26.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
-            this.navBarGroup26.Appearance.Options.UseFont = true;
-            this.navBarGroup26.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
-            this.navBarGroup26.AppearancePressed.Options.UseFont = true;
-            this.navBarGroup26.Caption = "Ausencias";
-            this.navBarGroup26.Expanded = true;
-            this.navBarGroup26.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem354)});
-            this.navBarGroup26.Name = "navBarGroup26";
-            // 
-            // navBarItem354
-            // 
-            this.navBarItem354.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem354.Appearance.Options.UseFont = true;
-            this.navBarItem354.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem354.AppearanceDisabled.Options.UseFont = true;
-            this.navBarItem354.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem354.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem354.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.navBarItem354.AppearancePressed.Options.UseFont = true;
-            this.navBarItem354.Caption = "Ausencias";
-            this.navBarItem354.Name = "navBarItem354";
-            this.navBarItem354.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem354_LinkClicked);
-            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7884,5 +7919,7 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem353;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup26;
         private DevExpress.XtraNavBar.NavBarItem navBarItem354;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem355;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem356;
     }
 }

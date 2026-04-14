@@ -1,9 +1,9 @@
-﻿using ACS.Classes;
+﻿using JAGUAR_PRO.Classes;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using LOSA.Calidad;
-using LOSA.RRHH_Planilla.Capacitacion;
-using LOSA.RRHH_Planilla.Capacitacion.Model;
+//using LOSA.Calidad;
+//using LOSA.RRHH_Planilla.Capacitacion;
+using LOSA.RRHH_Planilla;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +15,10 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JAGUAR_PRO.RRHH_Planilla.Capacitacion.Model;
+using ACS.Classes;
 
-namespace LOSA.RRHH_Planilla.Planilla.Ausencias
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 {
     public partial class frmWizardLeaves : DevExpress.XtraEditors.XtraForm
     {
@@ -50,7 +52,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Ausencias
             {
                 DataOperations dp = new DataOperations();
 
-                SqlConnection cnx = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection cnx = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
 
                 dsInasistencias1.ausencia_empleados.Clear();
 
@@ -229,7 +231,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Ausencias
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
                 SqlCommand cmd1 = new SqlCommand("[dbo].[uspLoadLeaveType]", con);
                 cmd1.CommandType = CommandType.StoredProcedure;
