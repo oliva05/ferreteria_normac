@@ -7088,7 +7088,7 @@ namespace JAGUAR_PRO
         private void navBarItem355_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
             bool accesoprevio = false;
-            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 7);//7 = ALOSY
+            int idNivel = UsuarioLogeado.idNivelAcceso(UsuarioLogeado.UserId, 11);//7 = ALOSY
             switch (idNivel)
             {
                 case 1://Basic View
