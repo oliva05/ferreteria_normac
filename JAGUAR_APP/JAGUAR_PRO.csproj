@@ -4647,6 +4647,9 @@
     <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMP.resx">
       <DependentUpon>frmSearchMP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMultItems.resx">
+      <DependentUpon>frmSearchMultItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clases\Huellas\LectorHuellas.resx">
       <DependentUpon>LectorHuellas.cs</DependentUpon>
     </EmbeddedResource>
