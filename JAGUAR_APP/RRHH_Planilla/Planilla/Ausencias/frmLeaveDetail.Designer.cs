@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Ausencias
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 {
     partial class frmLeaveDetail
     {
@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLeaveDetail));
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-            this.dsInasistencias1 = new LOSA.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
+            this.dsInasistencias1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colstate = new DevExpress.XtraGrid.Columns.GridColumn();

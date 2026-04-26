@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Ausencias
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 {
     partial class frmAusenciasMasivas_Home
     {
@@ -36,7 +36,7 @@
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            this.dsInasistencias1 = new LOSA.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
+            this.dsInasistencias1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
             this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gvAusencias = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -55,10 +55,10 @@
             this.grdTipoAusencia = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.tipoausenciaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnNuevo = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsInasistencias1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1.Panel1)).BeginInit();
@@ -257,6 +257,14 @@
             this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
+            // colname
+            // 
+            this.colname.Caption = "Tipo de Ausencia";
+            this.colname.FieldName = "name";
+            this.colname.Name = "colname";
+            this.colname.Visible = true;
+            this.colname.VisibleIndex = 0;
+            // 
             // btnNuevo
             // 
             this.btnNuevo.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -278,7 +286,7 @@
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Appearance.Options.UseFont = true;
-            this.btnCancelar.ImageOptions.SvgImage = global::LOSA.Properties.Resources.clearheaderandfooter1;
+            this.btnCancelar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.cancel_32x32;
             this.btnCancelar.Location = new System.Drawing.Point(952, 29);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 39);
@@ -295,7 +303,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Enabled = false;
-            this.btnSave.ImageOptions.SvgImage = global::LOSA.Properties.Resources.save;
+            this.btnSave.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.save_32x32;
             this.btnSave.Location = new System.Drawing.Point(118, 29);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 39);
@@ -306,14 +314,6 @@
             this.btnSave.TabIndex = 31;
             this.btnSave.Text = "Guardar";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // colname
-            // 
-            this.colname.Caption = "Tipo de Ausencia";
-            this.colname.FieldName = "name";
-            this.colname.Name = "colname";
-            this.colname.Visible = true;
-            this.colname.VisibleIndex = 0;
             // 
             // frmAusenciasMasivas_Home
             // 

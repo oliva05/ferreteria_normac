@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Ausencias
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 {
     partial class frmWizardLeaves
     {
@@ -35,7 +35,7 @@
             this.ceSeleccionar = new DevExpress.XtraEditors.CheckEdit();
             this.cmdCerrar = new DevExpress.XtraEditors.SimpleButton();
             this.gcEmpleado = new DevExpress.XtraGrid.GridControl();
-            this.dsInasistencias1 = new LOSA.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
+            this.dsInasistencias1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
             this.gvEmployee = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_employee = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colbarcode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -244,7 +244,7 @@
             // 
             this.btnNext1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.BottomCenter;
-            this.btnNext1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNext1.ImageOptions.SvgImage")));
+            this.btnNext1.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.forward;
             this.btnNext1.Location = new System.Drawing.Point(868, 12);
             this.btnNext1.Name = "btnNext1";
             this.btnNext1.Size = new System.Drawing.Size(84, 36);
@@ -289,8 +289,8 @@
             this.btnCargar.Appearance.Options.UseFont = true;
             this.btnCargar.Appearance.Options.UseTextOptions = true;
             this.btnCargar.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.btnCargar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.apply_32x32;
             this.btnCargar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.btnCargar.ImageOptions.SvgImage = global::LOSA.Properties.Resources.ProgressRingDots;
             this.btnCargar.Location = new System.Drawing.Point(855, 12);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(97, 36);
@@ -304,9 +304,9 @@
             this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.Location = new System.Drawing.Point(229, 142);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(140, 20);
+            this.labelControl7.Size = new System.Drawing.Size(128, 20);
             this.labelControl7.TabIndex = 60;
-            this.labelControl7.Text = "Aplicado en Planilla:";
+            this.labelControl7.Text = "Aplicar en Planilla:";
             // 
             // tsAplicado
             // 
@@ -317,7 +317,7 @@
             this.tsAplicado.Properties.Appearance.Options.UseFont = true;
             this.tsAplicado.Properties.OffText = "No";
             this.tsAplicado.Properties.OnText = "Si";
-            this.tsAplicado.Size = new System.Drawing.Size(116, 24);
+            this.tsAplicado.Size = new System.Drawing.Size(116, 26);
             this.tsAplicado.TabIndex = 59;
             // 
             // labelControl8
@@ -517,7 +517,7 @@
             // btnBack1
             // 
             this.btnBack1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.BottomCenter;
-            this.btnBack1.ImageOptions.SvgImage = global::LOSA.Properties.Resources.ArrowLeft8;
+            this.btnBack1.ImageOptions.SvgImage = global::JAGUAR_PRO.Properties.Resources.backward;
             this.btnBack1.Location = new System.Drawing.Point(12, 12);
             this.btnBack1.Name = "btnBack1";
             this.btnBack1.Size = new System.Drawing.Size(84, 36);

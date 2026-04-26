@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LOSA.RRHH_Planilla.Capacitacion.Model
+namespace JAGUAR_PRO.RRHH_Planilla.Capacitacion.Model
 {
     public class SeleccionAusenciaEmpleados
     {

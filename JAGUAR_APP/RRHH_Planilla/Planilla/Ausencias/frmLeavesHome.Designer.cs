@@ -1,4 +1,4 @@
-﻿namespace LOSA.RRHH_Planilla.Planilla.Inasistencias
+﻿namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Inasistencias
 {
     partial class frmLeavesHome
     {
@@ -47,7 +47,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.slueEmployee = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bshremployee = new System.Windows.Forms.BindingSource(this.components);
-            this.dsInasistencias1 = new LOSA.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
+            this.dsInasistencias1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias.dsInasistencias();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colbarcode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -173,8 +173,8 @@
             // 
             // xtraTabControl1
             // 
-            this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.xtraTabControl1.Location = new System.Drawing.Point(-1, 87);
             this.xtraTabControl1.Name = "xtraTabControl1";
@@ -375,7 +375,7 @@
             // btnEditar
             // 
             this.btnEditar.AutoHeight = false;
-            editorButtonImageOptions3.Image = global::LOSA.Properties.Resources.editname_16x161;
+            editorButtonImageOptions3.Image = global::JAGUAR_PRO.Properties.Resources.edit;
             this.btnEditar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnEditar.Name = "btnEditar";

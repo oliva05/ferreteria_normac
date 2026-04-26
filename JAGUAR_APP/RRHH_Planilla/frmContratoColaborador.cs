@@ -339,7 +339,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                 }
                 else
                 {
-                    colEditarAumento.Visible = false;
+                    //colEditarAumento.Visible = false;
                     colEditarBenDed.Visible = false;
                     colInactivarAumento.Visible = false;
                     colBorrarBenDed.Visible = false;
@@ -1166,7 +1166,7 @@ namespace JAGUAR_PRO.RRHH_Planilla
                 if (respuesta == DialogResult.Yes)
                 {
 
-                    using (SqlCommand cmd = new SqlCommand("dbo.uspDisable_payment_history", cnx))
+                    using (SqlCommand cmd = new SqlCommand("dbo.[uspDisable_payment_historyV2]", cnx))
                     {
                         cnx.Open();
                         cmd.CommandType = CommandType.StoredProcedure;

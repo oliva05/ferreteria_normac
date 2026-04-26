@@ -30,6 +30,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
         int id_contrato = 0;
         ContratoAumento aumento = new ContratoAumento();
         DetalleContrato contrato = new DetalleContrato();
+        public decimal SalarioActual = 0;
 
         public frm_aumento_CRUD(TipoTransaccion t_tipo, UserLogin usuarioLog, int contract_id)
         {
@@ -98,7 +99,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                 {
                     case TipoTransaccion.Nuevo:
 
-                        using (SqlCommand cmd = new SqlCommand("[uspInsertAumento]", cnx))
+                        using (SqlCommand cmd = new SqlCommand("[uspInsertAumentoV3]", cnx))
                         {
                             cnx.Open();
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -109,7 +110,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                             cmd.Parameters.AddWithValue("@amount", 0);
                             cmd.Parameters.AddWithValue("@create_uid", usuario_logueado.Id);
                             cmd.Parameters.AddWithValue("@id_tipo_aumento", slueTipoAumento.EditValue);
-
+                            cmd.Parameters.AddWithValue("@SalarioActual", SalarioActual);
                             cmd.ExecuteNonQuery();
 
                             cnx.Close();
@@ -249,7 +250,9 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
 
                     if (txtValor.EditValue != null)
                     {
-                        lblNuevoSalario.Text = $"Nuevo Salario: {contrato.SimboloMoneda}{Convert.ToDecimal( txtValor.EditValue).ToString("N2")}";
+                        lblNuevoSalario.Text = $"Nuevo Salario: {contrato.SimboloMoneda}{Convert.ToDecimal(txtValor.EditValue).ToString("N2")}";
+
+                        SalarioActual = Convert.ToDecimal(txtValor.EditValue);
                     }
                 }
 
@@ -260,9 +263,11 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                         //txtValor.EditValue = 0;
 
                         // Calcular el aumento
-                        decimal importe = Convert.ToDecimal(txtValor.EditValue)  + Convert.ToDecimal(txtSalarioActual.EditValue);
+                        decimal importe = Convert.ToDecimal(txtValor.EditValue) + Convert.ToDecimal(txtSalarioActual.EditValue);
 
                         lblNuevoSalario.Text = $"Nuevo Salario: {contrato.SimboloMoneda}{(Convert.ToDecimal(txtSalarioActual.EditValue) + Convert.ToDecimal(txtValor.EditValue)).ToString("N2")}";
+
+                        SalarioActual = importe;
                     }
                 }
 
@@ -275,6 +280,9 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos
                         // Calcular el aumento
                         decimal valor_porcentaje = decimal.Parse(txtValor.EditValue.ToString()) * (decimal)txtSalarioActual.EditValue;
                         lblNuevoSalario.Text = $"Nuevo Salario: {contrato.SimboloMoneda}{((decimal)txtSalarioActual.EditValue + valor_porcentaje).ToString("N2")}";
+
+                        decimal nuevoSalario = (decimal)txtSalarioActual.EditValue + valor_porcentaje;
+                        SalarioActual = Math.Round(nuevoSalario, 2, MidpointRounding.AwayFromZero);
                     }
                 }
             }

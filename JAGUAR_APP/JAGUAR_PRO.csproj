@@ -1680,6 +1680,12 @@
     <Compile Include="Facturacion\Entrega\frmEntregaGestion.Designer.cs">
       <DependentUpon>frmEntregaGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Entrega\frmRastreoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Entrega\frmRastreoPedido.Designer.cs">
+      <DependentUpon>frmRastreoPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Entrega\xrptEntrega.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -4099,6 +4105,55 @@
     <Compile Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\WaitFormEmployee.Designer.cs">
       <DependentUpon>WaitFormEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\dsAusencias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAusencias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmAusenciasGestionRpt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmAusenciasGestionRpt.Designer.cs">
+      <DependentUpon>frmAusenciasGestionRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmAusenciasMasivas_Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmAusenciasMasivas_Home.Designer.cs">
+      <DependentUpon>frmAusenciasMasivas_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmLeaveCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmLeaveCRUD.Designer.cs">
+      <DependentUpon>frmLeaveCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmLeaveDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmLeaveDetail.Designer.cs">
+      <DependentUpon>frmLeaveDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmLeaveGestionarEstado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmLeaveGestionarEstado.Designer.cs">
+      <DependentUpon>frmLeaveGestionarEstado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmLeavesHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmLeavesHome.Designer.cs">
+      <DependentUpon>frmLeavesHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmWizardLeaves.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\frmWizardLeaves.Designer.cs">
+      <DependentUpon>frmWizardLeaves.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\HrLeave.cs" />
+    <Compile Include="RRHH_Planilla\Planilla\Ausencias\Models\SeleccionAusenciaEmpleados.cs" />
     <Compile Include="RRHH_Planilla\Planilla\dsCargasPlantillas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4592,6 +4647,9 @@
     <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMP.resx">
       <DependentUpon>frmSearchMP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calidad\LoteConfConsumo\frmSearchMultItems.resx">
+      <DependentUpon>frmSearchMultItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clases\Huellas\LectorHuellas.resx">
       <DependentUpon>LectorHuellas.cs</DependentUpon>
     </EmbeddedResource>
@@ -4909,6 +4967,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Entrega\frmEntregaGestion.resx">
       <DependentUpon>frmEntregaGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Entrega\frmRastreoPedido.resx">
+      <DependentUpon>frmRastreoPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Entrega\xrptEntrega.resx">
       <DependentUpon>xrptEntrega.cs</DependentUpon>
@@ -5706,6 +5767,27 @@
     <EmbeddedResource Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\WaitFormEmployee.resx">
       <DependentUpon>WaitFormEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Ausencias\frmAusenciasGestionRpt.resx">
+      <DependentUpon>frmAusenciasGestionRpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Ausencias\frmAusenciasMasivas_Home.resx">
+      <DependentUpon>frmAusenciasMasivas_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Ausencias\frmLeaveCRUD.resx">
+      <DependentUpon>frmLeaveCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Ausencias\frmLeaveDetail.resx">
+      <DependentUpon>frmLeaveDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Ausencias\frmLeaveGestionarEstado.resx">
+      <DependentUpon>frmLeaveGestionarEstado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Ausencias\frmLeavesHome.resx">
+      <DependentUpon>frmLeavesHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\Ausencias\frmWizardLeaves.resx">
+      <DependentUpon>frmWizardLeaves.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Planilla\frmCambiarEstadoPlanillas.resx">
       <DependentUpon>frmCambiarEstadoPlanillas.cs</DependentUpon>
     </EmbeddedResource>
@@ -6048,6 +6130,17 @@
     <None Include="RRHH_Planilla\Mantenimientos\MaestrosEmpleado\dsMaestroEmpleados.xss">
       <DependentUpon>dsMaestroEmpleados.xsd</DependentUpon>
     </None>
+    <None Include="RRHH_Planilla\Planilla\Ausencias\dsAusencias.xsc">
+      <DependentUpon>dsAusencias.xsd</DependentUpon>
+    </None>
+    <None Include="RRHH_Planilla\Planilla\Ausencias\dsAusencias.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAusencias.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RRHH_Planilla\Planilla\Ausencias\dsAusencias.xss">
+      <DependentUpon>dsAusencias.xsd</DependentUpon>
+    </None>
     <None Include="RRHH_Planilla\Planilla\dsCargasPlantillas.xsc">
       <DependentUpon>dsCargasPlantillas.xsd</DependentUpon>
     </None>
@@ -6186,6 +6279,10 @@
     <None Include="Resources\reloj.jpg" />
     <None Include="Resources\printer_32x32.png" />
     <None Include="Resources\editname_16x16.png" />
+    <None Include="Resources\find_32x32.png" />
+    <None Include="Resources\apply_32x32.png" />
+    <None Include="Resources\backward.svg" />
+    <None Include="Resources\forward.svg" />
     <Content Include="WhatsApp Image 2025-03-01 at 11.15.59 AM.ico" />
     <None Include="Resources\xml_24x24.png" />
     <None Include="Resources\_click_24X24.png" />

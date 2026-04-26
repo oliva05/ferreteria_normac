@@ -5,9 +5,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LOSA.Clases;
+using JAGUAR_PRO.Clases;
 
-namespace LOSA.RRHH_Planilla.Planilla.Ausencias
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 {
     public class HrLeave
     {
@@ -40,7 +40,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Ausencias
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection conn = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("sp_get_rrhh_leave_class", conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;

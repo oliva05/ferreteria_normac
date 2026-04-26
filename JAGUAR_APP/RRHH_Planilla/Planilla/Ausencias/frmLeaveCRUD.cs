@@ -4,10 +4,10 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraRichEdit.Layout;
 using DocumentFormat.OpenXml.Math;
 using DocumentFormat.OpenXml.Wordprocessing;
-using LOSA.Clases;
-using LOSA.Clases.Colaborador;
-using LOSA.Clases.Planilla;
-using LOSA.MigracionACS.RRHH.Vacaciones;
+using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Colaborador;
+using JAGUAR_PRO.Clases.Planilla;
+using JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LOSA.RRHH_Planilla.Planilla.Ausencias
+namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 {
     public partial class frmLeaveCRUD : DevExpress.XtraEditors.XtraForm
     {
@@ -102,7 +102,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Ausencias
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
                 SqlCommand cmd1 = new SqlCommand("[dbo].[uspLoadLeaveType]", con);
                 cmd1.CommandType = CommandType.StoredProcedure;
@@ -125,7 +125,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Ausencias
             try
             {
                 DataOperations dp = new DataOperations();
-                SqlConnection con = new SqlConnection(dp.ConnectionStringRRHH);
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
                 con.Open();
                 SqlCommand cmd1 = new SqlCommand("[dbo].[uspLoadLeaveCategory]", con);
                 cmd1.CommandType = CommandType.StoredProcedure;
@@ -212,7 +212,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Ausencias
                     case TransaccionTipo.Nuevo:
 
                         // Crear un comando SQL para ejecutar el Stored Procedure
-                        using (SqlConnection connection = new SqlConnection(dp.ConnectionStringRRHH))
+                        using (SqlConnection connection = new SqlConnection(dp. ConnectionStringJAGUAR_DB))
                         {
                             connection.Open();
                             SqlCommand command = new SqlCommand("dbo.uspInsertLeaveV2", connection);
@@ -246,7 +246,7 @@ namespace LOSA.RRHH_Planilla.Planilla.Ausencias
                     case TransaccionTipo.Editar:
 
                         // Crear un comando SQL para ejecutar el Stored Procedure
-                        using (SqlConnection connection = new SqlConnection(dp.ConnectionStringRRHH))
+                        using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
                         {
                             connection.Open();
                             SqlCommand command = new SqlCommand("dbo.[uspUpdateLeaveV2]", connection);
