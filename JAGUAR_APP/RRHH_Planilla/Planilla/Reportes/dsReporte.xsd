@@ -221,6 +221,9 @@
               <xs:element name="hora_cerrada" msprop:Generator_ColumnPropNameInTable="hora_cerradaColumn" msprop:Generator_ColumnPropNameInRow="hora_cerrada" msprop:Generator_UserColumnName="hora_cerrada" msprop:Generator_ColumnVarNameInTable="columnhora_cerrada" type="xs:boolean" minOccurs="0" />
               <xs:element name="id_tipo_marca" msprop:Generator_ColumnPropNameInTable="id_tipo_marcaColumn" msprop:Generator_ColumnPropNameInRow="id_tipo_marca" msprop:Generator_UserColumnName="id_tipo_marca" msprop:Generator_ColumnVarNameInTable="columnid_tipo_marca" type="xs:int" minOccurs="0" />
               <xs:element name="tipo_marca" msprop:Generator_ColumnPropNameInTable="tipo_marcaColumn" msprop:Generator_ColumnPropNameInRow="tipo_marca" msprop:Generator_UserColumnName="tipo_marca" msprop:Generator_ColumnVarNameInTable="columntipo_marca" type="xs:string" minOccurs="0" />
+              <xs:element name="OrigenMarca" msdata:Caption="Origen de Marca" msprop:Generator_ColumnPropNameInRow="OrigenMarca" msprop:Generator_ColumnPropNameInTable="OrigenMarcaColumn" msprop:Generator_ColumnVarNameInTable="columnOrigenMarca" msprop:Generator_UserColumnName="OrigenMarca" type="xs:string" minOccurs="0" />
+              <xs:element name="usuario_posteo" msdata:Caption="Usuario Posteo" msprop:Generator_ColumnPropNameInRow="usuario_posteo" msprop:Generator_ColumnPropNameInTable="usuario_posteoColumn" msprop:Generator_ColumnVarNameInTable="columnusuario_posteo" msprop:Generator_UserColumnName="usuario_posteo" type="xs:string" minOccurs="0" />
+              <xs:element name="hora_posteo" msdata:Caption="Hora Posteo" msprop:Generator_ColumnPropNameInRow="hora_posteo" msprop:Generator_ColumnPropNameInTable="hora_posteoColumn" msprop:Generator_ColumnVarNameInTable="columnhora_posteo" msprop:Generator_UserColumnName="hora_posteo" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -270,7 +273,7 @@
               <xs:element name="hora_salida_almuerzo" msprop:Generator_ColumnPropNameInTable="hora_salida_almuerzoColumn" msprop:Generator_ColumnPropNameInRow="hora_salida_almuerzo" msprop:Generator_UserColumnName="hora_salida_almuerzo" msprop:Generator_ColumnVarNameInTable="columnhora_salida_almuerzo" type="xs:dateTime" minOccurs="0" />
               <xs:element name="hora_entrada_almuerzo" msprop:Generator_ColumnPropNameInTable="hora_entrada_almuerzoColumn" msprop:Generator_ColumnPropNameInRow="hora_entrada_almuerzo" msprop:Generator_UserColumnName="hora_entrada_almuerzo" msprop:Generator_ColumnVarNameInTable="columnhora_entrada_almuerzo" type="xs:dateTime" minOccurs="0" />
               <xs:element name="hora_salida" msprop:Generator_ColumnPropNameInTable="hora_salidaColumn" msprop:Generator_ColumnPropNameInRow="hora_salida" msprop:Generator_UserColumnName="hora_salida" msprop:Generator_ColumnVarNameInTable="columnhora_salida" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="fecha" msprop:Generator_UserColumnName="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_UserColumnName="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -89,6 +89,9 @@
             this.btnCargarDatosAcumulados = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportarAcumulados = new DevExpress.XtraEditors.SimpleButton();
             this.dsReporte1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colOrigenMarca = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colusuario_posteo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhora_posteo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.TabGeneral.SuspendLayout();
@@ -515,7 +518,10 @@
             this.colid_tipo_marca,
             this.coltipo_marca,
             this.colDelete,
-            this.colEditar});
+            this.colEditar,
+            this.colOrigenMarca,
+            this.colusuario_posteo,
+            this.colhora_posteo});
             this.gvAcumulados.GridControl = this.gcAcumulados;
             this.gvAcumulados.Name = "gvAcumulados";
             this.gvAcumulados.OptionsView.ShowAutoFilterRow = true;
@@ -541,7 +547,6 @@
             this.colbarcode.OptionsColumn.ReadOnly = true;
             this.colbarcode.Visible = true;
             this.colbarcode.VisibleIndex = 0;
-            this.colbarcode.Width = 90;
             // 
             // colnombre1
             // 
@@ -551,7 +556,7 @@
             this.colnombre1.OptionsColumn.ReadOnly = true;
             this.colnombre1.Visible = true;
             this.colnombre1.VisibleIndex = 1;
-            this.colnombre1.Width = 176;
+            this.colnombre1.Width = 147;
             // 
             // colfecha1
             // 
@@ -563,7 +568,7 @@
             this.colfecha1.OptionsColumn.ReadOnly = true;
             this.colfecha1.Visible = true;
             this.colfecha1.VisibleIndex = 2;
-            this.colfecha1.Width = 176;
+            this.colfecha1.Width = 147;
             // 
             // colhora_cerrada
             // 
@@ -573,7 +578,7 @@
             this.colhora_cerrada.OptionsColumn.ReadOnly = true;
             this.colhora_cerrada.Visible = true;
             this.colhora_cerrada.VisibleIndex = 3;
-            this.colhora_cerrada.Width = 176;
+            this.colhora_cerrada.Width = 147;
             // 
             // colid_tipo_marca
             // 
@@ -589,7 +594,7 @@
             this.coltipo_marca.OptionsColumn.ReadOnly = true;
             this.coltipo_marca.Visible = true;
             this.coltipo_marca.VisibleIndex = 4;
-            this.coltipo_marca.Width = 253;
+            this.coltipo_marca.Width = 177;
             // 
             // colDelete
             // 
@@ -597,8 +602,8 @@
             this.colDelete.ColumnEdit = this.cmdEliminar;
             this.colDelete.Name = "colDelete";
             this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 6;
-            this.colDelete.Width = 141;
+            this.colDelete.VisibleIndex = 9;
+            this.colDelete.Width = 81;
             // 
             // cmdEliminar
             // 
@@ -616,8 +621,8 @@
             this.colEditar.ColumnEdit = this.cmdEditar;
             this.colEditar.Name = "colEditar";
             this.colEditar.Visible = true;
-            this.colEditar.VisibleIndex = 5;
-            this.colEditar.Width = 137;
+            this.colEditar.VisibleIndex = 8;
+            this.colEditar.Width = 68;
             // 
             // cmdEditar
             // 
@@ -678,6 +683,32 @@
             // 
             this.dsReporte1BindingSource.DataSource = this.dsReporte1;
             this.dsReporte1BindingSource.Position = 0;
+            // 
+            // colOrigenMarca
+            // 
+            this.colOrigenMarca.FieldName = "OrigenMarca";
+            this.colOrigenMarca.Name = "colOrigenMarca";
+            this.colOrigenMarca.Visible = true;
+            this.colOrigenMarca.VisibleIndex = 5;
+            this.colOrigenMarca.Width = 95;
+            // 
+            // colusuario_posteo
+            // 
+            this.colusuario_posteo.FieldName = "usuario_posteo";
+            this.colusuario_posteo.Name = "colusuario_posteo";
+            this.colusuario_posteo.Visible = true;
+            this.colusuario_posteo.VisibleIndex = 6;
+            this.colusuario_posteo.Width = 96;
+            // 
+            // colhora_posteo
+            // 
+            this.colhora_posteo.DisplayFormat.FormatString = "g";
+            this.colhora_posteo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colhora_posteo.FieldName = "hora_posteo";
+            this.colhora_posteo.Name = "colhora_posteo";
+            this.colhora_posteo.Visible = true;
+            this.colhora_posteo.VisibleIndex = 7;
+            this.colhora_posteo.Width = 116;
             // 
             // frmRptMarcaje
             // 
@@ -767,5 +798,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdEliminar;
         private DevExpress.XtraGrid.Columns.GridColumn colEditar;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdEditar;
+        private DevExpress.XtraGrid.Columns.GridColumn colOrigenMarca;
+        private DevExpress.XtraGrid.Columns.GridColumn colusuario_posteo;
+        private DevExpress.XtraGrid.Columns.GridColumn colhora_posteo;
     }
 }

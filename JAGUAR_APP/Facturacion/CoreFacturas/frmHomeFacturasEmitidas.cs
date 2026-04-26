@@ -207,222 +207,231 @@ namespace JAGUAR_PRO.Facturacion.CoreFacturas
                 Factura factura = new Factura();
                 if (factura.RecuperarRegistro(row.id))
                 {
-                    if (factura.IdPuntoVentaDestino == 0)
+                    if (factura.IdTerminoPago != 2)
                     {
-                        switch (row.id_estado)
+                        if (factura.IdPuntoVentaDestino == 0)
                         {
-                            //case 1:
-                            //    break; 
-                            case 2://2=Pagada
-                                ActivarReturn = true;
-                                CajaDialogo.Error("Esta Factura ya fue pagada, No se puede pagar nuevamente!");
-
-                                break;
-                            case 3://3=Anulada
-                                ActivarReturn = true;
-                                CajaDialogo.Error("Esta factura ya fue Anulada, No se puede efectuar el pago!");
-                                break;
-                        }
-
-                        if (ActivarReturn)
-                            return;
-                    }
-                    else
-                    {
-                        if (factura.SaldoFactura <= 0)
-                        {
-                            CajaDialogo.Error("Esta Factura ya fue pagada, No se puede pagar nuevamente!");
-                            return;
-                        }
-                    }
-
-                    //frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, row.TotalFactura, puntoVentaFactura);
-                    frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, row.saldo, puntoVentaFactura,
-                                                            factura.subtotalFactura, factura.ISV1);
-                    if (frm.ShowDialog() == DialogResult.OK)
-                    {
-                        bool TransaccionExitosa = false;
-                        int IdTipoPago = 0;
-
-                        //Vamos por el detalle de lineas para la factura y la transaccion
-                        using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
-                        {
-                            connection.Open();
-
-                            SqlCommand command = connection.CreateCommand();
-                            SqlTransaction transaction;
-
-                            // Start a local transaction.
-                            transaction = connection.BeginTransaction("SampleTransaction");
-
-                            // Must assign both transaction object and connection
-                            // to Command object for a pending local transaction
-                            command.Connection = connection;
-                            command.Transaction = transaction;
-
-                            try
+                            switch (row.id_estado)
                             {
-                                //Vamos a postear transaccion en estado de cuenta de cliente
-                                //if (factura.IdCliente > 0)
-                                //{
-                                //    //El pago de la misma
-                                //    command.CommandText = "dbo.[sp_set_insert_estado_cuenta_cliente_v2]";
-                                //    command.CommandType = CommandType.StoredProcedure;
-                                //    command.Parameters.Clear();
-                                //    command.Parameters.AddWithValue("@num_doc", factura.NumeroDocumento);
-                                //    command.Parameters.AddWithValue("@enable", 1);
-                                //    command.Parameters.AddWithValue("@credito", frm.varPago);//Abonos
-                                //    command.Parameters.AddWithValue("@debito", 0);//cargos
-                                //    command.Parameters.AddWithValue("@concepto", string.Concat("Pago de Factura #", factura.NumeroDocumento));
-                                //    command.Parameters.AddWithValue("@doc_date", factura.FechaDocumento);
-                                //    command.Parameters.AddWithValue("@date_created", factura.FechaDocumento);
-                                //    command.Parameters.AddWithValue("@id_user_created", this.UsuarioLogeado.Id);
-                                //    command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
+                                //case 1:
+                                //    break; 
+                                case 2://2=Pagada
+                                    ActivarReturn = true;
+                                    CajaDialogo.Error("Esta Factura ya fue pagada, No se puede pagar nuevamente!");
 
-                                //    if(string.IsNullOrEmpty(frm.ReferenciaReciboPago))
-                                //        command.Parameters.AddWithValue("@referencia", DBNull.Value);
-                                //    else
-                                //        command.Parameters.AddWithValue("@referencia", frm.ReferenciaReciboPago);
+                                    break;
+                                case 3://3=Anulada
+                                    ActivarReturn = true;
+                                    CajaDialogo.Error("Esta factura ya fue Anulada, No se puede efectuar el pago!");
+                                    break;
+                            }
 
-                                //    command.ExecuteNonQuery();
+                            if (ActivarReturn)
+                                return;
+                        }
+                        else
+                        {
+                            if (factura.SaldoFactura <= 0)
+                            {
+                                CajaDialogo.Error("Esta Factura ya fue pagada, No se puede pagar nuevamente!");
+                                return;
+                            }
+                        }
 
-                                //}
+                        //frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, row.TotalFactura, puntoVentaFactura);
+                        frmPagoFactura frm = new frmPagoFactura(this.UsuarioLogeado, row.saldo, puntoVentaFactura,
+                                                                factura.subtotalFactura, factura.ISV1);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            bool TransaccionExitosa = false;
+                            int IdTipoPago = 0;
 
-                                command.CommandText = "[dbo].[sp_set_update_estado_factura_h]";
-                                command.CommandType = CommandType.StoredProcedure;
-                                command.Parameters.Clear();
-                                command.Parameters.AddWithValue("@id_factura", factura.Id);
-                                command.Parameters.AddWithValue("@id_estado", 2);//Pagada
-                                IdTipoPago = (int)frm.TipoPagoSeleccionadoActual;
-                                command.Parameters.AddWithValue("@id_tipo_pago", IdTipoPago);
-                                command.Parameters.AddWithValue("@monto_entregado", dp.ValidateNumberDecimal(frm.txtEntregado.Text));
-                                command.Parameters.AddWithValue("@cambio", dp.ValidateNumberDecimal(frm.txtCambio.Text));
-                                command.ExecuteNonQuery();
+                            //Vamos por el detalle de lineas para la factura y la transaccion
+                            using (SqlConnection connection = new SqlConnection(dp.ConnectionStringJAGUAR_DB))
+                            {
+                                connection.Open();
 
+                                SqlCommand command = connection.CreateCommand();
+                                SqlTransaction transaction;
 
+                                // Start a local transaction.
+                                transaction = connection.BeginTransaction("SampleTransaction");
 
+                                // Must assign both transaction object and connection
+                                // to Command object for a pending local transaction
+                                command.Connection = connection;
+                                command.Transaction = transaction;
 
-
-                                //Postear el recibo de la recepcion de valor o dinero
-                                command.CommandText = "dbo.sp_set_insert_new_recibo_pago_h";
-                                command.CommandType = CommandType.StoredProcedure;
-                                command.Parameters.Clear();
-                                command.Parameters.AddWithValue("@id_usuario_created", this.UsuarioLogeado.Id);
-                                command.Parameters.AddWithValue("@concepto", "Pago a Facturas");
-
-                                if (factura.IdCliente == 0)
-                                    command.Parameters.AddWithValue("@id_cliente", DBNull.Value);
-                                else
-                                    command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
-
-                                command.Parameters.AddWithValue("@fecha_created", dp.NowSetDateTime());
-                                command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
-                                command.Parameters.AddWithValue("@valor", frm.varPago);
-                                command.Parameters.AddWithValue("@id_tipo_pago", (int)frm.TipoPagoSeleccionadoActual);
-                                command.Parameters.AddWithValue("@id_formato_impresion", this.PuntoDeVentaActual.IdFormatoFactura);
-
-                                if(string.IsNullOrEmpty(frm.ReferenciaReciboPago))
-                                    command.Parameters.AddWithValue("@referencia", DBNull.Value);
-                                else
-                                    command.Parameters.AddWithValue("@referencia", frm.ReferenciaReciboPago);
-
-                                Int64 IdReciboH_Inserted = Convert.ToInt64(command.ExecuteScalar());
-
-                                //Posteamos la linea del recibo.
-                                foreach (RegistroPago registroPago in frm.ListaDetallePago)
+                                try
                                 {
-                                    command.CommandText = "dbo.[sp_set_insert_recibo_pago_detalle_v2]";
+                                    //Vamos a postear transaccion en estado de cuenta de cliente
+                                    //if (factura.IdCliente > 0)
+                                    //{
+                                    //    //El pago de la misma
+                                    //    command.CommandText = "dbo.[sp_set_insert_estado_cuenta_cliente_v2]";
+                                    //    command.CommandType = CommandType.StoredProcedure;
+                                    //    command.Parameters.Clear();
+                                    //    command.Parameters.AddWithValue("@num_doc", factura.NumeroDocumento);
+                                    //    command.Parameters.AddWithValue("@enable", 1);
+                                    //    command.Parameters.AddWithValue("@credito", frm.varPago);//Abonos
+                                    //    command.Parameters.AddWithValue("@debito", 0);//cargos
+                                    //    command.Parameters.AddWithValue("@concepto", string.Concat("Pago de Factura #", factura.NumeroDocumento));
+                                    //    command.Parameters.AddWithValue("@doc_date", factura.FechaDocumento);
+                                    //    command.Parameters.AddWithValue("@date_created", factura.FechaDocumento);
+                                    //    command.Parameters.AddWithValue("@id_user_created", this.UsuarioLogeado.Id);
+                                    //    command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
+
+                                    //    if(string.IsNullOrEmpty(frm.ReferenciaReciboPago))
+                                    //        command.Parameters.AddWithValue("@referencia", DBNull.Value);
+                                    //    else
+                                    //        command.Parameters.AddWithValue("@referencia", frm.ReferenciaReciboPago);
+
+                                    //    command.ExecuteNonQuery();
+
+                                    //}
+
+                                    command.CommandText = "[dbo].[sp_set_update_estado_factura_h]";
                                     command.CommandType = CommandType.StoredProcedure;
                                     command.Parameters.Clear();
-                                    command.Parameters.AddWithValue("@num_doc", factura.NumeroDocumento);
-                                    //command.Parameters.AddWithValue("@valor", frm.varPago);
-                                    command.Parameters.AddWithValue("@valor", registroPago.Valor);
-                                    command.Parameters.AddWithValue("@date_created", dp.NowSetDateTime());
-                                    command.Parameters.AddWithValue("@id_recibo_h", IdReciboH_Inserted);
-                                    command.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
+                                    command.Parameters.AddWithValue("@id_factura", factura.Id);
+                                    command.Parameters.AddWithValue("@id_estado", 2);//Pagada
+                                    IdTipoPago = (int)frm.TipoPagoSeleccionadoActual;
+                                    command.Parameters.AddWithValue("@id_tipo_pago", IdTipoPago);
+                                    command.Parameters.AddWithValue("@monto_entregado", dp.ValidateNumberDecimal(frm.txtEntregado.Text));
+                                    command.Parameters.AddWithValue("@cambio", dp.ValidateNumberDecimal(frm.txtCambio.Text));
+                                    command.ExecuteNonQuery();
+
+
+
+
+
+                                    //Postear el recibo de la recepcion de valor o dinero
+                                    command.CommandText = "dbo.sp_set_insert_new_recibo_pago_h";
+                                    command.CommandType = CommandType.StoredProcedure;
+                                    command.Parameters.Clear();
+                                    command.Parameters.AddWithValue("@id_usuario_created", this.UsuarioLogeado.Id);
+                                    command.Parameters.AddWithValue("@concepto", "Pago a Facturas");
 
                                     if (factura.IdCliente == 0)
                                         command.Parameters.AddWithValue("@id_cliente", DBNull.Value);
                                     else
                                         command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
 
-                                    if (registroPago.IdTipo == 3)
-                                    {
-                                        if (string.IsNullOrEmpty(registroPago.Referencia))
-                                            command.Parameters.AddWithValue("@referencia", registroPago.Referencia);
-                                        else
-                                            command.Parameters.AddWithValue("@referencia", DBNull.Value);
-                                    }
-                                    else
-                                    {
+                                    command.Parameters.AddWithValue("@fecha_created", dp.NowSetDateTime());
+                                    command.Parameters.AddWithValue("@id_punto_venta", this.PuntoDeVentaActual.ID);
+                                    command.Parameters.AddWithValue("@valor", frm.varPago);
+                                    command.Parameters.AddWithValue("@id_tipo_pago", (int)frm.TipoPagoSeleccionadoActual);
+                                    command.Parameters.AddWithValue("@id_formato_impresion", this.PuntoDeVentaActual.IdFormatoFactura);
+
+                                    if (string.IsNullOrEmpty(frm.ReferenciaReciboPago))
                                         command.Parameters.AddWithValue("@referencia", DBNull.Value);
+                                    else
+                                        command.Parameters.AddWithValue("@referencia", frm.ReferenciaReciboPago);
+
+                                    Int64 IdReciboH_Inserted = Convert.ToInt64(command.ExecuteScalar());
+
+                                    //Posteamos la linea del recibo.
+                                    foreach (RegistroPago registroPago in frm.ListaDetallePago)
+                                    {
+                                        command.CommandText = "dbo.[sp_set_insert_recibo_pago_detalle_v2]";
+                                        command.CommandType = CommandType.StoredProcedure;
+                                        command.Parameters.Clear();
+                                        command.Parameters.AddWithValue("@num_doc", factura.NumeroDocumento);
+                                        //command.Parameters.AddWithValue("@valor", frm.varPago);
+                                        command.Parameters.AddWithValue("@valor", registroPago.Valor);
+                                        command.Parameters.AddWithValue("@date_created", dp.NowSetDateTime());
+                                        command.Parameters.AddWithValue("@id_recibo_h", IdReciboH_Inserted);
+                                        command.Parameters.AddWithValue("@id_usuario", this.UsuarioLogeado.Id);
+
+                                        if (factura.IdCliente == 0)
+                                            command.Parameters.AddWithValue("@id_cliente", DBNull.Value);
+                                        else
+                                            command.Parameters.AddWithValue("@id_cliente", factura.IdCliente);
+
+                                        if (registroPago.IdTipo == 3)
+                                        {
+                                            if (string.IsNullOrEmpty(registroPago.Referencia))
+                                                command.Parameters.AddWithValue("@referencia", registroPago.Referencia);
+                                            else
+                                                command.Parameters.AddWithValue("@referencia", DBNull.Value);
+                                        }
+                                        else
+                                        {
+                                            command.Parameters.AddWithValue("@referencia", DBNull.Value);
+                                        }
+
+                                        if (registroPago.IdTipo == 0)
+                                            command.Parameters.AddWithValue("@id_tipo_pago", DBNull.Value);
+                                        else
+                                            command.Parameters.AddWithValue("@id_tipo_pago", registroPago.IdTipo);
+
+                                        command.ExecuteNonQuery();
                                     }
 
-                                    if (registroPago.IdTipo == 0)
-                                        command.Parameters.AddWithValue("@id_tipo_pago", DBNull.Value);
-                                    else
-                                        command.Parameters.AddWithValue("@id_tipo_pago", registroPago.IdTipo);
 
-                                    command.ExecuteNonQuery();
+
+
+
+
+                                    TransaccionExitosa = true;
+
+                                    // Attempt to commit the transaction.
+                                    transaction.Commit();
                                 }
-
-
-
-
-
-
-                                TransaccionExitosa = true;
-
-                                // Attempt to commit the transaction.
-                                transaction.Commit();
-                            }
-                            catch (Exception ex)
-                            {
-                                // Attempt to roll back the transaction.
-                                try
+                                catch (Exception ex)
                                 {
-                                    transaction.Rollback();
-                                    CajaDialogo.Error(ex.Message);
+                                    // Attempt to roll back the transaction.
+                                    try
+                                    {
+                                        transaction.Rollback();
+                                        CajaDialogo.Error(ex.Message);
+                                    }
+                                    catch (Exception ex2)
+                                    {
+                                        CajaDialogo.Error(ex2.Message);
+                                    }
                                 }
-                                catch (Exception ex2)
-                                {
-                                    CajaDialogo.Error(ex2.Message);
-                                }
-                            }
-                        }//En Using Connection
+                            }//En Using Connection
 
-                        //Vamos a notificar de la factura efectuada y actualizar el row Status
-                        if (TransaccionExitosa)
-                        {
-                            row.id_estado = 1;
-                            row.EstadoName = "Pagada";
-
-                            //Tabla [JAGUAR_DB].[dbo].[Facturacion_Tipo_Pago]
-                            //1   Efectivo
-                            //2   Tarjeta
-                            //3   Depósito Bancario
-                            
-                            row.id_tipo_pago = IdTipoPago;
-
-                            switch (IdTipoPago)
+                            //Vamos a notificar de la factura efectuada y actualizar el row Status
+                            if (TransaccionExitosa)
                             {
-                                case 1:
-                                    row.TipoPagoName = "Efectivo";
-                                    break;
-                                case 2:
-                                    row.TipoPagoName = "Tarjeta";
-                                    break;
-                                case 3:
-                                    row.TipoPagoName = "Depósito Bancario";
-                                    break;
-                                case 4:
-                                    row.TipoPagoName = "Cheque";
-                                    break;
+                                row.id_estado = 1;
+                                row.EstadoName = "Pagada";
+
+                                //Tabla [JAGUAR_DB].[dbo].[Facturacion_Tipo_Pago]
+                                //1   Efectivo
+                                //2   Tarjeta
+                                //3   Depósito Bancario
+
+                                row.id_tipo_pago = IdTipoPago;
+
+                                switch (IdTipoPago)
+                                {
+                                    case 1:
+                                        row.TipoPagoName = "Efectivo";
+                                        break;
+                                    case 2:
+                                        row.TipoPagoName = "Tarjeta";
+                                        break;
+                                    case 3:
+                                        row.TipoPagoName = "Depósito Bancario";
+                                        break;
+                                    case 4:
+                                        row.TipoPagoName = "Cheque";
+                                        break;
+                                }
+
+
+                                CajaDialogo.InformationAuto();
                             }
-
-
-                            CajaDialogo.InformationAuto();
                         }
+                    }
+                    else
+                    {
+                        //Factura al credito detectada
+                        CajaDialogo.Error("El termino de esta factura es al Crédito, no se puede pagar desde aqui!");
+                        return;
                     }
                 }//End If recuperar Factura
             }//End If recuperar Punto de Venta Factura

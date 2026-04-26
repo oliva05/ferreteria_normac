@@ -3,6 +3,7 @@ using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
 using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
 using System;
@@ -27,7 +28,13 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
         {
             InitializeComponent();
             UsuarioLogueado = userLogin;
+            btnCambiarImagen.Visible = false;
 
+            if (UsuarioLogueado.ValidarNivelPermisos(47))
+            {
+                btnCambiarImagen.Visible = true;
+            }
+            
             DateTime Desde = dp.dNow();
             Desde = new DateTime(Desde.Year, Desde.Month, Desde.Day, 0, 0, 0);
             dtDesde.DateTime = Desde;
