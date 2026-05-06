@@ -42,6 +42,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
         public frmWizardLeaves()
         {
             InitializeComponent();
+            tsAplicado.IsOn = true;
             CargarDatosEmpleados();
             LoadTipoAusencia();
         }

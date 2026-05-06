@@ -253,7 +253,6 @@
             // 
             // npAusencias
             // 
-            this.npAusencias.Caption = "npAusencias";
             this.npAusencias.Controls.Add(this.labelControl4);
             this.npAusencias.Controls.Add(this.btnCargar);
             this.npAusencias.Controls.Add(this.labelControl7);
@@ -305,9 +304,9 @@
             this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.Location = new System.Drawing.Point(229, 142);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(140, 20);
+            this.labelControl7.Size = new System.Drawing.Size(128, 20);
             this.labelControl7.TabIndex = 60;
-            this.labelControl7.Text = "Aplicado en Planilla:";
+            this.labelControl7.Text = "Aplicar en Planilla:";
             // 
             // tsAplicado
             // 

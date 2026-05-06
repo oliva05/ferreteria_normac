@@ -7145,6 +7145,20 @@ namespace JAGUAR_PRO
                 default:
                     break;
             }
+
+            if (!accesoprevio)
+            {
+                if (UsuarioLogeado.ValidarNivelPermisos(45))
+                {
+                    frmAusenciasGestionRpt frm5 = new frmAusenciasGestionRpt(UsuarioLogeado);
+                    frm5.MdiParent = this.MdiParent;
+                    frm5.Show();
+                }
+                else
+                {
+                    CajaDialogo.Error("No tiene privilegios para esta función! Permiso Requerido #45 (Gestion de Ausencias Masivas)");
+                }
+            }
         }
     }
 }

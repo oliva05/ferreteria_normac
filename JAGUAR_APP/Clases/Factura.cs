@@ -42,6 +42,10 @@ namespace JAGUAR_PRO.Clases
         public int idFormatoFactura { get; set; }
         public string ReferenciaRecibo { get; set; }
         public int IdPuntoVentaDestino { get; set; }
+        
+        /// <summary>
+        /// 1=Contado, 2=Credito, 3=Por Cobrar
+        /// </summary>
         public int IdTerminoPago { get; set; }
         public string TerminoPagoName { get; set; }
         public bool Recuperado { get; set; }

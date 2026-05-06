@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchMultItems));
             this.gridControlDetalleMP = new DevExpress.XtraGrid.GridControl();
+            this.dsPlanillasCalculo1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.dsPlanillasCalculo();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colItemCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,11 +39,10 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.txtParametroBusqueda = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dsPlanillasCalculo1 = new JAGUAR_PRO.RRHH_Planilla.Planilla.dsPlanillasCalculo();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetalleMP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPlanillasCalculo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParametroBusqueda.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsPlanillasCalculo1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlDetalleMP
@@ -60,6 +59,11 @@
             this.gridControlDetalleMP.TabIndex = 15;
             this.gridControlDetalleMP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // dsPlanillasCalculo1
+            // 
+            this.dsPlanillasCalculo1.DataSetName = "dsPlanillasCalculo";
+            this.dsPlanillasCalculo1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -110,7 +114,7 @@
             this.cmdAplicar.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdAplicar.Appearance.Options.UseFont = true;
             this.cmdAplicar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            //this.cmdAplicar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("cmdAplicar.ImageOptions.SvgImage")));
+            this.cmdAplicar.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.select_16x16;
             this.cmdAplicar.Location = new System.Drawing.Point(435, 2);
             this.cmdAplicar.Name = "cmdAplicar";
             this.cmdAplicar.Size = new System.Drawing.Size(104, 47);
@@ -124,7 +128,7 @@
             this.btnClose.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            //this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.Image")));
+            this.btnClose.ImageOptions.Image = global::JAGUAR_PRO.Properties.Resources.close_round_24;
             this.btnClose.Location = new System.Drawing.Point(545, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 47);
@@ -153,11 +157,6 @@
             this.labelControl1.TabIndex = 16;
             this.labelControl1.Text = "Seleccione un Empleado";
             // 
-            // dsPlanillasCalculo1
-            // 
-            this.dsPlanillasCalculo1.DataSetName = "dsPlanillasCalculo";
-            this.dsPlanillasCalculo1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // frmSearchMultItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,9 +171,9 @@
             this.Name = "frmSearchMultItems";
             this.Activated += new System.EventHandler(this.frmSearchMultItems_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetalleMP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPlanillasCalculo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParametroBusqueda.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsPlanillasCalculo1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
