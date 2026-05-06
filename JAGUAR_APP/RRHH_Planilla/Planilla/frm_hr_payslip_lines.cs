@@ -1,4 +1,5 @@
 ﻿using ACS.Classes;
+using DevExpress.Charts.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Columns;
@@ -75,6 +76,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                         cmdSiguiente.Visible = cmdAnterior.Visible =
                         cmdVerMarcas.Visible = false;
 
+                        gridView1.Columns["salario_hora"].Visible = false;
                         LoadDetalleNominasComisiones(SlipId);
                         break;
                     default:
@@ -246,7 +248,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 
                         cmdSiguiente.Visible = cmdAnterior.Visible =
                         cmdVerMarcas.Visible = false;
-
+                        gridView1.Columns["salario_hora"].Visible = false;
                         LoadDetalleNominasComisiones(SlipId);
                         
 
@@ -671,6 +673,31 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
 
                     break;
 
+                case 11://Comisiones
+                    switch (e.Column.FieldName)
+                    {
+                        case "Credito":
+                            decimal NuevoValor = dp.ValidateNumberDecimal(e.Value);
+                            if (NuevoValor < 0)
+                                NuevoValor = 0;
+
+                            foreach (dsPlanillasTransaccion.hr_payslip_linesRow rowS in dsPlanillasTransaccion1.hr_payslip_lines)
+                            {
+                                if (rowS.code == "NET")
+                                {
+                                    rowS.Saldo = NuevoValor;
+                                    //rowS.amount = NuevoValor;
+                                }
+                            }
+
+                            UpdateLineaPlanillaComisiones(row.id, NuevoValor, row.slip_id);
+
+
+                            break;
+                        default: break;
+                    }
+
+                    break;
                 default:
 
                     switch (e.Column.FieldName)
@@ -806,6 +833,29 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
             }
 
             
+        }
+
+        private void UpdateLineaPlanillaComisiones(int idPaySlipLine, decimal nuevoValor, int slip_id)
+        {
+            try
+            {
+                DataOperations dp = new DataOperations();
+                SqlConnection con = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[spSetUpdate_Payslip_line_by_idComisiones]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@payslip_line_id", idPaySlipLine);
+                cmd.Parameters.AddWithValue("@total", nuevoValor);
+                cmd.Parameters.AddWithValue("@slip_id", slip_id);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ec)
+            {
+                CajaDialogo.Error(ec.Message);
+            }
         }
 
         private void UpdateLineaPlanilla(int idPaySlipLine, decimal pCredito, decimal pCantidad)
