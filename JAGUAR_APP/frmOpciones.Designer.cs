@@ -1807,7 +1807,7 @@
             // 
             // cmdGrupos
             // 
-            this.cmdGrupos.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdGrupos.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
             this.cmdGrupos.Appearance.Options.UseFont = true;
             this.cmdGrupos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdGrupos.Location = new System.Drawing.Point(225, 110);
