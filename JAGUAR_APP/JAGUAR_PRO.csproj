@@ -1283,6 +1283,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsListaPrecios.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Configuraciones\frmCambioMasivoPrecioProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Configuraciones\frmCambioMasivoPrecioProductos.Designer.cs">
+      <DependentUpon>frmCambioMasivoPrecioProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Configuraciones\Models\ListaPrecioProductosAplicaPDV.cs" />
     <Compile Include="Facturacion\Configuraciones\xfrmEditPriceFromListaPrecio.cs">
       <SubType>Form</SubType>
