@@ -525,6 +525,7 @@
             this.navBarItem348 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem349 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem350 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbNumeracionFiscalConta = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabOpciones)).BeginInit();
             this.tabOpciones.SuspendLayout();
             this.TabLogistica.SuspendLayout();
@@ -4364,7 +4365,8 @@
             this.navBarItem257,
             this.navBarItem258,
             this.nbReporteVentas,
-            this.navBarItem259});
+            this.navBarItem259,
+            this.nbNumeracionFiscalConta});
             this.navBarControl7.Location = new System.Drawing.Point(0, 0);
             this.navBarControl7.Name = "navBarControl7";
             this.navBarControl7.OptionsNavPane.ExpandedWidth = 338;
@@ -4470,7 +4472,8 @@
             this.navBarGroup24.Expanded = true;
             this.navBarGroup24.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem257),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem258)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem258),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbNumeracionFiscalConta)});
             this.navBarGroup24.Name = "navBarGroup24";
             // 
             // navBarItem257
@@ -7376,6 +7379,20 @@
             this.navBarItem350.ImageOptions.SmallImage = global::JAGUAR_PRO.Properties.Resources.Details_32x32;
             this.navBarItem350.Name = "navBarItem350";
             // 
+            // nbNumeracionFiscalConta
+            // 
+            this.nbNumeracionFiscalConta.Appearance.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbNumeracionFiscalConta.Appearance.Options.UseFont = true;
+            this.nbNumeracionFiscalConta.AppearanceDisabled.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbNumeracionFiscalConta.AppearanceDisabled.Options.UseFont = true;
+            this.nbNumeracionFiscalConta.AppearanceHotTracked.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbNumeracionFiscalConta.AppearanceHotTracked.Options.UseFont = true;
+            this.nbNumeracionFiscalConta.AppearancePressed.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.nbNumeracionFiscalConta.AppearancePressed.Options.UseFont = true;
+            this.nbNumeracionFiscalConta.Caption = "Numeración Fiscal";
+            this.nbNumeracionFiscalConta.Name = "nbNumeracionFiscalConta";
+            this.nbNumeracionFiscalConta.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbNumeracionFiscalConta_LinkClicked);
+            // 
             // frmOpciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7921,5 +7938,6 @@ private DevExpress.XtraNavBar.NavBarItem navBarItemKardexPT;
         private DevExpress.XtraNavBar.NavBarItem navBarItem354;
         private DevExpress.XtraNavBar.NavBarItem navBarItem355;
         private DevExpress.XtraNavBar.NavBarItem navBarItem356;
+        private DevExpress.XtraNavBar.NavBarItem nbNumeracionFiscalConta;
     }
 }
