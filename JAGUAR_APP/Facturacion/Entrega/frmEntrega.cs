@@ -359,7 +359,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                         CajaDialogo.Error("Este pedido esta en estado: Nuevo, no se puede concluir la entrega!");
                         break;
 
-                    case 7:
+                    case 7://Parcialmente Entregado
                         Permitir = true;
 
                         break;
