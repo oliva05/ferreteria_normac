@@ -325,6 +325,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
 
         private void repositoryItemButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            //Gestionar la entrega
             var gridview = (GridView)grdParciales.FocusedView;
             var row = (dsEntregaPedidos.list_entregas_parcialRow)gridview.GetFocusedDataRow();
 
@@ -358,7 +359,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                         CajaDialogo.Error("Este pedido esta en estado: Nuevo, no se puede concluir la entrega!");
                         break;
 
-                    case 7:
+                    case 7://Parcialmente Entregado
                         Permitir = true;
 
                         break;

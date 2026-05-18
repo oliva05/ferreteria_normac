@@ -7160,5 +7160,10 @@ namespace JAGUAR_PRO
                 }
             }
         }
+
+        private void nbNumeracionFiscalConta_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            AccesoAMantoNumeracionFiscal();
+        }
     }
 }

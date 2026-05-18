@@ -112,7 +112,6 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                         break;
                     }
 
-
                     if (item.cant_a_entregar > 0) //Por lo menos un productos mayor que 0;
                     {
                         Permitir = true;
@@ -147,7 +146,6 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                                         using (SqlCommand cmd = new SqlCommand("[sp_insert_entrega_pedidoV2]", conn, transaction))
                                         {
                                             cmd.CommandType = CommandType.StoredProcedure;
-
                                             cmd.Parameters.AddWithValue("@id_h", IdH);
                                             cmd.Parameters.AddWithValue("@id_detalle", row.id);
                                             cmd.Parameters.AddWithValue("@cant_a_entregar", row.cant_a_entregar);
@@ -158,7 +156,6 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                                             cmd.ExecuteNonQuery();
                                         }
                                     }
-                                    
                                 }
                                 transaction.Commit();
                             }
@@ -193,7 +190,6 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                     return;
                 }
             }
-
         }
 
 
@@ -271,6 +267,28 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 {
                     row.cant_a_entregar = 0;
                 }
+            }
+
+            if (columnName == "cant_a_entregar")
+            {
+                decimal Cantidad = 0;
+
+
+                if (e.Value != null && !string.IsNullOrWhiteSpace(e.Value.ToString()))
+                {
+                    decimal.TryParse(e.Value.ToString(), out Cantidad);
+                }
+
+                if (Cantidad < row.cant_pendiente)
+                {
+
+                    gridView2.SetRowCellValue(
+                        gridView2.FocusedRowHandle,
+                        "entregar_todo",
+                        false
+                    );
+                }
+
             }
 
         }

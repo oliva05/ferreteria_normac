@@ -1594,5 +1594,11 @@ namespace JAGUAR_PRO.Facturacion.Configuraciones
                 CajaDialogo.Error(ec.Message);
             }
         }
+
+        private void cmdAjustePrecioMasivo_Click(object sender, EventArgs e)
+        {
+            //Ajuste de precios masivo
+
+        }
     }
 }
