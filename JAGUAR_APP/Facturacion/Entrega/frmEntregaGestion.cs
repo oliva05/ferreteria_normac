@@ -269,6 +269,28 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 }
             }
 
+            if (columnName == "cant_a_entregar")
+            {
+                decimal Cantidad = 0;
+
+
+                if (e.Value != null && !string.IsNullOrWhiteSpace(e.Value.ToString()))
+                {
+                    decimal.TryParse(e.Value.ToString(), out Cantidad);
+                }
+
+                if (Cantidad < row.cant_pendiente)
+                {
+
+                    gridView2.SetRowCellValue(
+                        gridView2.FocusedRowHandle,
+                        "entregar_todo",
+                        false
+                    );
+                }
+
+            }
+
         }
 
         private void gridView2_RowStyle(object sender, RowStyleEventArgs e)
