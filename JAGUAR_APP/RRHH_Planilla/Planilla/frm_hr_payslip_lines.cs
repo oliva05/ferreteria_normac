@@ -448,6 +448,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
             if(row != null)
             {
                 if(row.salary_rule_id == 67 ||//Dias Laborado
+                    row.salary_rule_id == 92 ||//Dias Laborales Ausentismo Con PAGO
                    row.salary_rule_id == 89 ||//Dias Incapacidad 100%
                    row.salary_rule_id == 66 ||//Dias Faltados
                    row.salary_rule_id == 6  ||//Dias Vacaciones
