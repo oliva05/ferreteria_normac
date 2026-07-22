@@ -3,6 +3,7 @@ using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 using DevExpress.XtraRichEdit.Model;
 using DocumentFormat.OpenXml.Wordprocessing;
 using JAGUAR_PRO.Clases;
@@ -103,6 +104,18 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
+            foreach (dsMaestroEmpleados.horarioRow item in dsMaestroEmpleados1.horario.Rows)
+            {
+                if (item.Ishora_salida_lunchNull())
+                {
+                    item.hora_almuerzo = false;
+                }
+                else
+                {
+                    item.hora_almuerzo = true;
+                }
+            }
+
             SqlTransaction transaction = null;
 
             SqlConnection conn = new SqlConnection(dp.ConnectionStringJAGUAR_DB);
@@ -185,12 +198,15 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
                     // ✅ Toggle en true → asignar valores por defecto
                     gridView1.SetRowCellValue(i, "hora_salida_lunch", new TimeSpan(12, 0, 0));
                     gridView1.SetRowCellValue(i, "hora_entrada_lunch", new TimeSpan(13, 0, 0));
+                    gridView1.SetRowCellValue(i, "hora_almuerzo", isChecked);
+
                 }
                 else
                 {
                     // ❌ Toggle en false → limpiar valores
                     gridView1.SetRowCellValue(i, "hora_salida_lunch", null);
                     gridView1.SetRowCellValue(i, "hora_entrada_lunch", null);
+                    gridView1.SetRowCellValue(i, "hora_almuerzo", isChecked);
                 }
             }
         }
@@ -207,6 +223,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado
 
             gridView1.SetRowCellValue(gv.FocusedRowHandle, "hora_salida_lunch", null);
             gridView1.SetRowCellValue(gv.FocusedRowHandle, "hora_entrada_lunch", null);
+            gridView1.SetRowCellValue(gv.FocusedRowHandle, "hora_almuerzo", false);
             //row.hora_salida_lunch = DBNull.Value;
             //row.hora_entrada_lunch = null;
         }
