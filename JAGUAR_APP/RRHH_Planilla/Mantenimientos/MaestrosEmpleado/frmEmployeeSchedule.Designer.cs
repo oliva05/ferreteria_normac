@@ -50,6 +50,7 @@
             this.colfecha_created = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSalidaLunch = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdQuitarSalidaLunch = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colhora_almuerzo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblNombreEmpleado = new DevExpress.XtraEditors.LabelControl();
             this.lblCodigo = new DevExpress.XtraEditors.LabelControl();
             this.cmdGuardar = new System.Windows.Forms.Button();
@@ -99,7 +100,9 @@
             this.colhora_salida,
             this.colid_user_create,
             this.colfecha_created,
-            this.colSalidaLunch});
+            this.colSalidaLunch,
+            this.colhora_almuerzo});
+            this.gridView1.CustomizationFormBounds = new System.Drawing.Rectangle(-1198, 365, 259, 287);
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -193,7 +196,7 @@
             this.colSalidaLunch.Name = "colSalidaLunch";
             this.colSalidaLunch.Visible = true;
             this.colSalidaLunch.VisibleIndex = 4;
-            this.colSalidaLunch.Width = 140;
+            this.colSalidaLunch.Width = 176;
             // 
             // cmdQuitarSalidaLunch
             // 
@@ -204,6 +207,11 @@
             this.cmdQuitarSalidaLunch.Name = "cmdQuitarSalidaLunch";
             this.cmdQuitarSalidaLunch.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.cmdQuitarSalidaLunch.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmdQuitarSalidaLunch_ButtonClick);
+            // 
+            // colhora_almuerzo
+            // 
+            this.colhora_almuerzo.FieldName = "hora_almuerzo";
+            this.colhora_almuerzo.Name = "colhora_almuerzo";
             // 
             // lblNombreEmpleado
             // 
@@ -227,6 +235,7 @@
             // 
             // cmdGuardar
             // 
+            this.cmdGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdGuardar.Image = global::JAGUAR_PRO.Properties.Resources.save_24x24;
@@ -330,5 +339,6 @@
         private DevExpress.XtraEditors.ToggleSwitch tggMarcAlmuerzo;
         private DevExpress.XtraGrid.Columns.GridColumn colSalidaLunch;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdQuitarSalidaLunch;
+        private DevExpress.XtraGrid.Columns.GridColumn colhora_almuerzo;
     }
 }
