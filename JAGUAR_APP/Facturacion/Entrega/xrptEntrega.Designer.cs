@@ -61,6 +61,8 @@
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.dsEntregaPedidos1 = new JAGUAR_PRO.Facturacion.Entrega.dsEntregaPedidos();
+            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblFechaFactura = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dsEntregaPedidos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -133,6 +135,8 @@
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblFechaFactura,
+            this.xrLabel6,
             this.xrLabel15,
             this.lblCodeVenedor,
             this.xrLabel14,
@@ -154,26 +158,26 @@
             this.xrLabel3,
             this.lblAlmOrigen,
             this.lblNombreLegal});
-            this.PageHeader.HeightF = 280.9484F;
+            this.PageHeader.HeightF = 297.1132F;
             this.PageHeader.Name = "PageHeader";
             // 
             // xrLabel15
             // 
-            this.xrLabel15.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(0.001798153F, 169.7919F);
+            this.xrLabel15.Font = new DevExpress.Drawing.DXFont("Arial", 6F);
+            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(0.001798153F, 185.9567F);
             this.xrLabel15.Multiline = true;
             this.xrLabel15.Name = "xrLabel15";
             this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel15.SizeF = new System.Drawing.SizeF(84.91673F, 18.83337F);
             this.xrLabel15.StylePriority.UseFont = false;
             this.xrLabel15.StylePriority.UseTextAlignment = false;
-            this.xrLabel15.Text = "Fecha:";
+            this.xrLabel15.Text = "Fecha Comprobante:";
             this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // lblCodeVenedor
             // 
             this.lblCodeVenedor.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblCodeVenedor.LocationFloat = new DevExpress.Utils.PointFloat(84.91851F, 207.4586F);
+            this.lblCodeVenedor.LocationFloat = new DevExpress.Utils.PointFloat(84.91851F, 223.6234F);
             this.lblCodeVenedor.Multiline = true;
             this.lblCodeVenedor.Name = "lblCodeVenedor";
             this.lblCodeVenedor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -186,7 +190,7 @@
             // xrLabel14
             // 
             this.xrLabel14.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(0.001718044F, 207.4586F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(0.001718044F, 223.6234F);
             this.xrLabel14.Multiline = true;
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -199,14 +203,14 @@
             // xrLine1
             // 
             this.xrLine1.LineStyle = DevExpress.Drawing.DXDashStyle.Dash;
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(0.001700719F, 275.8784F);
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(0.001700719F, 292.0432F);
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(247.0833F, 5.070007F);
             // 
             // xrLabel5
             // 
             this.xrLabel5.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(186.7936F, 257.045F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(186.7936F, 273.2098F);
             this.xrLabel5.Multiline = true;
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -219,7 +223,7 @@
             // xrLabel2
             // 
             this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0.001769543F, 257.045F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0.001769543F, 273.2098F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -336,7 +340,7 @@
             // lblFecha
             // 
             this.lblFecha.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblFecha.LocationFloat = new DevExpress.Utils.PointFloat(84.91841F, 169.7919F);
+            this.lblFecha.LocationFloat = new DevExpress.Utils.PointFloat(84.91841F, 185.9567F);
             this.lblFecha.Multiline = true;
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -349,7 +353,7 @@
             // xrLabel1
             // 
             this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0.001718044F, 226.2921F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0.001718044F, 242.4569F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -376,7 +380,7 @@
             // lblUsuario
             // 
             this.lblUsuario.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblUsuario.LocationFloat = new DevExpress.Utils.PointFloat(84.91851F, 226.292F);
+            this.lblUsuario.LocationFloat = new DevExpress.Utils.PointFloat(84.91851F, 242.4568F);
             this.lblUsuario.Multiline = true;
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -390,7 +394,7 @@
             // xrLabel3
             // 
             this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(0.001698971F, 188.6252F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(0.001698971F, 204.79F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -403,7 +407,7 @@
             // lblAlmOrigen
             // 
             this.lblAlmOrigen.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.lblAlmOrigen.LocationFloat = new DevExpress.Utils.PointFloat(84.91841F, 188.6252F);
+            this.lblAlmOrigen.LocationFloat = new DevExpress.Utils.PointFloat(84.91841F, 204.79F);
             this.lblAlmOrigen.Multiline = true;
             this.lblAlmOrigen.Name = "lblAlmOrigen";
             this.lblAlmOrigen.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -458,6 +462,32 @@
             // 
             this.dsEntregaPedidos1.DataSetName = "dsEntregaPedidos";
             this.dsEntregaPedidos1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // xrLabel6
+            // 
+            this.xrLabel6.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0F, 169.7919F);
+            this.xrLabel6.Multiline = true;
+            this.xrLabel6.Name = "xrLabel6";
+            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(84.91674F, 16.16479F);
+            this.xrLabel6.StylePriority.UseFont = false;
+            this.xrLabel6.StylePriority.UseTextAlignment = false;
+            this.xrLabel6.Text = "Fecha Factura:";
+            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // lblFechaFactura
+            // 
+            this.lblFechaFactura.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
+            this.lblFechaFactura.LocationFloat = new DevExpress.Utils.PointFloat(84.91853F, 169.7919F);
+            this.lblFechaFactura.Multiline = true;
+            this.lblFechaFactura.Name = "lblFechaFactura";
+            this.lblFechaFactura.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblFechaFactura.SizeF = new System.Drawing.SizeF(162.1667F, 16.16481F);
+            this.lblFechaFactura.StylePriority.UseFont = false;
+            this.lblFechaFactura.StylePriority.UseTextAlignment = false;
+            this.lblFechaFactura.Text = "@FechaFactura";
+            this.lblFechaFactura.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrptEntrega
             // 
@@ -520,5 +550,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel14;
         private DevExpress.XtraReports.UI.XRLabel xrLabel15;
         private DevExpress.XtraReports.UI.XRLine xrLine2;
+        private DevExpress.XtraReports.UI.XRLabel lblFechaFactura;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
     }
 }

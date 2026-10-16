@@ -43,8 +43,9 @@
               <xs:element name="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnVarNameInTable="columncode" type="xs:string" minOccurs="0" />
               <xs:element name="code_referencia" msprop:Generator_ColumnPropNameInTable="code_referenciaColumn" msprop:Generator_ColumnPropNameInRow="code_referencia" msprop:Generator_UserColumnName="code_referencia" msprop:Generator_ColumnVarNameInTable="columncode_referencia" type="xs:string" minOccurs="0" />
               <xs:element name="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
-              <xs:element name="entrega" msprop:Generator_UserColumnName="entrega" msprop:Generator_ColumnPropNameInTable="entregaColumn" msprop:Generator_ColumnPropNameInRow="entrega" msprop:Generator_ColumnVarNameInTable="columnentrega" type="xs:string" minOccurs="0" />
-              <xs:element name="entregado" msprop:Generator_ColumnPropNameInRow="entregado" msprop:Generator_ColumnPropNameInTable="entregadoColumn" msprop:Generator_ColumnVarNameInTable="columnentregado" msprop:Generator_UserColumnName="entregado" type="xs:decimal" minOccurs="0" />
+              <xs:element name="entrega" msprop:Generator_ColumnPropNameInTable="entregaColumn" msprop:Generator_ColumnPropNameInRow="entrega" msprop:Generator_UserColumnName="entrega" msprop:Generator_ColumnVarNameInTable="columnentrega" type="xs:string" minOccurs="0" />
+              <xs:element name="entregado" msprop:Generator_UserColumnName="entregado" msprop:Generator_ColumnPropNameInTable="entregadoColumn" msprop:Generator_ColumnPropNameInRow="entregado" msprop:Generator_ColumnVarNameInTable="columnentregado" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fecha_factura" msprop:Generator_ColumnPropNameInRow="fecha_factura" msprop:Generator_ColumnPropNameInTable="fecha_facturaColumn" msprop:Generator_ColumnVarNameInTable="columnfecha_factura" msprop:Generator_UserColumnName="fecha_factura" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -83,8 +84,8 @@
               <xs:element name="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnVarNameInTable="columncode" type="xs:string" minOccurs="0" />
               <xs:element name="code_referencia" msprop:Generator_ColumnPropNameInTable="code_referenciaColumn" msprop:Generator_ColumnPropNameInRow="code_referencia" msprop:Generator_UserColumnName="code_referencia" msprop:Generator_ColumnVarNameInTable="columncode_referencia" type="xs:string" minOccurs="0" />
               <xs:element name="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_UserColumnName="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" type="xs:string" minOccurs="0" />
-              <xs:element name="entrega" msprop:Generator_UserColumnName="entrega" msprop:Generator_ColumnPropNameInTable="entregaColumn" msprop:Generator_ColumnPropNameInRow="entrega" msprop:Generator_ColumnVarNameInTable="columnentrega" type="xs:string" minOccurs="0" />
-              <xs:element name="entregado" msprop:Generator_ColumnPropNameInRow="entregado" msprop:Generator_ColumnPropNameInTable="entregadoColumn" msprop:Generator_ColumnVarNameInTable="columnentregado" msprop:Generator_UserColumnName="entregado" type="xs:decimal" minOccurs="0" />
+              <xs:element name="entrega" msprop:Generator_ColumnPropNameInTable="entregaColumn" msprop:Generator_ColumnPropNameInRow="entrega" msprop:Generator_UserColumnName="entrega" msprop:Generator_ColumnVarNameInTable="columnentrega" type="xs:string" minOccurs="0" />
+              <xs:element name="entregado" msprop:Generator_UserColumnName="entregado" msprop:Generator_ColumnPropNameInTable="entregadoColumn" msprop:Generator_ColumnPropNameInRow="entregado" msprop:Generator_ColumnVarNameInTable="columnentregado" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

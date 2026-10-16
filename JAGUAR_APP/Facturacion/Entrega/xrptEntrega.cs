@@ -64,6 +64,8 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                 dr[8] = item["code"];
                 dr[9] = "COD:"+item["code_referencia"];
                 dr[10] = item["descripcion"];
+                dr[10] = item["descripcion"];
+                //fecha_factura
                 dsEntregaPedidos1.detalle_entrega.Rows.Add(dr);
                 dsEntregaPedidos1.detalle_entrega.AcceptChanges();
 
@@ -89,7 +91,9 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                     lblCliente.Text = pedidoCliente.ClienteNombre;
                     lblDireccion.Text = pedidoCliente.direccion_cliente;
                     lblCodeVenedor.Text = pedidoCliente.VendedorNombre;
+                    DateTime fechaFactura = DateTime.Now;
                     
+                    lblFechaFactura.Text = string.Format("{0:dd/MM/yyyy hh:mm}", fact.FechaDocumento);
                 }
                 
             }
