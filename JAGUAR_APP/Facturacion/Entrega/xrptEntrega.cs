@@ -93,7 +93,7 @@ namespace JAGUAR_PRO.Facturacion.Entrega
                     lblCodeVenedor.Text = pedidoCliente.VendedorNombre;
                     DateTime fechaFactura = DateTime.Now;
                     
-                    lblFechaFactura.Text = string.Format("{0:dd/MM/yyyy hh:mm}", fact.FechaDocumento);
+                    lblFechaFactura.Text = string.Format("{0:dd/MM/yyyy}", fact.FechaDocumento);
                 }
                 
             }
