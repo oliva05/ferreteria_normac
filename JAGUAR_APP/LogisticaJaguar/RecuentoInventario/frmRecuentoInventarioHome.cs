@@ -379,7 +379,7 @@ namespace JAGUAR_PRO.LogisticaJaguar.RecuentoInventario
 
                         default:
 
-                            break;
+                        break;
                     }
 
                    
