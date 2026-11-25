@@ -373,7 +373,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
                 {
                     for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
                     {
-                        if ( holidays.Contains(date) ||  date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday )
+                        if ( holidays.Contains(date) || date.DayOfWeek == DayOfWeek.Sunday )
                         {
                             continue; // Saltar fines de semana si el concepto es vacaciones
                         }
@@ -417,7 +417,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Ausencias
 
                 if (id_tipo == (int)TipoLeaves.Vacaciones)
                 {
-                    while (reintegroDate.DayOfWeek == DayOfWeek.Saturday || reintegroDate.DayOfWeek == DayOfWeek.Sunday || holidays.Contains(reintegroDate))
+                    while (reintegroDate.DayOfWeek == DayOfWeek.Sunday || holidays.Contains(reintegroDate))
                     {
                         reintegroDate = reintegroDate.AddDays(1);
                     }

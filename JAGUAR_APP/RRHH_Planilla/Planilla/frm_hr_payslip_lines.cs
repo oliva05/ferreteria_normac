@@ -12,6 +12,7 @@ using JAGUAR_PRO.Clases.Planilla;
 //using JAGUAR_PRO.MigracionACS.RRHH.RelojFace;
 using JAGUAR_PRO.RRHH_Planilla.BenefitsDeductions;
 using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
+using JAGUAR_PRO.RRHH_Planilla.Reportes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -969,6 +970,8 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
             HrEmployee EmpleadoClicked = new HrEmployee();
             if (EmpleadoClicked.RecuperarDatosPorId(IdEmpleadoLoaded))
             {
+                frmRptMarcaje frm = new frmRptMarcaje(UsuarioLogeado, EmpleadoClicked, desde, hasta);
+                frm.ShowDialog();
                 //frmResumenHorasExtraTrabajadas frm = new frmResumenHorasExtraTrabajadas(EmpleadoClicked, desde, hasta);
                 //frm.Show();
             }
@@ -993,7 +996,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                         if (slip.LineaNum_Orden == (FilaActual - 1))
                         {
                             FilaActual -= 1;
-                            LoadDetalleNominasHE(slip.PaySlip_id);
+                            LoadDetalleNominasGeneralplusHE(slip.PaySlip_id);
                         }
                     }
                 }
@@ -1009,7 +1012,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                     {
                         if (slip.LineaNum_Orden == UltimaFila)
                         {
-                            LoadDetalleNominasHE(slip.PaySlip_id);
+                            LoadDetalleNominasGeneralplusHE(slip.PaySlip_id);
                         }
                     }
                 }
@@ -1029,7 +1032,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                         if (slip.LineaNum_Orden == (FilaActual + 1))
                         {
                             FilaActual += 1;
-                            LoadDetalleNominasHE(slip.PaySlip_id);
+                            LoadDetalleNominasGeneralplusHE(slip.PaySlip_id);
                             break;
                         }
                     }
@@ -1046,7 +1049,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla
                     {
                         if (slip.LineaNum_Orden == 1)
                         {
-                            LoadDetalleNominasHE(slip.PaySlip_id);
+                            LoadDetalleNominasGeneralplusHE(slip.PaySlip_id);
                         }
                     }
                 }
