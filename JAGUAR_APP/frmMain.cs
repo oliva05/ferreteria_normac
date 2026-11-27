@@ -36,10 +36,6 @@ namespace JAGUAR_PRO
         public frmMain()
         {
             InitializeComponent();
-            //TouchKeyboardSupport.EnableTouchKeyboard = true ;
-            //TouchKeyboardSupport.CheckEnableTouchSupport(this);
-
-
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -184,10 +180,7 @@ namespace JAGUAR_PRO
 
                         user.conn = xconn;
                         user1 = user;
-
-
                         frmOpciones frm = new frmOpciones(user1);
-                        //if (this.MdiParent != null)
                         frm.MdiParent = this.MdiParent;
                         //frm.WindowState = FormWindowState.Maximized;
                         frm.Show();
@@ -394,7 +387,6 @@ namespace JAGUAR_PRO
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-
         }
 
         private void SaltarLoginPRD_Click(object sender, EventArgs e)
