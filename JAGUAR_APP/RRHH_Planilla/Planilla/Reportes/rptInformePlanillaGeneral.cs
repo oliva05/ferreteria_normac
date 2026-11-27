@@ -78,7 +78,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
             xrTableCell26.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT7.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             xrTableCell57.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            //tcT9.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell73.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             //tcT10.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             //tcT11.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT12.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
@@ -94,7 +94,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
             xrTableCell60.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             xrTableCell67.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             xrTableCell68.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            xrTableCell20.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell58.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             xrTableCell21.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             xrTableCell35.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             xrTableCell37.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
