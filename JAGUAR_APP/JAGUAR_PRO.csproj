@@ -4211,6 +4211,12 @@
     <Compile Include="RRHH_Planilla\Planilla\frm_hr_slips_employees.Designer.cs">
       <DependentUpon>frm_hr_slips_employees.cs</DependentUpon>
     </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\HorasExtra\frmResumenHorasExtraTrabajadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RRHH_Planilla\Planilla\HorasExtra\frmResumenHorasExtraTrabajadas.designer.cs">
+      <DependentUpon>frmResumenHorasExtraTrabajadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="RRHH_Planilla\Planilla\ReporteBanco\dsReportesBancoPlanilla.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -5812,6 +5818,9 @@
     <EmbeddedResource Include="RRHH_Planilla\Planilla\frm_hr_slips_employees.resx">
       <DependentUpon>frm_hr_slips_employees.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RRHH_Planilla\Planilla\HorasExtra\frmResumenHorasExtraTrabajadas.resx">
+      <DependentUpon>frmResumenHorasExtraTrabajadas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RRHH_Planilla\Planilla\ReporteBanco\frmArchivoBancoPlanilla.resx">
       <DependentUpon>frmArchivoBancoPlanilla.cs</DependentUpon>
     </EmbeddedResource>
@@ -6559,7 +6568,6 @@
   <ItemGroup>
     <Folder Include="Facturacion\Numeracion Fiscal\Model\" />
     <Folder Include="Mantenimientos\Facturacion\" />
-    <Folder Include="RRHH_Planilla\Planilla\HorasExtra\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="GrFingerXLib">
@@ -6573,7 +6581,6 @@
     </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
   <ItemGroup>
     <Analyzer Include="C:\Program Files\DevExpress 26.1\Components\Offline Packages\devexpress.data\26.1.3\analyzers\dotnet\DevExpress.Generator.dll" Visible="false" Condition="Exists('C:\Program Files\DevExpress 26.1\Components\Offline Packages\devexpress.data\26.1.3\analyzers\dotnet\DevExpress.Generator.dll')" />
   </ItemGroup>

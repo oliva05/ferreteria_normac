@@ -448,6 +448,7 @@
             this.cmdVerMarcas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdVerMarcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdVerMarcas.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdVerMarcas.Image = global::JAGUAR_PRO.Properties.Resources._click_24X24;
             this.cmdVerMarcas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdVerMarcas.Location = new System.Drawing.Point(775, 7);
             this.cmdVerMarcas.Name = "cmdVerMarcas";

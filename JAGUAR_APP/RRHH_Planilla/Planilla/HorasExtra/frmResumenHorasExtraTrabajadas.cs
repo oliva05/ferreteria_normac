@@ -244,33 +244,33 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.HorasExtra
 
         private void btneditar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var gridView = (GridView)grd_Admin.FocusedView;
-                var row = (dsFaceReloj.AdministracionRow)gridView.GetFocusedDataRow();
+            //try
+            //{
+            //    var gridView = (GridView)grd_Admin.FocusedView;
+            //    var row = (dsFaceReloj.AdministracionRow)gridView.GetFocusedDataRow();
 
-                frm_Operaciones_Marcas frm = new frm_Operaciones_Marcas(row.serial, row.Code_ODOO);
-                if (frm.ShowDialog() == DialogResult.OK)
-                {
-                    Cargar_reporte();
-                }
-            }
-            catch (Exception ex)
-            {
+            //    frm_Operaciones_Marcas frm = new frm_Operaciones_Marcas(row.serial, row.Code_ODOO);
+            //    if (frm.ShowDialog() == DialogResult.OK)
+            //    {
+            //        Cargar_reporte();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
 
-                CajaDialogo.Error(ex.Message);
-            }
+            //    CajaDialogo.Error(ex.Message);
+            //}
         }
 
         private void cmdMoreDetails_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             //
-            var gridView = (GridView)grd_Admin.FocusedView;
-            var row = (dsFaceReloj.AdministracionRow)gridView.GetFocusedDataRow();
+            //var gridView = (GridView)grd_Admin.FocusedView;
+            //var row = (dsFaceReloj.AdministracionRow)gridView.GetFocusedDataRow();
 
-            frmDetalleMarcasFaceID frm = new frmDetalleMarcasFaceID(row.Name, row.fecha, row.Code);
-            frm.MdiParent = this.MdiParent;
-            frm.Show();
+            //frmDetalleMarcasFaceID frm = new frmDetalleMarcasFaceID(row.Name, row.fecha, row.Code);
+            //frm.MdiParent = this.MdiParent;
+            //frm.Show();
         }
 
         private void dt_inicial_EditValueChanged(object sender, EventArgs e)
@@ -361,11 +361,11 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.HorasExtra
 
         private void cmdAgregarMarca_Click(object sender, EventArgs e)
         {
-            frm_Operaciones_Marcas frm = new frm_Operaciones_Marcas(EmpleadoActual.Barcode);
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                Cargar_reporte();
-            }
+            //frm_Operaciones_Marcas frm = new frm_Operaciones_Marcas(EmpleadoActual.Barcode);
+            //if (frm.ShowDialog() == DialogResult.OK)
+            //{
+            //    Cargar_reporte();
+            //}
         }
     }
 }

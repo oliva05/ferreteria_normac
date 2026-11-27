@@ -3,6 +3,7 @@ using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using JAGUAR_PRO.Clases;
+using JAGUAR_PRO.Clases.Colaborador;
 using JAGUAR_PRO.Facturacion.Reportes.Reportes_de_Ventas;
 using JAGUAR_PRO.RRHH_Planilla.Mantenimientos.MaestrosEmpleado;
 using JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes;
@@ -24,6 +25,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
     {
         DataOperations dp = new DataOperations();
         UserLogin UsuarioLogueado;
+        HrEmployee EmpleadoClicked = new HrEmployee();
         public frmRptMarcaje(UserLogin userLogin)
         {
             InitializeComponent();
@@ -46,6 +48,27 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
             dtHasta.DateTime = Hasta; // hoy, 23:59:59
             deFechaFinal.DateTime = Hasta; // hoy, 23:59:59
             LoadDataGeneral();
+        }
+
+        public frmRptMarcaje(UserLogin userLogin, HrEmployee hrEmployee, DateTime pDesde, DateTime pHasta)
+        {
+            InitializeComponent();
+            xtraTabControl1.SelectedTabPage = TabByEmpleado;
+            TabGeneral.PageVisible = false;
+            deFechaInicial.Enabled = false;
+            deFechaFinal.Enabled = false;
+            btnCargarDatosAcumulados.Visible = false;
+            grdEmployee.Visible = false;
+
+            UsuarioLogueado = userLogin;
+            btnCambiarImagen.Visible = false;
+
+            grdEmployee.EditValue = hrEmployee.Id;
+            deFechaInicial.DateTime = pDesde;
+            deFechaFinal.DateTime = pHasta;
+
+            btnCargarDatosAcumulados_Click(null, EventArgs.Empty);
+
         }
 
         private void LoadDataGeneral()
@@ -113,7 +136,7 @@ namespace JAGUAR_PRO.RRHH_Planilla.Reportes
 
         private void btnCargarDatosAcumulados_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(grdEmployee.Text))
+            if (grdEmployee.EditValue == null)
             {
                 CajaDialogo.Error("Debe seleccionar un empleado!");
                 return;
