@@ -25,43 +25,43 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
             lblFecha.Text = $"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}";
             lblRango.Text = $"Desde: {payslip_Run.DateStart.ToString("dd/MM/yyyy")} Hasta: {payslip_Run.DateEnd.ToString("dd/MM/yyyy")}";
 
-            tcTotalIngreso.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            tcTotalIngreso.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+
             tcSalarioBase.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcOtrosIngresos.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            tcVacaciones.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            tcTransporte.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            tc8.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc9.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc10.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc11.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc12.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc13.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc14.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc15.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc16.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc17.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc18.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc19.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc20.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tc21.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            tcPagoVacDeven.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            tcPagoVacac.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            tcPagoIncapa34.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            tcPagoIncapa100.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            tcDiaExtra.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            tcAFP.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            tcEmbargo.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            tcImpuesto.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            tcBanco.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell50.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda       
+            tcPrestamoRap.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            tcPrestamo.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            tc1SeguroMedico.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            tcIHSS.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            tcISR.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            tcTotalEgresos.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            tcTotalPagar.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+
 
             //Summay Group
             tcG1.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tcG2.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell60.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
             tcG3.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
             tcG4.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
             tcG5.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tcG6.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tcG7.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tcG8.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tcG9.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tcG10.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tcG11.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell57.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
+            tcG7.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell65.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell66.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell51.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
             tcG12.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
             tcG13.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
             tcG14.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tcG15.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
-            tcG16.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
             tcG17.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
             tcG18.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
             tcG19.TextFormatString = payslip_Run.CurrencySymbol+"{0:N2}"; // Asegura que el formato sea moneda
@@ -69,26 +69,35 @@ namespace JAGUAR_PRO.RRHH_Planilla.Planilla.Reportes
 
             //Summay Group
             tcT1.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            tcT2.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell71.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell69.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell70.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT3.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT4.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT5.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            tcT6.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell26.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT7.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            tcT8.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            tcT9.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            tcT10.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            tcT11.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell57.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            //tcT9.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            //tcT10.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            //tcT11.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT12.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT13.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT14.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT15.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-            tcT16.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            //tcT16.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT17.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             tcT18.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
             xrTableCell93.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
-
-
+            xrTableCell52.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell59.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell60.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell67.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell68.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell20.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell21.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell35.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
+            xrTableCell37.TextFormatString = payslip_Run.CurrencySymbol + "{0:N2}"; // Asegura que el formato sea moneda
         }
 
         private void LoadPlanillaGeneral(int payslip_run)
